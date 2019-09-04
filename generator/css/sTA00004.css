@@ -1,0 +1,912 @@
+
+
+.sta00004 {
+  width               : 100%;
+    min-width           : 1440px;
+  min-height          : 935px;
+  position            : relative;
+  overflow            : hidden;
+  margin              : 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color    : rgba(255, 255, 255, 1.0);
+}
+a {
+  text-decoration     : none;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.anima-full-width-a {
+  width               : 100%;
+}
+.anima-full-height-a {
+  height              : 100%;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.sta00004 .sta000041 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 935px;
+  width               : 1440px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .basebackground {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 935px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .basebackground .background {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 935px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .basebackground .basefillwhite {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 935px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .basebackground .basefillwhite .fill {
+  background-color    : rgba(255, 255, 255, 1.0);
+  top                 : 0px;
+  height              : 935px;
+  width               : 1440px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .content {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 112px;
+  height              : 115px;
+  width               : 696px;
+  position            : absolute;
+  margin              : 0;
+  left                : 372px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .content .loremipsumdolorsi {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 65px;
+  height              : auto;
+  width               : 696px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 18.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 25.0px;
+}
+.sta00004 .sta000041 .content .monthlysavings {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : auto;
+  width               : 596px;
+  position            : absolute;
+  margin              : 0;
+  left                : 49px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 30.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : center;
+  letter-spacing      : -0.41px;
+  line-height         : 48.0px;
+}
+.sta00004 .sta000041 .chart {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 212px;
+  height              : 516px;
+  width               : 1074px;
+  position            : absolute;
+  margin              : 0;
+  left                : 188px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .legends {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 154px;
+  width               : 321px;
+  position            : absolute;
+  margin              : 0;
+  left                : 751px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .legends .revenue {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 67px;
+  height              : auto;
+  width               : 85px;
+  position            : absolute;
+  margin              : 0;
+  left                : 110px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.sta00004 .sta000041 .chart .legends .profit {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 67px;
+  height              : auto;
+  width               : 85px;
+  position            : absolute;
+  margin              : 0;
+  left                : 237px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.sta00004 .sta000041 .chart .legends .group8 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 4px;
+  height              : 150px;
+  width               : 150px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .legends .group8 .group81 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 65px;
+  height              : 16px;
+  width               : 16px;
+  position            : absolute;
+  margin              : 0;
+  left                : 84px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .legends .group9 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 150px;
+  width               : 150px;
+  position            : absolute;
+  margin              : 0;
+  left                : 140px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .legends .group9 .group91 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 69px;
+  height              : 16px;
+  width               : 17px;
+  position            : absolute;
+  margin              : 0;
+  left                : 70px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 138px;
+  height              : 341px;
+  width               : 1031px;
+  position            : absolute;
+  margin              : 0;
+  left                : 43px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .lineshorizontal {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 341px;
+  width               : 1025px;
+  position            : absolute;
+  margin              : 0;
+  left                : 3px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .lineshorizontal .a6 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 1px;
+  height              : 3px;
+  width               : 1025px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .lineshorizontal .a5 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 68px;
+  height              : 3px;
+  width               : 1025px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .lineshorizontal .a4 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 135px;
+  height              : 3px;
+  width               : 1025px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .lineshorizontal .a3 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 203px;
+  height              : 3px;
+  width               : 1025px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .lineshorizontal .a2 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 270px;
+  height              : 3px;
+  width               : 1025px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .lineshorizontal .a1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 338px;
+  height              : 3px;
+  width               : 1025px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .linesvertical {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 1px;
+  height              : 339px;
+  width               : 1031px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .linesvertical .a1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 339px;
+  width               : 5px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .linesvertical .a2 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 339px;
+  width               : 5px;
+  position            : absolute;
+  margin              : 0;
+  left                : 147px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .linesvertical .a3 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 339px;
+  width               : 5px;
+  position            : absolute;
+  margin              : 0;
+  left                : 293px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .linesvertical .a4 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 339px;
+  width               : 5px;
+  position            : absolute;
+  margin              : 0;
+  left                : 438px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .linesvertical .a5 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 339px;
+  width               : 5px;
+  position            : absolute;
+  margin              : 0;
+  left                : 583px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .linesvertical .a6 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 339px;
+  width               : 5px;
+  position            : absolute;
+  margin              : 0;
+  left                : 728px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .linesvertical .a7 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 339px;
+  width               : 5px;
+  position            : absolute;
+  margin              : 0;
+  left                : 874px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .lines .linesvertical .a8 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 339px;
+  width               : 5px;
+  position            : absolute;
+  margin              : 0;
+  left                : 1026px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .points2 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 145px;
+  height              : 282px;
+  width               : 956px;
+  position            : absolute;
+  margin              : 0;
+  left                : 96px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .points2 .basefillgray {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 282px;
+  width               : 956px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .points2 .basefillgray .basefillgray1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 282px;
+  width               : 956px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .points1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 154px;
+  height              : 308px;
+  width               : 975px;
+  position            : absolute;
+  margin              : 0;
+  left                : 84px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .points1 .basefillprimary {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 308px;
+  width               : 975px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .points1 .basefillprimary .basefillprimary1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 308px;
+  width               : 975px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .numberanddates {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 129px;
+  height              : 387px;
+  width               : 1070px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .numberanddates .jan {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 360px;
+  height              : auto;
+  width               : 145px;
+  position            : absolute;
+  margin              : 0;
+  left                : 47px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .a0 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 329px;
+  height              : auto;
+  width               : 18px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .a100 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 263px;
+  height              : auto;
+  width               : 50px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .a200 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 197px;
+  height              : auto;
+  width               : 50px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .a300 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 132px;
+  height              : auto;
+  width               : 50px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .a400 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 66px;
+  height              : auto;
+  width               : 50px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .a500 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : auto;
+  width               : 50px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .feb {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 360px;
+  height              : auto;
+  width               : 145px;
+  position            : absolute;
+  margin              : 0;
+  left                : 192px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .mar {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 360px;
+  height              : auto;
+  width               : 145px;
+  position            : absolute;
+  margin              : 0;
+  left                : 337px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .apr {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 360px;
+  height              : auto;
+  width               : 145px;
+  position            : absolute;
+  margin              : 0;
+  left                : 482px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .may {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 360px;
+  height              : auto;
+  width               : 145px;
+  position            : absolute;
+  margin              : 0;
+  left                : 628px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .jun {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 360px;
+  height              : auto;
+  width               : 145px;
+  position            : absolute;
+  margin              : 0;
+  left                : 773px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .numberanddates .jul {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 360px;
+  height              : auto;
+  width               : 152px;
+  position            : absolute;
+  margin              : 0;
+  left                : 918px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 26.0px;
+}
+.sta00004 .sta000041 .chart .group10 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 226px;
+  height              : 59px;
+  width               : 122px;
+  position            : absolute;
+  margin              : 0;
+  left                : 371px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .group10 .selectinfo {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 59px;
+  width               : 121px;
+  position            : absolute;
+  margin              : 0;
+  left                : 1px;
+  border-radius       : 4px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  opacity             : 0.84;
+}
+.sta00004 .sta000041 .chart .group10 .selectinfo .rectangle128 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 59px;
+  width               : 121px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .group10 .selectinfo .basefillblack {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : -59px;
+  height              : 150px;
+  width               : 173px;
+  position            : absolute;
+  margin              : 0;
+  left                : -32px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .group10 .selectinfo .basefillblack .fill {
+  background-color    : rgba(51, 51, 51, 1.0);
+  top                 : 0px;
+  height              : 150px;
+  width               : 173px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.sta00004 .sta000041 .chart .group10 .a247 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 16px;
+  height              : auto;
+  width               : 121px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 16.0px;
+  color               : rgba(255, 255, 255, 1.0);
+  text-align          : center;
+  line-height         : 19.0px;
+}
+/* .anima-animate-appear prefix for appear animations */
+.anima-animate-appear {
+  opacity             : 0;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 normal forwards;
+}
+.anima-animate-disappear {
+  opacity             : 1;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+}
+.anima-animate-nodelay {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  -o-animation-delay  : 0;
+  animation-delay     : 0;
+}
+@-webkit-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-moz-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-o-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
