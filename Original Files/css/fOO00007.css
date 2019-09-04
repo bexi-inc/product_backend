@@ -1,0 +1,1020 @@
+
+
+.foo00007 {
+  width               : 100%;
+  min-width           : 1440px;
+  min-height          : 405px;
+  position            : relative;
+  overflow            : hidden;
+  margin              : 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color    : rgba(255, 255, 255, 1.0);
+}
+a {
+  text-decoration     : none;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.anima-full-width-a {
+  width               : 100%;
+}
+.anima-full-height-a {
+  height              : 100%;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.foo00007 .foo000071 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 405px;
+  width               : 1440px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .basebackground {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 405px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .basebackground .background {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 405px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .basebackground .basefillwhite {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 405px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .basebackground .basefillwhite .fill {
+  background-color    : rgba(51, 51, 51, 1.0);
+  top                 : 0px;
+  height              : 405px;
+  width               : 1440px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 88px;
+  height              : 204px;
+  width               : 270px;
+  position            : absolute;
+  margin              : 0;
+  left                : 150px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol .subscribesmall {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 162px;
+  height              : 42px;
+  width               : 270px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol .subscribesmall .submit {
+  background-color    : rgba(255, 255, 255, 1.0);
+  top                 : 0px;
+  height              : 42px;
+  width               : 270px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 21px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol .subscribesmall .submit .field {
+  background-color    : rgba(255, 255, 255, 1.0);
+  top                 : 0px;
+  height              : 42px;
+  width               : 270px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 21px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol .subscribesmall .submit .inputfieldtext {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 9px;
+  height              : auto;
+  width               : auto;
+  position            : absolute;
+  margin              : 0;
+  left                : 20px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.foo00007 .foo000071 .firstcol .subscribesmall .submit .group2 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 42px;
+  width               : 55px;
+  position            : absolute;
+  margin              : 0;
+  left                : 215px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol .subscribesmall .submit .group2 .button {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 42px;
+  width               : 55px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol .subscribesmall .submit .group2 .basefillprimary {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 42px;
+  width               : 55px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol .subscribesmall .submit .group2 .basefillprimary .fill {
+  background-color    : rgba(246, 175, 0, 1.0);
+  top                 : 0px;
+  height              : 42px;
+  width               : 55px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol .subscribesmall .submit .group2 .elementcontrolarrowsrarrow {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 12px;
+  height              : 18px;
+  width               : 12px;
+  position            : absolute;
+  margin              : 0;
+  left                : 22px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol .subscribesmall .submit .group2 .elementcontrolarrowsrarrow .elementcontrolarrowsrarrow1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 18px;
+  width               : 12px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .firstcol .athalfpasteightt {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 35px;
+  height              : auto;
+  width               : 226px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 16.0px;
+  color               : rgba(255, 255, 255, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.foo00007 .foo000071 .firstcol .subscribe {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 126px;
+  height              : auto;
+  width               : 122px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(255, 255, 255, 1.0);
+  text-align          : left;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.foo00007 .foo000071 .firstcol .aboutus {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 1px;
+  height              : auto;
+  width               : 122px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(255, 255, 255, 1.0);
+  text-align          : left;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.foo00007 .foo000071 .col {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 89px;
+  height              : 202px;
+  width               : 257px;
+  position            : absolute;
+  margin              : 0;
+  left                : 535px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .col .athalfpasteightt {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 34px;
+  height              : auto;
+  width               : 226px;
+  position            : absolute;
+  margin              : 0;
+  left                : 31px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 16.0px;
+  color               : rgba(255, 255, 255, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.foo00007 .foo000071 .col .latesttweets {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 1px;
+  height              : auto;
+  width               : 186px;
+  position            : absolute;
+  margin              : 0;
+  left                : 1px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(255, 255, 255, 1.0);
+  text-align          : left;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.foo00007 .foo000071 .col .iconsocialtwitter {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 40px;
+  height              : 14px;
+  width               : 16px;
+  position            : absolute;
+  margin              : 0;
+  left                : 2px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .col .iconsocialtwitter .iconsocialtwitter2 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 14px;
+  width               : 16px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .col .iconsocialtwitter1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 131px;
+  height              : 14px;
+  width               : 16px;
+  position            : absolute;
+  margin              : 0;
+  left                : 2px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .col .iconsocialtwitter1 .iconsocialtwitter2 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 14px;
+  width               : 16px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .col .athalfpasteightt1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 124px;
+  height              : auto;
+  width               : 226px;
+  position            : absolute;
+  margin              : 0;
+  left                : 31px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 16.0px;
+  color               : rgba(255, 255, 255, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.foo00007 .foo000071 .lastcol {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 89px;
+  height              : 206px;
+  width               : 333px;
+  position            : absolute;
+  margin              : 0;
+  left                : 923px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .instagram {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 1px;
+  height              : auto;
+  width               : 186px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(255, 255, 255, 1.0);
+  text-align          : left;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.foo00007 .foo000071 .lastcol .shots {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 47px;
+  height              : 159px;
+  width               : 333px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 5px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded .base {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 5px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded .iconsimpleoutlinedcamera {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 21px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 18px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded .iconsimpleoutlinedcamera .iconsimpleoutlinedcamera1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded .imageplaceholder {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 73px;
+  position            : absolute;
+  margin              : 0;
+  left                : -1px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded1 {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 87px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 5px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded1 .base {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 5px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded1 .iconsimpleoutlinedcamera {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 21px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 18px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded1 .iconsimpleoutlinedcamera .iconsimpleoutlinedcamera1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded1 .imageplaceholder {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 73px;
+  position            : absolute;
+  margin              : 0;
+  left                : -1px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded2 {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 87px;
+  border-radius       : 5px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded2 .base {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 5px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded2 .iconsimpleoutlinedcamera {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 21px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 18px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded2 .iconsimpleoutlinedcamera .iconsimpleoutlinedcamera1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded2 .imageplaceholder {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 73px;
+  position            : absolute;
+  margin              : 0;
+  left                : -1px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded3 {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 87px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 87px;
+  border-radius       : 5px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded3 .base {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 5px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded3 .iconsimpleoutlinedcamera {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 21px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 18px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded3 .iconsimpleoutlinedcamera .iconsimpleoutlinedcamera1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded3 .imageplaceholder {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 73px;
+  position            : absolute;
+  margin              : 0;
+  left                : -1px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded4 {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 174px;
+  border-radius       : 5px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded4 .base {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 5px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded4 .iconsimpleoutlinedcamera {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 21px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 18px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded4 .iconsimpleoutlinedcamera .iconsimpleoutlinedcamera1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded4 .imageplaceholder {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 73px;
+  position            : absolute;
+  margin              : 0;
+  left                : -1px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded5 {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 87px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 174px;
+  border-radius       : 5px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded5 .base {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 5px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded5 .iconsimpleoutlinedcamera {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 21px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 18px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded5 .iconsimpleoutlinedcamera .iconsimpleoutlinedcamera1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded5 .imageplaceholder {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 73px;
+  position            : absolute;
+  margin              : 0;
+  left                : -1px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded6 {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 261px;
+  border-radius       : 5px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded6 .base {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 5px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded6 .iconsimpleoutlinedcamera {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 21px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 18px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded6 .iconsimpleoutlinedcamera .iconsimpleoutlinedcamera1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded6 .imageplaceholder {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 73px;
+  position            : absolute;
+  margin              : 0;
+  left                : -1px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded7 {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 87px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 261px;
+  border-radius       : 5px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded7 .base {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 72px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 5px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded7 .iconsimpleoutlinedcamera {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 21px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 18px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded7 .iconsimpleoutlinedcamera .iconsimpleoutlinedcamera1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.foo00007 .foo000071 .lastcol .shots .elementimageplaceholderrounded7 .imageplaceholder {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 72px;
+  width               : 73px;
+  position            : absolute;
+  margin              : 0;
+  left                : -1px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+/* .anima-animate-appear prefix for appear animations */
+.anima-animate-appear {
+  opacity             : 0;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 normal forwards;
+}
+.anima-animate-disappear {
+  opacity             : 1;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+}
+.anima-animate-nodelay {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  -o-animation-delay  : 0;
+  animation-delay     : 0;
+}
+@-webkit-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-moz-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-o-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}

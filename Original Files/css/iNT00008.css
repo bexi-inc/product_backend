@@ -1,0 +1,704 @@
+
+
+.int00008 {
+  width               : 100%;
+  min-width           : 1443px;
+  height              : 100vh;
+  min-height          : 800px;
+  position            : relative;
+  overflow            : hidden;
+  margin              : 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color    : rgba(255, 255, 255, 1.0);
+}
+a {
+  text-decoration     : none;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.anima-full-width-a {
+  width               : 100%;
+}
+.anima-full-height-a {
+  height              : 100%;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.int00008 .int000081 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1443px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .elementimageplaceholderrounded {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 3px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .elementimageplaceholderrounded .base {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .elementimageplaceholderrounded .iconsimpleoutlinedcamera {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 386px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 704px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .elementimageplaceholderrounded .iconsimpleoutlinedcamera .iconsimpleoutlinedcamera1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .elementimageplaceholderrounded .imageplaceholder {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1465px;
+  position            : absolute;
+  margin              : 0;
+  left                : -13px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .basebackground {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .basebackground .background {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .basebackground .basefillwhite {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .basebackground .basefillwhite .fill {
+  background-color    : rgba(255, 255, 255, 1.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 346px;
+  height              : 197px;
+  width               : 780px;
+  position            : absolute;
+  margin              : 0;
+  left                : 330px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .exploreearlyconcep {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 80px;
+  height              : auto;
+  width               : 775px;
+  position            : absolute;
+  margin              : 0;
+  left                : 3px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 18.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 25.0px;
+}
+.int00008 .int000081 .content .allinonedesignwo {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : auto;
+  width               : auto;
+  position            : absolute;
+  margin              : 0;
+  left                : 111px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 40.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : center;
+  letter-spacing      : -0.38px;
+  line-height         : 48.0px;
+}
+.int00008 .int000081 .content .componentformform2 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 147px;
+  height              : 50px;
+  width               : 780px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .background {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 780px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .componentformelementinput {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : absolute;
+  margin              : 0;
+  left                : 12px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .componentformelementinput .field {
+  background-color    : rgba(235, 235, 235, 0.6);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 25px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .componentformelementinput .inputfieldtext {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 13px;
+  height              : auto;
+  width               : auto;
+  position            : absolute;
+  margin              : 0;
+  left                : 30px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.int00008 .int000081 .content .componentformform2 .button {
+  background-color    : rgba(0, 0, 0, 1.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : absolute;
+  margin              : 0;
+  left                : 404px;
+  border-radius       : 25px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .button .button2 {
+  background-color    : rgba(0, 0, 0, 1.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 25px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .button .basefillprimary {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .button .basefillprimary .fill {
+  background-color    : rgba(246, 175, 0, 1.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .button .button11 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 16px;
+  height              : auto;
+  width               : 158px;
+  position            : absolute;
+  margin              : 0;
+  left                : 12px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 16.0px;
+  color               : rgba(255, 255, 255, 1.0);
+  text-align          : center;
+  line-height         : 19.0px;
+}
+.int00008 .int000081 .content .componentformform2 .button1 {
+  background-color    : rgba(0, 0, 0, 1.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : absolute;
+  margin              : 0;
+  left                : 599px;
+  border-radius       : 25px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .button1 .button2 {
+  background-color    : rgba(0, 0, 0, 1.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 25px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .button1 .basefillprimary {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .button1 .basefillprimary .fill {
+  background-color    : rgba(0, 95, 120, 1.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .button1 .button11 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 16px;
+  height              : auto;
+  width               : 158px;
+  position            : absolute;
+  margin              : 0;
+  left                : 12px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 16.0px;
+  color               : rgba(255, 255, 255, 1.0);
+  text-align          : center;
+  line-height         : 19.0px;
+}
+.int00008 .int000081 .content .componentformform2 .componentformelementinput1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : absolute;
+  margin              : 0;
+  left                : 207px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .componentformelementinput1 .field {
+  background-color    : rgba(235, 235, 235, 0.6);
+  top                 : 0px;
+  height              : 50px;
+  width               : 181px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  border-radius       : 25px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .content .componentformform2 .componentformelementinput1 .inputfieldtext {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 13px;
+  height              : auto;
+  width               : auto;
+  position            : absolute;
+  margin              : 0;
+  left                : 30px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : left;
+  line-height         : 26.0px;
+}
+.int00008 .int000081 .header {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 70px;
+  height              : 41px;
+  width               : 1146px;
+  position            : absolute;
+  margin              : 0;
+  left                : 150px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .header7 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 41px;
+  width               : 1146px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .header7 .storiescompanyabou {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 11px;
+  height              : auto;
+  width               : auto;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : left;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.int00008 .int000081 .header .header7 .shoesoutwerbagsgl {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 11px;
+  height              : auto;
+  width               : auto;
+  position            : absolute;
+  margin              : 0;
+  left                : 733px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : left;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.int00008 .int000081 .header .header7 .iconsimpleoutlinediconpack {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 41px;
+  width               : 41px;
+  position            : absolute;
+  margin              : 0;
+  left                : 1105px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .header7 .iconsimpleoutlinediconpack .background {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 41px;
+  width               : 41px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .header7 .iconsimpleoutlinediconpack .iconsimpleoutlinedbook {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 7px;
+  height              : 28px;
+  width               : 28px;
+  position            : absolute;
+  margin              : 0;
+  left                : 7px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .header7 .iconsimpleoutlinediconpack .iconsimpleoutlinedbook .iconsimpleoutlinedbook1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 28px;
+  width               : 28px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .elementlogologo {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 3px;
+  height              : 34px;
+  width               : 21px;
+  position            : absolute;
+  margin              : 0;
+  left                : 560px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .elementlogologo .background {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 34px;
+  width               : 21px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .elementlogologo .group7 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 2px;
+  height              : 30px;
+  width               : 13px;
+  position            : absolute;
+  margin              : 0;
+  left                : 4px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .elementlogologo .group7 .fill1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 13px;
+  height              : 16px;
+  width               : 13px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .elementlogologo .group7 .group5 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 11px;
+  width               : 10px;
+  position            : absolute;
+  margin              : 0;
+  left                : 2px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00008 .int000081 .header .elementlogologo .group7 .group5 .group51 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 12px;
+  width               : 10px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+/* .anima-animate-appear prefix for appear animations */
+.anima-animate-appear {
+  opacity             : 0;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 normal forwards;
+}
+.anima-animate-disappear {
+  opacity             : 1;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+}
+.anima-animate-nodelay {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  -o-animation-delay  : 0;
+  animation-delay     : 0;
+}
+@-webkit-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-moz-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-o-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}

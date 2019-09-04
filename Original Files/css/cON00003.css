@@ -1,0 +1,308 @@
+
+
+.con00003 {
+  width               : 100%;
+  min-width           : 1440px;
+  min-height          : 600px;
+  position            : relative;
+  overflow            : hidden;
+  margin              : 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color    : rgba(255, 255, 255, 1.0);
+}
+a {
+  text-decoration     : none;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.anima-full-width-a {
+  width               : 100%;
+}
+.anima-full-height-a {
+  height              : 100%;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.con00003 .con000031 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 600px;
+  width               : 1440px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.con00003 .con000031 .basebackground {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 600px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.con00003 .con000031 .basebackground .background {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 600px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.con00003 .con000031 .basebackground .basefillwhite {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 600px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.con00003 .con000031 .basebackground .basefillwhite .fill {
+  background-color    : rgba(255, 255, 255, 1.0);
+  top                 : 0px;
+  height              : 600px;
+  width               : 1440px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.con00003 .con000031 .right {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 136px;
+  height              : 253px;
+  width               : 596px;
+  position            : absolute;
+  margin              : 0;
+  left                : 714px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.con00003 .con000031 .right .a02 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : auto;
+  width               : 375px;
+  position            : absolute;
+  margin              : 0;
+  left                : 110px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 180.0px;
+  color               : rgba(245, 245, 245, 1.0);
+  text-align          : center;
+  line-height         : 216.0px;
+}
+.con00003 .con000031 .right .athalfpasteightt {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 155px;
+  height              : auto;
+  width               : 375px;
+  position            : absolute;
+  margin              : 0;
+  left                : 111px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 18.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 25.0px;
+}
+.con00003 .con000031 .right .secondone {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 97px;
+  height              : auto;
+  width               : 596px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 30.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : center;
+  letter-spacing      : -0.41px;
+  line-height         : 48.0px;
+}
+.con00003 .con000031 .left {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 136px;
+  height              : 253px;
+  width               : 597px;
+  position            : absolute;
+  margin              : 0;
+  left                : 131px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.con00003 .con000031 .left .a01 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : auto;
+  width               : 375px;
+  position            : absolute;
+  margin              : 0;
+  left                : 110px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 180.0px;
+  color               : rgba(245, 245, 245, 1.0);
+  text-align          : center;
+  line-height         : 216.0px;
+}
+.con00003 .con000031 .left .athalfpasteightt {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 155px;
+  height              : auto;
+  width               : 376px;
+  position            : absolute;
+  margin              : 0;
+  left                : 111px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 18.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 25.0px;
+}
+.con00003 .con000031 .left .firstone {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 97px;
+  height              : auto;
+  width               : 597px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 30.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : center;
+  letter-spacing      : -0.41px;
+  line-height         : 48.0px;
+}
+.con00003 .con000031 .line {
+  background-color    : rgba(235, 235, 235, 1.0);
+  top                 : 50px;
+  height              : 500px;
+  width               : 1px;
+  position            : absolute;
+  margin              : 0;
+  left                : 719px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+/* .anima-animate-appear prefix for appear animations */
+.anima-animate-appear {
+  opacity             : 0;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 normal forwards;
+}
+.anima-animate-disappear {
+  opacity             : 1;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+}
+.anima-animate-nodelay {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  -o-animation-delay  : 0;
+  animation-delay     : 0;
+}
+@-webkit-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-moz-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-o-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}

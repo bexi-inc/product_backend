@@ -1,0 +1,514 @@
+
+
+.int00015 {
+  width               : 100%;
+  min-width           : 1441px;
+  height              : 100vh;
+  min-height          : 800px;
+  position            : relative;
+  overflow            : hidden;
+  margin              : 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color    : rgba(255, 255, 255, 1.0);
+}
+a {
+  text-decoration     : none;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.anima-full-width-a {
+  width               : 100%;
+}
+.anima-full-height-a {
+  height              : 100%;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.int00015 .int000151 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1441px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .elementimageplaceholderrounded {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 1px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .elementimageplaceholderrounded .base {
+  background-color    : rgba(238, 238, 238, 1.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .elementimageplaceholderrounded .iconsimpleoutlinedcamera {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 386px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 704px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .elementimageplaceholderrounded .iconsimpleoutlinedcamera .iconsimpleoutlinedcamera1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 32px;
+  width               : 37px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .elementimageplaceholderrounded .imageplaceholder {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1465px;
+  position            : absolute;
+  margin              : 0;
+  left                : -13px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .basebackground {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .basebackground .background {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .basebackground .basefillwhite {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .basebackground .basefillwhite .fill {
+  background-color    : rgba(249, 249, 249, 1.0);
+  top                 : 0px;
+  height              : 800px;
+  width               : 1440px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .content {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 251px;
+  height              : 425px;
+  width               : 787px;
+  position            : absolute;
+  margin              : 0;
+  left                : 327px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .content .baseuiisthebest {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 80px;
+  height              : auto;
+  width               : 787px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 18.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 25.0px;
+}
+.int00015 .int000151 .content .getofftoaquicks {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : auto;
+  width               : auto;
+  position            : absolute;
+  margin              : 0;
+  left                : 162px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 40.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : center;
+  letter-spacing      : -0.38px;
+  line-height         : 48.0px;
+}
+.int00015 .int000151 .content .playbtn {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 323px;
+  height              : 102px;
+  width               : 102px;
+  position            : absolute;
+  margin              : 0;
+  left                : 342px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .content .playbtn .group3 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 102px;
+  width               : 102px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .content .playbtn .group3 .group31 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 102px;
+  width               : 102px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .content .playbtn .group2 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 39px;
+  height              : 24px;
+  width               : 23px;
+  position            : absolute;
+  margin              : 0;
+  left                : 43px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .content .playbtn .group2 .group21 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 24px;
+  width               : 23px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .mockup {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 413px;
+  height              : 387px;
+  width               : 1075px;
+  position            : absolute;
+  margin              : 0;
+  left                : 182px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .mockup .rectangle2 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 387px;
+  width               : 1075px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .mockup .componentmockupipadwhite {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : -113px;
+  height              : 892px;
+  width               : 623px;
+  position            : absolute;
+  margin              : 0;
+  left                : 219px;
+  -ms-transform       : rotate(90deg); /* IE 9 */
+  -webkit-transform   : rotate(90deg); /* Chrome, Safari, Opera */
+  transform           : rotate(90deg);
+}
+.int00015 .int000151 .mockup .componentmockupipadwhite .ipadwhite {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 892px;
+  width               : 623px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .header {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 73px;
+  height              : 34px;
+  width               : 1139px;
+  position            : absolute;
+  margin              : 0;
+  left                : 150px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .header .elementlogologo {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 34px;
+  width               : 21px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .header .elementlogologo .background {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 34px;
+  width               : 21px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .header .elementlogologo .group7 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 2px;
+  height              : 30px;
+  width               : 13px;
+  position            : absolute;
+  margin              : 0;
+  left                : 4px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .header .elementlogologo .group7 .fill1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 13px;
+  height              : 16px;
+  width               : 13px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .header .elementlogologo .group7 .group5 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 11px;
+  width               : 10px;
+  position            : absolute;
+  margin              : 0;
+  left                : 2px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .header .elementlogologo .group7 .group5 .group51 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 12px;
+  width               : 10px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .header .menuicon {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 10px;
+  height              : 14px;
+  width               : 22px;
+  position            : absolute;
+  margin              : 0;
+  left                : 1117px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  opacity             : 0.9;
+}
+.int00015 .int000151 .header .langlink {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 6px;
+  height              : 22px;
+  width               : 89px;
+  position            : absolute;
+  margin              : 0;
+  left                : 995px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.int00015 .int000151 .header .langlink .engde {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 1px;
+  height              : auto;
+  width               : 90px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : left;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+/* .anima-animate-appear prefix for appear animations */
+.anima-animate-appear {
+  opacity             : 0;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 normal forwards;
+}
+.anima-animate-disappear {
+  opacity             : 1;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+}
+.anima-animate-nodelay {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  -o-animation-delay  : 0;
+  animation-delay     : 0;
+}
+@-webkit-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-moz-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-o-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}

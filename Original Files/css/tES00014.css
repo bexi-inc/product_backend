@@ -1,0 +1,455 @@
+
+
+.tes00014 {
+  width               : 100%;
+  min-width           : 1440px;
+  min-height          : 580px;
+  position            : relative;
+  overflow            : hidden;
+  margin              : 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color    : rgba(255, 255, 255, 1.0);
+}
+a {
+  text-decoration     : none;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.anima-full-width-a {
+  width               : 100%;
+}
+.anima-full-height-a {
+  height              : 100%;
+}
+div {
+  -webkit-text-size-adjust: none;
+}
+.tes00014 .tes000141 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 580px;
+  width               : 1440px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .basebackground {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 580px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  overflow            : hidden;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .basebackground .background {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 580px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .basebackground .basefillwhite {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 580px;
+  width               : 1440px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .basebackground .basefillwhite .fill {
+  background-color    : rgba(255, 255, 255, 1.0);
+  top                 : 0px;
+  height              : 580px;
+  width               : 1440px;
+  position            : relative;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .columns {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 266px;
+  height              : 219px;
+  width               : 1095px;
+  position            : absolute;
+  margin              : 0;
+  left                : 174px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .columns .col {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 219px;
+  width               : 325px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .columns .col .johndoe {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 179px;
+  height              : auto;
+  width               : 150px;
+  position            : absolute;
+  margin              : 0;
+  left                : 90px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : center;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.tes00014 .tes000141 .columns .col .manager {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 203px;
+  height              : auto;
+  width               : 149px;
+  position            : absolute;
+  margin              : 0;
+  left                : 91px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(226, 226, 226, 1.0);
+  text-align          : center;
+  line-height         : 17.0px;
+}
+.tes00014 .tes000141 .columns .col .athalfpasteightt {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 59px;
+  height              : auto;
+  width               : 325px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 16.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 26.0px;
+}
+.tes00014 .tes000141 .columns .col .airbnb {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 44px;
+  width               : 140px;
+  position            : absolute;
+  margin              : 0;
+  left                : 93px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .columns .col1 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 11px;
+  height              : 208px;
+  width               : 325px;
+  position            : absolute;
+  margin              : 0;
+  left                : 384px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .columns .col1 .johndoe {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 168px;
+  height              : auto;
+  width               : 150px;
+  position            : absolute;
+  margin              : 0;
+  left                : 90px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : center;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.tes00014 .tes000141 .columns .col1 .manager {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 192px;
+  height              : auto;
+  width               : 149px;
+  position            : absolute;
+  margin              : 0;
+  left                : 91px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(226, 226, 226, 1.0);
+  text-align          : center;
+  line-height         : 17.0px;
+}
+.tes00014 .tes000141 .columns .col1 .athalfpasteightt {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 48px;
+  height              : auto;
+  width               : 325px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 16.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 26.0px;
+}
+.tes00014 .tes000141 .columns .col1 .tesla {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 20px;
+  width               : 155px;
+  position            : absolute;
+  margin              : 0;
+  left                : 85px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .columns .col2 {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 1px;
+  height              : 218px;
+  width               : 325px;
+  position            : absolute;
+  margin              : 0;
+  left                : 770px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .columns .col2 .johndoe {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 178px;
+  height              : auto;
+  width               : 150px;
+  position            : absolute;
+  margin              : 0;
+  left                : 90px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : center;
+  letter-spacing      : 1.5px;
+  line-height         : 22.0px;
+}
+.tes00014 .tes000141 .columns .col2 .manager {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 202px;
+  height              : auto;
+  width               : 149px;
+  position            : absolute;
+  margin              : 0;
+  left                : 91px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 14.0px;
+  color               : rgba(226, 226, 226, 1.0);
+  text-align          : center;
+  line-height         : 17.0px;
+}
+.tes00014 .tes000141 .columns .col2 .athalfpasteightt {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 58px;
+  height              : auto;
+  width               : 325px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 16.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 26.0px;
+}
+.tes00014 .tes000141 .columns .col2 .intercom {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : 41px;
+  width               : 160px;
+  position            : absolute;
+  margin              : 0;
+  left                : 83px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .content {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 101px;
+  height              : 106px;
+  width               : 696px;
+  position            : absolute;
+  margin              : 0;
+  left                : 372px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+}
+.tes00014 .tes000141 .content .athalfpasteightt {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 65px;
+  height              : auto;
+  width               : 696px;
+  position            : absolute;
+  margin              : 0;
+  left                : 0px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 18.0px;
+  color               : rgba(129, 129, 129, 1.0);
+  text-align          : center;
+  line-height         : 25.0px;
+}
+.tes00014 .tes000141 .content .trustedbythebest {
+  background-color    : rgba(255,255,255,0.0);
+  top                 : 0px;
+  height              : auto;
+  width               : 596px;
+  position            : absolute;
+  margin              : 0;
+  left                : 50px;
+  -ms-transform       : rotate(0deg); /* IE 9 */
+  -webkit-transform   : rotate(0deg); /* Chrome, Safari, Opera */
+  transform           : rotate(0deg);
+  font-family         : "Helvetica", Helvetica, Arial, serif;
+  font-size           : 30.0px;
+  color               : rgba(51, 51, 51, 1.0);
+  text-align          : center;
+  letter-spacing      : -0.41px;
+  line-height         : 48.0px;
+}
+/* .anima-animate-appear prefix for appear animations */
+.anima-animate-appear {
+  opacity             : 0;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 normal forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 normal forwards;
+}
+.anima-animate-disappear {
+  opacity             : 1;
+  display             : block;
+  -webkit-animation   : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  -moz-animation      : anima-reveal 0.3s ease-in 1 normal forwards;
+  -o-animation        : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+  animation           : anima-reveal 0.3s ease-in-out 1 reverse forwards;
+}
+.anima-animate-nodelay {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  -o-animation-delay  : 0;
+  animation-delay     : 0;
+}
+@-webkit-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-moz-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@-o-keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
+@keyframes anima-reveal {
+  0%
+   
+  {
+      opacity: 0;
+    }
+  
+    
+  100%
+   
+  {
+      opacity: 1;
+    }
+}
