@@ -7,7 +7,7 @@ use Aws\DynamoDb\Exception\DynamoDbException;
 use Aws\DynamoDb\Marshaler;
 
 
-$credentials = new Aws\Credentials\Credentials('AKIAIDFD4RK34BYBBBGQ', 'eUaOhE0k8m5xcQ7h2iNEg9Gqtam/P8ynSax9P0Qw');
+$credentials = new Aws\Credentials\Credentials('', '');
 
 $sdk = new Aws\Sdk([
     'region'   => 'us-east-2',
