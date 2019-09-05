@@ -4,6 +4,7 @@ $timeini = microtime(true);
 //echo "Tiempo: ".(microtime(true) - $timeini)."<br>";
 include "includes/global.php";
 include "includes/utils.php";
+include "config.php";
 require 'vendor/autoload.php';
 
 //echo "Tiempo 2 : ".(microtime(true) - $timeini)."<br>";
@@ -15,7 +16,7 @@ use Aws\DynamoDb\Marshaler;
 
 //echo "Tiempo 3 : ".(microtime(true) - $timeini)."<br>";
 
-$credentials = new Aws\Credentials\Credentials('AKIAIDFD4RK34BYBBBGQ', 'eUaOhE0k8m5xcQ7h2iNEg9Gqtam/P8ynSax9P0Qw');
+$credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
 
 $sdk = new Aws\Sdk([
     'region'   => 'us-east-2',
