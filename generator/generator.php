@@ -28,8 +28,8 @@ $dynamodb = $sdk->createDynamoDb();
 $marshaler = new Marshaler();
 
 Crew\Unsplash\HttpClient::init([
-    'applicationId' => '8f586bbd9afbc175525c9533bb914ae96194728573867c11c55396f55cb199da',
-    'secret'        => 'f50f7a185526a5be957439940f55c6e2b55b25796a42b24527a04e36aa74f9df',
+    'applicationId' => $unspash_appid,
+    'secret'        => $unspash_secret,
     'callbackUrl'   => 'https://your-application.com/oauth/callback',
     'utmSource' => 'Bexi Generator'
 ]);

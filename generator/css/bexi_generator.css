@@ -6,7 +6,7 @@
   	--border-sel-type: solid !important;
 }
 
-.bexi_title:hover, .bexi_text:hover, .bexi_button:hover, .bexi_link:hover, .bexi_text:hover, .bexi_subtitle:hover 
+.bexi_title:hover, .bexi_text:hover, .bexi_button:hover, .bexi_link:hover, .bexi_text:hover, .bexi_subtitle:hover, .bexi_img:hover 
 {
 	cursor: var(--border-sel-cursor);;
 	border-style: var(--border-sel-type);

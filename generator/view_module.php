@@ -1,7 +1,7 @@
 <?
 
 include "includes/global.php";
-
+include "config.php";
 require 'vendor/autoload.php';
 
 
@@ -11,7 +11,7 @@ use Aws\DynamoDb\Exception\DynamoDbException;
 use Aws\DynamoDb\Marshaler;
 
 
-$credentials = new Aws\Credentials\Credentials('AKIAIDFD4RK34BYBBBGQ', 'eUaOhE0k8m5xcQ7h2iNEg9Gqtam/P8ynSax9P0Qw');
+$credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
 
 $sdk = new Aws\Sdk([
     'region'   => 'us-east-2',
@@ -21,8 +21,8 @@ $sdk = new Aws\Sdk([
 
 
 Crew\Unsplash\HttpClient::init([
-    'applicationId' => '8f586bbd9afbc175525c9533bb914ae96194728573867c11c55396f55cb199da',
-    'secret'        => 'f50f7a185526a5be957439940f55c6e2b55b25796a42b24527a04e36aa74f9df',
+    'applicationId' => $unspash_appid,
+    'secret'        => $unspash_secret,
     'callbackUrl'   => 'https://your-application.com/oauth/callback',
     'utmSource' => 'Bexi Generator'
 ]);
@@ -105,6 +105,14 @@ echo '<link rel="stylesheet" type="text/css" href="./css/bexi.css">';
 echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
 echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
 echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>';
+echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
+echo '
+    <link rel="stylesheet" href="includes/colorpicker/css/colorpicker.css" type="text/css" />
+    <link rel="stylesheet" media="screen" type="text/css" href="includes/colorpicker/css/layout.css" />
+    <script type="text/javascript" src="includes/colorpicker/js/colorpicker.js"></script>
+    <script type="text/javascript" src="includes/colorpicker/js/eye.js"></script>
+    <script type="text/javascript" src="includes/colorpicker/js/utils.js"></script>
+    <script type="text/javascript" src="includes/colorpicker/js/layout.js?ver=1.0.2"></script>';
 foreach ($css as $hoja)
 {
      $css_php = substr($hoja, 0, -3) . 'php';
@@ -113,36 +121,13 @@ foreach ($css as $hoja)
 }
 //echo $FontImport;
 echo "\r\n";
-
+?>
+<script src="includes/bexi.js" ></script>';
+<?
 echo "</head>";
 echo "\r\n";
 
 echo "<body>";
-/*echo "<div class='bexi_panel'>
-<h1 style='margin-bottom: 0px;'>Bexi Panel</h1>
-<div style='float:left; width: 30%;'>
-    <h3>Color pallets</h3>
-    <div class='color_rec' style='background-color: ".$marshaler->unmarshalValue($result['Items'][$key]["color1"]).";'></div>
-    <div class='color_rec' style='background-color: ".$marshaler->unmarshalValue($result['Items'][$key]["color2"]).";'></div>
-    <div class='color_rec' style='background-color: ".$marshaler->unmarshalValue($result['Items'][$key]["color3"]).";'></div>
-    <div class='color_rec' style='background-color: ".$marshaler->unmarshalValue($result['Items'][$key]["color4"]).";'></div>
-    <div class='color_rec' style='background-color: ".$marshaler->unmarshalValue($result['Items'][$key]["color5"]).";'></div>
-    <br style='clear:both'>
-</div>
-<div style='float:left; width: 30%;'>
-    <h3>Font:</h3>
-    <p>".$FontName."</p>
-</div>
-<div style='float:left; width: 30%;'>
-    <form name='frmgenerator' id='frmgenerator'>
-    <h3>Tags:</h3>
-   <input type='text' name='txttag' id='txttag'>
-   <button> Generate </button>
-   </form>
-</div>
-<br style='clear:both'>
-<br>
-</div>";*/
 echo "\r\n";
 
 echo $contenido;
