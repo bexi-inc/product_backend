@@ -21,8 +21,8 @@ h1{
 }
 .bexi_input {
     width: 100%;
-    padding-left: 7%;
-	padding-right: 7%;
+    padding-left: 5%;
+	padding-right: 5%;
 	padding-top: 15px;
 	padding-bottom: 15px;
     display: inline-block;
@@ -351,3 +351,7 @@ h1{
         transform: translateX(-50%);
     }
 }
+
+@media (max-width: 738px) {
+    .controls-align { text-align: center; }
+  }
