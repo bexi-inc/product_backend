@@ -21,12 +21,18 @@ h1{
 }
 .bexi_input {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding-left: 7%;
+	padding-right: 7%;
+	padding-top: 15px;
+	padding-bottom: 15px;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border: 0px solid #ccc;
+    background-color: rgba(243, 243, 243, 1.0);
+    border-radius: 25px;
+    font-family: "Roboto", Helvetica, Arial, serif;
+    font-size: 16.0px;
+    color: rgba(129, 129, 129, 1.0);
+    line-height: 19.0px;
 }
 
 .bexi_title
