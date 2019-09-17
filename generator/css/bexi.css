@@ -219,6 +219,7 @@ h1{
 
 .bexi_menu_list_h li
 {
+    padding-left: 40px;
     float: left;
 }
 
