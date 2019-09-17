@@ -93,6 +93,16 @@
             }
         });
 
+        $( "#dialog" ).dialog({
+            autoOpen: false
+        });
+        $( "#dlgimg" ).dialog({
+            autoOpen: false,
+            width: "50%",
+            maxWidth: "80%"
+
+        });
+
         $('.bexi_module').click(function(e) {  
            //alert(1);
            var id = $(this).attr('id');
@@ -104,15 +114,22 @@
          // $( "#dialog" ).dialog('open');
         });
 
-        /* $('img').dblclick(function(e) {  
+        $('img').dblclick(function(e) {  
              $( "#dlgimg" ).dialog('open');
-         });*/
+         });
 
          /* FUNCIONES DE IMAGENES */
 
          
         
-         
+         $(".bexi_img").each(function() {
+            var attr = $(this).attr('bexi_img_au');
+           if (typeof attr !== typeof undefined && attr !== false) 
+            {
+                $(this).wrap('<div class="alt-wrap"/>');
+                $(this).after('<p class="bexi_unspash">Photo by <a href="' + $(this).attr('bexi_au_link') + '" >' + $(this).attr('bexi_img_au') + '</a> on <a href="https://unsplash.com/?utm_source=Bexi+Web+Generator&utm_medium=referral">Unspash</a></p>'); 
+            }
+         })
          $('.bexi_img').click(function(e) { 
            var id = $(this).attr('id');
            alert("imagen " + id);

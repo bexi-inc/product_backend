@@ -5,7 +5,7 @@ header("Content-type: text/css; charset: UTF-8");
 
 
 include "includes/global.php";
-
+include "config.php";
 require 'vendor/autoload.php';
 
 date_default_timezone_set('UTC');
@@ -14,7 +14,7 @@ use Aws\DynamoDb\Exception\DynamoDbException;
 use Aws\DynamoDb\Marshaler;
 
 
-$credentials = new Aws\Credentials\Credentials('AKIAIDFD4RK34BYBBBGQ', 'eUaOhE0k8m5xcQ7h2iNEg9Gqtam/P8ynSax9P0Qw');
+$credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
 
 $sdk = new Aws\Sdk([
     'region'   => 'us-east-2',

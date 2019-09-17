@@ -42,7 +42,7 @@ $eav = $marshaler->marshalJson('
 ');
 
 $params = [
-    'TableName' => "components",
+    'TableName' => "bexi_prod_contentblock",
      "KeyConditionExpression"=> "id = :vid",
     "ExpressionAttributeValues"=> [
         ":vid" =>  ["N" => $_REQUEST["id"]]
@@ -90,6 +90,15 @@ while ( ( $pos = strpos( $contenido, "%img", $pos ) ) !== false ) {
 }
 
 
+$pos = 0;
+$pos2 = 0;
+while ( ( $pos = strpos( $contenido, "%id%", $pos ) ) !== false ) {
+  $pos2 = strpos( $contenido, "%", ($pos + 1) );
+  $idrand = uniqid('bexi_');
+  $contenido=substr_replace($contenido,$idrand,$pos,4);
+}
+
+
 
 echo "<!doctype html>";
 echo "\r\n";
@@ -122,16 +131,13 @@ foreach ($css as $hoja)
 //echo $FontImport;
 echo "\r\n";
 ?>
-<script src="includes/bexi.js" ></script>';
+<script src="includes/bexi.js" ></script>
 <?
 echo "</head>";
 echo "\r\n";
 
 echo "<body>";
-echo "\r\n";
-
 echo $contenido;
-echo "\r\n";
 
 echo ' <script>
             anima_isHidden = function(e) {
