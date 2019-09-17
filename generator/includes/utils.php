@@ -59,7 +59,7 @@ function setImages($contenido,$keywords = ""){
 				{
 					$pos_class2 = strpos($taghtml,'"',$pos_class);
 				}
-				echo "add bexi_img";
+				//echo "add bexi_img";
 
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
 			}

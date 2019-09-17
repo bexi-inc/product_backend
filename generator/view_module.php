@@ -45,7 +45,7 @@ $params = [
     'TableName' => "bexi_prod_contentblock",
      "KeyConditionExpression"=> "id = :vid",
     "ExpressionAttributeValues"=> [
-        ":vid" =>  ["N" => $_REQUEST["id"]]
+        ":vid" =>  ["S" => $_REQUEST["id"]]
     ]
 ];
 
@@ -55,8 +55,8 @@ $contenido="";
 
  $result = $dynamodb->query($params);
 
-$contenido=$marshaler->unmarshalValue($result['Items'][0]['html']);
-$css[]=$marshaler->unmarshalValue($result['Items'][0]["css"]);
+$contenido=$marshaler->unmarshalValue($result['Items'][0]['html_code']);
+$css[]=$marshaler->unmarshalValue($result['Items'][0]["file_css"]);
 
 $pos = 0;
 $pos2 = 0;

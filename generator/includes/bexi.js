@@ -118,6 +118,11 @@
            alert("imagen " + id);
          });
 
+         $('.bexi_icon').click(function(e) { 
+           var id = $(this).attr('id');
+           alert("Icono " + id);
+         });
+
          $('.bexi_text').click(function(e) { 
            var id = $(this).attr('id');
            alert("text "  + id);

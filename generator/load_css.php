@@ -26,10 +26,10 @@ $dynamodb = $sdk->createDynamoDb();
 $marshaler = new Marshaler();
 
 $params = [
-    'TableName' => "css_colors",
+    'TableName' => "bexi_prod_colors",
      "KeyConditionExpression"=> "id = :vId",
     "ExpressionAttributeValues"=> [
-        ":vId" =>  ["N" => $_REQUEST["id"]]
+        ":vId" =>  ["S" => $_REQUEST["id"]]
     ]
 ];
 
@@ -57,10 +57,10 @@ if (!$_REQUEST["fontid"])
 	$_REQUEST["fontid"]=1;
 }
 $params = [
-    'TableName' => "css_fonts",
+    'TableName' => "bexi_prod_fonts",
      "KeyConditionExpression"=> "id = :vId",
     "ExpressionAttributeValues"=> [
-        ":vId" =>  ["N" => $_REQUEST["fontid"]]
+        ":vId" =>  ["S" => $_REQUEST["fontid"]]
     ]
 ];
 
