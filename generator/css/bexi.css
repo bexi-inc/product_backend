@@ -218,6 +218,23 @@ h1{
     text-transform: uppercase;
 }
 
+.bexi_menu_list_h2
+{
+    font-family: "Roboto", Helvetica, Arial, serif;
+    font-size: 14.0px;
+    color: rgba(129, 129, 129, 1.0);
+    letter-spacing: 1.5px;
+    line-height: 22.0px;
+    list-style-type: none;
+}
+
+.bexi_menu_list_h2 li
+{
+    padding-left: 30px;
+    text-align: center;
+    float: left;
+}
+
 .bexi_menu_list_h li
 {
     padding-left: 40px;
