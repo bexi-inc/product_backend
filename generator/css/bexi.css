@@ -206,6 +206,11 @@ h1{
     line-height: 22.0px;
     list-style-type: none;
 }
+
+.bexi_menu_list li
+{
+    padding: 6px;
+}
 .text_center
 {
 	text-align: center;
