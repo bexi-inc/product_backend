@@ -207,6 +207,21 @@ h1{
     list-style-type: none;
 }
 
+.bexi_menu_list_h 
+{
+    font-family: "Roboto", Helvetica, Arial, serif;
+    font-size: 15.0px;
+    color: rgba(129, 129, 129, 1.0);
+    letter-spacing: 1.5px;
+    line-height: 22.0px;
+    list-style-type: none;
+}
+
+.bexi_menu_list_h li
+{
+    float: left;
+}
+
 .bexi_menu_list li
 {
     padding: 6px;
