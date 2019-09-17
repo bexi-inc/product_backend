@@ -47,7 +47,7 @@ h1{
 
 .bexi_icon
 {
-    
+
 }
 
  .bexi_img_full
@@ -197,7 +197,15 @@ h1{
 	line-height: 22.0px;
 
 }
-
+.bexi_menu_list 
+{
+    font-family: "Roboto", Helvetica, Arial, serif;
+    font-size: 13.0px;
+    color: rgba(51, 51, 51, 1.0);
+    letter-spacing: 1.5px;
+    line-height: 22.0px;
+    list-style-type: none;
+}
 .text_center
 {
 	text-align: center;
