@@ -463,8 +463,14 @@ h1{
     }
 }
 
+
+.bexi_input_radio
+{
+    
+}
+
 /* The container */
-.container {
+.container-radio {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -478,7 +484,7 @@ h1{
   }
   
   /* Hide the browser's default radio button */
-  .container input {
+  .container-radio input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -496,12 +502,12 @@ h1{
   }
   
   /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
+  .container-radio:hover input ~ .checkmark {
     background-color: #ccc;
   }
   
   /* When the radio button is checked, add a blue background */
-  .container input:checked ~ .checkmark {
+  .container-radio input:checked ~ .checkmark {
     background-color: #ccc;
   }
   
@@ -513,12 +519,12 @@ h1{
   }
   
   /* Show the indicator (dot/circle) when checked */
-  .container input:checked ~ .checkmark:after {
+  .container-radio input:checked ~ .checkmark:after {
     display: block;
   }
   
   /* Style the indicator (dot/circle) */
-  .container .checkmark:after {
+  .container-radio .checkmark:after {
        top: 9px;
       left: 9px;
       width: 10px;
