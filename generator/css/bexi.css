@@ -465,8 +465,6 @@ h1{
 
 /* The container-radio */
 .container-radio {
-    display: block;
-    position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
