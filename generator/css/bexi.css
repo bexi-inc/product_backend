@@ -502,7 +502,7 @@ h1{
   
   /* When the radio button is checked, add a blue background */
   .container-radio input:checked ~ .checkmark {
-    background-color: #2196F3;
+    
   }
   
   /* Create the indicator (the dot/circle - hidden when not checked) */
