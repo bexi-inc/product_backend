@@ -466,7 +466,7 @@ h1{
 
 .bexi_input_radio
 {
-    
+
 }
 
 /* The container */
@@ -525,10 +525,10 @@ h1{
   
   /* Style the indicator (dot/circle) */
   .container-radio .checkmark:after {
-       top: 9px;
-      left: 9px;
-      width: 10px;
-      height: 10px;
+       top: 5px;
+      left: 5px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background: rgba(246, 175, 0, 1.0);
   }
