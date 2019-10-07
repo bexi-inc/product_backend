@@ -95,7 +95,7 @@ h6{
     font-family: 'Montserrat', sans-serif !important;
 }
 
-.Link{
+a{
     font-size: 16px !important;
     line-height: normal !important;
     font-style: normal !important;
@@ -134,6 +134,14 @@ p{
     font-style: normal !important;
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
+}
+
+.Content_Propieties{
+    padding-top:50px;
+    padding-bottom: 50px;
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: 1600px;
 }
 
 .bexi_panel
