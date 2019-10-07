@@ -144,6 +144,40 @@ p{
     max-width: 1600px;
 }
 
+/*------------ Caption classes -----------------*/
+.Caption-padding-01{
+    padding-top: 20px;
+    padding-bottom: 6px;
+}
+
+
+/*------------ H3 classes -----------------*/
+.H3-padding-01{
+    padding-bottom: 5px;
+}
+
+/*------------ P-small classes -----------------*/
+.P-small-padding-01{
+    padding-bottom: 19px;
+}
+
+/*------------ P classes -----------------*/
+.P-padding-01{
+    padding-bottom: 27px;
+}
+
+/*------------ A classes -----------------*/
+.A-padding-01{
+    padding-bottom: 20px;
+}
+
+/*------------ Mobile rules -----------------*/
+@media (min-width: 768px) {
+    .Order-top{
+        Order:-1;
+    }
+}
+
 .bexi_panel
 {
 	background-color: #CCC;
