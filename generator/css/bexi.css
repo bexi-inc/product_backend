@@ -40,7 +40,7 @@ h1{
     letter-spacing: -0.38px;
     font-style: normal;
     font-weight: bold;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 h2{
@@ -49,7 +49,7 @@ h2{
     letter-spacing: -0.41px;
     font-style: normal;
     font-weight: bold;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 h3{
@@ -58,7 +58,7 @@ h3{
     letter-spacing: -0.29px;
     font-style: normal;
     font-weight: bold;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 h4{
@@ -67,7 +67,7 @@ h4{
     letter-spacing: -0.13px;
     font-style: normal;
     font-weight: bold;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 h5{
@@ -76,7 +76,7 @@ h5{
     letter-spacing: -0.11px;
     font-style: normal;
     font-weight: bold;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 h6{
@@ -84,7 +84,7 @@ h6{
     line-height: normal;
     font-style: normal;
     font-weight: 400;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 .Lead_text{
@@ -92,7 +92,7 @@ h6{
     line-height: 25px;
     font-style: normal;
     font-weight: 400;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 .Link{
@@ -100,7 +100,7 @@ h6{
     line-height: normal;
     font-style: normal;
     font-weight: 400;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 p{
@@ -108,7 +108,7 @@ p{
     line-height: 26px;
     font-style: normal;
     font-weight: 400;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 .p_small{
@@ -116,7 +116,7 @@ p{
     line-height: 26px;
     font-style: normal;
     font-weight: 400;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 .p_list{
@@ -124,7 +124,7 @@ p{
     line-height: 32px;
     font-style: normal;
     font-weight: 400;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 .Caption{
@@ -133,7 +133,7 @@ p{
     letter-spacing: 1.5px;
     font-style: normal;
     font-weight: 400;
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 .bexi_panel
