@@ -35,105 +35,105 @@ html,body{
 }
 
 h1{
-    font-size: 40px;
-    line-height: normal;
-    letter-spacing: -0.38px;
-    font-style: normal;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 40px !important;
+    line-height: normal !important;
+    letter-spacing: -0.38px !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 h2{
-    font-size: 30px;
-    line-height: 48px;
-    letter-spacing: -0.41px;
-    font-style: normal;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 30px !important;
+    line-height: 48px !important;
+    letter-spacing: -0.41px !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 h3{
-    font-size: 20px;
-    line-height: 42px;
-    letter-spacing: -0.29px;
-    font-style: normal;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 20px !important;
+    line-height: 42px !important;
+    letter-spacing: -0.29px !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 h4{
-    font-size: 18px;
-    line-height: 32px;
-    letter-spacing: -0.13px;
-    font-style: normal;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 18px !important;
+    line-height: 32px !important;
+    letter-spacing: -0.13px !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 h5{
-    font-size: 16px;
-    line-height: 28px;
-    letter-spacing: -0.11px;
-    font-style: normal;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 16px !important;
+    line-height: 28px !important;
+    letter-spacing: -0.11px !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 h6{
-    font-size: 14px;
-    line-height: normal;
-    font-style: normal;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 14px !important;
+    line-height: normal !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .Lead_text{
-    font-size: 18px;
-    line-height: 25px;
-    font-style: normal;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 18px !important;
+    line-height: 25px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .Link{
-    font-size: 16px;
-    line-height: normal;
-    font-style: normal;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 16px !important;
+    line-height: normal !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 p{
-    font-size: 16px;
-    line-height: 26px;
-    font-style: normal;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 16px !important;
+    line-height: 26px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .p_small{
-    font-size: 14px;
-    line-height: 26px;
-    font-style: normal;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 14px !important;
+    line-height: 26px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .p_list{
-    font-size: 16px;
-    line-height: 32px;
-    font-style: normal;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 16px !important;
+    line-height: 32px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .Caption{
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: 1.5px;
-    font-style: normal;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    letter-spacing: 1.5px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .bexi_panel
