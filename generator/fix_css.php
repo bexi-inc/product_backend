@@ -22,14 +22,14 @@ $marshaler = new Marshaler();
 
 
 $params = [
-    'TableName' => "components"
+    'TableName' => "bexi_prod_contentblock"
     ];
 
     $result = $dynamodb->scan($params);
 
     for ($i = 0; $i <count($result['Items']); $i++) {
-	    $contenido.=$marshaler->unmarshalValue($result['Items'][$i]['html']);
-	    $css=$marshaler->unmarshalValue($result['Items'][$i]["css"]);
+	    $contenido.=$marshaler->unmarshalValue($result['Items'][$i]['html_code']);
+	    $css=$marshaler->unmarshalValue($result['Items'][$i]["file_css"]);
 	    $css_data = file_get_contents ($css);
 	    $css_php = substr($css, 0, -3) . 'php';
 	    echo "$i : $css_php<br>";

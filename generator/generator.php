@@ -222,6 +222,14 @@ foreach ($resFonts['Items'] as $FontChg)
 //echo "Time Final:".(microtime(true) - $timeini)."<br>"; 
 
 
+$pos = 0;
+$pos2 = 0;
+while ( ( $pos = strpos( $contenido, "%id%", $pos ) ) !== false ) {
+  $pos2 = strpos( $contenido, "%", ($pos + 1) );
+  $idrand = uniqid('bexi_');
+  $contenido=substr_replace($contenido,$idrand,$pos,4);
+}
+
 
 echo "<!doctype html>";
 echo "\r\n";
