@@ -104,7 +104,7 @@ a{
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
 }
 
 p{
@@ -142,7 +142,7 @@ p{
     font-style: normal !important;
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
-    padding-top: 5px;
+    padding-top: 20px;
     padding-bottom: 5px;
 }
 
@@ -151,7 +151,7 @@ p{
     padding-bottom: 50px;
     padding-left: 32px;
     padding-right: 32px;
-    max-width: 1600px;
+    max-width: 1920px;
 }
 
 /*------------ Mobile rules -----------------*/
