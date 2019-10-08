@@ -474,7 +474,8 @@ p{
 	font-size: 16.0px;
 	color: rgba(246, 175, 0, 1.0);
 	text-align: center;
-	line-height: 19.0px;
+    line-height: 19.0px;
+    width: 200px;
 }
 
 .button_menu_rounded
