@@ -59,6 +59,8 @@ h3{
     font-style: normal !important;
     font-weight: bold !important;
     font-family: 'Montserrat', sans-serif !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 h4{
@@ -101,6 +103,8 @@ a{
     font-style: normal !important;
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 p{
@@ -109,6 +113,8 @@ p{
     font-style: normal !important;
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .p_small{
@@ -117,6 +123,8 @@ p{
     font-style: normal !important;
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .p_list{
@@ -134,6 +142,8 @@ p{
     font-style: normal !important;
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .bexi_module{
@@ -142,33 +152,6 @@ p{
     padding-left: 32px;
     padding-right: 32px;
     max-width: 1600px;
-}
-
-/*------------ Caption classes -----------------*/
-.Caption-padding-01{
-    padding-top: 20px;
-    padding-bottom: 6px;
-}
-
-
-/*------------ H3 classes -----------------*/
-.H3-padding-01{
-    padding-bottom: 5px;
-}
-
-/*------------ P-small classes -----------------*/
-.P-small-padding-01{
-    padding-bottom: 19px;
-}
-
-/*------------ P classes -----------------*/
-.P-padding-01{
-    padding-bottom: 27px;
-}
-
-/*------------ A classes -----------------*/
-.A-padding-01{
-    padding-bottom: 20px;
 }
 
 /*------------ Mobile rules -----------------*/
