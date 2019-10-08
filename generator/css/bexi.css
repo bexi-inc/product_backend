@@ -169,6 +169,14 @@ p{
     padding-right: 32px;
     max-width: 1920px;
 }
+
+.img-background{
+    background-image: url('%img|1920|1080|%');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /*
 [class*="col-"] {
     padding-left: 5px !important;
