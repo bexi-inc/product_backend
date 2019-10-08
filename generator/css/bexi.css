@@ -41,7 +41,7 @@ h1{
     font-style: normal !important;
     font-weight: bold !important;
     font-family: 'Montserrat', sans-serif !important;
-    width: 100%;
+    width: 100% !important;
 }
 
 h2{
@@ -53,7 +53,7 @@ h2{
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
     padding-bottom: 10px;
-    width: 100%;
+    width: 100% !important;
 }
 
 h3{
@@ -65,7 +65,7 @@ h3{
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 100%;
+    width: 100% !important;
 }
 
 h4{
@@ -75,7 +75,7 @@ h4{
     font-style: normal !important;
     font-weight: bold !important;
     font-family: 'Montserrat', sans-serif !important;
-    width: 100%;
+    width: 100% !important;
 }
 
 h5{
@@ -85,7 +85,7 @@ h5{
     font-style: normal !important;
     font-weight: bold !important;
     font-family: 'Montserrat', sans-serif !important;
-    width: 100%;
+    width: 100% !important;
 }
 
 h6{
@@ -94,7 +94,7 @@ h6{
     font-style: normal !important;
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
-    width: 100%;
+    width: 100% !important;
 }
 
 .Lead_text{
@@ -105,7 +105,7 @@ h6{
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
     padding-bottom: 50px;
-    width: 100%;
+    width: 100% !important;
 }
 
 a{
@@ -116,7 +116,7 @@ a{
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
     padding-bottom: 20px;
-    width: 100%;
+    width: 100% !important;
 }
 
 p{
@@ -127,7 +127,7 @@ p{
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 100%;
+    width: 100% !important;
 }
 
 .p_small{
@@ -138,7 +138,7 @@ p{
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 100%;
+    width: 100% !important;
 }
 
 .p_list{
@@ -147,7 +147,7 @@ p{
     font-style: normal !important;
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
-    width: 100%;
+    width: 100% !important;
 }
 
 .Caption{
@@ -159,7 +159,7 @@ p{
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 20px;
     padding-bottom: 5px;
-    width: 100%;
+    width: 100% !important;
 }
 
 .bexi_module{
