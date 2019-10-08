@@ -465,8 +465,8 @@ p{
 .button_rounded
 {
 	border-radius: 25px;
-	padding-left: 7%;
-	padding-right: 7%;
+	padding-left: 11px;
+	padding-right: 11px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	display: inline-block;
