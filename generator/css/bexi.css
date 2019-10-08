@@ -179,13 +179,12 @@ p{
 /*------------ Mobile rules -----------------*/
 @media (max-width: 768px) {
     .Order-top{
-        Order:-1;
+        Order:-1 !important;
     }
 
     .border_r{
         border-style: solid;
-        border-width: 0px;
-        border-color: red;
+        border-width: 0px !important;
     }
 }
 
