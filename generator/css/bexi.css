@@ -171,7 +171,7 @@ p{
 }
 
 .img-background{
-    background-image: url('%img|1920|1080|%');
+    background-image:src='%img|1920|1080|%';
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
