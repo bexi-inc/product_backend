@@ -251,8 +251,6 @@ echo '<link rel="stylesheet" href="includes/jquery-ui.css">';
 
 echo '
     <link rel="stylesheet" href="includes/colorpicker/css/colorpicker.css" type="text/css" />
-    <link rel="stylesheet" media="screen" type="text/css" href="includes/colorpicker/css/layout.css" />
-    <script type="text/javascript" src="includes/colorpicker/js/colorpicker.js"></script>
     <script type="text/javascript" src="includes/colorpicker/js/eye.js"></script>
     <script type="text/javascript" src="includes/colorpicker/js/utils.js"></script>
     <script type="text/javascript" src="includes/colorpicker/js/layout.js?ver=1.0.2"></script>';
