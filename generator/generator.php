@@ -251,8 +251,6 @@ echo '<link rel="stylesheet" href="includes/jquery-ui.css">';
 
 echo '
     <link rel="stylesheet" href="includes/colorpicker/css/colorpicker.css" type="text/css" />
-    <link rel="stylesheet" media="screen" type="text/css" href="includes/colorpicker/css/layout.css" />
-    <script type="text/javascript" src="includes/colorpicker/js/colorpicker.js"></script>
     <script type="text/javascript" src="includes/colorpicker/js/eye.js"></script>
     <script type="text/javascript" src="includes/colorpicker/js/utils.js"></script>
     <script type="text/javascript" src="includes/colorpicker/js/layout.js?ver=1.0.2"></script>';
@@ -302,14 +300,14 @@ include("bexi_panel.php");
 
 
 echo "\r\n";
-//echo "<div class='' style='width:100%; padding-top: 3%;  padding-bottom: 3%;padding-left: 5%; padding-right: 5%; background-color: #ebebeb;'>";
-/*echo "<div class='' style='width:100%; background-color: #fff; border-radius: 15px; -moz-border-radius: 15px;
+echo "<div class='' style='width:100%; padding-top: 3%;  padding-bottom: 3%;padding-left: 5%; padding-right: 5%; background-color: #ebebeb;'>";
+echo "<div class='' style='width:100%; background-color: #fff; border-radius: 15px; -moz-border-radius: 15px;
     -webkit-border-radius: 15px;  overflow:hidden; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.05); box-shadow: 0 1px 3px rgba(0,0,0,.05);'>";
-*/
+
 echo $contenido;
-/*echo "</div>";
 echo "</div>";
-*/
+echo "</div>";
+
 echo "\r\n";
 
 echo ' <script>
