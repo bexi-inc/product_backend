@@ -1,4 +1,4 @@
-<div class="bexDNA-bar">
+<div class="bexDNA-bar" style="display: none;">
     <div class="bexDNA-bar-container">
         <div class="bexDNA-bar-logo">
             <svg width="119px" height="32px" viewBox="0 0 119 32" version="1.1" xmlns="http://www.w3.org/2000/svg"

@@ -120,7 +120,9 @@
 
          /* FUNCIONES DE IMAGENES */
 
-         
+         $('.bexi_img').bind('contextmenu', function(e) {
+              return false;
+          }); 
         
          $(".bexi_img").each(function() {
             var attr = $(this).attr('bexi_img_au');
@@ -158,6 +160,12 @@
             var id = $(this).attr('id');
             alert("title " + id);
          });
+
+        $('.bexi_icon').click(function(e) { 
+           var id = $(this).attr('id');
+           alert("Icono " + id);
+         });
+
     });
 
     function RGBAToHexA(rgba) {

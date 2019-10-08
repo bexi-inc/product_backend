@@ -222,6 +222,14 @@ foreach ($resFonts['Items'] as $FontChg)
 //echo "Time Final:".(microtime(true) - $timeini)."<br>"; 
 
 
+$pos = 0;
+$pos2 = 0;
+while ( ( $pos = strpos( $contenido, "%id%", $pos ) ) !== false ) {
+  $pos2 = strpos( $contenido, "%", ($pos + 1) );
+  $idrand = uniqid('bexi_');
+  $contenido=substr_replace($contenido,$idrand,$pos,4);
+}
+
 
 echo "<!doctype html>";
 echo "\r\n";
@@ -294,12 +302,14 @@ include("bexi_panel.php");
 
 
 echo "\r\n";
-echo "<div class='' style='width:100%; padding-top: 3%;  padding-bottom: 3%;padding-left: 5%; padding-right: 5%; background-color: #ebebeb;'>";
-echo "<div class='' style='width:100%; background-color: #fff; border-radius: 15px; -moz-border-radius: 15px;
+//echo "<div class='' style='width:100%; padding-top: 3%;  padding-bottom: 3%;padding-left: 5%; padding-right: 5%; background-color: #ebebeb;'>";
+/*echo "<div class='' style='width:100%; background-color: #fff; border-radius: 15px; -moz-border-radius: 15px;
     -webkit-border-radius: 15px;  overflow:hidden; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.05); box-shadow: 0 1px 3px rgba(0,0,0,.05);'>";
+*/
 echo $contenido;
+/*echo "</div>";
 echo "</div>";
-echo "</div>";
+*/
 echo "\r\n";
 
 echo ' <script>

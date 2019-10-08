@@ -211,7 +211,7 @@ p{
     border: 0px solid #ccc;
     background-color: rgba(243, 243, 243, 1.0);
     border-radius: 25px;
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 16.0px;
     color: rgba(129, 129, 129, 1.0);
     line-height: 19.0px;
@@ -254,7 +254,7 @@ p{
 	-ms-transform: rotate(0deg);
 	-webkit-transform: rotate(0deg);
 	transform: rotate(0deg);
-	font-family: "Roboto", Helvetica, Arial, serif;
+	font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
 	font-size: 16.0px;
 	color: rgba(246, 175, 0, 1.0);
 	text-align: left;
@@ -266,7 +266,7 @@ p{
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 20.0px;
     color: rgba(51, 51, 51, 1.0);
     text-align: left;
@@ -276,7 +276,7 @@ p{
 
 .title3
 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 30.0px;
     color: rgba(51, 51, 51, 1.0);
     text-align: center;
@@ -286,7 +286,7 @@ p{
 
 .title4
 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 18.0px;
     color: rgba(246, 175, 0, 1.0);
     text-align: left;
@@ -297,7 +297,7 @@ p{
 
 .title5
 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 18.0px;
     color: rgba(51, 51, 51, 1.0);
     text-align: left;
@@ -308,7 +308,8 @@ p{
 
 .subtitle2 
 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    
+    amily: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 14.0px;
     color: rgba(51, 51, 51, 1.0);
     letter-spacing: 1.5px;
@@ -320,7 +321,7 @@ p{
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 14.0px;
     color: rgba(226, 226, 226, 1.0);
     text-align: left;
@@ -329,7 +330,7 @@ p{
 
 .subtitle4
 {
-    font-family: "Helvetica", Helvetica, Arial, serif;
+    font-family: "Montserrat","Helvetica", Helvetica, Arial, serif;
 	font-size: 14.0px;
 	color: rgba(51, 51, 51, 1.0);
 	text-align: left;
@@ -338,7 +339,7 @@ p{
 
 
 .text1 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat", "Roboto", Helvetica, Arial, serif;
     font-size: 16.0px;
     color: rgba(129, 129, 129, 1.0);
     text-align: left;
@@ -346,7 +347,7 @@ p{
 }
 
 .text2 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 18.0px;
     color: rgba(129, 129, 129, 1.0);
     text-align: left;
@@ -355,7 +356,7 @@ p{
 
 .readmore
 {
-	font-family: "Roboto", Helvetica, Arial, serif;
+	font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 16.0px;
     color: rgba(246, 175, 0, 1.0);
     text-align: left;
@@ -370,7 +371,7 @@ p{
 
 .menu1
 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
 	font-size: 14.0px;
 	color: rgba(51, 51, 51, 1.0);
 	text-align: left;
@@ -380,7 +381,7 @@ p{
 }
 .bexi_menu_list 
 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 14.0px;
     color: rgba(129, 129, 129, 1.0);
     letter-spacing: 1.5px;
@@ -390,7 +391,7 @@ p{
 
 .bexi_menu_list_h 
 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 15.0px;
     color: rgba(51, 51, 51, 1.0);
     letter-spacing: 1.5px;
@@ -401,7 +402,7 @@ p{
 
 .bexi_menu_list_h2
 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 14.0px;
     color: rgba(129, 129, 129, 1.0);
     letter-spacing: 1.5px;
@@ -410,7 +411,7 @@ p{
 }
 .bexi_menu_list_h3
 {
-    font-family: "Roboto", Helvetica, Arial, serif;
+    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 14.0px;
     color:  rgba(246, 175, 0, 1.0);
     letter-spacing: 1.5px;
@@ -461,7 +462,7 @@ p{
 	padding-top: 15px;
 	padding-bottom: 15px;
 	display: inline-block;
-	font-family: "Roboto", Helvetica, Arial, serif;
+	font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
 	font-size: 16.0px;
 	color: rgba(246, 175, 0, 1.0);
 	text-align: center;
@@ -476,7 +477,7 @@ p{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	display: inline-block;
-	font-family: "Roboto", Helvetica, Arial, serif;
+	font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
 	font-size: 16.0px;
 	color: rgba(246, 175, 0, 1.0);
 	text-align: center;
@@ -491,7 +492,7 @@ p{
 	padding-top: 15px;
 	padding-bottom: 15px;
 	display: inline-block;
-	font-family: "Roboto", Helvetica, Arial, serif;
+	font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
 	font-size: 16.0px;
 	color: rgba(246, 175, 0, 1.0);
 	text-align: center;
@@ -535,7 +536,7 @@ p{
 
 .txtbg_number
 {
-	font-family: "Roboto", Helvetica, Arial, serif;
+	font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
     font-size: 180.0px;
     color: rgba(244, 244, 244, 1.0);
     text-align: left;
@@ -564,7 +565,7 @@ p{
 }
 
 .hero_title1 {
-    font-family: "Helvetica", Helvetica, Arial, serif;
+    font-family: "Montserrat","Helvetica", Helvetica, Arial, serif;
     font-size: 40.0px;
     color: rgba(51, 51, 51, 1.0);
     text-align: left;
