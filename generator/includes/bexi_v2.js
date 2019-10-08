@@ -78,7 +78,7 @@
     }
 
     $(document).ready(function() {
-        $('#txtColor').ColorPicker({
+       /* $('#txtColor').ColorPicker({
             onSubmit: function(hsb, hex, rgb, el) {
                 $(el).val(hex);
                 $(el).ColorPickerHide();
@@ -91,7 +91,7 @@
             onBeforeShow: function () {
                 $(this).ColorPickerSetColor(this.value);
             }
-        });
+        });*/
 
         $( "#dialog" ).dialog({
             autoOpen: false
