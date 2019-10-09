@@ -194,6 +194,10 @@ p{
         border-style: solid;
         border-width: 0px !important;
     }
+
+    .half-col{
+        width: 50%;
+    }
 }
 
 .bexi_panel
