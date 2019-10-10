@@ -142,7 +142,7 @@
 
          $('.bexi_text').click(function(e) { 
            var id = $(this).attr('id');
-           alert("text "  + id);
+           //alert("text "  + id);
          });
 
           $('.bexi_button').click(function(e) { 
