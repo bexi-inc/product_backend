@@ -165,9 +165,17 @@ p{
 .bexi_module{
     padding-top:50px;
     padding-bottom: 50px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+
+.bexi_container{
     padding-left: 32px;
     padding-right: 32px;
     max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .img-background{
@@ -178,7 +186,7 @@ p{
 }
 
 .bexi_price{
-    
+
 }
 
 /*
