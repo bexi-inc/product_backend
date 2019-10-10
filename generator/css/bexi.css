@@ -165,9 +165,17 @@ p{
 .bexi_module{
     padding-top:50px;
     padding-bottom: 50px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+
+.bexi_container{
     padding-left: 32px;
     padding-right: 32px;
     max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .img-background{
@@ -175,6 +183,10 @@ p{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bexi_price{
+
 }
 
 /*
@@ -194,6 +206,10 @@ p{
         border-style: solid;
         border-width: 0px !important;
     }
+
+    .half-col{
+        width: 50%;
+    }
 }
 
 .bexi_panel
@@ -211,18 +227,20 @@ p{
 }
 .bexi_input {
     width: 100%;
-    padding-left: 7%;
-	padding-right: 7%;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 13px;
+	padding-bottom: 13px;
     display: inline-block;
     border: 0px solid #ccc;
     background-color: rgba(243, 243, 243, 1.0);
     border-radius: 25px;
     font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
-    font-size: 16.0px;
+    font-size: 14.0px;
     color: rgba(129, 129, 129, 1.0);
-    line-height: 19.0px;
+    line-height: 26.0px;
 }
 
 .bexi_title
@@ -476,6 +494,7 @@ p{
 	text-align: center;
     line-height: 19.0px;
     width: 200px;
+    height: 50px;
 }
 
 .button_menu_rounded
