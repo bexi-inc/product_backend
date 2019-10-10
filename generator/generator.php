@@ -248,6 +248,10 @@ echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.
 echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>';
 echo '<link rel="stylesheet" href="includes/jquery-ui.css">';
 
+/**************   FROALA EDITOR **************/
+
+echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
 
 echo '
     <link rel="stylesheet" href="includes/colorpicker/css/colorpicker.css" type="text/css" />
