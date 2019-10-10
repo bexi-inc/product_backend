@@ -254,7 +254,7 @@ echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_ed
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
 
 echo '
-    <link rel="stylesheet" href="includes/co`lorpicker/css/colorpicker.css" type="text/css" />
+    <link rel="stylesheet" href="includes/colorpicker/css/colorpicker.css" type="text/css" />
     <script type="text/javascript" src="includes/colorpicker/js/eye.js"></script>
     <script type="text/javascript" src="includes/colorpicker/js/utils.js"></script>
     <script type="text/javascript" src="includes/colorpicker/js/layout.js?ver=1.0.2"></script>';

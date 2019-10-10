@@ -166,7 +166,10 @@
            alert("Icono " + id);
          });
 
-        var editor = new FroalaEditor('.bexi_text')
+        var editor = new FroalaEditor('.bexi_text',
+        {
+            initOnClick: true
+        })
 
     });
 
