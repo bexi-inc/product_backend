@@ -1,4 +1,7 @@
-   
+    var editor;
+    var editor_id;
+
+
     function ChangePalette(NewPallete)
     {
        // alert (paletteId);
@@ -139,7 +142,7 @@
 
          $('.bexi_text').click(function(e) { 
            var id = $(this).attr('id');
-           alert("text "  + id);
+           //alert("text "  + id);
          });
 
           $('.bexi_button').click(function(e) { 
@@ -168,7 +171,8 @@
 
         var editor = new FroalaEditor('.bexi_text',
         {
-            initOnClick: true
+          toolbarInline: true,
+          charCounterCount: false
         })
 
     });

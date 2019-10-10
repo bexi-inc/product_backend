@@ -10,7 +10,7 @@
 .bexi_text:hover, .bexi_subtitle:hover, .bexi_img:hover, .bexi_icon:hover
 {
 	cursor: var(--border-sel-cursor);;
-	border-style: var(--border-sel-type);
+	/*border-style: var(--border-sel-type);
 	border-width: var(--border-width);
-	border-color: var(--border_sel_color);
+	border-color: var(--border_sel_color);*/
 }
