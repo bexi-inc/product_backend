@@ -97,7 +97,7 @@
             }
         });*/
 
-      /*  $( "#dialog" ).dialog({
+      /**  $( "#dialog" ).dialog({
             autoOpen: false
         });
         $( "#dlgimg" ).dialog({
