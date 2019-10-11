@@ -157,11 +157,11 @@
 
         $('.bexi_subtitle').click(function(e) { 
             var id = $(this).attr('id');
-            alert("subtitle " + id);
+           // alert("subtitle " + id);
          });
         $('.bexi_title').click(function(e) { 
             var id = $(this).attr('id');
-            alert("title " + id);
+            //alert("title " + id);
          });
 
         $('.bexi_icon').click(function(e) { 
@@ -173,7 +173,19 @@
         {
           toolbarInline: true,
           charCounterCount: false
-        })
+        });
+
+         var editor = new FroalaEditor('.bexi_title',
+        {
+          toolbarInline: true,
+          charCounterCount: false
+        });
+
+          var editor = new FroalaEditor('.bexi_subtitle',
+        {
+          toolbarInline: true,
+          charCounterCount: false
+        });
 
     });
 

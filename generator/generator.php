@@ -268,7 +268,7 @@ echo '.colorpicker
             z-index:999;
         }';
 echo '</style>';
-echo '  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>';
+echo '  <script src="includes/jquery-ui.js"></script>';
 echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
 $n=1;
 echo'<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id='.$id_color.'&fontid='.$FontId.'" id="mod_css_0" >'; 
