@@ -170,13 +170,19 @@
            alert("Icono " + id);
          });
 
-        var editor1 = new FroalaEditor('.bexi_text',
+        var editortxt = new FroalaEditor('.bexi_text',
         {
           toolbarInline: true,
           charCounterCount: false
         });
 
-        var editorq = new FroalaEditor('.bexi_title',
+        var editortitles = new FroalaEditor('.bexi_title',
+        {
+          toolbarInline: true,
+          charCounterCount: false
+        });
+
+         var editorsubtitles = new FroalaEditor('.bexi_subtitle',
         {
           toolbarInline: true,
           charCounterCount: false
