@@ -483,7 +483,8 @@ p{
     padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 13px;
-	padding-bottom: 13px;
+    padding-bottom: 13px;
+    border-radius: 25px;
 	display: inline-block;
 	font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
 	font-size: 16.0px;
