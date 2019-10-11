@@ -170,7 +170,7 @@
            alert("Icono " + id);
          });
 
-        var editor1 = new FroalaEditor('.bexi_text, .bexi_title, bexi_subtitle',
+        var editor1 = new FroalaEditor('.bexi_text',
         {
           toolbarInline: true,
           charCounterCount: false
