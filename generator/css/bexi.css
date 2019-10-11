@@ -418,6 +418,7 @@ p{
 .bexi_menu_list_h 
 {
     list-style-type: none;
+    padding-inline-start: 0px;
 }
 
 .bexi_menu_list_h2
