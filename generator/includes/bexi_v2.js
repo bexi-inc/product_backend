@@ -176,6 +176,12 @@
           charCounterCount: false
         });
 
+        var editorq = new FroalaEditor('.bexi_title',
+        {
+          toolbarInline: true,
+          charCounterCount: false
+        });
+
     });
 
     function RGBAToHexA(rgba) {
