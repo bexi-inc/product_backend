@@ -214,6 +214,12 @@ p{
     .half-col{
         width: 50%;
     }
+
+    .change-list li{
+        padding-left: 0px !important;
+        text-align: center;
+        display: list-item !important;
+    }
 }
 
 .bexi_panel
@@ -411,23 +417,14 @@ p{
 }
 .bexi_menu_list 
 {
-    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
-    font-size: 14.0px;
-    color: rgba(129, 129, 129, 1.0);
-    letter-spacing: 1.5px;
-    line-height: 22.0px;
     list-style-type: none;
+    padding-inline-start: 0px;
 }
 
 .bexi_menu_list_h 
 {
-    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
-    font-size: 15.0px;
-    color: rgba(51, 51, 51, 1.0);
-    letter-spacing: 1.5px;
-    line-height: 22.0px;
     list-style-type: none;
-    text-transform: uppercase;
+    padding-inline-start: 0px;
 }
 
 .bexi_menu_list_h2
@@ -467,13 +464,9 @@ p{
 {
     padding-left: 40px;
     text-align: center;
-    float: left;
+    display: inline-block;
 }
 
-.bexi_menu_list li
-{
-    padding: 6px;
-}
 .text_center
 {
 	text-align: center;
@@ -486,11 +479,13 @@ p{
 
 .button_rounded
 {
-	border-radius: 25px;
-	padding-left: 11px;
-	padding-right: 11px;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 13px;
+    padding-bottom: 13px;
+    border-radius: 25px;
 	display: inline-block;
 	font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
 	font-size: 16.0px;
@@ -594,6 +589,11 @@ p{
 .bgcolor_fill2
 {
 	background-color: rgba(249, 249, 249, 1.0);
+}
+
+.bgcolor_fill3
+{
+    background-color: rgb(51, 51, 51);
 }
 
 .hero_title1 {
