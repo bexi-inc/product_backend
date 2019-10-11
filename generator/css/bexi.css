@@ -482,11 +482,12 @@ p{
 
 .button_rounded
 {
-	border-radius: 25px;
-	padding-left: 11px;
-	padding-right: 11px;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 13px;
+	padding-bottom: 13px;
 	display: inline-block;
 	font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
 	font-size: 16.0px;
