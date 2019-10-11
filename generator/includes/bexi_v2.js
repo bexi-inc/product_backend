@@ -96,7 +96,7 @@
             }
         });*/
 
-        $( "#dialog" ).dialog({
+      /*  $( "#dialog" ).dialog({
             autoOpen: false
         });
         $( "#dlgimg" ).dialog({
@@ -104,7 +104,7 @@
             width: "50%",
             maxWidth: "80%"
 
-        });
+        });*/
 
         $('.bexi_module').click(function(e) {  
            //alert(1);
