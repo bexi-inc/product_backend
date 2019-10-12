@@ -429,12 +429,8 @@ p{
 
 .bexi_menu_list_h2
 {
-    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
-    font-size: 14.0px;
-    color: rgba(129, 129, 129, 1.0);
-    letter-spacing: 1.5px;
-    line-height: 22.0px;
     list-style-type: none;
+    padding-inline-start: 0px;
 }
 .bexi_menu_list_h3
 {
