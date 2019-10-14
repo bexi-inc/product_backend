@@ -186,6 +186,10 @@ p{
     background-size: cover;
 }
 
+.carousel-indicators{
+    bottom: -30px;
+}
+
 .bexi_price{
 
 }
