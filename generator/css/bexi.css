@@ -179,6 +179,11 @@ p{
     width: 100%;
 }
 
+.hero{
+    height: 100%;
+    align-items: center;
+}
+
 .img-background{
     background-image:src='%img|1920|1080|%';
     background-position: center;
