@@ -232,6 +232,10 @@ p{
         display: list-item !important;
         float:none !important;
     }
+
+    .center-mobile{
+        text-align: center;
+    }
 }
 
 .bexi_panel
