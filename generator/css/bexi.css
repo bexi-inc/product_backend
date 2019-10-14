@@ -116,7 +116,7 @@ a{
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
     padding-bottom: 20px;
-    width: 100% !important;
+    width: 100% ;
 }
 
 p{
@@ -147,7 +147,7 @@ p{
     font-style: normal !important;
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
-    width: 100% !important;
+    width: 100%;
 }
 
 .Caption{
@@ -179,11 +179,22 @@ p{
     width: 100%;
 }
 
+.hero{
+    display: flex;
+    align-items: center;
+    margin-top:auto;
+    margin-bottom: auto;
+}
+
 .img-background{
     background-image:src='%img|1920|1080|%';
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.carousel-indicators{
+    bottom: -30px;
 }
 
 .bexi_price{
@@ -219,6 +230,7 @@ p{
         padding-left: 0px !important;
         text-align: center;
         display: list-item !important;
+        float:none !important;
     }
 }
 
@@ -429,12 +441,8 @@ p{
 
 .bexi_menu_list_h2
 {
-    font-family: "Montserrat","Roboto", Helvetica, Arial, serif;
-    font-size: 14.0px;
-    color: rgba(129, 129, 129, 1.0);
-    letter-spacing: 1.5px;
-    line-height: 22.0px;
     list-style-type: none;
+    padding-inline-start: 0px;
 }
 .bexi_menu_list_h3
 {
