@@ -172,18 +172,21 @@
 
         var editortxt = new FroalaEditor('.bexi_text',
         {
+          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
           toolbarInline: true,
           charCounterCount: false
         });
 
         var editortitles = new FroalaEditor('.bexi_title',
         {
+          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
           toolbarInline: true,
           charCounterCount: false
         });
 
          var editorsubtitles = new FroalaEditor('.bexi_subtitle',
         {
+          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
           toolbarInline: true,
           charCounterCount: false
         });
