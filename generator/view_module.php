@@ -110,11 +110,11 @@ echo "<meta charset='utf-8'>";
 echo "\r\n";
 echo "<title>Bexi DNA Project</title>";
 echo "\r\n";
-echo '<link rel="stylesheet" type="text/css" href="./css/bexi.css">';
 echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>';
 echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
 echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
 echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
+echo '<link rel="stylesheet" type="text/css" href="./css/bexi.css">';
 
  //   <link rel="stylesheet" href="includes/colorpicker/css/colorpicker.css" type="text/css" />
  //  <link rel="stylesheet" media="screen" type="text/css" href="includes/colorpicker/css/layout.css" />
