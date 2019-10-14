@@ -239,7 +239,7 @@ p{
     }
 
     .border-lines-mobile{
-        border-right: 0px solid rgba(201,201,201,0.5);
+        border-right:none;
         border-bottom: 1px solid rgba(201,201,201,0.5);
     }
 }
