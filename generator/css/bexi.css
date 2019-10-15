@@ -186,6 +186,12 @@ p{
     margin-bottom: auto;
 }
 
+.hea{
+    height: 80px;
+    padding-bottom: 0%;
+    padding-top: 0%;
+}
+
 .img-background{
     background-image:src='%img|1920|1080|%';
     background-position: center;
@@ -452,6 +458,7 @@ p{
 {
     list-style-type: none;
     padding-inline-start: 0px;
+    margin-bottom: 0px;
 }
 
 .bexi_menu_list_h2
