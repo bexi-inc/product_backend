@@ -188,6 +188,10 @@ p{
 
 .hea{
     height: 80px;
+    padding-bottom: 0%;
+    padding-top: 0%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .img-background{
