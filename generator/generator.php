@@ -158,7 +158,6 @@ $params = [
         [ '#tp' => 'type' ]
 ];
 
-//$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
  $set_colors = $dynamodb->query($params);
 
@@ -166,7 +165,7 @@ $key = array_rand ($set_colors['Items'],1);
 $contenido.=$marshaler->unmarshalValue($set_colors['Items'][$key]['html_code']);
 $css[]=$marshaler->unmarshalValue($set_colors['Items'][$key]["file_css"]);
 
-$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
+//$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
 
 
 // OBTENEMOS EL FONT POR RANDON
