@@ -172,9 +172,9 @@
 
 
 
-        $( ".bexi_title" ).wrap( "<div class='bexi_editor_title'></div>" );
+        $( ".bexi_title" ).wrap( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
-        $( ".bexi_subtitle" ).wrap( "<div class='bexi_editor_subtitle'></div>" );
+        $( ".bexi_subtitle" ).wrap( "<div class='bexi_editor_subtitle'  style='width: 100%;'></div>" );
 
         $( ".bexi_text" ).wrap( "<div class='bexi_editor_text'></div>" );
 
