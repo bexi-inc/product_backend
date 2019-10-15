@@ -70,7 +70,7 @@ function setImages($contenido,$keywords = ""){
 	}
 
 	$pos=0;
-
+/*
 	while ( ( $pos = strpos( $contenido, "%bg_img", $pos ) ) !== false ) {
 	  $pos2 = strpos( $contenido, "%", ($pos + 1) );
 	 // echo "The letter 'l' was found at position: $pos<br/>";
@@ -130,11 +130,11 @@ function setImages($contenido,$keywords = ""){
 
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
 			}*/
-	    } catch (Crew\Unsplash\Exception $e) {
+	   //} catch (Crew\Unsplash\Exception $e) {
 	      //writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
-	    }
-	    $pos++;
-	}
+	   // }
+	   // $pos++;
+	//}*/
 	return $contenido;
 }
 
