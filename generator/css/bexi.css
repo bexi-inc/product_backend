@@ -180,6 +180,7 @@ p{
 }
 
 .hero{
+    height: 100vh;
     display: flex;
     align-items: center;
     margin-top:auto;
