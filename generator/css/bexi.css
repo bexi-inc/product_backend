@@ -187,6 +187,10 @@ p{
     margin-bottom: auto;
 }
 
+.hea_container{
+    min-height: 70px;
+}
+
 .hea{
     height: 70px;
     padding-right: 20px;
