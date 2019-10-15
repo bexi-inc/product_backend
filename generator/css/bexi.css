@@ -180,7 +180,7 @@ p{
 }
 
 .hero{
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 70px);
     display: flex;
     align-items: center;
     margin-top:auto;
@@ -188,7 +188,9 @@ p{
 }
 
 .hea{
-    height: 80px;
+    height: 70px;
+    padding-right: 20px;
+    padding-left:20px;
     padding-bottom: 0%;
     padding-top: 0%;
 }
