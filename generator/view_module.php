@@ -2,6 +2,7 @@
 
 include "includes/global.php";
 include "config.php";
+include "includes/utils.php";
 require 'vendor/autoload.php';
 
 
@@ -58,7 +59,7 @@ $contenido="";
 $contenido=$marshaler->unmarshalValue($result['Items'][0]['html_code']);
 $css[]=$marshaler->unmarshalValue($result['Items'][0]["file_css"]);
 
-$contenido= setImages($contenido,"");
+$contenido = setImages($contenido,"");
 
 
 $pos = 0;
