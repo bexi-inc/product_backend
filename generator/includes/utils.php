@@ -70,7 +70,9 @@ function setImages($contenido,$keywords = ""){
 	}
 
 	$pos=0;
-	
+	echo "Buscando backgroun IMGS";
+	die("PRUEBA");
+
 	while ( ( $pos = strpos( $contenido, "%bg_img", $pos ) ) !== false ) {
 	  $pos2 = strpos( $contenido, "%", ($pos + 1) );
 	 // echo "The letter 'l' was found at position: $pos<br/>";
