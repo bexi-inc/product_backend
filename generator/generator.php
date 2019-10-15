@@ -158,7 +158,6 @@ $params = [
         [ '#tp' => 'type' ]
 ];
 
-//$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
  $set_colors = $dynamodb->query($params);
 
@@ -166,7 +165,7 @@ $key = array_rand ($set_colors['Items'],1);
 $contenido.=$marshaler->unmarshalValue($set_colors['Items'][$key]['html_code']);
 $css[]=$marshaler->unmarshalValue($set_colors['Items'][$key]["file_css"]);
 
-$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
+//$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
 
 
 // OBTENEMOS EL FONT POR RANDON
@@ -242,11 +241,12 @@ echo "\r\n";
 echo "<title>Bexi DNA Project</title>";
 echo "\r\n";
 
+echo '<script src="includes/jquery-3.4.1.min.js"></script>';
+echo '<link rel="stylesheet" href="includes/jquery-ui.min.css">';
 echo '<link rel="stylesheet" href="./css/bexi_panel.css" >';
 echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
 echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
-echo '<script src="includes/jquery-3.4.1.min.js"></script>';
-echo '<link rel="stylesheet" href="includes/jquery-ui.min.css">';
+
 
 /**************   FROALA EDITOR **************/
 
@@ -271,7 +271,9 @@ echo '</style>';
 echo '  <script src="includes/jquery-ui.js"></script>';
 echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
 $n=1;
-echo'<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id='.$id_color.'&fontid='.$FontId.'" id="mod_css_0" >'; 
+//echo'<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id='.$id_color.'&fontid='.$FontId.'" id="mod_css_0" >'; 
+
+echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >'; 
 
 
  $js_css .= '<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id=\' + paletteId + \'&fontid=\' + FontId + \' " id="mod_css_'.$n.'">';
