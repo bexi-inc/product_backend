@@ -180,7 +180,7 @@ p{
 }
 
 .hero{
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
     align-items: center;
     margin-top:auto;
     margin-bottom: auto;
