@@ -138,7 +138,7 @@
          })
          $('.bexi_img').click(function(e) { 
            var id = $(this).attr('id');
-           alert("imagen " + id);
+           //alert("imagen " + id);
          });
 
          $('.bexi_text').click(function(e) { 
