@@ -69,7 +69,8 @@ function setImages($contenido,$keywords = ""){
 	    $pos++;
 	}
 
-
+	$pos=0;
+	
 	while ( ( $pos = strpos( $contenido, "%bg_img", $pos ) ) !== false ) {
 	  $pos2 = strpos( $contenido, "%", ($pos + 1) );
 	 // echo "The letter 'l' was found at position: $pos<br/>";
