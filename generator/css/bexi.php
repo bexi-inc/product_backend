@@ -267,18 +267,19 @@ p{
 
 .bexi_title
 {
-  cursor: text;
+  cursor: text !important;
 }
 
 .bexi_subtitle
 {
-  cursor: text;
+  cursor: text !important;
 }
 
 .bexi_text
 {
-  cursor: text;
+  cursor: text !important;
 }
+
 
 .bexi_icon
 {
