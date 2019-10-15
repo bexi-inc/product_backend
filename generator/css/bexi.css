@@ -188,6 +188,7 @@ p{
 }
 
 .hea_container{
+    display: flex;
     min-height: 70px;
     align-items: center;
 }
