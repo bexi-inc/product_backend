@@ -186,6 +186,10 @@ p{
     margin-bottom: auto;
 }
 
+.hea{
+    height: 100px;
+}
+
 .img-background{
     background-image:src='%img|1920|1080|%';
     background-position: center;
