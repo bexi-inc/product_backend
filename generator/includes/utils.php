@@ -70,12 +70,12 @@ function setImages($contenido,$keywords = ""){
 	}
 
 	$pos=0;
-/*
+
 	while ( ( $pos = strpos( $contenido, "%bg_img", $pos ) ) !== false ) {
 	  $pos2 = strpos( $contenido, "%", ($pos + 1) );
 	 // echo "The letter 'l' was found at position: $pos<br/>";
 	  $imgtag = substr($contenido,$pos+1,$pos2-$pos - 1);
-	  echo $imgtag;
+	  //echo $imgtag;
 	  $imgdata = explode ("|",$imgtag);
 	  //print_r( $imgdata);
 
@@ -92,7 +92,7 @@ function setImages($contenido,$keywords = ""){
 
 	   	 	$data = Crew\Unsplash\Photo::random($filters);
 
-	   	 	//print_r($data);
+	   	 	print_r($data);
 	     	//echo $data->user['name'];
 	     	//$contenido=substr_replace($contenido,' ',$pos2 + 2 ,0);
 	    	$contenido=substr_replace($contenido,$data->urls['custom'],$pos,$pos2-$pos);
@@ -130,11 +130,11 @@ function setImages($contenido,$keywords = ""){
 
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
 			}*/
-	   //} catch (Crew\Unsplash\Exception $e) {
-	      //writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
-	   // }
+	   } catch (Crew\Unsplash\Exception $e) {
+	      writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
+	   }
 	   // $pos++;
-	//}*/
+	}
 	return $contenido;
 }
 
