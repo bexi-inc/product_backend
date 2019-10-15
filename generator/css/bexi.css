@@ -188,12 +188,8 @@ p{
 
 .hea{
     height: 80px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    display: flex;
-    align-items: center;
-    margin-top:auto;
-    margin-bottom: auto;
+    padding-bottom: 0%;
+    padding-top: 0%;
 }
 
 .img-background{
