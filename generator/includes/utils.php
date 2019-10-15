@@ -70,7 +70,7 @@ function setImages($contenido,$keywords = ""){
 	}
 
 	$pos=0;
-	
+
 	while ( ( $pos = strpos( $contenido, "%bg_img", $pos ) ) !== false ) {
 	  $pos2 = strpos( $contenido, "%", ($pos + 1) );
 	 // echo "The letter 'l' was found at position: $pos<br/>";
@@ -92,7 +92,7 @@ function setImages($contenido,$keywords = ""){
 
 	   	 	$data = Crew\Unsplash\Photo::random($filters);
 
-	   	 	print_r($data);
+	   	 	//print_r($data);
 	     	//echo $data->user['name'];
 	     	//$contenido=substr_replace($contenido,' ',$pos2 + 2 ,0);
 	    	$contenido=substr_replace($contenido,$data->urls['custom'],$pos,$pos2-$pos);
