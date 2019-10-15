@@ -74,7 +74,7 @@ function setImages($contenido,$keywords = ""){
 	  $pos2 = strpos( $contenido, "%", ($pos + 1) );
 	 // echo "The letter 'l' was found at position: $pos<br/>";
 	  $imgtag = substr($contenido,$pos+1,$pos2-$pos - 1);
-	 // echo $imgtag;
+	  echo $imgtag;
 	  $imgdata = explode ("|",$imgtag);
 	  //print_r( $imgdata);
 
