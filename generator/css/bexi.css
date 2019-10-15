@@ -231,6 +231,7 @@ p{
         text-align: center;
         display: list-item !important;
         float:none !important;
+<<<<<<< HEAD
     }
 
     .center-mobile{
@@ -241,6 +242,8 @@ p{
     .border-lines-mobile{
         border-right:none !important;
         border-bottom: 1px solid rgba(201,201,201,0.5);
+=======
+>>>>>>> 7fe3c382d36390a8017fe857e8b8e95cb25cbd3f
     }
 }
 
@@ -277,12 +280,17 @@ p{
 
 .bexi_title
 {
+  cursor: text !important;
+}
 
+.bexi_subtitle
+{
+  cursor: text !important;
 }
 
 .bexi_text
 {
-
+  cursor: text !important;
 }
 
 .bexi_icon
@@ -660,7 +668,6 @@ p{
       position: relative;
       margin: 20px;
       color: whitesmoke;
-      border: 1px solid mediumorchid;
     }
 
   /* The alt text itself */
