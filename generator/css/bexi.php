@@ -267,12 +267,17 @@ p{
 
 .bexi_title
 {
+  cursor: text;
+}
 
+.bexi_subtitle
+{
+  cursor: text;
 }
 
 .bexi_text
 {
-
+  cursor: text;
 }
 
 .bexi_icon
@@ -650,7 +655,6 @@ p{
       position: relative;
       margin: 20px;
       color: whitesmoke;
-      border: 1px solid mediumorchid;
     }
 
   /* The alt text itself */
