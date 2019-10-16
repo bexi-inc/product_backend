@@ -25,7 +25,7 @@ $filters = [
 
 $data = Crew\Unsplash\Photo::all();
 
-print_r($data);
+print_r($data->storage);
  /* $response = FroalaEditor_Image::delete($_POST['src']);*/
   echo stripslashes(json_encode('Success'));
 }
