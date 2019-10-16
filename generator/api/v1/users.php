@@ -290,8 +290,8 @@ function UpdateProfile($connDyn, $userid, $username, $name, $last_name, $company
 	$updateData  = $updateData.'}';
 
 
-	print_r($updateData);
-	echo $updateQ;
+	//print_r($updateData);
+	//echo $updateQ;
 
 	$paramsNoms["#name"] = "name";
 
