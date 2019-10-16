@@ -25,12 +25,18 @@ $filters = [
 
 $data = Crew\Unsplash\Photo::all();
 
-print_r($data[0]);
 
-print_r($data->storage);
+foreach ($data as $photo)
+{
+	$imgs[] = array(
+    	"url" => $photo->urls["regular"],
+    	"thumb" => $photo->urls["thumb"],
+    	"tag": $photo->alt_description
+	);
 
-print_r($data["storage"]);
+}
 
+print_r($imgs);
  /* $response = FroalaEditor_Image::delete($_POST['src']);*/
   //echo stripslashes(json_encode('Success'));
 }
