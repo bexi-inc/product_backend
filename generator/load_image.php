@@ -18,6 +18,8 @@ $filters = [
 $data = Crew\Unsplash\Photo::all();
 
 
+print_r($data);
+
 
 ?>
 <? echo $data->urls['custom']; ?>
