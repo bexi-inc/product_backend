@@ -31,14 +31,14 @@ foreach ($data as $photo)
 	$imgs[] = array(
     	"url" => $photo->urls["regular"],
     	"thumb" => $photo->urls["thumb"],
-    	"tag" => $photo->alt_description
+    	"tag" => $photo["alt_description"]
 	);
 
 }
 
 print_r($imgs);
  /* $response = FroalaEditor_Image::delete($_POST['src']);*/
-  //echo stripslashes(json_encode('Success'));
+  echo stripslashes(json_encode($imgs));
 }
 catch (Exception $e) {
   http_response_code(404);
