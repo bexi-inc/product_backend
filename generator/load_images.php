@@ -25,7 +25,7 @@ $filters = [
 
 $data = Crew\Unsplash\Photo::all();
 
-
+print_r($data);
 foreach ($data as $photo)
 {
 	$imgs[] = array(
