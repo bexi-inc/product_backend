@@ -15,10 +15,8 @@ $filters = [
     'h'        => $_REQUEST["w"]
 ];
 
-$data = Crew\Unsplash\Photo::all();
+$data = Crew\Unsplash\Photo::random($filters);
 
-
-print_r($data);
 
 
 ?>
