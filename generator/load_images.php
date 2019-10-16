@@ -31,7 +31,7 @@ foreach ($data as $photo)
 	$imgs[] = array(
     	"url" => $photo->urls["regular"],
     	"thumb" => $photo->urls["thumb"],
-    	"tag" => $photo["alt_description"]
+    	"tag" => $photo->alt_description
 	);
 
 }
