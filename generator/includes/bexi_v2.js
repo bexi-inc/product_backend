@@ -118,9 +118,9 @@
          // $( "#dialog" ).dialog('open');
         });
 
-        $('img').dblclick(function(e) {  
+       /* $('img').dblclick(function(e) {  
              $( "#dlgimg" ).dialog('open');
-         });
+         });*/
 
          /* FUNCIONES DE IMAGENES */
 
