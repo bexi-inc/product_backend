@@ -209,6 +209,7 @@
           charCounterCount: false,
           initOnClick: true,
           imageManagerLoadURL: 'load_images.php',
+          menuBarPosition : "top"
 
         });
     });
