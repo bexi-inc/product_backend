@@ -87,6 +87,8 @@ echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/
 echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
 echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
 echo '<link rel="stylesheet" type="text/css" href="./css/bexi.css">';
+echo '<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">';
+echo '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"></script>';
 
  //   <link rel="stylesheet" href="includes/colorpicker/css/colorpicker.css" type="text/css" />
  //  <link rel="stylesheet" media="screen" type="text/css" href="includes/colorpicker/css/layout.css" />
