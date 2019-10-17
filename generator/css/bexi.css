@@ -248,6 +248,12 @@ p{
         float:none !important;
     }
 
+    .bexi_menu_list_h3 li{
+        padding-right: 40px;
+        text-align: right;
+        display: inline-block;
+    }
+
     .center-mobile{
         text-align: center;
         justify-content: center;
@@ -484,8 +490,8 @@ p{
 
 .bexi_menu_list_h3 li
 {
-    padding-top: 50px;
-    text-align: right;
+    padding-left: 40px;
+    text-align: center;
     display: inline-block;
 }
 
