@@ -4,7 +4,7 @@
 		/* Variables */
 :root {
 --thumbnail-width: 1440px;
---thumbnail-height: 900px;
+--thumbnail-height:1440px;
 --thumbnail-zoom: 0.25;
 }
 
