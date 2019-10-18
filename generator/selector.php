@@ -4,8 +4,8 @@
 		/* Variables */
 :root {
 --thumbnail-width: 1440px;
---thumbnail-height: 900px;
---thumbnail-zoom: 0.25;
+--thumbnail-height: 90%;
+--thumbnail-zoom: 0.40;
 }
 
 /* Basic CSS Reset */
