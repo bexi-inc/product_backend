@@ -270,6 +270,10 @@ echo '.colorpicker
 echo '</style>';
 echo '  <script src="includes/jquery-ui.js"></script>';
 echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
+
+echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
+echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"></script>';
+
 $n=1;
 //echo'<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id='.$id_color.'&fontid='.$FontId.'" id="mod_css_0" >'; 
 
