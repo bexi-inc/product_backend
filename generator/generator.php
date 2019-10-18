@@ -1,6 +1,9 @@
 <?
 session_start();
 $timeini = microtime(true);
+header( 'X-Frame-Options: ALLOW-FROM http://generator.localhost' );
+//header( 'X-Frame-Options: ALLOW-FROM http://generator.bexi.co' );
+//https://codepen.io
 //echo "Tiempo: ".(microtime(true) - $timeini)."<br>";
 include "includes/global.php";
 include "includes/utils.php";
