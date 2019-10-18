@@ -1,6 +1,8 @@
 <?
 session_start();
 $timeini = microtime(true);
+header( 'X-Frame-Options: ALLOW-FROM https://codepen.io' );
+//https://codepen.io
 //echo "Tiempo: ".(microtime(true) - $timeini)."<br>";
 include "includes/global.php";
 include "includes/utils.php";
