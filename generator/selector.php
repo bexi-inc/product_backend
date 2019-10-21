@@ -3,9 +3,9 @@
 <style type="text/css">
 		/* Variables */
 :root {
---thumbnail-width: 1440px;
---thumbnail-height: 90%;
---thumbnail-zoom: 0.40;
+--thumbnail-width : 90vw;
+--thumbnail-height : 90vh;;
+--thumbnail-zoom: 0.45;
 }
 
 /* Basic CSS Reset */
@@ -29,13 +29,14 @@ body {
   overflow: hidden;
   position: relative;
   background: #f9f9f9;
+  float: left;
 }
 
 /* Image Icon for the Background */
 .thumbnail-container::before {
   position: absolute;
-  left: ~"calc(50% - 16px)";
-  top: ~"calc(50% - 18px)";
+  left: calc(50% - 16px);
+  top: calc(50% - 18px);
   opacity: 0.2;
   display: block;
   -ms-zoom: 2;
@@ -83,19 +84,19 @@ body {
 <body>
 <div class="thumbnail-container">
 <div class="thumbnail">
-  <iframe src="http://generator.bexi.co//" frameborder="0" onload="this.style.opacity = 1"></iframe>
+  <iframe src="http://generator.bexi.co/" frameborder="0" onload="this.style.opacity = 1"></iframe>
 </div>
 </div>
 
 <div class="thumbnail-container" title="Thumbnail Image of designcode.io">
 <div class="thumbnail">
-  <iframe src="http://generator.bexi.co//" frameborder="0" onload="this.style.opacity = 1"></iframe>
+  <iframe src="http://generator.bexi.co/" frameborder="0" onload="this.style.opacity = 1"></iframe>
 </div>
 </div>
 
 <div class="thumbnail-container">
 <div class="thumbnail">
-  <iframe src="http://generator.bexi.co//" frameborder="0" onload="this.style.opacity = 1"></iframe>
+  <iframe src="https://google.com" frameborder="0" onload="this.style.opacity = 1"></iframe>
 </div>
 </div>
 </body>
