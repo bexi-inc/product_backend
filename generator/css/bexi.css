@@ -208,6 +208,46 @@ p{
     background-size: cover;
 }
 
+[class*="button-"] {
+	margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 13px;
+    padding-bottom: 13px;
+	display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+	font-size: 16.0px;
+	text-align: center;
+    line-height: 19.0px;
+    width: 200px;
+    height: 50px;
+}
+
+.button-default{
+    border-radius: 25px;
+	background-color: rgba(246, 175, 0, 1.0);
+	color: #fff;
+}
+
+.button-outline-1{
+    border-radius: 25px;
+	background-color:  #fff;
+    color: rgba(246, 175, 0, 1.0);
+    border-style: solid;
+	border-width: 2px;
+	border-color: rgba(246, 175, 0, 1.0);
+}
+
+.button-img{
+    border-radius: 25px;
+    background-color: rgba(246, 175, 0, 1.0);
+    padding-top: 0%;
+    padding-bottom: 0%;
+    padding-left:0%;
+    padding-right: 0%;
+}
+
 .carousel-indicators{
     bottom: -30px;
 }
