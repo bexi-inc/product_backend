@@ -252,7 +252,8 @@ p{
     border-top-left-radius: 0%;
     border-bottom-left-radius: 0%;
     background-color: rgba(246, 175, 0, 1.0);
-	color: #fff;
+    color: #fff;
+    margin-left: -25px;
 }
 
 .carousel-indicators{
@@ -341,6 +342,13 @@ p{
     .bexi_container{
         padding-left: 32px;
         padding-right: 32px;
+    }
+
+    .button-semi{
+        border-radius: 25px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        margin-left: auto;
     }
 }
 
