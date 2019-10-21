@@ -229,6 +229,12 @@ p{
 	color: #fff;
 }
 
+.button-default-2{
+    border-radius: 25px;
+	background-color: #fff;
+	color: rgba(246, 175, 0, 1.0);
+}
+
 .button-outline-1{
     border-radius: 25px;
 	background-color:  #fff;
