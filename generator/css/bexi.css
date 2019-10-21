@@ -217,11 +217,10 @@ p{
     padding-bottom: 13px;
 	display: inline-block;
     font-family: 'Montserrat', sans-serif;
-	font-size: 16.0px;
+	font-size: 14.0px;
 	text-align: center;
-    line-height: 19.0px;
+    line-height: 26.0px;
     width: 200px;
-    height: 50px;
 }
 
 .button-default{
