@@ -333,15 +333,17 @@ function GmailSigin($code)
 	$client->addScope("email");
 	$client->addScope("profile");
 	$res["error"]=0;
-	$res["link"]= $client->createAuthUrl();
+	//$res["link"]= $client->createAuthUrl();
 	$token = $client->fetchAccessTokenWithAuthCode($code);
 	$client->setAccessToken($token['access_token']);
 
 	// get profile info
 	$google_oauth = new Google_Service_Oauth2($client);
 	$google_account_info = $google_oauth->userinfo->get();
-	print_r($google_account_info);
+	//print_r($google_account_info);
 	$email =  $google_account_info->email;
 	$name =  $google_account_info->name;
+	$res["token"] = $token['access_token'];
+	return $res;
 }
 ?>
