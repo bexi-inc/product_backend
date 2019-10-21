@@ -1,0 +1,7 @@
+.hero{
+    min-height: 300px !important;
+    display: flex;
+    align-items: center;
+    margin-top:auto;
+    margin-bottom: auto;
+}
