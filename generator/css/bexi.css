@@ -279,6 +279,11 @@ p{
         border-right:none !important;
         border-bottom: 1px solid rgba(201,201,201,0.5);
     }
+
+    .bexi_container{
+        padding-left: 32px;
+        padding-right: 32px;
+    }
 }
 
 .bexi_panel
