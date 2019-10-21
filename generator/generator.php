@@ -302,6 +302,7 @@ echo "\r\n";
 </script>
 
 <script type="text/javascript"  src="includes/bexi_v2.js"></script>
+<script type="text/javascript"  src="includes/bexi_editor.js"></script>
 <?
 
 echo "</head>";
