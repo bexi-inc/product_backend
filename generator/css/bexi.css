@@ -223,6 +223,22 @@ p{
 }
 */
 
+
+/*------------ 1920+ rules -----------------*/
+@media (min-width: 1920px) {
+    .bexi_container{
+        max-width: 1920px !important;
+    }
+}
+
+/*------------ 1920 rules -----------------*/
+@media (max-width: 1920px) {
+    .bexi_container{
+        max-width: 1440px !important;
+    }
+}
+
+
 /*------------ Mobile rules -----------------*/
 @media (max-width: 768px) {
     .Order-top{
