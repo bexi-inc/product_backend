@@ -714,8 +714,8 @@ p{
     .alt-wrap { 
       display: block;
       position: relative;
-      margin: 20px;
       color: whitesmoke;
+      width: 100%;
     }
 
   /* The alt text itself */
