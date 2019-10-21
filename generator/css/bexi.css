@@ -248,6 +248,14 @@ p{
     padding-right: 0%;
 }
 
+.button-semi{
+    border-radius: 25px;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    background-color: rgba(246, 175, 0, 1.0);
+	color: #fff;
+}
+
 .carousel-indicators{
     bottom: -30px;
 }
