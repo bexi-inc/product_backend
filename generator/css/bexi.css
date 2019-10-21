@@ -350,6 +350,10 @@ p{
         padding-right: 32px;
     }
 
+    [class*="button-"] {
+        width: 100%;
+    }
+
     .button-semi{
         border-radius: 25px;
         border-top-left-radius: 25px;
