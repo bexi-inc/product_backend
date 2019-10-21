@@ -281,7 +281,7 @@ $n=1;
 //echo'<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id='.$id_color.'&fontid='.$FontId.'" id="mod_css_0" >'; 
 
 echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >'; 
-
+echo'<link rel="stylesheet" type="text/css" href="css/bexi_viewer.css" >'; 
 
  $js_css .= '<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id=\' + paletteId + \'&fontid=\' + FontId + \' " id="mod_css_'.$n.'">';
 
