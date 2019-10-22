@@ -285,6 +285,7 @@ p{
 }
 .carousel-indicators li {
     background-color: rgba(246, 175, 0, 1.0);
+    mix-blend-mode: difference;
 }
 
 .carousel-control-prev-icon,
