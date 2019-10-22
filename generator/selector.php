@@ -3,8 +3,8 @@
 <style type="text/css">
 		/* Variables */
 :root {
---thumbnail-width : 90vw;
---thumbnail-height : 90vh;;
+--thumbnail-width : 1440px;
+--thumbnail-height : 900px;;
 --thumbnail-zoom: 0.45;
 }
 
