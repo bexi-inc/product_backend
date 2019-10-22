@@ -302,13 +302,20 @@ echo "\r\n";
 </script>
 
 <script type="text/javascript"  src="includes/bexi_v2.js"></script>
-<script type="text/javascript"  src="includes/bexi_editor.js"></script>
+<script type="text/javascript"  src="includes/bexi_viewer.js"></script>
 <?
 
 echo "</head>";
 echo "\r\n";
 
 echo "<body>";
+echo '<div class="loader">
+    <span class="ball"></span>
+    <span class="ball2"></span>
+    <ul>
+        <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+</div>';
 
 include("bexi_panel.php");
 
