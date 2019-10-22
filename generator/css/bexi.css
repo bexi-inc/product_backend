@@ -595,6 +595,19 @@ p{
     margin-bottom: 0px;
 }
 
+.bexi_menu_list_h4
+{
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+.bexi_menu_list_h4 li
+{
+    padding-left: 30px;
+    text-align: center;
+    float: Right;
+}
+
 .bexi_menu_list_h3 li
 {
     padding-left: 40px;
