@@ -244,6 +244,7 @@ echo "\r\n";
 echo "<title>Bexi DNA Project</title>";
 echo "\r\n";
 
+echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
 echo '<script src="includes/jquery-3.4.1.min.js"></script>';
 echo '<link rel="stylesheet" href="includes/jquery-ui.min.css">';
 echo '<link rel="stylesheet" href="./css/bexi_panel.css" >';
