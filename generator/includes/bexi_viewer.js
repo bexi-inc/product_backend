@@ -1,4 +1,4 @@
 $(window).on('load', function() { 
-	alert(load);
+	alert("load");
    $('.preloader').fadeOut('slow');
 });
