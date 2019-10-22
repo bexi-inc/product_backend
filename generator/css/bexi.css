@@ -271,6 +271,7 @@ p{
     margin-left: -25px;
 }
 
+/*------------ Carousel rules -----------------*/
 .carousel-control-prev {
     left: -10%;
 }
@@ -282,6 +283,9 @@ p{
 .carousel-indicators{
     bottom: -30px;
 }
+.carousel-indicators li {
+    background-color: rgba(246, 175, 0, 1.0);
+}
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -289,8 +293,6 @@ p{
   width: 100px;
   outline: black;
   background-size: 100%, 100%;
-  border-radius: 50%;
-  border: 1px solid black;
   background-image: none;
 }
 
@@ -298,14 +300,15 @@ p{
 {
   content: '>';
   font-size: 55px;
-  color: red;
+  color: rgba(246, 175, 0, 1.0);
 }
 
 .carousel-control-prev-icon:after {
   content: '<';
   font-size: 55px;
-  color: red;
+  color: rgba(246, 175, 0, 1.0);
 }
+
 
 .bexi_price{
 
