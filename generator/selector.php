@@ -84,19 +84,19 @@ body {
 <body>
 <div class="thumbnail-container">
 <div class="thumbnail">
-  <iframe src="http://generator.bexi.co/" frameborder="0" onload="this.style.opacity = 1"></iframe>
+  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
 </div>
 </div>
 
 <div class="thumbnail-container" title="Thumbnail Image of designcode.io">
 <div class="thumbnail">
-  <iframe src="http://generator.bexi.co/" frameborder="0" onload="this.style.opacity = 1"></iframe>
+  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
 </div>
 </div>
 
 <div class="thumbnail-container">
 <div class="thumbnail">
-  <iframe src="https://google.com" frameborder="0" onload="this.style.opacity = 1"></iframe>
+  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
 </div>
 </div>
 </body>
