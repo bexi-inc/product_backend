@@ -309,13 +309,7 @@ echo "</head>";
 echo "\r\n";
 
 echo "<body>";
-echo '<div class="loader">
-    <span class="ball"></span>
-    <span class="ball2"></span>
-    <ul>
-        <li></li><li></li><li></li><li></li><li></li>
-    </ul>
-</div>';
+echo '<div class="preloader"></div>';
 
 include("bexi_panel.php");
 
