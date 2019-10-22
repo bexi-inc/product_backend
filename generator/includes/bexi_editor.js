@@ -7,7 +7,7 @@
 
          $( ".bexi_link" ).wrap( "<div class='bexi_editor_link'></div>" );
 
-          $( ".bexi_button" ).wrap( "<div class='bexi_editor_button'></div>" );
+          $( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
         
         var editortxt = new FroalaEditor('.bexi_editor_text',
