@@ -290,6 +290,10 @@ p{
     z-index: -1;
 }
 
+.justify-content-flex-end{
+    justify-content: flex-end;
+}
+
 /*
 [class*="col-"] {
     padding-left: 5px !important;
@@ -593,6 +597,19 @@ p{
     list-style-type: none;
     padding-inline-start: 0px;
     margin-bottom: 0px;
+}
+
+.bexi_menu_list_h4
+{
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+.bexi_menu_list_h4 li
+{
+    padding-left: 30px;
+    text-align: center;
+    float: Right;
 }
 
 .bexi_menu_list_h3 li
