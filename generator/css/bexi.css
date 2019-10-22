@@ -208,6 +208,60 @@ p{
     background-size: cover;
 }
 
+[class*="button-"] {
+	margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 13px;
+    padding-bottom: 13px;
+	display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+	font-size: 14.0px;
+	text-align: center;
+    line-height: 26.0px;
+    width: 200px;
+}
+
+.button-default{
+    border-radius: 25px;
+	background-color: rgba(246, 175, 0, 1.0);
+	color: #fff;
+}
+
+.button-default-2{
+    border-radius: 25px;
+	background-color: #fff;
+	color: rgba(246, 175, 0, 1.0);
+}
+
+.button-outline-1{
+    border-radius: 25px;
+	background-color:  #fff;
+    color: rgba(246, 175, 0, 1.0);
+    border-style: solid;
+	border-width: 2px;
+	border-color: rgba(246, 175, 0, 1.0);
+}
+
+.button-img{
+    border-radius: 25px;
+    background-color: rgba(246, 175, 0, 1.0);
+    padding-top: 0%;
+    padding-bottom: 0%;
+    padding-left:0%;
+    padding-right: 0%;
+}
+
+.button-semi{
+    border-radius: 25px;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    background-color: rgba(246, 175, 0, 1.0);
+    color: #fff;
+    margin-left: -25px;
+}
+
 .carousel-indicators{
     bottom: -30px;
 }
@@ -294,6 +348,17 @@ p{
     .bexi_container{
         padding-left: 32px;
         padding-right: 32px;
+    }
+
+    [class*="button-"] {
+        width: 100%;
+    }
+
+    .button-semi{
+        border-radius: 25px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        margin-left: auto;
     }
 }
 
