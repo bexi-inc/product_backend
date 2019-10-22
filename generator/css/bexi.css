@@ -294,11 +294,6 @@ p{
     justify-content: flex-end;
 }
 
-
-.bexi_editor_button{
-    all:inherit;
-}
-
 /*
 [class*="col-"] {
     padding-left: 5px !important;
