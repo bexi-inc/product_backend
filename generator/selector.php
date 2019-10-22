@@ -5,7 +5,7 @@
 :root {
 --thumbnail-width : 1440px;
 --thumbnail-height : 900px;;
---thumbnail-zoom: 0.45;
+--thumbnail-zoom: 0.30;
 }
 
 /* Basic CSS Reset */

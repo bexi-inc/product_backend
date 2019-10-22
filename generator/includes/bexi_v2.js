@@ -153,7 +153,7 @@
 
            $('.bexi_link').click(function(e) { 
              var id = $(this).attr('id');
-             alert("link " + id);
+             //alert("link " + id);
          });
 
         $('.bexi_subtitle').click(function(e) { 
@@ -169,7 +169,7 @@
            var id = $(this).attr('id');
            alert("Icono " + id);
          });
-        
+
     });
 
     function RGBAToHexA(rgba) {
