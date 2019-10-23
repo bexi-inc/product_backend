@@ -263,6 +263,13 @@ p{
     max-height: 51px;
 }
 
+.button-img img{
+    max-height: 51px;
+    width: 100%;
+    height: auto;
+}
+
+
 .button-semi{
     border-radius: 25px;
     border-top-left-radius: 0%;
