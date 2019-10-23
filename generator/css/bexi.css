@@ -260,6 +260,7 @@ p{
     padding-bottom: 0%;
     padding-left:0%;
     padding-right: 0%;
+    max-height: 51px;
 }
 
 .button-semi{
