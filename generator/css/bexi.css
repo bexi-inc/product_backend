@@ -332,9 +332,9 @@ p{
       }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .Ocult{
-        width: 0%;
+        width: 0% !important;
     }
 }
 
