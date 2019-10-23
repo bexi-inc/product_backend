@@ -998,3 +998,24 @@ p{
       border-radius: 50%;
       background: rgba(246, 175, 0, 1.0);
   }
+
+  .fr-element{
+    justify-content: inherit;
+    text-align: inherit;
+    align-content: inherit;
+    width: inherit;
+  }
+
+  .fr-wrapper{
+    justify-content: inherit;
+    text-align: inherit;
+    align-content: inherit;
+    width: inherit;
+  }
+
+  .bexi_editor_button{
+    justify-content: inherit;
+    text-align: inherit;
+    align-content: inherit;
+    width: inherit;
+  }
