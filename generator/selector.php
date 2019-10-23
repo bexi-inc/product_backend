@@ -133,8 +133,8 @@
 <body>
 <div class="main_selector">
 	<!-- Next and previous buttons -->
-	<a class="selector_prev" onclick="plusSlides(-1)">&#10094;</a>
-	<a class="selector_next" onclick="plusSlides(1)">&#10095;</a>
+	<a class="selector_prev" onclick="plusSlides(1)">&#10094;</a>
+	<a class="selector_next" onclick="plusSlides(-1)">&#10095;</a>
 
 	<div class="thumbnail-container mySlides">
 		<div class="thumbnail ">
