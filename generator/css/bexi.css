@@ -333,6 +333,9 @@ p{
 }
 
 @media (min-width: 768px) {
+    .bexi_menu_list_h3 li{
+        padding-right: 30px;
+    }
     .Ocult{
         display: none;
     }
