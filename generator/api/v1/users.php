@@ -335,16 +335,23 @@ function GmailSigin($code)
 	$res["error"]=0;
 	//$res["link"]= $client->createAuthUrl();
 	$token = $client->fetchAccessTokenWithAuthCode($code);
-	print_r($token);
-	$client->setAccessToken($token['access_token']);
+	//print_r($token);
+	if ($token["error"])
+	{
+		$res["error"]= $token["error"]." - ".$token["error_description"];
+	}else
+	{
+		$client->setAccessToken($token['access_token']);
 
-	// get profile info
-	$google_oauth = new Google_Service_Oauth2($client);
-	$google_account_info = $google_oauth->userinfo->get();
-	//print_r($google_account_info);
-	$email =  $google_account_info->email;
-	$name =  $google_account_info->name;
-	$res["token"] = $token['access_token'];
-	return $res;
+		// get profile info
+		$google_oauth = new Google_Service_Oauth2($client);
+		$google_account_info = $google_oauth->userinfo->get();
+		//print_r($google_account_info);
+		$email =  $google_account_info->email;
+		$name =  $google_account_info->name;
+		$res["token"] = $token['access_token'];
+		return $res;	
+	}
+	
 }
 ?>
