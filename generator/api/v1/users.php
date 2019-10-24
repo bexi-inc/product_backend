@@ -335,6 +335,7 @@ function GmailSigin($code)
 	$res["error"]=0;
 	//$res["link"]= $client->createAuthUrl();
 	$token = $client->fetchAccessTokenWithAuthCode($code);
+	print_r($token);
 	$client->setAccessToken($token['access_token']);
 
 	// get profile info
