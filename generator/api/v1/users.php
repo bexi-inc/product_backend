@@ -349,9 +349,9 @@ function GmailSigin($code)
 		//print_r($google_account_info);
 		$email =  $google_account_info->email;
 		$name =  $google_account_info->name;
-		$res["token"] = $token['access_token'];
-		return $res;	
+		$res["token"] = $token['access_token'];	
 	}
+	return $res;
 	
 }
 ?>
