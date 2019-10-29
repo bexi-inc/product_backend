@@ -3,3 +3,4 @@
 /generator/migration.php
 vendor
 /generator/vendor/
+/generator/composer.lock
