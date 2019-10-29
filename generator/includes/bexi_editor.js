@@ -43,7 +43,7 @@
            }
            $("#dialog-1").attr("Title", "Content Block Settings");
            $("#dialog-1").attr("data-id", "#" + this.$box[0].id);
-           $("#dialog-1").html("<div style='min-height: 200px;'>Backgroun Color:<input type='text' id='colorpicker_1' class='form-control' data-control='hue' value='" + hexcolor + "'></div>");
+           $("#dialog-1").html("<div style='min-height: 100px;'>Backgroun Color:<input type='text' id='colorpicker_1' class='form-control' data-control='hue' value='" + hexcolor + "'></div>");
            $( "#dialog-1" ).dialog({
                     resizable: false,
                     height: "auto",
