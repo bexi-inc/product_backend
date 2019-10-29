@@ -1,22 +1,112 @@
+ function rgb2hex(rgb){
+     rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+     return (rgb && rgb.length === 4) ? "#" +
+      ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+      ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+      ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+}
+
+
  $(document).ready(function() {
- $( ".bexi_title" ).wrap( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
+   $( ".bexi_title" ).wrap( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
         $( ".bexi_subtitle" ).wrap( "<div class='bexi_editor_subtitle'  style='width: 100%;'></div>" );
 
-        $( ".bexi_text" ).wrap( "<div class='bexi_editor_text'></div>" );
+       // $( ".bexi_text" ).wrap( "<div class='bexi_editor_text' id='" + this.attr('id') + "''></div>" );
+
+       $( ".bexi_text" ).each(function( index ) {
+           $(this).wrap( "<div class='bexi_editor_text' id='ed_" + $(this).attr('id') + "''></div>" );
+       });
 
        // $( ".bexi_link" ).wrap( "<div class='bexi_editor_link'></div>" );
 
         //$( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
-        
+        FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+        FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'layer-group'});
+        FroalaEditor.RegisterCommand('ContentBlock', {
+          title: 'Content Block Settings',
+          icon: 'icon_block',
+          focus: false,
+          undo: false,
+          refreshAfterCallback: false,
+          callback: function () {
+            console.log(this);
+            //alert(this.$box[0].id);
+            //$("#" + this.$box[0].id).closest(".bexi_module").css("background-color","#000000")
+           // alert($("#" + this.$box[0].id).closest(".bexi_module").html());
+
+           var vcolor = $("#" + this.$box[0].id).closest(".bexi_module").css("background-color").replace(/\s/g, "");;
+           console.log(vcolor);
+           var hexcolor ="";
+           if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
+           {
+               hexcolor = rgb2hex(vcolor);
+           }
+           $("#dialog-1").attr("Title", "Content Block Settings");
+           $("#dialog-1").attr("data-id", "#" + this.$box[0].id);
+           $("#dialog-1").html("<div style='min-height: 200px;'>Backgroun Color:<input type='text' id='colorpicker_1' class='form-control' data-control='hue' value='" + hexcolor + "'></div>");
+           $( "#dialog-1" ).dialog({
+                    resizable: false,
+                    height: "auto",
+                    width: 500,
+                    modal: true,
+                    buttons: {
+                      "Save": function() {
+                        //alert($(this).attr("data-id"));
+                        //alert($("#colorpicker_1").minicolors("rgbString"));
+                        $($(this).attr("data-id")).closest(".bexi_module").css("background-color",$("#colorpicker_1").minicolors("rgbString"))
+                        $( this ).dialog( "close" );
+
+                      },
+                      Cancel: function() {
+                        $( this ).dialog( "close" );
+                      }
+                    }
+            });
+
+            $("#colorpicker_1").minicolors({
+                control: $(this).attr('data-control') || 'hue',
+                inline: $(this).attr('data-inline') === 'true',
+                letterCase: 'lowercase',
+                opacity: false,
+                change: function(hex, opacity) {
+                  if(!hex) return;
+                  if(opacity) hex += ', ' + opacity;
+                  try {
+                    console.log(hex);
+                  } catch(e) {}
+                  $(this).select();
+                },
+                theme: 'bootstrap'
+            });
+          }
+        });
+
         var editortxt = new FroalaEditor('.bexi_editor_text',
         {
           key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
           toolbarInline: true,
           charCounterCount: false,
-          initOnClick: true
+          initOnClick: true,
+          toolbarButtons : {
+             'moreText': {
+                'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting']
+              },
+              'moreParagraph': {
+                'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight', 'outdent', 'indent', 'quote']
+              },
+              'moreRich': {
+                'buttons': ['insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR']
+              },
+              'bexi_extra' : {
+                  'buttons' : ['ContentBlock']
+              }
+          }
         });
+
+
+        
 
         var editortitles = new FroalaEditor('.bexi_editor_title',
         {
