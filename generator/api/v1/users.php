@@ -335,13 +335,13 @@ function GmailSigin($code)
 	$client->setRedirectUri(GMAIL_CLIENT_REDIRECT_URL);
 	$client->addScope("email");
 	$client->addScope("profile");
-	$res["error"]=0;
+	$ret["error"]=0;
 	//$res["link"]= $client->createAuthUrl();
 	$token = $client->fetchAccessTokenWithAuthCode($code);
 	//print_r($token);
 	if ($token["error"])
 	{
-		$res["error"]= $token["error"]." - ".$token["error_description"];
+		$ret["error"]= $token["error"]." - ".$token["error_description"];
 	}else
 	{
 		$client->setAccessToken($token['access_token']);
@@ -354,11 +354,11 @@ function GmailSigin($code)
 		$name =  $google_account_info->name;
 
 		$ret["error_code"] = "0";
-		$res["token"] = $token['access_token'];	
+		$ret["token"] = $token['access_token'];	
 
 		$data='
 		    {
-		        ":gtoken": "'.$res["token"].'"
+		        ":gtoken": "'.$ret["token"].'"
 		    }
 		';
 		$table = ExecuteQuery("users",$data,"google_token = :gtoken","google_token-index");
@@ -401,7 +401,7 @@ function GmailSigin($code)
 		$userData ='{
 			"id" : "'.$userid.'",
 			"username" : "'.$email.'",
-			"gmail_token" : "'.$res["token"].'"
+			"gmail_token" : "'.$ret["token"].'"
 		}';
 
 		$resIns=Insert("users",$userData);
@@ -435,7 +435,7 @@ function GmailSigin($code)
 		}
 		
 	}
-	return $res;
+	return $ret;
 	
 }
 ?>
