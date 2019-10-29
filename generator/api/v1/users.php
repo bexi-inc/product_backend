@@ -401,7 +401,7 @@ function GmailSigin($code)
 		$userData ='{
 			"id" : "'.$userid.'",
 			"username" : "'.$email.'",
-			"gmail_token" : "'.$ret["token"].'"
+			"google_token" : "'.$ret["token"].'"
 		}';
 
 		$resIns=Insert("users",$userData);
