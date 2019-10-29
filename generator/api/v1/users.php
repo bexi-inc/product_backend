@@ -326,6 +326,9 @@ function GetGmailLoginLink()
 
 function GmailSigin($code)
 {
+	global $Marshaler;
+
+
 	$client = new Google_Client();
 	$client->setClientId(GMAIL_CLIENT_ID);
 	$client->setClientSecret(GMAIL_CLIENT_SECRET);
@@ -349,7 +352,88 @@ function GmailSigin($code)
 		//print_r($google_account_info);
 		$email =  $google_account_info->email;
 		$name =  $google_account_info->name;
+
+		$ret["error_code"] = "0";
 		$res["token"] = $token['access_token'];	
+
+		$data='
+		    {
+		        ":gtoken": "'.$res["token"].'"
+		    }
+		';
+		$table = ExecuteQuery("users",$data,"google_token = :gtoken","google_token-index");
+
+		if ($table["error"]=="")
+		{
+			$dbdata = $table["data"]['Items'];
+			if (count($dbdata)>0)
+			{
+			    if ($Marshaler->unmarshalValue($dbdata[0]['username'])==$email)
+			    {
+			    	$ret["error_code"] = "101";
+			    	$ret["message"] = "user already exists";
+			    	return $ret;
+			    }else{
+			    	$ret["error_code"] = "1";
+			    }
+			}
+
+		}
+		else{
+			$ret["error_code"] = "500";
+		    $ret["message"] =  $table["error"];
+		    return $ret;
+		}
+
+		$params='
+	    {
+	        ":nam": "user_id"
+	    }
+		';
+
+		$table = ExecuteQuery("vars",$params, 'var_name = :nam');
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+			$userid =  $Marshaler->unmarshalValue($dbdata[0]['value']);
+		}
+		
+		$userData ='{
+			"id" : "'.$userid.'",
+			"username" : "'.$email.'",
+			"gmail_token" : "'.$res["token"].'"
+		}';
+
+		$resIns=Insert("users",$userData);
+
+		if (!$resIns["error"])
+		{
+			$ret["user_id"] = $userid;
+			$userid = $userid+1;
+
+			$key = '
+			    {
+			        "var_name": "user_id"
+			    }
+			';
+
+			$updateData='{
+				":val" : "'.$userid.'"
+			}';
+
+			$paramsNoms["#value"] = "value";
+			$resUpd = Update("vars",$key,"set #value = :val",$updateData,$paramsNoms);
+
+			if ($resUpd["error"])
+			{
+				//print_r($resUpd);
+			}
+		}else{
+			$ret["error_code"] = "500";
+		    $ret["message"] =  $resIns["error"];
+		    return $ret;
+		}
+		
 	}
 	return $res;
 	
