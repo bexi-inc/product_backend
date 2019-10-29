@@ -257,32 +257,26 @@ echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.
 echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
 
-echo '
-    <link rel="stylesheet" href="includes/colorpicker/css/colorpicker.css" type="text/css" />
-    <script type="text/javascript" src="includes/colorpicker/js/eye.js"></script>
-    <script type="text/javascript" src="includes/colorpicker/js/utils.js"></script>
-    <script type="text/javascript" src="includes/colorpicker/js/layout.js?ver=1.0.2"></script>';
 
-echo "<!-- jQuery Modal -->";
-echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>';
-echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />';
-echo '<style>';
-echo '.colorpicker
-        {
-            z-index:999;
-        }';
-echo '</style>';
-echo '  <script src="includes/jquery-ui.js"></script>';
+
 echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
 
 echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
 echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"></script>';
-
+echo '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />';
 $n=1;
 //echo'<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id='.$id_color.'&fontid='.$FontId.'" id="mod_css_0" >'; 
 
-echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >'; 
 
+echo '<script src="includes/jquery-ui.min.js"></script>';
+echo '<link rel="stylesheet" type="text/css" href="includes/jquery-ui.theme.css" >';
+
+
+echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jquery.minicolors.css">
+      <script type="text/javascript" src="includes/jquery.minicolors.min.js"></script>';
+
+
+echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >'; 
 
  $js_css .= '<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id=\' + paletteId + \'&fontid=\' + FontId + \' " id="mod_css_'.$n.'">';
 
@@ -311,6 +305,8 @@ echo "\r\n";
 
 echo "<body>";
 
+echo '<div id="dialog-1" title="Titulo" style="display: none;">
+</div>';
 include("bexi_panel.php");
 
 
