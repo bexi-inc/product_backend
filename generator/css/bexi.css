@@ -860,6 +860,10 @@ p{
 	border-bottom: none;
 }
 
+.bg-dark{
+  background-color: #f4f7fe;
+}
+
 .bgcolor_fill1
 {
 	background-color: rgba(246, 175, 0, 1.0);
