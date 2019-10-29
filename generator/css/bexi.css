@@ -180,6 +180,9 @@ p{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .hero{
@@ -855,6 +858,10 @@ p{
 	border-left: none;
 	border-top: none;
 	border-bottom: none;
+}
+
+.bg-gray{
+  background-color: #f4f7fe;
 }
 
 .bgcolor_fill1
