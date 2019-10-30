@@ -21,7 +21,7 @@
        $( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
        $( ".bexi_video" ).wrap( "<div class='bexi_editor_video' style='width: 100%;'></div>" );
-       //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
+       $( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
         FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'layer-group'});
@@ -128,14 +128,9 @@
          var editorlin = new FroalaEditor('.bexi_editor_link',
         {
           key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
-          linkButtons : {
-            'moreText': {
-               'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting']
-             },
-             'moreRich': {
-               'buttons': ['insertLink','emoticons', 'fontAwesome']
-             }
-         }
+          toolbarInline: true,
+          charCounterCount: false,
+          initOnClick: true
         });
 
          var editorimg = new FroalaEditor('.bexi_img',
