@@ -16,9 +16,9 @@
            $(this).wrap( "<div class='bexi_editor_text' id='ed_" + $(this).attr('id') + "''></div>" );
        });
 
-       // $( ".bexi_link" ).wrap( "<div class='bexi_editor_link'></div>" );
+       $( ".bexi_link" ).wrap( "<div class='bexi_editor_link'></div>" );
 
-        //$( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
+       $( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
         FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'layer-group'});
@@ -150,4 +150,16 @@
           toolbarBottom : false
 
         });
+
+        var editorvid = new FroalaEditor('.bexi_video', {
+          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
+          toolbarInline: true,
+          charCounterCount: false,
+          initOnClick: true,
+          toolbarBottom : false,
+          videoResponsive: true,
+          toolbarButtons: ['insertVideo'],
+          videoAllowedProviders: ['youtube', 'vimeo'],
+          videoInsertButtons: ['videoBack', '|', 'videoByURL']
+        })
 });
