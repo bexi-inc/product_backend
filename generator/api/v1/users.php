@@ -352,16 +352,17 @@ function GmailSigin($code)
 		//print_r($google_account_info);
 		$email =  $google_account_info->email;
 		$name =  $google_account_info->name;
+		$idgoogle =  $google_account_info->id;
 
 		$ret["error_code"] = "0";
 		$ret["token"] = $token['access_token'];	
 
 		$data='
-		    {
-		        ":gtoken": "'.$ret["token"].'"
-		    }
+	    {
+	        ":username": "'.$email.'"
+	    }
 		';
-		$table = ExecuteQuery("users",$data,"google_token = :gtoken","google_token-index");
+		$table = ExecuteQuery("users",$data,"username = :username","username-index");
 
 		if ($table["error"]=="")
 		{
@@ -401,7 +402,7 @@ function GmailSigin($code)
 		$userData ='{
 			"id" : "'.$userid.'",
 			"username" : "'.$email.'",
-			"google_token" : "'.$ret["token"].'"
+			"google_token" : "'.$idgoogle.'"
 		}';
 
 		$resIns=Insert("users",$userData);
