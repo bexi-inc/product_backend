@@ -183,7 +183,6 @@
           initOnClick: true,
           toolbarBottom : false,
           toolbarVisibleWithoutSelection: true,
-          htmlUntouched: true,
           htmlAllowedEmptyTags: ['i','.fas','div'],
           fontAwesomeTemplate: '<i class="fas fa-[NAME] fr-deletable" aria-hidden="true">&nbsp;</i>',
           toolbarButtons : {
