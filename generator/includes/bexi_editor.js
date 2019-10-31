@@ -24,7 +24,7 @@
 
        $(".bexi_img").addClass("fr-view fr-dib");
 
-       $( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
+       $( ".bexi_icon" ).wrap( "<span class='bexi_editor_icon'></span>" );
 
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
         FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'layer-group'});
