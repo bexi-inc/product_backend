@@ -1489,14 +1489,6 @@ p{
     .btn-block + .btn-block {
       margin-top: 0.5rem; }
 
-  img.fr-view.fr-dib{
-    float: none;
-    margin: 5px;
-    text-align: center;
-  }
-
-  img.fr-view.fr-dib.fr-fil{
-    float: none;
-    margin: 5px;
-    text-align: center;
-  }
+img.fr-view.fr-dib {
+  margin: 0px auto;
+}
