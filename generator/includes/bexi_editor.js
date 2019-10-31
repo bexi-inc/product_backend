@@ -90,6 +90,7 @@
           toolbarInline: true,
           charCounterCount: false,
           initOnClick: true,
+          htmlAllowedEmptyTags: ['i'],
           toolbarButtons : {
              'moreText': {
                 'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting']
