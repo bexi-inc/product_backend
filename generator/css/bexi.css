@@ -1489,7 +1489,7 @@ p{
     .btn-block + .btn-block {
       margin-top: 0.5rem; }
 
-  .img.fr-view.fr-dib{
+  img.fr-view.fr-dib{
     float: none;
     margin: none;
   }
