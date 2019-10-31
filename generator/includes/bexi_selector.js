@@ -1,5 +1,6 @@
 var slideIndex = 1;
 var sliderSize = .40;
+
 function GetWidthScreen()
 {
   var myWidth = 0, myHeight = 0;
@@ -16,11 +17,13 @@ function GetWidthScreen()
     myWidth = document.body.clientWidth;
     myHeight = document.body.clientHeight;
   }
+  console.log("myWidth ");
+  console.log(myWidth);
   return myWidth;
-}
+};
 
  $(function() {
-
+//
  	//Set Variables 
  	document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
  	//document.documentElement.style.setProperty('--thumbnail-height', $( window ).height() * 4);
