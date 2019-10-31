@@ -87,8 +87,6 @@ echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/
 echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
 echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
 echo '<link rel="stylesheet" type="text/css" href="./css/bexi.css">';
-echo '<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">';
-echo '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"></script>';
 
  //   <link rel="stylesheet" href="includes/colorpicker/css/colorpicker.css" type="text/css" />
  //  <link rel="stylesheet" media="screen" type="text/css" href="includes/colorpicker/css/layout.css" />
@@ -96,6 +94,26 @@ echo '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs
     <script type="text/javascript" src="includes/colorpicker/js/eye.js"></script>
     <script type="text/javascript" src="includes/colorpicker/js/utils.js"></script>
     <script type="text/javascript" src="includes/colorpicker/js/layout.js?ver=1.0.2"></script>';
+
+
+/**************   FROALA EDITOR **************/
+
+echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
+
+
+
+echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
+
+echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
+echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"></script>';
+//echo '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />';
+echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
+
+/**************   ICON FONTS **************/
+echo '<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">';
+echo '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"></script>';
+
 foreach ($css as $hoja)
 {
      $css_php = substr($hoja, 0, -3) . 'php';
