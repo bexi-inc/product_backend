@@ -141,7 +141,8 @@
           charCounterCount: false,
           initOnClick: true,
           imageManagerLoadURL: 'load_images.php',
-          toolbarBottom : false
+          toolbarBottom : false,
+          imageDefaultAlign: 'center'
 
         });
 
