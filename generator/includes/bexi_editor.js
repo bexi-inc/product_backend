@@ -175,6 +175,7 @@
           initOnClick: true,
           toolbarBottom : false,
           htmlAllowedEmptyTags: ['i','.fas'],
+          htmlDoNotWrapTags: ['i'],
           toolbarButtons : {
             'moreText': {
                'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting']
