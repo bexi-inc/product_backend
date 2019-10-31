@@ -142,7 +142,7 @@
           initOnClick: true,
           imageManagerLoadURL: 'load_images.php',
           toolbarBottom : false,
-          imageDefaultAlign: 'center'
+          imageDefaultAlign: 'none'
 
         });
 
