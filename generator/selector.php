@@ -124,7 +124,18 @@
 
 	/* On hover, add a black background color with a little bit see-through */
 	.selector_prev:hover, .selector_next:hover {
-	  background-color: rgba(0,0,0,0.8);
+	  background-color: rgba(0,0,0,0.3);
+	}
+
+	.mySlides:hover:after{
+		  content: url('imgs/edit.png');;
+		  width: 100%;
+		  height: 100%;
+		  position: absolute;
+		  left: 0;
+		  top: 0;
+		  padding-top: 50%;
+		  background-color:rgba(0, 0, 0, 0.3);
 	}
 
 	</style>
