@@ -1488,3 +1488,7 @@ p{
     width: 100%; }
     .btn-block + .btn-block {
       margin-top: 0.5rem; }
+
+img.fr-view.fr-dib {
+  margin: 0px auto;
+}
