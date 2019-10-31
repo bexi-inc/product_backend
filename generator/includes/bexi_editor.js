@@ -24,7 +24,7 @@
 
        $(".bexi_img").addClass("fr-view fr-dib");
 
-       $(".bexi_icon").replaceWith($('<span>' + this.innerHTML + '</span>'));
+       $(".bexi_icon").replaceTag('<span>', true);
        $( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
