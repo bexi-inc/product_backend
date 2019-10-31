@@ -17,7 +17,8 @@ function GetWidthScreen()
     myWidth = document.body.clientWidth;
     myHeight = document.body.clientHeight;
   }
-  console.log ("myWidth "+myWidth);
+  console.log("myWidth ");
+  console.log(myWidth);
   return myWidth;
 };
 
