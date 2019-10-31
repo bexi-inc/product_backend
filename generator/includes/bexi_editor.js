@@ -131,7 +131,7 @@
           toolbarInline: true,
           charCounterCount: false,
           initOnClick: true,
-          linkEditButtons:['linkOpen', 'linkStyle', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting']
+          linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
         });
 
          var editorimg = new FroalaEditor('.bexi_img',
