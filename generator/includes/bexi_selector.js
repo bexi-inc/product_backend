@@ -4,19 +4,23 @@ var sliderSize = .40;
 function GetWidthScreen()
 {
   var myWidth = 0, myHeight = 0;
-  if( typeof( window.innerWidth ) == 'number' ) {
-    //Non-IE
-    myWidth = window.innerWidth;
-    myHeight = window.innerHeight;
-  } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
-    //IE 6+ in 'standards compliant mode'
-    myWidth = document.documentElement.clientWidth;
-    myHeight = document.documentElement.clientHeight;
-  } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
-    //IE 4 compatible
-    myWidth = document.body.clientWidth;
-    myHeight = document.body.clientHeight;
+  if (window !== top) {
+  	myWidth = window.innerWidth ;
+  }else{
+  	myWidth = $(window).width();
   }
+
+  if (myWidth==0)
+  {
+  	myWidth = window.screen.width;
+  }
+
+  if (myWidth==0)
+  {
+  		myWidth = Widthparam;
+  }
+  console.log("Widthparam");
+  console.log(Widthparam);
   console.log("myWidth ");
   console.log(myWidth);
   return myWidth;
