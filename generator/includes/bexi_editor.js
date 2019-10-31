@@ -6,31 +6,17 @@
       ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
-$.extend({
-  replaceTag: function (currentElem, newTagObj, keepProps) {
-      var $currentElem = $(currentElem);
-      var i, $newTag = $(newTagObj).clone();
-      if (keepProps) {//{{{
-          newTag = $newTag[0];
-          newTag.className = currentElem.className;
-          $.extend(newTag.classList, currentElem.classList);
-          $.extend(newTag.attributes, currentElem.attributes);
-      }//}}}
-      $currentElem.wrapAll($newTag);
-      $currentElem.contents().unwrap();
-      // return node; (Error spotted by Frank van Luijn)
-      return this; // Suggested by ColeLawrence
-  }
-});
+function renameElement($element,newElement){
 
-$.fn.extend({
-  replaceTag: function (newTagObj, keepProps) {
-      // "return" suggested by ColeLawrence
-      return this.each(function() {
-          jQuery.replaceTag(this, newTagObj, keepProps);
-      });
-  }
-});
+  $element.wrap("<"+newElement+">");
+  $newElement = $element.parent();
+  //Copying Attributes
+  $.each($element.prop('attributes'), function() {
+      $newElement.attr(this.name,this.value);
+  });
+  $element.contents().unwrap();
+  return $newElement;
+}
 
 
  $(document).ready(function() {
@@ -50,7 +36,7 @@ $.fn.extend({
 
        $(".bexi_img").addClass("fr-view fr-dib");
 
-       $(".bexi_icon").replaceTag('<span>', true);
+       renameElement('i','span');
        $( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
