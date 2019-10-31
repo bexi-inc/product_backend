@@ -140,6 +140,10 @@
 	}*/
 
 	</style>
+	<script type="text/javascript">
+		var Widthparam = <? echo (isset($_REQUEST["fullwidth"]) ? $_REQUEST["fullwidth"] : "0" ;) ?>;
+
+	</script>
 	<script type="text/javascript" src="includes/bexi_selector.js"></script>
 </head>
 <body>
