@@ -6,19 +6,6 @@
       ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
-function renameElement($element,newElement){
-
-  $element.wrap("<"+newElement+">");
-  $newElement = $element.parent();
-  //Copying Attributes
-  $.each($element.prop('attributes'), function() {
-      $newElement.attr(this.name,this.value);
-  });
-  $element.contents().unwrap();
-  return $newElement;
-}
-
-
  $(document).ready(function() {
      $( ".bexi_title" ).wrap( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
@@ -36,7 +23,6 @@ function renameElement($element,newElement){
 
        $(".bexi_img").addClass("fr-view fr-dib");
 
-       renameElement('i','span');
        $( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
