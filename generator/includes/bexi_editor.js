@@ -174,7 +174,7 @@
           charCounterCount: false,
           initOnClick: true,
           toolbarBottom : false,
-          htmlAllowedEmptyTags: ['i','.fas'],
+          htmlAllowedEmptyTags: ['i','.fas','div'],
           htmlDoNotWrapTags: ['i'],
           toolbarButtons : {
             'moreText': {
