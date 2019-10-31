@@ -1491,5 +1491,5 @@ p{
 
   img.fr-view.fr-dib{
     float: none;
-    margin: 0px;
+    margin: unset;
   }
