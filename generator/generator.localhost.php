@@ -2,7 +2,13 @@
 session_start();
 $timeini = microtime(true);
 //header( 'X-Frame-Options: ALLOW-FROM http://generator.localhost' );
-header( 'X-Frame-Options: ALLOW-FROM http://localhost' );
+if ($_REQUEST["origin"])
+{
+    header( 'X-Frame-Options: ALLOW-FROM http://'.$_REQUEST["origin"] );
+}else{
+    header( 'X-Frame-Options: ALLOW-FROM http://localhost:8080' );
+}
+
 //https://codepen.io
 //echo "Tiempo: ".(microtime(true) - $timeini)."<br>";
 include "includes/global.php";

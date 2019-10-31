@@ -127,6 +127,7 @@
 	  background-color: rgba(0,0,0,0.3);
 	}
 
+/*
 	.mySlides:hover:after{
 		  content: url('imgs/edit.png');;
 		  width: 100%;
@@ -136,7 +137,7 @@
 		  top: 0;
 		  padding-top: 50%;
 		  background-color:rgba(0, 0, 0, 0.3);
-	}
+	}*/
 
 	</style>
 	<script type="text/javascript" src="includes/bexi_selector.js"></script>
