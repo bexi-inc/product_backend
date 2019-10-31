@@ -22,10 +22,9 @@
 
        $( ".bexi_video" ).wrap( "<div class='bexi_editor_video' style='width: 100%;'></div>" );
 
-       //$( ".bexi_img" ).wrap( "<div class='bexi_editor_img'></div>" );
        $(".bexi_img").addClass("fr-view fr-dib");
 
-       //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
+       $( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
         FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'layer-group'});
