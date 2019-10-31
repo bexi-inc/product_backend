@@ -184,7 +184,6 @@
           toolbarBottom : false,
           toolbarVisibleWithoutSelection: true,
           htmlAllowedEmptyTags: ['i','.fas','div'],
-          htmlDoNotWrapTags: ['i'],
           fontAwesomeTemplate: '<i class="fas fa-[NAME] fr-deletable" aria-hidden="true">&nbsp;</i>',
           toolbarButtons : {
             'moreText': {
