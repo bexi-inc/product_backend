@@ -19,6 +19,8 @@ function GetWidthScreen()
   {
   		myWidth = Widthparam;
   }
+  console.log("Widthparam");
+  console.log(Widthparam);
   console.log("myWidth ");
   console.log(myWidth);
   return myWidth;
