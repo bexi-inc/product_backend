@@ -23,6 +23,7 @@
        $( ".bexi_video" ).wrap( "<div class='bexi_editor_video' style='width: 100%;'></div>" );
 
        //$( ".bexi_img" ).wrap( "<div class='bexi_editor_img'></div>" );
+       $(".bexi_img").addClass("fr-view fr-dib");
 
        //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
