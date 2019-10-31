@@ -185,13 +185,13 @@
           htmlAllowedEmptyTags: ['i','.fas','div'],
           toolbarButtons : {
             'moreText': {
-               'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting']
+               'buttons': ['fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
              },
              'moreParagraph': {
-               'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight', 'outdent', 'indent', 'quote']
+               'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify','lineHeight']
              },
              'moreRich': {
-               'buttons': ['insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR']
+               'buttons': ['insertLink', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly']
              },
              'bexi_extra' : {
                  'buttons' : ['ContentBlock']
