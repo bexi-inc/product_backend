@@ -1489,6 +1489,7 @@ p{
     .btn-block + .btn-block {
       margin-top: 0.5rem; }
 
-img.fr-view.fr-dib {
-  margin: 0px auto;
+.bexi_img {
+  margin-top: 0px !important ;
+  margin-bottom: 0px !important ;
 }
