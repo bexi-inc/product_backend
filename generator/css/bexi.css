@@ -1491,12 +1491,12 @@ p{
 
   img.fr-view.fr-dib{
     float: none;
-    margin: unset;
+    margin: 5px;
     text-align: center;
   }
 
   img.fr-view.fr-dib.fr-fil{
     float: none;
-    margin: unset;
+    margin: 5px;
     text-align: center;
   }
