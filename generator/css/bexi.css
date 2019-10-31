@@ -1490,5 +1490,6 @@ p{
       margin-top: 0.5rem; }
 
 .bexi_img {
-  margin: 0px auto !important ;
+  margin-top: 0px !important ;
+  margin-bottom: 0px !important ;
 }
