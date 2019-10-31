@@ -1,9 +1,28 @@
 var slideIndex = 1;
 var sliderSize = .40;
+function GetWidthScreen()
+{
+  var myWidth = 0, myHeight = 0;
+  if( typeof( window.innerWidth ) == 'number' ) {
+    //Non-IE
+    myWidth = window.innerWidth;
+    myHeight = window.innerHeight;
+  } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+    //IE 6+ in 'standards compliant mode'
+    myWidth = document.documentElement.clientWidth;
+    myHeight = document.documentElement.clientHeight;
+  } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+    //IE 4 compatible
+    myWidth = document.body.clientWidth;
+    myHeight = document.body.clientHeight;
+  }
+  return myWidth;
+}
+
  $(function() {
 
  	//Set Variables 
- 	document.documentElement.style.setProperty('--thumbnail-width', $( window ).width()+"px");
+ 	document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
  	//document.documentElement.style.setProperty('--thumbnail-height', $( window ).height() * 4);
 /*function showSlides(n) {
   var i;
@@ -27,7 +46,7 @@ var sliderSize = .40;
      	if (n<=4)
      	{
      		console.log("slider");
-     		var lpos =(n-1) * sliderSize * $( window ).width();
+     		var lpos =(n-1) * sliderSize * GetWidthScreen();
      		$(this).offset({ top: 0, left: lpos });
      	}
        	n = n +1;
