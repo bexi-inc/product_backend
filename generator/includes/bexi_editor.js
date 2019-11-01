@@ -198,9 +198,6 @@
              'bexi_extra' : {
                  'buttons' : ['ContentBlock']
              },
-             'fontAwesome':{
-                'buttons': ["fontAwesomeBack", "|"]
-             }
          }
         });
 });
