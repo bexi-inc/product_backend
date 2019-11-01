@@ -276,6 +276,10 @@ p{
     height: auto;
 }
 
+.special{
+  align-items: unset;
+}
+
 
 .button-semi{
     border-radius: 25px;
