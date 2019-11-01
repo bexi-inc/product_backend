@@ -184,7 +184,7 @@
           toolbarVisibleWithoutSelection: true,
           htmlAllowedEmptyTags: ['i','.fas','div'],
           toolbarButtons: ['fontAwesome'],
-          faButtons : {
+          toolbarButtons : {
             'moreText': {
                'buttons': ['fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
              },
