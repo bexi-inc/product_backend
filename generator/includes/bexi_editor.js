@@ -12,7 +12,7 @@
     //$("#" + this.$box[0].id).closest(".bexi_module").css("background-color","#000000")
   // alert($("#" + this.$box[0].id).closest(".bexi_module").html());
 
-  var vcolor = $("#" + this.$box[0].id).closest(".bexi_module").css("background-color").replace(/\s/g, "");;
+  var vcolor = $("#" + this.id).closest(".bexi_module").css("background-color").replace(/\s/g, "");;
   console.log(vcolor);
   var hexcolor ="";
   if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
@@ -20,7 +20,7 @@
       hexcolor = rgb2hex(vcolor);
   }
   $("#dialog-1").attr("Title", "Content Block Settings");
-  $("#dialog-1").attr("data-id", "#" + this.$box[0].id);
+  $("#dialog-1").attr("data-id", "#" + this.id);
   $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-control='hue' value='" + hexcolor + "'></div>");
   $( "#dialog-1" ).dialog({
             resizable: false,
