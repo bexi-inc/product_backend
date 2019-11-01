@@ -62,7 +62,8 @@
                       "Save": function() {
                         //alert($(this).attr("data-id"));
                         //alert($("#colorpicker_1").minicolors("rgbString"));
-                        $($(this).attr("data-id")).closest(".bexi_module").css("background-color",$("#colorpicker_1").minicolors("rgbString")+"!important")
+                        //$($(this).attr("data-id")).closest(".bexi_module").css("background-color",$("#colorpicker_1").minicolors("rgbString"))
+                        $($(this).attr("data-id")).closest(".bexi_module").style.setProperty("background-color",$("#colorpicker_1").minicolors("rgbString"),'important')
                         $( this ).dialog( "close" );
 
                       },
