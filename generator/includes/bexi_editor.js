@@ -6,32 +6,6 @@
       ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
-const pickr3 = new Pickr({
-  el: '#color-picker-3',
-  useAsButton: true,
-  default: "303030",
-  components: {
-    preview: true,
-    opacity: true,
-    hue: true,
-
-    interaction: {
-      hex: true,
-      rgba: true,
-      hsla: true,
-      hsva: true,
-      cmyk: true,
-      input: true,
-      clear: true,
-      save: true
-    }
-  },
-
-  onChange(hsva, instance) {
-    $('.bg-color').css('background-color', hsva.toRGBA().toString());
-  }
-});
-
   function bgchange(btid) {
     alert(btid);
 
