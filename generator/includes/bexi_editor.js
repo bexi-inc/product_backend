@@ -210,6 +210,8 @@
           toolbarBottom : false,
           toolbarVisibleWithoutSelection: true,
           htmlAllowedEmptyTags: ['div'],
+          placeholderText: '',
+          quickInsertEnabled: false,
           toolbarButtons : {
              'bexi_extra' : {
                  'buttons' : ['ContentBlock']
