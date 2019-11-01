@@ -183,6 +183,7 @@
           toolbarBottom : false,
           toolbarVisibleWithoutSelection: true,
           htmlAllowedEmptyTags: ['i','.fas','div'],
+          htmlDoNotWrapTags: ['script', 'style', 'img','i'],
           toolbarButtons: ['fontAwesome'],
           toolbarButtons : {
             'moreText': {
