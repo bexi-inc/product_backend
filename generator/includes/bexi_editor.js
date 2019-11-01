@@ -217,6 +217,7 @@
           toolbarVisibleWithoutSelection: true,
           htmlAllowedEmptyTags: ['div'],
           placeholderText: '',
+          toolbarContainer: '#bexi_module_bg',
           quickInsertEnabled: false,
           toolbarButtons : {
              'bexi_extra' : {
