@@ -46,7 +46,7 @@
           } catch(e) {}
           $(this).select();
         },
-        theme: 'default'
+        theme: 'bootstrap'
     });
   }
 
