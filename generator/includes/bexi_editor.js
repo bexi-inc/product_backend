@@ -22,7 +22,7 @@
        $( ".bexi_video" ).wrap( "<div class='bexi_editor_video' style='width: 100%;'></div>" );
 
        $(".bexi_img").addClass("fr-view fr-dib");
-
+       $(".bexi_module").prepend($('<div class="bexi_module_bg transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>'));
        //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
@@ -209,8 +209,6 @@
           initOnClick: true,
           toolbarBottom : false,
           toolbarVisibleWithoutSelection: true,
-          htmlDoNotWrapTags: ['script', 'style', 'img','div'],
-          htmlUntouched: true,
           toolbarButtons : {
              'bexi_extra' : {
                  'buttons' : ['ContentBlock']
