@@ -183,23 +183,6 @@
           toolbarBottom : false,
           toolbarVisibleWithoutSelection: true,
           htmlAllowedEmptyTags: ['i','.fas','div'],
-          toolbarButtons: ['fontAwesome'],
-          faButtons : {
-            'moreText': {
-               'buttons': ['fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
-             },
-             'moreParagraph': {
-               'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify','lineHeight']
-             },
-             'moreRich': {
-               'buttons': ['insertLink', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly']
-             },
-             'bexi_extra' : {
-                 'buttons' : ['ContentBlock']
-             },
-             'fontAwesome':{
-                'buttons': ["fontAwesomeBack", "|"]
-             }
-         }
+          toolbarButtons: ['fontAwesome']
         });
 });
