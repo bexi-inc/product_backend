@@ -210,6 +210,7 @@
           initOnClick: true,
           toolbarBottom : false,
           toolbarVisibleWithoutSelection: true,
+          htmlDoNotWrapTags: ['script', 'style', 'img','.bexi_module'],
           toolbarButtons : {
              'bexi_extra' : {
                  'buttons' : ['ContentBlock']
