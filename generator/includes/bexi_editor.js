@@ -197,7 +197,7 @@
                  'buttons' : ['ContentBlock']
              },
              'fontAwesome':{
-                'faButtons': ["fontAwesomeBack", "|"]
+                'buttons': ["fontAwesomeBack", "|"]
              }
          },
         });
