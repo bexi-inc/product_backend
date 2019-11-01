@@ -40,7 +40,7 @@
         control: $(this).attr('data-control') || 'hue',
         inline: $(this).attr('data-inline') === 'true',
         letterCase: 'lowercase',
-        opacity: false,
+        opacity: true,
         change: function(hex, opacity) {
           if(!hex) return;
           if(opacity) hex += ', ' + opacity;
