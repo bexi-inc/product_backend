@@ -209,6 +209,7 @@
           initOnClick: true,
           toolbarBottom : false,
           toolbarVisibleWithoutSelection: true,
+          htmlAllowedEmptyTags: ['div'],
           toolbarButtons : {
              'bexi_extra' : {
                  'buttons' : ['ContentBlock']
