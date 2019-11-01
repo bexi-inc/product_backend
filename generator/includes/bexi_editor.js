@@ -26,7 +26,7 @@
        var num=1;
        $('.bexi_module').each(function() {
         $(this).prepend('<div id="'+Math.floor((Math.random() * 10000) + 1)+'" class="bexi_module_bg transpa-bg" contenteditable="false" style="background-size: cover; position: absolute; top: 0; left: 0; width: inherit;height: 100%; z-index: 0;"></div>');
-        $(this).prepend('<button class="btn" style"z-index: 5;position: absolute; top: 0; left: 0;background-color: DodgerBlue;border: none;color: white;padding: 12px 16px;font-size: 16px;cursor: pointer;"><i class="fa fa-home"></i></button>')
+        $(this).prepend('<button class="btn" style="z-index: 5;position: absolute; top: 0; left: 0;background-color: DodgerBlue;border: none;color: white;padding: 12px 16px;font-size: 16px;cursor: pointer;"><i class="fa fa-home"></i></button>')
       });
        //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
@@ -206,7 +206,7 @@
              },
          }
         });
-
+/*
         var editormodule = new FroalaEditor('.bexi_module_bg',
         {
           key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
@@ -226,5 +226,5 @@
              }
          }
         });
-
+*/
 });
