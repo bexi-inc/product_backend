@@ -102,7 +102,7 @@ echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_ed
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
 
 
-
+echo'<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/third_party/font_awesome.min.js"></script>';
 echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
 
 echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
