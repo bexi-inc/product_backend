@@ -8,7 +8,7 @@
 
   function bgchange() {
     console.log(this);
-    //alert(this.$box[0].id);
+    alert(this.id);
     //$("#" + this.$box[0].id).closest(".bexi_module").css("background-color","#000000")
   // alert($("#" + this.$box[0].id).closest(".bexi_module").html());
 
