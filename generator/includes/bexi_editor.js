@@ -23,7 +23,7 @@
 
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
-       $(".bexi_module").prepend($('<div id="%id%" class="bexi_module_bg transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: inherit;height: 100%; z-index: -1;"></div>'));
+       $(".bexi_module").prepend('<div id="%id%" class="bexi_module_bg transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: inherit;height: 100%; z-index: -1;"></div>');
        //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
