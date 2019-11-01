@@ -7,10 +7,8 @@
 }
 
   function bgchange(btid) {
-    alert(btid);
 
   var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
-  console.log(vcolor);
   var hexcolor ="";
   if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
   {
@@ -29,7 +27,8 @@
                 //alert($(this).attr("data-id"));
                 //alert($("#colorpicker_1").minicolors("rgbString"));
                 //$($(this).attr("data-id")).closest(".bexi_module").css("background-color",$("#colorpicker_1").minicolors("rgbString"))
-                $($(this).attr("data-id")).closest(".bexi_module").attr('style', 'background-color:'+$("#colorpicker_1").minicolors("rgbString")+'!important');
+                $($(this).attr("data-id")).closest(".bexi_module").attr('style', function(i,s) { return s + 'background-color:'+$("#colorpicker_1").minicolors("rgbString")+'!important' });
+                //$($(this).attr("data-id")).closest(".bexi_module").attr('style', 'background-color:'+$("#colorpicker_1").minicolors("rgbString")+'!important');
                 $( this ).dialog( "close" );
 
               },
