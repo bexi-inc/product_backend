@@ -41,14 +41,6 @@
         inline: $(this).attr('data-inline') === 'true',
         letterCase: 'lowercase',
         opacity: true,
-        change: function(hex, opacity) {
-          if(!hex) return;
-          if(opacity) hex += ', ' + opacity;
-          try {
-            console.log(hex);
-          } catch(e) {}
-          $(this).select();
-        },
         theme: 'bootstrap'
     });
   }
