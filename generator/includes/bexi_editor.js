@@ -9,6 +9,7 @@
   function bgchange(btid) {
 
   var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
+  alert(vcolor);
   var hexcolor ="";
   if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
   {
@@ -24,7 +25,6 @@
             modal: true,
             buttons: {
               "Save": function() {
-                alert($("#colorpicker_1").minicolors("rgbaString"));
                 $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_1").minicolors("rgbaString")+'!important;');
                 $( this ).dialog( "close" );
               },
@@ -42,7 +42,13 @@
         inline: $(this).attr('data-inline') === 'true',
         letterCase: 'lowercase',
         opacity: true,
-        theme: 'bootstrap'
+        theme: 'bootstrap',
+        change: function(hex, opacity) {
+          text = hex ? hex : 'transparent';
+          if( opacity ) text += ', ' + opacity;
+          text = jQuery(this).minicolors('rgbaString');
+          jQuery(this).val(text);
+        }
     });
   }
 
