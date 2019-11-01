@@ -24,7 +24,8 @@
             modal: true,
             buttons: {
               "Save": function() {
-                $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_1").minicolors("rgbString")+'!important;');
+                alert($("#colorpicker_1").minicolors("rgbaString"));
+                $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_1").minicolors("rgbaString")+'!important;');
                 $( this ).dialog( "close" );
               },
               Cancel: function() {
