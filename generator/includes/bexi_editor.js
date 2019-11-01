@@ -183,7 +183,8 @@
           toolbarBottom : false,
           toolbarVisibleWithoutSelection: true,
           htmlAllowedEmptyTags: ['i','.fas','div'],
-          toolbarButtons : {
+          toolbarButtons: ['fontAwesome'],
+          faButtons : {
             'moreText': {
                'buttons': ['fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
              },
@@ -199,6 +200,6 @@
              'fontAwesome':{
                 'buttons': ["fontAwesomeBack", "|"]
              }
-         },
+         }
         });
 });
