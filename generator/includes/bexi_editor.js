@@ -209,7 +209,7 @@
           initOnClick: true,
           toolbarBottom : false,
           toolbarVisibleWithoutSelection: true,
-          htmlDoNotWrapTags: ['script', 'style', 'img','.bexi_module'],
+          htmlDoNotWrapTags: ['script', 'style', 'img','div'],
           htmlUntouched: true,
           toolbarButtons : {
              'bexi_extra' : {
