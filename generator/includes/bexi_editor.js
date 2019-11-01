@@ -218,6 +218,7 @@
           htmlAllowedEmptyTags: ['div'],
           placeholderText: '',
           quickInsertEnabled: false,
+          width: '50',
           toolbarButtons : {
              'bexi_extra' : {
                  'buttons' : ['ContentBlock']
