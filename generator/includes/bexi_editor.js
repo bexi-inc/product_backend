@@ -6,13 +6,36 @@
       ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
-  function bgchange() {
-    console.log(this);
-    alert(this.id);
-    //$("#" + this.$box[0].id).closest(".bexi_module").css("background-color","#000000")
-  // alert($("#" + this.$box[0].id).closest(".bexi_module").html());
+const pickr3 = new Pickr({
+  el: '#color-picker-3',
+  useAsButton: true,
+  default: "303030",
+  components: {
+    preview: true,
+    opacity: true,
+    hue: true,
 
-  var vcolor = $("#" + this.id).closest(".bexi_module").css("background-color").replace(/\s/g, "");
+    interaction: {
+      hex: true,
+      rgba: true,
+      hsla: true,
+      hsva: true,
+      cmyk: true,
+      input: true,
+      clear: true,
+      save: true
+    }
+  },
+
+  onChange(hsva, instance) {
+    $('.bg-color').css('background-color', hsva.toRGBA().toString());
+  }
+});
+
+  function bgchange(btid) {
+    alert(btid);
+
+  var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
   console.log(vcolor);
   var hexcolor ="";
   if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
@@ -20,7 +43,7 @@
       hexcolor = rgb2hex(vcolor);
   }
   $("#dialog-1").attr("Title", "Content Block Settings");
-  $("#dialog-1").attr("data-id", "#" + this.id);
+  $("#dialog-1").attr("data-id", "#" + btid);
   $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-control='hue' value='" + hexcolor + "'></div>");
   $( "#dialog-1" ).dialog({
             resizable: false,
@@ -79,7 +102,7 @@
        var num=1;
        $('.bexi_module').each(function() {
         //$(this).prepend('<div id="'+Math.floor((Math.random() * 10000) + 1)+'" class="bexi_module_bg transpa-bg" contenteditable="false" style="background-size: cover; position: absolute; top: 0; left: 0; width: inherit;height: 100%; z-index: 0;"></div>');
-        $(this).prepend('<button class="btn" onClick="bgchange()" id="'+Math.floor((Math.random() * 10000) + 1)+'" style="z-index: 5;position: absolute; top: 0; left: 0;background-color: DodgerBlue;border: none;color: white;padding: 12px 16px;font-size: 16px;cursor: pointer;"><i class="fa fa-home"></i></button>')
+        $(this).prepend('<button class="btn" onClick="bgchange(this.id)" id="'+Math.floor((Math.random() * 10000) + 1)+'" style="z-index: 5;position: absolute; top: 0; left: 0;background-color: DodgerBlue;border: none;color: white;padding: 12px 16px;font-size: 16px;cursor: pointer;"><i class="fa fa-home"></i></button>')
       });
        //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
