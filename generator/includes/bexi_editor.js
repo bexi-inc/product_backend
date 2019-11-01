@@ -219,6 +219,7 @@
           placeholderText: '',
           quickInsertEnabled: false,
           width: '50',
+          height:'50',
           toolbarButtons : {
              'bexi_extra' : {
                  'buttons' : ['ContentBlock']
