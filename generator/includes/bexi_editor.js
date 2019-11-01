@@ -6,6 +6,59 @@
       ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
+  function bgchange() {
+    console.log(this);
+    //alert(this.$box[0].id);
+    //$("#" + this.$box[0].id).closest(".bexi_module").css("background-color","#000000")
+  // alert($("#" + this.$box[0].id).closest(".bexi_module").html());
+
+  var vcolor = $("#" + this.$box[0].id).closest(".bexi_module").css("background-color").replace(/\s/g, "");;
+  console.log(vcolor);
+  var hexcolor ="";
+  if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
+  {
+      hexcolor = rgb2hex(vcolor);
+  }
+  $("#dialog-1").attr("Title", "Content Block Settings");
+  $("#dialog-1").attr("data-id", "#" + this.$box[0].id);
+  $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-control='hue' value='" + hexcolor + "'></div>");
+  $( "#dialog-1" ).dialog({
+            resizable: false,
+            height: "auto",
+            width: 500,
+            modal: true,
+            buttons: {
+              "Save": function() {
+                //alert($(this).attr("data-id"));
+                //alert($("#colorpicker_1").minicolors("rgbString"));
+                //$($(this).attr("data-id")).closest(".bexi_module").css("background-color",$("#colorpicker_1").minicolors("rgbString"))
+                $($(this).attr("data-id")).closest(".bexi_module").attr('style', 'background-color:'+$("#colorpicker_1").minicolors("rgbString")+'!important');
+                $( this ).dialog( "close" );
+
+              },
+              Cancel: function() {
+                $( this ).dialog( "close" );
+              }
+            }
+    });
+
+    $("#colorpicker_1").minicolors({
+        control: $(this).attr('data-control') || 'hue',
+        inline: $(this).attr('data-inline') === 'true',
+        letterCase: 'lowercase',
+        opacity: false,
+        change: function(hex, opacity) {
+          if(!hex) return;
+          if(opacity) hex += ', ' + opacity;
+          try {
+            console.log(hex);
+          } catch(e) {}
+          $(this).select();
+        },
+        theme: 'bootstrap'
+    });
+  }
+
  $(document).ready(function() {
      $( ".bexi_title" ).wrap( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
@@ -25,8 +78,8 @@
        $(".bexi_module").css("position", "relative");
        var num=1;
        $('.bexi_module').each(function() {
-        $(this).prepend('<div id="'+Math.floor((Math.random() * 10000) + 1)+'" class="bexi_module_bg transpa-bg" contenteditable="false" style="background-size: cover; position: absolute; top: 0; left: 0; width: inherit;height: 100%; z-index: 0;"></div>');
-        $(this).prepend('<button class="btn" style="z-index: 5;position: absolute; top: 0; left: 0;background-color: DodgerBlue;border: none;color: white;padding: 12px 16px;font-size: 16px;cursor: pointer;"><i class="fa fa-home"></i></button>')
+        //$(this).prepend('<div id="'+Math.floor((Math.random() * 10000) + 1)+'" class="bexi_module_bg transpa-bg" contenteditable="false" style="background-size: cover; position: absolute; top: 0; left: 0; width: inherit;height: 100%; z-index: 0;"></div>');
+        $(this).prepend('<button class="btn" onClick="bgchange()" id="'+Math.floor((Math.random() * 10000) + 1)+'" style="z-index: 5;position: absolute; top: 0; left: 0;background-color: DodgerBlue;border: none;color: white;padding: 12px 16px;font-size: 16px;cursor: pointer;"><i class="fa fa-home"></i></button>')
       });
        //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 
@@ -53,7 +106,7 @@
            }
            $("#dialog-1").attr("Title", "Content Block Settings");
            $("#dialog-1").attr("data-id", "#" + this.$box[0].id);
-           $("#dialog-1").html("<div>Backgroun Color:<input type='text' id='colorpicker_1' class='form-control' data-control='hue' value='" + hexcolor + "'></div>");
+           $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-control='hue' value='" + hexcolor + "'></div>");
            $( "#dialog-1" ).dialog({
                     resizable: false,
                     height: "auto",
