@@ -40,11 +40,11 @@
       inline: $(this).attr('data-inline') === 'true',
       letterCase: 'lowercase',
       changeDelay: 200,
-      format:'rgba',
+      format:'rgb',
       opacity: true,
       theme: 'bootstrap',
       change: function(value, opacity) {
-        $(this).value($("#colorpicker_1").minicolors("rgbaString"));
+
       }
     });
   }
