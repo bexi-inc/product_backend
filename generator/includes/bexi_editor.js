@@ -44,12 +44,7 @@
       opacity: true,
       theme: 'bootstrap',
       change: function(value, opacity) {
-        //$(this).value($("#colorpicker_1").minicolors("rgbaString"));
-         if( !value ) return;
-            if( opacity ) value += ', ' + opacity;
-            if( typeof console === 'object' ) {
-              console.log(value);
-            }
+        $(this).value($("#colorpicker_1").minicolors("rgbaString"));
       }
     });
   }
