@@ -35,7 +35,7 @@
               $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
           }
     });
-/*
+
     $("#colorpicker_1").minicolors({
         control: $(this).attr('data-control') || 'hue',
         inline: $(this).attr('data-inline') === 'true',
@@ -45,14 +45,9 @@
         format: 'rgb',
         theme: 'bootstrap',
         change: function(value, opacity) {
-          if( !value ) return;
-          if( opacity ) value += ', ' + opacity;
-          if( typeof console === 'object' ) {
-            console.log(value);
-          }
+          $(this).val($(this).minicolors('rgbaString'));
         }
     });
-    */
   }
 
  $(document).ready(function() {
