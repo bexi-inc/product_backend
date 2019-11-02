@@ -77,7 +77,7 @@
         $(this).prepend('<button class="btn" onClick="bgchange(this.id)" id="'+Math.floor((Math.random() * 10000) + 1)+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-fill-drip"></i></button>')
       });
        //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
-
+/*
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
         FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'layer-group'});
         FroalaEditor.RegisterCommand('ContentBlock', {
@@ -139,7 +139,7 @@
             });
           }
         });
-
+*/
         var editortxt = new FroalaEditor('.bexi_editor_text',
         {
           key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
