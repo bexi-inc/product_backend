@@ -40,7 +40,7 @@
       inline: $(this).attr('data-inline') === 'true',
       letterCase: 'lowercase',
       changeDelay: 200,
-      format: 'rgb',
+      format:$(this).attr('data-format') === 'hex',
       opacity: true,
       theme: 'bootstrap',
       change: function(value, opacity) {
