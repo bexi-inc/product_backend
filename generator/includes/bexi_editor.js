@@ -42,7 +42,7 @@
         inline: $(this).attr('data-inline') === 'true',
         letterCase: 'lowercase',
         changeDelay: 200,
-        opacity: true,
+        opacity: 1.00,
         format: 'rgb',
         theme: 'bootstrap',
         change: function(value, opacity) {
