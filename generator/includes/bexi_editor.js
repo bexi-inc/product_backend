@@ -41,7 +41,7 @@
       letterCase: 'lowercase',
       changeDelay: 200,
       format:'rgba',
-      opacity: 0.5,
+      opacity: true,
       theme: 'bootstrap',
       change: function(value, opacity) {
         
