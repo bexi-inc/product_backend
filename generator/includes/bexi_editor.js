@@ -10,7 +10,7 @@
 
   var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
   alert(vcolor);
-  var hexcolor ="";
+  var hexcolor =vcolor;
   if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
   {
       hexcolor = rgb2hex(vcolor);
