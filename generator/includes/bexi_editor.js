@@ -35,7 +35,7 @@
               $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
           }
     });
-
+/*
     $("#colorpicker_1").minicolors({
         control: $(this).attr('data-control') || 'hue',
         inline: $(this).attr('data-inline') === 'true',
@@ -52,6 +52,7 @@
           }
         }
     });
+    */
   }
 
  $(document).ready(function() {
