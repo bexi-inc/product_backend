@@ -40,8 +40,8 @@
       inline: $(this).attr('data-inline') === 'true',
       letterCase: 'lowercase',
       changeDelay: 200,
-      format:'rgb',
-      opacity: true,
+      format:'rgba',
+      opacity: 0.5,
       theme: 'bootstrap',
       change: function(value, opacity) {
         
