@@ -16,7 +16,7 @@
   }
   $("#dialog-1").attr("Title", "Content Block Settings");
   $("#dialog-1").attr("data-id", "#" + btid);
-  $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_"+btid+"' class='form-control' data-format='rgb' value='"+vcolor+"'></div>");
+  $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-format='rgb' value='"+vcolor+"'></div>");
   $( "#dialog-1" ).dialog({
             resizable: false,
             height: "auto",
@@ -24,7 +24,7 @@
             modal: true,
             buttons: {
               "Save": function() {
-                $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_"+btid).minicolors("rgbaString")+'!important;');
+                $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_1").minicolors("rgbaString")+'!important;');
                 $( this ).dialog( "close" );
               },
               Cancel: function() {
@@ -35,7 +35,7 @@
               $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
           }
     });
-    $("#colorpicker_"+btid).minicolors({
+    $("#colorpicker_1").minicolors({
       control: $(this).attr('data-control') || 'hue',
       inline: $(this).attr('data-inline') === 'true',
       letterCase: 'lowercase',
