@@ -41,8 +41,8 @@
         inline: $(this).attr('data-inline') === 'true',
         letterCase: 'lowercase',
         changeDelay: 200,
-        opacity: true,
         format: 'rgb',
+        opacity: true,
         theme: 'bootstrap',
         change: function(value, opacity) {
           $(this).val($(this).minicolors('rgbaString'));
