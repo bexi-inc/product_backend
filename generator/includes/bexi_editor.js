@@ -41,13 +41,8 @@
         inline: $(this).attr('data-inline') === 'true',
         letterCase: 'lowercase',
         opacity: true,
-        theme: 'bootstrap',
-        change: function(hex, opacity) {
-          text = hex ? hex : 'transparent';
-          if( opacity ) text += ', ' + opacity;
-          text = jQuery(this).minicolors('rgbaString');
-          jQuery(this).val(text);
-        }
+        format: 'rgb',
+        theme: 'bootstrap'
     });
   }
 
