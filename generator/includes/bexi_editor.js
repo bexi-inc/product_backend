@@ -16,19 +16,7 @@
   }
   $("#dialog-1").attr("Title", "Content Block Settings");
   $("#dialog-1").attr("data-id", "#" + btid);
-  $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-format='rgb' value='"+vcolor+"'></div>");
-  $("#colorpicker_1").minicolors({
-    control: $(this).attr('data-control') || 'hue',
-    inline: $(this).attr('data-inline') === 'true',
-    letterCase: 'lowercase',
-    changeDelay: 200,
-    format: 'rgb',
-    opacity: true,
-    theme: 'bootstrap',
-    change: function(value, opacity) {
-      $(this).val($(this).minicolors('rgbaString'));
-    }
-  });
+  $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_"+btid+"' class='form-control' data-format='rgb' value='"+vcolor+"'></div>");
   $( "#dialog-1" ).dialog({
             resizable: false,
             height: "auto",
@@ -46,6 +34,18 @@
             open: function() {
               $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
           }
+    });
+    $("#colorpicker_"+btid).minicolors({
+      control: $(this).attr('data-control') || 'hue',
+      inline: $(this).attr('data-inline') === 'true',
+      letterCase: 'lowercase',
+      changeDelay: 200,
+      format: 'rgb',
+      opacity: true,
+      theme: 'bootstrap',
+      change: function(value, opacity) {
+        $(this).val($(this).minicolors('rgbaString'));
+      }
     });
   }
 
