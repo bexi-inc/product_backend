@@ -41,9 +41,17 @@
         control: $(this).attr('data-control') || 'hue',
         inline: $(this).attr('data-inline') === 'true',
         letterCase: 'lowercase',
+        changeDelay: 200,
         opacity: true,
         format: 'rgb',
-        theme: 'bootstrap'
+        theme: 'bootstrap',
+        change: function(value, opacity) {
+          if( !value ) return;
+          if( opacity ) value += ', ' + opacity;
+          if( typeof console === 'object' ) {
+            console.log(value);
+          }
+        }
     });
   }
 
