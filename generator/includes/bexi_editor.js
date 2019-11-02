@@ -14,10 +14,9 @@
   {
       hexcolor = rgb2hex(vcolor);
   }
-  alert(vcolor);
   $("#dialog-1").attr("Title", "Content Block Settings");
   $("#dialog-1").attr("data-id", "#" + btid);
-  $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-format='rgb' value='rgba(0,0,0,0)'></div>");
+  $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-format='rgb' value='#ffffff'></div>");
   $( "#dialog-1" ).dialog({
             resizable: false,
             height: "auto",
