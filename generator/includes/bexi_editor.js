@@ -17,7 +17,7 @@
   }
   $("#dialog-1").attr("Title", "Content Block Settings");
   $("#dialog-1").attr("data-id", "#" + btid);
-  $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-format='rgb' value='" + vcolor + "'></div>");
+  $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-format='rgb' value='rgba(52, 64, 158, 0.5)'></div>");
   $( "#dialog-1" ).dialog({
             resizable: false,
             height: "auto",
@@ -42,7 +42,7 @@
         inline: $(this).attr('data-inline') === 'true',
         letterCase: 'lowercase',
         changeDelay: 200,
-        opacity: 1.00,
+        opacity: true,
         format: 'rgb',
         theme: 'bootstrap',
         change: function(value, opacity) {
