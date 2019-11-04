@@ -241,6 +241,9 @@ while ( ( $pos = strpos( $contenido, "%id%", $pos ) ) !== false ) {
   $contenido=substr_replace($contenido,$idrand,$pos,4);
 }
 
+$iduser = $_REQUEST["user"];
+$CodeId = date("U");
+ob_start();
 
 echo "<!doctype html>";
 echo "\r\n";
@@ -315,10 +318,9 @@ echo "\r\n";
 
 echo "<body>";
 
+echo '<input type="hidden" id="custId" name="codeId" value="'.$CodeId.'">';
 echo '<div id="dialog-1" title="Titulo" style="display: none;">
 </div>';
-include("bexi_panel.php");
-
 
 echo "\r\n";
 /*echo "<div class='' style='width:100%; padding-top: 3%;  padding-bottom: 3%;padding-left: 5%; padding-right: 5%; background-color: #ebebeb;'>";
@@ -411,4 +413,10 @@ echo "</body>";
 echo "\r\n";
 echo "</html>";
 echo "\r\n";
+
+$code = ob_get_contents ();
+
+ob_end_clean();
+
+echo $code;
 ?>
