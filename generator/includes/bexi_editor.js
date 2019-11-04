@@ -143,8 +143,7 @@
               '</div>'+
               '<div id="tab-2">'+
                 '<div class="fr-input-line" data-children-count="1">'+
-                  '<input id="fr-image-by-url-layer-text-22" type="text" placeholder="" tabindex="1" aria-required="true" dir="auto" class="">'+
-                    '<label for="fr-image-by-url-layer-text-22">http://</label>'+
+                  '<input id="fr-image-by-url-layer-text-22" type="text" placeholder="http://" tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">'+
                 '</div>'+
               '</div>'+
             '</div>'+
