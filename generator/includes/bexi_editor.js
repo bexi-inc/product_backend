@@ -67,14 +67,13 @@
               width: 500,
               modal: true,
               create: function() {
-                $(this).find('#tabs-img').tabs();
-                $('#tabs-img').tabs({
-                    create: function(e, ui) {
-                        $(this).parent().find('.tabdialog-close').click(function() {
-                            $('#dialog-img').dialog('close');
-                        });
-                    }
-                });
+                $(this).find('#tabs-movie').tabs({
+                  create: function(e, ui) {
+                      $('#closeBtn').click(function() {
+                          $('#dialog-movie-info').dialog('close');
+                      });
+                  }
+              });
                // remove the title of the dialog as we want to use the tab's one
                $(this).parent().children('.ui-dialog-titlebar').remove();
               },
@@ -135,7 +134,7 @@
               '<ul>'+
                 '<li><a href="#tab-1">dsf</a></li>'+
                 '<li><a href="#tab-2">jghj</a></li>'+
-                '<li class="ui-tabs-close-button"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span></li>'+
+                '<li class="ui-tabs-close-button"><button id="closeBtn">X</button></li>'+
               '</ul>'+
               '<div id="tab-1">'+
               '</div>'+
