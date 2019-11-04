@@ -67,13 +67,13 @@
 
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
-       var num=1;
        $('.bexi_module').each(function() {
         //$(this).prepend('<div id="'+Math.floor((Math.random() * 10000) + 1)+'" class="bexi_module_bg transpa-bg" contenteditable="false" style="background-size: cover; position: absolute; top: 0; left: 0; width: inherit;height: 100%; z-index: 0;"></div>');
+        var num=Math.floor((Math.random() * 10000) + 1);
         $(this).prepend(
-          '<button class="btn" data-toggle="collapse" data-target="#collapsetools" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-layer-group"></i></button>'+
-          '<div class="collapse" id="collapsetools" style="z-index: 5;position: absolute; top: 51px; left: 15px;background-color: #f8f8f8;">'+
-            '<button class="btn" onClick="bgchange(this.id)" id="'+Math.floor((Math.random() * 10000) + 1)+'" style="background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-fill-drip"></i></button>'+
+          '<button class="btn" data-toggle="collapse" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-layer-group"></i></button>'+
+          '<div class="collapse" id="collapsetools'+num+'" style="z-index: 5;position: absolute; top: 51px; left: 15px;background-color: #f8f8f8;">'+
+            '<button class="btn" onClick="bgchange(this.id)" id="'+num+'" style="background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-fill-drip"></i></button>'+
           '</div>'
         )
       });
