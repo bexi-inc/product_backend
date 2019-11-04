@@ -129,7 +129,7 @@
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
             '<button id="insertImage-'+num+'" type="button" tabindex="-1" role="button" class="fr-command fr-btn" data-cmd="insertImage" data-popup="true" data-title="Insert Image (Ctrl+P)"><i class="far fa-images toolbtn"></i><span class="fr-sr-only">Insert Image</span></button>'+
           '</div>'+
-          '<div id="dialog-img"'+num+' class="ui-helper-hidden">'+
+          '<div id="dialog-img'+num+'" class="ui-helper-hidden">'+
             '<div id="tabs-img">'+
               '<ul>'+
                 '<li><a href="#tab-1">dsf</a></li>'+
