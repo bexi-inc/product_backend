@@ -59,7 +59,7 @@
 
     $("#dialog-img").attr("Title", "Content Block Settings");
     $("#dialog-img").attr("data-id", "#" + btid);
-    $("#dialog-img").html('<div id="dialog-img" class="ui-helper-hidden tabdialog">'+
+    $("#dialog-img").html('<div id="dialog-info" class="ui-helper-hidden tabdialog">'+
     '<div id="tabs-img">'+
     '<ul>'+
     '<li><a href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
@@ -100,18 +100,6 @@
               open: function() {
                 $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
             }
-      });
-      $("#colorpicker_1").minicolors({
-        control: $(this).attr('data-control') || 'hue',
-        inline: $(this).attr('data-inline') === 'true',
-        letterCase: 'lowercase',
-        changeDelay: 200,
-        format:'rgb',
-        opacity: true,
-        theme: 'bootstrap',
-        change: function(value, opacity) {
-  
-        }
       });
     }
 
