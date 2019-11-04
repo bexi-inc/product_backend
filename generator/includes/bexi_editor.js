@@ -56,21 +56,38 @@
     {
       var exist=true;
     }
-    alert(exist);
-    var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
-    var hexcolor =vcolor;
-    if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
-    {
-        hexcolor = rgb2hex(vcolor);
-    }
-    $("#dialog-1").attr("Title", "Content Block Settings");
-    $("#dialog-1").attr("data-id", "#" + btid);
-    $("#dialog-1").html("<div>Background Image:<input type='text' id='colorpicker_1' class='form-control' data-format='rgb' value='"+vcolor+"'></div>");
-    $( "#dialog-1" ).dialog({
+
+    $("#dialog-img").attr("Title", "Content Block Settings");
+    $("#dialog-img").attr("data-id", "#" + btid);
+    $("#dialog-img").html('<div id="dialog-info" class="ui-helper-hidden tabdialog">'+
+    '<div id="tabs-img">'+
+    '<ul>'+
+    '<li><a href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
+    '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
+    '<li class="ui-tabs-close-button"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span></li>'+
+    '</ul>'+
+    '<div id="tab-1">'+
+    '</div>'+
+    '<div id="tab-2">'+
+    '</div>'
+    );
+
+    $( "#dialog-img" ).dialog({
               resizable: false,
               height: "auto",
               width: 500,
               modal: true,
+              create: function() {
+                $('#tabs-img').tabs({
+                    create: function(e, ui) {
+                        $(this).parent().find('.tabdialog-close').click(function() {
+                            $('#dialog-img').dialog('close');
+                        });
+                    }
+                });
+               // remove the title of the dialog as we want to use the tab's one
+               $(this).parent().children('.ui-dialog-titlebar').remove();
+              },
               buttons: {
                 "Save": function() {
                   $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_1").minicolors("rgbaString")+'!important;');
