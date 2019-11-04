@@ -67,13 +67,7 @@
               width: 500,
               modal: true,
               create: function() {
-                $(this).find('#tabs-img').tabs({
-                  create: function(e, ui) {
-                      $('#closeBtn').click(function() {
-                          $(this).dialog('close');
-                      });
-                  }
-              });
+                $(this).find('#tabs-img').tabs();
                // remove the title of the dialog as we want to use the tab's one
                $(this).parent().children('.ui-dialog-titlebar').remove();
               },
@@ -133,7 +127,6 @@
               '<ul>'+
                 '<li><a href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
                 '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
-                '<li class="ui-tabs-close-button"><button id="closeBtn">X</button></li>'+
               '</ul>'+
               '<div id="tab-1">'+
                 '<div id="blah" class="col-lg-12 dropzone" ondrop="drag_drop(event)" ondragover="return false">'+
