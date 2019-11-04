@@ -70,7 +70,7 @@
                 $(this).find('#tabs-img').tabs({
                   create: function(e, ui) {
                       $('#closeBtn').click(function() {
-                          $('#dialog-img'+(btid-10000).toString()).dialog('close');
+                          $(this).dialog('close');
                       });
                   }
               });
