@@ -49,11 +49,13 @@
     });
   }
 
+  /**************   Change trigger for tooltip **************/
 
   $(function () {
     $('[data-tooltip="true"]').tooltip()
   })
 
+  /**************  Close the toolbar when click outside **************/
   $(document).click(function(e) {
     if (!$(e.target).is('.bartool')) {
         $('.collapse').collapse('hide');
@@ -85,6 +87,7 @@
           '<div class="collapse bartool" id="collapsetools'+num+'" style="z-index: 6;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
+            '<button id="insertImage-'+num+'" type="button" tabindex="-1" role="button" class="fr-command fr-btn" data-cmd="insertImage" data-popup="true" data-title="Insert Image (Ctrl+P)"><i class="far fa-images toolbtn"></i><span class="fr-sr-only">Insert Image</span></button>'+
           '</div>'
         )
       });
