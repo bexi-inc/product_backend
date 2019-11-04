@@ -57,24 +57,11 @@
       var exist=true;
     }
 
-    $("#dialog-img").attr("Title", "Content Block Settings");
-    $("#dialog-img").attr("data-id", "#" + btid);
-    $("#dialog-img").html('<div>'+
-    '<div id="tabs-img">'+
-    '<ul>'+
-    '<li><a href="#tab-1">dsf</a></li>'+
-    '<li><a href="#tab-2">jghj</a></li>'+
-    '<li class="ui-tabs-close-button"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span></li>'+
-    '</ul>'+
-    '<div id="tab-1">'+
-    '</div>'+
-    '<div id="tab-2">'+
-    '</div>'+
-    '</div>'+
-    '</div>'
-    );
+    //$("#dialog-img").attr("Title", "Content Block Settings");
+    //$("#dialog-img").attr("data-id", "#" + btid);
+    //$("#dialog-img").html();
 
-    $( "#dialog-img" ).dialog({
+    $( "#dialog-img"+btid-10000).dialog({
               resizable: false,
               height: "auto",
               width: 500,
@@ -100,8 +87,6 @@
                 }
               }
       });
-
-      $('#dialog-img').dialog('open');
     }
 
   /**************   Change trigger for tooltip **************/
@@ -143,6 +128,19 @@
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
             '<button id="insertImage-'+num+'" type="button" tabindex="-1" role="button" class="fr-command fr-btn" data-cmd="insertImage" data-popup="true" data-title="Insert Image (Ctrl+P)"><i class="far fa-images toolbtn"></i><span class="fr-sr-only">Insert Image</span></button>'+
+          '</div>'+
+          '<div id="dialog-img"'+num+' class="ui-helper-hidden">'+
+            '<div id="tabs-img">'+
+              '<ul>'+
+                '<li><a href="#tab-1">dsf</a></li>'+
+                '<li><a href="#tab-2">jghj</a></li>'+
+                '<li class="ui-tabs-close-button"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span></li>'+
+              '</ul>'+
+              '<div id="tab-1">'+
+              '</div>'+
+              '<div id="tab-2">'+
+              '</div>'+
+            '</div>'+
           '</div>'
         )
       });
