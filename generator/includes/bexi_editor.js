@@ -67,7 +67,7 @@
               width: 500,
               modal: true,
               create: function() {
-                $(this).find('#tabs-movie').tabs({
+                $(this).find('#tabs-img').tabs({
                   create: function(e, ui) {
                       $('#closeBtn').click(function() {
                           $('#dialog-img'+(btid-10000).toString()).dialog('close');
@@ -80,10 +80,10 @@
               buttons: {
                 "Save": function() {
                   $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_1").minicolors("rgbaString")+'!important;');
-                  $( this ).dialog( "close" );
+                  $( this ).dialog("close");
                 },
                 Cancel: function() {
-                  $( this ).dialog( "close" );
+                  $( this ).dialog("close");
                 }
               }
       });
