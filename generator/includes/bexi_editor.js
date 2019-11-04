@@ -69,6 +69,8 @@
     '<div id="tab-1">'+
     '</div>'+
     '<div id="tab-2">'+
+    '</div>'+
+    '</div>'+
     '</div>'
     );
 
