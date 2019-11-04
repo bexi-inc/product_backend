@@ -98,11 +98,10 @@
                 Cancel: function() {
                   $( this ).dialog( "close" );
                 }
-              },
-              open: function() {
-                $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
-            }
+              }
       });
+
+      $('#dialog-img').dialog('open');
     }
 
   /**************   Change trigger for tooltip **************/
