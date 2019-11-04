@@ -136,6 +136,9 @@
                 '<li class="ui-tabs-close-button"><button id="closeBtn">X</button></li>'+
               '</ul>'+
               '<div id="tab-1">'+
+                '<div id="blah" class="col-lg-4 dropzone" ondrop="drag_drop(event)" ondragover="return false">'+
+                  '<p>Drop Your Image Here</p>'+
+                '</div>'+
               '</div>'+
               '<div id="tab-2">'+
               '</div>'+
