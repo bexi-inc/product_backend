@@ -61,7 +61,7 @@
     //$("#dialog-img").attr("data-id", "#" + btid);
     //$("#dialog-img").html();
 
-    $( "#dialog-img"+btid-10000).dialog({
+    $( "#dialog-img"+(btid-10000)).dialog({
               resizable: false,
               height: "auto",
               width: 500,
