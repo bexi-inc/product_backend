@@ -280,6 +280,9 @@ p{
   align-items: unset;
 }
 
+.toolbtn:hover{
+background-color: #e7e7e7;
+}
 
 .button-semi{
     border-radius: 25px;
