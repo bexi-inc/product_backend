@@ -49,6 +49,55 @@
     });
   }
 
+
+  function bgimgchange(btid) {
+    var exist= false;
+    if( $("#" +btid).closest(".bexi_module").find(".transpa-bg").length)
+    {
+      var exist=true;
+    }
+    alert(exist);
+    var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
+    var hexcolor =vcolor;
+    if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
+    {
+        hexcolor = rgb2hex(vcolor);
+    }
+    $("#dialog-1").attr("Title", "Content Block Settings");
+    $("#dialog-1").attr("data-id", "#" + btid);
+    $("#dialog-1").html("<div>Background Image:<input type='text' id='colorpicker_1' class='form-control' data-format='rgb' value='"+vcolor+"'></div>");
+    $( "#dialog-1" ).dialog({
+              resizable: false,
+              height: "auto",
+              width: 500,
+              modal: true,
+              buttons: {
+                "Save": function() {
+                  $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_1").minicolors("rgbaString")+'!important;');
+                  $( this ).dialog( "close" );
+                },
+                Cancel: function() {
+                  $( this ).dialog( "close" );
+                }
+              },
+              open: function() {
+                $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+            }
+      });
+      $("#colorpicker_1").minicolors({
+        control: $(this).attr('data-control') || 'hue',
+        inline: $(this).attr('data-inline') === 'true',
+        letterCase: 'lowercase',
+        changeDelay: 200,
+        format:'rgb',
+        opacity: true,
+        theme: 'bootstrap',
+        change: function(value, opacity) {
+  
+        }
+      });
+    }
+
   /**************   Change trigger for tooltip **************/
 
   $(function () {
@@ -86,7 +135,7 @@
           '<button class="toolbtn" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
           '<div class="collapse bartool" id="collapsetools'+num+'" style="z-index: 6;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
-            '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
+            '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
             '<button id="insertImage-'+num+'" type="button" tabindex="-1" role="button" class="fr-command fr-btn" data-cmd="insertImage" data-popup="true" data-title="Insert Image (Ctrl+P)"><i class="far fa-images toolbtn"></i><span class="fr-sr-only">Insert Image</span></button>'+
           '</div>'
         )
