@@ -49,6 +49,60 @@
     });
   }
 
+
+  function bgimgchange(btid) {
+    var exist= false;
+    if( $("#" +btid).closest(".bexi_module").find(".transpa-bg").length)
+    {
+      var exist=true;
+    }
+
+    $("#dialog-img").attr("Title", "Content Block Settings");
+    $("#dialog-img").attr("data-id", "#" + btid);
+    $("#dialog-img").html('<div id="dialog-info" class="ui-helper-hidden tabdialog">'+
+    '<div id="tabs-img">'+
+    '<ul>'+
+    '<li><a href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
+    '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
+    '<li class="ui-tabs-close-button"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span></li>'+
+    '</ul>'+
+    '<div id="tab-1">'+
+    '</div>'+
+    '<div id="tab-2">'+
+    '</div>'
+    );
+
+    $( "#dialog-img" ).dialog({
+              resizable: false,
+              height: "auto",
+              width: 500,
+              modal: true,
+              create: function() {
+                $('#tabs-img').tabs({
+                    create: function(e, ui) {
+                        $(this).parent().find('.tabdialog-close').click(function() {
+                            $('#dialog-img').dialog('close');
+                        });
+                    }
+                });
+               // remove the title of the dialog as we want to use the tab's one
+               $(this).parent().children('.ui-dialog-titlebar').remove();
+              },
+              buttons: {
+                "Save": function() {
+                  $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_1").minicolors("rgbaString")+'!important;');
+                  $( this ).dialog( "close" );
+                },
+                Cancel: function() {
+                  $( this ).dialog( "close" );
+                }
+              },
+              open: function() {
+                $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+            }
+      });
+    }
+
   /**************   Change trigger for tooltip **************/
 
   $(function () {
@@ -86,7 +140,7 @@
           '<button class="toolbtn" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
           '<div class="collapse bartool" id="collapsetools'+num+'" style="z-index: 6;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
-            '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
+            '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
             '<button id="insertImage-'+num+'" type="button" tabindex="-1" role="button" class="fr-command fr-btn" data-cmd="insertImage" data-popup="true" data-title="Insert Image (Ctrl+P)"><i class="far fa-images toolbtn"></i><span class="fr-sr-only">Insert Image</span></button>'+
           '</div>'
         )
