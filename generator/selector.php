@@ -35,7 +35,8 @@
 	  top: 0;
 	  background: #f9f9f9;
 	  float: left;
-	  border-style: solid;	}
+	  /*border-style: solid;*/	
+	}
 
 	/* Image Icon for the Background 
 	.thumbnail-container::before {
@@ -72,6 +73,9 @@
 	.thumbnail iframe {
 	  opacity: 0;
 	  transition: all 300ms ease-in-out;
+	  border-style: solid; 
+	  border-color: #000;
+	  border-width: 5px;
 	}
 
 	/* This pseudo element masks the iframe, so that mouse wheel scrolling and clicking do not affect the simulated "screenshot" */
@@ -109,6 +113,7 @@
 	  border-radius: 0 3px 3px 0;
 	  user-select: none;
 	  z-index: 999;
+	  background-color: rgba(0,0,0,0.3);
 	}
 
 	/* Position the "next button" to the right */
@@ -124,7 +129,7 @@
 
 	/* On hover, add a black background color with a little bit see-through */
 	.selector_prev:hover, .selector_next:hover {
-	  background-color: rgba(0,0,0,0.3);
+	  background-color: rgba(0,0,0,0.7);
 	}
 
 /*
@@ -151,31 +156,31 @@
 	<!-- Next and previous buttons -->
 	<a class="selector_prev" onclick="plusSlides(1)">&#10094;</a>
 	<a class="selector_next" onclick="plusSlides(-1)">&#10095;</a>
+	<div class="bexi_sliders" style="width: 90%; margin-left: 5%; position: relative; height: 100%; margin-right: 5%; overflow: hidden;" >
+		<div class="thumbnail-container mySlides">
+			<div class="thumbnail ">
+			  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			</div>
+		</div>
 
-	<div class="thumbnail-container mySlides">
-		<div class="thumbnail ">
-		  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
+		<div class="thumbnail-container mySlides">
+			<div class="thumbnail">
+			  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			</div>
+		</div>
+
+		<div class="thumbnail-container mySlides">
+			<div class="thumbnail">
+			  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			</div>
+		</div>
+
+		<div class="thumbnail-container mySlides">
+			<div class="thumbnail">
+			  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			</div>
 		</div>
 	</div>
-
-	<div class="thumbnail-container mySlides">
-		<div class="thumbnail">
-		  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
-		</div>
-	</div>
-
-	<div class="thumbnail-container mySlides">
-		<div class="thumbnail">
-		  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
-		</div>
-	</div>
-
-	<div class="thumbnail-container mySlides">
-		<div class="thumbnail">
-		  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
-		</div>
-	</div>
-
 </div>
 </body>
 </html>

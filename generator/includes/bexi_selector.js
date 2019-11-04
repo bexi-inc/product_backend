@@ -1,9 +1,10 @@
 var slideIndex = 1;
 var sliderSize = .40;
+var myWidth = 0;
 
 function GetWidthScreen()
 {
-  var myWidth = 0, myHeight = 0;
+  myHeight = 0;
   if (window !== top) {
   	myWidth = window.innerWidth ;
   }else{
@@ -49,12 +50,13 @@ function GetWidthScreen()
 	console.log("slider");
 
 	var n=1;
-     $(".main_selector .mySlides").each(function() {
+     $(".bexi_sliders .mySlides").each(function() {
      	if (n<=4)
      	{
      		console.log("slider");
      		var lpos =(n-1) * sliderSize * GetWidthScreen();
-     		$(this).offset({ top: 0, left: lpos });
+     		console.log("left:" + lpos);
+     		$(this).css({ 'top': 0, 'left': lpos });
      	}
        	n = n +1;
      });
@@ -70,7 +72,7 @@ function GetWidthScreen()
  	console.log("slideIndex=" + slideIndex);
  	if (n<0)
  	{
- 		var nPages = $(".main_selector .mySlides").length;
+ 		var nPages = $(".bexi_sliders .mySlides").length;
 
  		
  		console.log("nPages=" + nPages);
@@ -79,8 +81,8 @@ function GetWidthScreen()
  		{
  			var npos = 1;
  			var slider = 0;
- 			$(".main_selector").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe></div>');
- 			$(".main_selector .mySlides").each(function() {
+ 			$(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe></div>');
+ 			$(".bexi_sliders .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
  					 $(this).animate({
@@ -93,13 +95,13 @@ function GetWidthScreen()
 
  				var pos = npos - slideIndex - 1;
 
- 				//console.log("pos=" + pos);
-
- 				//console.log("left=" + (pos * sliderSize * $( window ).width()));
+ 				console.log("pos=" + pos);
+ 				console.log("myWidth = " + myWidth);
+ 				console.log("left=" + ( pos * sliderSize * myWidth));
  				//if ( pos>=0  && pos <= 3)
  				//{
  					$(this).animate({
-					    left: pos * sliderSize * $( window ).width(),
+					    left: pos * sliderSize * myWidth,
 					    opacity: '1'
 					 }, 800);
  				//}
@@ -114,19 +116,19 @@ function GetWidthScreen()
  	if (n>0 && slideIndex > 1)
  	{
  		console.log("prev");
- 		var nPages = $(".main_selector .mySlides").length;
+ 		var nPages = $(".bexi_sliders .mySlides").length;
  		
  			/*$(".main_selector").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe></div>');
  			*/
  		var npos = 1;
  		var slider = 0;
- 		$(".main_selector .mySlides").each(function() {
+ 		$(".bexi_sliders .mySlides").each(function() {
  				
  			var pos = npos - slideIndex + 1 ;
  			console.log("Prev pos==" + pos);
- 			console.log("Prev left=" + (pos * sliderSize * $( window ).width()));
+ 			console.log("Prev left=" + (pos * sliderSize * myWidth));
  			$(this).animate({
-				left: pos * sliderSize * $( window ).width(),
+				left: pos * sliderSize * myWidth,
 				opacity: '1'
 			}, 800);
 

@@ -9,6 +9,7 @@ include "includes/global.php";
 include "includes/utils.php";
 include "config.php";
 require 'vendor/autoload.php';
+include "includes/content_blocks.php";
 
 //echo "Tiempo 2 : ".(microtime(true) - $timeini)."<br>";
 
@@ -53,12 +54,14 @@ $eav = $marshaler->marshalJson('
 $params = [
     'TableName' => "bexi_prod_contentblock",
     "IndexName" => "type-index",
+    'ProjectionExpression' => 'id, #cod, is_content, #tp, file_css, file_html',
      "KeyConditionExpression"=> "#tp = :vtipo",
     "ExpressionAttributeValues"=> [
         ":vtipo" =>  ["S" => "hea"]
     ],
     "ExpressionAttributeNames" =>   
-        [ '#tp' => 'type' ]
+        [ '#tp' => 'type',
+            '#cod' => 'code' ]
     
 ];
 
@@ -71,7 +74,7 @@ $contenido="";
  //echo "Tiempo 5 : ".(microtime(true) - $timeini)."<br>";
 
 $key = array_rand ($result['Items'],1);
-$contenido = substr_replace($marshaler->unmarshalValue($result['Items'][$key]['html_code'])," id='module_hea' ",4,0);
+$contenido = substr_replace(GethtmlCode($dynamodb,  $marshaler, $marshaler->unmarshalValue($result['Items'][$key]['id']))," id='module_hea' ",4,0);
 $css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
 
 $_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
@@ -81,12 +84,14 @@ $_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
 $params = [
     'TableName' => "bexi_prod_contentblock",
     "IndexName" => "type-index",
+    'ProjectionExpression' => 'id, #cod, is_content, #tp, file_css, file_html',
      "KeyConditionExpression"=> "#tp = :vtipo",
     "ExpressionAttributeValues"=> [
         ":vtipo" =>  ["S" => "int"]
     ],
     "ExpressionAttributeNames" =>   
-        [ '#tp' => 'type' ]
+        [ '#tp' => 'type',
+            '#cod' => 'code' ]
 
 ];
 
@@ -100,7 +105,7 @@ $params = [
 
 $key = array_rand ($result['Items'],1);
 
-$ContenidoTmp=setImages($marshaler->unmarshalValue($result['Items'][$key]['html_code']),$_REQUEST["keywords"]);
+$ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($result['Items'][$key]['id'])),$_REQUEST["keywords"]);
 $contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
 $css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
 
@@ -118,13 +123,15 @@ $modulos ="";
 $params = [
     'TableName' => "bexi_prod_contentblock",
     "FilterExpression" => "#tp <> :vtipo1 AND #tp<>:vtipo2 AND #tp<>:vtipo3",
+    'ProjectionExpression' => 'id, #cod, is_content, #tp, file_css, file_html',
     "ExpressionAttributeValues"=> [
         ":vtipo1" =>  ["S" => "foo"],
         ":vtipo2" =>  ["S" => "hea"],
         ":vtipo3" =>  ["S" => "int"]
         ],
     "ExpressionAttributeNames" =>   
-        [ '#tp' => 'type' ]
+        [ '#tp' => 'type',
+          '#cod' => 'code' ]
     ];
 
     $result = $dynamodb->scan($params);
@@ -137,7 +144,7 @@ for ($i = 1; $i <= $nmods; $i++) {
 
     $key = array_rand ($result['Items'],1);
 
-    $ContenidoTmp=setImages($marshaler->unmarshalValue($result['Items'][$key]['html_code']),$_REQUEST["keywords"]);
+    $ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($result['Items'][$key]['id'])),$_REQUEST["keywords"]);
     $contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
     
 
@@ -153,19 +160,21 @@ for ($i = 1; $i <= $nmods; $i++) {
 $params = [
     'TableName' => "bexi_prod_contentblock",
     "IndexName" => "type-index",
+     'ProjectionExpression' => 'id, #cod, is_content, #tp, file_css, file_html',
      "KeyConditionExpression"=> "#tp = :vtype",
     "ExpressionAttributeValues"=> [
         ":vtype" =>  ["S" => "foo"]
     ],
     "ExpressionAttributeNames" =>   
-        [ '#tp' => 'type' ]
-];
+        [ '#tp' => 'type',
+          '#cod' => 'code' ]
+    ];
 
 
  $set_colors = $dynamodb->query($params);
 
 $key = array_rand ($set_colors['Items'],1);
-$contenido.=$marshaler->unmarshalValue($set_colors['Items'][$key]['html_code']);
+$contenido.=GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($set_colors['Items'][$key]['id']));
 $css[]=$marshaler->unmarshalValue($set_colors['Items'][$key]["file_css"]);
 
 //$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
