@@ -70,7 +70,7 @@
                 $(this).find('#tabs-movie').tabs({
                   create: function(e, ui) {
                       $('#closeBtn').click(function() {
-                          $('#dialog-movie-info').dialog('close');
+                          $('#dialog-img'+(btid-10000).toString()).dialog('close');
                       });
                   }
               });
