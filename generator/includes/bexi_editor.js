@@ -132,8 +132,8 @@
           '<div id="dialog-img'+num+'" class="ui-helper-hidden">'+
             '<div id="tabs-img">'+
               '<ul>'+
-                '<li><a href="#tab-1">dsf</a></li>'+
-                '<li><a href="#tab-2">jghj</a></li>'+
+                '<li><a href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
+                '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
                 '<li class="ui-tabs-close-button"><button id="closeBtn">X</button></li>'+
               '</ul>'+
               '<div id="tab-1">'+
