@@ -74,6 +74,7 @@
           '<button class="btn" data-toggle="collapse" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-layer-group"></i></button>'+
           '<div class="collapse" id="collapsetools'+num+'" style="z-index: 5;position: absolute; top: 51px; left: 15px;background-color: #f8f8f8;">'+
             '<button class="btn" onClick="bgchange(this.id)" id="'+num+'" style="background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-fill-drip"></i></button>'+
+            '<button class="btn" onClick="bgchange(this.id)" id="'+(num+10000)+'" style="background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="far fa-images"></i></button>'+
           '</div>'
         )
       });
