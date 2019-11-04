@@ -59,7 +59,7 @@
 
     $("#dialog-img").attr("Title", "Content Block Settings");
     $("#dialog-img").attr("data-id", "#" + btid);
-    $("#dialog-img").html('<div id="dialog-info" class="ui-helper-hidden tabdialog">'+
+    $("#dialog-img").html('<div id="dialog-img" class="ui-helper-hidden tabdialog">'+
     '<div id="tabs-img">'+
     '<ul>'+
     '<li><a href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
