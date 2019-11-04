@@ -67,7 +67,7 @@
               width: 500,
               modal: true,
               create: function() {
-                $(this).fin('#tabs-img').tabs();
+                $(this).find('#tabs-img').tabs();
                 $('#tabs-img').tabs({
                     create: function(e, ui) {
                         $(this).parent().find('.tabdialog-close').click(function() {
