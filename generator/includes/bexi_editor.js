@@ -137,7 +137,7 @@
               '</ul>'+
               '<div id="tab-1">'+
                 '<div id="blah" class="col-lg-12 dropzone" ondrop="drag_drop(event)" ondragover="return false">'+
-                  '<label for="files" Class="C">Drop Your Image Here</label>'+
+                  '<label for="files" Class="C" style="height:100%;width:100%;">Drop Your Image Here<Br>(Or Click)</label>'+
                   '<input id="files" style="visibility:hidden;" type="file">'+
                 '</div>'+
               '</div>'+
