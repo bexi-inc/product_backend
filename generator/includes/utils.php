@@ -1,5 +1,6 @@
 <?
 
+
 function setImages($contenido,$keywords = ""){
 		
 	$pos = 0;
