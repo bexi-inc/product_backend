@@ -71,10 +71,10 @@
         //$(this).prepend('<div id="'+Math.floor((Math.random() * 10000) + 1)+'" class="bexi_module_bg transpa-bg" contenteditable="false" style="background-size: cover; position: absolute; top: 0; left: 0; width: inherit;height: 100%; z-index: 0;"></div>');
         var num=Math.floor((Math.random() * 10000) + 1);
         $(this).prepend(
-          '<button class="btn" data-toggle="collapse" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-layer-group"></i></button>'+
-          '<div class="collapse" id="collapsetools'+num+'" style="z-index: 5;position: absolute; top: 51px; left: 15px;background-color: #f8f8f8;">'+
-            '<button class="btn" onClick="bgchange(this.id)" id="'+num+'" style="background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-fill-drip"></i></button>'+
-            '<button class="btn" onClick="bgchange(this.id)" id="'+(num+10000)+'" style="background-color: #f8f8f8;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="far fa-images"></i></button>'+
+          '<button class="btn toolbtn" data-toggle="collapse" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-layer-group"></i></button>'+
+          '<div class="collapse" id="collapsetools'+num+'" style="z-index: 5;position: absolute; top: 51px; left: 15px;background-color: White">'+
+            '<button class="btn toolbtn" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="fas fa-fill-drip"></i></button>'+
+            '<button class="btn toolbtn" onClick="bgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;"><i class="far fa-images"></i></button>'+
           '</div>'
         )
       });
