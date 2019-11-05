@@ -137,7 +137,7 @@
                 '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
               '</ul>'+
               '<div id="tab-1">'+
-                '<div id="blah" class="col-lg-12 dropzone" >'+
+                '<div id="'+num+'" class="col-lg-12 dropzone" >'+
                   '<label for="inpimg'+num+'" Class="C"  onclick="$(#inpimg'+num+').click()" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
                   '<input class="bgimginput" id="inpimg'+num+'" accept="image/*" onchange="previewImg('+num+')" style="display:none;" type="file">'+
                 '</div>'+
@@ -167,7 +167,7 @@
       }
     
       $(".dropzone").each(function(){
-          this.addEventListener('drop', previewImg, false);
+          this.addEventListener('drop', previewImg(this.id), false);
       });
        //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 /*
