@@ -80,14 +80,14 @@
       }
       alert(exist);
       if(exist==false){
-        $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-image: url(""); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+        $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
       }
       if($('#inpimg'+ID).file && $('#inpimg'+ID).files[0])
       {
         var reader= new FileReader();
         reader.onload=function(e){
           window.archivo=File;
-          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr('background-image','url("'+e.target.result+'");');
+          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css('background-image','url('+e.target.result+');');
         };
         reader.readAsDataURL($('#inpimg'+ID).file);
       }
