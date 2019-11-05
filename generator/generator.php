@@ -308,8 +308,6 @@ else{
     echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jquery.minicolors.css">
           <script type="text/javascript" src="includes/jquery.minicolors.min.js"></script>';
 
-    echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >'; 
-
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >'; 
 
      $js_css .= '<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id=\' + paletteId + \'&fontid=\' + FontId + \' " id="mod_css_'.$n.'">';
@@ -336,6 +334,8 @@ else{
     if ($_REQUEST["target"]=="selector")
     {
         echo '<link rel="stylesheet" type="text/css" href="includes/css/bexi_selector.css">';
+    }else{
+        echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >'; 
     }
     echo "</head>";
     echo "\r\n";
