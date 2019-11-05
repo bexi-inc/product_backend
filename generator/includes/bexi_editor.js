@@ -88,10 +88,6 @@ function bgchangeurl(ID)
                $(this).parent().children('.ui-dialog-titlebar').remove();
               },
               buttons: {
-                "Save": function() {
-                  $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_1").minicolors("rgbaString")+'!important;');
-                  $( this ).dialog("close");
-                },
                 Cancel: function() {
                   $( this ).dialog("close");
                 }
