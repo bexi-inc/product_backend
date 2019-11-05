@@ -44,10 +44,10 @@ function GetHeightScreen()
 
   if (myHeight==0)
   {
-      myHeight = Widthparam;
+      myHeight = Heightparam;
   }
-  console.log("Widthparam");
-  console.log(Widthparam);
+  console.log("Heightparam");
+  console.log(Heightparam);
   console.log("myHeight ");
   console.log(myHeight);
   return myHeight;
