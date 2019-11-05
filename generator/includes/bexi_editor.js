@@ -91,7 +91,7 @@
         };
         reader.readAsDataURL($('#inpimg'+ID).file);
       }
-      $( "#dialog-img"+(ID-10000).toString() ).dialog("close");
+      $( "#dialog-img"+(ID).toString() ).dialog("close");
     }
 
   /**************   Change trigger for tooltip **************/
