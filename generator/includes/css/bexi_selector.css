@@ -1,0 +1,15 @@
+#img_select
+{
+	display:none; 
+	position: fixed; 
+	top: 50%;  
+	left: 50%; 
+	margin-top: -150px; 
+	margin-left: -150px; 
+	z-index: 99999;
+}
+
+body:hover  #img_select
+{
+	display: block !important;
+}
