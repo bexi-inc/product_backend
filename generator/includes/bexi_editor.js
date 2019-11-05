@@ -90,7 +90,7 @@
           window.archivo=File;
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css('background-image','url('+e.target.result+');');
         };
-        reader.readAsDataURL($('#inpimg'+ID).files[0]);
+        reader.readAsDataURL($('#inpimg'+ID).prop('files')[0]);
       }
       $( "#dialog-img"+(ID).toString() ).dialog("close");
     }
