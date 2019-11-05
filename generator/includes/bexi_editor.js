@@ -6,6 +6,34 @@
       ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
+function validate_url(url){
+  var result=/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g.test(url);
+  alert(result);
+  return result;
+}
+
+function bgchangeurl(ID)
+{
+  var url=$("inptext"+ID).val();
+  if(url!=""){
+    if(validate_url(url)==true)
+    {
+      var exist= false;
+      if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
+      {
+        var exist=true;
+      }
+      if(exist==false){
+        $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+      }
+      $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+url+")");
+      $( "#dialog-img"+(ID).toString()).dialog("close");
+    }else{
+      alert("Url invalid!");
+    }
+  }
+}
+
   function bgchange(btid) {
 
   var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
@@ -144,7 +172,8 @@
               '</div>'+
               '<div id="tab-2">'+
                 '<div class="fr-input-line" data-children-count="1">'+
-                  '<input id="fr-image-by-url-layer-text-22" type="text" placeholder="http://" tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">'+
+                  '<input id="inptext'+num+'" type="text" placeholder="http://" tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">'+
+                  '<button type="button" onclick="bgchangeurl('+num+')">Change</button>'+
                 '</div>'+
               '</div>'+
             '</div>'+
