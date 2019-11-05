@@ -14,7 +14,7 @@ function validate_url(url){
 
 function bgchangeurl(ID)
 {
-  var url=$("inptext"+ID).value();
+  var url=$("inptext"+ID).val();
   alert(url);
   if(url!=""){
     if(validate_url(url)==true)
