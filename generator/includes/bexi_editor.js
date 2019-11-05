@@ -83,6 +83,19 @@
       });
     }
 
+    function previewImg(ID) {
+      if($(ID).file && $(ID).files[0])
+      {
+        var reader= new FileReader();
+        reader.onload=function(e){
+          window.archivo=File;
+          $(ID).closest(".bexi_module").attr('background-image',e.target.result);
+          $('#imagen').attr('src',e.target.result);
+        };
+        reader.readAsDataURL($(ID).file);
+      }
+    }
+
   /**************   Change trigger for tooltip **************/
 
   $(function () {
@@ -129,9 +142,9 @@
                 '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
               '</ul>'+
               '<div id="tab-1">'+
-                '<div id="blah" class="col-lg-12 dropzone" ondrop="drag_drop(event)" ondragover="return false">'+
+                '<div id="blah" class="col-lg-12 dropzone" ondrop="previewImg(inpimg'+num+')" ondragover="return false">'+
                   '<label for="files" Class="C" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
-                  '<input id="files" style="display:none;" type="file">'+
+                  '<input class="bgimginput" id="inpimg'+num+'" accept="image/*" onchange="previewImg(this.id)" style="display:none;" type="file">'+
                 '</div>'+
               '</div>'+
               '<div id="tab-2">'+
