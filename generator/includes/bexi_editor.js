@@ -172,7 +172,7 @@
         this.addEventListener('drop', function(e) {
           e.preventDefault();
           e.stopPropagation();
-          previewImg(e.id);
+          previewImg(this.id);
         });
 
       });
