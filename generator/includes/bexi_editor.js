@@ -81,6 +81,7 @@
       if(exist==false){
         $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
       }
+      alert($('#inpimg'+ID).prop('files')[0]);
       if($('#inpimg'+ID).prop('files')[0])
       {
         alert("paso");
