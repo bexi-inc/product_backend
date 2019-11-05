@@ -72,6 +72,7 @@
     }
 
     function previewImg(ID) {
+      alert(ID);
       var exist= false;
       if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
       {
