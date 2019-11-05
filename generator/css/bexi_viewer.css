@@ -6,6 +6,10 @@
     margin-bottom: auto;
 }
 
+.special{
+    align-items: unset;
+  }
+
 .preloader {
    position: absolute;
    top: 0;
