@@ -153,23 +153,6 @@
         )
       });
 
-
-      $(".dropzone").each(function(){
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-          this.addEventListener(eventName, preventDefaults, false);
-          document.body.addEventListener(eventName, preventDefaults, false);
-          })
-      });
-      
-      // Prevent default drag behaviors
-      function preventDefaults (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    
-      $(".dropzone").each(function(){
-          this.addEventListener('drop', previewImg(this.id), false);
-      });
        //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
 /*
         FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
