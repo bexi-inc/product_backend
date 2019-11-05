@@ -138,8 +138,8 @@
                 '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
               '</ul>'+
               '<div id="tab-1">'+
-                '<div class="col-lg-12 ">'+
-                  '<label id="'+num+'" for="inpimg'+num+'" Class="C dropzone" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
+                '<div id="'+num+'" class="col-lg-12 dropzone">'+
+                  '<label  for="inpimg'+num+'" Class="C" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
                   '<input class="bgimginput" id="inpimg'+num+'" accept="image/*" onchange="previewImg('+num+')" style="display:none;" type="file">'+
                 '</div>'+
               '</div>'+
@@ -172,6 +172,7 @@
         this.addEventListener('drop', function(e) {
           e.preventDefault();
           e.stopPropagation();
+          $('#inpimg'+this.id).prop('files')[0] = e.dataTransfer.files;
           previewImg(this.id);
         });
 
