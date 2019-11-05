@@ -171,7 +171,7 @@ function bgchangeurl(ID)
                 '</div>'+
               '</div>'+
               '<div id="tab-2">'+
-                '<div class="fr-input-line" data-children-count="1">'+
+                '<div class="fr-input-line R" data-children-count="1">'+
                   '<input id="inptext'+num+'" type="text" placeholder="http://" tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">'+
                   '<button class="align-self-end btn btn-outline-primary mt-3" type="button" onclick="bgchangeurl('+num+')">Change</button>'+
                 '</div>'+
