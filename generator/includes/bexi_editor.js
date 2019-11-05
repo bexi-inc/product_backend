@@ -140,7 +140,7 @@
               '</ul>'+
               '<div id="tab-1">'+
                 '<div id="blah" class="col-lg-12 dropzone" ondrop="previewImg(inpimg'+num+')" ondragover="return false">'+
-                  '<label for="files" Class="C" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
+                  '<label for="inpimg'+num+'" Class="C" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
                   '<input class="bgimginput" id="inpimg'+num+'" accept="image/*" onchange="previewImg(this.id)" style="display:none;" type="file">'+
                 '</div>'+
               '</div>'+
