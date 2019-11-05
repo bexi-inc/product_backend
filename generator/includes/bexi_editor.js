@@ -88,7 +88,7 @@
         var reader= new FileReader();
         reader.onload=function(){
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css('background-image','url('+reader.result+');');
-          alert($('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css(z-index));
+          alert($('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr('z-index'));
         };
         reader.readAsDataURL($('#inpimg'+ID).prop('files')[0]);
       }
