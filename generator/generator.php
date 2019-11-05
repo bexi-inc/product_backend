@@ -329,13 +329,14 @@ else{
     </script>
 
     <script type="text/javascript"  src="includes/bexi_v2.js"></script>
-    <script type="text/javascript"  src="includes/bexi_editor.js"></script>
+    
     <?
     if ($_REQUEST["target"]=="selector")
     {
         echo '<link rel="stylesheet" type="text/css" href="includes/css/bexi_selector.css">';
     }else{
         echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >'; 
+        echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
     }
     echo "</head>";
     echo "\r\n";
