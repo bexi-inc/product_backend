@@ -57,7 +57,7 @@ function GetHeightScreen()
 //
  	//Set Variables 
  	document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
- 	document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.7) + "px");
+ 	document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.5) + "px");
 /*function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
