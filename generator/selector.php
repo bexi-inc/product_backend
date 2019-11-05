@@ -73,9 +73,6 @@
 	.thumbnail iframe {
 	  opacity: 0;
 	  transition: all 300ms ease-in-out;
-	  border-style: solid; 
-	  border-color: #000;
-	  border-width: 5px;
 	  border-radius:25px;
 	  -webkit-box-shadow:0 5px 20px rgba(81,91,104,.2),0 -5px 10px rgba(81,91,104,.2);
 	  box-shadow:0 5px 20px rgba(81,91,104,.2),0 -5px 10px rgba(81,91,104,.2);
@@ -150,6 +147,7 @@
 	</style>
 	<script type="text/javascript">
 		var Widthparam = <? echo (isset($_REQUEST["screen_width"]) ? $_REQUEST["screen_width"] : "0"); ?>;
+		var Heightparam = <? echo (isset($_REQUEST["screen_height"]) ? $_REQUEST["screen_height"] : "0"); ?>;
 
 	</script>
 	<script type="text/javascript" src="includes/bexi_selector.js"></script>
@@ -162,7 +160,7 @@
 	<div class="bexi_sliders" style="width: 90%; margin-left: 5%; position: relative; height: 100%; margin-right: 5%; overflow: hidden;" >
 		<div class="thumbnail-container mySlides">
 			<div class="thumbnail ">
-			  <iframe src="http://generator.bexi.co/generator.localhost.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			  <iframe src="http://generator.bexi.co/generator.localhost.php?target=selector" frameborder="0" onload="this.style.opacity = 1" ></iframe>
 			</div>
 		</div>
 

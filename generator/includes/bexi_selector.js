@@ -1,10 +1,11 @@
 var slideIndex = 1;
 var sliderSize = .40;
 var myWidth = 0;
+var myHeight = 0 ;
 
 function GetWidthScreen()
 {
-  myHeight = 0;
+  myWidth = 0;
   if (window !== top) {
   	myWidth = window.innerWidth ;
   }else{
@@ -27,11 +28,36 @@ function GetWidthScreen()
   return myWidth;
 };
 
+function GetHeightScreen()
+{
+  myHeight = 0;
+  if (window !== top) {
+    myHeight = window.innerHeight ;
+  }else{
+    myHeight = $(window).height();
+  }
+
+  if (myWidth==0)
+  {
+    myHeight = window.screen.height;
+  }
+
+  if (myHeight==0)
+  {
+      myHeight = Widthparam;
+  }
+  console.log("Widthparam");
+  console.log(Widthparam);
+  console.log("myHeight ");
+  console.log(myHeight);
+  return myHeight;
+};
+
  $(function() {
 //
  	//Set Variables 
  	document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
- 	//document.documentElement.style.setProperty('--thumbnail-height', $( window ).height() * 4);
+ 	document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.7) + "px");
 /*function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
