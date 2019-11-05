@@ -72,7 +72,6 @@
     }
 
     function previewImg(ID) {
-      event.preventDefault();
       var exist= false;
       if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
       {
@@ -138,7 +137,7 @@
                 '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
               '</ul>'+
               '<div id="tab-1">'+
-                '<div id="'+num+'" class="col-lg-12 dropzone" ondrop="previewImg('+num+')">'+
+                '<div id="'+num+'" class="col-lg-12 dropzone">'+
                   '<label for="inpimg'+num+'" Class="C"  onclick="previewImg('+num+')" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
                   '<input class="bgimginput" id="inpimg'+num+'" accept="image/*" onchange="previewImg('+num+')" style="display:none;" type="file">'+
                 '</div>'+
@@ -151,6 +150,30 @@
             '</div>'+
           '</div>'
         )
+      });
+      // Prevent default drag behaviors
+      $(".dropzone").each(function(){
+        this.addEventListener('dragover', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+
+        this.addEventListener('dragleave', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+
+        this.addEventListener('dragenter', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+
+        this.addEventListener('drop', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          previewImg(this.id);
+        });
+
       });
 
        //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
