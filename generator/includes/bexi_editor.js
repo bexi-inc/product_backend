@@ -81,14 +81,13 @@
       if(exist==false){
         $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
       }
-      alert($('#inpimg'+ID).get(0).files[0]);
       if($('#inpimg'+ID).prop('files')[0])
       {
         alert("paso");
         var reader= new FileReader();
         reader.onload=function(){
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css('background-image','url('+reader.result+');');
-          alert($('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr('z-index'));
+          alert($('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr('height'));
         };
         reader.readAsDataURL($('#inpimg'+ID).prop('files')[0]);
       }
