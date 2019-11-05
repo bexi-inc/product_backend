@@ -79,7 +79,7 @@
 	}
 
 	/* This pseudo element masks the iframe, so that mouse wheel scrolling and clicking do not affect the simulated "screenshot" */
-	.thumbnail:after {
+	/*.thumbnail:after {
 	  content: "";
 	  display: block;
 	  position: absolute;
@@ -87,7 +87,7 @@
 	  left: 0;
 	  right: 10px;
 	  bottom: 0;
-	}
+	}*/
 
 	.main_selector
 	{
