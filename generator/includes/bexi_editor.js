@@ -26,6 +26,7 @@ function bgchangeurl(ID)
         $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
       }
       $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+url+")");
+      $("#inptext"+ID).val("");
       $( "#dialog-img"+(ID).toString()).dialog("close");
     }else{
       alert("Url invalid!");
@@ -88,6 +89,7 @@ function bgchangeurl(ID)
               },
               buttons: {
                 Cancel: function() {
+                  $("#inptext"+(btid-10000)).val("");
                   $( this ).dialog("close");
                 }
               }
