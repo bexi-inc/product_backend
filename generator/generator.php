@@ -312,14 +312,14 @@ else{
 
      $js_css .= '<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id=\' + paletteId + \'&fontid=\' + FontId + \' " id="mod_css_'.$n.'">';
 
-    foreach ($css as $hoja)
+  /*  foreach ($css as $hoja)
     {
          $css_php = substr($hoja, 0, -3) . 'php';
     	echo '<link rel="stylesheet" type="text/css" href="load_css.php?file='.$css_php.'&id='.$id_color.'&fontid='.$FontId.'" id="mod_css_'.$n.'">';
     	echo "\r\n";
         $n =  $n + 1;
         $js_css .= '<link rel="stylesheet" type="text/css" href="load_css.php?file='.$css_php.'&id=\' + paletteId + \'&fontid=\' + FontId + \' " id="mod_css_'.$n.'">';
-    }
+    }*/
     echo $FontImport;
     echo "\r\n";
     ?>
