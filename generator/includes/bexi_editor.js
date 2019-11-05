@@ -86,6 +86,7 @@
         alert("paso");
         var reader= new FileReader();
         reader.onload=function(){
+          alert(reader.result);
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css('background-image','url('+reader.result+');');
           alert($('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr('height'));
         };
