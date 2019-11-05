@@ -61,6 +61,10 @@
     e.stopPropagation()
   }
 
+  $(".dropzone").each(function(){
+      this.addEventListener('drop', previewImg, false);
+  });
+
 
   function bgimgchange(btid) {
     $( "#dialog-img"+(btid-10000).toString()).dialog({
