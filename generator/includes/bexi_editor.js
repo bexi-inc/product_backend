@@ -78,12 +78,12 @@
       {
         var exist=true;
       }
-      alert(exist);
       if(exist==false){
         $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
       }
       if($('#inpimg'+ID).file && $('#inpimg'+ID).files[0])
       {
+        alert("paso");
         var reader= new FileReader();
         reader.onload=function(e){
           window.archivo=File;
