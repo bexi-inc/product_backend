@@ -52,13 +52,14 @@
   $(".dropzone").each(function(){
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
       this.addEventListener(eventName, preventDefaults, false);
+      document.body.addEventListener(eventName, preventDefaults, false);
       })
   });
   
   // Prevent default drag behaviors
   function preventDefaults (e) {
-    e.preventDefault()
-    e.stopPropagation()
+    e.preventDefault();
+    e.stopPropagation();
   }
 
   $(".dropzone").each(function(){
