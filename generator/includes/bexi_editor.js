@@ -8,7 +8,6 @@
 
 function validate_url(url){
   var result=/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)/.test(url);
-  alert(result);
   return result;
 }
 
