@@ -9,10 +9,9 @@
   function bgchange(btid) {
 
   var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
-  var hexcolor =vcolor;
-  if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
+  if (vcolor =="rgba(0,0,0,0)")
   {
-      hexcolor = rgb2hex(vcolor);
+    vcolor =="rgba(0,0,0,1)";
   }
   $("#dialog-1").attr("Title", "Content Block Settings");
   $("#dialog-1").attr("data-id", "#" + btid);
