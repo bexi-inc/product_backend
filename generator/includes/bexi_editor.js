@@ -74,22 +74,22 @@
 
     function previewImg(ID) {
       var exist= false;
-      if( $("#" +ID).closest(".bexi_module").find(".transpa-bg").length)
+      if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
       {
         var exist=true;
       }
       alert(exist);
       if(exist==false){
-        $('#'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-image: url(""); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+        $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-image: url(""); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
       }
-      if($('#'+ID).file && $('#'+ID).files[0])
+      if($('#inpimg'+ID).file && $('#inpimg'+ID).files[0])
       {
         var reader= new FileReader();
         reader.onload=function(e){
           window.archivo=File;
-          $('#'+ID).closest(".bexi_module").find(".transpa-bg").attr('background-image','url("'+e.target.result+'");');
+          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr('background-image','url("'+e.target.result+'");');
         };
-        reader.readAsDataURL($('#'+ID).file);
+        reader.readAsDataURL($('#inpimg'+ID).file);
       }
       $( "#dialog-img"+(ID-10000).toString() ).dialog("close");
     }
@@ -140,9 +140,9 @@
                 '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
               '</ul>'+
               '<div id="tab-1">'+
-                '<div id="blah" class="col-lg-12 dropzone" ondrop="previewImg(inpimg'+num+')" ondragover="return false">'+
+                '<div id="blah" class="col-lg-12 dropzone" ondrop="previewImg('+num+')" ondragover="return false">'+
                   '<label for="inpimg'+num+'" Class="C" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
-                  '<input class="bgimginput" id="inpimg'+num+'" accept="image/*" onchange="previewImg(this.id)" style="display:none;" type="file">'+
+                  '<input class="bgimginput" id="inpimg'+num+'" accept="image/*" onchange="previewImg('+num+')" style="display:none;" type="file">'+
                 '</div>'+
               '</div>'+
               '<div id="tab-2">'+
