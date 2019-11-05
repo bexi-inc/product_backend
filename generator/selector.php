@@ -149,6 +149,10 @@
 		var Widthparam = <? echo (isset($_REQUEST["screen_width"]) ? $_REQUEST["screen_width"] : "0"); ?>;
 		var Heightparam = <? echo (isset($_REQUEST["screen_height"]) ? $_REQUEST["screen_height"] : "0"); ?>;
 
+		function SelectProject(ProjectId)
+		{
+			alert("this works!! " + ProjectId);
+		}
 	</script>
 	<script type="text/javascript" src="includes/bexi_selector.js"></script>
 </head>

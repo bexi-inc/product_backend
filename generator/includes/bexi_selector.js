@@ -3,6 +3,7 @@ var sliderSize = .40;
 var myWidth = 0;
 var myHeight = 0 ;
 
+
 function GetWidthScreen()
 {
   myWidth = 0;
@@ -163,4 +164,7 @@ function GetHeightScreen()
  		slideIndex = slideIndex - 1;
  	}
  }
+
+
+
 

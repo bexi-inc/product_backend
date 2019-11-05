@@ -175,7 +175,8 @@ function bgchangeurl(ID)
               '</div>'+
             '</div>'+
           '</div>'
-        )
+        );
+
       });
       // Prevent default drag behaviors
       $(".dropzone").each(function(){

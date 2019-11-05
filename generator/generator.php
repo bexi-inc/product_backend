@@ -310,8 +310,8 @@ else{
 
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >'; 
 
-     $js_css .= '<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id=\' + paletteId + \'&fontid=\' + FontId + \' " id="mod_css_'.$n.'">';
-
+    /* $js_css .= '<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id=\' + paletteId + \'&fontid=\' + FontId + \' " id="mod_css_'.$n.'">';
+*/
   /*  foreach ($css as $hoja)
     {
          $css_php = substr($hoja, 0, -3) . 'php';
@@ -334,6 +334,7 @@ else{
     if ($_REQUEST["target"]=="selector")
     {
         echo '<link rel="stylesheet" type="text/css" href="includes/css/bexi_selector.css">';
+        echo '<script type="text/javascript"  src="includes/bexi_editor_selector.js"></script>';
     }else{
         echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >'; 
         echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
@@ -344,10 +345,10 @@ else{
     echo "<body>";
     if ($_REQUEST["target"]=="selector")
     {
-        echo "<img id='img_select' src='imgs/edit.png' >";
+        echo "<img id='img_select_project' src='imgs/edit.png' bexi-code='".$CodeId."'>";
     }
     echo '<input type="hidden" id="custId" name="codeId" value="'.$CodeId.'">';
-    echo '<div id="dialog-1" title="Titulo" style="display: none;">
+    echo '<div id="dialog-1" title="Titulo" style="display: none;" >
     </div>';
 
     echo "\r\n";

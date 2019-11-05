@@ -1,4 +1,4 @@
-#img_select
+#img_select_project
 {
 	display:none; 
 	position: fixed; 
@@ -9,7 +9,7 @@
 	z-index: 99999;
 }
 
-body:hover  #img_select
+body:hover  #img_select_project
 {
 	display: block !important;
 }
