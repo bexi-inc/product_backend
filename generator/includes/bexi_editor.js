@@ -7,7 +7,7 @@
 }
 
 function validate_url(url){
-  var result=/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(url);
+  var result=/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)/.test(url);
   alert(result);
   return result;
 }
@@ -15,7 +15,6 @@ function validate_url(url){
 function bgchangeurl(ID)
 {
   var url=$("#inptext"+ID).val();
-  alert(url);
   if(url!=""){
     if(validate_url(url)==true)
     {
@@ -174,7 +173,7 @@ function bgchangeurl(ID)
               '<div id="tab-2">'+
                 '<div class="fr-input-line" data-children-count="1">'+
                   '<input id="inptext'+num+'" type="text" placeholder="http://" tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">'+
-                  '<button type="button" onclick="bgchangeurl('+num+')">Change</button>'+
+                  '<button class="align-self-end" type="button" onclick="bgchangeurl('+num+')">Change</button>'+
                 '</div>'+
               '</div>'+
             '</div>'+
