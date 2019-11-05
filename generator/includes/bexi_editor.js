@@ -7,7 +7,6 @@
 }
 
 function validate_url(url){
-  alert(url);
   var result=/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(url);
   alert(result);
   return result;
@@ -16,6 +15,7 @@ function validate_url(url){
 function bgchangeurl(ID)
 {
   var url=$("inptext"+ID).val();
+  alert(url);
   if(url!=""){
     if(validate_url(url)==true)
     {
