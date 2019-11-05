@@ -1501,3 +1501,7 @@ background-color: #e7e7e7 !important;
   margin-bottom: 0px !important ;
   display: initial !important;
 }
+
+.fr-view p{
+  margin-bottom: 0px;
+}
