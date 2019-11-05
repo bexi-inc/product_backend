@@ -107,7 +107,7 @@ function GetHeightScreen()
  		{
  			var npos = 1;
  			var slider = 0;
- 			$(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.localhost.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe></div>');
+ 			$(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe></div>');
  			$(".bexi_sliders .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
