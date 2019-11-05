@@ -59,7 +59,7 @@ if (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
 
      $result = $dynamodb->query($params);
 
-     echo gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+     $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
 }
 else{
 
@@ -260,6 +260,7 @@ else{
       $idrand = uniqid('bexi_');
       $contenido=substr_replace($contenido,$idrand,$pos,4);
     }
+}
 
     $iduser = $_REQUEST["user"];
     $CodeId = date("U");
@@ -464,6 +465,7 @@ else{
             $ret["error"] = $e->getMessage();
         }
     }
+
     echo $code;
-}
+
 ?>
