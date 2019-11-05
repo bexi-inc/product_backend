@@ -51,16 +51,6 @@
 
 
   function bgimgchange(btid) {
-    var exist= false;
-    if( $("#" +btid).closest(".bexi_module").find(".transpa-bg").length)
-    {
-      var exist=true;
-    }
-
-    //$("#dialog-img").attr("Title", "Content Block Settings");
-    //$("#dialog-img").attr("data-id", "#" + btid);
-    //$("#dialog-img").html();
-
     $( "#dialog-img"+(btid-10000).toString()).dialog({
               resizable: false,
               height: "auto",
@@ -84,14 +74,22 @@
     }
 
     function previewImg(ID) {
-      if($(ID).file && $(ID).files[0])
+      var exist= false;
+      if( $("#" +ID).closest(".bexi_module").find(".transpa-bg").length)
+      {
+        var exist=true;
+      }
+      if(exist==false){
+        $('#'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-image: url(""); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+      }
+      if($('#'+ID).file && $('#'+ID).files[0])
       {
         var reader= new FileReader();
         reader.onload=function(e){
           window.archivo=File;
-          $(ID).closest(".transpa-bg").attr('background-image',e.target.result);
+          $('#'+ID).closest(".bexi_module").find(".transpa-bg").attr('background-image','url("'+e.target.result+'");');
         };
-        reader.readAsDataURL($(ID).file);
+        reader.readAsDataURL($('#'+ID).file);
       }
     }
 
