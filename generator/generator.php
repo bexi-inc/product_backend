@@ -3,6 +3,7 @@ session_start();
 $timeini = microtime(true);
 //header( 'X-Frame-Options: ALLOW-FROM http://generator.localhost' );
 header( 'X-Frame-Options: ALLOW-FROM http://dashboard.bexi.co' );
+header('Access-Control-Allow-Origin: *');  
 //https://codepen.io
 //echo "Tiempo: ".(microtime(true) - $timeini)."<br>";
 include "includes/global.php";
