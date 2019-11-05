@@ -139,7 +139,7 @@
               '</ul>'+
               '<div id="tab-1">'+
                 '<div id="blah" class="col-lg-12 dropzone" >'+
-                  '<label for="inpimg'+num+'" Class="C" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
+                  '<label for="inpimg'+num+'" Class="C"  onclick="$(#inpimg'+num+').click()" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
                   '<input class="bgimginput" id="inpimg'+num+'" accept="image/*" onchange="previewImg('+num+')" style="display:none;" type="file">'+
                 '</div>'+
               '</div>'+
