@@ -162,25 +162,25 @@
 	<div class="bexi_sliders" style="width: 90%; margin-left: 5%; position: relative; height: 100%; margin-right: 5%; overflow: hidden;" >
 		<div class="thumbnail-container mySlides">
 			<div class="thumbnail ">
-			  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			  <iframe src="http://generator.bexi.co/generator.localhost.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe>
 			</div>
 		</div>
 
 		<div class="thumbnail-container mySlides">
 			<div class="thumbnail">
-			  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			  <iframe src="http://generator.bexi.co/generator.localhost.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe>
 			</div>
 		</div>
 
 		<div class="thumbnail-container mySlides">
 			<div class="thumbnail">
-			  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			  <iframe src="http://generator.bexi.co/generator.localhost.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe>
 			</div>
 		</div>
 
 		<div class="thumbnail-container mySlides">
 			<div class="thumbnail">
-			  <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			  <iframe src="http://generator.bexi.co/generator.localhost.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe>
 			</div>
 		</div>
 	</div>
