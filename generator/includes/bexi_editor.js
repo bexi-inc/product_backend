@@ -172,7 +172,8 @@
         this.addEventListener('drop', function(e) {
           e.preventDefault();
           e.stopPropagation();
-          $('#inpimg'+this.id).prop('files')[0] = e.dataTransfer.files;
+          var fileInput = document.getElementById("inpimg"+this.id.toString());
+          fileInput.files = e.dataTransfer.files;
           previewImg(this.id);
         });
 
