@@ -49,6 +49,19 @@
   }
 
 
+  $(".dropzone").each(function(){
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+      this.addEventListener(eventName, preventDefaults, false);
+      })
+  });
+  
+  // Prevent default drag behaviors
+  function preventDefaults (e) {
+    e.preventDefault()
+    e.stopPropagation()
+  }
+
+
   function bgimgchange(btid) {
     $( "#dialog-img"+(btid-10000).toString()).dialog({
               resizable: false,
