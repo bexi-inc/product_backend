@@ -26,7 +26,7 @@
 	/* This container helps the thumbnail behave as if it were an unscaled IMG element */
 	.thumbnail-container {
 	  /*width: calc(var(--thumbnail-width) * var(--thumbnail-zoom));*/
-	  width: 36%;
+	 /*width: 36%;*/
 	  /*height: calc(var(--thumbnail-height) * var(--thumbnail-zoom));*/
 	  height: 100%;
 	  display: inline-block;
@@ -76,6 +76,9 @@
 	  border-style: solid; 
 	  border-color: #000;
 	  border-width: 5px;
+	  border-radius:25px;
+	  -webkit-box-shadow:0 5px 20px rgba(81,91,104,.2),0 -5px 10px rgba(81,91,104,.2);
+	  box-shadow:0 5px 20px rgba(81,91,104,.2),0 -5px 10px rgba(81,91,104,.2);
 	}
 
 	/* This pseudo element masks the iframe, so that mouse wheel scrolling and clicking do not affect the simulated "screenshot" */
