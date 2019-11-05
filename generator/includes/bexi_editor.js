@@ -72,7 +72,7 @@
     }
 
     function previewImg(ID) {
-      this.preventDefault();
+      e.preventDefault();
       var exist= false;
       if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
       {
@@ -138,7 +138,7 @@
                 '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
               '</ul>'+
               '<div id="tab-1">'+
-                '<div id="'+num+'" class="col-lg-12 dropzone" ondrop="previewImg('+num+')" ondragover="allowDrop(event)">'+
+                '<div id="'+num+'" class="col-lg-12 dropzone" ondrop="previewImg('+num+')">'+
                   '<label for="inpimg'+num+'" Class="C"  onclick="previewImg('+num+')" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
                   '<input class="bgimginput" id="inpimg'+num+'" accept="image/*" onchange="previewImg('+num+')" style="display:none;" type="file">'+
                 '</div>'+
