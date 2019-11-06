@@ -448,8 +448,7 @@ else{
 
     ob_end_clean();
 
-    print_r($_REQUEST);
-    echo is_numeric($_REQUEST["user"]);
+
     if (is_numeric($_REQUEST["user"]) && $_REQUEST["user"]>0 && !isset($_REQUEST["codeid"]))
     {
         $data1 = '{
