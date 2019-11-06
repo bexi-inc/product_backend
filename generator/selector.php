@@ -148,6 +148,7 @@
 	<script type="text/javascript">
 		var Widthparam = <? echo (isset($_REQUEST["screen_width"]) ? $_REQUEST["screen_width"] : "0"); ?>;
 		var Heightparam = <? echo (isset($_REQUEST["screen_height"]) ? $_REQUEST["screen_height"] : "0"); ?>;
+		var UserParam = <? echo (isset($_REQUEST["user"]) ? $_REQUEST["user"] : "0"); ?>;
 
 		function SelectProject(ProjectId)
 		{
@@ -177,25 +178,25 @@
 	<div class="bexi_sliders" style="width: 90%; margin-left: 5%; position: relative; height: 100%; margin-right: 5%; overflow: hidden;" >
 		<div class="thumbnail-container mySlides">
 			<div class="thumbnail ">
-			  <iframe src="http://generator.bexi.co/generator.php?target=selector" frameborder="0" onload="this.style.opacity = 1" ></iframe>
+			  <iframe src="http://generator.bexi.co/generator.php?target=selector&user=<? echo $_REQUEST["user"] ?>" frameborder="0" onload="this.style.opacity = 1" ></iframe>
 			</div>
 		</div>
 
 		<div class="thumbnail-container mySlides">
 			<div class="thumbnail">
-			  <iframe src="http://generator.bexi.co/generator.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			  <iframe src="http://generator.bexi.co/generator.php?target=selector&user=<? echo $_REQUEST["user"] ?>" frameborder="0" onload="this.style.opacity = 1"></iframe>
 			</div>
 		</div>
 
 		<div class="thumbnail-container mySlides">
 			<div class="thumbnail">
-			  <iframe src="http://generator.bexi.co/generator.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			  <iframe src="http://generator.bexi.co/generator.php?target=selector&user=<? echo $_REQUEST["user"] ?>" frameborder="0" onload="this.style.opacity = 1"></iframe>
 			</div>
 		</div>
 
 		<div class="thumbnail-container mySlides">
 			<div class="thumbnail">
-			  <iframe src="http://generator.bexi.co/generator.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe>
+			  <iframe src="http://generator.bexi.co/generator.php?target=selector&user=<? echo $_REQUEST["user"] ?>" frameborder="0" onload="this.style.opacity = 1"></iframe>
 			</div>
 		</div>
 	</div>

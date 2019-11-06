@@ -4,6 +4,14 @@ var myWidth = 0;
 var myHeight = 0 ;
 
 
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+
+
 function GetWidthScreen()
 {
   myWidth = 0;
@@ -108,7 +116,7 @@ function GetHeightScreen()
  		{
  			var npos = 1;
  			var slider = 0;
- 			$(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.php?target=selector" frameborder="0" onload="this.style.opacity = 1"></iframe></div>');
+ 			$(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '" frameborder="0" onload="this.style.opacity = 1"></iframe></div>');
  			$(".bexi_sliders .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
