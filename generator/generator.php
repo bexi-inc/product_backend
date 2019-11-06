@@ -264,7 +264,7 @@ else{
 }
 
     $iduser = $_REQUEST["user"];
-    $CodeId = date("U");
+    $CodeId = microtime();
     ob_start();
 
     echo "<!doctype html>";
