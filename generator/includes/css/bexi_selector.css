@@ -15,7 +15,7 @@ body:hover  #img_select_project
 }
 
 .hero{
-    min-height: 500px !important;
+    min-height: 800px !important;
     display: flex;
     align-items: center;
     margin-top:auto;
