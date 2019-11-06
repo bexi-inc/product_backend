@@ -3,7 +3,7 @@ $(document).ready(function() {
   $("#img_select_project").click(function(){
   		console.log("Project Selected");
 
-  		window.top.postMessage('hello', '*')
+  		window.top.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
 
 /*
   		var myEvent = new CustomEvent('bexi_modu', { detail: {cmd: 'SelectProject', code: $(this).attr("bexi-code")} });

@@ -155,10 +155,12 @@
 		}
 
 
-		window.document.addEventListener('bexi-modu', handleEvent, false)
-		function handleEvent(e) {
-		  	console.log(e.cmd) // outputs: {foo: 'bar'}
-		}
+		window.onmessage = function(e){
+		    if (e.data == 'hello') {
+		        alert('It works!');
+		    }
+		};
+
 	</script>
 	<script type="text/javascript" src="includes/bexi_selector.js"></script>
 </head>
