@@ -156,8 +156,13 @@
 
 
 		window.onmessage = function(e){
-		    if (e.data == 'hello') {
-		        alert('It works!');
+			data = e.data.split("|");
+		    if (data[0] == 'SelectProject') {
+		        console.log('Selector SelectProject = ' + data[1]);
+		         if (window.top != window.self) {
+		         	window.top.postMessage(data[0] + '|' + data[1], '*')
+		         }
+
 		    }
 		};
 
