@@ -13,3 +13,28 @@ body:hover  #img_select_project
 {
 	display: block !important;
 }
+
+.hero{
+    min-height: 500px !important;
+    display: flex;
+    align-items: center;
+    margin-top:auto;
+    margin-bottom: auto;
+}
+
+.special{
+    align-items: unset;
+  }
+
+.preloader {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 9999;
+   background-image: url('../img/preloader.gif');
+   background-repeat: no-repeat; 
+   background-color: #FFF;
+   background-position: center;
+}
