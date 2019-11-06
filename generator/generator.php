@@ -448,12 +448,13 @@ else{
 
     ob_end_clean();
 
-
-    if (is_numeric($iduser) && $iduser>0 && !isset($_REQUEST["codeid"]))
+    print_r($_REQUEST);
+    echo is_numeric($_REQUEST["user"]);
+    if (is_numeric($_REQUEST["user"]) && $_REQUEST["user"]>0 && !isset($_REQUEST["codeid"]))
     {
         $data1 = '{
             "id" : "'.$CodeId.'",
-            "user" : "'.$iduser.'",
+            "user" : "'.$_REQUEST["user"].'",
             "code" : "'.base64_encode(gzcompress($code, 7)) .'"
         }';
 
