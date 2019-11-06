@@ -3,8 +3,11 @@ $(document).ready(function() {
   $("#img_select_project").click(function(){
   		console.log("Project Selected");
 
+  		window.top.postMessage('hello', '*')
+
+/*
   		var myEvent = new CustomEvent('bexi_modu', { detail: {cmd: 'SelectProject', code: $(this).attr("bexi-code")} });
   		window.parent.dispatchEvent(myEvent);
-
+*/
   });
 });
