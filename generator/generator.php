@@ -344,6 +344,7 @@ else{
     echo "\r\n";
 
     echo "<body>";
+
     if ($_REQUEST["target"]=="selector")
     {
         echo "<img id='img_select_project' src='imgs/edit.png' bexi-code='".$CodeId."'>";
@@ -454,7 +455,7 @@ else{
         $data1 = '{
             "id" : "'.$CodeId.'",
             "user" : "'.$_REQUEST["user"].'",
-            "code" : "'.base64_encode(gzcompress($code, 7)) .'"
+            "code" : "'.base64_encode(gzcompress($contenido, 7)) .'"
         }';
 
         //$data1 = json_encode($data1);
