@@ -11,8 +11,7 @@ function validate_url(url){
   return result;
 }
 
-function bgchangeurl(ID)
-{
+function bgchangeurl(ID){
   var url=$("#inptext"+ID).val();
   if(url!=""){
     if(validate_url(url)==true)
@@ -34,35 +33,41 @@ function bgchangeurl(ID)
   }
 }
 
-  function bgchange(btid) {
-
+function bgchange(btid) {
   var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
   if (vcolor =="rgba(0,0,0,0)")
   {
     vcolor ="rgba(0,0,0,1)";
   }
-  $("#dialog-1").attr("Title", "Content Block Settings");
-  $("#dialog-1").attr("data-id", "#" + btid);
-  $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-format='rgb' value='"+vcolor+"'></div>");
-  $( "#dialog-1" ).dialog({
+  var newDiv = $(document.createElement('div'));
+  newDiv.attr("Title", "Content Block Settings");
+  newDiv.attr("data-id", "#" + btid);
+  newDiv.css("display", "block");
+  newDiv.css("height", "auto");
+  newDiv.css("width", "auto");
+  newDiv.css("overflow", "visible");
+  newDiv.html("Color:<input type='text' id='colorpicker_"+btid+"' class='form-control' data-control='hue' data-format='rgb' value='" + vcolor + "'>");
+  $(newDiv).dialog({
             resizable: false,
             height: "auto",
             width: 500,
             modal: true,
             buttons: {
               "Save": function() {
-                $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_1").minicolors("rgbaString")+'!important;');
+                $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_"+btid).minicolors("rgbaString")+'!important;');
                 $( this ).dialog( "close" );
+                newDiv.remove();
               },
               Cancel: function() {
                 $( this ).dialog( "close" );
+                newDiv.remove();
               }
             },
             open: function() {
               $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
           }
     });
-    $("#colorpicker_1").minicolors({
+    $("#colorpicker_"+btid).minicolors({
       control: $(this).attr('data-control') || 'hue',
       inline: $(this).attr('data-inline') === 'true',
       letterCase: 'lowercase',
@@ -71,7 +76,6 @@ function bgchangeurl(ID)
       opacity: true,
       theme: 'bootstrap',
       change: function(value, opacity) {
-
       }
     });
   }
@@ -147,7 +151,6 @@ function bgchangeurl(ID)
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
        $('.bexi_module').each(function() {
-        //$(this).prepend('<div id="'+Math.floor((Math.random() * 10000) + 1)+'" class="bexi_module_bg transpa-bg" contenteditable="false" style="background-size: cover; position: absolute; top: 0; left: 0; width: inherit;height: 100%; z-index: 0;"></div>');
         var num=Math.floor((Math.random() * 10000) + 1);
         $(this).prepend(
           '<button class="toolbtn" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
@@ -202,73 +205,158 @@ function bgchangeurl(ID)
           fileInput.files = e.dataTransfer.files;
           previewImg(this.id);
         });
-
       });
 
-       //$( ".bexi_icon" ).wrap( "<div class='bexi_editor_icon'></div>" );
-/*
-        FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
-        FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'layer-group'});
-        FroalaEditor.RegisterCommand('ContentBlock', {
-          title: 'Content Block Settings',
-          icon: 'icon_block',
+      $('.bexi_icon').each(function() {
+        var str=$(this).attr('style');
+        if(str.search("width")==-1){
+          str+="width:auto;";
+        }
+        $(this).wrap( '<p class="bexi_editor_icon" style="'+str+'"></p>' );
+      });
+
+        /************** ICON COLOR ******************/
+       FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+       FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'fas fa-tint'});
+       FroalaEditor.RegisterCommand('iconcolor', {
+         title: 'Icon Color',
+         icon: 'icon_block',
+         focus: false,
+         undo: false,
+         refreshAfterCallback: false,
+         callback: function () {
+          var obj=this._original_html;
+          var ID=$(obj).attr('id');
+          var color=$("#"+ID).css('color');
+          var newDiv = $(document.createElement('div'));
+          newDiv.attr("Title", "Icon Settings");
+          newDiv.attr("data-id", "#" + ID);
+          newDiv.css("display", "block");
+          newDiv.css("height", "auto");
+          newDiv.css("width", "auto");
+          newDiv.css("overflow", "visible");
+          newDiv.html("Color:<input type='text' id='colorpicker_"+ID+"' class='form-control' data-control='hue' value='" + color + "'>");
+          $(newDiv).dialog({
+              resizable: false,
+              height: "auto",
+              width: 500,
+              modal: true,
+              buttons: {
+                "Save": function() {
+                  $("#"+ID).css("color",$("#colorpicker_"+ID).minicolors("rgbString"));
+                  $( this ).dialog( "close" );
+                  newDiv.remove();
+                },
+                "Cancel": function() {
+                  $( this ).dialog( "close" );
+                  newDiv.remove();
+                }
+              },
+              open: function() {
+              $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+          }
+          });
+          $("#colorpicker_"+ID).minicolors({
+            control: $(this).attr('data-control') || 'hue',
+            inline: $(this).attr('data-inline') === 'true',
+            letterCase: 'lowercase',
+            format: 'rgb',
+            opacity: false,
+            change: function(hex, opacity) {
+            },
+            theme: 'bootstrap'
+          });
+         }
+       });
+
+       /************** ICON BGCOLOR ******************/
+       FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+       FroalaEditor.DefineIcon('icon_block2', {FA5NAME: 'fas fa-paint-brush'});
+       FroalaEditor.RegisterCommand('iconbgcolor', {
+         title: 'Icon Background Color',
+         icon: 'icon_block2',
+         focus: false,
+         undo: false,
+         refreshAfterCallback: false,
+         callback: function () {
+          var obj=this._original_html;
+          var ID=$(obj).attr('id');
+          var color=$("#"+ID).css('background-color');
+          var newDiv = $(document.createElement('div'));
+          newDiv.attr("Title", "Icon Settings");
+          newDiv.attr("data-id", "#" + ID);
+          newDiv.css("display", "block");
+          newDiv.css("height", "auto");
+          newDiv.css("width", "auto");
+          newDiv.css("overflow", "visible");
+          newDiv.html("Background Color:<input type='text' id='colorpicker_"+ID+"' class='form-control' data-control='hue' value='" + color + "'>");
+          $(newDiv).dialog({
+              resizable: false,
+              height: "auto",
+              width: 500,
+              modal: true,
+              buttons: {
+                "Save": function() {
+                  $("#"+ID).css("background-color",$("#colorpicker_"+ID).minicolors("rgbaString"));
+                  $( this ).dialog( "close" );
+                  newDiv.remove();
+                },
+                "Cancel": function() {
+                  $( this ).dialog( "close" );
+                  newDiv.remove();
+                }
+              },
+              open: function() {
+              $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+          }
+          });
+          $("#colorpicker_"+ID).minicolors({
+            control: $(this).attr('data-control') || 'hue',
+            inline: $(this).attr('data-inline') === 'true',
+            letterCase: 'lowercase',
+            format: 'rgb',
+            opacity: true,
+            change: function(hex, opacity) {
+            },
+            theme: 'bootstrap'
+          });
+         }
+       });
+       /************** ICON SIZE ******************/
+       FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+       FroalaEditor.DefineIcon('icon_block3', {FA5NAME: 'fas fa-text-height'});
+       FroalaEditor.RegisterCommand('iconsize', {
+          title: 'Icon Size',
+          icon: 'icon_block3',
+          type: 'dropdown',
           focus: false,
           undo: false,
-          refreshAfterCallback: false,
-          callback: function () {
-            console.log(this);
-            //alert(this.$box[0].id);
-            //$("#" + this.$box[0].id).closest(".bexi_module").css("background-color","#000000")
-           // alert($("#" + this.$box[0].id).closest(".bexi_module").html());
-
-           var vcolor = $("#" + this.$box[0].id).closest(".bexi_module").css("background-color").replace(/\s/g, "");;
-           console.log(vcolor);
-           var hexcolor ="";
-           if (vcolor != "transparent" && vcolor !="rgba(0,0,0,0)")
-           {
-               hexcolor = rgb2hex(vcolor);
-           }
-           $("#dialog-1").attr("Title", "Content Block Settings");
-           $("#dialog-1").attr("data-id", "#" + this.$box[0].id);
-           $("#dialog-1").html("<div>Background Color:<input type='text' id='colorpicker_1' class='form-control' data-control='hue' value='" + hexcolor + "'></div>");
-           $( "#dialog-1" ).dialog({
-                    resizable: false,
-                    height: "auto",
-                    width: 500,
-                    modal: true,
-                    buttons: {
-                      "Save": function() {
-                        //alert($(this).attr("data-id"));
-                        //alert($("#colorpicker_1").minicolors("rgbString"));
-                        //$($(this).attr("data-id")).closest(".bexi_module").css("background-color",$("#colorpicker_1").minicolors("rgbString"))
-                        $($(this).attr("data-id")).closest(".bexi_module").attr('style', 'background-color:'+$("#colorpicker_1").minicolors("rgbString")+'!important');
-                        $( this ).dialog( "close" );
-
-                      },
-                      Cancel: function() {
-                        $( this ).dialog( "close" );
-                      }
-                    }
-            });
-
-            $("#colorpicker_1").minicolors({
-                control: $(this).attr('data-control') || 'hue',
-                inline: $(this).attr('data-inline') === 'true',
-                letterCase: 'lowercase',
-                opacity: false,
-                change: function(hex, opacity) {
-                  if(!hex) return;
-                  if(opacity) hex += ', ' + opacity;
-                  try {
-                    console.log(hex);
-                  } catch(e) {}
-                  $(this).select();
-                },
-                theme: 'bootstrap'
-            });
+          refreshAfterCallback: true,
+          options: {
+            '8': '8',
+            '9': '9',
+            '10': '10',
+            '11': '11',
+            '12': '12',
+            '14': '14',
+            '18': '18',
+            '24': '24',
+            '30': '30',
+            '36': '36',
+            '48': '48',
+            '60': '60',
+            '72': '72',
+            '96': '96',
+          },
+          callback: function (cmd, val) {
+            var obj=this._original_html;
+            var ID=$(obj).attr('id');
+            $("#"+ID).css("font-size",val+'px');
+            console.log (val);
           }
         });
-*/
+
+
         var editortxt = new FroalaEditor('.bexi_editor_text',
         {
           key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
@@ -285,15 +373,9 @@ function bgchangeurl(ID)
               },
               'moreRich': {
                 'buttons': ['insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR']
-              },
-              'bexi_extra' : {
-                  'buttons' : ['ContentBlock']
               }
           }
         });
-
-
-        
 
         var editortitles = new FroalaEditor('.bexi_editor_title',
         {
@@ -364,44 +446,31 @@ function bgchangeurl(ID)
           charCounterCount: false,
           initOnClick: true,
           toolbarBottom : false,
+          imageUpload: false,
+          fileUpload: false,
+          placeholderText: '',
+          quickInsertEnabled: false,
           toolbarVisibleWithoutSelection: true,
           htmlAllowedEmptyTags: ['i','.fas','div'],
           htmlDoNotWrapTags: ['script', 'style', 'img','i'],
-          toolbarButtons: ['fontAwesome'],
-          toolbarButtons : {
-            'moreText': {
-               'buttons': ['fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
-             },
-             'moreParagraph': {
-               'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify','lineHeight']
-             },
-             'moreRich': {
-               'buttons': ['insertLink', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly']
-             },
-             'bexi_extra' : {
-                 'buttons' : ['ContentBlock']
-             },
-         }
-        });
-/*
-        var editormodule = new FroalaEditor('.bexi_module_bg',
-        {
-          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
-          toolbarInline: true,
-          attribution: false,
-          charCounterCount: false,
-          initOnClick: false,
-          toolbarBottom : false,
-          toolbarVisibleWithoutSelection: true,
-          htmlAllowedEmptyTags: ['div'],
-          placeholderText: '',
-          toolbarContainer: '#bexi_module_bg',
-          quickInsertEnabled: false,
           toolbarButtons : {
              'bexi_extra' : {
-                 'buttons' : ['ContentBlock']
+                 'buttons' : ['iconcolor','iconbgcolor','iconsize']
              }
-         }
+         },
+         events : {
+          'keypress': function (keypressEvent) {
+            keypressEvent.preventDefault();
+            return false;
+          },
+          'paste.after': function () {
+            return false;
+          },
+          'paste.before': function (original_event) {
+            original_event.preventDefault();
+            return false;
+          }
+        }
         });
-*/
+
 });

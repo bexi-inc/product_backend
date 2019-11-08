@@ -82,38 +82,42 @@ echo "<meta charset='utf-8'>";
 echo "\r\n";
 echo "<title>Bexi DNA Project</title>";
 echo "\r\n";
+
+echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
+echo '<script src="includes/jquery-3.4.1.min.js"></script>';
+echo '<link rel="stylesheet" href="includes/jquery-ui.min.css">';
+echo '<link rel="stylesheet" href="./css/bexi_panel.css" >';
 echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>';
 echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
 echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
-echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
-echo '<link rel="stylesheet" type="text/css" href="./css/bexi.css">';
-
- //   <link rel="stylesheet" href="includes/colorpicker/css/colorpicker.css" type="text/css" />
- //  <link rel="stylesheet" media="screen" type="text/css" href="includes/colorpicker/css/layout.css" />
- echo '    <script type="text/javascript" src="includes/colorpicker/js/colorpicker.js"></script>
-    <script type="text/javascript" src="includes/colorpicker/js/eye.js"></script>
-    <script type="text/javascript" src="includes/colorpicker/js/utils.js"></script>
-    <script type="text/javascript" src="includes/colorpicker/js/layout.js?ver=1.0.2"></script>';
-
 
 /**************   FROALA EDITOR **************/
 
 echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
-
-
 echo'<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/third_party/font_awesome.min.js"></script>';
+
 echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
 
 echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
-//echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"></script>';
-//echo '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />';
-echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
 
 /**************   ICON FONTS **************/
-//echo '<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">';
-//echo '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"></script>';
 echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
+
+//echo'<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id='.$id_color.'&fontid='.$FontId.'" id="mod_css_0" >'; 
+
+/**************   jquery dialog  **************/
+echo '<script src="includes/jquery-ui.min.js"></script>';
+echo '<link rel="stylesheet" type="text/css" href="includes/jquery-ui.theme.css" >';
+
+/**************   jquery colorpicker  **************/
+echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jquery.minicolors.css">
+      <script type="text/javascript" src="includes/jquery.minicolors.min.js"></script>';
+
+
+echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >';
+echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
+echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
 
 foreach ($css as $hoja)
 {
@@ -121,10 +125,11 @@ foreach ($css as $hoja)
 	echo '<link rel="stylesheet" type="text/css" href="load_css.php?file='.$css_php.'&id=1&fontid=1">';
 	echo "\r\n";
 }
+
 //echo $FontImport;
 echo "\r\n";
 ?>
-<script src="includes/bexi.js" ></script>
+    
 <?
 echo "</head>";
 echo "\r\n";
