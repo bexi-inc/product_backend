@@ -65,6 +65,9 @@ function bgchange(btid) {
             },
             open: function() {
               $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+          },
+          close: function( event, ui ) {
+            newDiv.remove();
           }
     });
     $("#colorpicker_"+btid).minicolors({
@@ -254,6 +257,9 @@ function bgchange(btid) {
               },
               open: function() {
               $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+          },
+          close: function( event, ui ) {
+            newDiv.remove();
           }
           });
           $("#colorpicker_"+ID).minicolors({
@@ -308,7 +314,10 @@ function bgchange(btid) {
               },
               open: function() {
               $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
-          }
+          },
+            close: function( event, ui ) {
+              newDiv.remove();
+            }
           });
           $("#colorpicker_"+ID).minicolors({
             control: $(this).attr('data-control') || 'hue',
@@ -355,6 +364,81 @@ function bgchange(btid) {
             console.log (val);
           }
         });
+
+      /************** ICON LINK ******************/
+      FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+      FroalaEditor.DefineIcon('icon_block4', {FA5NAME: 'fas fa-link'});
+      FroalaEditor.RegisterCommand('iconlink', {
+        title: 'Insert Link',
+        icon: 'icon_block4',
+        focus: false,
+        undo: false,
+        refreshAfterCallback: false,
+        callback: function () {
+         var obj=this._original_html;
+         var ID=$(obj).attr('id');
+         var color=$("#"+ID).css('background-color');
+         var newDiv = $(document.createElement('div'));
+         newDiv.attr("Title", "Icon Settings");
+         newDiv.attr("data-id", "#" + ID);
+         newDiv.css("display", "block");
+         newDiv.css("height", "auto");
+         newDiv.css("width", "auto");
+         newDiv.css("overflow", "visible");
+         newDiv.html('URL:<input id="inptext'+ID+'" type="text" placeholder="http://" tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">'+
+          '<div class="custom-control custom-checkbox">'+
+            '<input type="checkbox" class="custom-control-input" id="customCheck1">'+
+            '<label class="custom-control-label" for="customCheck1">Open in new tab</label>'+
+          '</div>'
+         );
+         $(newDiv).dialog({
+             resizable: false,
+             height: "auto",
+             width: 500,
+             modal: true,
+             buttons: {
+               "Save": function() {
+                var parent=$("#"+ID).parent()[0].tagName;
+                if(parent=="A")
+                {
+                 $("#"+ID).unwrap();
+                }
+                 var url=$("#inptext"+ID).val();
+                 if(url!="")
+                 {
+                   if($("#customCheck1").prop('checked'))
+                   {
+                     $("#"+ID).wrap('<a href="'+url+'" target="_blank"></a>');
+                   }else{
+                    $("#"+ID).wrap('<a href="'+url+'"></a>');
+                   }
+                 }
+                 $( this ).dialog( "close" );
+                 newDiv.remove();
+               },
+               "Cancel": function() {
+                 $( this ).dialog( "close" );
+                 newDiv.remove();
+               }
+             },
+             open: function() {
+             $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+             var parent=$("#"+ID).parent()[0].tagName;
+             if(parent=="A")
+             {
+              $("#inptext"+ID).val($("#"+ID).parent().attr('href'));
+              if($("#"+ID).parent().attr('target')=='_blank')
+              {
+                $("#customCheck1").attr('checked','true');
+              }
+             }
+            },
+            close: function( event, ui ) {
+              newDiv.remove();
+            }
+         });
+        }
+      });
 
 
         var editortxt = new FroalaEditor('.bexi_editor_text',
@@ -453,9 +537,11 @@ function bgchange(btid) {
           toolbarVisibleWithoutSelection: true,
           htmlAllowedEmptyTags: ['i','.fas','div'],
           htmlDoNotWrapTags: ['script', 'style', 'img','i'],
+          pluginsEnabled: ['fontAwesome', 'fontFamily', 'fontSize'],
           toolbarButtons : {
-             'bexi_extra' : {
-                 'buttons' : ['iconcolor','iconbgcolor','iconsize']
+             'moreMisc' : {
+                 'buttons' : ['iconcolor','iconbgcolor','iconsize','iconlink'],
+                 'buttonsVisible': 5
              }
          },
          events : {
