@@ -127,7 +127,7 @@ p{
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 100% !important;
+    width: 100%;
 }
 
 .p_small{
@@ -1504,4 +1504,5 @@ background-color: #e7e7e7 !important;
 
 .fr-view p{
   margin-bottom: 0px;
+  width: auto;
 }
