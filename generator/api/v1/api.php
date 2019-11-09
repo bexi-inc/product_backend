@@ -78,6 +78,15 @@ $res["error_code"]=0;
  		}
  		$res=GmailSigin($_REQ->code);
  		break;
+ 	case 'CreateSubdomain':
+ 		if (!isset($_REQ->subdomian))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			break;
+ 		}
+ 		$res= CreateBucket($_REQ->subdomian);
+ 		break;
  	default:
  		$res["error_code"]="501";
  		$res["message"]="Invalid Command";
