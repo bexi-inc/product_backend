@@ -442,6 +442,56 @@ function bgchange(btid) {
       });
 
 
+      /************** Unsplash Manager ******************/
+      FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+      FroalaEditor.DefineIcon('icon_block5', {FA5NAME: 'fas fa-images'});
+      FroalaEditor.RegisterCommand('unsplash_manager', {
+        title: 'Search image',
+        icon: 'icon_block5',
+        focus: false,
+        undo: false,
+        refreshAfterCallback: false,
+        callback: function () {
+          var ID=this.el.attributes[0].nodeValue;
+          var newDiv = $(document.createElement('div'));
+          newDiv.attr("Title", "Search Image");
+          newDiv.attr("data-id", "#" + ID);
+          newDiv.css("display", "block");
+          newDiv.css("height", "auto");
+          newDiv.css("width", "auto");
+          newDiv.css("overflow", "visible");
+          newDiv.html(
+          '<div class="input-group mb-3">'+
+          '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+          '<div class="input-group-append">'+
+            '<button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>'+
+          '</div>'+
+        '</div>'+
+        '<div id="cont_unspl'+ID+'">'+
+        '</div>'
+          );
+          $(newDiv).dialog({
+              resizable: false,
+              height: "auto",
+              width: 500,
+              modal: true,
+              buttons: {
+                "Cancel": function() {
+                  $( this ).dialog( "close" );
+                  newDiv.remove();
+                }
+              },
+              open: function() {
+              $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+            },
+            close: function( event, ui ) {
+              newDiv.remove();
+            }
+          });
+        }
+      });
+
+
         var editortxt = new FroalaEditor('.bexi_editor_text',
         {
           key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
@@ -498,7 +548,8 @@ function bgchange(btid) {
           imageManagerLoadURL: 'load_images.php',
           toolbarBottom : false,
           imageDefaultAlign: 'center',
-          imageDefaultMargin: 0
+          imageDefaultMargin: 0,
+          imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL', 'imageManager','unsplash_manager']
         });
 
          var editorbtn = new FroalaEditor('.bexi_editor_button',
