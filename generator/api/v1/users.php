@@ -52,7 +52,7 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 		"id" : "'.$userid.'",
 		"username" : "'.$email.'",
 		"name" :  "'.$name.'",
-		"lastname" : "' $lastname . '",
+		"lastname" : "' . $lastname . '",
 		"password" : "'.password_hash($password,PASSWORD_DEFAULT).'"
 	}';
 
