@@ -29,7 +29,7 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			break;
  		}
- 		$res=SigIn($Dynamodb,$_REQ->email, $_REQ->name,$_REQ->lastname, $_REQ->password);
+ 		$res=SigIn($Dynamodb,$_REQ->email, $_REQ->name, $_REQ->lastname, $_REQ->password);
  		
  		break;
  	case 'LogIn':
