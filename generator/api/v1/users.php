@@ -11,7 +11,7 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 	        ":username": "'.$email.'"
 	    }
 	';
-	
+
 	$table = ExecuteQuery("users",$data,"username = :username","username-index");
 
 	if ($table["error"]=="")
@@ -53,7 +53,7 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 		"id" : "'.$userid.'",
 		"username" : "'.$email.'",
 		"name" :  "'.$name.'",
-		"lastname" : "' . $lastname . '",
+		"last_name" : "' . $lastname . '",
 		"password" : "'.password_hash($password,PASSWORD_DEFAULT).'"
 	}';
 
