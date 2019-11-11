@@ -17,21 +17,16 @@ Crew\Unsplash\HttpClient::init([
     'utmSource' => 'Bexi Generator'
 ]);
 
-$filters = [
-    'featured' => true,
-    'w'        => $_REQUEST["w"],
-    'h'        => $_REQUEST["w"]
-];
 
-$data = Crew\Unsplash\Photo::all();
 
-//print_r($data);
+$data = Crew\Unsplash\Search::photos($_REQUEST["key"]);
+
+print_r($data);
 foreach ($data as $photo)
 {
 	$imgs[] = array(
     	"url" => $photo->urls["regular"],
-    	"thumb" => $photo->urls["thumb"],
-    	"tag" => ""
+    	"thumb" => $photo->urls["thumb"]
 	);
 
 }
