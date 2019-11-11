@@ -17,23 +17,35 @@ Crew\Unsplash\HttpClient::init([
     'utmSource' => 'Bexi Generator'
 ]);
 
+$npage = (isset($_REQUEST["npag"]) ? $_REQUEST["npag"] : 1);
+
+$cant = (isset($_REQUEST["items"]) ? $_REQUEST["items"] : 10);
+
+$data = Crew\Unsplash\Search::photos($_REQUEST["key"], $npage, $cant);
 
 
-$data = Crew\Unsplash\Search::photos($_REQUEST["key"]);
 
-print_r($data);
-foreach ($data as $photo)
+//print_r($data->getResults());
+
+
+foreach ($data->getResults() as $photo)
 {
+
+    //print_r($photo);
+
 	$imgs[] = array(
-    	"url" => $photo->urls["regular"],
-    	"thumb" => $photo->urls["thumb"]
+    	"url" => $photo["urls"]["regular"],
+    	"thumb" => $photo["urls"]["thumb"],
+        "alt_description" => $photo["alt_description"]
 	);
 
 }
 
+$res["total"] =  $data->getTotalPages();
+$res["images"] = $imgs;
 //print_r($imgs);
  /* $response = FroalaEditor_Image::delete($_POST['src']);*/
-  //echo stripslashes(json_encode($imgs));
+  echo stripslashes(json_encode($res));
 }
 catch (Exception $e) {
   http_response_code(404);
