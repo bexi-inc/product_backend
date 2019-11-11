@@ -116,7 +116,7 @@ a{
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
     padding-bottom: 20px;
-    width: 100% ;
+    width: auto ;
 }
 
 p{
@@ -1063,6 +1063,7 @@ background-color: #e7e7e7 !important;
 
 
   /*---------------- Buttons css ---------------------------*/
+  /*
   .btn {
     display: inline-block;
     font-weight: 400;
@@ -1092,7 +1093,7 @@ background-color: #e7e7e7 !important;
   a.btn.disabled,
   fieldset:disabled a.btn {
     pointer-events: none; }
-  
+  */
   .btn-primary {
     color: #fff;
     background-color: #329ef7;
@@ -1477,7 +1478,7 @@ background-color: #e7e7e7 !important;
     .btn-link:disabled, .btn-link.disabled {
       color: #6c757d;
       pointer-events: none; }
-  
+
   .btn-lg {
     padding: 0.5rem 1.625rem;
     font-size: 1.25rem;
@@ -1502,7 +1503,19 @@ background-color: #e7e7e7 !important;
   display: initial !important;
 }
 
+img.fr-view.fr-dib{
+  margin: unset !important;
+}
+
 .fr-view p{
   margin-bottom: 0px;
   width: auto;
+
+  font-size: unset !important;
+  line-height: unset !important;
+  font-style: unset !important;
+  font-weight: unset !important;
+  font-family: unset !important;
+  padding-top: unset;
+  padding-bottom: unset;
 }
