@@ -1,7 +1,7 @@
 <?
 
 
-function SigIn($connDyn, $email, $password)
+function SigIn($connDyn, $email, $name, $lastname, $password)
 {
 	global $Marshaler;
 	$ret["error_code"] = "0";
@@ -11,6 +11,7 @@ function SigIn($connDyn, $email, $password)
 	        ":username": "'.$email.'"
 	    }
 	';
+
 	$table = ExecuteQuery("users",$data,"username = :username","username-index");
 
 	if ($table["error"]=="")
@@ -51,6 +52,8 @@ function SigIn($connDyn, $email, $password)
 	$userData ='{
 		"id" : "'.$userid.'",
 		"username" : "'.$email.'",
+		"name" :  "'.$name.'",
+		"last_name" : "' . $lastname . '",
 		"password" : "'.password_hash($password,PASSWORD_DEFAULT).'"
 	}';
 

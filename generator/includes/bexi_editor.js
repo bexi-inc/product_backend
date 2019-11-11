@@ -494,7 +494,7 @@ function bgchange(btid) {
 
         var editortxt = new FroalaEditor('.bexi_editor_text',
         {
-          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
+          key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
           toolbarInline: true,
           charCounterCount: false,
           initOnClick: true,
@@ -514,7 +514,7 @@ function bgchange(btid) {
 
         var editortitles = new FroalaEditor('.bexi_editor_title',
         {
-          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
+          key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
           toolbarInline: true,
           charCounterCount: false,
           initOnClick: true,
@@ -523,7 +523,7 @@ function bgchange(btid) {
 
          var editorsubtitles = new FroalaEditor('.bexi_editor_subtitle',
         {
-          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
+          key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
           toolbarInline: true,
           charCounterCount: false,
           initOnClick: true,
@@ -532,7 +532,7 @@ function bgchange(btid) {
 
          var editorlin = new FroalaEditor('.bexi_editor_link',
         {
-          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
+          key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
           toolbarInline: true,
           charCounterCount: false,
           initOnClick: true,
@@ -541,7 +541,7 @@ function bgchange(btid) {
 
          var editorimg = new FroalaEditor('.bexi_img',
         {
-          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
+          key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
           toolbarInline: true,
           charCounterCount: false,
           initOnClick: true,
@@ -554,7 +554,7 @@ function bgchange(btid) {
 
          var editorbtn = new FroalaEditor('.bexi_editor_button',
         {
-          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
+          key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
           toolbarInline: true,
           charCounterCount: false,
           initOnClick: true,
@@ -564,7 +564,7 @@ function bgchange(btid) {
         });
 
         var editorvid = new FroalaEditor('.bexi_editor_video', {
-          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
+          key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
           toolbarInline: true,
           charCounterCount: false,
           initOnClick: true,
@@ -576,7 +576,7 @@ function bgchange(btid) {
         });
 
         var editorico = new FroalaEditor('.bexi_editor_icon', {
-          key  :   "CTD5xE3F3E2B1A4A1wnhvfF1rH-7oA9A7B6E5C2H4E3J2A7B8==",
+          key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
           iconsTemplate: 'font_awesome_5',
           toolbarInline: true,
           charCounterCount: false,

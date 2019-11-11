@@ -1,6 +1,10 @@
 <?
 session_start();
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
@@ -19,13 +23,13 @@ $res["error_code"]=0;
  switch ($_REQ->cmd) {
  	case 'SigIn':
  		// VALIDAMOS LOS DATOS MINIMOS
- 		if (!isset($_REQ->email) || !isset($_REQ->password))  
+ 		if (!isset($_REQ->email) || !isset($_REQ->password) || !isset($_REQ->name) || !isset($_REQ->lastname))  
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
  			break;
  		}
- 		$res=SigIn($Dynamodb,$_REQ->email, $_REQ->password);
+ 		$res=SigIn($Dynamodb,$_REQ->email, $_REQ->name, $_REQ->lastname, $_REQ->password);
  		
  		break;
  	case 'LogIn':
