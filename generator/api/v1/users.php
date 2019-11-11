@@ -11,6 +11,7 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 	        ":username": "'.$email.'"
 	    }
 	';
+	
 	$table = ExecuteQuery("users",$data,"username = :username","username-index");
 
 	if ($table["error"]=="")
