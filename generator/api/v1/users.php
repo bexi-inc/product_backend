@@ -1,7 +1,7 @@
 <?
 
 
-function SigIn($connDyn, $email, $password)
+function SigIn($connDyn, $email, $name, $lastname, $password)
 {
 	global $Marshaler;
 	$ret["error_code"] = "0";
@@ -51,6 +51,8 @@ function SigIn($connDyn, $email, $password)
 	$userData ='{
 		"id" : "'.$userid.'",
 		"username" : "'.$email.'",
+		"name" :  "'.$name.'",
+		"lastname" : "' $lastname . '",
 		"password" : "'.password_hash($password,PASSWORD_DEFAULT).'"
 	}';
 
