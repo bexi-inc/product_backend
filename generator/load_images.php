@@ -33,7 +33,7 @@ foreach ($data as $photo)
 
 //print_r($imgs);
  /* $response = FroalaEditor_Image::delete($_POST['src']);*/
-  echo stripslashes(json_encode($imgs));
+  //echo stripslashes(json_encode($imgs));
 }
 catch (Exception $e) {
   http_response_code(404);
