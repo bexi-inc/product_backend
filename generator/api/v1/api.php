@@ -99,7 +99,13 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			break;
  		}
- 		$res= SendEmail($_REQ->type, $_REQ->user, $_REQ->project);
+ 		if (isset($_REQ->project))
+ 		{
+ 			$project = $_REQ->project;
+ 		}else{
+ 			$project = 1;
+ 		}
+ 		$res= SendEmail($_REQ->type, $_REQ->user, $project);
  		break;
  	default:
  		$res["error_code"]="501";
