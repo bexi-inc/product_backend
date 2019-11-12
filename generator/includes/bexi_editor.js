@@ -33,6 +33,36 @@ function bgchangeurl(ID){
   }
 }
 
+function Manager_unsplash(ID,numpag)
+{
+  $("#cont_unspl"+ID).empty();
+  var keys=$('#inptext'+ID).val();
+  $.ajax({
+    url: "load_images.php",
+    data: { key: keys, npag : numpag} ,
+    datatype:"json",
+    success: function(data){
+    var jdata=JSON.parse(data);
+    $.each(jdata.images, function(index, item) {
+        var img = new Image();
+        img.src = item.thumb;
+        img.setAttribute("class", "image-list");
+        img.setAttribute("alt", item.alt_description);
+        $("#cont_unspl"+ID).append(img);
+    });
+    $("#cont"+ID).css("height","400px");
+    $("#cont"+ID).closest(".ui-dialog").css("top","80px");
+        $("#cont_unspl"+ID).isotope({
+          itemSelector: '.image-list',
+          masonry: {
+            columnWidth: 200,
+            isFitWidth: true
+          }
+        });
+    }
+  });
+}
+
 function bgchange(btid) {
   var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
   if (vcolor =="rgba(0,0,0,0)")
@@ -441,6 +471,21 @@ function bgchange(btid) {
         }
       });
 
+      /************** ICON REMOVE ******************/
+      FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+      FroalaEditor.DefineIcon('icon_block6', {FA5NAME: 'fas fa-trash'});
+      FroalaEditor.RegisterCommand('iconremove', {
+        title: 'Remove',
+        icon: 'icon_block6',
+        focus: false,
+        undo: false,
+        refreshAfterCallback: false,
+        callback: function () {
+          var obj=this._original_html;
+          var ID=$(obj).attr('id');
+          $('#'+ID).closest(".bexi_editor_icon").remove();
+        }
+      });
 
       /************** Unsplash Manager ******************/
       FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
@@ -456,24 +501,25 @@ function bgchange(btid) {
           var newDiv = $(document.createElement('div'));
           newDiv.attr("Title", "Search Image");
           newDiv.attr("data-id", "#" + ID);
+          newDiv.attr("id", "cont" + ID);
           newDiv.css("display", "block");
           newDiv.css("height", "auto");
           newDiv.css("width", "auto");
-          newDiv.css("overflow", "visible");
+          newDiv.css("overflow", "auto");
           newDiv.html(
           '<div class="input-group mb-3">'+
           '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
           '<div class="input-group-append">'+
-            '<button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>'+
+            '<button class="btn btn-outline-primary" type="button" onclick="Manager_unsplash(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
           '</div>'+
         '</div>'+
-        '<div id="cont_unspl'+ID+'">'+
+        '<div id="cont_unspl'+ID+'" style="position: absolute;">'+
         '</div>'
           );
           $(newDiv).dialog({
               resizable: false,
               height: "auto",
-              width: 500,
+              width: 800,
               modal: true,
               buttons: {
                 "Cancel": function() {
@@ -592,7 +638,7 @@ function bgchange(btid) {
           pluginsEnabled: ['fontAwesome', 'fontFamily', 'fontSize'],
           toolbarButtons : {
              'moreMisc' : {
-                 'buttons' : ['iconcolor','iconbgcolor','iconsize','iconlink'],
+                 'buttons' : ['iconcolor','iconbgcolor','iconsize','iconlink','iconremove'],
                  'buttonsVisible': 5
              }
          },

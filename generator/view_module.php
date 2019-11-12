@@ -114,6 +114,7 @@ echo '<link rel="stylesheet" type="text/css" href="includes/jquery-ui.theme.css"
 echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jquery.minicolors.css">
       <script type="text/javascript" src="includes/jquery.minicolors.min.js"></script>';
 
+echo '<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>';
 
 echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >';
 echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';

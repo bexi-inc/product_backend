@@ -292,7 +292,6 @@ else{
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
 
 
-
     echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
 
     echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
@@ -309,7 +308,9 @@ else{
     echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jquery.minicolors.css">
           <script type="text/javascript" src="includes/jquery.minicolors.min.js"></script>';
 
-    echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >'; 
+    echo '<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>';
+
+    echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
 
     /* $js_css .= '<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id=\' + paletteId + \'&fontid=\' + FontId + \' " id="mod_css_'.$n.'">';
 */
