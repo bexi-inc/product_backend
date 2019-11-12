@@ -475,11 +475,11 @@ function ValidateToken($token)
 		$dbdata = $table["data"]['Items'];
 		if (count($dbdata)>0)
 		{
-			if ((date("U") - $Marshaler->unmarshalValue($dbdata[0]['create_date'])) <= TOKEN_LIFE)
+			if ( (date("U") - $Marshaler->unmarshalValue($dbdata[0]['create_date'])) <= TOKEN_LIFE)
 		    {
 		    	$ret["error_code"] = "0";
 		    	$ret["token"] = $Marshaler->unmarshalValue($dbdata[0]['token']);
-		    	$ret["user"] =$Marshaler->unmarshalValue($dbdata[0]['user'])
+		    	$ret["user"] =$Marshaler->unmarshalValue($dbdata[0]['user']);
 		    }else{
 		    	 $ret["error_code"] = "501";
 	   			 $ret["message"] =  "Invalid Token";
