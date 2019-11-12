@@ -468,7 +468,6 @@ function ValidateToken($token)
 		":tk" : "'.$token.'"
 	}';
 
-	print_r($Data);
 
 	$paramsNoms["#token"] = "token";
 	$table = ExecuteQuery("modu_tokens",$Data,"#token = :tk","",$paramsNoms,false);
@@ -476,7 +475,6 @@ function ValidateToken($token)
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
-		print_r($dbdata);
 		if (count($dbdata)>0)
 		{
 			if ( (date("U") - $Marshaler->unmarshalValue($dbdata[0]['create_date'])) <= TOKEN_LIFE)
