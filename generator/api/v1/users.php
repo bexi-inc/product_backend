@@ -469,7 +469,7 @@ function ValidateToken($token)
 	}';
 
 	$paramsNoms["#token"] = "token";
-	$table = ExecuteQuery("users",$Data,"#token = :tk","",$paramsNoms);
+	$table = ExecuteQuery("mod_tokens",$Data,"#token = :tk","",$paramsNoms,false);
 
 	if ($table["error"]=="")
 	{

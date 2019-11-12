@@ -17,12 +17,18 @@ $sdk = new Aws\Sdk([
 $Dynamodb = $sdk->createDynamoDb();
 $Marshaler = new Marshaler();
 
-function ExecuteQuery($tableName,$paramsJson, $KeyCondition, $indexname = "",$ExpressionNames="")
+function ExecuteQuery($tableName,$paramsJson, $KeyCondition, $indexname = "",$ExpressionNames="", $useprefix=true)
 {
 	global $Dynamodb;
 	global $Marshaler;
 	global $db_prefix;
-	$tableName = $db_prefix.$tableName;
+	if ($useprefix)
+	{
+		$tableName = $db_prefix.$tableName;	
+	}else{
+		$tableName = $tableName;
+	}
+	
 
 	$params = $Marshaler->marshalJson($paramsJson);
 
