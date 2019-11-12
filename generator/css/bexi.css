@@ -252,6 +252,10 @@ a.button-default:hover{
 	color: rgba(246, 175, 0, 1.0);
 }
 
+a.button-default-2:hover{
+  color: rgba(246, 175, 0, 1.0);
+}
+
 .button-outline-1{
     border-radius: 25px;
 	background-color:  #fff;
