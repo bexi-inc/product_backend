@@ -492,6 +492,6 @@ function ValidateToken($token)
 	   // return $ret;
 	}
 
-	return $res;
+	return $ret;
 }
 ?>
