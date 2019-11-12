@@ -118,6 +118,8 @@ echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" 
 echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
 
 echo '<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>';
+echo '<script src="includes/pagination.js"></script>';
+echo'<link rel="stylesheet" type="text/css" href="includes/css/bs-pagination.css" >';
 echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
 
 foreach ($css as $hoja)
