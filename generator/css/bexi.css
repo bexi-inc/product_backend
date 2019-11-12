@@ -228,6 +228,7 @@ p{
     line-height: 26.0px;
     max-width: 200px;
     width: 100%;
+    border: 0;
 }
 
 .button-default{
