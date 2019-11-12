@@ -1522,6 +1522,9 @@ img.fr-view.fr-dib{
 
 /******* For unsplash Manager ********/
 .image-list {
-  float: left;
   margin-bottom: 10px;
+}
+
+.grid-item{
+  display: table;
 }

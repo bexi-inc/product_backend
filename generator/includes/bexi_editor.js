@@ -33,33 +33,91 @@ function bgchangeurl(ID){
   }
 }
 
+
+
 function Manager_unsplash(ID,numpag)
 {
+  var request=null;
+  if(  $("#cont_unspl"+ID).masonry().length)
+  {
+    $("#cont_unspl"+ID).masonry('destroy');
+  }
   $("#cont_unspl"+ID).empty();
   var keys=$('#inptext'+ID).val();
-  $.ajax({
-    url: "load_images.php",
-    data: { key: keys, npag : numpag} ,
-    datatype:"json",
-    success: function(data){
-    var jdata=JSON.parse(data);
-    $.each(jdata.images, function(index, item) {
-        var img = new Image();
-        img.src = item.thumb;
-        img.setAttribute("class", "image-list");
-        img.setAttribute("alt", item.alt_description);
-        var newdiv= $(document.createElement('div'));
-        newdiv.attr("class", "grid-item");
-        $(newdiv).append(img);
-        $("#cont_unspl"+ID).append(newdiv);
+  if(keys!="")
+  {
+    request=$.ajax({
+      url: "load_images.php",
+      data: { key: keys, npag : numpag} ,
+      datatype:"json",
+      success: function(data){
+      var jdata=JSON.parse(data);
+      total=jdata.total;
+      var $grid = $("#cont_unspl"+ID).masonry({
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: 200,
+        gutter: 10
+      });
+      $.each(jdata.images, function(index, item) {
+          var img = new Image();
+          img.src = item.thumb;
+          img.setAttribute("class", "image-list");
+          img.setAttribute("alt", item.alt_description);
+          img.onload=function(){
+            $grid.masonry();
+          };
+          $(img).css("cursor","pointer");
+          $(img).click(function(){
+            $("#"+ID).attr("src",item.url);
+            $("#cont"+ID).dialog( "close" );
+            $("#cont"+ID).remove();
+          });
+          var newdiv= $(document.createElement('div'));
+          newdiv.attr("class", "grid-item");
+          $(newdiv).append(img);
+          $("#cont_unspl"+ID).append(newdiv);
+          $grid.append(newdiv);
+          $grid.masonry( 'appended',newdiv);
+      });
+      $("#cont"+ID).css("height","400px");
+      $("#cont"+ID).closest(".ui-dialog").css("position","fixed");
+      $("#cont"+ID).closest(".ui-dialog").css("top","80px");
+      }
     });
-    $("#cont"+ID).css("height","400px");
-    $("#cont"+ID).closest(".ui-dialog").css("top","80px");
-    $("#cont_unspl"+ID).masonry({
-      // options
-      itemSelector: '.grid-item',
-      columnWidth: 200
-    });
+  }
+  return request;
+}
+
+function set_pagination(ID,npag)
+{
+  var pag_cont =$('#cont_pag'+ID);
+  pag_cont.pagination({
+  
+    // current page
+    current: 1, 
+  
+    // the number of entires per page
+    length: 10, 
+  
+    // pagination size
+    size: 2,
+  
+    // Prev/Next text
+    prev: "&lt;", 
+    next: "&gt;", 
+  
+    // fired on each click
+    ajax:function(options, refresh, $target){
+     pag_cont.hide();
+      var t = Manager_unsplash(ID,options.current);
+     t.done(function(data){
+       var jdata=JSON.parse(data);
+      refresh({
+        total: jdata.total
+      });
+      pag_cont.show();
+     })
     }
   });
 }
@@ -498,7 +556,7 @@ function bgchange(btid) {
         undo: false,
         refreshAfterCallback: false,
         callback: function () {
-          var ID=this.el.attributes[0].nodeValue;
+          var ID=this.$el[0].getAttribute("id");
           var newDiv = $(document.createElement('div'));
           newDiv.attr("Title", "Search Image");
           newDiv.attr("data-id", "#" + ID);
@@ -511,10 +569,12 @@ function bgchange(btid) {
           '<div class="input-group mb-3">'+
           '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
           '<div class="input-group-append">'+
-            '<button class="btn btn-outline-primary" type="button" onclick="Manager_unsplash(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
+            '<button class="btn btn-outline-primary" type="button" onclick="set_pagination(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
           '</div>'+
         '</div>'+
         '<div id="cont_unspl'+ID+'">'+
+        '</div>'+
+        '<div id="cont_pag'+ID+'" class="pagination">'+
         '</div>'
           );
           $(newDiv).dialog({

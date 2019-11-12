@@ -311,6 +311,8 @@ else{
           <script type="text/javascript" src="includes/jquery.minicolors.min.js"></script>';
 
     echo '<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>';
+    echo '<script src="includes/pagination.js"></script>';
+    echo'<link rel="stylesheet" type="text/css" href="includes/css/bs-pagination.css" >';
 
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
 
