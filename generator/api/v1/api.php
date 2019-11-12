@@ -107,7 +107,7 @@ $res["error_code"]=0;
  		}
  		$res= SendEmail($_REQ->type, $_REQ->user, $project);
  		break;
- 	case 'NewTokenRecovery':
+ 	case 'NewRecoveryToken':
  		$res= NewRecoveryToken($_REQ->user);
  		break;
  	default:
