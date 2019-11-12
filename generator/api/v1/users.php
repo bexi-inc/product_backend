@@ -442,4 +442,20 @@ function GmailSigin($code)
 	return $ret;
 	
 }
+
+function NewRecoveryToken($user)
+{
+	$token = bin2hex(openssl_random_pseudo_bytes(64));
+	$Data ='{
+		"token" : "'.$token.'",
+		"creation_date" : "'.date("U").'",
+		"user" :  "'.$user.'"
+	}';
+
+	$resIns=Insert("modu_tokens",$Data, false);
+
+	$ret["error_code"] = "0";
+	$ret["token"] =  $token;
+	return $ret;
+}
 ?>

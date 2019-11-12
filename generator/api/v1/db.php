@@ -46,7 +46,7 @@ function ExecuteQuery($tableName,$paramsJson, $KeyCondition, $indexname = "")
 	return  $ret;
 }
 
-function Insert($tableName, $paramsJson)
+function Insert($tableName, $paramsJson, $useprefix=true)
 {
 	global $Dynamodb;
 	global $Marshaler;
@@ -57,7 +57,7 @@ function Insert($tableName, $paramsJson)
 	$item = $Marshaler->marshalJson($paramsJson);
 
 	$params = [
-	    'TableName' => $db_prefix.$tableName,
+	    'TableName' => ($useprefix ? $db_prefix : '').$tableName,
 	    'Item' => $item
 	];
 

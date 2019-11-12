@@ -107,6 +107,9 @@ $res["error_code"]=0;
  		}
  		$res= SendEmail($_REQ->type, $_REQ->user, $project);
  		break;
+ 	case 'NewTokenRecovery':
+ 		$res= NewRecoveryToken($_REQ->user);
+ 		break;
  	default:
  		$res["error_code"]="501";
  		$res["message"]="Invalid Command";
