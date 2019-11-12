@@ -33,7 +33,106 @@ function bgchangeurl(ID){
   }
 }
 
+function Manager_unsplash2(ID,numpag)
+{
+  var request=null;
+  if(  $("#cont_unspl"+ID).masonry().length)
+  {
+    $("#cont_unspl"+ID).masonry('destroy');
+  }
+  $("#cont_unspl"+ID).empty();
+  var keys=$('#inptextsearch'+ID).val();
+  if(keys!="")
+  {
+    request=$.ajax({
+      url: "load_images.php",
+      data: { key: keys, npag : numpag} ,
+      datatype:"json",
+      success: function(data){
+      var jdata=JSON.parse(data);
+      total=jdata.total;
+      var $grid = $("#cont_unspl"+ID).masonry({
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: 200,
+        gutter: 10
+      });
+      $.each(jdata.images, function(index, item) {
+          var img = new Image();
+          img.src = item.thumb;
+          img.setAttribute("class", "image-list");
+          img.setAttribute("alt", item.alt_description);
+          img.onload=function(){
+            $grid.masonry();
+          };
+          $(img).css("cursor","pointer");
+          $(img).click(function(){
+            var exist= false;
+            if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
+            {
+              var exist=true;
+            }
+            if(exist==false){
+              $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+            }
+            $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+item.url+")");
+            $("#cont_unspl"+ID).empty();
+            $("#cont_unspl"+ID).css("height","0px");
+            $("#cont_pag"+ID).empty();
+            $("#cont_pag"+ID).css("height","0px");
+            $("#inptextsearch"+ID).val("");
+            $("#inptext"+ID).val("");
+            $( "#dialog-img"+ID).css("height","auto");
+            $("#dialog-img"+ID).dialog( "close" );
+          });
+          var newdiv= $(document.createElement('div'));
+          newdiv.attr("class", "grid-item");
+          $(newdiv).append(img);
+          $("#cont_unspl"+ID).append(newdiv);
+          $grid.append(newdiv);
+          $grid.masonry( 'appended',newdiv);
+      });
+      $( "#dialog-img"+ID).css("height","400px");
+      $( "#dialog-img"+ID).closest(".ui-dialog").css("position","fixed");
+      $( "#dialog-img"+ID).closest(".ui-dialog").css("top","80px");
+      }
+    });
+  }
+  return request;
+}
 
+function set_pagination2(ID,npag)
+{
+  var pag_cont =$('#cont_pag'+ID);
+  pag_cont.pagination({
+  
+    // current page
+    current: 1, 
+  
+    // the number of entires per page
+    length: 10, 
+  
+    // pagination size
+    size: 2,
+  
+    // Prev/Next text
+    prev: "&lt;", 
+    next: "&gt;", 
+  
+    // fired on each click
+    ajax:function(options, refresh, $target){
+     pag_cont.hide();
+      var t = Manager_unsplash2(ID,options.current);
+     t.done(function(data){
+       var jdata=JSON.parse(data);
+      refresh({
+        total: jdata.total
+      });
+      pag_cont.show();
+     })
+    }
+  });
+}
 
 function Manager_unsplash(ID,numpag)
 {
@@ -176,7 +275,7 @@ function bgchange(btid) {
     $( "#dialog-img"+(btid-10000).toString()).dialog({
               resizable: false,
               height: "auto",
-              width: 500,
+              width: 700,
               modal: true,
               create: function() {
                 $(this).find('#tabs-img').tabs();
@@ -185,7 +284,13 @@ function bgchange(btid) {
               },
               buttons: {
                 Cancel: function() {
+                  $("#cont_unspl"+(btid-10000)).empty();
+                  $("#cont_unspl"+(btid-10000)).css("height","0px");
+                  $("#cont_pag"+(btid-10000)).empty();
+                  $("#cont_pag"+(btid-10000)).css("height","0px");
+                  $("#inptextsearch"+(btid-10000)).val("");
                   $("#inptext"+(btid-10000)).val("");
+                  $( "#dialog-img"+(btid-10000)).css("height","auto");
                   $( this ).dialog("close");
                 }
               }
@@ -253,8 +358,9 @@ function bgchange(btid) {
           '<div id="dialog-img'+num+'" class="ui-helper-hidden">'+
             '<div id="tabs-img">'+
               '<ul>'+
-                '<li><a href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
-                '<li><a href="#tab-2"><i class="fas fa-link"></i></a></li>'+
+                '<li><a data-tooltip="true" title="Upload" href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
+                '<li><a data-tooltip="true" title="Link" href="#tab-2"><i class="fas fa-link"></i></a></li>'+
+                '<li><a data-tooltip="true" title="Search" href="#tab-3"><i class="far fa-images"></i></a></li>'+
               '</ul>'+
               '<div id="tab-1">'+
                 '<div id="'+num+'" class="col-lg-12 dropzone">'+
@@ -266,6 +372,18 @@ function bgchange(btid) {
                 '<div class="fr-input-line R" data-children-count="1">'+
                   '<input id="inptext'+num+'" type="text" placeholder="http://" tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">'+
                   '<button class="align-self-end btn btn-outline-primary mt-3" type="button" onclick="bgchangeurl('+num+')">Change</button>'+
+                '</div>'+
+              '</div>'+
+              '<div id="tab-3">'+
+                '<div class="input-group mb-3">'+
+                  '<input id="inptextsearch'+num+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+                  '<div class="input-group-append">'+
+                    '<button class="btn btn-outline-primary" type="button" onclick="set_pagination2(\''+num+'\','+1+');" id="button-addon2">Search</button>'+
+                  '</div>'+
+                '</div>'+
+                '<div id="cont_unspl'+num+'">'+
+                '</div>'+
+                '<div id="cont_pag'+num+'" class="pagination">'+
                 '</div>'+
               '</div>'+
             '</div>'+
