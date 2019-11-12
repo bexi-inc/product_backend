@@ -33,6 +33,75 @@ function bgchangeurl(ID){
   }
 }
 
+function Manager_unsplash3(ID,numpag)
+{
+  var request=null;
+  $("#cont_icon"+ID).empty();
+  var keys=$('#inptext'+ID).val();
+  if(keys!="")
+  {
+    request=$.ajax({
+      url: "load_images.php",
+      data: { key: keys, npag : numpag} ,
+      datatype:"json",
+      success: function(data){
+      var jdata=JSON.parse(data);
+      total=jdata.total;
+      $.each(jdata.images, function(index, item) {
+          var icon =  $(document.createElement('i'));
+          img.src = item.thumb;
+          img.setAttribute("class", "image-list");
+          img.setAttribute("alt", item.alt_description);
+          $(img).css("cursor","pointer");
+          $(img).click(function(){
+            $("#"+ID).attr("src",item.url);
+            $("#diag_icon"+ID).dialog( "close" );
+            $("#diag_icon"+ID).remove();
+          });
+          $("#cont_icon"+ID).append(img);
+      });
+      $("#diag_icon"+ID).css("height","400px");
+      $("#diag_icon"+ID).closest(".ui-dialog").css("position","fixed");
+      $("#diag_icon"+ID).closest(".ui-dialog").css("top","80px");
+      }
+    });
+  }
+  return request;
+}
+
+function set_pagination3(ID,npag)
+{
+  var pag_cont =$('#cont_pag'+ID);
+  pag_cont.pagination({
+  
+    // current page
+    current: 1, 
+  
+    // the number of entires per page
+    length: 10, 
+  
+    // pagination size
+    size: 2,
+  
+    // Prev/Next text
+    prev: "&lt;", 
+    next: "&gt;", 
+  
+    // fired on each click
+    ajax:function(options, refresh, $target){
+     pag_cont.hide();
+      var t = Manager_unsplash3(ID,options.current);
+     t.done(function(data){
+       var jdata=JSON.parse(data);
+      refresh({
+        total: jdata.total
+      });
+      pag_cont.show();
+     })
+    }
+  });
+}
+
 function Manager_unsplash2(ID,numpag)
 {
   var request=null;
@@ -347,6 +416,9 @@ function bgchange(btid) {
 
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
+       $("form").submit(function(e){
+         e.preventDefault();
+       })
        $('.bexi_module').each(function() {
         var num=Math.floor((Math.random() * 10000) + 1);
         $(this).prepend(
@@ -716,6 +788,59 @@ function bgchange(btid) {
         }
       });
 
+       /************** ICON REEMPLACE ******************/
+       FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+       FroalaEditor.DefineIcon('icon_block7', {FA5NAME: 'fas fa-exchange-alt'});
+       FroalaEditor.RegisterCommand('iconexchange', {
+         title: 'Icon Exchange',
+         icon: 'icon_block7',
+         focus: false,
+         undo: false,
+         refreshAfterCallback: false,
+         callback: function () {
+          var obj=this._original_html;
+          var ID=$(obj).attr('id');
+          var newDiv = $(document.createElement('div'));
+          newDiv.attr("Title", "Icon Settings");
+          newDiv.attr("data-id", "#" + ID);
+          newDiv.attr("id","diag_icon"+ID);
+          newDiv.css("display", "block");
+          newDiv.css("height", "auto");
+          newDiv.css("width", "auto");
+          newDiv.css("overflow", "visible");
+          newDiv.html(
+            '<div class="input-group mb-3">'+
+            '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+            '<div class="input-group-append">'+
+              '<button class="btn btn-outline-primary" type="button" onclick="set_pagination3(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
+            '</div>'+
+          '</div>'+
+          '<div id="cont_icon'+ID+'">'+
+          '</div>'+
+          '<div id="cont_pag'+ID+'" class="pagination">'+
+          '</div>'
+            );
+          $(newDiv).dialog({
+              resizable: false,
+              height: "auto",
+              width: 500,
+              modal: true,
+              buttons: {
+                "Cancel": function() {
+                  $( this ).dialog( "close" );
+                  newDiv.remove();
+                }
+              },
+              open: function() {
+              $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+          },
+            close: function( event, ui ) {
+              newDiv.remove();
+            }
+          });
+         }
+       });
+
 
         var editortxt = new FroalaEditor('.bexi_editor_text',
         {
@@ -817,8 +942,8 @@ function bgchange(btid) {
           pluginsEnabled: ['fontAwesome', 'fontFamily', 'fontSize'],
           toolbarButtons : {
              'moreMisc' : {
-                 'buttons' : ['iconcolor','iconbgcolor','iconsize','iconlink','iconremove'],
-                 'buttonsVisible': 5
+                 'buttons' : ['iconcolor','iconbgcolor','iconsize','iconlink','iconremove','iconexchange'],
+                 'buttonsVisible': 6
              }
          },
          events : {
