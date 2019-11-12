@@ -15,7 +15,7 @@ require '../../vendor/autoload.php';
 
 require "db.php";
 require "users.php";
-require "email.php";
+require "emails.php";
 
 $_REQ = json_decode(file_get_contents('php://input')); 
 
