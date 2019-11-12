@@ -121,6 +121,7 @@ a{
 
 a:hover{
   text-decoration: none;
+  outline: none;
 }
 
 p{
@@ -239,6 +240,10 @@ p{
     border-radius: 25px;
 	background-color: rgba(246, 175, 0, 1.0);
 	color: #fff;
+}
+
+a.button-default:hover{
+  color: #fff;
 }
 
 .button-default-2{
