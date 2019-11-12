@@ -24,7 +24,7 @@ use Aws\DynamoDb\Marshaler;
 $credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
 
 $sdk = new Aws\Sdk([
-    'region'   => $aws_region,
+    'region'   => $AWS_REGION,
     'version'  => 'latest',
     'credentials' => $credentials
 ]);
