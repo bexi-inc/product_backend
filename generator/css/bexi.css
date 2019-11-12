@@ -1519,3 +1519,9 @@ img.fr-view.fr-dib{
   padding-top: unset;
   padding-bottom: unset;
 }
+
+/******* For unsplash Manager ********/
+.image-list {
+  float: left;
+  margin-bottom: 10px;
+}

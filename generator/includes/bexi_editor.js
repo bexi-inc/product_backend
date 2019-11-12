@@ -48,17 +48,18 @@ function Manager_unsplash(ID,numpag)
         img.src = item.thumb;
         img.setAttribute("class", "image-list");
         img.setAttribute("alt", item.alt_description);
-        $("#cont_unspl"+ID).append(img);
+        var newdiv= $(document.createElement('div'));
+        newdiv.attr("class", "grid-item");
+        $(newdiv).append(img);
+        $("#cont_unspl"+ID).append(newdiv);
     });
     $("#cont"+ID).css("height","400px");
     $("#cont"+ID).closest(".ui-dialog").css("top","80px");
-        $("#cont_unspl"+ID).isotope({
-          itemSelector: '.image-list',
-          masonry: {
-            columnWidth: 200,
-            isFitWidth: true
-          }
-        });
+    $("#cont_unspl"+ID).masonry({
+      // options
+      itemSelector: '.grid-item',
+      columnWidth: 200
+    });
     }
   });
 }
@@ -513,7 +514,7 @@ function bgchange(btid) {
             '<button class="btn btn-outline-primary" type="button" onclick="Manager_unsplash(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
           '</div>'+
         '</div>'+
-        '<div id="cont_unspl'+ID+'" style="position: absolute;">'+
+        '<div id="cont_unspl'+ID+'">'+
         '</div>'
           );
           $(newDiv).dialog({
