@@ -11,7 +11,7 @@ require '../../vendor/autoload.php';
 
 function SendEmail($type,$user,$project = 0)
 {
-	include("../config.php");
+	include("../../config.php");
 	// Replace sender@example.com with your "From" address.
 	// This address must be verified with Amazon SES.
 	$sender = 'noreply@getmodu.com';

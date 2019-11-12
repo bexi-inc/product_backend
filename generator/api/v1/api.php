@@ -99,7 +99,7 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			break;
  		}
- 		//$res= CreateBucket($_REQ->subdomian);
+ 		$res= SendEmail($_REQ->type, $_REQ->user, $_REQ->project);
  		break;
  	default:
  		$res["error_code"]="501";
