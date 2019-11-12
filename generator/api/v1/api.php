@@ -108,7 +108,22 @@ $res["error_code"]=0;
  		$res= SendEmail($_REQ->type, $_REQ->user, $project);
  		break;
  	case 'NewRecoveryToken':
+ 		if (!isset($_REQ->user))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			break;
+ 		}
  		$res= NewRecoveryToken($_REQ->user);
+ 		break;
+ 	case 'ValidateToken':
+ 		if (!isset($_REQ->token))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			break;
+ 		}
+ 		$res= ValidateToken($_REQ->token);
  		break;
  	default:
  		$res["error_code"]="501";

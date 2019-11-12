@@ -458,4 +458,37 @@ function NewRecoveryToken($user)
 	$ret["token"] =  $token;
 	return $ret;
 }
+
+function ValidateToken($token)
+{
+	global $Marshaler;
+	$ret["error_code"] = "0";
+
+	$Data ='{
+		":tk" : "'.$token.'"
+	}';
+
+	$table = ExecuteQuery("users",$Data,"token = :tk");
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+			if ((date("U") - $Marshaler->unmarshalValue($dbdata[0]['create_date']) <= TOKEN_LIFE)
+		    {
+		    	$ret["error_code"] = "0";
+		    	$ret["token"] = $Marshaler->unmarshalValue($dbdata[0]['token']);
+		    	$ret["user"] =$Marshaler->unmarshalValue($dbdata[0]['user'])
+		    }else{
+		    	 $ret["error_code"] = "501";
+	   			 $ret["message"] =  "Invalid Token";
+		    }
+		}
+	}else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
+}
 ?>
