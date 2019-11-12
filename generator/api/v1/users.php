@@ -448,7 +448,7 @@ function NewRecoveryToken($user)
 	$token = bin2hex(openssl_random_pseudo_bytes(64));
 	$Data ='{
 		"token" : "'.$token.'",
-		"creation_date" : "'.date("U").'",
+		"create_date" : "'.date("U").'",
 		"user" :  "'.$user.'"
 	}';
 
@@ -489,7 +489,9 @@ function ValidateToken($token)
 	}else{
 		$ret["error_code"] = "500";
 	    $ret["message"] =  $table["error"];
-	    return $ret;
+	   // return $ret;
 	}
+
+	return $res;
 }
 ?>
