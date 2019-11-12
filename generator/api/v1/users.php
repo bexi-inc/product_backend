@@ -468,6 +468,8 @@ function ValidateToken($token)
 		":tk" : "'.$token.'"
 	}';
 
+	print_r($Data);
+
 	$paramsNoms["#token"] = "token";
 	$table = ExecuteQuery("modu_tokens",$Data,"#token = :tk","",$paramsNoms,false);
 
