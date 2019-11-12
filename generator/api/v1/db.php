@@ -17,7 +17,7 @@ $sdk = new Aws\Sdk([
 $Dynamodb = $sdk->createDynamoDb();
 $Marshaler = new Marshaler();
 
-function ExecuteQuery($tableName,$paramsJson, $KeyCondition, $indexname = "")
+function ExecuteQuery($tableName,$paramsJson, $KeyCondition, $indexname = "",$ExpressionNames="")
 {
 	global $Dynamodb;
 	global $Marshaler;
@@ -31,6 +31,11 @@ function ExecuteQuery($tableName,$paramsJson, $KeyCondition, $indexname = "")
 	    'KeyConditionExpression' => $KeyCondition,
 	    'ExpressionAttributeValues'=> $params
 	];
+
+	if ($ExpressionNames)
+	{
+		$params ["ExpressionAttributeNames"] = $ExpressionNames;
+	}
 
 	if ($indexname!="")
 	{

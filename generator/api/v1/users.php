@@ -468,7 +468,8 @@ function ValidateToken($token)
 		":tk" : "'.$token.'"
 	}';
 
-	$table = ExecuteQuery("users",$Data,"token = :tk");
+	$paramsNoms["#token"] = "token";
+	$table = ExecuteQuery("users",$Data,"#token = :tk",$paramsNoms);
 
 	if ($table["error"]=="")
 	{
