@@ -92,7 +92,7 @@ $res["error_code"]=0;
  		}
  		$res= CreateBucket($_REQ->subdomian);
  		break;
- 	case 'SendEmail'
+ 	case 'SendEmail':
  		if (!isset($_REQ->type) || !isset($_REQ->user))
  		{
  			$res["error_code"]="502";
