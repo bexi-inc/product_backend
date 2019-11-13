@@ -42,6 +42,7 @@ foreach ($data->getResults() as $photo)
 }
 
 $res["total"] =  $data->getTotalPages();
+$res["new_id"] = uniqid("bexi_img_");
 $res["images"] = $imgs;
 //print_r($imgs);
  /* $response = FroalaEditor_Image::delete($_POST['src']);*/

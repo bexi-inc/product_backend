@@ -5,3 +5,4 @@ vendor
 /generator/vendor/
 /generator/composer.lock
 generator/composer.json
+local_scripts
