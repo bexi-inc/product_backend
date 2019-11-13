@@ -125,7 +125,7 @@ function set_pagination4(ID,npag)
   });
 }
 
-function Manager_unsplash3(ID,numpag)
+function icon_manager(ID,numpag)
 {
   var request=null;
   $("#cont_icon"+ID).empty();
@@ -133,25 +133,28 @@ function Manager_unsplash3(ID,numpag)
   if(keys!="")
   {
     request=$.ajax({
-      url: "load_images.php",
+      url: "load_icons.php",
       data: { key: keys, npag : numpag} ,
       datatype:"json",
       success: function(data){
       var jdata=JSON.parse(data);
       total=jdata.total;
-      $.each(jdata.images, function(index, item) {
-          var icon =  $(document.createElement('i'));
-          icon.setAttribute("class", item.class);
-          img.setAttribute("alt", item.alt_description);
-          $(icon).css("cursor","pointer");
-          $(icon).click(function(){
+      $.each(jdata.icons, function(index, item) {
+          var ico = $(document.createElement('i'));
+          $(ico).attr("class",item.class);
+          $(ico).css("cursor","pointer");
+          $(ico).css("padding","7px 9px");
+          $(ico).css("font-size","16px");
+          $(ico).css("border-radius","5%");
+          $(ico).css("margin","5px");
+          $(ico).click(function(){
             $("#"+ID).attr("class",item.class);
             $("#diag_icon"+ID).dialog( "close" );
             $("#diag_icon"+ID).remove();
           });
-          $("#cont_icon"+ID).append(img);
+          $("#cont_icon"+ID).append(ico);
       });
-      $("#diag_icon"+ID).css("height","400px");
+      $("#diag_icon"+ID).css("height","250px");
       $("#diag_icon"+ID).closest(".ui-dialog").css("position","fixed");
       $("#diag_icon"+ID).closest(".ui-dialog").css("top","80px");
       }
@@ -169,7 +172,7 @@ function set_pagination3(ID,npag)
     current: 1, 
   
     // the number of entires per page
-    length: 10, 
+    length: 26,
   
     // pagination size
     size: 2,
@@ -181,7 +184,7 @@ function set_pagination3(ID,npag)
     // fired on each click
     ajax:function(options, refresh, $target){
      pag_cont.hide();
-      var t = Manager_unsplash3(ID,options.current);
+      var t = icon_manager(ID,options.current);
      t.done(function(data){
        var jdata=JSON.parse(data);
       refresh({
@@ -972,7 +975,7 @@ function bgchange(btid) {
           $(newDiv).dialog({
               resizable: false,
               height: "auto",
-              width: 500,
+              width: 400,
               modal: true,
               buttons: {
                 "Cancel": function() {
