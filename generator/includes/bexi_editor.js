@@ -1035,7 +1035,7 @@ function bgchange(btid) {
                 var c=$("#modu_main").html();
                 var request=$.ajax({
                   url: "./ajax/autosave.php",
-                  data: { userid: uid, proyectid : pid,code:c} ,
+                  data: { userid: uid, projectid : pid,code:c} ,
                   datatype:"json",
                   method:"POST",
                   success: function(data){
