@@ -355,6 +355,7 @@ else{
         echo "<img id='img_select_project' src='imgs/edit.png' bexi-code='".$CodeId."'>";
     }
     echo '<input type="hidden" id="codeId" name="codeId" value="'.$CodeId.'">';
+    echo '<input type="hidden" id="userId" name="userId" value="'.$_REQUEST["user"].'">';
     echo '<div id="dialog-1" title="Titulo" style="display: none;" >
     </div>';
 
