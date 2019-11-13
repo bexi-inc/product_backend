@@ -31,8 +31,8 @@ $Type = 1;
 
 $key = '
 	    {
-	        "project_id" : "'.$ProjectID.'",
-	        "type" : "'.$Type.'"
+	        ":pid" : "'.$ProjectID.'",
+	        ":vtipo" : "'.$Type.'"
 	    }
 	';
 
