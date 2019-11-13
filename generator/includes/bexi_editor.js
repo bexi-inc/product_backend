@@ -11,6 +11,17 @@ function validate_url(url){
   return result;
 }
 
+function clear_classes(classes){
+  var classList = classes.split(/\s+/);
+  var class_clear="";
+  $.each(classList, function(index, item) {
+      if (/^fa([a-z]?)$/.test(item)==false&&(/^fa-+/).test(item)==false) {
+          class_clear+=item+" ";
+      }
+  });
+  return class_clear;
+}
+
 function bgchangeurl(ID){
   var url=$("#inptext"+ID).val();
   if(url!=""){
@@ -148,7 +159,8 @@ function icon_manager(ID,numpag)
           $(ico).css("border-radius","5%");
           $(ico).css("margin","5px");
           $(ico).click(function(){
-            $("#"+ID).attr("class",item.class);
+            var cl=clear_classes($("#"+ID).attr("class"));
+            $("#"+ID).attr("class",cl+item.class);
             $("#diag_icon"+ID).dialog( "close" );
             $("#diag_icon"+ID).remove();
           });
