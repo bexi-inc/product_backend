@@ -499,7 +499,7 @@ function bgchange(btid) {
            $(this).wrap( "<div class='bexi_editor_text' id='ed_" + $(this).attr('id') + "''></div>" );
        });
 
-       $( ".bexi_link" ).wrap( "<div class='bexi_editor_link'></div>" );
+       $( ".bexi_link" ).wrap( "<div class='bexi_editor_link' style='width:100%;'></div>" );
 
        $( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
