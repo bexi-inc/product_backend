@@ -1037,6 +1037,7 @@ function bgchange(btid) {
                   url: "./ajax/autosave.php",
                   data: { userid: uid, proyectid : pid,code:c} ,
                   datatype:"json",
+                  method:"POST",
                   success: function(data){
                     console.log("Save Done");
                   }
