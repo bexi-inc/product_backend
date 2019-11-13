@@ -1025,7 +1025,24 @@ function bgchange(btid) {
               }
           },
           imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-          imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize']
+          imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
+          events : {
+            'blur': function () {
+                //url: "./ajax/autosave.php",
+                //data: { userid: keys, proyectid : numpag,code:} ,
+                var pid=$("#codeId").val();
+                var uid=$("#userId").val();
+                var c=$("#modu_main").html();
+                var request=$.ajax({
+                  url: "./ajax/autosave.php",
+                  data: { userid: uid, proyectid : pid,code:c} ,
+                  datatype:"json",
+                  success: function(data){
+                    console.log("Save Done");
+                  }
+                });
+            }
+          }
         });
 
         var editortitles = new FroalaEditor('.bexi_editor_title',
