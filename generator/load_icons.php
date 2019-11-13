@@ -28,7 +28,7 @@ $marshaler = new Marshaler();
 
 $npage = (isset($_REQUEST["npag"]) ? $_REQUEST["npag"] : 1);
 
-$cant = (isset($_REQUEST["items"]) ? $_REQUEST["items"] : 20);
+$cant = (isset($_REQUEST["items"]) ? $_REQUEST["items"] : 26);
 
 $key = (isset($_REQUEST["key"]) ? $_REQUEST["key"] : "");
 
