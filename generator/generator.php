@@ -44,6 +44,9 @@ Crew\Unsplash\HttpClient::init([
 unset($_SESSION["modules"]);
 unset( $_SESSION["modules"]);
 
+$iduser = $_REQUEST["user"];
+$CodeId = (isset($_REQUEST["codeid"]) ? $_REQUEST["codeid"] :  microtime(true))
+
 if (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
 {
     $params = [
@@ -263,8 +266,7 @@ else{
     }
 }
 
-    $iduser = $_REQUEST["user"];
-    $CodeId = microtime(true);
+   
     ob_start();
 
     echo "<!doctype html>";
