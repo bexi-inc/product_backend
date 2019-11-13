@@ -45,7 +45,7 @@ unset($_SESSION["modules"]);
 unset( $_SESSION["modules"]);
 
 $iduser = $_REQUEST["user"];
-$CodeId = (isset($_REQUEST["codeid"]) ? $_REQUEST["codeid"] :  microtime(true))
+$CodeId = (isset($_REQUEST["codeid"]) ? $_REQUEST["codeid"] :  microtime(true));
 
 if (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
 {
