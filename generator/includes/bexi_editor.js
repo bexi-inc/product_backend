@@ -1028,20 +1028,8 @@ function bgchange(btid) {
           imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
           events : {
             'blur': function () {
-                //url: "./ajax/autosave.php",
-                //data: { userid: keys, proyectid : numpag,code:} ,
-                var pid=$("#codeId").val();
-                var uid=$("#userId").val();
-                var c=$("#modu_main").html();
-                var request=$.ajax({
-                  url: "./ajax/autosave.php",
-                  data: { userid: uid, projectid : pid,code:c} ,
-                  datatype:"json",
-                  method:"POST",
-                  success: function(data){
-                    console.log("Save Done");
-                  }
-                });
+                auto_save();
+                saves_imgs();
             }
           }
         });
@@ -1053,7 +1041,13 @@ function bgchange(btid) {
           charCounterCount: false,
           initOnClick: true,
           toolbarVisibleWithoutSelection: true,
-          imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert']
+          imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
+          events : {
+            'blur': function () {
+                auto_save();
+                saves_imgs();
+            }
+          }
         });
 
          var editorsubtitles = new FroalaEditor('.bexi_editor_subtitle',
@@ -1063,7 +1057,13 @@ function bgchange(btid) {
           charCounterCount: false,
           initOnClick: true,
           toolbarVisibleWithoutSelection: true,
-          imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert']
+          imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
+          events : {
+            'blur': function () {
+                auto_save();
+                saves_imgs();
+            }
+          }
         });
 
          var editorlin = new FroalaEditor('.bexi_editor_link',
@@ -1072,7 +1072,13 @@ function bgchange(btid) {
           toolbarInline: true,
           charCounterCount: false,
           initOnClick: true,
-          linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
+          linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
+          events : {
+            'blur': function () {
+                auto_save();
+                saves_imgs();
+            }
+          }
         });
 
          var editorimg = new FroalaEditor('.bexi_img',
@@ -1085,7 +1091,13 @@ function bgchange(btid) {
           toolbarBottom : false,
           imageDefaultAlign: 'center',
           imageDefaultMargin: 0,
-          imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager']
+          imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
+          events : {
+            'blur': function () {
+                auto_save();
+                saves_imgs();
+            }
+          }
         });
 
          var editorbtn = new FroalaEditor('.bexi_editor_button',
@@ -1095,7 +1107,13 @@ function bgchange(btid) {
           charCounterCount: false,
           initOnClick: true,
           toolbarBottom : false,
-          toolbarVisibleWithoutSelection: true
+          toolbarVisibleWithoutSelection: true,
+          events : {
+            'blur': function () {
+                auto_save();
+                saves_imgs();
+            }
+          }
 
         });
 
@@ -1108,7 +1126,13 @@ function bgchange(btid) {
           videoResponsive: true,
           toolbarButtons: ['insertVideo'],
           videoAllowedProviders: ['youtube', 'vimeo'],
-          videoInsertButtons: ['videoBack', '|', 'videoByURL']
+          videoInsertButtons: ['videoBack', '|', 'videoByURL'],
+          events : {
+            'blur': function () {
+                auto_save();
+                saves_imgs();
+            }
+          }
         });
 
         var editorico = new FroalaEditor('.bexi_editor_icon', {
@@ -1143,8 +1167,63 @@ function bgchange(btid) {
           'paste.before': function (original_event) {
             original_event.preventDefault();
             return false;
+          },
+          'blur': function () {
+            auto_save();
+            saves_imgs();
           }
         }
         });
 
 });
+
+function auto_save()
+{
+    var pid=$("#codeId").val();
+    var uid=$("#userId").val();
+    var c=$("#modu_main").html();
+    var request=$.ajax({
+      url: "./ajax/autosave.php",
+      data: { userid: uid, projectid : pid,code:c} ,
+      datatype:"json",
+      method:"POST",
+      success: function(data){
+      }
+    });
+}
+
+function saves_imgs(){
+  var imgs_array=[];
+  $(".bgimginput").each(function(){
+    imgs_array.push(this.files[0]);
+  });
+  var request=$.ajax({
+    url: "./ajax/autosave.php",
+    data: { userid: uid, projectid : pid,imgs:imgs_array},
+    datatype:"json",
+    method:"POST",
+    success: function(data){
+    }
+  });
+}
+
+function load_imgs(){
+  var imgs_array=[];
+  var request=$.ajax({
+    url: "./ajax/autosave.php",
+    data: { userid: uid, projectid : pid},
+    datatype:"json",
+    method:"POST",
+    success: function(data){
+      var jdata=JSON.parse(data);
+      $.each(jdata.images, function(index, item) {
+        imgs_array.push(item);
+      });
+      var n=0;
+      $(".bgimginput").each(function(){
+        this.files[n]=imgs_array[n];
+        n++;
+      });
+    }
+  });
+}
