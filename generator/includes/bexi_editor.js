@@ -66,13 +66,16 @@ function Manager_unsplash4(ID,numpag)
             $grid.masonry();
           };
           $(img).css("cursor","pointer");
-          $(img).click(function(){
+          function add_img(){
+            img.setAttribute("id",jdata.new_id);
             img.setAttribute("class", "bexi_img");
             img.src=item.url;
+            $(img).unbind("click",add_img);
             $("#"+ID).append(img);
             $("#cont"+ID).dialog( "close" );
             $("#cont"+ID).remove();
-          });
+          }
+          $(img).click(add_img);
           var newdiv= $(document.createElement('div'));
           newdiv.attr("class", "grid-item");
           $(newdiv).append(img);
@@ -834,8 +837,12 @@ function bgchange(btid) {
         undo: false,
         refreshAfterCallback: false,
         callback: function () {
-          console.log("debe solo reemplazar");
           var ID=this.$el[0].getAttribute("id");
+          var $img = this.image.get();
+          if(ID==null)
+          {
+            ID=$img[0].getAttribute("id");
+          }
           var newDiv = $(document.createElement('div'));
           newDiv.attr("Title", "Search Image");
           newDiv.attr("data-id", "#" + ID);
@@ -888,14 +895,6 @@ function bgchange(btid) {
         undo: false,
         refreshAfterCallback: false,
         callback: function () {
-          var tag=$(this.$el[0].firstChild).prop("tagName");
-          var func='set_pagination4(\'';
-          console.log(this);
-          console.log(tag);
-          if(tag=="IMG")
-          {
-            func='set_pagination(\'';
-          }
           var ID=this.$el[0].firstChild.getAttribute("id");
           var newDiv = $(document.createElement('div'));
           newDiv.attr("Title", "Search Image");
@@ -909,7 +908,7 @@ function bgchange(btid) {
           '<div class="input-group mb-3">'+
           '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
           '<div class="input-group-append">'+
-            '<button class="btn btn-outline-primary" type="button" onclick="'+func+ID+'\','+1+');" id="button-addon2">Search</button>'+
+            '<button class="btn btn-outline-primary" type="button" onclick="set_pagination4(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
           '</div>'+
         '</div>'+
         '<div id="cont_unspl'+ID+'">'+
@@ -1010,7 +1009,8 @@ function bgchange(btid) {
                 'buttons': ['insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR']
               }
           },
-          imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert']
+          imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
+          imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize']
         });
 
         var editortitles = new FroalaEditor('.bexi_editor_title',
