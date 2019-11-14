@@ -1065,6 +1065,11 @@ function bgchange(btid) {
             'image.replaced': function ($img, response) {
               // Image was replaced in the editor.
               console.log("remplace");
+            },
+            'click': function (clickEvent) {
+              // Do something here.
+              // this is the editor instance.
+              console.log(clickEvent,clickEvent.currentTarget);
             }
           }
         });
