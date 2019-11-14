@@ -8,7 +8,7 @@ print_r($_REQUEST);
 print_r($_FILES);
 
 
-if (!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"]) || !isset($_REQUEST["tagid"]) || !isset($_REQUEST["file"]))
+if (!isset($_FILES["userid"]) || !isset($_FILES["projectid"]) || !isset($_FILES["tagid"]) || !isset($_FILES["file"]))
 {
 	die("Incorrect params");
 }

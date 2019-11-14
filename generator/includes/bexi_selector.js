@@ -137,6 +137,7 @@ function GetHeightScreen()
  				console.log("pos=" + pos);
  				console.log("myWidth = " + myWidth);
  				console.log("left=" + ( pos * sliderSize * myWidth));
+         console.log("nframe - " + (npos-slideIndex));
  				//if ( pos>=0  && pos <= 3)
  				//{
  					$(this).animate({
@@ -144,6 +145,12 @@ function GetHeightScreen()
 					    opacity: '1'
 					 }, 800);
  				//}
+        if ((npos-slideIndex)>=1 && (npos-slideIndex)<=2)
+        {
+           $("iframe", this).addClass("project_active");
+        }else{
+           $("iframe", this).removeClass("project_active");
+        }
  				npos = npos + 1;
  			});
  		}
@@ -170,6 +177,14 @@ function GetHeightScreen()
 				left: pos * sliderSize * myWidth,
 				opacity: '1'
 			}, 800);
+
+       console.log("nframe - " + (npos-slideIndex));
+       if ((npos-slideIndex)>=1 && (npos-slideIndex)<=2)
+        {
+           $("iframe",this).addClass("project_active");
+        }else{
+           $("iframe",this).removeClass("project_active");
+        }
 
  			npos = npos + 1;
  		});
