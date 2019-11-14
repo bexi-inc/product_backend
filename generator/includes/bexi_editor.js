@@ -1042,7 +1042,7 @@ function bgchange(btid) {
               console.log("2");
               $($img).attr("id",window.bexi_id);
               $($img).attr("src",window.bexi_src);
-              console.log(window.bexi_src);
+              console.log(window.bexi_src,"desde 2");
             }
           }
         });
@@ -1231,7 +1231,7 @@ function save_img(TAGID,FILE){
     success: function(response){
       var jresponse = JSON.parse(response);
       window.bexi_src=jresponse.src;
-      console.log(window.bexi_src);
+      console.log(window.bexi_src,"desde response");
       window.bexi_id=jresponse.id;
     }
   });
