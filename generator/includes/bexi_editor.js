@@ -1032,8 +1032,7 @@ function bgchange(btid) {
             },
             'image.beforeUpload': function (images) {
               // Image was inserted in the editor.
-              this.file
-              save_img(null,this.file);
+              save_img(null,images[0]);
             }
           }
         });
