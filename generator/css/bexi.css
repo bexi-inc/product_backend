@@ -1539,8 +1539,7 @@ img.fr-view.fr-dib{
   font-weight: unset !important;
   font-family: unset !important;
   padding-top: unset;
-  padding-bottom: unset;
-}
+} /*padding-bottom: inherit;*/
 
 /******* For unsplash Manager ********/
 .image-list {
