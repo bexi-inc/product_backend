@@ -1062,10 +1062,7 @@ function bgchange(btid) {
             },
             'image.replaced': function ($img, response) {
               // Image was replaced in the editor.
-              var jresponse =JSON.parse(response);
-              $img.attr("src",jresponse.src);
-              window.bexi_tagid=jresponse.id;
-              return false;
+              console.log(this.selectNode);
             },
             'click': function (clickEvent) {
               // Do something here.
