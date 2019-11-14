@@ -8,7 +8,7 @@ $path = "/var/www/uploads.getmodu.com/public_html/";
 print_r($_FILES);
 
 
-if (!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"]) || !isset($_REQUEST["file"]))
+if (!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"]) || !isset($_FILES))
 {
 	die("Incorrect params");
 }
