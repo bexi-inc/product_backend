@@ -532,9 +532,11 @@ function bgchange(btid) {
 
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
+       /*
        $("form").submit(function(e){
          e.preventDefault();
        })
+       */
        $('.bexi_module').each(function() {
         var num=Math.floor((Math.random() * 10000) + 1);
         $(this).prepend(
@@ -1501,7 +1503,7 @@ function bgchange(btid) {
 
 function add_action_forms(){
   $(".bexi_form").each(function(form){
-    form.find("button[type=submit]").on('submit', function() {
+    form.find("button[type=submit]").submit(function(e){
       send_data();
     });
   });
