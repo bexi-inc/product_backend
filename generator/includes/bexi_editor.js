@@ -1059,7 +1059,6 @@ function bgchange(btid) {
               $img.attr("id",jresponse.id);
               $img.attr("src",jresponse.src);
               window.bexi_tagid=jresponse.id;
-              range.insertNode(nodes[0].cloneNode(true));
             },
             'image.replaced': function ($img, response) {
               // Image was replaced in the editor.
