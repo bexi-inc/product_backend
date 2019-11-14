@@ -355,7 +355,7 @@ else{
     {
         echo "<img id='img_select_project' src='imgs/edit.png' bexi-code='".$CodeId."'>";
     }
-    if (isset($_REQUEST[""]))
+    if (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
     {
          echo '<input type="hidden" id="codeId" name="codeId" value="'.$CodeId.'">';
          echo '<input type="hidden" id="userId" name="userId" value="'.$_REQUEST["user"].'">';
