@@ -1212,11 +1212,12 @@ function save_img(TAGID,FILE){
   data.append("userid",uid);
   data.append("projectid",pid);
   data.append("tagid",TAGID);
+  console.log(data,"lo que envio");
   var request=$.ajax({
     url: "./ajax/uploadfile.php",
     data: data,
     cache: false,
-    contentType: false,
+    contentType: "json",
     processData: false,
     method:"POST",
     success: function(response){
