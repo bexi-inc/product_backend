@@ -1,6 +1,6 @@
 /********global variables********/
-var global_src;
-var global_id;
+window.bexi_src;
+window.bexi_id;
 
 function rgb2hex(rgb){
      rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
@@ -1040,9 +1040,9 @@ function bgchange(btid) {
             },'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
               console.log("2");
-              $($img).attr("id",global_id);
-              $($img).attr("src",global_src);
-              console.log(global_id);
+              $($img).attr("id",window.bexi_id);
+              $($img).attr("src",window.bexi_src);
+              console.log(window.bexi_id);
             }
           }
         });
@@ -1230,8 +1230,8 @@ function save_img(TAGID,FILE){
     method:"POST",
     success: function(response){
       var jresponse = JSON.parse(response);
-      global_src=jresponse.src;
-      global_id=jresponse.id;
+      window.bexi_src=jresponse.src;
+      window.bexi_id=jresponse.id;
     }
   });
 }
