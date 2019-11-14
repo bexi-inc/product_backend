@@ -1212,7 +1212,6 @@ function save_img(TAGID,FILE){
   data.append("userid",uid);
   data.append("projectid",pid);
   data.append("tagid",TAGID);
-  console.log(data,"lo que envio");
   var request=$.ajax({
     url: "./ajax/uploadfile.php",
     data: data,
@@ -1220,9 +1219,8 @@ function save_img(TAGID,FILE){
     contentType: false,
     method:"POST",
     success: function(response){
-      console.log("sucess");
       var jresponse = JSON.parse(response);
-      console.log(response);
+      console.log(jresponse);
     }
   });
 }
