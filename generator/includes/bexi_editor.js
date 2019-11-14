@@ -486,11 +486,18 @@ function bgchange(btid) {
       }
       if($('#inpimg'+ID).prop('files')[0])
       {
-        var reader= new FileReader();
+        var id=$('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id");
+        if(typeof id === "undefined")
+        {
+          id=null;
+        }
+        save_img(id,$('#inpimg'+ID).prop('files')[0],$('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg"));
+        /*var reader= new FileReader();
         reader.onload=function(){
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+reader.result+")");
         };
         reader.readAsDataURL($('#inpimg'+ID).prop('files')[0]);
+        */
       }
       $( "#dialog-img"+(ID).toString() ).dialog("close");
     }
@@ -1086,15 +1093,53 @@ function bgchange(btid) {
           initOnClick: true,
           toolbarVisibleWithoutSelection: true,
           imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-          events : {
-            'blur': function () {
-                auto_save();
-            },
-            'image.beforeUpload': function (images) {
-              // Image was inserted in the editor.
-              console.log(images);
-            }
-          }
+         // Set the image upload parameter.
+         imageUploadParam: 'file',
+
+         // Set the image upload URL.
+         imageUploadURL: './ajax/uploadfile.php',
+
+         // Additional upload params.
+         imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+
+         // Set request type.
+         imageUploadMethod: 'POST',
+
+         // Set max image size to 5MB.
+         imageMaxSize: 5 * 1024 * 1024,
+
+         // Allow to upload PNG and JPG.
+         imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+         events : {
+           'blur': function () {
+               auto_save();
+           },
+           'image.beforeUpload': function (images) {
+             this.opts.imageUploadParams.tagid=window.bexi_tagid;
+           },
+           'image.inserted': function ($img, response) {
+             // Image was inserted in the editor.
+             var jresponse =JSON.parse(response);
+             $img.attr("id",jresponse.id);
+             $img.attr("src",jresponse.src);
+             window.bexi_tagid=jresponse.id;
+           },
+           'image.replaced': function ($img, response) {
+             // Image was replaced in the editor.
+             console.log(this);
+           },
+           'click': function (clickEvent) {
+             // Do something here.
+             // this is the editor instance.
+             if(clickEvent.currentTarget.tagName=="IMG")
+             {
+               window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+             }
+             else{
+               window.bexi_tagid=null;
+             }
+           }
+         }
         });
 
          var editorsubtitles = new FroalaEditor('.bexi_editor_subtitle',
@@ -1105,15 +1150,53 @@ function bgchange(btid) {
           initOnClick: true,
           toolbarVisibleWithoutSelection: true,
           imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-          events : {
-            'blur': function () {
-                auto_save();
-            },
-            'image.beforeUpload': function (images) {
-              // Image was inserted in the editor.
-              console.log(images);
-            }
-          }
+         // Set the image upload parameter.
+         imageUploadParam: 'file',
+
+         // Set the image upload URL.
+         imageUploadURL: './ajax/uploadfile.php',
+
+         // Additional upload params.
+         imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+
+         // Set request type.
+         imageUploadMethod: 'POST',
+
+         // Set max image size to 5MB.
+         imageMaxSize: 5 * 1024 * 1024,
+
+         // Allow to upload PNG and JPG.
+         imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+         events : {
+           'blur': function () {
+               auto_save();
+           },
+           'image.beforeUpload': function (images) {
+             this.opts.imageUploadParams.tagid=window.bexi_tagid;
+           },
+           'image.inserted': function ($img, response) {
+             // Image was inserted in the editor.
+             var jresponse =JSON.parse(response);
+             $img.attr("id",jresponse.id);
+             $img.attr("src",jresponse.src);
+             window.bexi_tagid=jresponse.id;
+           },
+           'image.replaced': function ($img, response) {
+             // Image was replaced in the editor.
+             console.log(this);
+           },
+           'click': function (clickEvent) {
+             // Do something here.
+             // this is the editor instance.
+             if(clickEvent.currentTarget.tagName=="IMG")
+             {
+               window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+             }
+             else{
+               window.bexi_tagid=null;
+             }
+           }
+         }
         });
 
          var editorlin = new FroalaEditor('.bexi_editor_link',
@@ -1123,15 +1206,53 @@ function bgchange(btid) {
           charCounterCount: false,
           initOnClick: true,
           linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
-          events : {
-            'blur': function () {
-                auto_save();
-            },
-            'image.beforeUpload': function (images) {
-              // Image was inserted in the editor.
-              console.log(images);
-            }
-          }
+         // Set the image upload parameter.
+         imageUploadParam: 'file',
+
+         // Set the image upload URL.
+         imageUploadURL: './ajax/uploadfile.php',
+
+         // Additional upload params.
+         imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+
+         // Set request type.
+         imageUploadMethod: 'POST',
+
+         // Set max image size to 5MB.
+         imageMaxSize: 5 * 1024 * 1024,
+
+         // Allow to upload PNG and JPG.
+         imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+         events : {
+           'blur': function () {
+               auto_save();
+           },
+           'image.beforeUpload': function (images) {
+             this.opts.imageUploadParams.tagid=window.bexi_tagid;
+           },
+           'image.inserted': function ($img, response) {
+             // Image was inserted in the editor.
+             var jresponse =JSON.parse(response);
+             $img.attr("id",jresponse.id);
+             $img.attr("src",jresponse.src);
+             window.bexi_tagid=jresponse.id;
+           },
+           'image.replaced': function ($img, response) {
+             // Image was replaced in the editor.
+             console.log(this);
+           },
+           'click': function (clickEvent) {
+             // Do something here.
+             // this is the editor instance.
+             if(clickEvent.currentTarget.tagName=="IMG")
+             {
+               window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+             }
+             else{
+               window.bexi_tagid=null;
+             }
+           }
+         }
         });
 
          var editorimg = new FroalaEditor('.bexi_img',
@@ -1145,15 +1266,53 @@ function bgchange(btid) {
           imageDefaultAlign: 'center',
           imageDefaultMargin: 0,
           imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
-          events : {
-            'blur': function () {
-                auto_save();
-            },
-            'image.beforeUpload': function (images) {
-              // Image was inserted in the editor.
-              console.log(images);
-            }
-          }
+         // Set the image upload parameter.
+         imageUploadParam: 'file',
+
+         // Set the image upload URL.
+         imageUploadURL: './ajax/uploadfile.php',
+
+         // Additional upload params.
+         imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+
+         // Set request type.
+         imageUploadMethod: 'POST',
+
+         // Set max image size to 5MB.
+         imageMaxSize: 5 * 1024 * 1024,
+
+         // Allow to upload PNG and JPG.
+         imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+         events : {
+           'blur': function () {
+               auto_save();
+           },
+           'image.beforeUpload': function (images) {
+             this.opts.imageUploadParams.tagid=window.bexi_tagid;
+           },
+           'image.inserted': function ($img, response) {
+             // Image was inserted in the editor.
+             var jresponse =JSON.parse(response);
+             $img.attr("id",jresponse.id);
+             $img.attr("src",jresponse.src);
+             window.bexi_tagid=jresponse.id;
+           },
+           'image.replaced': function ($img, response) {
+             // Image was replaced in the editor.
+             console.log(this);
+           },
+           'click': function (clickEvent) {
+             // Do something here.
+             // this is the editor instance.
+             if(clickEvent.currentTarget.tagName=="IMG")
+             {
+               window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+             }
+             else{
+               window.bexi_tagid=null;
+             }
+           }
+         }
         });
 
          var editorbtn = new FroalaEditor('.bexi_editor_button',
@@ -1245,7 +1404,7 @@ function auto_save()
     });
 }
 
-function save_img(TAGID,FILE){
+function save_img(TAGID,FILE,OBJECT){
   var pid=$("#codeId").val();
   var uid=$("#userId").val();
   var data = new FormData();
@@ -1261,30 +1420,8 @@ function save_img(TAGID,FILE){
     method:"POST",
     success: function(response){
       var jresponse = JSON.parse(response);
-      window.bexi_src=jresponse.src;
-      console.log(window.bexi_src,"desde response");
-      window.bexi_id=jresponse.id;
-    }
-  });
-}
-
-function load_imgs(){
-  var imgs_array=[];
-  var request=$.ajax({
-    url: "./ajax/autosave.php",
-    data: { userid: uid, projectid : pid},
-    datatype:"json",
-    method:"POST",
-    success: function(data){
-      var jdata=JSON.parse(data);
-      $.each(jdata.images, function(index, item) {
-        imgs_array.push(item);
-      });
-      var n=0;
-      $(".bgimginput").each(function(){
-        this.files[n]=imgs_array[n];
-        n++;
-      });
+      $(OBJECT).css("background-image","url("+jresponse.src+")");
+      $(OBJECT).attr("id",jresponse.id);
     }
   });
 }
