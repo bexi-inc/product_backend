@@ -1050,11 +1050,11 @@ function bgchange(btid) {
             'blur': function () {
                 auto_save();
             },
-            'image.beforeUpload': function (images,e) {
+            'image.beforeUpload': function (images) {
               //save_img(null,images[0]);
               //console.log("1");
               window.bexi_tagid="1";
-              console.log(this);
+              console.log(images);
             },'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
               console.log(window.bexi_tagid);
