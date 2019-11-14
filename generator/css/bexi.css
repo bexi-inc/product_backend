@@ -131,9 +131,9 @@ p{
     font-weight: 400 !important;
     font-family: 'Montserrat', sans-serif !important;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
     width: 100%;
-}
+}/*padding-bottom: 5px*/
 
 .p_small{
     font-size: 14px !important;
