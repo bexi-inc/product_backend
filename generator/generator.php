@@ -9,7 +9,6 @@ header('Access-Control-Allow-Origin: *');
 include "includes/global.php";
 include "includes/utils.php";
 include "config.php";
-include "config.js";
 require 'vendor/autoload.php';
 include "includes/content_blocks.php";
 
@@ -333,6 +332,7 @@ else{
 
         /************** GOOGLE FONTS  FROALA EDITOR **************/
     echo'<script src="includes/visibility.js"></script>';
+    echo'<script src="./config.js"></script>';
 
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
     echo $FontImport;
