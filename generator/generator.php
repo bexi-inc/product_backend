@@ -46,8 +46,21 @@ unset( $_SESSION["modules"]);
 
 $iduser = $_REQUEST["user"];
 $CodeId = (isset($_REQUEST["codeid"]) ? $_REQUEST["codeid"] :  microtime(true));
+if(isset($_REQUEST["devid"]))
+{
+    $params = [
+        'TableName' => "modu_deliverables",
+         "KeyConditionExpression"=> "deliverable_id = :id",
+        "ExpressionAttributeValues"=> [
+            ":id" =>  ["S" => $_REQUEST["devid"]]
+        ]
+    ];
 
-if (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
+    $result = $dynamodb->query($params);
+
+    $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
+}
+elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
 {
     $params = [
         'TableName' => "bexi_projects_tmp",
@@ -342,8 +355,15 @@ else{
     {
         echo "<img id='img_select_project' src='imgs/edit.png' bexi-code='".$CodeId."'>";
     }
-    echo '<input type="hidden" id="codeId" name="codeId" value="'.$CodeId.'">';
-    echo '<input type="hidden" id="userId" name="userId" value="'.$_REQUEST["user"].'">';
+    if (isset($_REQUEST[""]))
+    {
+         echo '<input type="hidden" id="codeId" name="codeId" value="'.$CodeId.'">';
+         echo '<input type="hidden" id="userId" name="userId" value="'.$_REQUEST["user"].'">';
+    }else{
+        echo '<input type="hidden" id="devId" name="devId" value="'.$_REQUEST["devid"].'">';
+
+    }
+   
     echo '<div id="dialog-1" title="Titulo" style="display: none;" >
     </div>';
 

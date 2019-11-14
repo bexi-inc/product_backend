@@ -38,7 +38,7 @@ $marshaler = new Marshaler();
 
 
 
-$iduser = $_REQUEST["user"];
+//$iduser = $_REQUEST["user"];
 $CodeId = (isset($_REQUEST["devid"]) ? $_REQUEST["devid"] :  microtime(true));
 
 if (isset($_REQUEST["devid"]))
@@ -79,14 +79,9 @@ ob_start();
     echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
 
 
-    /**************   FROALA EDITOR **************/
-
-    echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
-    echo'<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/third_party/font_awesome.min.js"></script>';
+    
 
 
-    echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
 
     echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
     /**************   ICON FONTS **************/
@@ -96,17 +91,13 @@ ob_start();
     echo '<script src="includes/jquery-ui.min.js"></script>';
     echo '<link rel="stylesheet" type="text/css" href="includes/jquery-ui.theme.css" >';
 
-
-    echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jquery.minicolors.css">
-          <script type="text/javascript" src="includes/jquery.minicolors.min.js"></script>';
-
     echo '<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>';
     echo '<script src="includes/pagination.js"></script>';
     echo'<link rel="stylesheet" type="text/css" href="includes/css/bs-pagination.css" >';
 
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
     echo "\r\n";
-    echo '<script type="text/javascript"  src="includes/bexi_v2.js"></script>';
+    //echo '<script type="text/javascript"  src="includes/bexi_v2.js"></script>';
     echo "</head>";
     echo "\r\n";
 
