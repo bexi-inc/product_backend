@@ -9,6 +9,7 @@ header('Access-Control-Allow-Origin: *');
 include "includes/global.php";
 include "includes/utils.php";
 include "config.php";
+include "config.js";
 require 'vendor/autoload.php';
 include "includes/content_blocks.php";
 
