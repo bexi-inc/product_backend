@@ -8,7 +8,7 @@
 
 	$to = "trislos@gmail.com";
     $subject = "Modu - Form";
-    $message = print_r($data,false);
+    $message = print_r($data,true);
     $from = "noreply@getmodu.com";
    	$headers = "From: getModu.com";
 
