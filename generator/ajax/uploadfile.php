@@ -31,13 +31,13 @@ if (!file_exists($path.$_REQUEST["userid"]."/".$_REQUEST["projectid"])) {
 
 $fullpath= $path.$_REQUEST["userid"]."/".$_REQUEST["projectid"] . "/";
 
-$webpath = $webpath.$_REQUEST["userid"]."/".$_REQUEST["projectid"] . "/".basename($_FILES["file"]["name"]);
+
 $target_file = $fullpath . basename($_FILES["file"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 $target_file = $fullpath."/".$idfile.".".$imageFileType;
-
+$webpath = $webpath.$_REQUEST["userid"]."/".$_REQUEST["projectid"] . "/".$idfile.".".$imageFileType;
 //print_r($_FILES);
 
 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
