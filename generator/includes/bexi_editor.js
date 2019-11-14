@@ -1,6 +1,5 @@
 /********global variables********/
-window.bexi_src="";
-window.bexi_id="";
+window.bexi_tagid=null;
 
 function rgb2hex(rgb){
      rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
@@ -1037,7 +1036,7 @@ function bgchange(btid) {
           imageUploadURL: './ajax/uploadfile.php',
 
           // Additional upload params.
-          imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:null},
+          imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
 
           // Set request type.
           imageUploadMethod: 'POST',
@@ -1054,10 +1053,11 @@ function bgchange(btid) {
             'image.beforeUpload': function (images,e) {
               //save_img(null,images[0]);
               //console.log("1");
-              console.log(e,"this is e");
-              console.log(this.imageUploadParams);
+              window.bexi_tagid="1";
+              console.log(this);
             },'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
+              console.log(window.bexi_tagid);
               var jresponse =JSON.parse(response);
               $img.attr("id",jresponse.id);
               $img.attr("src",jresponse.src);
