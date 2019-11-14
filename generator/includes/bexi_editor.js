@@ -1049,17 +1049,13 @@ function bgchange(btid) {
           events : {
             'blur': function () {
                 auto_save();
-            },
-            'image.beforeUpload': function (images) {
-              //save_img(null,images[0]);
-              //console.log("1");
-              console.log(images);
             },'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
               console.log(window.bexi_tagid);
               var jresponse =JSON.parse(response);
               $img.attr("id",jresponse.id);
               $img.attr("src",jresponse.src);
+              window.bexi_tagid=jresponse.id;
             },
             'image.replaced': function ($img, response) {
               // Image was replaced in the editor.
