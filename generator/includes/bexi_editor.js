@@ -1070,7 +1070,7 @@ function bgchange(btid) {
               // this is the editor instance.
               if(clickEvent.currentTarget.tagName=="IMG")
               {
-                window.bexi_tagid=clickEvent.currentTarget.attr("id");
+                window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
                 console.log(window.bexi_tagid);
               }
               else{
