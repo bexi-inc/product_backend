@@ -1456,7 +1456,7 @@ function bgchange(btid) {
       
           function loadUsedGoogleFonts() {
             // Download fonts already in the editor
-            var $font_nodes = editortxt.find('.fr-view [style*="font-family"]');
+            var $font_nodes = $(editortxt).find('.fr-view [style*="font-family"]');
             $font_nodes.each(function() {
               var font_family = getFirstFontFamily($(this).css('font-family'));
               loadGoogleFont(font_family);
