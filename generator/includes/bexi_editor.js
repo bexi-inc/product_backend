@@ -1049,7 +1049,12 @@ function bgchange(btid) {
           events : {
             'blur': function () {
                 auto_save();
-            },'image.inserted': function ($img, response) {
+            },
+            'image.beforeUpload': function (images) {
+              // Image was inserted in the editor.
+              console.log(window.bexi_tagid);
+            },
+            'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
               console.log(window.bexi_tagid);
               var jresponse =JSON.parse(response);
