@@ -1,4 +1,8 @@
 <?
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 $timeini = microtime(true);
 //header( 'X-Frame-Options: ALLOW-FROM http://generator.localhost' );
@@ -37,19 +41,19 @@ $marshaler = new Marshaler();
 $iduser = $_REQUEST["user"];
 $CodeId = (isset($_REQUEST["devid"]) ? $_REQUEST["devid"] :  microtime(true));
 
-if (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
+if (isset($_REQUEST["devid"]))
 {
     $params = [
         'TableName' => "modu_deliverables",
          "KeyConditionExpression"=> "deliverable_id = :id",
         "ExpressionAttributeValues"=> [
-            ":id" =>  ["S" => $_REQUEST["codeid"]]
+            ":id" =>  ["S" => $_REQUEST["devid"]]
         ]
     ];
 
      $result = $dynamodb->query($params);
 
-     $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+     $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
 }
 
 
@@ -196,6 +200,8 @@ ob_start();
     echo "\r\n";
 
     $code = ob_get_contents ();
+
+    ob_clean();
 
 
     echo $code ;
