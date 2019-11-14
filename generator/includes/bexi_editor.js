@@ -1219,8 +1219,9 @@ function save_img(TAGID,FILE){
     contentType: false,
     method:"POST",
     success: function(response){
-      var jresponse = JSON.parse(response);
-      console.log(jresponse);
+      console.log(response);
+      //var jresponse = JSON.parse(response);
+      //console.log(jresponse);
     }
   });
 }
