@@ -6,3 +6,4 @@ vendor
 /generator/composer.lock
 generator/composer.json
 local_scripts
+generator/config.js
