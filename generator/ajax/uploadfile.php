@@ -16,7 +16,7 @@ if (!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"]) || !isset($_FI
 $idfile =  (!isset($_REQUEST["tagid"])) ? uniqid() : $_REQUEST["tagid"];
 
 
-if (!$idfile || is_null($idfile))
+if (!$idfile || is_null($idfile) || $idfile== "null")
 {
 	$idfile = uniqid();
 }
