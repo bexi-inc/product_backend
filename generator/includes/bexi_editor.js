@@ -1222,7 +1222,7 @@ function save_img(TAGID,FILE){
     method:"POST",
     success: function(response){
       console.log("sucess");
-      //console.log(response);
+      console.log(response);
     }
   });
 }
