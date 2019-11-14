@@ -66,11 +66,48 @@ function GetHeightScreen()
   return myHeight;
 };
 
+
+function AddNewProject()
+    {
+      $.ajax({
+                url: 'ajax/projects.php',
+                data: {"cmd" : "CreateProject", "user" : "<? echo $_REQUEST['user']; ?>"},
+                dataType: "json",
+                type: 'POST',
+            }).done(function( data, textStatus, jqXHR ) {
+              $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="thumbnail"><iframe src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '" frameborder="0" onload="this.style.opacity = 1" modu-id="' + data.codeid + '"></iframe></div></div>');
+              console.log($(".bexi_sliders .mySlides").length);
+               if ($(".bexi_sliders .mySlides").length<=4)
+               {
+                 var n=1;
+                 $(".bexi_sliders .mySlides").each(function() {
+                   if (n<=4)
+                   {
+                     console.log("sliders");
+                     var lpos =(n-1) * sliderSize * GetWidthScreen();
+                     console.log("left:" + lpos);
+                     $(this).css({ 'top': 0, 'left': lpos });
+                   }
+                     n = n +1;
+                 });
+              }
+           if ( console && console.log ) {
+             console.log("data");
+             console.log(data);
+               console.log( "La solicitud se ha completado correctamente." );
+           }
+       })
+       .fail(function( jqXHR, textStatus, errorThrown ) {
+           if ( console && console.log ) {
+               console.log( "La solicitud a fallado: " +  textStatus);
+           }
+      });;
+    }
+
  $(function() {
-//
- 	//Set Variables 
- 	document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
- 	//document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.5) + "px");
+//Set Variables 
+   document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
+   //document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.5) + "px");
 /*function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
@@ -86,21 +123,24 @@ function GetHeightScreen()
   slides[slideIndex-1].style.display = "block";
   //dots[slideIndex-1].className += " active";
 } */
-	console.log("slider");
+  console.log("slider");
 
-	var n=1;
+  var n=1;
      $(".bexi_sliders .mySlides").each(function() {
-     	if (n<=4)
-     	{
-     		console.log("slider");
-     		var lpos =(n-1) * sliderSize * GetWidthScreen();
-     		console.log("left:" + lpos);
-     		$(this).css({ 'top': 0, 'left': lpos });
-     	}
-       	n = n +1;
+       if (n<=4)
+       {
+         console.log("slider");
+         var lpos =(n-1) * sliderSize * GetWidthScreen();
+         console.log("left:" + lpos);
+         $(this).css({ 'top': 0, 'left': lpos });
+       }
+         n = n +1;
      });
 
+});
 
+$( document ).ready(function() {
+    console.log("ready");
 });
 
 
@@ -120,7 +160,23 @@ function GetHeightScreen()
  		{
  			var npos = 1;
  			var slider = 0;
- 			$(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '" frameborder="0" onload="this.style.opacity = 1" id="' + uniqId() + '"></iframe></div>');
+
+ 			
+        $.ajax({
+                url: 'ajax/projects.php',
+                data: {"cmd" : "CreateProject", "user" : UserParam},
+                dataType: "json",
+                type: 'POST',
+                async : false,
+            }).done(function( data, textStatus, jqXHR ) {
+                $(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid +'" frameborder="0" onload="this.style.opacity = 1" modu-id="' + data.codeid + '"></iframe></div>');  
+             })
+       .fail(function( jqXHR, textStatus, errorThrown ) {
+           if ( console && console.log ) {
+               console.log( "La solicitud a fallado: " +  textStatus);
+           }
+      });
+    
  			$(".bexi_sliders .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
@@ -191,6 +247,7 @@ function GetHeightScreen()
  		slideIndex = slideIndex - 1;
  	}
  }
+
 
 
 
