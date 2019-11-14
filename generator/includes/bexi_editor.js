@@ -1052,11 +1052,11 @@ function bgchange(btid) {
             },
             'image.beforeUpload': function (images) {
               // Image was inserted in the editor.
-              console.log(window.bexi_tagid);
+              console.log(window.bexi_tagid,"before");
+              console.log(this,"before");
             },
             'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
-              console.log(window.bexi_tagid);
               var jresponse =JSON.parse(response);
               $img.attr("id",jresponse.id);
               $img.attr("src",jresponse.src);
@@ -1072,11 +1072,9 @@ function bgchange(btid) {
               if(clickEvent.currentTarget.tagName=="IMG")
               {
                 window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
-                console.log(window.bexi_tagid);
               }
               else{
                 window.bexi_tagid=null;
-                console.log(window.bexi_tagid);
               }
             }
           }
