@@ -491,8 +491,18 @@ function bgchange(btid) {
         {
           id=null;
         }
-        save_img(id,$('#inpimg'+ID).prop('files')[0],$('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg"));
-        /*var reader= new FileReader();
+        var response =save_img(id,$('#inpimg'+ID).prop('files')[0]);
+        response.done(function(data){
+          var jdata=JSON.parse(data);
+          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+data.src+")");
+          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",data.id);
+        });
+        console.log(response);
+        /*
+              var jresponse = JSON.parse(response);
+      $(OBJECT).css("background-image","url("+jresponse.src+")");
+      $(OBJECT).attr("id",jresponse.id);
+        var reader= new FileReader();
         reader.onload=function(){
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+reader.result+")");
         };
@@ -1404,6 +1414,7 @@ function auto_save()
     });
 }
 
+/********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
 function save_img(TAGID,FILE,OBJECT){
   var pid=$("#codeId").val();
   var uid=$("#userId").val();
@@ -1419,9 +1430,7 @@ function save_img(TAGID,FILE,OBJECT){
     contentType: false,
     method:"POST",
     success: function(response){
-      var jresponse = JSON.parse(response);
-      $(OBJECT).css("background-image","url("+jresponse.src+")");
-      $(OBJECT).attr("id",jresponse.id);
     }
   });
+  return request;
 }
