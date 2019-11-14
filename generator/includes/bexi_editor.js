@@ -532,6 +532,7 @@ function bgchange(btid) {
 
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
+       add_action_forms()
        /*
        $("form").submit(function(e){
          e.preventDefault();
