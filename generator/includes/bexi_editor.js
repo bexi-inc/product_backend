@@ -1053,7 +1053,6 @@ function bgchange(btid) {
             'image.beforeUpload': function (images) {
               //save_img(null,images[0]);
               //console.log("1");
-              window.bexi_tagid="1";
               console.log(images);
             },'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
@@ -1069,7 +1068,15 @@ function bgchange(btid) {
             'click': function (clickEvent) {
               // Do something here.
               // this is the editor instance.
-              console.log(clickEvent,clickEvent.currentTarget);
+              if(clickEvent.currentTarget.tagName=="IMG")
+              {
+                window.bexi_tagid=clickEvent.currentTarget.attr("id");
+                console.log(window.bexi_tagid);
+              }
+              else{
+                window.bexi_tagid=null;
+                console.log(window.bexi_tagid);
+              }
             }
           }
         });
