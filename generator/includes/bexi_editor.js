@@ -1054,8 +1054,7 @@ function bgchange(btid) {
             'image.beforeUpload': function (images) {
               //save_img(null,images[0]);
               //console.log("1");
-              console.log(this);
-              console.log(images);
+              console.log(this.imageUploadParams);
             },'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
               var jresponse =JSON.parse(response);
