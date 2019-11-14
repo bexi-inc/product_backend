@@ -340,10 +340,7 @@ else{
     echo $FontImport;
     echo "\r\n";
     ?>
-   
 
-    <script type="text/javascript"  src="includes/bexi_v2.js"></script>
-    
     <?
     if ($_REQUEST["target"]=="selector")
     {
