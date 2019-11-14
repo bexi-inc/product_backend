@@ -1030,19 +1030,36 @@ function bgchange(btid) {
           },
           imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
           imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
+          // Set the image upload parameter.
+          imageUploadParam: 'file',
+
+          // Set the image upload URL.
+          imageUploadURL: './ajax/uploadfile.php',
+
+          // Additional upload params.
+          imageUploadParams: {pid: $("#codeId").val(),uid:$("#userId").val(),tagid:null},
+
+          // Set request type.
+          imageUploadMethod: 'POST',
+
+          // Set max image size to 5MB.
+          imageMaxSize: 5 * 1024 * 1024,
+
+          // Allow to upload PNG and JPG.
+          imageAllowedTypes: ['jpeg', 'jpg', 'png'],
           events : {
             'blur': function () {
                 auto_save();
             },
             'image.beforeUpload': function (images) {
-              save_img(null,images[0]);
-              console.log("1");
+              //save_img(null,images[0]);
+              //console.log("1");
             },'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
-              console.log("2");
-              $($img).attr("id",window.bexi_id);
-              $($img).attr("src",window.bexi_src);
-              console.log(window.bexi_src,"desde 2");
+              var jresponse =JSON.parse(response);
+              $img.attr("id",jresponse.id);
+              $img.attr("src",jresponse.src);
+              console.log(response);
             }
           }
         });
