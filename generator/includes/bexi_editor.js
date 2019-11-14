@@ -1032,7 +1032,12 @@ function bgchange(btid) {
             },
             'image.beforeUpload': function (images) {
               // Image was inserted in the editor.
+              console.log(this);
               save_img(null,images[0]);
+            },'image.inserted': function ($img, response) {
+              // Image was inserted in the editor.
+              console.log($img,"insertado");
+              console.log(response);
             }
           }
         });
