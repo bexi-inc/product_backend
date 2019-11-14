@@ -1037,7 +1037,7 @@ function bgchange(btid) {
           imageUploadURL: './ajax/uploadfile.php',
 
           // Additional upload params.
-          imageUploadParams: {pid: $("#codeId").val(),uid:$("#userId").val(),tagid:null},
+          imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:null},
 
           // Set request type.
           imageUploadMethod: 'POST',
