@@ -1,6 +1,6 @@
 /********global variables********/
-window.bexi_src;
-window.bexi_id;
+window.bexi_src="";
+window.bexi_id="";
 
 function rgb2hex(rgb){
      rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
@@ -1042,7 +1042,7 @@ function bgchange(btid) {
               console.log("2");
               $($img).attr("id",window.bexi_id);
               $($img).attr("src",window.bexi_src);
-              console.log(window.bexi_id);
+              console.log(window.bexi_src);
             }
           }
         });
@@ -1231,6 +1231,7 @@ function save_img(TAGID,FILE){
     success: function(response){
       var jresponse = JSON.parse(response);
       window.bexi_src=jresponse.src;
+      console.log(window.bexi_src);
       window.bexi_id=jresponse.id;
     }
   });
