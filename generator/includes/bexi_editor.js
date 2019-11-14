@@ -1051,9 +1051,7 @@ function bgchange(btid) {
                 auto_save();
             },
             'image.beforeUpload': function (images) {
-              // Image was inserted in the editor.
-              console.log(window.bexi_tagid,"before");
-              console.log(this,"before");
+              this.opts.imageUploadParams.tagid=window.bexi_tagid;
             },
             'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
