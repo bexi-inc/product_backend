@@ -16,7 +16,7 @@ if (!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"]) || !isset($_FI
 $idfile =  (!isset($_REQUEST["tagid"])) ? uniqid() : $_REQUEST["tagid"];
 
 
-if (!$idfile)
+if (!$idfile || is_null($idfile))
 {
 	$idfile = uniqid();
 }
@@ -35,6 +35,8 @@ $webpath = $webpath.$_REQUEST["userid"]."/".$_REQUEST["projectid"] . "/".basenam
 $target_file = $fullpath . basename($_FILES["file"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+echo $_FILES["tmp_name"];
 
 if (move_uploaded_file($_FILES["tmp_name"], $target_file)) {
 
