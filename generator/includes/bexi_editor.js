@@ -517,7 +517,7 @@ function bgchange(btid) {
  $(document).ready(function() {
           // Fetch all the google web fonts (regular weight) to load in
           var ffamily;
-          var webfonts_address = 'https://www.googleapis.com/webfonts/v1/webfonts?key=GET_YOUR_OWN_KEY&sort=popularity';
+          var webfonts_address = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCihFJsPo6a3LSClHUwSoDpDFS9PEhvKHM&sort=popularity';
           var fetch_web_fonts = $.getJSON(webfonts_address).then(function(data) { return data.items });
       
           var collect_font_families = fetch_web_fonts.then(function(google_fonts) {
