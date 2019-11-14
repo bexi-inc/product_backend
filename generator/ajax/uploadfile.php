@@ -33,6 +33,6 @@ if (move_uploaded_file($_FILES["tmp_update"], $target_file)) {
 
 }
 
-print_r($fullpath);
+print_r($target_file);
 
 ?>
