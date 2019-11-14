@@ -1498,6 +1498,15 @@ function bgchange(btid) {
 */
 });
 
+
+function add_action_forms(){
+  $(".bexi_form").each(function(form){
+    form.find("button[type=submit]").on('submit', function() {
+      send_data();
+    });
+  });
+}
+
 function auto_save()
 {
     var pid=$("#codeId").val();
