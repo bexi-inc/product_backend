@@ -1036,8 +1036,10 @@ function bgchange(btid) {
             },
             'image.beforeUpload': function (images) {
               save_img(null,images[0]);
+              console.log("1");
             },'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
+              console.log("2");
               $($img).attr("id",global_id);
               $($img).attr("src",global_src);
               console.log(global_id);
