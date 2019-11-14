@@ -1,6 +1,6 @@
 function send_data(){
         $.ajax({
-            url: './ajax/send_form.php', // url where to submit the request
+            url: 'http://generator.getmodu.com/ajax/send_form.php', // url where to submit the request
             type : "POST", // type of action POST || GET
             dataType : 'json', // data type
             data : $(this).closest(".bexi_form").serialize(), // post data || get data
