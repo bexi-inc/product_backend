@@ -25,7 +25,7 @@ if (!file_exists($path.$_REQUEST["userid"]."/".$_REQUEST["projectid"])) {
 
 $fullpath= $path.$_REQUEST["userid"]."/".$_REQUEST["projectid"] . "/";
 
-$target_file = $fullpath . basename($_FILES["tmp_update"]["name"]);
+$target_file = $fullpath . basename($_FILES["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
