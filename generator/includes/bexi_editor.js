@@ -1029,7 +1029,11 @@ function bgchange(btid) {
           events : {
             'blur': function () {
                 auto_save();
-                saves_imgs();
+            },
+            'image.beforeUpload': function (images) {
+              // Image was inserted in the editor.
+              this.file
+              save_img(null,this.file);
             }
           }
         });
@@ -1045,7 +1049,10 @@ function bgchange(btid) {
           events : {
             'blur': function () {
                 auto_save();
-                saves_imgs();
+            },
+            'image.beforeUpload': function (images) {
+              // Image was inserted in the editor.
+              console.log(images);
             }
           }
         });
@@ -1061,7 +1068,10 @@ function bgchange(btid) {
           events : {
             'blur': function () {
                 auto_save();
-                saves_imgs();
+            },
+            'image.beforeUpload': function (images) {
+              // Image was inserted in the editor.
+              console.log(images);
             }
           }
         });
@@ -1076,7 +1086,10 @@ function bgchange(btid) {
           events : {
             'blur': function () {
                 auto_save();
-                saves_imgs();
+            },
+            'image.beforeUpload': function (images) {
+              // Image was inserted in the editor.
+              console.log(images);
             }
           }
         });
@@ -1095,7 +1108,10 @@ function bgchange(btid) {
           events : {
             'blur': function () {
                 auto_save();
-                saves_imgs();
+            },
+            'image.beforeUpload': function (images) {
+              // Image was inserted in the editor.
+              console.log(images);
             }
           }
         });
@@ -1111,7 +1127,6 @@ function bgchange(btid) {
           events : {
             'blur': function () {
                 auto_save();
-                saves_imgs();
             }
           }
 
@@ -1130,7 +1145,6 @@ function bgchange(btid) {
           events : {
             'blur': function () {
                 auto_save();
-                saves_imgs();
             }
           }
         });
@@ -1170,7 +1184,6 @@ function bgchange(btid) {
           },
           'blur': function () {
             auto_save();
-            saves_imgs();
           }
         }
         });
@@ -1192,17 +1205,24 @@ function auto_save()
     });
 }
 
-function saves_imgs(){
-  var imgs_array=[];
-  $(".bgimginput").each(function(){
-    imgs_array.push(this.files[0]);
-  });
+function save_img(TAGID,FILE){
+  var pid=$("#codeId").val();
+  var uid=$("#userId").val();
+  var data = new FormData();
+  data.append("file",FILE);
+  data.append("userid",uid);
+  data.append("projectid",pid);
+  data.append("tagid",TAGID);
   var request=$.ajax({
-    url: "./ajax/autosave.php",
-    data: { userid: uid, projectid : pid,imgs:imgs_array},
-    datatype:"json",
+    url: "./ajax/uploadfile.php",
+    data: data,
+    cache: false,
+    contentType: false,
+    processData: false,
     method:"POST",
+    contentType: multipart/form-data,
     success: function(data){
+      console.log(data);
     }
   });
 }
