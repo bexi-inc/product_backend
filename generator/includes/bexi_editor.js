@@ -1221,7 +1221,8 @@ function save_img(TAGID,FILE){
     processData: false,
     method:"POST",
     success: function(response){
-      console.log(response);
+      console.log("sucess");
+      //console.log(response);
     }
   });
 }
