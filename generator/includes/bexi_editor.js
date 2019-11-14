@@ -1216,9 +1216,8 @@ function save_img(TAGID,FILE){
   var request=$.ajax({
     url: "./ajax/uploadfile.php",
     data: data,
-    cache: false,
-    contentType: "json",
     processData: false,
+    contentType: false,
     method:"POST",
     success: function(response){
       console.log("sucess");
