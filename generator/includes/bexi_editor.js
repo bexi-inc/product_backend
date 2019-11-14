@@ -1220,9 +1220,9 @@ function save_img(TAGID,FILE){
     contentType: false,
     processData: false,
     method:"POST",
-    contentType: multipart/form-data,
-    success: function(data){
-      console.log(data);
+    success: function(response){
+      console.log("sucess");
+      console.log(response);
     }
   });
 }
