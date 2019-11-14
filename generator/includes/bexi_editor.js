@@ -1225,8 +1225,8 @@ function save_img(TAGID,FILE,$img){
     method:"POST",
     success: function(response){
       var jresponse = JSON.parse(response);
-      $($img).attr("src",jresponse.src);
-      $($img).attr("id",jresponse.id);
+      //$($img).attr("src",jresponse.src);
+      //$($img).attr("id",jresponse.id);
     }
   });
 }
