@@ -1204,7 +1204,7 @@ function auto_save()
     });
 }
 
-function save_img(TAGID,FILE){
+function save_img(TAGID,FILE,$img){
   var pid=$("#codeId").val();
   var uid=$("#userId").val();
   var data = new FormData();
@@ -1219,9 +1219,9 @@ function save_img(TAGID,FILE){
     contentType: false,
     method:"POST",
     success: function(response){
-      console.log(response);
-      //var jresponse = JSON.parse(response);
-      //console.log(jresponse);
+      var jresponse = JSON.parse(response);
+      $($img).attr("src",jresponse.src);
+      $($img).attr("id",jresponse.id);
     }
   });
 }
