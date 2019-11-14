@@ -1054,11 +1054,16 @@ function bgchange(btid) {
             'image.beforeUpload': function (images) {
               //save_img(null,images[0]);
               //console.log("1");
+              console.log(imageUploadParams);
             },'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
               var jresponse =JSON.parse(response);
               $img.attr("id",jresponse.id);
               $img.attr("src",jresponse.src);
+              console.log(response);
+            },
+            'image.replaced': function ($img, response) {
+              // Image was replaced in the editor.
               console.log(response);
             }
           }
