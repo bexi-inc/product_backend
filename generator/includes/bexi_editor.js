@@ -1415,7 +1415,7 @@ function auto_save()
 }
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
-function save_img(TAGID,FILE,OBJECT){
+function save_img(TAGID,FILE){
   var pid=$("#codeId").val();
   var uid=$("#userId").val();
   var data = new FormData();
