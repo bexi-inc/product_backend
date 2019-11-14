@@ -2,6 +2,7 @@
 
 include "includes/global.php";
 include "config.php";
+include "config.js";
 include "includes/utils.php";
 require 'vendor/autoload.php';
 
