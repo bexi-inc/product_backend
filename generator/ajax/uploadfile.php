@@ -5,7 +5,7 @@ $path = "/var/www/uploads.getmodu.com/public_html/";
 print_r($_REQUEST);
 
 
-print_r($_REQUEST["file"]);
+print_r($_FILES);
 
 
 if (!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"]) || !isset($_REQUEST["tagid"]) || !isset($_REQUEST["file"]))
