@@ -15,6 +15,12 @@ if (!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"]) || !isset($_FI
 
 $idfile =  (!isset($_REQUEST["tagid"])) ? uniqid() : $_REQUEST["tagid"];
 
+
+if (!$idfile)
+{
+	$idfile = uniqid();
+}
+
 if (!file_exists($path.$_REQUEST["userid"])) {
     mkdir($path.$_REQUEST["userid"], 0777, true);
 }
@@ -37,6 +43,6 @@ if (move_uploaded_file($_FILES["tmp_name"], $target_file)) {
 $res["src"] = $webpath;
 $res["id"] = $idfile;
 
-echo json_encode($res);
+echo stripslashes(json_encode($res));
 
 ?>
