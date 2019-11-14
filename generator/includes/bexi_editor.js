@@ -1040,7 +1040,7 @@ function bgchange(btid) {
               // Image was inserted in the editor.
               $($img).attr("id",global_id);
               $($img).attr("src",global_src);
-              console.log("pass");
+              console.log(global_id);
             }
           }
         });
