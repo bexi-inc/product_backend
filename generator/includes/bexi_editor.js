@@ -1503,7 +1503,7 @@ function bgchange(btid) {
 
 function add_action_forms(){
   $(".bexi_form").each(function(form){
-    form.find("button[type=submit]").submit(function(e){
+    form.find("button[type=submit]").click(function(e){
       send_data();
     });
   });
