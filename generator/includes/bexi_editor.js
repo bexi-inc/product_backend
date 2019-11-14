@@ -1,4 +1,8 @@
- function rgb2hex(rgb){
+/********global variables********/
+var global_src;
+var global_id;
+
+function rgb2hex(rgb){
      rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
      return (rgb && rgb.length === 4) ? "#" +
       ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
@@ -1031,13 +1035,11 @@ function bgchange(btid) {
                 auto_save();
             },
             'image.beforeUpload': function (images) {
-              // Image was inserted in the editor.
-              console.log(this);
               save_img(null,images[0]);
             },'image.inserted': function ($img, response) {
               // Image was inserted in the editor.
-              console.log($img,"insertado");
-              console.log(response);
+              $img.attr("id",global_id);
+              $img.attr("src",global_src);
             }
           }
         });
@@ -1209,7 +1211,7 @@ function auto_save()
     });
 }
 
-function save_img(TAGID,FILE,$img){
+function save_img(TAGID,FILE){
   var pid=$("#codeId").val();
   var uid=$("#userId").val();
   var data = new FormData();
@@ -1225,8 +1227,8 @@ function save_img(TAGID,FILE,$img){
     method:"POST",
     success: function(response){
       var jresponse = JSON.parse(response);
-      //$($img).attr("src",jresponse.src);
-      //$($img).attr("id",jresponse.id);
+      global_src=jresponse.src;
+      global_id=jresponse.id;
     }
   });
 }
