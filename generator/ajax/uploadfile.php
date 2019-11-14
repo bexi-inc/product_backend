@@ -46,6 +46,7 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 
 $res["src"] = $webpath;
 $res["id"] = $idfile;
+$res["link"]="";
 
 echo stripslashes(json_encode($res));
 
