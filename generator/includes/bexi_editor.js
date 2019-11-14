@@ -494,8 +494,7 @@ function bgchange(btid) {
         var response =save_img(id,$('#inpimg'+ID).prop('files')[0]);
         response.done(function(data){
           var jdata=JSON.parse(data);
-          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+jdata.src+")");
-          console.log(jdata.src);
+          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"')");
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
         });
         /*
