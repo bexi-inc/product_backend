@@ -331,7 +331,7 @@ else{
     echo'<link rel="stylesheet" type="text/css" href="includes/css/bs-pagination.css" >';
 
         /************** GOOGLE FONTS  FROALA EDITOR **************/
-    echo'<script src="semantic/dist/components/visibility.js"></script>';
+    echo'<script src="includes/visibility.js"></script>';
 
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
     echo $FontImport;
