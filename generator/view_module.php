@@ -2,7 +2,6 @@
 
 include "includes/global.php";
 include "config.php";
-include "config.js";
 include "includes/utils.php";
 require 'vendor/autoload.php';
 
@@ -118,9 +117,15 @@ echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jque
 echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >';
 echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
 
+/**************   PAGINATION **************/
 echo '<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>';
 echo '<script src="includes/pagination.js"></script>';
 echo'<link rel="stylesheet" type="text/css" href="includes/css/bs-pagination.css" >';
+
+/************** GOOGLE FONTS  FROALA EDITOR **************/
+echo'<script src="includes/visibility.js"></script>';
+echo'<script src="./config.js"></script>';
+
 echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
 
 foreach ($css as $hoja)
