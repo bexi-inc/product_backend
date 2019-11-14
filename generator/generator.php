@@ -325,9 +325,13 @@ else{
     echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jquery.minicolors.css">
           <script type="text/javascript" src="includes/jquery.minicolors.min.js"></script>';
 
+           /**************   PAGINATION **************/
     echo '<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>';
     echo '<script src="includes/pagination.js"></script>';
     echo'<link rel="stylesheet" type="text/css" href="includes/css/bs-pagination.css" >';
+
+        /************** GOOGLE FONTS  FROALA EDITOR **************/
+    echo'<script src="semantic/dist/components/visibility.js"></script>';
 
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
     echo $FontImport;

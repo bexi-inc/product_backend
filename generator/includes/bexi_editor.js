@@ -497,16 +497,6 @@ function bgchange(btid) {
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"')");
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
         });
-        /*
-              var jresponse = JSON.parse(response);
-      $(OBJECT).css("background-image","url("+jresponse.src+")");
-      $(OBJECT).attr("id",jresponse.id);
-        var reader= new FileReader();
-        reader.onload=function(){
-          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+reader.result+")");
-        };
-        reader.readAsDataURL($('#inpimg'+ID).prop('files')[0]);
-        */
       }
       $( "#dialog-img"+(ID).toString() ).dialog("close");
     }
@@ -1395,6 +1385,120 @@ function bgchange(btid) {
           }
         }
         });
+
+
+        if (editortxt.length) {
+          var options = {
+            fontFamilySelection: true,
+            fontFamilyDefaultSelection: 'Font'
+          };
+      
+          // Fetch all the google web fonts (regular weight) to load in
+          var webfonts_address = 'https://www.googleapis.com/webfonts/v1/webfonts?key=GET_YOUR_OWN_KEY&sort=popularity';
+          var fetch_web_fonts = $.getJSON(webfonts_address).then(function(data) { return data.items });
+      
+          var collect_font_families = fetch_web_fonts.then(function(google_fonts) {
+            var fonts = {
+              'Arial,Helvetica,sans-serif': 'Arial',
+              'Arial Black,Arial Bold,Gadget, sans-serif': 'Arial Black',
+              'Arial Narrow,Arial,sans-serif': 'Arial Narrow',
+              'Georgia,serif': 'Georgia',
+              'Impact,Charcoal,sans-serif': 'Impact',
+              'Tahoma,Geneva,sans-serif': 'Tahoma',
+              'Times New Roman,Times,serif,-webkit-standard': 'Times New Roman',
+              'Verdana,Geneva,sans-serif': 'Verdana',
+              'Palatino Linotype,Book Antiqua,Palatino,serif': 'Palatino Linotype',
+              'Lucida Sans Unicode,Lucida Grande,sans-serif': 'Lucida Sans Unicode',
+              'Lucida Console,Monaco,monospace': 'Lucida Console',
+              'Gill Sans,Gill Sans MT,Calibri,sans-serif': 'Gill Sans',
+              'Century Gothic,CenturyGothic,AppleGothic,sans-serif': 'Century Gothic',
+              'Copperplate,Copperplate Gothic Light,fantasy': 'Copperplate',
+              'Gill Sans,Gill Sans MT,Calibri,sans-serif': 'Gill Sans',
+              'Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif': 'Trebuchet MS',
+              'Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace': 'Courier New',
+              'Garamond,Baskerville,Baskerville Old Face,Hoefler Text,Times New Roman,serif': 'Garamond',
+              'Helvetica Neue,Helvetica,Arial,sans-serif': 'Helvetica Neue'
+            };
+      
+            $.each(google_fonts, function(index, font) {
+              if ($.inArray('regular', font.variants) > -1) {
+                fonts["'" + font.family + "'," + font.category] = font.family;
+              }
+            });
+      
+            return fonts;
+          });
+      
+          collect_font_families.then(function(font_families) {
+            options.fontFamily = font_families;
+            editortxt.froalaEditor(options);
+          });
+      
+          editortxt.on('froalaEditor.initialized', function (event, editor) {
+            loadUsedGoogleFonts();
+      
+            // Lazy download of font previews
+            $('[data-cmd="fontFamily"][role="option"]').visibility({
+              context: $('#dropdown-menu-fontFamily-1 .fr-dropdown-content'),
+              onTopVisible: function(calculations) {
+                var font_family = getFirstFontFamily($(this).data('param1'));
+                loadGoogleFontPreview(font_family);
+              }
+            });
+          });
+      
+          // Download the selected font on demand when it's used if it's a Google font
+          editortxt.on('froalaEditor.commands.after', function (event, editor, cmd, param1, param2) {
+            if (cmd == 'fontFamily') {
+              var font_family = getFirstFontFamily(param1);
+              loadGoogleFont(font_family);
+            }
+          });
+      
+          function getFirstFontFamily(declaration) {
+            return declaration.split(',')[0].replace(/['"]+/g, '').trim();
+          }
+      
+          function loadUsedGoogleFonts() {
+            // Download fonts already in the editor
+            var $font_nodes = editortxt.find('.fr-view [style*="font-family"]');
+            $font_nodes.each(function() {
+              var font_family = getFirstFontFamily($(this).css('font-family'));
+              loadGoogleFont(font_family);
+            });
+          }
+      
+          function isGoogleFont(font_family) {
+            return fetch_web_fonts.then(function(google_fonts) {
+              is = false;
+      
+              $.each(google_fonts, function(index, font) {
+                if (font.family === font_family) {
+                  is = true;
+                  return false;
+                }
+              });
+      
+              return is;
+            });
+          }
+      
+          function loadGoogleFontPreview(font_family) {
+            isGoogleFont(font_family).then(function(is) {
+              if (is) {
+                WebFont.load({ google: { families: [font_family], text: font_family } });
+              }
+            });
+          }
+      
+          function loadGoogleFont(font_family) {
+            isGoogleFont(font_family).then(function(is) {
+              if (is) {
+                WebFont.load({ google: { families: [font_family + ':regular,italic,700,700italic:latin-ext'] } });
+              }
+            });
+          }
+        }
 
 });
 
