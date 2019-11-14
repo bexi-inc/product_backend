@@ -130,7 +130,7 @@ Crew\Unsplash\HttpClient::init([
 
 	/* This facilitates the fade-in transition instead of flicker. It also helps us maintain the illusion that this is an image, since some webpages will have a preloading animation or wait for some images to download */
 	.thumbnail iframe {
-	  opacity: 0;
+	  opacity: 0.7;
 	  transition: all 300ms ease-in-out;
 	  border-radius:25px;
 	  -webkit-box-shadow:0 5px 20px rgba(81,91,104,.2),0 -5px 10px rgba(81,91,104,.2);
@@ -228,12 +228,19 @@ Crew\Unsplash\HttpClient::init([
 		        /*for (var fr in frames) {
 		        	console.log(fr);
 		        }*/
-		        /*$(".project_active").each(function(){
-		        	console.log("project_active");
-		        	console.log($(this));
-		        });*/
+		        looser = "";
+		        console.log(data);
+		        $(".project_active").each(function(){
+		        	//console.log("project_active");
+		        	//console.log($(this).attr("modu-id"));
+		        	if ($(this).attr("modu-id") != data[1]){
+		        		looser = $(this).attr("modu-id");
+		        		//console.log(looser);
+		        	}
+		        });
+		        console.log (data[0] + '|' + data[1] + '|' + looser);
 		         if (window.top != window.self) {
-		         	window.top.postMessage(data[0] + '|' + data[1], '*')
+		         	window.top.postMessage(data[0] + '|' + data[1] + '|' + looser, '*')
 		         }
 
 		    }
