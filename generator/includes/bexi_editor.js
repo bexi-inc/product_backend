@@ -532,12 +532,10 @@ function bgchange(btid) {
 
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
-       add_action_forms();
-       /*
        $("form").submit(function(e){
-         e.preventDefault();
-       })
-       */
+        e.preventDefault();
+      });
+       add_action_forms();
        $('.bexi_module').each(function() {
         var num=Math.floor((Math.random() * 10000) + 1);
         $(this).prepend(
@@ -1504,9 +1502,6 @@ function bgchange(btid) {
 
 function add_action_forms(){
   $(".bexi_form").each(function(form){
-    $(form).submit(function(e){
-      e.preventDefault();
-    });
     $(form).find("button[type=submit]").click(function(e){
       send_data();
     });
