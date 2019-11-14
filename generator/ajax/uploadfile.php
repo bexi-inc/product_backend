@@ -36,9 +36,9 @@ $target_file = $fullpath . basename($_FILES["file"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-print_r($_FILES);
+//print_r($_FILES);
 
-if (move_uploaded_file($_FILES["tmp_name"], $target_file)) {
+if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 
 }
 
