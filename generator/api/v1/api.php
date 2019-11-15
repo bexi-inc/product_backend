@@ -23,7 +23,7 @@ require "projects.php";
 
 $_REQ = json_decode(file_get_contents('php://input')); 
 
-if (empty())
+if (empty($_REQ))
 {
 	$_REQ = $_REQUEST;
 }
