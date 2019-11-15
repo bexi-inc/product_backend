@@ -28,7 +28,7 @@ function GetProjects($connDyn, $userId)
 				$proj["project_name"] = $project_name["project_name"];
 				$proj["status"] = $project_name["status"];
 				$proj["industry"] = $project_name["industry"];
-				$projects [] = $proj
+				$projects [] = $proj;
 			}
 		}
 	}
