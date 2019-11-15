@@ -157,6 +157,7 @@ $res["error_code"]=0;
  		$res = ExistDomain($Dynamodb,$_REQ->userid);
  		break;
  	default:
+ 		print_r($_REQUEST);
  		print_r($_FILES);
  		$res["error_code"]="501";
  		$res["message"]="Invalid Command";
