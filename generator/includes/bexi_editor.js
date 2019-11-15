@@ -1392,7 +1392,12 @@ function bgchange(btid) {
              },
              'image.error': function (error, response) {
                console.log(error);
-             }
+             },
+             'image.uploaded': function (response) {
+              // Do something here.
+              // this is the editor instance.
+              console.log(response,"from uploaded");
+            }
            }
           });
   
