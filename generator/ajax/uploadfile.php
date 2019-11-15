@@ -32,7 +32,7 @@ print_r($_REQUEST);
 
 if (!isset($_REQUEST["devid"]))
 {
-	if ((!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"])  || !isset($_FILES))
+	if (!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"]) || !isset($_FILES))
 	{
 		die("Incorrect params");
 	}
