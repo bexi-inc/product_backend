@@ -1386,6 +1386,9 @@ function bgchange(btid) {
                else{
                  window.bexi_tagid=null;
                }
+             },
+             'image.error': function (error, response) {
+               console.log(error);
              }
            }
           });
