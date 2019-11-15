@@ -25,7 +25,7 @@ $_REQ = json_decode(file_get_contents('php://input'));
 
 if (empty($_REQ))
 {
-	$_REQ = (object) $_REQUEST;
+	$_REQ = (object)$_REQUEST;
 }
 
 $res["error_code"]=0;
@@ -144,12 +144,14 @@ $res["error_code"]=0;
  		$res = GetProjects($Dynamodb,$_REQ->userid);
  		break;
  	case "CreateProject":
+ 		print_r($_REQ);
  		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->industry) || !isset($_REQ->colors))
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params CreateProject";
  			
  		}
+ 		die("CreateProject");
  		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, $_REQ->projectgoal, $_REQ->industry, $_REQ->colors);
  		break;
  	case "ExistsDomain":
