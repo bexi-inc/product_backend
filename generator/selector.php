@@ -222,10 +222,10 @@ Crew\Unsplash\HttpClient::init([
 		        console.log('Selector SelectProject = ' + data[1]);
 		        var frames= document.getElementsByClassName("project_active");
 		        //console.log (frames);
-		        for(var i = 0; i < frames.length; ++i){
+		       /* for(var i = 0; i < frames.length; ++i){
 		        	console.log("Send GetCode");
 				    frames[i].contentWindow.postMessage('getCode', '*');;
-				}
+				}*/
 		        /*for (var fr in frames) {
 		        	console.log(fr);
 		        }*/
