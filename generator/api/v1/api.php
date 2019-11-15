@@ -133,6 +133,8 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			
  		}
+ 		echo "GetProjects";
+ 		
  		$res = GetProjects($Dynamodb,$_REQ->userid);
  		break;
  	default:
