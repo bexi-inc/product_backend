@@ -526,15 +526,26 @@ function bgchange(btid) {
 
        $( ".bexi_link" ).wrap( "<div class='bexi_editor_link' style='width:100%;'></div>" );
 
-       $( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
+       //$( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
        $( ".bexi_video" ).wrap( "<div class='bexi_editor_video' style='width: 100%;'></div>" );
-
+       $('.bexi_img').bind('contextmenu', function(e) {
+        return false;
+        }); 
+      
+        $(".bexi_img").each(function() {
+            var attr = $(this).attr('bexi_img_au');
+          if (typeof attr !== typeof undefined && attr !== false) 
+            {
+                $(this).wrap('<div class="alt-wrap"/>');
+                $(this).after('<p class="bexi_unspash">Photo by <a href="' + $(this).attr('bexi_au_link') + '" >' + $(this).attr('bexi_img_au') + '</a> on <a href="https://unsplash.com/?utm_source=Bexi+Web+Generator&utm_medium=referral">Unspash</a></p>'); 
+            }
+        })
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
        $("form").submit(function(e){
         e.preventDefault();
-      });
+        });
        add_action_forms();
        $('.bexi_module').each(function() {
         var num=Math.floor((Math.random() * 10000) + 1);
@@ -1501,9 +1512,10 @@ function bgchange(btid) {
 
 
 function add_action_forms(){
-  $(".bexi_form").each(function(form){
-    $(form).find("button[type=submit]").click(function(e){
-      send_data();
+  $(".bexi_form").each(function(){
+    var id=$(this).find("button[type=submit]").attr("id");
+    $("#"+id).click(function(e){
+      send_data(id);
     });
   });
 }
