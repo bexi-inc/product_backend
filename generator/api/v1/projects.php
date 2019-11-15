@@ -107,6 +107,9 @@ function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors, $t
 	';
 	$Data = $Data . '}';
 
+
+	print_r($Data);
+
 	$resIns=Insert("modu_projects",$Data);
 
 	if (!$resIns["error"])
