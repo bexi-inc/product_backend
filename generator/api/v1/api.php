@@ -160,7 +160,7 @@ $res["error_code"]=0;
  		echo "REQ";
  		print_r($_REQ);
  		echo "REQUEST";
- 		print_r($_REQUEST)
+ 		print_r($_REQUEST);
  		echo "FILES";
  		print_r($_FILES);
  		$res["error_code"]="501";
