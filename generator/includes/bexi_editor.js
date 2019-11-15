@@ -1337,7 +1337,6 @@ function bgchange(btid) {
             toolbarInline: true,
             charCounterCount: false,
             initOnClick: true,
-            imageManagerLoadURL: 'load_images.php',
             toolbarBottom : false,
             imageDefaultAlign: 'center',
             imageDefaultMargin: 0,
