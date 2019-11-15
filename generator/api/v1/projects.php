@@ -87,22 +87,25 @@ function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors, $t
 	global $Marshaler;
 	$pid = microtime(true);
 	$Data ='{
-		"project_id" : "'.$pid.'",
-		"user_id" : "'.$userid.'",
-		"create_date" : "'.$pid.'",
-		"project_name" : "'.$pname.'",
-		"industry" : "'.$industry.'",
-		"project_goal" :  "'.$pgoal.'",
-		"status" : "0",
-		"colors" : [
+		"project_id" : "'.$pid.'"
+		,"user_id" : "'.$userid.'"
+		,"create_date" : "'.$pid.'"
+		,"project_name" : "'.$pname.'"
+		,"industry" : "'.$industry.'" ';
+
+	$Data .= (($pgoal) ? ',"project_goal" :  "'.$pgoal.'" ' : '' );
+		
+	$Data .= ' ,"status" : "0"
+		,"colors" : [
 				'.$colors.'
-		],
-		"txtcolors" : [
+		]
+		,"txtcolors" : [
 				'.$txtcolors.'
-		],
-		"keywords" : "'.$pkeywords.'",
-		"pservices" : "'.$pservices.'"
-	}';
+		]
+		,"keywords" : "'.$pkeywords.'"
+		,"pservices" : "'.$pservices.'"
+	';
+	$Data = $Data . '}';
 
 	$resIns=Insert("modu_projects",$Data);
 
