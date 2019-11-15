@@ -1374,6 +1374,7 @@ function bgchange(btid) {
              },
              'image.replaced': function ($img, response) {
                // Image was replaced in the editor.
+               console.log(response,"response replaced");
                //console.log(this);
              },
              'click': function (clickEvent) {
