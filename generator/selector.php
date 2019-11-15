@@ -219,8 +219,8 @@ Crew\Unsplash\HttpClient::init([
 			data = e.data.split("|");
 			console.log(e.data);
 		    if (data[0] == 'SelectProject') {
-		        console.log('Selector SelectProject = ' + data[1]);
-		        var frames= document.getElementsByClassName("project_active");
+		        //console.log('Selector SelectProject = ' + data[1]);
+		        //var frames= document.getElementsByClassName("project_active");
 		        //console.log (frames);
 		       /* for(var i = 0; i < frames.length; ++i){
 		        	console.log("Send GetCode");
@@ -230,7 +230,7 @@ Crew\Unsplash\HttpClient::init([
 		        	console.log(fr);
 		        }*/
 		        looser = "";
-		        console.log(data);
+		        //console.log(data);
 		        $(".project_active").each(function(){
 		        	//console.log("project_active");
 		        	//console.log($(this).attr("modu-id"));
@@ -240,7 +240,7 @@ Crew\Unsplash\HttpClient::init([
 		        	}
 		        });
 		        console.log("Send winnder and looser");
-		        
+
 		        console.log (data[0] + '|' + data[1] + '|' + looser);
 		         if (window.top != window.self) {
 		         	window.top.postMessage(data[0] + '|' + data[1] + '|' + looser, '*')
