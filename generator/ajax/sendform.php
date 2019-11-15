@@ -6,16 +6,19 @@
 
 	$data = json_encode($_POST);
 
-	$to = "trislos@gmail.com";
+	$to = $data["email_to"];
     $subject = "Modu - Form";
     $message = print_r($data,true);
     $from = "noreply@getmodu.com";
    	$headers = "From: getModu.com";
 
+   	$res["error"] = "";
     if (mail($to, $subject, $message, $headers)) {
-        echo "Mail Sent.";
+        $res["msj"] = "Mail Sent.";
     }
     else {
-        echo "failed";
+        $res["error"] = "failed";
     }
+
+    echo json_encode($res);
 ?>
