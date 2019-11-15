@@ -1132,6 +1132,7 @@ function add_action_forms(){
 
 function styles_ptags(){
   var c= $("#modu_main");
+  console.log(c.find("p"));
   c.find("p").each(function(){
     if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!=-1)
     {
