@@ -27,7 +27,7 @@ function GetTypeStr($Type)
 			return "Landing Page";
 			break;
 		default:
-			return "Undefine"
+			return "Undefine";
 			break;
 	}
 }
