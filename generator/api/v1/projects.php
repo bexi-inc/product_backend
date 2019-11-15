@@ -2,32 +2,34 @@
 
 function GetStatusStr($status)
 {
-	swith($status)
-	case 0:
-		return "Draft";
-		break;
-	case 1:
-		return "Unpublish";
-		break;
-	case 2:
-		return "Publish";
-		break;
-	case 3:
-		return "Modified";
-		break;
-	default:
-		break;
+	swith($status){
+		case 0:
+			return "Draft";
+			break;
+		case 1:
+			return "Unpublish";
+			break;
+		case 2:
+			return "Publish";
+			break;
+		case 3:
+			return "Modified";
+			break;
+		default:
+			break;
+	}
 }
 
 function GetTypeStr($Type)
 {
-	swith($status)
-	case 1:
-		return "Landing Page";
-		break;
-	default:
-		return "Undefine"
-		break;
+	swith($status){
+		case 1:
+			return "Landing Page";
+			break;
+		default:
+			return "Undefine"
+			break;
+	}
 }
 function GetProjects($connDyn, $userId)
 {
