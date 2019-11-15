@@ -146,15 +146,15 @@ $( document ).ready(function() {
 
  function plusSlides(n)
  {
- 	console.log("plusSlides(n)");
- 	console.log(n);
- 	console.log("slideIndex=" + slideIndex);
+ 	//console.log("plusSlides(n)");
+ 	//console.log(n);
+ 	//console.log("slideIndex=" + slideIndex);
  	if (n<0)
  	{
  		var nPages = $(".bexi_sliders .mySlides").length;
 
  		
- 		console.log("nPages=" + nPages);
+ 		//console.log("nPages=" + nPages);
 
  		if ((slideIndex - nPages) <= 3)
  		{
@@ -190,10 +190,10 @@ $( document ).ready(function() {
 
  				var pos = npos - slideIndex - 1;
 
- 				console.log("pos=" + pos);
- 				console.log("myWidth = " + myWidth);
- 				console.log("left=" + ( pos * sliderSize * myWidth));
-         console.log("nframe - " + (npos-slideIndex));
+ 				//console.log("pos=" + pos);
+ 				//console.log("myWidth = " + myWidth);
+ 				//console.log("left=" + ( pos * sliderSize * myWidth));
+         //console.log("nframe - " + (npos-slideIndex));
  				//if ( pos>=0  && pos <= 3)
  				//{
  					$(this).animate({
@@ -214,10 +214,10 @@ $( document ).ready(function() {
  		slideIndex = slideIndex + 1;
  	}
 
- 	console.log("n=" + n);
+ 	//console.log("n=" + n);
  	if (n>0 && slideIndex > 1)
  	{
- 		console.log("prev");
+ 		//console.log("prev");
  		var nPages = $(".bexi_sliders .mySlides").length;
  		
  			/*$(".main_selector").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe></div>');
@@ -227,14 +227,14 @@ $( document ).ready(function() {
  		$(".bexi_sliders .mySlides").each(function() {
  				
  			var pos = npos - slideIndex + 1 ;
- 			console.log("Prev pos==" + pos);
- 			console.log("Prev left=" + (pos * sliderSize * myWidth));
+ 			//console.log("Prev pos==" + pos);
+ 			//console.log("Prev left=" + (pos * sliderSize * myWidth));
  			$(this).animate({
 				left: pos * sliderSize * myWidth,
 				opacity: '1'
 			}, 800);
 
-       console.log("nframe - " + (npos-slideIndex));
+       //console.log("nframe - " + (npos-slideIndex));
        if ((npos-slideIndex)>=1 && (npos-slideIndex)<=2)
         {
            $("iframe",this).addClass("project_active");
