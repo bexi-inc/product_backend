@@ -93,7 +93,7 @@ function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors, $t
 		,"project_name" : "'.$pname.'"
 		,"industry" : "'.$industry.'" ';
 
-	$Data .= (($pgoal) ? ',"project_goal" :  "'.$pgoal.'" ' : '' );
+	$Data .= ((trim($pgoal) != '' ) ? ',"project_goal" :  "'.$pgoal.'" ' : '' );
 		
 	$Data .= ' ,"status" : "0"
 		,"colors" : [
