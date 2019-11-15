@@ -1365,7 +1365,7 @@ function bgchange(btid) {
              },
              'image.beforeUpload': function (images) {
               console.log(this,"response replaced");
-               this.opts.imageUploadParams.tagid=window.bexi_tagid;
+               //this.opts.imageUploadParams.tagid=window.bexi_tagid;
              },
              'image.inserted': function ($img, response) {
                // Image was inserted in the editor.
@@ -1376,7 +1376,7 @@ function bgchange(btid) {
              },
              'image.replaced': function ($img, response) {
                // Image was replaced in the editor.
-               console.log(response,"response replaced");
+               //console.log(response,"response replaced");
                //console.log(this);
              },
              'click': function (clickEvent) {
