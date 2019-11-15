@@ -73,7 +73,6 @@ ob_start();
     echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
     echo '<script src="includes/jquery-3.4.1.min.js"></script>';
     echo '<link rel="stylesheet" href="includes/jquery-ui.min.css">';
-    echo '<link rel="stylesheet" href="./css/bexi_panel.css" >';
     echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>';
     echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
     echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
@@ -87,17 +86,8 @@ ob_start();
     /**************   ICON FONTS **************/
     echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
 
-
-    echo '<script src="includes/jquery-ui.min.js"></script>';
-    echo '<link rel="stylesheet" type="text/css" href="includes/jquery-ui.theme.css" >';
-
-    echo '<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>';
-    echo '<script src="includes/pagination.js"></script>';
-    echo'<link rel="stylesheet" type="text/css" href="includes/css/bs-pagination.css" >';
-
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
     echo "\r\n";
-    //echo '<script type="text/javascript"  src="includes/bexi_v2.js"></script>';
     echo "</head>";
     echo "\r\n";
 
@@ -191,9 +181,38 @@ ob_start();
     echo "\r\n";
 
     $code = ob_get_contents ();
+    ob_end_clean();
 
-    ob_clean();
+    //$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
+    $doc = new DOMDocument();
+    $doc->loadHTML($code);
+    $tags = $doc->getElementsByTagName('img');
+    foreach ($tags as $tag) {
+        $old_src = $tag->getAttribute('src');
+        $pos = strpos(pathinfo($old_src,PATHINFO_DIRNAME),"uploads.getmodu.com");
+        if($pos===true){
+            $new_src_url = './assets/'.pathinfo($old_src,PATHINFO_BASENAME);
+            $tag->setAttribute('src',$new_src_url);
+        }
+    }
+    $code = $doc->saveHTML();
 
+/*
+    $dom = new DOMDocument();
+    libxml_use_internal_errors( True );
+    $dom->loadXML($code);//Open xml to manage
+    $dom->formatOutput = True;
+
+    $xpath = new DOMXPath($dom);
+    $nodes = $xpath->query('channel/item/description');
+
+    foreach( $nodes as $node )
+    {
+        $html = new DOMDocument();
+        $html->loadHTML( $node->nodeValue );
+        $src = $html->getElementsByTagName( 'img' )->item(0)->getAttribute('src');
+    }
+*/
     echo $code ;
 ?>

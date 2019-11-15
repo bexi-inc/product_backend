@@ -1097,7 +1097,7 @@ function bgchange(btid) {
             imageUploadURL: './ajax/uploadfile.php',
   
             // Additional upload params.
-            imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+            imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
   
             // Set request type.
             imageUploadMethod: 'POST',
@@ -1176,7 +1176,7 @@ function bgchange(btid) {
            imageUploadURL: './ajax/uploadfile.php',
   
            // Additional upload params.
-           imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+           imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
   
            // Set request type.
            imageUploadMethod: 'POST',
@@ -1233,7 +1233,7 @@ function bgchange(btid) {
            imageUploadURL: './ajax/uploadfile.php',
   
            // Additional upload params.
-           imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+           imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
   
            // Set request type.
            imageUploadMethod: 'POST',
@@ -1289,7 +1289,7 @@ function bgchange(btid) {
            imageUploadURL: './ajax/uploadfile.php',
   
            // Additional upload params.
-           imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+           imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
   
            // Set request type.
            imageUploadMethod: 'POST',
@@ -1349,7 +1349,7 @@ function bgchange(btid) {
            imageUploadURL: './ajax/uploadfile.php',
   
            // Additional upload params.
-           imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+           imageUploadParams: {devid:$("#devId").val(), projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
   
            // Set request type.
            imageUploadMethod: 'POST',
@@ -1522,12 +1522,13 @@ function add_action_forms(){
 
 function auto_save()
 {
+    var did=$("#devId").val();
     var pid=$("#codeId").val();
     var uid=$("#userId").val();
     var c=$("#modu_main").html();
     var request=$.ajax({
       url: "./ajax/autosave.php",
-      data: { userid: uid, projectid : pid,code:c} ,
+      data: { devid:did,userid: uid, projectid : pid,code:c} ,
       datatype:"json",
       method:"POST",
       success: function(data){
@@ -1537,9 +1538,11 @@ function auto_save()
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
 function save_img(TAGID,FILE){
+  var did=$("#devId").val();
   var pid=$("#codeId").val();
   var uid=$("#userId").val();
   var data = new FormData();
+  data.append("devid",did);
   data.append("file",FILE);
   data.append("userid",uid);
   data.append("projectid",pid);
