@@ -114,9 +114,6 @@ echo '<link rel="stylesheet" type="text/css" href="includes/jquery-ui.theme.css"
 echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jquery.minicolors.css">
       <script type="text/javascript" src="includes/jquery.minicolors.min.js"></script>';
 
-echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >';
-echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
-
 /**************   PAGINATION **************/
 echo '<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>';
 echo '<script src="includes/pagination.js"></script>';
@@ -128,12 +125,8 @@ echo'<script src="./config.js"></script>';
 
 echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
 
-foreach ($css as $hoja)
-{
-     $css_php = substr($hoja, 0, -3) . 'php';
-	echo '<link rel="stylesheet" type="text/css" href="load_css.php?file='.$css_php.'&id=1&fontid=1">';
-	echo "\r\n";
-}
+echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >';
+echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
 
 //echo $FontImport;
 echo "\r\n";
