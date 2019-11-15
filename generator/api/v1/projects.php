@@ -9,8 +9,7 @@ function GetProjects($connDyn, $userId)
 		":usrid" : "'.$userId.'"
 	}';
 
-	print_r($userData);
-	$table = ExecuteQuery("modu_projects",$userData,"user_id = :usrid", , , false);
+	$table = ExecuteQuery("modu_projects",$userData,"user_id = :usrid", "" , "" , false);
 	$projects = []; 
 
 
