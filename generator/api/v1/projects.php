@@ -82,7 +82,7 @@ function GetProjects($connDyn, $userId)
 }
 
 
-function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors, $txtcolors,  $pkeywords , $pservices)
+function CreateProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $txtcolors,  $pkeywords , $pservices)
 {
 	global $Marshaler;
 	$pid = microtime(true);
@@ -108,7 +108,7 @@ function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors, $t
 	$Data = $Data . '}';
 
 
-	print_r($Data);
+	//print_r($Data);
 
 	$resIns=Insert("modu_projects",$Data);
 
@@ -116,6 +116,49 @@ function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors, $t
 	{
 		$res["error"]="";
 		$res["id"] =  $pid;
+
+
+		if (!file_exists(PAHTSERVER.$userid)) {
+		    mkdir($path.$userid, 0777, true);
+		}
+
+		if (!file_exists(PAHTSERVERth.$userid."/".$pid)) {
+		    mkdir($path.$userid."/".$pid, 0777, true);
+		}
+
+		$fullpath= PAHTSERVER.$userid."/".$pid . "/";
+
+		if (!file_exists($fullpath."/logos")) {
+		    mkdir($fullpath."/logos", 0777, true);
+		}
+
+		$fullpath .= "/logos/";
+
+		
+		/*$uploadOk = 1;
+		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+		$target_file = $fullpath."/".$idfile.".".$imageFileType;*/
+		//$webpath = PATHWEB.$userid."/".$projectid . "/logos/".$_FILES["logofullcolor"]["name"];
+		//print_r($_FILES);
+
+		$target_file = $fullpath . $_FILES["logofullcolor"]["name"];
+
+		if (move_uploaded_file($_FILES["logofullcolor"]["tmp_name"], $target_file)) {
+
+		}
+
+		$target_file = $fullpath . $_FILES["logodarker"]["name"];
+
+		if (move_uploaded_file($_FILES["logodarker"]["tmp_name"], $target_file)) {
+
+		}
+
+		$target_file = $fullpath . $_FILES["logolighter"]["name"];
+
+		if (move_uploaded_file($_FILES["logolighter"]["tmp_name"], $target_file)) {
+
+		}
 
 		return $res;
 	}else{

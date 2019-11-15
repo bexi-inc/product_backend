@@ -145,8 +145,6 @@ $res["error_code"]=0;
  		break;
  	case "CreateProject":
  		print_r($_REQ);
- 		echo "file";
- 		print_r($_FILE);
  		echo "files";
  		print_r($_FILES);
  		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->projectindustry) || !isset($_REQ->colors))
