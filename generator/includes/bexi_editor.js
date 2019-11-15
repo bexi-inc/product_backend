@@ -553,12 +553,12 @@ function bgchange(btid) {
        $('.bexi_module').each(function() {
         var num=Math.floor((Math.random() * 10000) + 1);
         $(this).prepend(
-          '<button class="toolbtn" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
-          '<div class="collapse bartool" id="collapsetools'+num+'" style="z-index: 6;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
+          '<button class="toolbtn remove" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
+          '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 6;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
           '</div>'+
-          '<div id="dialog-img'+num+'" class="ui-helper-hidden">'+
+          '<div id="dialog-img'+num+'" class="remove ui-helper-hidden">'+
             '<div id="tabs-img">'+
               '<ul>'+
                 '<li><a data-tooltip="true" title="Upload" href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
@@ -1532,9 +1532,11 @@ function auto_save()
     var pid=$("#codeId").val();
     var uid=$("#userId").val();
     var c=$("#modu_main").html();
+    var cc=$("#modu_main").clone();
+    cc.find(".remove").remove();
     var request=$.ajax({
       url: "./ajax/autosave.php",
-      data: { devid:did,userid: uid, projectid : pid,code:c} ,
+      data: { devid:did,userid: uid, projectid : pid,code:cc} ,
       datatype:"json",
       method:"POST",
       success: function(data){
