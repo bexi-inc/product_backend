@@ -239,6 +239,8 @@ Crew\Unsplash\HttpClient::init([
 		        		//console.log(looser);
 		        	}
 		        });
+		        console.log("Send winnder and looser");
+		        
 		        console.log (data[0] + '|' + data[1] + '|' + looser);
 		         if (window.top != window.self) {
 		         	window.top.postMessage(data[0] + '|' + data[1] + '|' + looser, '*')
