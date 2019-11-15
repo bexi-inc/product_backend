@@ -10,6 +10,8 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
+
+
 require "../../config.php";
 require '../../vendor/autoload.php';
 
@@ -126,7 +128,7 @@ $res["error_code"]=0;
  		}
  		$res= ValidateToken($_REQ->token);
  		break;
- 	case 'GetProjects'
+ 	case 'GetProjects' :
  		if (!isset($_REQ->userid))
  		{
  			$res["error_code"]="502";
@@ -134,7 +136,7 @@ $res["error_code"]=0;
  			
  		}
  		echo "GetProjects";
- 		
+
  		$res = GetProjects($Dynamodb,$_REQ->userid);
  		break;
  	default:
