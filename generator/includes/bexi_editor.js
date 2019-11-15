@@ -1115,10 +1115,6 @@ function bgchange(btid) {
 */
 });
 
-$(window).on("load",function(){
-  styles_ptags();
-});
-
 
 
 function add_action_forms(){
@@ -1132,7 +1128,6 @@ function add_action_forms(){
 
 function styles_ptags(){
   var c= $("#modu_main");
-  console.log(c.find("p"));
   c.find("p").each(function(){
     if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!=-1)
     {
@@ -1203,7 +1198,6 @@ function initialize_editors_text(fonts){
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
       charCounterCount: false,
-      initOnClick: true,
       toolbarVisibleWithoutSelection: true,
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
@@ -1267,6 +1261,7 @@ function initialize_editors_text(fonts){
           }
         },
         'initialized': function (event, editor) {
+          styles_ptags();
           /*
           loadUsedGoogleFonts(this);
 
@@ -1296,7 +1291,6 @@ function initialize_editors_text(fonts){
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
       charCounterCount: false,
-      initOnClick: true,
       toolbarVisibleWithoutSelection: true,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
     // Set the image upload parameter.
@@ -1344,6 +1338,9 @@ function initialize_editors_text(fonts){
         else{
           window.bexi_tagid=null;
         }
+      },
+      'initialized': function () {
+        styles_ptags();
       }
     }
     });
@@ -1353,7 +1350,6 @@ function initialize_editors_text(fonts){
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
       charCounterCount: false,
-      initOnClick: true,
       toolbarVisibleWithoutSelection: true,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
     // Set the image upload parameter.
@@ -1401,6 +1397,9 @@ function initialize_editors_text(fonts){
         else{
           window.bexi_tagid=null;
         }
+      },
+      'initialized': function () {
+        styles_ptags();
       }
     }
     });
@@ -1410,7 +1409,6 @@ function initialize_editors_text(fonts){
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
       charCounterCount: false,
-      initOnClick: true,
       linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
     // Set the image upload parameter.
     imageUploadParam: 'file',
@@ -1457,6 +1455,9 @@ function initialize_editors_text(fonts){
         else{
           window.bexi_tagid=null;
         }
+      },
+      'initialized': function () {
+        styles_ptags();
       }
     }
     });
@@ -1466,7 +1467,6 @@ function initialize_editors_text(fonts){
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
       charCounterCount: false,
-      initOnClick: true,
       toolbarBottom : false,
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
@@ -1527,6 +1527,9 @@ function initialize_editors_text(fonts){
         // this is the editor instance.
         console.log(response,"from uploaded");
         return false;
+      },
+      'initialized': function () {
+        styles_ptags();
       }
     }
     });
@@ -1536,13 +1539,15 @@ function initialize_editors_text(fonts){
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
       charCounterCount: false,
-      initOnClick: true,
       toolbarBottom : false,
       toolbarVisibleWithoutSelection: true,
       events : {
         'blur': function () {
             auto_save();
         }
+      },
+      'initialized': function () {
+        styles_ptags();
       }
 
     });
@@ -1551,7 +1556,6 @@ function initialize_editors_text(fonts){
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
       charCounterCount: false,
-      initOnClick: true,
       toolbarBottom : false,
       videoResponsive: true,
       toolbarButtons: ['insertVideo'],
@@ -1561,6 +1565,9 @@ function initialize_editors_text(fonts){
         'blur': function () {
             auto_save();
         }
+      },
+      'initialized': function () {
+        styles_ptags();
       }
     });
 
@@ -1569,7 +1576,6 @@ function initialize_editors_text(fonts){
       iconsTemplate: 'font_awesome_5',
       toolbarInline: true,
       charCounterCount: false,
-      initOnClick: true,
       toolbarBottom : false,
       imageUpload: false,
       fileUpload: false,
@@ -1600,6 +1606,9 @@ function initialize_editors_text(fonts){
       'blur': function () {
         auto_save();
       }
+    },
+    'initialized': function () {
+      styles_ptags();
     }
     });
 }
