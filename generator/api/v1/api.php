@@ -144,7 +144,16 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			
  		}
- 		$res = CreateProject($Dynamodb,$_REQ->userid,$_REQ->projectname, $_REQ->projectgoal, $_REQ->industry, , $_REQ->colors);
+ 		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, $_REQ->projectgoal, $_REQ->industry, $_REQ->colors);
+ 		break;
+ 	case "ExistsDomain"
+ 		if (!isset($_REQ->domain))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			
+ 		}
+ 		$res = ExistDomain($Dynamodb,$_REQ->userid);
  		break;
  	default:
  		$res["error_code"]="501";

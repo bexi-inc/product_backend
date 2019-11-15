@@ -113,4 +113,38 @@ function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors)
 	    return $ret;
 	}
 }
+
+function ExistDomain($domain)
+{
+	$data='
+	    {
+	        ":sdom": "'.$domain.'"
+	    }
+	';
+
+	$table = ExecuteQuery("modu_subdomains",$data,"subdomain = :sdom","x","",false);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+		    if ($Marshaler->unmarshalValue($dbdata[0]['subdomain'])==$domain)
+		    {
+		    	$ret["error_code"] = "0";
+		    	$ret["exists"] = "true";
+		    	return $ret;
+		    }else{
+		    	$ret["error_code"] = "0";
+		    	$ret["exists"] = "false";
+		    }
+		}
+
+	}
+	else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	}
+	return $ret;
+}
 ?>
