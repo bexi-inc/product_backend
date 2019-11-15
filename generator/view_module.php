@@ -137,7 +137,9 @@ echo "</head>";
 echo "\r\n";
 
 echo "<body>";
+echo "<div id='modu_main'>";
 echo $contenido;
+echo  "</div>";
 
 echo ' <script>
             anima_isHidden = function(e) {
