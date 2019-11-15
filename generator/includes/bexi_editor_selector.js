@@ -1,7 +1,7 @@
 $(document).ready(function() {
   console.log("iniciando");
   $("#img_select_project").click(function(){
-  		console.log("Project Selected");
+  		//console.log("Project Selected");
   		//console.log('SelectProject|' + $(this).attr("bexi-code"));
 
   		window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
