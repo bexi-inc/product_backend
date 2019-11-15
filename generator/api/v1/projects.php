@@ -2,7 +2,7 @@
 
 function GetStatusStr($status)
 {
-	swith($status){
+	switch($status){
 		case 0:
 			return "Draft";
 			break;
@@ -22,7 +22,7 @@ function GetStatusStr($status)
 
 function GetTypeStr($Type)
 {
-	swith($status){
+	switch($status){
 		case 1:
 			return "Landing Page";
 			break;
