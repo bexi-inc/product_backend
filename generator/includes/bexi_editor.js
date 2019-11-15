@@ -476,7 +476,6 @@ function bgchange(btid) {
     }
 
     function previewImg(ID) {
-      console.log("entro");
       var exist= false;
       if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
       {
@@ -485,7 +484,6 @@ function bgchange(btid) {
       if(exist==false){
         $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
       }
-      console.log($('#inpimg'+ID).prop('files')[0]);
       if($('#inpimg'+ID).prop('files')[0])
       {
         var id=$('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id");
@@ -499,7 +497,6 @@ function bgchange(btid) {
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"')");
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
           $('#inpimg'+ID).val(null);
-          console.log("se hizo el cambio");
         });
       }
       $( "#dialog-img"+(ID).toString()).dialog("close");
