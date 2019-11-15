@@ -61,8 +61,8 @@ function GetProjects($connDyn, $userId)
 				$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
 
 				$micro_date = date($Marshaler->unmarshalValue($project["create_date"]));
-				$date_array = explode(" ",$micro_date);
-				$date = date("Y-m-d",$date_array[1]);
+				$date_array = explode(".",$micro_date);
+				$date = date("Y-m-d",$date_array[0]);
 				$proj["create_date"] = $date;
 
 				//echo date('Y-m-d H:i:s', $proj["date_create"]);
