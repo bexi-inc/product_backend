@@ -152,7 +152,7 @@ $res["error_code"]=0;
  			
  		}
  		//die("CreateProject");
- 		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, $_REQ->projectgoal, $_REQ->projectindustry, $_REQ->brandcolors, $_REQ->textcolor, $->projectkeywords,  $_REQ->productorservice);
+ 		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, " ", $_REQ->projectindustry, $_REQ->brandcolors, $_REQ->textcolor, $->projectkeywords,  $_REQ->productorservice);
  		break;
  	case "ExistsDomain":
  		if (!isset($_REQ->domain))
