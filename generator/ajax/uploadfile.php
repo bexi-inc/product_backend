@@ -43,8 +43,8 @@ $idfile =  (!isset($_REQUEST["tagid"])) ? uniqid() : $_REQUEST["tagid"];
 if (isset($_REQUEST["devid"]))
 {
 	$params = [
-        'TableName' => "modu_deliverables",
-         "KeyConditionExpression"=> "deliverable_id = :id",
+        "TableName" => "modu_deliverables",
+        "KeyConditionExpression"=> "deliverable_id = :id",
         "ExpressionAttributeValues"=> [
             ":id" =>  ["S" => $_REQUEST["devid"]]
         ]
@@ -57,6 +57,7 @@ if (isset($_REQUEST["devid"]))
     	$projectid =  $marshaler->unmarshalValue($result['Items'][0]["project_id"]);	
     }
 
+    print_r($projectid);
 
     $params = [
         'TableName' => "modu_projects",
