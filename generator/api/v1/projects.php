@@ -1,5 +1,34 @@
 <?
 
+function GetStatusStr($status)
+{
+	swith($status)
+	case 0:
+		return "Draft";
+		break;
+	case 1:
+		return "Unpublish";
+		break;
+	case 2:
+		return "Publish";
+		break;
+	case 3:
+		return "Modified";
+		break;
+	default:
+		break;
+}
+
+function GetTypeStr($Type)
+{
+	swith($status)
+	case 1:
+		return "Landing Page";
+		break;
+	default:
+		return "Undefine"
+		break;
+}
 function GetProjects($connDyn, $userId)
 {
 	global $Marshaler;
@@ -25,8 +54,11 @@ function GetProjects($connDyn, $userId)
 				$proj = []; 
 				$proj["project _id"] = $Marshaler->unmarshalValue($project["project _id"]);
 				$proj["project_name"] = $Marshaler->unmarshalValue($project["project_name"]);
-				$proj["status"] = $Marshaler->unmarshalValue($project["status"]);
+				$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
 				$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
+				$proj["type"] = GetTypeStr($Marshaler->unmarshalValue($project["type"]));
+				$proj["date_create"] = GetTypeStr($Marshaler->unmarshalValue($project["date_create"]));
+				echo date('Y-m-d H:i:s', $proj["date_create"]);
 				$projects [] = $proj;
 			}
 		}
