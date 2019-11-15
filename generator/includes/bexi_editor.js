@@ -1397,6 +1397,7 @@ function bgchange(btid) {
               // Do something here.
               // this is the editor instance.
               console.log(response,"from uploaded");
+              return false;
             }
            }
           });
