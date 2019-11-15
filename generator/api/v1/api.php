@@ -1,9 +1,10 @@
 <?
 session_start();
-
+/*
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+*/
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
@@ -135,9 +136,25 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			
  		}
- 		echo "GetProjects";
-
  		$res = GetProjects($Dynamodb,$_REQ->userid);
+ 		break;
+ 	case "CreateProject":
+ 		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->industry) || !isset($_REQ->colors))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			
+ 		}
+ 		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, $_REQ->projectgoal, $_REQ->industry, $_REQ->colors);
+ 		break;
+ 	case "ExistsDomain":
+ 		if (!isset($_REQ->domain))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			
+ 		}
+ 		$res = ExistDomain($Dynamodb,$_REQ->userid);
  		break;
  	default:
  		$res["error_code"]="501";

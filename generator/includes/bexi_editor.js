@@ -496,9 +496,10 @@ function bgchange(btid) {
           var jdata=JSON.parse(data);
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"')");
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
+          $('#inpimg'+ID).val(null);
         });
       }
-      $( "#dialog-img"+(ID).toString() ).dialog("close");
+      $( "#dialog-img"+(ID).toString()).dialog("close");
     }
 
   /**************   Change trigger for tooltip **************/
@@ -524,7 +525,7 @@ function bgchange(btid) {
            $(this).wrap( "<div class='bexi_editor_text' id='ed_" + $(this).attr('id') + "''></div>" );
        });
 
-       $( ".bexi_link" ).wrap( "<div class='bexi_editor_link' style='width:100%;'></div>" );
+       $( ".bexi_link" ).wrap( "<p class='bexi_editor_link' style='width:100%;'></p>" );
 
        //$( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
@@ -550,12 +551,12 @@ function bgchange(btid) {
        $('.bexi_module').each(function() {
         var num=Math.floor((Math.random() * 10000) + 1);
         $(this).prepend(
-          '<button class="toolbtn" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
-          '<div class="collapse bartool" id="collapsetools'+num+'" style="z-index: 6;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
+          '<button class="toolbtn remove" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
+          '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 6;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
           '</div>'+
-          '<div id="dialog-img'+num+'" class="ui-helper-hidden">'+
+          '<div id="dialog-img'+num+'" class="remove ui-helper-hidden">'+
             '<div id="tabs-img">'+
               '<ul>'+
                 '<li><a data-tooltip="true" title="Upload" href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
@@ -1097,7 +1098,7 @@ function bgchange(btid) {
             imageUploadURL: './ajax/uploadfile.php',
   
             // Additional upload params.
-            imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+            imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
   
             // Set request type.
             imageUploadMethod: 'POST',
@@ -1176,7 +1177,7 @@ function bgchange(btid) {
            imageUploadURL: './ajax/uploadfile.php',
   
            // Additional upload params.
-           imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+           imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
   
            // Set request type.
            imageUploadMethod: 'POST',
@@ -1233,7 +1234,7 @@ function bgchange(btid) {
            imageUploadURL: './ajax/uploadfile.php',
   
            // Additional upload params.
-           imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+           imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
   
            // Set request type.
            imageUploadMethod: 'POST',
@@ -1289,7 +1290,7 @@ function bgchange(btid) {
            imageUploadURL: './ajax/uploadfile.php',
   
            // Additional upload params.
-           imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+           imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
   
            // Set request type.
            imageUploadMethod: 'POST',
@@ -1337,7 +1338,6 @@ function bgchange(btid) {
             toolbarInline: true,
             charCounterCount: false,
             initOnClick: true,
-            imageManagerLoadURL: 'load_images.php',
             toolbarBottom : false,
             imageDefaultAlign: 'center',
             imageDefaultMargin: 0,
@@ -1349,7 +1349,7 @@ function bgchange(btid) {
            imageUploadURL: './ajax/uploadfile.php',
   
            // Additional upload params.
-           imageUploadParams: {projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
+           imageUploadParams: {devid:$("#devId").val(), projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
   
            // Set request type.
            imageUploadMethod: 'POST',
@@ -1364,18 +1364,20 @@ function bgchange(btid) {
                  auto_save();
              },
              'image.beforeUpload': function (images) {
-               this.opts.imageUploadParams.tagid=window.bexi_tagid;
+              console.log(this,"response replaced");
+               //this.opts.imageUploadParams.tagid=window.bexi_tagid;
              },
              'image.inserted': function ($img, response) {
                // Image was inserted in the editor.
-               var jresponse =JSON.parse(response);
-               $img.attr("id",jresponse.id);
-               $img.attr("src",jresponse.src);
-               window.bexi_tagid=jresponse.id;
+               //var jresponse =JSON.parse(response);
+               //$img.attr("id",jresponse.id);
+               //$img.attr("src",jresponse.src);
+               //window.bexi_tagid=jresponse.id;
              },
              'image.replaced': function ($img, response) {
                // Image was replaced in the editor.
-               console.log(this);
+               //console.log(response,"response replaced");
+               //console.log(this);
              },
              'click': function (clickEvent) {
                // Do something here.
@@ -1387,7 +1389,16 @@ function bgchange(btid) {
                else{
                  window.bexi_tagid=null;
                }
-             }
+             },
+             'image.error': function (error, response) {
+               console.log(error);
+             },
+             'image.uploaded': function (response) {
+              // Do something here.
+              // this is the editor instance.
+              console.log(response,"from uploaded");
+              return false;
+            }
            }
           });
   
@@ -1522,12 +1533,49 @@ function add_action_forms(){
 
 function auto_save()
 {
+    var did=$("#devId").val();
     var pid=$("#codeId").val();
     var uid=$("#userId").val();
+    
+    if ($('.bexi_editor_icon').data('froala.editor')) {
+      $(".bexi_editor_icon").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_video').data('froala.editor')) {
+      $(".bexi_editor_video").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_button').data('froala.editor')) {
+      $(".bexi_editor_button").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_img').data('froala.editor')) {
+      $(".bexi_img").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_text').data('froala.editor')) {
+      $(".bexi_editor_text").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_link').data('froala.editor')) {
+      $(".bexi_editor_link").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_title').data('froala.editor')) {
+      $(".bexi_editor_title").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_subtitle').data('froala.editor')) {
+      $(".bexi_editor_subtitle").froalaEditor('destroy');
+    }
+
+
     var c=$("#modu_main").html();
+    var cc=$("#modu_main").clone();
+    cc.find(".remove").remove();
     var request=$.ajax({
       url: "./ajax/autosave.php",
-      data: { userid: uid, projectid : pid,code:c} ,
+      data: { devid:did,userid: uid, projectid : pid,code:cc.html()} ,
       datatype:"json",
       method:"POST",
       success: function(data){
@@ -1537,9 +1585,11 @@ function auto_save()
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
 function save_img(TAGID,FILE){
+  var did=$("#devId").val();
   var pid=$("#codeId").val();
   var uid=$("#userId").val();
   var data = new FormData();
+  data.append("devid",did);
   data.append("file",FILE);
   data.append("userid",uid);
   data.append("projectid",pid);
