@@ -1536,6 +1536,40 @@ function auto_save()
     var did=$("#devId").val();
     var pid=$("#codeId").val();
     var uid=$("#userId").val();
+    
+    if ($('.bexi_editor_icon').data('froala.editor')) {
+      $(".bexi_editor_icon").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_video').data('froala.editor')) {
+      $(".bexi_editor_video").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_button').data('froala.editor')) {
+      $(".bexi_editor_button").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_img').data('froala.editor')) {
+      $(".bexi_img").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_text').data('froala.editor')) {
+      $(".bexi_editor_text").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_link').data('froala.editor')) {
+      $(".bexi_editor_link").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_title').data('froala.editor')) {
+      $(".bexi_editor_title").froalaEditor('destroy');
+    }
+
+    if ($('.bexi_editor_subtitle').data('froala.editor')) {
+      $(".bexi_editor_subtitle").froalaEditor('destroy');
+    }
+
+
     var c=$("#modu_main").html();
     var cc=$("#modu_main").clone();
     cc.find(".remove").remove();
