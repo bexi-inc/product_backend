@@ -151,7 +151,7 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params CreateProject";
  			
  		}
- 		die("CreateProject");
+ 		//die("CreateProject");
  		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, $_REQ->projectgoal, $_REQ->industry, $_REQ->colors);
  		break;
  	case "ExistsDomain":
