@@ -20,7 +20,7 @@ function GetProjects($connDyn, $userId)
 		$dbdata = $table["data"]['Items'];
 		if (count($dbdata)>0)
 		{
-			
+			$res["error"]=0;
 			foreach ($table["data"]['Items'] as $project) {
 				$proj = []; 
 				$proj["project _id"] = $Marshaler->unmarshalValue($project["project _id"]);
@@ -30,6 +30,10 @@ function GetProjects($connDyn, $userId)
 				$projects [] = $proj;
 			}
 		}
+	}else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
 	}
 	$res["data"] = $projects;
 	//print_r($res);
