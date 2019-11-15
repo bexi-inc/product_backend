@@ -82,7 +82,7 @@ function GetProjects($connDyn, $userId)
 }
 
 
-function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors, $txtcolors, $txtcolors,  $pkeywords , $pservices)
+function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors, $txtcolors,  $pkeywords , $pservices)
 {
 	global $Marshaler;
 	$pid = microtime(true);
