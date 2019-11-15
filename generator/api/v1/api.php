@@ -16,6 +16,7 @@ require '../../vendor/autoload.php';
 require "db.php";
 require "users.php";
 require "emails.php";
+require "projects.php";
 
 $_REQ = json_decode(file_get_contents('php://input')); 
 
@@ -124,6 +125,15 @@ $res["error_code"]=0;
  			break;
  		}
  		$res= ValidateToken($_REQ->token);
+ 		break;
+ 	case 'GetProjects'
+ 		if (!isset($_REQ->userid))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			
+ 		}
+ 		$res = GetProjects($Dynamodb,$_REQ->userid);
  		break;
  	default:
  		$res["error_code"]="501";
