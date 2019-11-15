@@ -186,7 +186,7 @@ ob_start();
     //$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
     $doc = new DOMDocument();
-    $doc->loadXML($code);
+    $doc->loadHTML($code);
     $tags = $doc->getElementsByTagName('img');
     foreach ($tags as $tag) {
         $old_src = $tag->getAttribute('src');
@@ -196,7 +196,7 @@ ob_start();
             $tag->setAttribute('src',$new_src_url);
         }
     }
-    $code = $doc->saveXML();
+    $code = $doc->saveHTML();
 
 /*
     $dom = new DOMDocument();
