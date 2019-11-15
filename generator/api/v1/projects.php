@@ -23,16 +23,16 @@ function GetProjects($connDyn, $userId)
 			
 			foreach ($table["data"]['Items'] as $project) {
 				$proj = []; 
-				$proj["project _id"] = $project_name["project _id"];
-				$proj["project_name"] = $project_name["project_name"];
-				$proj["status"] = $project_name["status"];
-				$proj["industry"] = $project_name["industry"];
+				$proj["project _id"] = $Marshaler->unmarshalValue($project["project _id"]);
+				$proj["project_name"] = $Marshaler->unmarshalValue($project["project_name"]);
+				$proj["status"] = $Marshaler->unmarshalValue($project["status"]);
+				$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
 				$projects [] = $proj;
 			}
 		}
 	}
 	$res["data"] = $projects;
-	print_r($res);
+	//print_r($res);
 	return  $res;
 
 }
