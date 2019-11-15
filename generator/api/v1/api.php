@@ -142,7 +142,7 @@ $res["error_code"]=0;
  		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->industry) || !isset($_REQ->colors))
  		{
  			$res["error_code"]="502";
- 			$res["message"]="Invalid params";
+ 			$res["message"]="Invalid params CreateProject";
  			
  		}
  		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, $_REQ->projectgoal, $_REQ->industry, $_REQ->colors);
