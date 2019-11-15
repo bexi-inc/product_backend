@@ -215,6 +215,7 @@ Crew\Unsplash\HttpClient::init([
 		var UserParam = <? echo (isset($_REQUEST["user"]) ? $_REQUEST["user"] : "0"); ?>;
 
 		window.onmessage = function(e){
+			console.log("onmessage");
 			data = e.data.split("|");
 			console.log(e.data);
 		    if (data[0] == 'SelectProject') {
