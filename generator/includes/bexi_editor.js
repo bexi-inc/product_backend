@@ -1536,7 +1536,7 @@ function auto_save()
     cc.find(".remove").remove();
     var request=$.ajax({
       url: "./ajax/autosave.php",
-      data: { devid:did,userid: uid, projectid : pid,code:cc} ,
+      data: { devid:did,userid: uid, projectid : pid,code:cc.html()} ,
       datatype:"json",
       method:"POST",
       success: function(data){
