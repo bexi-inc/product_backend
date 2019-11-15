@@ -145,14 +145,14 @@ $res["error_code"]=0;
  		break;
  	case "CreateProject":
  		//print_r($_REQ);
- 		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->industry) || !isset($_REQ->colors))
+ 		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->projectindustry) || !isset($_REQ->colors))
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params CreateProject";
  			
  		}
  		//die("CreateProject");
- 		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, $_REQ->projectgoal, $_REQ->industry, $_REQ->colors);
+ 		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, $_REQ->projectgoal, $_REQ->projectindustry, $_REQ->colors, $->projectkeywords);
  		break;
  	case "ExistsDomain":
  		if (!isset($_REQ->domain))
