@@ -1531,23 +1531,6 @@ img.fr-view.fr-dib{
   margin: unset !important;
 }
 
-p.bexi_editor_icon {
-  padding-bottom: unset !important;
-}
-
-.fr-view p{
-  margin-bottom: 0px;
-  width: auto;
-
-  font-size: unset !important;
-  line-height: unset !important;
-  font-style: unset !important;
-  font-weight: unset !important;
-  font-family: unset !important;
-  padding-top: unset;
-} /*padding-bottom: inherit;*/
- /*padding-bottom: inherit;*/
-
 /******* For unsplash Manager ********/
 .image-list {
   margin-bottom: 10px;
