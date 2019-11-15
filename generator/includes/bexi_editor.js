@@ -496,6 +496,7 @@ function bgchange(btid) {
           var jdata=JSON.parse(data);
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"')");
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
+          console.log("se hizo el cambio");
         });
       }
       $( "#dialog-img"+(ID).toString() ).dialog("close");
@@ -1337,7 +1338,6 @@ function bgchange(btid) {
             toolbarInline: true,
             charCounterCount: false,
             initOnClick: true,
-            imageManagerLoadURL: 'load_images.php',
             toolbarBottom : false,
             imageDefaultAlign: 'center',
             imageDefaultMargin: 0,
@@ -1375,7 +1375,8 @@ function bgchange(btid) {
              },
              'image.replaced': function ($img, response) {
                // Image was replaced in the editor.
-               console.log(this);
+               console.log(response,"response replaced");
+               //console.log(this);
              },
              'click': function (clickEvent) {
                // Do something here.
@@ -1387,6 +1388,9 @@ function bgchange(btid) {
                else{
                  window.bexi_tagid=null;
                }
+             },
+             'image.error': function (error, response) {
+               console.log(error);
              }
            }
           });
