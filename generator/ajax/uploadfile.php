@@ -1,7 +1,7 @@
 <?
-ini_set('display_errors', 1);
+/*ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 
 include "../config.php";
 require '../vendor/autoload.php';
@@ -25,7 +25,7 @@ $path = "/var/www/uploads.getmodu.com/public_html/";
 $webpath = "http://uploads.getmodu.com/";
 
 
-print_r($_REQUEST);
+//print_r($_REQUEST);
 
 
 //print_r($_FILES);
@@ -57,7 +57,7 @@ if (isset($_REQUEST["devid"]))
     	$projectid =  $marshaler->unmarshalValue($result['Items'][0]["project_id"]);	
     }
 
-    print_r($projectid);
+   // print_r($projectid);
 
     $params = [
         'TableName' => "modu_projects",
