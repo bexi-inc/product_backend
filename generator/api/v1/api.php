@@ -138,13 +138,13 @@ $res["error_code"]=0;
  		$res = GetProjects($Dynamodb,$_REQ->userid);
  		break;
  	case "CreateProject":
- 		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->industry))
+ 		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->industry) || !isset($_REQ->colors))
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
  			
  		}
- 		$res = CreateProject($Dynamodb,$_REQ->userid,$_REQ->projectname, $_REQ->projectgoal, $_REQ->industry));
+ 		$res = CreateProject($Dynamodb,$_REQ->userid,$_REQ->projectname, $_REQ->projectgoal, $_REQ->industry, , $_REQ->colors);
  		break;
  	default:
  		$res["error_code"]="501";

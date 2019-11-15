@@ -82,7 +82,7 @@ function GetProjects($connDyn, $userId)
 }
 
 
-function CreateProject($connDyn, $userId, $pname, $pgoal, $industry)
+function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors)
 {
 	global $Marshaler;
 	$pid = microtime(true);
@@ -93,9 +93,24 @@ function CreateProject($connDyn, $userId, $pname, $pgoal, $industry)
 		"project_name" : "'.$pname.'",
 		"industry" : "'.$industry.'",
 		"project_goal" :  "'.$pgoal.'",
-		"status" : "0"
+		"status" : "0",
+		"colors" : [
+				'.$colors.'
+		]
 	}';
 
 	$resIns=Insert("modu_projects",$Data);
+
+	if (!$resIns["error"])
+	{
+		$res["error"]="";
+		$res["id"] =  $pid;
+
+		return $res;
+	}else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $resIns["error"];
+	    return $ret;
+	}
 }
 ?>
