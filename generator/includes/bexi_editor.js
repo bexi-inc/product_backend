@@ -1135,6 +1135,7 @@ function styles_ptags(){
   c.find("p").each(function(){
     if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!=-1)
     {
+      console.log($(this).attr("class"));
       $(this).attr("style",$(this).attr("style")+"padding:0px;");
       $(this).css("padding","0px");
     }
