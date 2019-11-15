@@ -12,6 +12,9 @@ function GetProjects($connDyn, $userId)
 	$table = ExecuteQuery("modu_projects",$userData,"user_id = :usrid");
 	$projects = []; 
 
+
+	print_r($table);
+	 
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
