@@ -1544,6 +1544,7 @@ p.bexi_editor_icon {
   font-family: unset !important;
   padding-top: unset;
 } /*padding-bottom: inherit;*/
+ /*padding-bottom: inherit;*/
 
 /******* For unsplash Manager ********/
 .image-list {
