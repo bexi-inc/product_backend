@@ -156,6 +156,20 @@ $res["error_code"]=0;
  		//die("CreateProject");
  		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, " ", $_REQ->projectindustry, $_REQ->brandcolors, $_REQ->textcolor, $_REQ->projectkeywords,  $_REQ->productorservice);
  		break;
+
+ 	case "CreateDeliverable":
+ 		/*print_r($_REQ);
+ 		echo "files";
+ 		print_r($_FILES);*/
+ 		if (!isset($_REQ->projectid) || !isset($_REQ->winnerid) || !isset($_REQ->looserid) || !isset($_REQ->type))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params CreateProject";
+ 			
+ 		}
+ 		//die("CreateProject");
+ 		$res = CreateDeliverable($_REQ->projectid, $_REQ->winnerid, $_REQ->looserid, $_REQ->type);
+ 		break;
  	case "ExistsDomain":
  		if (!isset($_REQ->domain))
  		{

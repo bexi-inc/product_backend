@@ -201,4 +201,10 @@ function ExistDomain($domain)
 	}
 	return $ret;
 }
+
+
+function CreateDeliverable($projectid, $winnder, $looser, $type)
+{
+	
+}
 ?>
