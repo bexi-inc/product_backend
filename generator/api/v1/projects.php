@@ -31,6 +31,7 @@ function GetTypeStr($Type)
 			break;
 	}
 }
+
 function GetProjects($connDyn, $userId)
 {
 	global $Marshaler;
@@ -80,4 +81,21 @@ function GetProjects($connDyn, $userId)
 
 }
 
+
+function CreateProject($connDyn, $userId, $pname, $pgoal, $industry)
+{
+	global $Marshaler;
+	$pid = microtime(true);
+	$Data ='{
+		"project_id" : "'.$pid.'",
+		"user_id" : "'.$userid.'",
+		"create_date" : "'.$pid.'",
+		"project_name" : "'.$pname.'",
+		"industry" : "'.$industry.'",
+		"project_goal" :  "'.$pgoal.'",
+		"status" : "0"
+	}';
+
+	$resIns=Insert("modu_projects",$Data);
+}
 ?>

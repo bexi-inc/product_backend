@@ -26,7 +26,29 @@ $marshaler = new Marshaler();
 
 
 $Code = $_REQUEST["code"];
-$ProjectID = $_REQUEST["projectid"];
+
+if (isset($_REQUEST["projectid"]))
+{
+	$ProjectID = $_REQUEST["projectid"];
+		
+}elseif (isset($_REQUEST["devid"]))
+{
+	$params = [
+        "TableName" => "modu_deliverables",
+        "KeyConditionExpression"=> "deliverable_id = :id",
+        "ExpressionAttributeValues"=> [
+            ":id" =>  ["S" => $_REQUEST["devid"]]
+        ]
+    ];
+
+    $result = $dynamodb->query($params);
+
+    if (count($result['Items'])>0)
+    {
+    	$ProjectID =  $marshaler->unmarshalValue($result['Items'][0]["project_id"]);	
+    }
+}
+
 $Type = 1;
 
 $key = '
