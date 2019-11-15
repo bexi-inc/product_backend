@@ -57,7 +57,7 @@ if (isset($_REQUEST["devid"]))
     	$projectid =  $marshaler->unmarshalValue($result['Items'][0]["project_id"]);	
     }
 
-    print_r($projectid);
+   // print_r($projectid);
 
     $params = [
         'TableName' => "modu_projects",
