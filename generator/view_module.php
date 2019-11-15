@@ -128,13 +128,6 @@ echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
 echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >';
 echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
 
-foreach ($css as $hoja)
-{
-     $css_php = substr($hoja, 0, -3) . 'php';
-	echo '<link rel="stylesheet" type="text/css" href="load_css.php?file='.$css_php.'&id=1&fontid=1">';
-	echo "\r\n";
-}
-
 //echo $FontImport;
 echo "\r\n";
 ?>
