@@ -89,7 +89,7 @@ function CreateProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $t
 	$Data ='{
 		"project_id" : "'.$pid.'"
 		,"user_id" : "'.$userid.'"
-		,"create_date" : "'.$pid.'"
+		,"date_create" : "'.$pid.'"
 		,"project_name" : "'.$pname.'"
 		,"industry" : "'.$industry.'" ';
 
@@ -114,7 +114,7 @@ function CreateProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $t
 
 	if (!$resIns["error"])
 	{
-		$res["error"]="";
+		$res["error"]="0";
 		$res["id"] =  $pid;
 
 
@@ -176,7 +176,7 @@ function ExistDomain($domain)
 	    }
 	';
 
-	$table = ExecuteQuery("modu_subdomains",$data,"subdomain = :sdom","x","",false);
+	$table = ExecuteQuery("modu_subdomains",$data,"subdomain = :sdom","","",false);
 
 	if ($table["error"]=="")
 	{
@@ -203,8 +203,70 @@ function ExistDomain($domain)
 }
 
 
-function CreateDeliverable($projectid, $winnder, $looser, $type)
+function CreateDeliverable($projectid, $winner, $looser, $type)
 {
+	global $Marshaler;
+	$pid = microtime(true);
 	
+
+	$data='
+	    {
+	        ":id": "'.$winnder.'"
+	    }
+	';
+
+	$table = ExecuteQuery("bexi_projects_tmp",$data,"id = :id","","",false);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+		    $winner_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
+		}
+	}
+
+	$data='
+	    {
+	        ":id": "'.$looser.'"
+	    }
+	';
+
+	$table = ExecuteQuery("bexi_projects_tmp",$data,"id = :id","","",false);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+		    $looser_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
+		}
+	}
+	
+	
+	//print_r($Data);
+
+
+	$Data ='{
+		"deliverable_id" : "'.$pid.'"
+		"project_id" : "'.$projectid.'"
+		,"date_create" : "'.$pid.'"
+		,"dev_status" : "0"
+		,"winner_id" : "'.$winner.'" 
+		,"html_code" : "'.$winner_code.'" 
+		,"looser_id" : "'.$looser.'" 
+		,"looser_code" : "'.$looser_code.'" 
+		,"type" : "'.$type.'" 
+		,"keywords" : "'.$pkeywords.'"
+		,"pservices" : "'.$pservices.'"
+	';
+	$Data = $Data . '}';
+
+	$resIns=Insert("modu_deliverables",$Data, false);
+
+	$res["error"]="0";
+	$res["id"] =  $pid;
+
+	return $res;
 }
 ?>
