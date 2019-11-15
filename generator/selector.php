@@ -39,28 +39,28 @@ Crew\Unsplash\HttpClient::init([
 
 	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
 
-	$data["url"]= "http://generator.bexi.co/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
 
 	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
 
-	$data["url"]= "http://generator.bexi.co/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
 
 	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
 
-	$data["url"]= "http://generator.bexi.co/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
 
 	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
 
-	$data["url"]= "http://generator.bexi.co/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
