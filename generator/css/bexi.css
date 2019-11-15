@@ -1529,6 +1529,10 @@ img.fr-view.fr-dib{
   margin: unset !important;
 }
 
+p.bexi_editor_icon {
+  padding-bottom: unset !important;
+}
+
 .fr-view p{
   margin-bottom: 0px;
   width: auto;
