@@ -110,7 +110,7 @@ function CreateProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $t
 
 	//print_r($Data);
 
-	$resIns=Insert("modu_projects",$Data);
+	$resIns=Insert("modu_projects",$Data, false);
 
 	if (!$resIns["error"])
 	{

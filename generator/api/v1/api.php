@@ -144,9 +144,9 @@ $res["error_code"]=0;
  		$res = GetProjects($Dynamodb,$_REQ->userid);
  		break;
  	case "CreateProject":
- 		print_r($_REQ);
+ 		/*print_r($_REQ);
  		echo "files";
- 		print_r($_FILES);
+ 		print_r($_FILES);*/
  		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->projectindustry) || !isset($_REQ->colors))
  		{
  			$res["error_code"]="502";
