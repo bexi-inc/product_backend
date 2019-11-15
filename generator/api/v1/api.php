@@ -25,7 +25,7 @@ $_REQ = json_decode(file_get_contents('php://input'));
 
 if (empty($_REQ))
 {
-	$_REQ = $_REQUEST;
+	$_REQ = (object) $_REQUEST;
 }
 
 $res["error_code"]=0;
