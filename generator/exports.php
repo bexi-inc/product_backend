@@ -183,7 +183,7 @@ ob_start();
     $code = ob_get_contents ();
     ob_end_clean();
 
-    $data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
+    //$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
     $doc = new DOMDocument();
     $doc->loadXML($code);
