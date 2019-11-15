@@ -1536,13 +1536,6 @@ p.bexi_editor_icon {
 .fr-view p{
   margin-bottom: 0px;
   width: auto;
-
-  font-size: unset !important;
-  line-height: unset !important;
-  font-style: unset !important;
-  font-weight: unset !important;
-  font-family: unset !important;
-  padding-top: unset;
 } /*padding-bottom: inherit;*/
 
 /******* For unsplash Manager ********/
