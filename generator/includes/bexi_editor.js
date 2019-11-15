@@ -476,6 +476,7 @@ function bgchange(btid) {
     }
 
     function previewImg(ID) {
+      console.log("entro");
       var exist= false;
       if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
       {
@@ -500,7 +501,7 @@ function bgchange(btid) {
           console.log("se hizo el cambio");
         });
       }
-      $( "#dialog-img"+(ID).toString() ).dialog("close");
+      $( "#dialog-img"+(ID).toString()).dialog("close");
     }
 
   /**************   Change trigger for tooltip **************/
