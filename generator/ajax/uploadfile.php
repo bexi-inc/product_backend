@@ -24,10 +24,12 @@ $webpath = "http://uploads.getmodu.com/";
 
 //print_r($_FILES);
 
-
-if (((!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"])) && (!isset($_REQUEST["devid"]))) || !isset($_FILES))
+if (!isset($_REQUEST["devid"])
 {
-	die("Incorrect params");
+	if ((!isset($_REQUEST["userid"]) || !isset($_REQUEST["projectid"])  || !isset($_FILES)
+	{
+		die("Incorrect params");
+	}
 }
 
 $idfile =  (!isset($_REQUEST["tagid"])) ? uniqid() : $_REQUEST["tagid"];
