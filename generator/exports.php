@@ -191,9 +191,10 @@ ob_start();
     foreach ($tags as $tag) {
         $old_src = $tag->getAttribute('src');
         $pos = strpos(pathinfo($old_src,PATHINFO_DIRNAME),"uploads.getmodu.com");
-        if($pos===true)
-        $new_src_url = './assets/'.pathinfo($old_src,PATHINFO_BASENAME);
-        $tag->setAttribute('src',$new_src_url);
+        if($pos===true){
+            $new_src_url = './assets/'.pathinfo($old_src,PATHINFO_BASENAME);
+            $tag->setAttribute('src',$new_src_url);
+        }
     }
     $code = $doc->saveXML();
 
