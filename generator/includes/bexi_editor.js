@@ -498,6 +498,7 @@ function bgchange(btid) {
           var jdata=JSON.parse(data);
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"')");
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
+          $('#inpimg'+ID).val(null);
           console.log("se hizo el cambio");
         });
       }
