@@ -25,7 +25,7 @@ $path = "/var/www/uploads.getmodu.com/public_html/";
 $webpath = "http://uploads.getmodu.com/";
 
 
-print_r($_REQUEST);
+//print_r($_REQUEST);
 
 
 //print_r($_FILES);
