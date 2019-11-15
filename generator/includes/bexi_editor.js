@@ -525,7 +525,7 @@ function bgchange(btid) {
            $(this).wrap( "<div class='bexi_editor_text' id='ed_" + $(this).attr('id') + "''></div>" );
        });
 
-       $( ".bexi_link" ).wrap( "<div class='bexi_editor_link' style='width:100%;'></div>" );
+       $( ".bexi_link" ).wrap( "<p class='bexi_editor_link' style='width:100%;'></p>" );
 
        //$( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
@@ -1364,6 +1364,7 @@ function bgchange(btid) {
                  auto_save();
              },
              'image.beforeUpload': function (images) {
+              console.log(this,"response replaced");
                this.opts.imageUploadParams.tagid=window.bexi_tagid;
              },
              'image.inserted': function ($img, response) {
