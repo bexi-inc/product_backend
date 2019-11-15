@@ -23,6 +23,11 @@ require "projects.php";
 
 $_REQ = json_decode(file_get_contents('php://input')); 
 
+if (empty())
+{
+	$_REQ = $_REQUEST;
+}
+
 $res["error_code"]=0;
 
  switch ($_REQ->cmd) {
@@ -162,7 +167,7 @@ $res["error_code"]=0;
  		echo "REQUEST";
  		print_r($_REQUEST);
  		echo "FILES";
- 		print_r($_FILES);
+ 		print_r($_FILE);
  		$res["error_code"]="501";
  		$res["message"]="Invalid Command";
  		break;
