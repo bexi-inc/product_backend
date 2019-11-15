@@ -6,14 +6,14 @@ function GetProjects($connDyn, $userId)
 	$ret["error_code"] = "0";
 
 	$userData ='{
-		":usrid" : "'.$userId.'"
+		":userid" : "'.$userId.'"
 	}';
 
-	$table = ExecuteQuery("modu_projects",$userData,"user_id = :usrid", "user_id-index" , "" , false);
+	$table = ExecuteQuery("modu_projects",$userData,"user_id = :userid", "user_id-index" , "" , false);
 	$projects = []; 
 
 
-	print_r($table);
+	//print_r($table);
 
 	if ($table["error"]=="")
 	{
@@ -32,6 +32,7 @@ function GetProjects($connDyn, $userId)
 		}
 	}
 	$res["data"] = $projects;
+	print_r($res);
 	return  $res;
 
 }
