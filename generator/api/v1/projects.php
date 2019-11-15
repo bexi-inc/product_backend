@@ -82,7 +82,7 @@ function GetProjects($connDyn, $userId)
 }
 
 
-function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors)
+function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors, $txtcolors,  $pkeywords , $pservices)
 {
 	global $Marshaler;
 	$pid = microtime(true);
@@ -96,7 +96,12 @@ function CreateProject($connDyn, $userId, $pname, $pgoal, $industry, $colors)
 		"status" : "0",
 		"colors" : [
 				'.$colors.'
-		]
+		],
+		"txtcolors" : [
+				'.$txtcolors.'
+		],
+		"keywords" : "'.$pkeywords.'",
+		"pservices" : "'.$pservices.'"
 	}';
 
 	$resIns=Insert("modu_projects",$Data);
