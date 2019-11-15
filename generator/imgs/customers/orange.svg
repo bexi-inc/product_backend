@@ -3,29 +3,25 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 350 350" style="enable-background:new 0 0 350 350;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#2D2D2D;}
+	.st0{fill:#A6A8AB;}
 	.st1{font-family:'Montserrat-ExtraBold';}
-	.st2{font-size:55.9768px;}
+	.st2{font-size:59.3138px;}
 	.st3{font-family:'Montserrat-ExtraLight';}
-	.st4{font-size:33.8834px;}
-	.st5{fill:#929497;}
-	.st6{fill:#808184;}
-	.st7{fill:#E6E7E8;}
-	.st8{fill:#D0D2D3;}
+	.st4{font-size:35.9034px;}
 </style>
 <g id="XMLID_124_">
 	<g id="XMLID_98_">
-		<text id="XMLID_20_" transform="matrix(1 0 0 1 75.2803 282.0039)" class="st0 st1 st2">LOREM</text>
-		<text id="XMLID_19_" transform="matrix(1 0 0 1 75.4033 325.207)" class="st0 st3 st4">Your Tagline</text>
+		<text id="XMLID_20_" transform="matrix(1 0 0 1 67.9971 287.8926)" class="st0 st1 st2">LOREM</text>
+		<text id="XMLID_19_" transform="matrix(1 0 0 1 68.126 333.6719)" class="st0 st3 st4">Your Tagline</text>
 	</g>
 	<g id="XMLID_62_">
 		<g id="XMLID_107_">
-			<path id="XMLID_48_" class="st5" d="M179.3,112.5v92.4l0,0c-51,0-92.4-41.4-92.4-92.4l0,0H179.3z"/>
-			<path id="XMLID_50_" class="st6" d="M179.3,112.5L179.3,112.5H86.9V20.1l0,0C137.9,20.1,179.3,61.5,179.3,112.5z"/>
-			<path id="XMLID_52_" class="st7" d="M271.7,112.5L271.7,112.5c0,51-41.4,92.4-92.4,92.4l0,0l0,0
-				C179.3,153.9,220.6,112.5,271.7,112.5L271.7,112.5z"/>
-			<path id="XMLID_51_" class="st8" d="M271.7,112.5L271.7,112.5L271.7,112.5c-51,0-92.4-41.4-92.4-92.4l0,0l0,0
-				C230.3,20.1,271.7,61.5,271.7,112.5z"/>
+			<path id="XMLID_48_" class="st0" d="M178.2,108.3v97.9l0,0c-54.1,0-97.9-43.8-97.9-97.9l0,0H178.2z"/>
+			<path id="XMLID_50_" class="st0" d="M178.2,108.3L178.2,108.3H80.3V10.4l0,0C134.4,10.4,178.2,54.2,178.2,108.3z"/>
+			<path id="XMLID_52_" class="st0" d="M276.1,108.3L276.1,108.3c0,54.1-43.8,97.9-97.9,97.9l0,0l0,0
+				C178.2,152.1,222,108.3,276.1,108.3L276.1,108.3z"/>
+			<path id="XMLID_51_" class="st0" d="M276.1,108.3L276.1,108.3L276.1,108.3c-54.1,0-97.9-43.8-97.9-97.9l0,0l0,0
+				C232.3,10.4,276.1,54.2,276.1,108.3z"/>
 		</g>
 	</g>
 </g>
