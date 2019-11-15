@@ -58,9 +58,14 @@ function GetProjects($connDyn, $userId)
 				$proj["project_name"] = $Marshaler->unmarshalValue($project["project_name"]);
 				$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
 				$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
-				$proj["type"] = GetTypeStr($Marshaler->unmarshalValue($project["type"]));
-				$proj["date_create"] = GetTypeStr($Marshaler->unmarshalValue($project["date_create"]));
-				echo date('Y-m-d H:i:s', $proj["date_create"]);
+				$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
+
+				$micro_date = date($Marshaler->unmarshalValue($project["create_date"]));
+				$date_array = explode(" ",$micro_date);
+				$date = date("Y-m-d",$date_array[1]);
+				$proj["create_date"] = $date;
+
+				//echo date('Y-m-d H:i:s', $proj["date_create"]);
 				$projects [] = $proj;
 			}
 		}
