@@ -339,13 +339,12 @@ function GmailSigin($code, $redirect="")
 	{
 		$client->setRedirectUri($redirect);
 	}else{
-		print_r(GMAIL_CLIENT_REDIRECT_URL);
 		$client->setRedirectUri(GMAIL_CLIENT_REDIRECT_URL);
 	}
 	
 	$client->addScope("email");
 	$client->addScope("profile");
-	$ret["error"]=0;
+	//$ret["error"]=0;
 	//$res["link"]= $client->createAuthUrl();
 	$token = $client->fetchAccessTokenWithAuthCode($code);
 	//print_r($token);
@@ -381,8 +380,8 @@ function GmailSigin($code, $redirect="")
 			{
 			    if ($Marshaler->unmarshalValue($dbdata[0]['username'])==$email)
 			    {
-			    	$ret["error_code"] = "101";
-			    	$ret["message"] = "user already exists";
+			    	$ret["error_code"] = "0";
+			    	$ret["message"] = "";
 			    	$ret["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
 			    	return $ret;
 			    }else{
