@@ -181,8 +181,6 @@ function ExistDomain($domain)
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
-		
-		print_r($dbdata);
 
 		if (count($dbdata)>0)
 		{
@@ -195,6 +193,9 @@ function ExistDomain($domain)
 		    	$ret["error_code"] = "0";
 		    	$ret["exists"] = "false";
 		    }
+		}else{
+			$ret["error_code"] = "0";
+			$ret["exists"] = "false";
 		}
 
 	}
