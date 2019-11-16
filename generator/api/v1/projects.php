@@ -249,7 +249,7 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 
 	$Data ='{
 		"deliverable_id" : "'.$pid.'"
-		"project_id" : "'.$projectid.'"
+		,"project_id" : "'.$projectid.'"
 		,"date_create" : "'.$pid.'"
 		,"dev_status" : "0"
 		,"winner_id" : "'.$winner.'" 
@@ -261,6 +261,8 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 		,"pservices" : "'.$pservices.'"
 	';
 	$Data = $Data . '}';
+
+	//print_r($Data);
 
 	$resIns=Insert("modu_deliverables",$Data, false);
 
