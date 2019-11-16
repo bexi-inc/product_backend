@@ -73,9 +73,9 @@ if (isset($_REQUEST["projectid"]))
 	if (count($result['Items'])>0)
 	{
 		$devid = $marshaler->unmarshalValue($result['Items'][0]['deliverable_id']);
+	}
 
-}elseif (isset($_REQUEST["devid"]))
-{
+}elseif (isset($_REQUEST["devid"])){
 	$params = [
         "TableName" => "modu_deliverables",
         "KeyConditionExpression"=> "deliverable_id = :id",
