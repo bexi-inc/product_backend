@@ -64,10 +64,10 @@ if(isset($_REQUEST["devid"]))
 
     if (isset($result['Items'][0]["first_loads"]) && !is_null($result['Items'][0]["first_loads"]))
     {
-         $first_load=$marshaler->unmarshalValue($result['Items'][0]["first_loads"]);
+        $first_load=$marshaler->unmarshalValue($result['Items'][0]["first_loads"]);
     }else
     {
-        $first_load=true;
+        $first_load=1;
     }
 
 
