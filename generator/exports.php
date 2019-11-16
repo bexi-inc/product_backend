@@ -90,6 +90,7 @@ ob_start();
     echo '<script src="files/jquery-3.4.1.min.js"></script>';
     echo '<link rel="stylesheet" href="files/jquery-ui.min.css">';
     echo '<link rel="stylesheet" href="files/theme.css">';
+    echo '<link rel="stylesheet" href="files/bexi.css">';
 
     echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>';
     echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
@@ -269,9 +270,9 @@ include("load_theme.php");
 $file_css = ob_get_contents ();
 ob_end_clean();
 
-$myfile = fopen($PATH."index.html", "w") or die("Unable to open file!");
-fwrite($myfile, $code);
-fclose($myfile);
+$indexfile = fopen($PATH."index.html", "w") or die("Unable to open file!");
+fwrite($indexfile, $code);
+fclose($indexfile);
 
 $myfile = fopen($PATHFILES."theme.css", "w") or die("Unable to open file!");
 fwrite($myfile, $file_css);
@@ -279,7 +280,7 @@ fclose($myfile);
 
 copy("includes/jquery-ui.min.css", $PATHFILES."jquery-ui.min.css" );
 copy("includes/jquery-3.4.1.min.js", $PATHFILES."jquery-3.4.1.min.js" );
-
+copy("css/bexi.css", $PATHFILES."bexi.css" );
 
 zipme($PATH,$PATHBASE.$project_name.".zip");
 
