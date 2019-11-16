@@ -39,22 +39,42 @@ $result = $dynamodb->query($params);
 if (count($result["Items"])>0)
 {
     $colors = $marshaler->unmarshalValue($result["Items"][0]["colors"]);
-    print_r($colors);
     if (count($colors)>0)
     {
         $varcol="";
         if ($colors[0]["first"])
         {
-            $varcol .= "--color-1 : ".$colors[0]["first"].";";
+            $varcol .= "--color-1 : ".$colors[0]["first"].";
+            ";
         }
         if ($colors[0]["second"])
         {
-            $varcol .= "--color-2 : ".$colors[0]["second"].";";
+            $varcol .= "--color-2 : ".$colors[0]["second"].";
+            ";
         }
         if ($colors[0]["third"])
         {
-            $varcol .= "--color-3 : ".$colors[0]["third"].";";
+            $varcol .= "--color-3 : ".$colors[0]["third"].";
+            ";
         }
+    }
+
+
+    $txtcolors = $marshaler->unmarshalValue($result["Items"][0]["txtcolors"]);
+    if (count($txtcolors)>0)
+    {
+        $vartxtcol="";
+        if ($txtcolors[0]["first"])
+        {
+            $vartxtcol .= "--color-text-1 : ".$txtcolors[0]["first"].";
+            ";
+        }
+        if ($txtcolors[0]["second"])
+        {
+            $vartxtcol .= "--color-text-2 : ".$txtcolors[0]["second"].";
+            ";
+        }
+        
     }
     
 }
@@ -62,6 +82,10 @@ if (count($result["Items"])>0)
 echo ":root {
     ";
 echo $varcol;
-echo "}";
+echo $vartxtcol;
+echo "
+     --font-1:'Montserrat', sans-serif;
+     --font-2:'Montserrat', sans-serif;
+}";
 
 ?>
