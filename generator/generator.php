@@ -80,7 +80,7 @@ if(isset($_REQUEST["devid"]))
             }
         ');
 
-        print_r($key);
+        //print_r($key);
         $params = [
             'TableName' => "modu_deliverables",
             'Key' => $key,
@@ -94,7 +94,7 @@ if(isset($_REQUEST["devid"]))
         //print_r($params);
         $ret["error"]="";
   
-        //$result = $dynamodb->updateItem($params);
+        $result = $dynamodb->updateItem($params);
     }
 
 
