@@ -365,6 +365,7 @@ function GmailSigin($code, $redirect="")
 
 		$ret["error_code"] = "0";
 		$ret["token"] = $token['access_token'];	
+		$ret["message"] = "";
 
 		$data='
 	    {
@@ -381,6 +382,7 @@ function GmailSigin($code, $redirect="")
 			    if ($Marshaler->unmarshalValue($dbdata[0]['username'])==$email)
 			    {
 			    	$ret["error_code"] = "0";
+			    	
 			    	$ret["message"] = "";
 			    	$ret["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
 			    	return $ret;
