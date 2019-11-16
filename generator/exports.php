@@ -269,6 +269,9 @@ include("load_theme.php");
 $file_css = ob_get_contents ();
 ob_end_clean();
 
+$myfile = fopen($PATH."index.html", "w") or die("Unable to open file!");
+fwrite($myfile, $code);
+fclose($myfile);
 
 $myfile = fopen($PATHFILES."theme.css", "w") or die("Unable to open file!");
 fwrite($myfile, $file_css);
