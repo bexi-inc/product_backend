@@ -58,7 +58,7 @@ if(isset($_REQUEST["devid"]))
 
     $result = $dynamodb->query($params);
 
-    $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
+    $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
     $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
 }
 elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
@@ -78,7 +78,7 @@ elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
      $result = $dynamodb->query($params);
     // print_r($result);
      $project_id = $_REQUEST["codeid"];
-     $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+     $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
 }
 else{
 
@@ -106,14 +106,14 @@ else{
 
     //$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-    $contenido="";
+    $content="";
 
      $result = $dynamodb->query($params);
 
      //echo "Tiempo 5 : ".(microtime(true) - $timeini)."<br>";
 
     $key = array_rand ($result['Items'],1);
-    $contenido = substr_replace(GethtmlCode($dynamodb,  $marshaler, $marshaler->unmarshalValue($result['Items'][$key]['id']))," id='module_hea' ",4,0);
+    $content = substr_replace(GethtmlCode($dynamodb,  $marshaler, $marshaler->unmarshalValue($result['Items'][$key]['id']))," id='module_hea' ",4,0);
     $css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
 
     $_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
@@ -136,7 +136,7 @@ else{
 
     //$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-    //$contenido="";
+    //$content="";
 
      $result = $dynamodb->query($params);
 
@@ -145,7 +145,7 @@ else{
     $key = array_rand ($result['Items'],1);
 
     $ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($result['Items'][$key]['id'])),$_REQUEST["keywords"]);
-    $contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
+    $content .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
     $css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
 
     $_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
@@ -184,7 +184,7 @@ else{
         $key = array_rand ($result['Items'],1);
 
         $ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($result['Items'][$key]['id'])),$_REQUEST["keywords"]);
-        $contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
+        $content .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
         
 
         $css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
@@ -213,7 +213,7 @@ else{
      $set_colors = $dynamodb->query($params);
 
     $key = array_rand ($set_colors['Items'],1);
-    $contenido.=GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($set_colors['Items'][$key]['id']));
+    $content.=GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($set_colors['Items'][$key]['id']));
     $css[]=$marshaler->unmarshalValue($set_colors['Items'][$key]["file_css"]);
 
     //$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
@@ -274,10 +274,10 @@ else{
 
     $pos = 0;
     $pos2 = 0;
-    while ( ( $pos = strpos( $contenido, "%id%", $pos ) ) !== false ) {
-      $pos2 = strpos( $contenido, "%", ($pos + 1) );
+    while ( ( $pos = strpos( $content, "%id%", $pos ) ) !== false ) {
+      $pos2 = strpos( $content, "%", ($pos + 1) );
       $idrand = uniqid('bexi_');
-      $contenido=substr_replace($contenido,$idrand,$pos,4);
+      $content=substr_replace($content,$idrand,$pos,4);
     }
 }
 
@@ -381,8 +381,26 @@ else{
     echo "<div class='' style='width:100%; background-color: #fff; border-radius: 15px; -moz-border-radius: 15px;
         -webkit-border-radius: 15px;  overflow:hidden; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.05); box-shadow: 0 1px 3px rgba(0,0,0,.05);'>";
     */
+    $doc = new DOMDocument();
+    $doc->loadHTML($content);
+    $tags = $doc->getElementsByClassName('bexi_icon');
+    foreach ($tags as $tag) {
+        $styles = $tag->getAttribute('style');
+        $comp =explode(";",$styles);
+        $new_style="";
+        foreach ($comp as $item)
+        {
+           $pos=strpos($item,"color");
+           if($pos===false){
+            $new_style += $item;
+            }
+        }
+        $tag->setAttribute('style',$new_style);
+    }
+    $content = $doc->saveHTML();
+
     echo "<div id='modu_main'>";
-    echo $contenido;
+    echo $content;
     echo  "</div>";
     //echo "</div>";
     //echo "</div>";
@@ -480,7 +498,7 @@ else{
         $data1 = '{
             "id" : "'.$CodeId.'",
             "user" : "'.$_REQUEST["user"].'",
-            "code" : "'.base64_encode(gzcompress($contenido, 7)) .'"
+            "code" : "'.base64_encode(gzcompress($content, 7)) .'"
         }';
 
         //$data1 = json_encode($data1);
