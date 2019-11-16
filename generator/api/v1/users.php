@@ -376,6 +376,7 @@ function GmailSigin($code)
 			    {
 			    	$ret["error_code"] = "101";
 			    	$ret["message"] = "user already exists";
+			    	$ret["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
 			    	return $ret;
 			    }else{
 			    	$ret["error_code"] = "1";
