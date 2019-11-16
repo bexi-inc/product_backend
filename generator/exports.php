@@ -272,7 +272,6 @@ ob_end_clean();
 
 $myfile = fopen($PATHFILES."theme.css", "w") or die("Unable to open file!");
 fwrite($myfile, $file_css);
-fwrite($myfile, $txt);
 fclose($myfile);
 
 copy("includes/jquery-ui.min.css", $PATHFILES."jquery-ui.min.css" );
