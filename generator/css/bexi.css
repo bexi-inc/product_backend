@@ -581,6 +581,11 @@ background-color: #e7e7e7 !important;
   cursor: text !important;
 }
 
+.bexi_logo{
+  max-width: 200px;
+  max-height: 35px;
+}
+
 .bexi_icon
 {
   color:var(--color-1);
