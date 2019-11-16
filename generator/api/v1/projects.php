@@ -50,6 +50,7 @@ function GetProjects($userId)
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
+		print_r($dbdata);
 		if (count($dbdata)>0)
 		{
 			$res["error"]=0;
