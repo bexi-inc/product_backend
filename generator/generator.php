@@ -117,9 +117,9 @@ if(isset($_REQUEST["devid"]))
     {
         if (isset($result_proj['Items'][0]["logofull"]) && !is_null($result_proj['Items'][0]["logofull"]))
         {
-            $logurl=PATHWEB.$marshaler->unmarshalValue($result_proj['Items'][0]["user_id"])."/".$project_id."/logos/".$result_proj['Items'][0]["logofull"];
+            $logurl=PATHWEB.$marshaler->unmarshalValue($result_proj['Items'][0]["user_id"])."/".$project_id."/logos/".$marshaler->unmarshalValue($result_proj['Items'][0]["logofull"]);
 
-            print_r($result_proj);
+           // print_r($result_proj);
             echo($logurl);
         }else
         {
