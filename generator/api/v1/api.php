@@ -141,7 +141,7 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			
  		}
- 		$res = GetProjects($Dynamodb,$_REQ->userid);
+ 		$res = GetProjects($_REQ->userid);
  		break;
  	case "CreateProject":
  		/*print_r($_REQ);

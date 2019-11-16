@@ -32,7 +32,7 @@ function GetTypeStr($Type)
 	}
 }
 
-function GetProjects($connDyn, $userId)
+function GetProjects($userId)
 {
 	global $Marshaler;
 	$ret["error_code"] = "0";
@@ -301,6 +301,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 		if (!$resUpd["error"])
 		{
 			$ret["message"] = "Ok";
+			$ret["link"] = "http://www.getmodu.com/";
 		}else{
 			$ret["error"] = "500";
 			$ret["message"] =  $resUpd["error"];
