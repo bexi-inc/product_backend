@@ -26,7 +26,7 @@ $dynamodb = $sdk->createDynamoDb();
 $marshaler = new Marshaler();
 
 $params = [
-    'TableName' => "project_id",
+    'TableName' => "modu_projects",
      "KeyConditionExpression"=> "project_id = :vId",
     "ExpressionAttributeValues"=> [
         ":vId" =>  ["S" => $_REQUEST["projectid"]]
