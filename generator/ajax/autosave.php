@@ -30,7 +30,50 @@ $Code = $_REQUEST["code"];
 if (isset($_REQUEST["projectid"]))
 {
 	$ProjectID = $_REQUEST["projectid"];
-		
+
+
+	$Type = 1;
+
+	$key = '
+		    {
+		        "project_id" : "'.$ProjectID.'",
+		        "type" : "'.$Type.'"
+		    }
+		';
+
+	//print_r($key);
+
+	$updateData='{
+		":code" : "'.base64_encode(gzcompress($Code, 7)) .'",
+		":dmod" : "'.microtime(true).'"
+	}';
+
+
+	$params = [
+	        'TableName' => "modu_deliverables",
+	        "IndexName" => "type-project_id-index",
+	        'ProjectionExpression' => 'deliverable_id',
+	         "KeyConditionExpression"=> "project_id = :pid AND #tp = :vtipo",
+	        "ExpressionAttributeValues"=> [
+	        	":pid" =>  ["S" => $ProjectID],
+	            ":vtipo" =>  ["S" => "1"]
+	        ],
+	        "ExpressionAttributeNames" =>   
+	            [ '#tp' => 'type',
+	    		 ]
+
+	];
+
+	    //$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+	    //$contenido="";
+
+	$result = $dynamodb->query($params);
+
+	if (count($result['Items'])>0)
+	{
+		$devid = $marshaler->unmarshalValue($result['Items'][0]['deliverable_id']);
+
 }elseif (isset($_REQUEST["devid"]))
 {
 	$params = [
@@ -47,51 +90,14 @@ if (isset($_REQUEST["projectid"]))
     {
     	$ProjectID =  $marshaler->unmarshalValue($result['Items'][0]["project_id"]);	
     }
+
+    $devid = $_REQUEST["devid"];
 }
 
-$Type = 1;
 
-$key = '
-	    {
-	        "project_id" : "'.$ProjectID.'",
-	        "type" : "'.$Type.'"
-	    }
-	';
-
-//print_r($key);
-
-$updateData='{
-	":code" : "'.base64_encode(gzcompress($Code, 7)) .'",
-	":dmod" : "'.microtime(true).'"
-}';
-
-
- $params = [
-        'TableName' => "modu_deliverables",
-        "IndexName" => "type-project_id-index",
-        'ProjectionExpression' => 'deliverable_id',
-         "KeyConditionExpression"=> "project_id = :pid AND #tp = :vtipo",
-        "ExpressionAttributeValues"=> [
-        	":pid" =>  ["S" => $ProjectID],
-            ":vtipo" =>  ["S" => "1"]
-        ],
-        "ExpressionAttributeNames" =>   
-            [ '#tp' => 'type',
-    		 ]
-
-    ];
-
-    //$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
-
-    //$contenido="";
-
-     $result = $dynamodb->query($params);
-
-if (count($result['Items'])>0)
-{
 	$key = '
 	    {
-	        "deliverable_id" : "'.$marshaler->unmarshalValue($result['Items'][0]['deliverable_id']).'",
+	        "deliverable_id" : "'.$devid.'",
 	        "project_id" : "'.$ProjectID.'"
 	    }
 	';
@@ -133,7 +139,7 @@ if (count($result['Items'])>0)
 		$res["error"] = 500;
 	    $res["error_msj"] = "Unable to update";
 	}
-}
+
 
 echo json_encode($res);
 
