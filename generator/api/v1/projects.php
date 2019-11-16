@@ -62,10 +62,16 @@ function GetProjects($userId)
 				$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
 				$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
 
-				$micro_date = date($Marshaler->unmarshalValue($project["date_create"]));
-				$date_array = explode(".",$micro_date);
-				$date = date("Y-m-d",$date_array[0]);
-				$proj["create_date"] = $date;
+				if ($project["date_create"])
+				{
+					$micro_date = date($Marshaler->unmarshalValue($project["date_create"]));
+					$date_array = explode(".",$micro_date);
+					$date = date("Y-m-d",$date_array[0]);
+					$proj["create_date"] = $date;	
+				}else{
+					$proj["create_date"] = "Undefine";
+				}
+				
 
 				//echo date('Y-m-d H:i:s', $proj["date_create"]);
 				$projects [] = $proj;
