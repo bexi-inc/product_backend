@@ -257,12 +257,10 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 		,"loser_id" : "'.$loser.'" 
 		,"loser_code" : "'.$loser_code.'" 
 		,"type" : "'.$type.'" 
-		,"keywords" : "'.$pkeywords.'"
-		,"pservices" : "'.$pservices.'"
 	';
 	$Data = $Data . '}';
 
-	print_r($Data);
+	//print_r($Data);
 
 	$resIns=Insert("modu_deliverables",$Data, false);
 
