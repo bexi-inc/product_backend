@@ -84,7 +84,7 @@ if(isset($_REQUEST["devid"]))
         $params = [
             'TableName' => "modu_deliverables",
             'Key' => $key,
-            'UpdateExpression' => "first_loads = :fl",
+            'UpdateExpression' => "SET first_loads = :fl",
             'ExpressionAttributeValues'=> [
                 ":fl" =>  ["N" => "0" ]
             ],
