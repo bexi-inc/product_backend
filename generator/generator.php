@@ -426,7 +426,7 @@ else{
     {
         $doc = new DOMDocument();
         $doc->loadHTML($content);
-        $tags = $doc->getElementsByClassName('bexi_icon');
+        $tags = $doc->getElementsByTagName('i');
         foreach ($tags as $tag) {
             $styles = $tag->getAttribute('style');
             $comp =explode(";",$styles);
