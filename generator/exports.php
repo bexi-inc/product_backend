@@ -249,7 +249,7 @@ if (!file_exists($PATH."/".$_REQUEST["devid"])) {
     mkdir($PATH."/".$_REQUEST["devid"], 0777, true);
 }
 
-$PATH .= "/".$_REQUEST["devid"]."/";
+$PATH = $PATH."/".$_REQUEST["devid"]."/";
 
 if (!file_exists($PATH."/files/") {
      mkdir($PATH."/files/", 0777, true);
