@@ -109,7 +109,7 @@ if (isset($_REQUEST["projectid"]))
 		":dmod" : "'.microtime(true).'"
 	}';
 
-	print_r($updateData);
+	//print_r($updateData);
 
 	$eav = $marshaler->marshalJson($updateData);
 
