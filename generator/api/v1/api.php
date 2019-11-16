@@ -177,7 +177,7 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			
  		}
- 		$res = ExistDomain($Dynamodb,$_REQ->userid);
+ 		$res = ExistDomain($_REQ->userid);
  		break;
  	default:
  		echo "REQ";
