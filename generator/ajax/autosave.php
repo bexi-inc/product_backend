@@ -43,10 +43,7 @@ if (isset($_REQUEST["projectid"]))
 
 	//print_r($key);
 
-	$updateData='{
-		":code" : "'.base64_encode(gzcompress($Code, 7)) .'",
-		":dmod" : "'.microtime(true).'"
-	}';
+	
 
 
 	$params = [
@@ -106,6 +103,13 @@ if (isset($_REQUEST["projectid"]))
 	//print_r($key);
 
 	$key = $marshaler->marshalJson($key);
+
+	$updateData='{
+		":code" : "'.base64_encode(gzcompress($Code, 7)) .'",
+		":dmod" : "'.microtime(true).'"
+	}';
+
+	print_r($updateData);
 
 	$eav = $marshaler->marshalJson($updateData);
 
