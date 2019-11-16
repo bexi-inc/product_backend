@@ -339,6 +339,7 @@ function GmailSigin($code, $redirect="")
 	{
 		$client->setRedirectUri($redirect);
 	}else{
+		print_r("http://localhost:8080");
 		$client->setRedirectUri("http://localhost:8080");
 	}
 	
