@@ -217,7 +217,7 @@ ob_start();
         {
             $img = [];
             $img["old_src"] = $old_src;
-            $filename = pathinfo($old_src,PATHINFO_FILENAME)
+            $filename = pathinfo($old_src,PATHINFO_FILENAME);
             $img["new_src"] = "./files/imgs/".$filename;
             $images[] = $img;
         }
