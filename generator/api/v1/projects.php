@@ -181,6 +181,9 @@ function ExistDomain($domain)
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
+		
+		print_r($dbdata);
+
 		if (count($dbdata)>0)
 		{
 		    if ($Marshaler->unmarshalValue($dbdata[0]['subdomain'])==$domain)
