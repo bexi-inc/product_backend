@@ -3,8 +3,8 @@
   --color-2: hotpink;
   --color-3: hotpink;
 
-  --color-text-1:black;
-  --color-text-2:gray;
+  --color-text-1:green;
+  --color-text-2:red;
 
   --font-1:'Montserrat', sans-serif;
   --font-2:'Montserrat', sans-serif;
@@ -144,7 +144,7 @@ a{
     padding-top: 5px;
     padding-bottom: 20px;
     width: auto ;
-    color:var(--color-text-2);
+    color:var(--color-2);
 }
 
 a:hover{
@@ -607,7 +607,7 @@ background-color: #e7e7e7 !important;
 
 .bexi_icon
 {
-
+  color:var(--color-1);
 }
  
 .bexi_head /*Headlines css*/

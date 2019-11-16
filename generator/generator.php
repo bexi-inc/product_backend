@@ -59,6 +59,7 @@ if(isset($_REQUEST["devid"]))
     $result = $dynamodb->query($params);
 
     $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
+    $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
 }
 elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
 {
@@ -75,7 +76,8 @@ elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
     ];
 
      $result = $dynamodb->query($params);
-     print_r($result);
+    // print_r($result);
+     $project_id = $_REQUEST["codeid"];
      $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
 }
 else{
@@ -315,7 +317,10 @@ else{
     /**************   ICON FONTS **************/
     echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
     $n=1;
-    //echo'<link rel="stylesheet" type="text/css" href="load_css.php?file=./css/bexi.php&id='.$id_color.'&fontid='.$FontId.'" id="mod_css_0" >'; 
+    if ($project_id!="")
+    {
+        echo'<link rel="stylesheet" type="text/css" href="load_theme.php?projectid=" >'; 
+    }
 
 
     echo '<script src="includes/jquery-ui.min.js"></script>';
