@@ -42,7 +42,7 @@ if (count($result["Items"])>0)
     print_r($colors);
     if (count($colors)>0)
     {
-        $varcol="":
+        $varcol="";
         if ($colors[0]["first"])
         {
             $varcol .= "--color-1 : ".$colors[0]["first"].";";
@@ -59,7 +59,8 @@ if (count($result["Items"])>0)
     
 }
 
-echo ":root {";
+echo ":root {
+    ";
 echo $varcol;
 echo "}";
 
