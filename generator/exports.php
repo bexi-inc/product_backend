@@ -69,6 +69,7 @@ if (!isset($_REQUEST["devid"]))
 
      $result2 = $dynamodb->query($params);
      $user_id = $marshaler->unmarshalValue($result2['Items'][0]["user_id"]);
+     $project_name = $marshaler->unmarshalValue($result2['Items'][0]["project_name"]);
 
 ob_start();
 
@@ -84,8 +85,12 @@ ob_start();
     echo "\r\n";
 
     echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
-    echo '<script src="includes/jquery-3.4.1.min.js"></script>';
-    echo '<link rel="stylesheet" href="includes/jquery-ui.min.css">';
+    
+
+    echo '<script src="files/jquery-3.4.1.min.js"></script>';
+    echo '<link rel="stylesheet" href="files/jquery-ui.min.css">';
+    echo '<link rel="stylesheet" href="files/theme.css">';
+
     echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>';
     echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
     echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
@@ -249,7 +254,9 @@ if (!file_exists($PATH."/".$_REQUEST["devid"])) {
     mkdir($PATH."/".$_REQUEST["devid"], 0777, true);
 }
 
-$PATH = $PATH."/".$_REQUEST["devid"]."/";
+$PATHBASE = $PATH."/".$_REQUEST["devid"]."/";
+
+$PATH = $PATH."/".$_REQUEST["devid"]."/PUBLISH/";
 
 if (!file_exists($PATH."/files/")) {
      mkdir($PATH."/files/", 0777, true);
@@ -263,5 +270,16 @@ $file_css = ob_get_contents ();
 ob_end_clean();
 
 
-echo $file_css ;
+$myfile = fopen($PATHFILES."theme.css", "w") or die("Unable to open file!");
+fwrite($myfile, $file_css);
+fwrite($myfile, $txt);
+fclose($myfile);
+
+copy("includes/jquery-ui.min.css", $PATHFILES."jquery-ui.min.css" );
+copy("includes/jquery-3.4.1.min.js", $PATHFILES."jquery-3.4.1.min.js" );
+
+
+zipme($PATH,$PATHBASE.$project_name.".zip");
+
+echo $PATHBASE.$project_name.".zip" ;
 ?>
