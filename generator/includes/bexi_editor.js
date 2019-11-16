@@ -620,7 +620,9 @@ function bgchange(btid) {
 
       $('.bexi_icon').each(function() {
         var str=$(this).attr('style');
+        console.log(str,"Adrian");
         if(str.search("width")==-1){
+          console.log("entro","Adrian");
           str+="width:auto;";
         }
         str+="margin-bottom:unset;";
@@ -1113,6 +1115,7 @@ function bgchange(btid) {
             });
           }
 */
+auto_save();
 });
 
 
