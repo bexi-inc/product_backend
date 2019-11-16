@@ -1525,7 +1525,6 @@ function initialize_editors_text(fonts){
         // Do something here.
         // this is the editor instance.
         console.log(response,"from uploaded");
-        return false;
       },
       'initialized': function () {
         styles_ptags();
