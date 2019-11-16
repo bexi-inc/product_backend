@@ -60,7 +60,6 @@ if(isset($_REQUEST["devid"]))
 
     $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
     $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
-    print_r($project_id);
 }
 elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
 {
@@ -320,7 +319,7 @@ else{
     $n=1;
     if ($project_id!="")
     {
-        echo'<link rel="stylesheet" type="text/css" href="load_theme.php?projectid=" >'; 
+        echo'<link rel="stylesheet" type="text/css" href="load_theme.php?projectid="'.$project_id.' >'; 
     }
 
 
