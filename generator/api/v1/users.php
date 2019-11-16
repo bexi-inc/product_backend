@@ -339,7 +339,6 @@ function GmailSigin($code, $redirect="")
 	{
 		$client->setRedirectUri($redirect);
 	}else{
-		print_r(GMAIL_CLIENT_REDIRECT_URL);
 		$client->setRedirectUri(GMAIL_CLIENT_REDIRECT_URL);
 	}
 	
