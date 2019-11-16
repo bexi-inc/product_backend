@@ -85,11 +85,12 @@ ob_start();
     echo "\r\n";
 
     echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
-    
+
+    echo '<link rel="stylesheet" href="files/theme.css">';
 
     echo '<script src="files/jquery-3.4.1.min.js"></script>';
     echo '<link rel="stylesheet" href="files/jquery-ui.min.css">';
-    echo '<link rel="stylesheet" href="files/theme.css">';
+    
     echo '<link rel="stylesheet" href="files/bexi.css">';
 
     echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>';
@@ -209,11 +210,20 @@ ob_start();
     $doc = new DOMDocument();
     $doc->loadHTML($code);
     $tags = $doc->getElementsByTagName('img');
+    $images = [];
     foreach ($tags as $tag) {
         $old_src = $tag->getAttribute('src');
+        if (substr( $old_src, 0, 5 ) === "./img")
+        {
+            $img = [];
+            $img["old_src"] = $old_src;
+            $filename = pathinfo($old_src,PATHINFO_FILENAME);
+            $img["new_src"] = "./files/imgs/".$filename;
+            $images[] = $img;
+        }
         $pos = strpos(pathinfo($old_src,PATHINFO_DIRNAME),"uploads.getmodu.com");
         if($pos===true){
-            $new_src_url = './assets/'.pathinfo($old_src,PATHINFO_BASENAME);
+            $new_src_url = './files/imgs/'.pathinfo($old_src,PATHINFO_BASENAME);
             $tag->setAttribute('src',$new_src_url);
         }
     }
@@ -259,6 +269,22 @@ $PATHBASE = $PATH."/".$_REQUEST["devid"]."/";
 
 $PATH = $PATH."/".$_REQUEST["devid"]."/PUBLISH/";
 
+if (!file_exists($PATH)) {
+     mkdir($PATH, 0777, true);
+}else{
+    $files = new RecursiveIteratorIterator(
+              new RecursiveDirectoryIterator($PATH,RecursiveDirectoryIterator::SKIP_DOTS),
+              RecursiveIteratorIterator::CHILD_FIRST
+            );
+    foreach($files as $fileinfo){
+        $todo = ($fileinfo->isDir() ? 'rmdir' : 'unlink');
+        $todo($fileinfo->getRealPath());
+    }
+    rmdir($directory);
+    clearstatcache();
+    mkdir($PATH, 0777, true);
+}
+
 if (!file_exists($PATH."/files/")) {
      mkdir($PATH."/files/", 0777, true);
 }
@@ -284,5 +310,6 @@ copy("css/bexi.css", $PATHFILES."bexi.css" );
 
 zipme($PATH,$PATHBASE.$project_name.".zip");
 
+print_r($images);
 echo $PATHBASE.$project_name.".zip" ;
 ?>
