@@ -101,7 +101,10 @@ function CreateProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $t
 		,"industry" : "'.$industry.'" ';
 
 	$Data .= ((trim($pgoal) != '' ) ? ',"project_goal" :  "'.$pgoal.'" ' : '' );
-		
+
+	$Data .= ((isset($_FILES["logofullcolor"]["name"])) ? ', "logofull" : "'.$_FILES["logofullcolor"]["name"].'"' : '');
+	
+	
 	$Data .= ' ,"status" : "0"
 		,"colors" : [
 				'.$colors.'
