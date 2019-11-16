@@ -79,8 +79,24 @@ if (count($result["Items"])>0)
 
 echo ":root {
             ";
-echo $varcol;
-echo $vartxtcol;
+if ($varcol=="")
+{
+    echo "   --color-1: rgb(246, 135, 0);
+            --color-2: rgb(246, 135, 0);
+            --color-3: white;";
+}else{
+    echo $varcol;    
+}
+
+if ($vartxtcol=="")
+{
+    echo "      --color-text-1:black;
+                --color-text-2:grey;
+    ";
+}else{
+    echo $vartxtcol;
+}
+
 echo "
             --font-1:'Montserrat', sans-serif;
             --font-2:'Montserrat', sans-serif;
