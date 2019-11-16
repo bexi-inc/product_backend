@@ -60,6 +60,44 @@ if(isset($_REQUEST["devid"]))
 
     $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
     $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
+
+
+    if (isset($result['Items'][0]["project_id"]))
+    {
+         $first_load=$marshaler->unmarshalValue($result['Items'][0]["first_loads"]);
+    }else
+    {
+        $first_load=true;
+    }
+
+
+
+    if ($first_load){
+
+        $key = $marshaler->marshalJson('
+            {
+                "deliverable_id" : ' . $_REQUEST["devid"] . '
+            }
+        ');
+
+
+        $params = [
+            'TableName' => "modu_deliverables",
+            'Key' => $key,
+            'UpdateExpression' => "first_loads = :fl",
+            'ExpressionAttributeValues'=> [
+                ":fl" =>  ["N" => "0" ]
+            ],
+            'ReturnValues' => 'UPDATED_NEW'
+        ];
+
+        //print_r($params);
+        $ret["error"]="";
+  
+        $result = $Dynamodb->updateItem($params);
+    }
+
+
 }
 elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
 {
