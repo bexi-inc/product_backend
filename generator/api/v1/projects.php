@@ -273,4 +273,45 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 
 	return $res;
 }
+
+function DeployDeliverable($idDev, $type, $subdomain="")
+{
+	$ret["error_code"] = "0";
+	$ret["user_id"] = $userid;
+	$userid = $userid+1;
+	
+
+	$ret["error"] = "0";
+
+	if ($type==1 && $subdomain!="")
+	{
+		$key = '
+	    {
+	        "deliverable_id": "'.$idDev.'"
+	    }
+		';
+		$updateData='{
+			":subd" : "'.$subdomain.'"
+		}';
+
+		$paramsNoms["#value"] = "value";
+		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, false);
+
+		
+		if (!$resUpd["error"])
+		{
+			$ret["message"] = "Ok";
+		}else{
+			$ret["error"] = "500";
+			$ret["message"] =  $resUpd["error"];
+		}
+
+	}elseif ($type==2)
+	{
+		$ret["link"] = "http://www.getmodu.com/";
+	}
+	
+	return $ret;
+}
+
 ?>

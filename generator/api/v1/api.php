@@ -179,6 +179,24 @@ $res["error_code"]=0;
  		}
  		$res = ExistDomain($_REQ->domain);
  		break;
+ 	case "DeployDeliverableToDomain":
+ 		if (!isset($_REQ->deliverable) !! !isset($_REQ->domain))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			
+ 		}
+ 		$res = DeployDeliverable($_REQ->deliverable,1,$_REQ->domain);
+ 		break;
+ 	case "DeployDeliverableToDownload":
+ 		if (!isset($_REQ->delviverable))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			
+ 		}
+ 		$res = DeployDeliverable($_REQ->deliverable,2);
+ 		break;
  	default:
  		echo "REQ";
  		print_r($_REQ);
