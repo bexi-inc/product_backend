@@ -344,7 +344,7 @@ function GmailSigin($code, $redirect="")
 	
 	$client->addScope("email");
 	$client->addScope("profile");
-	$ret["error"]=0;
+	//$ret["error"]=0;
 	//$res["link"]= $client->createAuthUrl();
 	$token = $client->fetchAccessTokenWithAuthCode($code);
 	//print_r($token);
