@@ -45,7 +45,7 @@ function GetProjects($userId)
 	$projects = []; 
 
 
-	//print_r($table);
+	print_r($table);
 
 	if ($table["error"]=="")
 	{
