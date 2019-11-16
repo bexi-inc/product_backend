@@ -40,8 +40,24 @@ if (count($result["Items"])>0)
 {
     $colors = $marshaler->unmarshalValue($result["Items"][0]["colors"]);
     print_r($colors);
+   
+        if ($color["first"])
+        {
+            $varcol .= "--color-1 : ".$color["first"].";";
+        }
+        if ($color["second"])
+        {
+            $varcol .= "--color-2 : ".$color["second"].";";
+        }
+        if ($color["third"])
+        {
+            $varcol .= "--color-3 : ".$color["third"].";";
+        }
+    
 }
 
-
+echo ":root {";
+echo $varcol;
+echo "}";
 
 ?>
