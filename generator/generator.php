@@ -94,7 +94,7 @@ if(isset($_REQUEST["devid"]))
         //print_r($params);
         $ret["error"]="";
   
-        $result = $Dynamodb->updateItem($params);
+        $result = $dynamodb->updateItem($params);
     }
 
 
