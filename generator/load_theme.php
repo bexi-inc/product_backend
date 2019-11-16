@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ERROR | E_PARSE);
-
 header("Content-type: text/css; charset: UTF-8");
 
 
@@ -84,8 +82,8 @@ echo ":root {
 echo $varcol;
 echo $vartxtcol;
 echo "
-     --font-1:'Montserrat', sans-serif;
-     --font-2:'Montserrat', sans-serif;
+            --font-1:'Montserrat', sans-serif;
+            --font-2:'Montserrat', sans-serif;
 }";
 
 ?>
