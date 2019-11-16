@@ -203,7 +203,7 @@ function ExistDomain($domain)
 }
 
 
-function CreateDeliverable($projectid, $winner, $looser, $type)
+function CreateDeliverable($projectid, $winner, $loser, $type)
 {
 	global $Marshaler;
 	$pid = microtime(true);
@@ -211,7 +211,7 @@ function CreateDeliverable($projectid, $winner, $looser, $type)
 
 	$data='
 	    {
-	        ":id": "'.$winnder.'"
+	        ":id": "'.$winner.'"
 	    }
 	';
 
@@ -228,7 +228,7 @@ function CreateDeliverable($projectid, $winner, $looser, $type)
 
 	$data='
 	    {
-	        ":id": "'.$looser.'"
+	        ":id": "'.$loser.'"
 	    }
 	';
 
@@ -239,7 +239,7 @@ function CreateDeliverable($projectid, $winner, $looser, $type)
 		$dbdata = $table["data"]['Items'];
 		if (count($dbdata)>0)
 		{
-		    $looser_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
+		    $loser_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
 		}
 	}
 	
@@ -249,18 +249,18 @@ function CreateDeliverable($projectid, $winner, $looser, $type)
 
 	$Data ='{
 		"deliverable_id" : "'.$pid.'"
-		"project_id" : "'.$projectid.'"
+		,"project_id" : "'.$projectid.'"
 		,"date_create" : "'.$pid.'"
 		,"dev_status" : "0"
 		,"winner_id" : "'.$winner.'" 
 		,"html_code" : "'.$winner_code.'" 
-		,"looser_id" : "'.$looser.'" 
-		,"looser_code" : "'.$looser_code.'" 
+		,"loser_id" : "'.$loser.'" 
+		,"loser_code" : "'.$loser_code.'" 
 		,"type" : "'.$type.'" 
-		,"keywords" : "'.$pkeywords.'"
-		,"pservices" : "'.$pservices.'"
 	';
 	$Data = $Data . '}';
+
+	//print_r($Data);
 
 	$resIns=Insert("modu_deliverables",$Data, false);
 
