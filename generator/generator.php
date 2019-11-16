@@ -119,6 +119,7 @@ if(isset($_REQUEST["devid"]))
         {
             $logurl=PATHWEB.$marshaler->unmarshalValue($result_proj['Items'][0]["user_id"])."/".$project_id."/logos/".$result_proj['Items'][0]["logofull"];
 
+            print_r($result_proj);
             echo($logurl);
         }else
         {
