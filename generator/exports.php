@@ -269,6 +269,22 @@ $PATHBASE = $PATH."/".$_REQUEST["devid"]."/";
 
 $PATH = $PATH."/".$_REQUEST["devid"]."/PUBLISH/";
 
+if (!file_exists($PATH)) {
+     mkdir($PATH, 0777, true);
+}else{
+    $files = new RecursiveIteratorIterator(
+              new RecursiveDirectoryIterator($PATH,RecursiveDirectoryIterator::SKIP_DOTS),
+              RecursiveIteratorIterator::CHILD_FIRST
+            );
+    foreach($files as $fileinfo){
+        $todo = ($fileinfo->isDir() ? 'rmdir' : 'unlink');
+        $todo($fileinfo->getRealPath());
+    }
+    rmdir($directory);
+    clearstatcache();
+    mkdir($PATH, 0777, true);
+}
+
 if (!file_exists($PATH."/files/")) {
      mkdir($PATH."/files/", 0777, true);
 }
