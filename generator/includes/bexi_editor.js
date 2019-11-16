@@ -623,7 +623,7 @@ function bgchange(btid) {
         if(str.search("width")==-1){
           str+="width:auto;";
         }
-        str+="margin-bottom:unset;"
+        str+="margin-bottom:unset;";
         $(this).wrap( '<p class="bexi_editor_icon" style="'+str+'"></p>' );
       });
 
