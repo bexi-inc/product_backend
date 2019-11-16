@@ -381,7 +381,7 @@ else{
     echo "<div class='' style='width:100%; background-color: #fff; border-radius: 15px; -moz-border-radius: 15px;
         -webkit-border-radius: 15px;  overflow:hidden; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.05); box-shadow: 0 1px 3px rgba(0,0,0,.05);'>";
     */
-    if($firts_log)
+    if(true)
     {
         $doc = new DOMDocument();
         $doc->loadHTML($content);
