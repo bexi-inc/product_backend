@@ -55,7 +55,7 @@ function GetProjects($connDyn, $userId)
 			$res["error"]=0;
 			foreach ($table["data"]['Items'] as $project) {
 				$proj = []; 
-				$proj["project _id"] = $Marshaler->unmarshalValue($project["project _id"]);
+				$proj["project_id"] = $Marshaler->unmarshalValue($project["project_id"]);
 				$proj["project_name"] = $Marshaler->unmarshalValue($project["project_name"]);
 				$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
 				$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
