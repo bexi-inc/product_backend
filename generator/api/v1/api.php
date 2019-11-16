@@ -33,13 +33,13 @@ $res["error_code"]=0;
  switch ($_REQ->cmd) {
  	case 'SigIn':
  		// VALIDAMOS LOS DATOS MINIMOS
- 		if (!isset($_REQ->email) || !isset($_REQ->password) || !isset($_REQ->name) || !isset($_REQ->lastname))  
+ 		if (!isset($_REQ->email) || !isset($_REQ->password) || !isset($_REQ->name) || !isset($_REQ->last_name))  
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
  			break;
  		}
- 		$res=SigIn($Dynamodb,$_REQ->email, $_REQ->name, $_REQ->lastname, $_REQ->password);
+ 		$res=SigIn($Dynamodb,$_REQ->email, $_REQ->name, $_REQ->last_name, $_REQ->password);
  		
  		break;
  	case 'LogIn':
