@@ -419,23 +419,26 @@ else{
     echo "<div class='' style='width:100%; background-color: #fff; border-radius: 15px; -moz-border-radius: 15px;
         -webkit-border-radius: 15px;  overflow:hidden; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.05); box-shadow: 0 1px 3px rgba(0,0,0,.05);'>";
     */
-    $doc = new DOMDocument();
-    $doc->loadHTML($content);
-    $tags = $doc->getElementsByClassName('bexi_icon');
-    foreach ($tags as $tag) {
-        $styles = $tag->getAttribute('style');
-        $comp =explode(";",$styles);
-        $new_style="";
-        foreach ($comp as $item)
-        {
-           $pos=strpos($item,"color");
-           if($pos===false){
-            $new_style += $item;
+    if(true)
+    {
+        $doc = new DOMDocument();
+        $doc->loadHTML($content);
+        $tags = $doc->getElementsByClassName('bexi_icon');
+        foreach ($tags as $tag) {
+            $styles = $tag->getAttribute('style');
+            $comp =explode(";",$styles);
+            $new_style="";
+            foreach ($comp as $item)
+            {
+               $pos=strpos($item,"color");
+               if($pos===false){
+                $new_style .= $item;
+                }
             }
+            $tag->setAttribute('style',$new_style);
         }
-        $tag->setAttribute('style',$new_style);
+        $content = $doc->saveHTML();
     }
-    $content = $doc->saveHTML();
 
     echo "<div id='modu_main'>";
     echo $content;
