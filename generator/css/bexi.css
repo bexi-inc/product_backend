@@ -582,8 +582,8 @@ background-color: #e7e7e7 !important;
 }
 
 .bexi_logo{
-  max-width: 200px;
-  max-height: 35px;
+  max-width: 200px !important;
+  max-height: 35px !important;
 }
 
 .bexi_icon

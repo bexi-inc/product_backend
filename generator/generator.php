@@ -473,11 +473,8 @@ else{
             $tags = $doc->getElementsByTagName('img');
             foreach ($tags as $tag) {
                 $class = $tag->getAttribute('class');
-                print_r($class);
                 $pos=strpos($class,"bexi_logo");
-                print_r($pos);
-                if($pos===true){
-                    print_r("cambiar");
+                if($pos!=false){
                     $tag->setAttribute('src',$logourl);
                  }
             }
