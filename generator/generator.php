@@ -465,6 +465,17 @@ else{
             }
             $tag->setAttribute('style',$new_style);
         }
+        if($logourl!=""||$logourl!=null)
+        {
+            $tags = $doc->getElementsByTagName('img');
+            foreach ($tags as $tag) {
+                $class = $tag->getAttribute('class');
+                $pos=strpos($class,"bexi_icon");
+                if($pos===true){
+                    $tag->setAttribute('src',$logourl);
+                 }
+            }
+        }
         $content = $doc->saveHTML();
     }
 
