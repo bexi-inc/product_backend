@@ -196,6 +196,8 @@ ob_start();
     $code = ob_get_contents ();
     ob_end_clean();
 
+    $_REQUEST["projectid"] = $project_id;
+
     //$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
     $doc = new DOMDocument();
@@ -237,11 +239,11 @@ if (!file_exists(PAHTSERVER.$user_id)) {
 
 $PATH = $PATH.$user_id;
 
-if (!file_exists($PATH."/".$pid)) {
-     mkdir($PATH."/".$pid, 0777, true);
+if (!file_exists($PATH."/".$project_id)) {
+     mkdir($PATH."/".$project_id, 0777, true);
 }
 
-$PATH= $PATH."/".$pid . "/";
+$PATH= $PATH."/".$project_id . "/";
 
 if (!file_exists($PATH."/".$_REQUEST["devid"])) {
     mkdir($PATH."/".$_REQUEST["devid"], 0777, true);
@@ -249,6 +251,17 @@ if (!file_exists($PATH."/".$_REQUEST["devid"])) {
 
 $PATH. = "/".$_REQUEST["devid"]."/";
 
+if (!file_exists($PATH."/files/") {
+     mkdir($PATH."/files/", 0777, true);
+}
 
-    echo $code ;
+$PATHFILES= $PATH."/files/";
+
+ob_start();
+include("load_theme.php");
+$file_css = ob_get_contents ();
+ob_end_clean();
+
+
+echo $file_css ;
 ?>
