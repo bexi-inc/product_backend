@@ -45,12 +45,12 @@ function GetProjects($userId)
 	$projects = []; 
 
 
-	print_r($table);
+	//print_r($table);
 
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
-		print_r($dbdata);
+		//print_r($dbdata);
 		if (count($dbdata)>0)
 		{
 			$res["error"]=0;
@@ -62,7 +62,7 @@ function GetProjects($userId)
 				$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
 				$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
 
-				$micro_date = date($Marshaler->unmarshalValue($project["create_date"]));
+				$micro_date = date($Marshaler->unmarshalValue($project["date_create"]));
 				$date_array = explode(".",$micro_date);
 				$date = date("Y-m-d",$date_array[0]);
 				$proj["create_date"] = $date;
