@@ -180,7 +180,7 @@ $res["error_code"]=0;
  		$res = ExistDomain($_REQ->domain);
  		break;
  	case "DeployDeliverableToDomain":
- 		if (!isset($_REQ->deliverable) !! (!isset($_REQ->domain))
+ 		if (!isset($_REQ->deliverable) || !isset($_REQ->domain))
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
