@@ -380,8 +380,8 @@ function GmailSigin($code, $redirect="")
 			{
 			    if ($Marshaler->unmarshalValue($dbdata[0]['username'])==$email)
 			    {
-			    	$ret["error_code"] = "101";
-			    	$ret["message"] = "user already exists";
+			    	$ret["error_code"] = "0";
+			    	$ret["message"] = "";
 			    	$ret["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
 			    	return $ret;
 			    }else{
