@@ -578,6 +578,16 @@ background-color: #e7e7e7 !important;
 {
 
 }
+ 
+.bexi_head /*Headlines css*/
+{
+  position: relative; 
+  display: flex; 
+  justify-content: center; 
+  padding-top:0;
+
+}
+
 
  .bexi_img_full
  {
