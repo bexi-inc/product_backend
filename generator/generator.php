@@ -319,7 +319,7 @@ else{
     $n=1;
     if ($project_id!="")
     {
-        echo'<link rel="stylesheet" type="text/css" href="load_theme.php?projectid=" >'; 
+        echo'<link rel="stylesheet" type="text/css" href="load_theme.php?projectid='.$project_id.'" >'; 
     }
 
 
