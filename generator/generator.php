@@ -468,7 +468,6 @@ else{
             }
             $tag->setAttribute('style',$new_style);
         }
-        print_r($logourl);
         if($logourl!=""||$logourl!=null)
         {
             $tags = $doc->getElementsByTagName('img');
