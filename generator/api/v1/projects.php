@@ -262,7 +262,7 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 	';
 	$Data = $Data . '}';
 
-	//print_r($Data);
+	print_r($Data);
 
 	$resIns=Insert("modu_deliverables",$Data, false);
 
