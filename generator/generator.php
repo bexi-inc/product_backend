@@ -97,9 +97,34 @@ if(isset($_REQUEST["devid"]))
   
         $result2 = $dynamodb->updateItem($params);
 
-        print_r($Result2);
+
+
+       // print_r($Result2);
     }
 
+
+    $params = [
+        'TableName' => "modu_projects",
+         "KeyConditionExpression"=> "project_id = :id",
+        "ExpressionAttributeValues"=> [
+            ":id" =>  ["S" => $project_id]
+        ]
+    ];
+
+    $result_proj = $dynamodb->query($params);
+
+    if (count($result_proj)>0)
+    {
+        if (isset($result_proj['Items'][0]["logofull"]) && !is_null($result_proj['Items'][0]["logofull"]))
+        {
+            $logurl=PATHWEB.$marshaler->unmarshalValue($result_proj['Items'][0]["user_id"])."/".$project_id."/logos/".$result_proj['Items'][0]["logofull"];
+        }else
+        {
+            $logurl="";
+        }
+    }else{
+        $logurl = "";
+    }
 
 }
 elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
