@@ -80,7 +80,7 @@ if (count($result["Items"])>0)
 }
 
 echo ":root {
-    ";
+            ";
 echo $varcol;
 echo $vartxtcol;
 echo "
