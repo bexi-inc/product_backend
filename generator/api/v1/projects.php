@@ -176,6 +176,7 @@ function ExistDomain($domain)
 	    }
 	';
 
+	print_r($data);
 	$table = ExecuteQuery("modu_subdomains",$data,"subdomain = :sdom","","",false);
 
 	if ($table["error"]=="")
