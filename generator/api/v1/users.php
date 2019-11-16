@@ -327,7 +327,7 @@ function GetGmailLoginLink()
 }
 
 
-function GmailSigin($code)
+function GmailSigin($code, $redirect="")
 {
 	global $Marshaler;
 
@@ -335,7 +335,13 @@ function GmailSigin($code)
 	$client = new Google_Client();
 	$client->setClientId(GMAIL_CLIENT_ID);
 	$client->setClientSecret(GMAIL_CLIENT_SECRET);
-	$client->setRedirectUri(GMAIL_CLIENT_REDIRECT_URL);
+	if ($redirect!="")
+	{
+		$client->setRedirectUri($redirect);
+	}else{
+		$client->setRedirectUri(GMAIL_CLIENT_REDIRECT_URL);
+	}
+	
 	$client->addScope("email");
 	$client->addScope("profile");
 	$ret["error"]=0;
