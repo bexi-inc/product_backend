@@ -468,14 +468,15 @@ else{
             }
             $tag->setAttribute('style',$new_style);
         }
-        print_r($logourl);
         if($logourl!=""||$logourl!=null)
         {
+            print_r("entro");
             $tags = $doc->getElementsByTagName('img');
             foreach ($tags as $tag) {
                 $class = $tag->getAttribute('class');
                 $pos=strpos($class,"bexi_logo");
                 if($pos===true){
+                    print_r("cambiar");
                     $tag->setAttribute('src',$logourl);
                  }
             }
