@@ -211,7 +211,7 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 
 	$data='
 	    {
-	        ":id": "'.$winnder.'"
+	        ":id": "'.$winner.'"
 	    }
 	';
 
