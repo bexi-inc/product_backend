@@ -62,7 +62,7 @@ if(isset($_REQUEST["devid"]))
     $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
 
 
-    if (isset($result['Items'][0]["project_id"]))
+    if (isset($result['Items'][0]["first_loads"]))
     {
          $first_load=$marshaler->unmarshalValue($result['Items'][0]["first_loads"]);
     }else
