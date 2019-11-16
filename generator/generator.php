@@ -463,7 +463,7 @@ else{
             {
                $pos=strpos($item,"color");
                if($pos===false){
-                $new_style .= $item;
+                $new_style .= $item.";";
                 }
             }
             $tag->setAttribute('style',$new_style);
