@@ -76,7 +76,7 @@ if(isset($_REQUEST["devid"]))
 
         $key = $marshaler->marshalJson('
             {
-                "deliverable_id" : ' . $_REQUEST["devid"] . '
+                "deliverable_id" : "' . $_REQUEST["devid"] . '"
             }
         ');
 
