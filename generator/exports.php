@@ -39,10 +39,13 @@ $marshaler = new Marshaler();
 
 
 //$iduser = $_REQUEST["user"];
-$CodeId = (isset($_REQUEST["devid"]) ? $_REQUEST["devid"] :  microtime(true));
+//$CodeId = (isset($_REQUEST["devid"]) ? $_REQUEST["devid"] :  microtime(true));
 
-if (isset($_REQUEST["devid"]))
+if (!isset($_REQUEST["devid"]))
 {
+    die("No Deliverable Id");
+}
+
     $params = [
         'TableName' => "modu_deliverables",
          "KeyConditionExpression"=> "deliverable_id = :id",
@@ -52,10 +55,20 @@ if (isset($_REQUEST["devid"]))
     ];
 
      $result = $dynamodb->query($params);
-
+     $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
      $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
-}
 
+
+    $params = [
+        'TableName' => "modu_projects",
+         "KeyConditionExpression"=> "1573852401.3173 = :id",
+        "ExpressionAttributeValues"=> [
+            ":id" =>  ["S" => $project_id]
+        ]
+    ];
+
+     $result2 = $dynamodb->query($params);
+     $user_id = $marshaler->unmarshalValue($result2['Items'][0]["user_id"]);
 
 ob_start();
 
@@ -214,5 +227,28 @@ ob_start();
         $src = $html->getElementsByTagName( 'img' )->item(0)->getAttribute('src');
     }
 */
+
+
+$PATH = PAHTSERVER;
+     
+if (!file_exists(PAHTSERVER.$user_id)) {
+    mkdir($path.$user_id, 0777, true);
+}
+
+$PATH = $PATH.$user_id;
+
+if (!file_exists($PATH."/".$pid)) {
+     mkdir($PATH."/".$pid, 0777, true);
+}
+
+$PATH= $PATH."/".$pid . "/";
+
+if (!file_exists($PATH."/".$_REQUEST["devid"])) {
+    mkdir($PATH."/".$_REQUEST["devid"], 0777, true);
+}
+
+$PATH. = "/".$_REQUEST["devid"]."/";
+
+
     echo $code ;
 ?>
