@@ -75,7 +75,7 @@ elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
     ];
 
      $result = $dynamodb->query($params);
-
+     print_r($result);
      $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
 }
 else{
