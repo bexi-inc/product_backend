@@ -39,10 +39,13 @@ $marshaler = new Marshaler();
 
 
 //$iduser = $_REQUEST["user"];
-$CodeId = (isset($_REQUEST["devid"]) ? $_REQUEST["devid"] :  microtime(true));
+//$CodeId = (isset($_REQUEST["devid"]) ? $_REQUEST["devid"] :  microtime(true));
 
-if (isset($_REQUEST["devid"]))
+if (!isset($_REQUEST["devid"]))
 {
+    die("No Deliverable Id");
+}
+
     $params = [
         'TableName' => "modu_deliverables",
          "KeyConditionExpression"=> "deliverable_id = :id",
@@ -52,10 +55,20 @@ if (isset($_REQUEST["devid"]))
     ];
 
      $result = $dynamodb->query($params);
-
+     $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
      $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
-}
 
+
+    $params = [
+        'TableName' => "modu_projects",
+         "KeyConditionExpression"=> "1573852401.3173 = :id",
+        "ExpressionAttributeValues"=> [
+            ":id" =>  ["S" => $project_id]
+        ]
+    ];
+
+     $result2 = $dynamodb->query($params);
+     $user_id = $marshaler->unmarshalValue($result2['Items'][0]["user_id"]);
 
 ob_start();
 
@@ -183,6 +196,8 @@ ob_start();
     $code = ob_get_contents ();
     ob_end_clean();
 
+    $_REQUEST["projectid"] = $project_id;
+
     //$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
     $doc = new DOMDocument();
@@ -214,5 +229,39 @@ ob_start();
         $src = $html->getElementsByTagName( 'img' )->item(0)->getAttribute('src');
     }
 */
-    echo $code ;
+
+
+$PATH = PAHTSERVER;
+     
+if (!file_exists(PAHTSERVER.$user_id)) {
+    mkdir($path.$user_id, 0777, true);
+}
+
+$PATH = $PATH.$user_id;
+
+if (!file_exists($PATH."/".$project_id)) {
+     mkdir($PATH."/".$project_id, 0777, true);
+}
+
+$PATH= $PATH."/".$project_id . "/";
+
+if (!file_exists($PATH."/".$_REQUEST["devid"])) {
+    mkdir($PATH."/".$_REQUEST["devid"], 0777, true);
+}
+
+$PATH = $PATH."/".$_REQUEST["devid"]."/";
+
+if (!file_exists($PATH."/files/") {
+     mkdir($PATH."/files/", 0777, true);
+}
+
+$PATHFILES= $PATH."/files/";
+
+ob_start();
+include("load_theme.php");
+$file_css = ob_get_contents ();
+ob_end_clean();
+
+
+echo $file_css ;
 ?>
