@@ -48,7 +48,7 @@ if (!isset($_REQUEST["devid"]))
 
     $params = [
         'TableName' => "modu_deliverables",
-         "KeyConditionExpression"=> "deliverable_id = :id",
+        "KeyConditionExpression"=> "deliverable_id = :id",
         "ExpressionAttributeValues"=> [
             ":id" =>  ["S" => $_REQUEST["devid"]]
         ]
@@ -61,7 +61,7 @@ if (!isset($_REQUEST["devid"]))
 
     $params = [
         'TableName' => "modu_projects",
-         "KeyConditionExpression"=> "1573852401.3173 = :id",
+         "KeyConditionExpression"=> "project_id = :id",
         "ExpressionAttributeValues"=> [
             ":id" =>  ["S" => $project_id]
         ]
