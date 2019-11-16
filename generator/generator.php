@@ -470,11 +470,12 @@ else{
         }
         if($logourl!=""||$logourl!=null)
         {
-            print_r("entro");
             $tags = $doc->getElementsByTagName('img');
             foreach ($tags as $tag) {
                 $class = $tag->getAttribute('class');
+                print_r($class);
                 $pos=strpos($class,"bexi_logo");
+                print_r($pos);
                 if($pos===true){
                     print_r("cambiar");
                     $tag->setAttribute('src',$logourl);
