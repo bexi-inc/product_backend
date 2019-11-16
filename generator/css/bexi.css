@@ -48,7 +48,6 @@ h1{
     font-weight: bold !important;
     font-family: var(--font-1);
     width: 100% !important;
-    color:var(--color-text-1);
 }
 
 h2{
@@ -61,7 +60,6 @@ h2{
     padding-top: 5px;
     padding-bottom: 10px;
     width: 100% !important;
-    color:var(--color-text-1);
 }
 
 h3{
@@ -74,7 +72,6 @@ h3{
     padding-top: 5px;
     padding-bottom: 5px;
     width: 100% !important;
-    color:var(--color-text-1);
 }
 
 h4{
@@ -85,7 +82,6 @@ h4{
     font-weight: bold !important;
     font-family: var(--font-1);
     width: 100% !important;
-    color:var(--color-text-1);
 }
 
 h5{
@@ -96,7 +92,6 @@ h5{
     font-weight: bold !important;
     font-family: var(--font-1);
     width: 100% !important;
-    color:var(--color-text-1);
 }
 
 h6{
@@ -106,7 +101,6 @@ h6{
     font-weight: 400 !important;
     font-family: var(--font-1);
     width: 100% !important;
-    color:var(--color-text-1);
 }
 
 .Lead_text{
@@ -118,7 +112,6 @@ h6{
     padding-top: 5px;
     padding-bottom: 50px;
     width: 100% !important;
-    color:var(--color-text-2);
 }
 
 a{
@@ -147,7 +140,6 @@ p{
     padding-top: 5px;
     padding-bottom: 20px;
     width: 100%;
-    color:var(--color-text-2);
 }/*padding-bottom: 5px*/
 
 .p_small{
@@ -159,7 +151,6 @@ p{
     padding-top: 5px;
     padding-bottom: 5px;
     width: 100% !important;
-    color:var(--color-text-2);
 }
 
 .p_list{
@@ -169,7 +160,6 @@ p{
     font-weight: 400 !important;
     font-family: var(--font-2);
     width: 100%;
-    color:var(--color-text-2);
 }
 
 .Caption{
@@ -182,7 +172,6 @@ p{
     padding-top: 20px;
     padding-bottom: 5px;
     width: 100% !important;
-    color:var(--color-text-2);
 }
 
 .bexi_module{
