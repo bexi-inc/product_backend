@@ -1548,7 +1548,6 @@ function initialize_editors_text(fonts){
         $("#"+$img.attr("id")).remove();
         auto_save();
         this.toolbar.hide();
-        break;
         return false;
         
       },
