@@ -1545,7 +1545,11 @@ function initialize_editors_text(fonts){
       },
       'image.beforeRemove': function ($img) {
         console.log($img.attr("id"),"before");
-        console.log(this);
+        $("#"+$img.attr("id")).remove();
+        auto_save();
+        this.toolbar.hide();
+        return false;
+        
       },
       'image.Removed': function ($img) {
         console.log($img.attr("id"),"after");
