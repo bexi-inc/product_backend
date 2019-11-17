@@ -1270,6 +1270,7 @@ function initialize_editors_text(fonts){
           auto_save();
         },
         'image.removed': function ($img) {
+          console.log($img.attr("id"));
           $("#"+$img.attr("id")).remove();
           auto_save();
         }
@@ -1336,6 +1337,7 @@ function initialize_editors_text(fonts){
             auto_save();
           },
           'image.removed': function ($img) {
+            console.log($img.attr("id"));
             $("#"+$img.attr("id")).remove();
             auto_save();
           }
@@ -1402,6 +1404,7 @@ function initialize_editors_text(fonts){
             auto_save();
           },
           'image.removed': function ($img) {
+            console.log($img.attr("id"));
             $("#"+$img.attr("id")).remove();
             auto_save();
           }
@@ -1467,6 +1470,7 @@ function initialize_editors_text(fonts){
           auto_save();
         },
         'image.removed': function ($img) {
+          console.log($img.attr("id"));
           $("#"+$img.attr("id")).remove();
           auto_save();
         }
@@ -1535,6 +1539,7 @@ function initialize_editors_text(fonts){
         auto_save();
       },
       'image.removed': function ($img) {
+        console.log($img.attr("id"));
         $("#"+$img.attr("id")).remove();
         auto_save();
       }
