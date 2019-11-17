@@ -1138,7 +1138,6 @@ function styles_ptags(){
       $(this).css("padding","0px");
     }
   });
-  alert("hace");
   auto_save();
 }
 
