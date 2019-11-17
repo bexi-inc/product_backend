@@ -1543,10 +1543,12 @@ function initialize_editors_text(fonts){
         auto_save();
       },
       'image.beforeRemove': function ($img) {
-        console.log($img.attr("id"));
+        console.log($img.attr("id"),"before");
+      },
+      'image.Removed': function ($img) {
+        console.log($img.attr("id"),"after");
         $("#"+$img.attr("id")).remove();
         auto_save();
-        return false;
       }
     }
     });
