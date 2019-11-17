@@ -338,13 +338,13 @@ foreach ($images as $img)
 
 $fileZip = $PATHBASE.$project_name.".zip" ;
 
-zipme($PATH,$PATHBASE.$fileZip);
+zipme($PATH,$fileZip);
 
 //print_r($images);
 
 
 header("Content-type: application/zip"); 
-header("Content-Disposition: attachment; filename=".$fileZip);
+header("Content-Disposition: attachment; filename=".$fileZip,PATHINFO_BASENAME));
 header("Content-length: " . filesize($fileZip));
 header("Pragma: no-cache"); 
 header("Expires: 0"); 
