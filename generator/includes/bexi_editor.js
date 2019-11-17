@@ -1119,10 +1119,6 @@ function bgchange(btid) {
 */
 });
 
-$(document).on('load', function () {
-  auto_save();
-});
-
 function add_action_forms(){
   $(".bexi_form").each(function(){
     var id=$(this).find("button[type=submit]").attr("id");
@@ -1140,6 +1136,7 @@ function styles_ptags(){
       $(this).css("padding","0px");
     }
   });
+  auto_save();
 }
 
 function auto_save()
