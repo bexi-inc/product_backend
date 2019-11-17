@@ -1117,6 +1117,7 @@ function bgchange(btid) {
             });
           }
 */
+auto_save();
 });
 
 function add_action_forms(){
@@ -1136,7 +1137,6 @@ function styles_ptags(){
       $(this).css("padding","0px");
     }
   });
-  auto_save();
 }
 
 function auto_save()
