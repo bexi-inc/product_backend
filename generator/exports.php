@@ -294,7 +294,7 @@ if (!file_exists($PATH."/files/")) {
      mkdir($PATH."/files/", 0777, true);
 }
 
-$PATHIMG = $PATH."/img/";
+$PATHIMG = $PATH."/files/img/";
 
 if (!file_exists($PATHIMG)) {
      mkdir($PATHIMG, 0777, true);
