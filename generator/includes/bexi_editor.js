@@ -541,11 +541,13 @@ function bgchange(btid) {
       
         $(".bexi_img").each(function() {
             var attr = $(this).attr('bexi_img_au');
+            /*
           if (typeof attr !== typeof undefined && attr !== false) 
             {
                 $(this).wrap('<div class="alt-wrap"/>');
                 $(this).after('<p class="bexi_unspash">Photo by <a href="' + $(this).attr('bexi_au_link') + '" >' + $(this).attr('bexi_img_au') + '</a> on <a href="https://unsplash.com/?utm_source=Bexi+Web+Generator&utm_medium=referral">Unspash</a></p>'); 
             }
+            */
         })
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
@@ -1270,8 +1272,9 @@ function initialize_editors_text(fonts){
           auto_save();
         },
         'image.beforeRemove': function ($img) {
-          console.log($img.attr("id"));
+          console.log($img.attr("id"),"before");
           $("#"+$img.attr("id")).remove();
+          $(".fr-active").remove();
           auto_save();
           return false;
         }
@@ -1338,8 +1341,9 @@ function initialize_editors_text(fonts){
             auto_save();
           },
           'image.beforeRemove': function ($img) {
-            console.log($img.attr("id"));
+            console.log($img.attr("id"),"before");
             $("#"+$img.attr("id")).remove();
+            $(".fr-active").remove();
             auto_save();
             return false;
           }
@@ -1406,8 +1410,9 @@ function initialize_editors_text(fonts){
             auto_save();
           },
           'image.beforeRemove': function ($img) {
-            console.log($img.attr("id"));
+            console.log($img.attr("id"),"before");
             $("#"+$img.attr("id")).remove();
+            $(".fr-active").remove();
             auto_save();
             return false;
           }
@@ -1473,8 +1478,9 @@ function initialize_editors_text(fonts){
           auto_save();
         },
         'image.beforeRemove': function ($img) {
-          console.log($img.attr("id"));
+          console.log($img.attr("id"),"before");
           $("#"+$img.attr("id")).remove();
+          $(".fr-active").remove();
           auto_save();
           return false;
         }
@@ -1550,11 +1556,6 @@ function initialize_editors_text(fonts){
         auto_save();
         return false;
         
-      },
-      'image.Removed': function ($img) {
-        console.log($img.attr("id"),"after");
-        $("#"+$img.attr("id")).remove();
-        auto_save();
       }
     }
     });
