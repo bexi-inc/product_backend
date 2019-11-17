@@ -1495,14 +1495,14 @@ function initialize_editors_text(fonts){
       },
       'image.beforeUpload': function (images) {
         console.log(this,"response replaced");
-        //this.opts.imageUploadParams.tagid=window.bexi_tagid;
+        this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
       'image.inserted': function ($img, response) {
         // Image was inserted in the editor.
-        //var jresponse =JSON.parse(response);
-        //$img.attr("id",jresponse.id);
-        //$img.attr("src",jresponse.src);
-        //window.bexi_tagid=jresponse.id;
+        var jresponse =JSON.parse(response);
+        $img.attr("id",jresponse.id);
+        $img.attr("src",jresponse.src);
+        window.bexi_tagid=jresponse.id;
       },
       'image.replaced': function ($img, response) {
         // Image was replaced in the editor.
