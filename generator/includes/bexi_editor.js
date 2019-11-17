@@ -1483,7 +1483,7 @@ function initialize_editors_text(fonts){
       },
       'image.beforeUpload': function (images) {
         console.log(this.$doc[0].activeElement,"response before");
-        console.log(images,"response before");
+        console.log(images[0],"response before");
         //this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
       'image.inserted': function ($img, response) {
