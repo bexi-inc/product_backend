@@ -1,7 +1,8 @@
 <?
+/*
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 
 session_start();
 $timeini = microtime(true);
@@ -324,8 +325,17 @@ foreach ($images as $img)
     copy($img["old_src"], $PATHIMG.$img["filename"] );
 }
 
-zipme($PATH,$PATHBASE.$project_name.".zip");
+$fileZip = $PATHBASE.$project_name.".zip" ;
 
-print_r($images);
-echo $PATHBASE.$project_name.".zip" ;
+zipme($PATH,$PATHBASE.$fileZip);
+
+//print_r($images);
+
+
+header("Content-type: application/zip"); 
+header("Content-Disposition: attachment; filename=$fileZip");
+header("Content-length: " . filesize($fileZip));
+header("Pragma: no-cache"); 
+header("Expires: 0"); 
+readfile("$fileZip");
 ?>
