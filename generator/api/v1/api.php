@@ -25,8 +25,7 @@ require "emails.php";
 require "projects.php";
 
 
-use Aws\S3\S3Client;
-use Aws\Exception\AwsException;
+
 
 $_REQ = json_decode(file_get_contents('php://input')); 
 
