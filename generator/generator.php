@@ -594,7 +594,7 @@ else{
                     anima_loadAsyncSrc();
                 }, 200);
             </script>';
-    if ($_REQUEST["target"]=="selector")
+    if ($_REQUEST["target"]!="selector")
     {
         echo ' <script>auto_save();</script>';
     }
