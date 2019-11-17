@@ -469,6 +469,43 @@ else{
             }
             $tag->setAttribute('style',$new_style);
         }
+
+        $tags = $doc->getElementsByTagName('a');
+        foreach ($tags as $tag) {
+            $class = $tag->getAttribute('class');
+            $comp =explode(" ",$class);
+            $new_class="";
+            foreach ($comp as $item)
+            {
+                $insert_class=1;
+               $pos=strpos($item,"Color");
+                if($pos!==false){
+                $insert_class=0;
+                }
+                $pos=strpos($item,"Black");
+                if($pos!==false){
+                $insert_class=0;
+                }
+                $pos=strpos($item,"White");
+                if($pos!==false){
+                $insert_class=0;
+                }
+                $pos=strpos($item,"Gray");
+                if($pos!==false){
+                $insert_class=0;
+                }
+                $pos=strpos($item,"Light_gray");
+                if($pos!==false){
+                $insert_class=0;
+                }
+                if($insert_class===1)
+                {
+                    $new_class.=$item." ";
+                }
+            }
+            $tag->setAttribute('class',$new_class);
+        }
+
         if($logourl!=""||$logourl!=null)
         {
             $tags = $doc->getElementsByTagName('img');
