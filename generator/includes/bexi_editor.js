@@ -1295,56 +1295,63 @@ function initialize_editors_text(fonts){
       charCounterCount: false,
       toolbarVisibleWithoutSelection: true,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-    // Set the image upload parameter.
-    imageUploadParam: 'file',
+      // Set max image size to 5MB.
+      imageMaxSize: 5 * 1024 * 1024,
 
-    // Set the image upload URL.
-    imageUploadURL: './ajax/uploadfile.php',
-
-    // Additional upload params.
-    imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
-
-    // Set request type.
-    imageUploadMethod: 'POST',
-
-    // Set max image size to 5MB.
-    imageMaxSize: 5 * 1024 * 1024,
-
-    // Allow to upload PNG and JPG.
-    imageAllowedTypes: ['jpeg', 'jpg', 'png'],
-    events : {
-      'blur': function () {
-          auto_save();
-      },
-      'image.beforeUpload': function (images) {
-        this.opts.imageUploadParams.tagid=window.bexi_tagid;
-      },
-      'image.inserted': function ($img, response) {
-        // Image was inserted in the editor.
-        var jresponse =JSON.parse(response);
-        $img.attr("id",jresponse.id);
-        $img.attr("src",jresponse.src);
-        window.bexi_tagid=jresponse.id;
-      },
-      'image.replaced': function ($img, response) {
-        // Image was replaced in the editor.
-        console.log(this);
-      },
-      'click': function (clickEvent) {
-        // Do something here.
-        // this is the editor instance.
-        if(clickEvent.currentTarget.tagName=="IMG")
-        {
-          window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
-        }
-        else{
-          window.bexi_tagid=null;
-        }
-      },
-      'initialized': function () {
-        styles_ptags();
+      // Allow to upload PNG and JPG.
+      imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+      events : {
+            'blur': function () {
+              auto_save();
+          },
+          'image.beforeUpload': function (images) {
+            window.response_img=save_img(window.bexi_tagid,images[0]);
+            //this.opts.imageUploadParams.tagid=window.bexi_tagid;
+          },
+          'image.inserted': function ($img, response) {
+            // Image was inserted in the editor.
+            window.response_img.done(function(data){
+              var jresponse =JSON.parse(data);
+              $img.attr("id",jresponse.id);
+              $img.attr("src",jresponse.src);
+              window.bexi_tagid=jresponse.id;
+              window.response_img=null;
+              auto_save();
+            });
+          },
+          'image.replaced': function ($img, response) {
+            // Image was replaced in the editor.
+            window.response_img.done(function(data){
+              var jresponse =JSON.parse(data);
+              $img.attr("id",jresponse.id);
+              $img.attr("src",jresponse.src);
+              window.bexi_tagid=jresponse.id;
+              window.response_img=null;
+              auto_save();
+            });
+          },
+          'click': function (clickEvent) {
+            // Do something here.
+            // this is the editor instance.
+            if(clickEvent.currentTarget.tagName=="IMG")
+            {
+              window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+            }
+            else{
+              window.bexi_tagid=null;
+            }
+          },
+          'initialized': function () {
+            styles_ptags();
+          },
+          'image.resizeEnd': function ($img) {
+            auto_save();
+          },
+          'image.removed': function ($img) {
+            $img.remove();
+            auto_save();
+          }
       }
-    }
     });
 
     var editorsubtitles = new FroalaEditor('.bexi_editor_subtitle',
@@ -1354,56 +1361,63 @@ function initialize_editors_text(fonts){
       charCounterCount: false,
       toolbarVisibleWithoutSelection: true,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-    // Set the image upload parameter.
-    imageUploadParam: 'file',
+      // Set max image size to 5MB.
+      imageMaxSize: 5 * 1024 * 1024,
 
-    // Set the image upload URL.
-    imageUploadURL: './ajax/uploadfile.php',
-
-    // Additional upload params.
-    imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
-
-    // Set request type.
-    imageUploadMethod: 'POST',
-
-    // Set max image size to 5MB.
-    imageMaxSize: 5 * 1024 * 1024,
-
-    // Allow to upload PNG and JPG.
-    imageAllowedTypes: ['jpeg', 'jpg', 'png'],
-    events : {
-      'blur': function () {
-          auto_save();
-      },
-      'image.beforeUpload': function (images) {
-        this.opts.imageUploadParams.tagid=window.bexi_tagid;
-      },
-      'image.inserted': function ($img, response) {
-        // Image was inserted in the editor.
-        var jresponse =JSON.parse(response);
-        $img.attr("id",jresponse.id);
-        $img.attr("src",jresponse.src);
-        window.bexi_tagid=jresponse.id;
-      },
-      'image.replaced': function ($img, response) {
-        // Image was replaced in the editor.
-        console.log(this);
-      },
-      'click': function (clickEvent) {
-        // Do something here.
-        // this is the editor instance.
-        if(clickEvent.currentTarget.tagName=="IMG")
-        {
-          window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
-        }
-        else{
-          window.bexi_tagid=null;
-        }
-      },
-      'initialized': function () {
-        styles_ptags();
+      // Allow to upload PNG and JPG.
+      imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+      events : {
+            'blur': function () {
+              auto_save();
+          },
+          'image.beforeUpload': function (images) {
+            window.response_img=save_img(window.bexi_tagid,images[0]);
+            //this.opts.imageUploadParams.tagid=window.bexi_tagid;
+          },
+          'image.inserted': function ($img, response) {
+            // Image was inserted in the editor.
+            window.response_img.done(function(data){
+              var jresponse =JSON.parse(data);
+              $img.attr("id",jresponse.id);
+              $img.attr("src",jresponse.src);
+              window.bexi_tagid=jresponse.id;
+              window.response_img=null;
+              auto_save();
+            });
+          },
+          'image.replaced': function ($img, response) {
+            // Image was replaced in the editor.
+            window.response_img.done(function(data){
+              var jresponse =JSON.parse(data);
+              $img.attr("id",jresponse.id);
+              $img.attr("src",jresponse.src);
+              window.bexi_tagid=jresponse.id;
+              window.response_img=null;
+              auto_save();
+            });
+          },
+          'click': function (clickEvent) {
+            // Do something here.
+            // this is the editor instance.
+            if(clickEvent.currentTarget.tagName=="IMG")
+            {
+              window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+            }
+            else{
+              window.bexi_tagid=null;
+            }
+          },
+          'initialized': function () {
+            styles_ptags();
+          },
+          'image.resizeEnd': function ($img) {
+            auto_save();
+          },
+          'image.removed': function ($img) {
+            $img.remove();
+            auto_save();
+          }
       }
-    }
     });
 
     var editorlin = new FroalaEditor('.bexi_editor_link',
@@ -1412,55 +1426,62 @@ function initialize_editors_text(fonts){
       toolbarInline: true,
       charCounterCount: false,
       linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
-    // Set the image upload parameter.
-    imageUploadParam: 'file',
-
-    // Set the image upload URL.
-    imageUploadURL: './ajax/uploadfile.php',
-
-    // Additional upload params.
-    imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
-
-    // Set request type.
-    imageUploadMethod: 'POST',
-
     // Set max image size to 5MB.
     imageMaxSize: 5 * 1024 * 1024,
 
     // Allow to upload PNG and JPG.
     imageAllowedTypes: ['jpeg', 'jpg', 'png'],
     events : {
-      'blur': function () {
+          'blur': function () {
+            auto_save();
+        },
+        'image.beforeUpload': function (images) {
+          window.response_img=save_img(window.bexi_tagid,images[0]);
+          //this.opts.imageUploadParams.tagid=window.bexi_tagid;
+        },
+        'image.inserted': function ($img, response) {
+          // Image was inserted in the editor.
+          window.response_img.done(function(data){
+            var jresponse =JSON.parse(data);
+            $img.attr("id",jresponse.id);
+            $img.attr("src",jresponse.src);
+            window.bexi_tagid=jresponse.id;
+            window.response_img=null;
+            auto_save();
+          });
+        },
+        'image.replaced': function ($img, response) {
+          // Image was replaced in the editor.
+          window.response_img.done(function(data){
+            var jresponse =JSON.parse(data);
+            $img.attr("id",jresponse.id);
+            $img.attr("src",jresponse.src);
+            window.bexi_tagid=jresponse.id;
+            window.response_img=null;
+            auto_save();
+          });
+        },
+        'click': function (clickEvent) {
+          // Do something here.
+          // this is the editor instance.
+          if(clickEvent.currentTarget.tagName=="IMG")
+          {
+            window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+          }
+          else{
+            window.bexi_tagid=null;
+          }
+        },
+        'initialized': function () {
+          styles_ptags();
+        },
+        'image.resizeEnd': function ($img) {
           auto_save();
-      },
-      'image.beforeUpload': function (images) {
-        this.opts.imageUploadParams.tagid=window.bexi_tagid;
-      },
-      'image.inserted': function ($img, response) {
-        // Image was inserted in the editor.
-        var jresponse =JSON.parse(response);
-        $img.attr("id",jresponse.id);
-        $img.attr("src",jresponse.src);
-        window.bexi_tagid=jresponse.id;
-      },
-      'image.replaced': function ($img, response) {
-        // Image was replaced in the editor.
-        console.log(this);
-      },
-      'click': function (clickEvent) {
-        // Do something here.
-        // this is the editor instance.
-        if(clickEvent.currentTarget.tagName=="IMG")
-        {
-          window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+        },
+        'image.removed': function ($img) {
+          $img.remove();
+          auto_save();
         }
-        else{
-          window.bexi_tagid=null;
-        }
-      },
-      'initialized': function () {
-        styles_ptags();
-      }
     }
     });
 
@@ -1494,8 +1515,8 @@ function initialize_editors_text(fonts){
           $img.attr("src",jresponse.src);
           window.bexi_tagid=jresponse.id;
           window.response_img=null;
+          auto_save();
         });
-        
       },
       'image.replaced': function ($img, response) {
         // Image was replaced in the editor.
@@ -1505,6 +1526,7 @@ function initialize_editors_text(fonts){
           $img.attr("src",jresponse.src);
           window.bexi_tagid=jresponse.id;
           window.response_img=null;
+          auto_save();
         });
       },
       'click': function (clickEvent) {
@@ -1518,16 +1540,15 @@ function initialize_editors_text(fonts){
           window.bexi_tagid=null;
         }
       },
-      'image.error': function (error, response) {
-        console.log(error);
-      },
-      'image.uploaded': function (response) {
-        // Do something here.
-        // this is the editor instance.
-        console.log(response,"from uploaded");
-      },
       'initialized': function () {
         styles_ptags();
+      },
+      'image.resizeEnd': function ($img) {
+        auto_save();
+      },
+      'image.removed': function ($img) {
+        $img.remove();
+        auto_save();
       }
     }
     });
