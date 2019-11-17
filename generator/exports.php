@@ -294,7 +294,7 @@ if (!file_exists($PATH."/files/")) {
      mkdir($PATH."/files/", 0777, true);
 }
 
-$PATHIMG .= "/img/";
+$PATHIMG = $PATH."/files/img/";
 
 if (!file_exists($PATHIMG)) {
      mkdir($PATHIMG, 0777, true);
@@ -321,7 +321,7 @@ copy("css/bexi.css", $PATHFILES."bexi.css" );
 
 foreach ($images as $img)
 {
-    copy($img["old_src"], $PATHFILES.$img["filename"] );
+    copy($img["old_src"], $PATHIMG.$img["filename"] );
 }
 
 zipme($PATH,$PATHBASE.$project_name.".zip");
