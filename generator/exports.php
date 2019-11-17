@@ -218,7 +218,7 @@ ob_start();
         {
             $img = [];
             $img["old_src"] = $old_src;
-            $filename = pathinfo($old_src,PATHINFO_EXTENSION );
+            $filename = pathinfo($old_src,PATHINFO_BASENAME  );
             $img["filename"] = $filename;
             $img["new_src"] = "./files/img/".$filename;
             $tag->setAttribute('src',$img["new_src"]);
@@ -295,6 +295,7 @@ if (!file_exists($PATH."/files/")) {
 }
 
 $PATHIMG .= "/img/";
+
 if (!file_exists($PATHIMG)) {
      mkdir($PATHIMG, 0777, true);
 }
