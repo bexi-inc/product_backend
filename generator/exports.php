@@ -342,7 +342,8 @@ zipme($PATH,$fileZip);
 
 //print_r($images);
 
-echo $fileZip;
+//echo $fileZip;
+
 /*
   if (file_exists($fileZip)) {
      header('Content-Type: application/zip');
