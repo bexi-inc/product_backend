@@ -344,7 +344,7 @@ zipme($PATH,$fileZip);
 
 //echo $fileZip;
 
-/*
+
   if (file_exists($fileZip)) {
      header('Content-Type: application/zip');
      header('Content-Disposition: attachment; filename="'.basename($fileZip).'"');
@@ -355,5 +355,5 @@ zipme($PATH,$fileZip);
      // delete file
      unlink($fileZip);
  
-   }*/
+   }
 ?>
