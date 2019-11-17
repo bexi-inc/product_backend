@@ -1117,7 +1117,6 @@ function bgchange(btid) {
             });
           }
 */
-auto_save();
 });
 
 function add_action_forms(){
