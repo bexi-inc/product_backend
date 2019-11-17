@@ -343,10 +343,15 @@ zipme($PATH,$fileZip);
 //print_r($images);
 
 
-header("Content-type: application/zip"); 
-header("Content-Disposition: attachment; filename=".pathinfo($fileZip,PATHINFO_BASENAME));
-header("Content-length: " . filesize($fileZip));
-header("Pragma: no-cache"); 
-header("Expires: 0"); 
-readfile("$fileZip");
+  if (file_exists($fileZip)) {
+     header('Content-Type: application/zip');
+     header('Content-Disposition: attachment; filename="'.basename($fileZip).'"');
+     header('Content-Length: ' . filesize($fileZip));
+
+     flush();
+     readfile($fileZip);
+     // delete file
+     unlink($fileZip);
+ 
+   }
 ?>
