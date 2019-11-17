@@ -320,7 +320,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 		    return $ret;
 		}
 
-		print_r($result);
+		//print_r($result);
 
 		try {
 		    $resp = $s3Client->putBucketPolicy([
