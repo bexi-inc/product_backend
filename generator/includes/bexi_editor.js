@@ -1119,7 +1119,7 @@ function bgchange(btid) {
 */
 });
 
-$(window).on('load', function () {
+$(document).on('load', function () {
   auto_save();
 });
 
@@ -1140,7 +1140,6 @@ function styles_ptags(){
       $(this).css("padding","0px");
     }
   });
-  auto_save();
 }
 
 function auto_save()
