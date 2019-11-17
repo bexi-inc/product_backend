@@ -481,7 +481,6 @@ else{
         }
         $content = $doc->saveHTML();
     }
-
     echo "<div id='modu_main'>";
     echo $content;
     echo  "</div>";
@@ -565,6 +564,7 @@ else{
                     anima_loadAsyncSrc();
                 }, 200);
             </script>';
+    echo ' <script>auto_save();</script>';
     echo "\r\n";
     echo "</body>";
     echo "\r\n";
