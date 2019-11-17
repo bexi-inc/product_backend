@@ -486,9 +486,7 @@ else{
         foreach ($modus as $modu) {
             $class = $modu->getAttribute('class');
             $pos=strpos($class,"bexi_module");
-            print_r($class);
-            print_r($pos);
-            if($pos!=false){
+            if($pos!==false){
                 $pos=strpos($class,"hero");
                 if($pos===false){
                     $styles = $modu->getAttribute('style');
