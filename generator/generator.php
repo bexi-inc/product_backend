@@ -484,6 +484,7 @@ else{
         $modus = $doc->getElementsByTagName('div');
         $color=1;
         foreach ($modus as $modu) {
+            print_r($modu);
             $class = $modu->getAttribute('class');
             $pos=strpos($class,"bexi_module");
             if($pos!=false){
