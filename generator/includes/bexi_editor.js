@@ -1488,21 +1488,24 @@ function initialize_editors_text(fonts){
       },
       'image.inserted': function ($img, response) {
         // Image was inserted in the editor.
-        
-        var jresponse =JSON.parse(window.response_img);
-        $img.attr("id",jresponse.id);
-        $img.attr("src",jresponse.src);
-        window.bexi_tagid=jresponse.id;
-        window.response_img=null;
+        window.response_img.done(function(data){
+          var jresponse =JSON.parse(data);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src);
+          window.bexi_tagid=jresponse.id;
+          window.response_img=null;
+        });
         
       },
       'image.replaced': function ($img, response) {
         // Image was replaced in the editor.
-        var jresponse =JSON.parse(window.response_img);
-        $img.attr("id",jresponse.id);
-        $img.attr("src",jresponse.src);
-        window.bexi_tagid=jresponse.id;
-        window.response_img=null;
+        window.response_img.done(function(data){
+          var jresponse =JSON.parse(data);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src);
+          window.bexi_tagid=jresponse.id;
+          window.response_img=null;
+        });
       },
       'click': function (clickEvent) {
         // Do something here.
