@@ -1117,10 +1117,7 @@ function bgchange(btid) {
             });
           }
 */
-});
-
-$(document).on('load', function () {
-  auto_save();
+auto_save();
 });
 
 function add_action_forms(){
