@@ -45,6 +45,7 @@ function bgchangeurl(ID){
       alert("Url invalid!");
     }
   }
+  auto_save();
 }
 
 function Manager_unsplash4(ID,numpag)
@@ -447,6 +448,7 @@ function bgchange(btid) {
       change: function(value, opacity) {
       }
     });
+    auto_save();
   }
 
   function bgimgchange(btid) {
@@ -473,6 +475,7 @@ function bgchange(btid) {
                 }
               }
       });
+      auto_save();
     }
 
     function previewImg(ID) {
@@ -500,6 +503,7 @@ function bgchange(btid) {
         });
       }
       $( "#dialog-img"+(ID).toString()).dialog("close");
+      auto_save();
     }
 
   /**************   Change trigger for tooltip **************/
@@ -1134,6 +1138,7 @@ function styles_ptags(){
       $(this).css("padding","0px");
     }
   });
+  alert("hace");
   auto_save();
 }
 
