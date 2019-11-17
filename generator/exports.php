@@ -231,7 +231,7 @@ ob_start();
 
                 $img = [];
                 $srcpath = str_ireplace ("https://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$old_src);
-                $srcpath = str_ireplace ("http://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$srcpath)
+                $srcpath = str_ireplace ("http://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$srcpath);
                 $img["old_src"] = $srcpath;
                 $filename = pathinfo($old_src,PATHINFO_BASENAME  );
                 $img["filename"] = $filename;
