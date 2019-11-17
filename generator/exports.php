@@ -344,7 +344,7 @@ zipme($PATH,$PATHBASE.$fileZip);
 
 
 header("Content-type: application/zip"); 
-header("Content-Disposition: attachment; filename=".pathinfo($fileZip,PATHINFO_BASENAME));
+header("Content-Disposition: attachment; filename=".$fileZip);
 header("Content-length: " . filesize($fileZip));
 header("Pragma: no-cache"); 
 header("Expires: 0"); 
