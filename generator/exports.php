@@ -338,7 +338,7 @@ foreach ($images as $img)
 
 $fileZip = $PATHBASE.$project_name.".zip" ;
 
-zipme($PATH,$PATHBASE.$fileZip);
+zipme($PATH,$fileZip);
 
 //print_r($images);
 
