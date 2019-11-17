@@ -37,6 +37,39 @@ Crew\Unsplash\HttpClient::init([
     'utmSource' => 'Bexi Generator'
 ]);
 
+$keywords= "";
+if (isset($_REQUEST["projectid"]))
+{
+	$params = [
+        'TableName' => "modu_projects",
+         "KeyConditionExpression"=> "project_id = :id",
+        "ExpressionAttributeValues"=> [
+            ":id" =>  ["S" => $project_id]
+        ]
+    ];
+
+    $result_proj = $dynamodb->query($params);
+
+    if (count($result_proj)>0)
+    {
+        
+        if (isset($result_proj['Items'][0]["keywords"]) && !is_null($result_proj['Items'][0]["keywords"]))
+        {
+            $keywords=PATHWEB.$marshaler->unmarshalValue($result_proj['Items'][0]["keywords"]);
+
+           // print_r($result_proj);
+           // echo($logurl);
+        }else
+        {
+            $keywords="";
+        }
+    }else{
+        $keywords = "";
+    }
+}
+
+
+
 	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
 
 	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];

@@ -115,6 +115,7 @@ if(isset($_REQUEST["devid"]))
 
     if (count($result_proj)>0)
     {
+        
         if (isset($result_proj['Items'][0]["logofull"]) && !is_null($result_proj['Items'][0]["logofull"]))
         {
             $logourl=PATHWEB.$marshaler->unmarshalValue($result_proj['Items'][0]["user_id"])."/".$project_id."/logos/".$marshaler->unmarshalValue($result_proj['Items'][0]["logofull"]);
