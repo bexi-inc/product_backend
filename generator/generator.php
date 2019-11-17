@@ -485,11 +485,11 @@ else{
         $color=1;
         foreach ($modus as $modu) {
             $class = $modu->getAttribute('class');
-            print_r($class);
             $pos=strpos($class,"bexi_module");
             if($pos!=false){
                 $pos=strpos($class,"hero");
                 if($pos===false){
+                    print_r($class);
                     $styles = $modu->getAttribute('style');
                     $comp =explode(";",$styles);
                     $new_style="";
