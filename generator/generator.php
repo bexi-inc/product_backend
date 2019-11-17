@@ -479,6 +479,36 @@ else{
                  }
             }
         }
+        $modules = $doc->querySelector('id^="module_"');
+        $color=1;
+        foreach ($modules as $modu) {
+            $class = $modu->getAttribute('class');
+            $pos=strpos($class,"bexi_module");
+            if($pos!=false){
+                $pos=strpos($class,"hero");
+                if($pos===false){
+                    $styles = $modu->getAttribute('style');
+                    $comp =explode(";",$styles);
+                    $new_style="";
+                    foreach ($comp as $item)
+                    {
+                       $pos=strpos($item,"background-color");
+                       if($pos===false){
+                        $new_style .= $item.";";
+                        }
+                    }
+                    if($color==1)
+                    {
+                        $new_style .= "background-color: rgb(255,255,255) !important;";
+                        $color=0;
+                    }else{
+                        $color=1;
+                        $new_style .= "background-color: rgb(251,251,251) !important;";
+                    }
+                    $modu->setAttribute('style',$new_style);
+                }
+             }
+        }
         $content = $doc->saveHTML();
     }
     echo "<div id='modu_main'>";
