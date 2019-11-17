@@ -1472,18 +1472,6 @@ function initialize_editors_text(fonts){
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
-    // Set the image upload parameter.
-    imageUploadParam: 'file',
-
-    // Set the image upload URL.
-    imageUploadURL: './ajax/uploadfile.php',
-
-    // Additional upload params.
-    imageUploadParams: {devid:$("#devId").val(), projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
-
-    // Set request type.
-    imageUploadMethod: 'POST',
-
     // Set max image size to 5MB.
     imageMaxSize: 5 * 1024 * 1024,
 
