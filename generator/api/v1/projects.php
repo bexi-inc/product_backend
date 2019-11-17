@@ -313,7 +313,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 		} catch (AwsException $e) {
 		    // output error message if fails
 		    $ret["error_code"]="500";
-		    $ret["error_msj"] $e->getMessage();
+		    $ret["error_msj"] = $e->getMessage();
 		    return $ret;
 		}
 
