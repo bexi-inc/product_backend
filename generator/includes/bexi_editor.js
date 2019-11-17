@@ -1269,7 +1269,7 @@ function initialize_editors_text(fonts){
         'image.resizeEnd': function ($img) {
           auto_save();
         },
-        'image.removed': function ($img) {
+        'image.beforeRemove': function ($img) {
           console.log($img.attr("id"));
           $("#"+$img.attr("id")).remove();
           auto_save();
@@ -1336,7 +1336,7 @@ function initialize_editors_text(fonts){
           'image.resizeEnd': function ($img) {
             auto_save();
           },
-          'image.removed': function ($img) {
+          'image.beforeRemove': function ($img) {
             console.log($img.attr("id"));
             $("#"+$img.attr("id")).remove();
             auto_save();
@@ -1403,7 +1403,7 @@ function initialize_editors_text(fonts){
           'image.resizeEnd': function ($img) {
             auto_save();
           },
-          'image.removed': function ($img) {
+          'image.beforeRemove': function ($img) {
             console.log($img.attr("id"));
             $("#"+$img.attr("id")).remove();
             auto_save();
@@ -1469,7 +1469,7 @@ function initialize_editors_text(fonts){
         'image.resizeEnd': function ($img) {
           auto_save();
         },
-        'image.removed': function ($img) {
+        'image.beforeRemove': function ($img) {
           console.log($img.attr("id"));
           $("#"+$img.attr("id")).remove();
           auto_save();
@@ -1538,7 +1538,7 @@ function initialize_editors_text(fonts){
       'image.resizeEnd': function ($img) {
         auto_save();
       },
-      'image.removed': function ($img) {
+      'image.beforeRemove': function ($img) {
         console.log($img.attr("id"));
         $("#"+$img.attr("id")).remove();
         auto_save();
