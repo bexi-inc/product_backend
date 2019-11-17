@@ -71,6 +71,7 @@ if (!isset($_REQUEST["devid"]))
      $user_id = $marshaler->unmarshalValue($result2['Items'][0]["user_id"]);
      $project_name = $marshaler->unmarshalValue($result2['Items'][0]["project_name"]);
 
+
 ob_start();
 
     echo "<!doctype html>";
@@ -269,6 +270,8 @@ if (!file_exists($PATH."/".$_REQUEST["devid"])) {
 
 $PATHBASE = $PATH."/".$_REQUEST["devid"]."/";
 
+unlink($PATHBASE.$project_name.".zip");
+
 $PATH = $PATH."/".$_REQUEST["devid"]."/PUBLISH/";
 
 if (!file_exists($PATH)) {
@@ -291,7 +294,7 @@ if (!file_exists($PATH."/files/")) {
      mkdir($PATH."/files/", 0777, true);
 }
 
-$PATHIMG .= "/img/"
+$PATHIMG .= "/img/";
 if (!file_exists($PATHIMG)) {
      mkdir($PATHIMG, 0777, true);
 }
