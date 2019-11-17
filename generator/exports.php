@@ -346,14 +346,19 @@ zipme($PATH,$fileZip);
 
 
   if (file_exists($fileZip)) {
-     header('Content-Type: application/zip');
+     header('Content-Description: File Transfer');
+     header("Content-Type: application/zip");
      header('Content-Disposition: attachment; filename="'.basename($fileZip).'"');
+     header('Expires: 0');
+     header('Cache-Control: must-revalidate');
+     header('Pragma: public');
      header('Content-Length: ' . filesize($fileZip));
-
+    ob_clean();
+     
      flush();
      readfile($fileZip);
      // delete file
-     unlink($fileZip);
+     @unlink($fileZip);
  
    }
 ?>

@@ -104,7 +104,7 @@ function CreateProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $t
 
 	$Data .= ((isset($_FILES["logofullcolor"]["name"])) ? ', "logofull" : "'.$_FILES["logofullcolor"]["name"].'"' : '');
 	
-	
+
 	$Data .= ' ,"status" : "0"
 		,"colors" : [
 				'.$colors.'
@@ -319,7 +319,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 
 	}elseif ($type==2)
 	{
-		$ret["link"] = "http://www.getmodu.com/";
+		$ret["link"] = "http://generator.getmodu.com/exports.php?devid=".$idDev;
 	}
 	
 	return $ret;
