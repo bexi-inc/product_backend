@@ -1,5 +1,6 @@
 /********global variables********/
 window.bexi_tagid=null;
+window.response_img=null;
 
 function rgb2hex(rgb){
      rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
@@ -1482,23 +1483,26 @@ function initialize_editors_text(fonts){
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        console.log(this.$doc[0].activeElement,"response before");
-        console.log(images[0],"response before");
+        window.response_img=save_img(window.bexi_tagid,images[0]);
         //this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
       'image.inserted': function ($img, response) {
         // Image was inserted in the editor.
-        console.log($img.attr("id"),"inserted");
-        /*
-        var jresponse =JSON.parse(save_img($img.id));
+        
+        var jresponse =JSON.parse(window.response_img);
         $img.attr("id",jresponse.id);
         $img.attr("src",jresponse.src);
         window.bexi_tagid=jresponse.id;
-        */
+        window.response_img=null;
+        
       },
       'image.replaced': function ($img, response) {
         // Image was replaced in the editor.
-        console.log($img.attr("id"),"replaced");
+        var jresponse =JSON.parse(window.response_img);
+        $img.attr("id",jresponse.id);
+        $img.attr("src",jresponse.src);
+        window.bexi_tagid=jresponse.id;
+        window.response_img=null;
       },
       'click': function (clickEvent) {
         // Do something here.
