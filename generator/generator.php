@@ -484,32 +484,40 @@ else{
         $modus = $doc->getElementsByTagName('div');
         $color=1;
         foreach ($modus as $modu) {
-            $class = $modu->getAttribute('class');
-            $pos=strpos($class,"bexi_module");
+            $id = $modu->getAttribute('id');
+            $pos=strpos($id,"module_");
             if($pos!==false){
-                $pos=strpos($class,"hero");
-                if($pos===false){
-                    $styles = $modu->getAttribute('style');
-                    $comp =explode(";",$styles);
-                    $new_style="";
-                    foreach ($comp as $item)
-                    {
-                       $pos=strpos($item,"background-color");
-                       if($pos===false){
-                        $new_style .= $item.";";
+                $class = $modu->getAttribute('class');
+                $pos=strpos($class,"bexi_module");
+                if($pos!==false){
+                    $pos=strpos($class,"hero");
+                    if($pos===false){
+                        $pos=strpos($class,"hea");
+                        if($pos===false)
+                        {
+                            $styles = $modu->getAttribute('style');
+                            $comp =explode(";",$styles);
+                            $new_style="";
+                            foreach ($comp as $item)
+                            {
+                               $pos=strpos($item,"background-color");
+                               if($pos===false){
+                                $new_style .= $item.";";
+                                }
+                            }
+                            if($color==1)
+                            {
+                                $new_style .= "background-color: rgb(255,255,255) !important;";
+                                $color=0;
+                            }else{
+                                $color=1;
+                                $new_style .= "background-color: rgb(251,251,251) !important;";
+                            }
+                            $modu->setAttribute('style',$new_style);
                         }
                     }
-                    if($color==1)
-                    {
-                        $new_style .= "background-color: rgb(255,255,255) !important;";
-                        $color=0;
-                    }else{
-                        $color=1;
-                        $new_style .= "background-color: rgb(251,251,251) !important;";
-                    }
-                    $modu->setAttribute('style',$new_style);
-                }
-             }
+                 }
+            }
         }
         $content = $doc->saveHTML();
     }
