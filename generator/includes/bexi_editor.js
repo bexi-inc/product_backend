@@ -1516,6 +1516,7 @@ function initialize_editors_text(fonts){
       },
       'image.replaced': function ($img, response) {
         // Image was replaced in the editor.
+        console.log($img.attr("id"),"replaced");
         window.response_img.done(function(data){
           var jresponse =JSON.parse(data);
           $img.attr("id",jresponse.id);
