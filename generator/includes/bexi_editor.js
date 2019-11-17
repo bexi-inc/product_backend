@@ -1545,6 +1545,11 @@ function initialize_editors_text(fonts){
       },
       'image.beforeRemove': function ($img) {
         console.log($img.attr("id"),"before");
+        $("#"+$img.attr("id")).remove();
+        $(".fr-active").remove();
+        auto_save();
+        return false;
+        
       },
       'image.Removed': function ($img) {
         console.log($img.attr("id"),"after");
