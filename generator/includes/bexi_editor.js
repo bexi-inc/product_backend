@@ -1482,7 +1482,7 @@ function initialize_editors_text(fonts){
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        console.log(this.$doc[0].activeElement.files[0],"response before");
+        console.log(this.$doc[0].activeElement,"response before");
         console.log(images,"response before");
         //this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
