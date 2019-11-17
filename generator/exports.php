@@ -321,7 +321,7 @@ copy("css/bexi.css", $PATHFILES."bexi.css" );
 
 foreach ($images as $img)
 {
-    copy($img["old_src"], $PATHFILES.$img["filename"] );
+    copy($img["old_src"], $PATHIMG.$img["filename"] );
 }
 
 zipme($PATH,$PATHBASE.$project_name.".zip");
