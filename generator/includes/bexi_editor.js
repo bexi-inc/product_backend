@@ -1119,7 +1119,9 @@ function bgchange(btid) {
 */
 });
 
-
+$(window).on('load', function () {
+  auto_save();
+});
 
 function add_action_forms(){
   $(".bexi_form").each(function(){
