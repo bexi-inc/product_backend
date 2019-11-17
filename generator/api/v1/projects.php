@@ -1,5 +1,10 @@
 <?
 
+require '../../vendor/autoload.php';
+
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+
 function GetStatusStr($status)
 {
 	switch($status){
