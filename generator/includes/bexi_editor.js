@@ -1216,40 +1216,41 @@ function initialize_editors_text(fonts){
       },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
       imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
-      // Set the image upload parameter.
-      imageUploadParam: 'file',
 
-      // Set the image upload URL.
-      imageUploadURL: './ajax/uploadfile.php',
+        // Set max image size to 5MB.
+        imageMaxSize: 5 * 1024 * 1024,
 
-      // Additional upload params.
-      imageUploadParams: {devid:$("#devId").val(),projectid: $("#codeId").val(),userid:$("#userId").val(),tagid:window.bexi_tagid},
-
-      // Set request type.
-      imageUploadMethod: 'POST',
-
-      // Set max image size to 5MB.
-      imageMaxSize: 5 * 1024 * 1024,
-
-      // Allow to upload PNG and JPG.
-      imageAllowedTypes: ['jpeg', 'jpg', 'png'],
-      events : {
-        'blur': function () {
+        // Allow to upload PNG and JPG.
+        imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+        events : {
+          'blur': function () {
             auto_save();
         },
         'image.beforeUpload': function (images) {
-          this.opts.imageUploadParams.tagid=window.bexi_tagid;
+          window.response_img=save_img(window.bexi_tagid,images[0]);
+          //this.opts.imageUploadParams.tagid=window.bexi_tagid;
         },
         'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
-          var jresponse =JSON.parse(response);
-          $img.attr("id",jresponse.id);
-          $img.attr("src",jresponse.src);
-          window.bexi_tagid=jresponse.id;
+          window.response_img.done(function(data){
+            var jresponse =JSON.parse(data);
+            $img.attr("id",jresponse.id);
+            $img.attr("src",jresponse.src);
+            window.bexi_tagid=jresponse.id;
+            window.response_img=null;
+            auto_save();
+          });
         },
         'image.replaced': function ($img, response) {
           // Image was replaced in the editor.
-          console.log(this);
+          window.response_img.done(function(data){
+            var jresponse =JSON.parse(data);
+            $img.attr("id",jresponse.id);
+            $img.attr("src",jresponse.src);
+            window.bexi_tagid=jresponse.id;
+            window.response_img=null;
+            auto_save();
+          });
         },
         'click': function (clickEvent) {
           // Do something here.
@@ -1262,28 +1263,15 @@ function initialize_editors_text(fonts){
             window.bexi_tagid=null;
           }
         },
-        'initialized': function (event, editor) {
+        'initialized': function () {
           styles_ptags();
-          /*
-          loadUsedGoogleFonts(this);
-
-          // Lazy download of font previews
-          $('[data-cmd="fontFamily"][role="button"]').visibility({
-            context: $("div[id*='dropdown-menu-fontFamily-']"),
-            onTopVisible: function(calculations) {
-              var font_family = getFirstFontFamily($(this).data('param1'));
-              loadGoogleFontPreview(font_family);
-            }
-          });
-          */
         },
-        'commands.after': function (event,editor,cmd, param1, param2) {
-          /*
-          if (cmd == 'fontFamily') {
-            var font_family = getFirstFontFamily(param1);
-            loadGoogleFont(font_family);
-          }
-          */
+        'image.resizeEnd': function ($img) {
+          auto_save();
+        },
+        'image.removed': function ($img) {
+          $("#"+$img.attr("id")).remove();
+          auto_save();
         }
       }
     });
@@ -1348,7 +1336,7 @@ function initialize_editors_text(fonts){
             auto_save();
           },
           'image.removed': function ($img) {
-            $img.remove();
+            $("#"+$img.attr("id")).remove();
             auto_save();
           }
       }
@@ -1414,7 +1402,7 @@ function initialize_editors_text(fonts){
             auto_save();
           },
           'image.removed': function ($img) {
-            $img.remove();
+            $("#"+$img.attr("id")).remove();
             auto_save();
           }
       }
@@ -1479,7 +1467,7 @@ function initialize_editors_text(fonts){
           auto_save();
         },
         'image.removed': function ($img) {
-          $img.remove();
+          $("#"+$img.attr("id")).remove();
           auto_save();
         }
     }
@@ -1547,7 +1535,7 @@ function initialize_editors_text(fonts){
         auto_save();
       },
       'image.removed': function ($img) {
-        $img.remove();
+        $("#"+$img.attr("id")).remove();
         auto_save();
       }
     }
