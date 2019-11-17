@@ -479,8 +479,8 @@ else{
                  }
             }
         }
-        /*
-        $modus = $doc->querySelector('id^="module_"');
+        
+        $modus = $doc->getElementsByTagName('div');
         $color=1;
         foreach ($modus as $modu) {
             $class = $modu->getAttribute('class');
@@ -510,7 +510,6 @@ else{
                 }
              }
         }
-        */
         $content = $doc->saveHTML();
     }
     echo "<div id='modu_main'>";
