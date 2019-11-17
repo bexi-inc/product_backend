@@ -286,15 +286,62 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 
 function DeployDeliverable($idDev, $type, $subdomain="")
 {
+	global $AWS_REGION;
+	global $aws_pass;
+	global $aws_key;
+
 	$ret["error_code"] = "0";
-	$ret["user_id"] = $userid;
-	$userid = $userid+1;
-	
-
-	$ret["error"] = "0";
-
 	if ($type==1 && $subdomain!="")
 	{
+		$BUCKET_NAME = $subdomain.'.getmodu.com';
+
+		$s3Client = new S3Client([
+		    'version'     => 'latest',
+		    'region'      => $AWS_REGION,
+		    'credentials' => [
+		        'key'    => $aws_key,
+		        'secret' => $aws_pass,
+		    ],
+		]);
+
+
+		try {
+		    $result = $s3Client->createBucket([
+				'ACL' => 'public-read',
+		        'Bucket' => $BUCKET_NAME,
+		    ]);
+		} catch (AwsException $e) {
+		    // output error message if fails
+		    $ret["error_code"]="500";
+		    $ret["error_msj"] $e->getMessage();
+		    return $ret;
+		}
+
+		print_r($result);
+
+		try {
+		    $resp = $s3Client->putBucketPolicy([
+		        'Bucket' => $BUCKET_NAME,
+		        'Policy' => '{
+		    		"Version": "2012-10-17",
+		    		"Statement": [
+			        	{
+				            "Sid": "PublicReadGetObject",
+				            "Effect": "Allow",
+				            "Principal": "*",
+				            "Action": "s3:GetObject",
+				            "Resource": "arn:aws:s3:::'.$BUCKET_NAME.'/*"
+			        	}
+		    		]
+				}',
+		    ]);
+		    echo "Succeed in put a policy on bucket: " . $BUCKET_NAME . "\n";
+		} catch (AwsException $e) {
+		    // Display error message
+		    echo $e->getMessage();
+		    echo "\n";
+		}
+
 		$key = '
 	    {
 	        "deliverable_id": "'.$idDev.'"
@@ -303,15 +350,21 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 		$updateData='{
 			":subd" : "'.$subdomain.'"
 		}';
-
 		$paramsNoms["#value"] = "value";
 		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, false);
 
+
+		$Data .= '{
+				 "subdomain" : "'.$subdomain.'"
+				,"deviverable_id" : "'.$idDev.'"
+		}';
+
+		Insert("modu_subdomains",$Data,false);
 		
 		if (!$resUpd["error"])
 		{
 			$ret["message"] = "Ok";
-			$ret["link"] = "http://www.getmodu.com/";
+			$ret["link"] = "http://".$subdomain.".getmodu.com/";
 		}else{
 			$ret["error"] = "500";
 			$ret["message"] =  $resUpd["error"];
@@ -319,7 +372,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 
 	}elseif ($type==2)
 	{
-		$ret["link"] = "http://generator.getmodu.com/exports.php?devid=".$idDev;
+		$ret["link"] = "http://generator.getmodu.com/exports.php?Type=zipdevid=".$idDev;
 	}
 	
 	return $ret;

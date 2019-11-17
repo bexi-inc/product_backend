@@ -4,6 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);*/
 
+$TypeDep = $_REQUEST["Type"];
+
 session_start();
 $timeini = microtime(true);
 //header( 'X-Frame-Options: ALLOW-FROM http://generator.localhost' );
@@ -338,11 +340,15 @@ foreach ($images as $img)
 
 $fileZip = $PATHBASE.$project_name.".zip" ;
 
-zipme($PATH,$fileZip);
 
-//print_r($images);
 
-//echo $fileZip;
+if ($TypeDep="zip")
+{
+    zipme($PATH,$fileZip);
+
+    //print_r($images);
+
+    //echo $fileZip;
 
 
   if (file_exists($fileZip)) {
@@ -361,4 +367,5 @@ zipme($PATH,$fileZip);
      @unlink($fileZip);
  
    }
+}
 ?>

@@ -16,6 +16,10 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 require "../../config.php";
 require '../../vendor/autoload.php';
 
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+
+
 require "db.php";
 require "users.php";
 require "emails.php";
