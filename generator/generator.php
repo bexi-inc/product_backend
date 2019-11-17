@@ -487,9 +487,9 @@ else{
             $class = $modu->getAttribute('class');
             $pos=strpos($class,"bexi_module");
             if($pos!=false){
+                print_r($class);
                 $pos=strpos($class,"hero");
                 if($pos===false){
-                    print_r($class);
                     $styles = $modu->getAttribute('style');
                     $comp =explode(";",$styles);
                     $new_style="";
