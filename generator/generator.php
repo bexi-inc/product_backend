@@ -479,9 +479,9 @@ else{
                  }
             }
         }
-        $modules = $doc->querySelector('id^="module_"');
+        $modus = $doc->querySelector('id^="module_"');
         $color=1;
-        foreach ($modules as $modu) {
+        foreach ($modus as $modu) {
             $class = $modu->getAttribute('class');
             $pos=strpos($class,"bexi_module");
             if($pos!=false){
