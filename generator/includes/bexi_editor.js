@@ -1494,20 +1494,22 @@ function initialize_editors_text(fonts){
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        console.log(this,"response replaced");
-        this.opts.imageUploadParams.tagid=window.bexi_tagid;
+        console.log(this,"response before");
+        //this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
       'image.inserted': function ($img, response) {
         // Image was inserted in the editor.
-        var jresponse =JSON.parse(response);
+        console.log($img.attr("id"),"inserted");
+        /*
+        var jresponse =JSON.parse(save_img($img.id));
         $img.attr("id",jresponse.id);
         $img.attr("src",jresponse.src);
         window.bexi_tagid=jresponse.id;
+        */
       },
       'image.replaced': function ($img, response) {
         // Image was replaced in the editor.
-        //console.log(response,"response replaced");
-        //console.log(this);
+        console.log($img.attr("id"),"replaced");
       },
       'click': function (clickEvent) {
         // Do something here.
