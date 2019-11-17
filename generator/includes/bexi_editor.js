@@ -1273,6 +1273,7 @@ function initialize_editors_text(fonts){
           console.log($img.attr("id"));
           $("#"+$img.attr("id")).remove();
           auto_save();
+          return false;
         }
       }
     });
@@ -1340,6 +1341,7 @@ function initialize_editors_text(fonts){
             console.log($img.attr("id"));
             $("#"+$img.attr("id")).remove();
             auto_save();
+            return false;
           }
       }
     });
@@ -1407,6 +1409,7 @@ function initialize_editors_text(fonts){
             console.log($img.attr("id"));
             $("#"+$img.attr("id")).remove();
             auto_save();
+            return false;
           }
       }
     });
@@ -1473,6 +1476,7 @@ function initialize_editors_text(fonts){
           console.log($img.attr("id"));
           $("#"+$img.attr("id")).remove();
           auto_save();
+          return false;
         }
     }
     });
@@ -1542,6 +1546,7 @@ function initialize_editors_text(fonts){
         console.log($img.attr("id"));
         $("#"+$img.attr("id")).remove();
         auto_save();
+        return false;
       }
     }
     });
