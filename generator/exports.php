@@ -224,11 +224,22 @@ ob_start();
             $img["new_src"] = "./files/img/".$filename;
             $tag->setAttribute('src',$img["new_src"]);
             $images[] = $img;
-        }
-        $pos = strpos(pathinfo($old_src,PATHINFO_DIRNAME),"uploads.getmodu.com");
-        if($pos===true){
-            $new_src_url = './files/imgs/'.pathinfo($old_src,PATHINFO_BASENAME);
-            $tag->setAttribute('src',$new_src_url);
+        }else{
+            $pos = strpos(pathinfo($old_src,PATHINFO_DIRNAME),"uploads.getmodu.com");
+            if($pos===true){
+                $new_src_url = './files/imgs/'.pathinfo($old_src,PATHINFO_BASENAME);
+
+                $img = [];
+                $srcpath = str_ireplace ("https://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$old_src);
+                $srcpath = str_ireplace ("http://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$srcpath)
+                $img["old_src"] = $srcpath;
+                $filename = pathinfo($old_src,PATHINFO_BASENAME  );
+                $img["filename"] = $filename;
+                $img["new_src"] = $new_src_url;
+                $images[] = $img;
+
+                $tag->setAttribute('src',$new_src_url);
+            }
         }
     }
     $code = $doc->saveHTML();
@@ -333,7 +344,7 @@ zipme($PATH,$PATHBASE.$fileZip);
 
 
 header("Content-type: application/zip"); 
-header("Content-Disposition: attachment; filename=$fileZip");
+header("Content-Disposition: attachment; filename=".pathinfo($fileZip,PATHINFO_BASENAME));
 header("Content-length: " . filesize($fileZip));
 header("Pragma: no-cache"); 
 header("Expires: 0"); 
