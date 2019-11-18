@@ -329,7 +329,7 @@ function ExportProject($Type)
 
     copy("includes/jquery-ui.min.css", $PATHFILES."jquery-ui.min.css" );
     copy("includes/jquery-3.4.1.min.js", $PATHFILES."jquery-3.4.1.min.js" );
-    copy("modu_finals.js", $PATHFILES."modu_finals.js" );
+    copy("modu_final.js", $PATHFILES."modu_final.js" );
     copy("css/bexi.css", $PATHFILES."bexi.css" );
 
     foreach ($images as $img)
