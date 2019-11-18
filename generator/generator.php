@@ -415,9 +415,10 @@ if (isset($_REQUEST["projectid"]))
         /************** GOOGLE FONTS  FROALA EDITOR **************/
     echo'<script src="includes/visibility.js"></script>';
     echo'<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>';
+    echo'<script src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/plugins/font_family.min.js"></script>';
     echo'<script src="./config.js"></script>';
 
-    
+
     echo'<script src="./modu_final.js"></script>';
 
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
