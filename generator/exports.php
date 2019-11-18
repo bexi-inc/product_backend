@@ -415,6 +415,57 @@ function ExportProject($Type, $subdomain = "")
                     ]
                 }',
             ]);
+
+
+           $dir = $PATH;
+           $cdir = scandir($dir);
+           foreach ($cdir as $key => $value)
+           {
+              if (!in_array($value,array(".","..")))
+              {
+                 if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
+                     $result = $s3Client->putObject([
+                        'Bucket' => $BUCKET_NAME,
+                        'Key' => $value,
+                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
+                    ]);
+                 }
+              }
+           } 
+
+           $dir = $PATH."files/";
+           $cdir = scandir($dir);
+           foreach ($cdir as $key => $value)
+           {
+              if (!in_array($value,array(".","..")))
+              {
+                 if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
+                     $result = $s3Client->putObject([
+                        'Bucket' => $BUCKET_NAME,
+                        'Key' => "/files/img/".$value,
+                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
+                    ]);
+                 }
+              }
+           } 
+
+           $dir = $PATH."files/imgs/";
+           $cdir = scandir($dir);
+           foreach ($cdir as $key => $value)
+           {
+              if (!in_array($value,array(".","..")))
+              {
+                 if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
+                     $result = $s3Client->putObject([
+                        'Bucket' => $BUCKET_NAME,
+                        'Key' => "/files/".$value,
+                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
+                    ]);
+                 }
+              }
+           } 
+
+
            // echo "Succeed in put a policy on bucket: " . $BUCKET_NAME . "\n";
         } catch (AwsException $e) {
             // Display error message
@@ -428,5 +479,8 @@ function ExportProject($Type, $subdomain = "")
 if ($TypeDep=="zip")
 {
     ExportProject($TypeDep);
+}elseif ($TypeDep =="dom")
+{
+    ExportProject($TypeDep, $_REQUEST["dominio"]);
 }
 ?>
