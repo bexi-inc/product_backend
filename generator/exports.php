@@ -424,6 +424,7 @@ function ExportProject($Type, $subdomain = "")
               if (!in_array($value,array(".","..")))
               {
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
+                 {
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => $value,
@@ -440,6 +441,7 @@ function ExportProject($Type, $subdomain = "")
               if (!in_array($value,array(".","..")))
               {
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
+                 {
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "/files/img/".$value,
@@ -456,6 +458,7 @@ function ExportProject($Type, $subdomain = "")
               if (!in_array($value,array(".","..")))
               {
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
+                 {
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "/files/".$value,
