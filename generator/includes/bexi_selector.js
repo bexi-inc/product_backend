@@ -164,7 +164,7 @@ $( document ).ready(function() {
  			
         $.ajax({
                 url: 'ajax/projects.php',
-                data: {"cmd" : "CreateProject", "user" : UserParam},
+                data: {"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams},
                 dataType: "json",
                 type: 'POST',
                 async : false,

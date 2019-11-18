@@ -248,6 +248,8 @@ if (isset($_REQUEST["projectid"]))
 		var Widthparam = <? echo (isset($_REQUEST["screen_width"]) ? $_REQUEST["screen_width"] : "0"); ?>;
 		var Heightparam = <? echo (isset($_REQUEST["screen_height"]) ? $_REQUEST["screen_height"] : "0"); ?>;
 		var UserParam = <? echo (isset($_REQUEST["user"]) ? $_REQUEST["user"] : "0"); ?>;
+		var ProjectIdParam = <? echo (isset($_REQUEST["projectid"]) ? $_REQUEST["projectid"] : "0"); ?>;
+		var KeywordsParams = '<? echo (isset($keywords) ? $keywords : ""); ?>';
 
 		window.onmessage = function(e){
 			console.log("onmessage");
