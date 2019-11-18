@@ -15,6 +15,9 @@ $TypeDep = $_REQUEST["Type"];
 use Aws\DynamoDb\Exception\DynamoDbException;
 use Aws\DynamoDb\Marshaler;
 
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+
 function ExportProject($Type, $subdomain = "")
 {
     include "config.php";
