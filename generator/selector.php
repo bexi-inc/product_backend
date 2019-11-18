@@ -40,6 +40,7 @@ Crew\Unsplash\HttpClient::init([
 $keywords= "";
 if (isset($_REQUEST["projectid"]))
 {
+	$project_id = $_REQUEST["projectid"];
 	$params = [
         'TableName' => "modu_projects",
          "KeyConditionExpression"=> "project_id = :id",
