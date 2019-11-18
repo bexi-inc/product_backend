@@ -92,8 +92,16 @@ function setImages($contenido,$keywords = ""){
 	    {
 
 	   	 	$data = Crew\Unsplash\Photo::random($filters);
-
-	   	 	print_r($data);
+	   	} catch (Crew\Unsplash\Exception $e) {
+	     	$filters = [
+	            'featured' => true,
+	            'w'        => $imgdata[1],
+	            'h'        => $imgdata[2]
+	    	];
+	    	$data = Crew\Unsplash\Photo::random($filters);
+	   		//print_r($e);
+	   	}
+	   	 	//print_r($data);
 	     	//echo $data->user['name'];
 	     	//$contenido=substr_replace($contenido,' ',$pos2 + 2 ,0);
 	    	$contenido=substr_replace($contenido,$data->urls['full'],$pos,$pos2-$pos + 1);
@@ -131,10 +139,7 @@ function setImages($contenido,$keywords = ""){
 
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
 			}*/
-	   } catch (Crew\Unsplash\Exception $e) {
-	     //writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
-	   		print_r($e);
-	   }
+
 	   // $pos++;
 	}
 	return $contenido;
