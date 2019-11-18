@@ -3,25 +3,29 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);*/
+include "includes/global.php";
+include "includes/utils.php";
+    
+require 'vendor/autoload.php';
+include "includes/content_blocks.php";
 
 $TypeDep = $_REQUEST["Type"];
 
+
+use Aws\DynamoDb\Exception\DynamoDbException;
+use Aws\DynamoDb\Marshaler;
+
 function ExportProject($Type)
 {
-
-    //echo "Tiempo: ".(microtime(true) - $timeini)."<br>";
-    include "includes/global.php";
-    include "includes/utils.php";
     include "config.php";
-    require 'vendor/autoload.php';
-    include "includes/content_blocks.php";
+    //echo "Tiempo: ".(microtime(true) - $timeini)."<br>";
+    
 
     //echo "Tiempo 2 : ".(microtime(true) - $timeini)."<br>";
 
     date_default_timezone_set('UTC');
 
-    use Aws\DynamoDb\Exception\DynamoDbException;
-    use Aws\DynamoDb\Marshaler;
+    
 
     //echo "Tiempo 3 : ".(microtime(true) - $timeini)."<br>";
 
