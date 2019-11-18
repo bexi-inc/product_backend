@@ -57,7 +57,7 @@ if (isset($_REQUEST["projectid"]))
         
         if (isset($result_proj['Items'][0]["keywords"]) && !is_null($result_proj['Items'][0]["keywords"]))
         {
-            $keywords=PATHWEB.$marshaler->unmarshalValue($result_proj['Items'][0]["keywords"]);
+            $keywords=$marshaler->unmarshalValue($result_proj['Items'][0]["keywords"]);
 
            // print_r($result_proj);
            // echo($logurl);
