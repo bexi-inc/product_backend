@@ -292,58 +292,12 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 	global $AWS_REGION;
 	global $aws_pass;
 	global $aws_key;
-
+	include ("../exports.php");
 	$ret["error_code"] = "0";
 	if ($type==1 && $subdomain!="")
 	{
-		$BUCKET_NAME = $subdomain.'.getmodu.com';
 
-		$s3Client = new S3Client([
-		    'version'     => 'latest',
-		    'region'      => $AWS_REGION,
-		    'credentials' => [
-		        'key'    => $aws_key,
-		        'secret' => $aws_pass,
-		    ],
-		]);
-
-
-		try {
-		    $result = $s3Client->createBucket([
-				'ACL' => 'public-read',
-		        'Bucket' => $BUCKET_NAME,
-		    ]);
-		} catch (AwsException $e) {
-		    // output error message if fails
-		    $ret["error_code"]="500";
-		    $ret["error_msj"] = $e->getMessage();
-		    return $ret;
-		}
-
-		//print_r($result);
-
-		try {
-		    $resp = $s3Client->putBucketPolicy([
-		        'Bucket' => $BUCKET_NAME,
-		        'Policy' => '{
-		    		"Version": "2012-10-17",
-		    		"Statement": [
-			        	{
-				            "Sid": "PublicReadGetObject",
-				            "Effect": "Allow",
-				            "Principal": "*",
-				            "Action": "s3:GetObject",
-				            "Resource": "arn:aws:s3:::'.$BUCKET_NAME.'/*"
-			        	}
-		    		]
-				}',
-		    ]);
-		   // echo "Succeed in put a policy on bucket: " . $BUCKET_NAME . "\n";
-		} catch (AwsException $e) {
-		    // Display error message
-		    echo $e->getMessage();
-		    echo "\n";
-		}
+		ExportProject("dom",$subdomain);
 
 		$key = '
 	    {
