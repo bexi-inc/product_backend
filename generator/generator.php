@@ -384,8 +384,10 @@ else{
     echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
 
     echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
+    
     /**************   ICON FONTS **************/
     echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
+    
     $n=1;
     if ($project_id!="")
     {
@@ -407,8 +409,10 @@ else{
 
         /************** GOOGLE FONTS  FROALA EDITOR **************/
     echo'<script src="includes/visibility.js"></script>';
+    echo'<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>';
     echo'<script src="./config.js"></script>';
 
+    
     echo'<script src="./modu_final.js"></script>';
 
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
