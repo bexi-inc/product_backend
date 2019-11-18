@@ -375,7 +375,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 
 	}elseif ($type==2)
 	{
-		$ret["link"] = "http://generator.getmodu.com/exports.php?Type=zipdevid=".$idDev;
+		$ret["link"] = "http://generator.getmodu.com/exports.php?Type=zip&devid=".$idDev;
 	}
 	
 	return $ret;

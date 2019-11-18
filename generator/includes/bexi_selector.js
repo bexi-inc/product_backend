@@ -161,7 +161,7 @@ $( document ).ready(function() {
  			var npos = 1;
  			var slider = 0;
 
- 			
+ 			  console.log({"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams});
         $.ajax({
                 url: 'ajax/projects.php',
                 data: {"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams},
