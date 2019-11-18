@@ -195,7 +195,7 @@ $res["error_code"]=0;
  		$res = DeployDeliverable($_REQ->deliverable,1,$_REQ->domain);
  		break;
  	case "DeployDeliverableToDownload":
- 		if (!isset($_REQ->delviverable))
+ 		if (!isset($_REQ->deliverable))
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";

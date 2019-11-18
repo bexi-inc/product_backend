@@ -40,6 +40,7 @@ Crew\Unsplash\HttpClient::init([
 $keywords= "";
 if (isset($_REQUEST["projectid"]))
 {
+	$project_id = $_REQUEST["projectid"];
 	$params = [
         'TableName' => "modu_projects",
          "KeyConditionExpression"=> "project_id = :id",
@@ -48,6 +49,7 @@ if (isset($_REQUEST["projectid"]))
         ]
     ];
 
+    print_r($params);
     $result_proj = $dynamodb->query($params);
 
     if (count($result_proj)>0)
