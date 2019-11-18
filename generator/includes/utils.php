@@ -132,7 +132,7 @@ function setImages($contenido,$keywords = ""){
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
 			}*/
 	   } catch (Crew\Unsplash\Exception $e) {
-	      writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
+	     //writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
 	   }
 	   // $pos++;
 	}
