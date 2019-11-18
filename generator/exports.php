@@ -345,7 +345,7 @@ function ExportProject($Type, $subdomain = "")
 
 
 
-    if ($Type="zip")
+    if ($Type=="zip")
     {
         $fileZip = $PATHBASE.$project_name.".zip" ;
         zipme($PATH,$fileZip);
@@ -371,7 +371,7 @@ function ExportProject($Type, $subdomain = "")
          @unlink($fileZip);
      
        }
-    }elseif ($Type="dom")
+    }elseif ($Type=="dom")
     {
         $BUCKET_NAME = $subdomain.'.getmodu.com';
 
@@ -480,7 +480,7 @@ function ExportProject($Type, $subdomain = "")
 
 }
 
-if ($TypeDep=="zip")
+if ($TypeDe p==" zip")
 {
     ExportProject($TypeDep);
 }elseif ($TypeDep =="dom")
