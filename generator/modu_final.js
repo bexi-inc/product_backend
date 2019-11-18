@@ -11,7 +11,7 @@ function send_data(ID){
                 // tab of the developer tools
                 var parent= $("#"+ID).closest(".bexi_form").attr("id");
                 $("#"+ID).closest(".bexi_form").empty();
-                $("#"+parent).prepend('<div class="row m-0">Thanks! Yous message was successfully submitted.</div>');
+                $("#"+parent).prepend('<div class="row m-0">Thanks! Your message was successfully submitted.</div>');
             },
             error: function(xhr, resp, text) {
                 alert("Sorry, something went wrong =(");
