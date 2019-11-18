@@ -434,14 +434,12 @@ function GmailSigin($code, $redirect="")
 		}
 		if ((isset($lastname)) && $lastname != "")
 		{
-			$userData .= '"lastname" : "'.$lastname.'",';	
+			$userData .= '"las_tname" : "'.$lastname.'",';	
 		}
 		$userData .= '
 			"google_token" : "'.$idgoogle.'"
 		}';
 
-		print($userData);
-		
 		$resIns=Insert("users",$userData);
 
 		if (!$resIns["error"])
