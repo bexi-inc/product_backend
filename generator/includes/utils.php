@@ -25,6 +25,16 @@ function setImages($contenido,$keywords = ""){
 	    {
 
 	   	 	$data = Crew\Unsplash\Photo::random($filters);
+	   	} catch (Crew\Unsplash\Exception $e) {
+	       $filters = [
+	            'featured' => true,
+	            'w'        => $imgdata[1],
+	            'h'        => $imgdata[2],
+	            'query'    => $keywords
+	    	];
+	    	$data = Crew\Unsplash\Photo::random($filters);
+	    }
+	    $pos++;
 
 	   	 	//print_r($data);
 	     	//echo $data->user['name'];
@@ -64,10 +74,7 @@ function setImages($contenido,$keywords = ""){
 
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
 			}
-	    } catch (Crew\Unsplash\Exception $e) {
-	      //writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
-	    }
-	    $pos++;
+	    
 	}
 
 	$pos=0;
@@ -92,7 +99,15 @@ function setImages($contenido,$keywords = ""){
 	    {
 
 	   	 	$data = Crew\Unsplash\Photo::random($filters);
-
+	   	} catch (Crew\Unsplash\Exception $e) {
+	     	$filters = [
+	            'featured' => true,
+	            'w'        => $imgdata[1],
+	            'h'        => $imgdata[2]
+	    	];
+	    	$data = Crew\Unsplash\Photo::random($filters);
+	   		//print_r($e);
+	   	}
 	   	 	//print_r($data);
 	     	//echo $data->user['name'];
 	     	//$contenido=substr_replace($contenido,' ',$pos2 + 2 ,0);
@@ -131,9 +146,7 @@ function setImages($contenido,$keywords = ""){
 
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
 			}*/
-	   } catch (Crew\Unsplash\Exception $e) {
-	     //writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
-	   }
+
 	   // $pos++;
 	}
 	return $contenido;
