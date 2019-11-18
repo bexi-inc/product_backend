@@ -1,4 +1,4 @@
-var email="adrian@bexi.io";
+var email="";
 
 function send_data(ID){
         $.ajax({
