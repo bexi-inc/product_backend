@@ -1035,92 +1035,12 @@ function bgchange(btid) {
          }
        });
 
-        // Fetch all the google web fonts (regular weight) to load in
-        var webfonts_address = 'https://www.googleapis.com/webfonts/v1/webfonts?key='+google_key+'&sort=popularity';
-        var fetch_web_fonts = $.getJSON(webfonts_address).then(function(data) { return data.items});
-    
-        var collect_font_families = fetch_web_fonts.then(function(google_fonts) {
-          var fonts = {
-            'Arial,Helvetica,sans-serif': 'Arial',
-            'Arial Black,Arial Bold,Gadget, sans-serif': 'Arial Black',
-            'Arial Narrow,Arial,sans-serif': 'Arial Narrow',
-            'Georgia,serif': 'Georgia',
-            'Impact,Charcoal,sans-serif': 'Impact',
-            'Tahoma,Geneva,sans-serif': 'Tahoma',
-            'Times New Roman,Times,serif,-webkit-standard': 'Times New Roman',
-            'Verdana,Geneva,sans-serif': 'Verdana',
-            'Palatino Linotype,Book Antiqua,Palatino,serif': 'Palatino Linotype',
-            'Lucida Sans Unicode,Lucida Grande,sans-serif': 'Lucida Sans Unicode',
-            'Lucida Console,Monaco,monospace': 'Lucida Console',
-            'Gill Sans,Gill Sans MT,Calibri,sans-serif': 'Gill Sans',
-            'Century Gothic,CenturyGothic,AppleGothic,sans-serif': 'Century Gothic',
-            'Copperplate,Copperplate Gothic Light,fantasy': 'Copperplate',
-            'Gill Sans,Gill Sans MT,Calibri,sans-serif': 'Gill Sans',
-            'Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif': 'Trebuchet MS',
-            'Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace': 'Courier New',
-            'Garamond,Baskerville,Baskerville Old Face,Hoefler Text,Times New Roman,serif': 'Garamond',
-            'Helvetica Neue,Helvetica,Arial,sans-serif': 'Helvetica Neue'
-          };
-    
-          $.each(google_fonts, function(index, font) {
-            if ($.inArray('regular', font.variants) > -1) {
-              fonts["'" + font.family + "'," + font.category] = font.family;
-            }
-          });
-          initialize_editors_text(fonts);
-          return fonts;
-        });
+      initialize_editors_text();
+});/**END OF DOCUMENT READY ***/
 
-        collect_font_families.then(function(font_families) {
-          
-        });
 
-      /*
-          function getFirstFontFamily(declaration) {
-            return declaration.split(',')[0].replace(/['"]+/g, '').trim();
-          }
-      
-          function loadUsedGoogleFonts(editor) {
-            // Download fonts already in the editor
-            var $font_nodes = $(editor).find('.fr-view [style*="font-family"]');
-            $font_nodes.each(function() {
-              var font_family = getFirstFontFamily($(this).css('font-family'));
-              loadGoogleFont(font_family);
-            });
-          }
-      
-          function isGoogleFont(font_family) {
-            return fetch_web_fonts.then(function(google_fonts) {
-              is = false;
-      
-              $.each(google_fonts, function(index, font) {
-                if (font.family === font_family) {
-                  is = true;
-                  return false;
-                }
-              });
-      
-              return is;
-            });
-          }
-      
-          function loadGoogleFontPreview(font_family) {
-            isGoogleFont(font_family).then(function(is) {
-              if (is) {
-                WebFont.load({ google: { families: [font_family], text: font_family } });
-              }
-            });
-          }
-      
-          function loadGoogleFont(font_family) {
-            isGoogleFont(font_family).then(function(is) {
-              if (is) {
-                WebFont.load({ google: { families: [font_family + ':regular,italic,700,700italic:latin-ext'] } });
-              }
-            });
-          }
-*/
-});
+
+
 
 function add_action_forms(){
   $(".bexi_form").each(function(){
@@ -1143,7 +1063,6 @@ function styles_ptags(){
 
 function auto_save()
 {
-
     var did=$("#devId").val();
     var pid=$("#codeId").val();
     var uid=$("#userId").val();
@@ -1196,7 +1115,7 @@ function save_img(TAGID,FILE){
 }
 
 
-function initialize_editors_text(fonts){
+function initialize_editors_text(){
     var editortxt = new FroalaEditor('.bexi_editor_text',
     {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
@@ -1265,7 +1184,7 @@ function initialize_editors_text(fonts){
             window.bexi_tagid=null;
           }
         },
-        'initialized': function () {
+        'initialized': function (event, editor) {
           styles_ptags();
         },
         'image.resizeEnd': function ($img) {
@@ -1288,6 +1207,8 @@ function initialize_editors_text(fonts){
       charCounterCount: false,
       toolbarVisibleWithoutSelection: true,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
+      fontFamilySelection: true,
+      fontFamilyDefaultSelection: 'Font',
       // Set max image size to 5MB.
       imageMaxSize: 5 * 1024 * 1024,
 
@@ -1357,6 +1278,8 @@ function initialize_editors_text(fonts){
       charCounterCount: false,
       toolbarVisibleWithoutSelection: true,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
+      fontFamilySelection: true,
+      fontFamilyDefaultSelection: 'Font',
       // Set max image size to 5MB.
       imageMaxSize: 5 * 1024 * 1024,
 
@@ -1425,6 +1348,8 @@ function initialize_editors_text(fonts){
       toolbarInline: true,
       charCounterCount: false,
       linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
+      fontFamilySelection: true,
+      fontFamilyDefaultSelection: 'Font',
     // Set max image size to 5MB.
     imageMaxSize: 5 * 1024 * 1024,
 
@@ -1496,6 +1421,8 @@ function initialize_editors_text(fonts){
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
+      fontFamilySelection: true,
+      fontFamilyDefaultSelection: 'Font',
     // Set max image size to 5MB.
     imageMaxSize: 5 * 1024 * 1024,
 
