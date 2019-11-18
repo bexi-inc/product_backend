@@ -440,6 +440,8 @@ function GmailSigin($code, $redirect="")
 			"google_token" : "'.$idgoogle.'"
 		}';
 
+		print($userData);
+		
 		$resIns=Insert("users",$userData);
 
 		if (!$resIns["error"])
