@@ -522,7 +522,7 @@ if (isset($_REQUEST["projectid"]))
             foreach ($tags as $tag) {
                 $class = $tag->getAttribute('class');
                 $pos=strpos($class,"bexi_logo");
-                if($pos!=false){
+                if($pos!==false){
                     $tag->setAttribute('src',$logourl);
                  }
             }
