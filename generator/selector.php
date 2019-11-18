@@ -49,6 +49,7 @@ if (isset($_REQUEST["projectid"]))
         ]
     ];
 
+    print_r($params);
     $result_proj = $dynamodb->query($params);
 
     if (count($result_proj)>0)
