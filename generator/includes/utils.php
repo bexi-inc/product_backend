@@ -29,11 +29,11 @@ function setImages($contenido,$keywords = ""){
 	       $filters = [
 	            'featured' => true,
 	            'w'        => $imgdata[1],
-	            'h'        => $imgdata[2],
+	            'h'        => $imgdata[2]
 	    	];
 	    	$data = Crew\Unsplash\Photo::random($filters);
 	    }
-	    $pos++;
+	    //$pos++;
 
 	   	 	//print_r($data);
 	     	//echo $data->user['name'];
