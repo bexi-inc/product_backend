@@ -508,6 +508,11 @@ background-color: #e7e7e7 !important;
         justify-content: center;
     }
 
+    .padding_mobile{
+      padding-left: 0;
+      padding-right: 0;
+    }
+    
     .border-lines-mobile{
         border-right:none !important;
         border-bottom: 1px solid rgba(201,201,201,0.5);
@@ -529,6 +534,7 @@ background-color: #e7e7e7 !important;
         border-bottom-left-radius: 25px;
         margin-left: auto;
     }
+
 }
 
 .bexi_panel
