@@ -351,6 +351,11 @@ else{
     }
 }
 
+if (isset($_REQUEST["projectid"]))
+{
+    $project_id = $_REQUEST["projectid"];
+}
+
    
     ob_start();
 

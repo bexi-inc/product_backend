@@ -49,7 +49,7 @@ if (isset($_REQUEST["projectid"]))
         ]
     ];
 
-    print_r($params);
+    //print_r($params);
     $result_proj = $dynamodb->query($params);
 
     if (count($result_proj)>0)
@@ -72,30 +72,30 @@ if (isset($_REQUEST["projectid"]))
 
 
 
-	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
+	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
-	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"]."&projectid=".$_REQUEST["projectid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
 
-	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
+	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
-	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"]."&projectid=".$_REQUEST["projectid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
 
-	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
+	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
-	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"]."&projectid=".$_REQUEST["projectid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
 
-	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
+	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
-	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"]."&projectid=".$_REQUEST["projectid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
