@@ -30,7 +30,6 @@ function setImages($contenido,$keywords = ""){
 	            'featured' => true,
 	            'w'        => $imgdata[1],
 	            'h'        => $imgdata[2],
-	            'query'    => $keywords
 	    	];
 	    	$data = Crew\Unsplash\Photo::random($filters);
 	    }
