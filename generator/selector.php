@@ -49,7 +49,7 @@ if (isset($_REQUEST["projectid"]))
         ]
     ];
 
-    print_r($params);
+    //print_r($params);
     $result_proj = $dynamodb->query($params);
 
     if (count($result_proj)>0)
@@ -57,7 +57,7 @@ if (isset($_REQUEST["projectid"]))
         
         if (isset($result_proj['Items'][0]["keywords"]) && !is_null($result_proj['Items'][0]["keywords"]))
         {
-            $keywords=PATHWEB.$marshaler->unmarshalValue($result_proj['Items'][0]["keywords"]);
+            $keywords=$marshaler->unmarshalValue($result_proj['Items'][0]["keywords"]);
 
            // print_r($result_proj);
            // echo($logurl);
@@ -72,30 +72,30 @@ if (isset($_REQUEST["projectid"]))
 
 
 
-	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
+	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
-	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"]."&projectid=".$_REQUEST["projectid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
 
-	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
+	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
-	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"]."&projectid=".$_REQUEST["projectid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
 
-	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
+	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
-	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"]."&projectid=".$_REQUEST["projectid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
 
-	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],"");
+	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
-	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"];
+	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"]."&projectid=".$_REQUEST["projectid"];
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
@@ -248,6 +248,8 @@ if (isset($_REQUEST["projectid"]))
 		var Widthparam = <? echo (isset($_REQUEST["screen_width"]) ? $_REQUEST["screen_width"] : "0"); ?>;
 		var Heightparam = <? echo (isset($_REQUEST["screen_height"]) ? $_REQUEST["screen_height"] : "0"); ?>;
 		var UserParam = <? echo (isset($_REQUEST["user"]) ? $_REQUEST["user"] : "0"); ?>;
+		var ProjectIdParam = <? echo (isset($_REQUEST["projectid"]) ? $_REQUEST["projectid"] : "0"); ?>;
+		var KeywordsParams = '<? echo (isset($keywords) ? $keywords : ""); ?>';
 
 		window.onmessage = function(e){
 			console.log("onmessage");

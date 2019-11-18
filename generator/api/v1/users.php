@@ -362,6 +362,7 @@ function GmailSigin($code, $redirect="")
 		//print_r($google_account_info);
 		$email =  $google_account_info->email;
 		$name =  $google_account_info->name;
+		$lasname = $google_account_info->family_name;
 		$idgoogle =  $google_account_info->id;
 
 		$ret["error_code"] = "0";
@@ -415,6 +416,16 @@ function GmailSigin($code, $redirect="")
 		$userData ='{
 			"id" : "'.$userid.'",
 			"username" : "'.$email.'",
+		';
+		if (isset($name) && $name != "")
+		{
+			$userData .= '"name" : "'.$name.'",';	
+		}
+		if (isset($lastname) && $lastname != "")
+		{
+			$userData .= '"lastname" : "'.$lastname.'",';	
+		}
+		$userData .= '
 			"google_token" : "'.$idgoogle.'"
 		}';
 

@@ -40,7 +40,7 @@ $cmd = $_REQUEST["cmd"];
 
 switch ($cmd) {
 	case "CreateProject":
-		   $res = CreateProject($marshaler,$dynamodb,$_REQUEST["user"],"");
+		   $res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$_REQUEST["keywords"]);
 	break;
 }
 
