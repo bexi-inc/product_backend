@@ -338,7 +338,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 		    		]
 				}',
 		    ]);
-		    echo "Succeed in put a policy on bucket: " . $BUCKET_NAME . "\n";
+		   // echo "Succeed in put a policy on bucket: " . $BUCKET_NAME . "\n";
 		} catch (AwsException $e) {
 		    // Display error message
 		    echo $e->getMessage();

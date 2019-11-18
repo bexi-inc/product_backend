@@ -83,7 +83,7 @@ function Insert($tableName, $paramsJson, $useprefix=true)
 	return $ret;
 }
 
-function Update($tableName, $KeyJson, $UpdateExpression, $paramsJson ,$ExpressionNames="")
+function Update($tableName, $KeyJson, $UpdateExpression, $paramsJson ,$ExpressionNames="", $useprefix = true)
 {
 	global $Dynamodb;
 	global $Marshaler;
@@ -94,7 +94,7 @@ function Update($tableName, $KeyJson, $UpdateExpression, $paramsJson ,$Expressio
 	$eav = $Marshaler->marshalJson($paramsJson);
 
 	$params = [
-	    'TableName' => $db_prefix.$tableName,
+	    'TableName' => ($useprefix ? $db_prefix : '').$tableName,
 	    'Key' => $key,
 	    'UpdateExpression' => $UpdateExpression,
 	    'ExpressionAttributeValues'=> $eav,
