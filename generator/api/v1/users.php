@@ -365,7 +365,7 @@ function GmailSigin($code, $redirect="")
 			$name =  $google_account_info->familyName;
 		}
 
-		if (isset($name =  $google_account_info->last_name))
+		if (isset($google_account_info->last_name))
 		{
 			$lasname = $google_account_info->last_name;
 		}
@@ -428,11 +428,11 @@ function GmailSigin($code, $redirect="")
 			"id" : "'.$userid.'",
 			"username" : "'.$email.'",
 		';
-		if (isset($name) && $name != "")
+		if ((isset($name)) && $name != "")
 		{
 			$userData .= '"name" : "'.$name.'",';	
 		}
-		if (isset($lastname) && $lastname != "")
+		if ((isset($lastname)) && $lastname != "")
 		{
 			$userData .= '"lastname" : "'.$lastname.'",';	
 		}
