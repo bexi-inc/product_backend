@@ -377,8 +377,8 @@ function ExportProject($Type)
 
 }
 
-if ($typDep=="zip")
+if ($TypeDep=="zip")
 {
-    ExportProject($typDep);
+    ExportProject($TypeDep);
 }
 ?>
