@@ -360,12 +360,21 @@ function GmailSigin($code, $redirect="")
 		$google_oauth = new Google_Service_Oauth2($client);
 		$google_account_info = $google_oauth->userinfo->get();
 		//print_r($google_account_info);
+		if (isset($google_account_info->familyName))
+		{
+			$name =  $google_account_info->familyName;
+		}
+
+		if (isset($name =  $google_account_info->last_name))
+		{
+			$lasname = $google_account_info->last_name;
+		}
 		$email =  $google_account_info->email;
-		$name =  $google_account_info->name;
-		$lasname = $google_account_info->last_name;
+		
+		
 		$idgoogle =  $google_account_info->id;
 
-		print_r($google_account_info);
+		//print_r($google_account_info);
 
 		$ret["error_code"] = "0";
 		$ret["token"] = $token['access_token'];	
