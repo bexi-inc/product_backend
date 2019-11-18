@@ -93,7 +93,7 @@ function setImages($contenido,$keywords = ""){
 
 	   	 	$data = Crew\Unsplash\Photo::random($filters);
 
-	   	 	//print_r($data);
+	   	 	print_r($data);
 	     	//echo $data->user['name'];
 	     	//$contenido=substr_replace($contenido,' ',$pos2 + 2 ,0);
 	    	$contenido=substr_replace($contenido,$data->urls['full'],$pos,$pos2-$pos + 1);
@@ -133,6 +133,7 @@ function setImages($contenido,$keywords = ""){
 			}*/
 	   } catch (Crew\Unsplash\Exception $e) {
 	     //writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
+	   		print_r($e);
 	   }
 	   // $pos++;
 	}
