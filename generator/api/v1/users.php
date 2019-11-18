@@ -417,13 +417,13 @@ function GmailSigin($code, $redirect="")
 			"id" : "'.$userid.'",
 			"username" : "'.$email.'",
 		';
-		if (isset($name) && $name!="")
+		if (isset($name) && $name != "")
 		{
-			$userData . = '"name" : "'.$name.'",';	
+			$userData .= '"name" : "'.$name.'",';	
 		}
-		if (isset($lastname) && $lastname!="")
+		if (isset($lastname) && $lastname != "")
 		{
-			$userData . = '"lastname" : "'.$lastname.'",';	
+			$userData .= '"lastname" : "'.$lastname.'",';	
 		}
 		$userData .= '
 			"google_token" : "'.$idgoogle.'"
