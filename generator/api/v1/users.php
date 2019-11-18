@@ -367,7 +367,7 @@ function GmailSigin($code, $redirect="")
 
 		if (isset($google_account_info->last_name))
 		{
-			$lasname = $google_account_info->last_name;
+			$lastname = $google_account_info->last_name;
 		}
 		$email =  $google_account_info->email;
 		
