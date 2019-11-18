@@ -480,7 +480,7 @@ function ExportProject($Type, $subdomain = "")
 
 }
 
-if ($TypeDe p==" zip")
+if ($TypeDe ==" zip")
 {
     ExportProject($TypeDep);
 }elseif ($TypeDep =="dom")
