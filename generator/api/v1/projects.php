@@ -310,6 +310,8 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		        "project_id" : "'.$ProjId.'"
 		    }
 			';
+
+			echo "Si existe ".$ProjId;
 		}else{
 			$Data ='{
 			":devId" : "'.$idDev.'"
@@ -317,6 +319,7 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 
 			$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId", "" , "" , false);
 
+			print_r($table);
 			$key = '
 		    {
 		        "deliverable_id": "'.$idDev.'",
