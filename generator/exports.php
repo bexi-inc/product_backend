@@ -454,6 +454,8 @@ function ExportProject($Type, $subdomain = "")
                         'Key' => "files/".$value,
                         'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
                     ]);
+
+                     print_r($result);
                  }
               }
            } 
