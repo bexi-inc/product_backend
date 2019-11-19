@@ -349,7 +349,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
     foreach ($images as $img)
     {
-        copy($refpath.$img["old_src"], $PATHIMG.$img["filename"] );
+        print_r($img);
+        copy($img["old_src"], $PATHIMG.$img["filename"] );
     }
 
     $fileZip = $PATHBASE.$project_name.".zip" ;
