@@ -355,6 +355,7 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 			$ret["error"] = "500";
 			$ret["message"] =  $resUpd["error"];
 		}
+		$ret["link"]="http://".$subdomain.".getmodu.com.s3-website.us-east-2.amazonaws.com/"
 
 	}elseif ($type==2)
 	{
