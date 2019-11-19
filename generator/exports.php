@@ -349,7 +349,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
     foreach ($images as $img)
     {
-        copy($img["old_src"], $PATHIMG.$img["filename"] );
+        copy($refpath.$img["old_src"], $PATHIMG.$img["filename"] );
     }
 
     $fileZip = $PATHBASE.$project_name.".zip" ;
@@ -447,14 +447,14 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
            $dir = $PATH."files/";
            $cdir = scandir($dir);
-           print_r($cdir);
+           //print_r($cdir);
            foreach ($cdir as $key => $value)
            {
               if (!in_array($value,array(".","..")))
               {
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
                  {
-                    echo "Subiendo ".$dir . DIRECTORY_SEPARATOR . $value;
+                    //echo "Subiendo ".$dir . DIRECTORY_SEPARATOR . $value;
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/".$value,
