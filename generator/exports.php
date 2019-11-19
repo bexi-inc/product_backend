@@ -1,13 +1,14 @@
 <?
-/*
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);*/
+error_reporting(E_ALL);
 include "includes/global.php";
 include "includes/utils.php";
     
 require 'vendor/autoload.php';
 include "includes/content_blocks.php";
+
 
 $TypeDep = $_REQUEST["Type"];
 
@@ -280,7 +281,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     $PATH = PAHTSERVER;
          
     if (!file_exists(PAHTSERVER.$user_id)) {
-        mkdir($path.$user_id, 0777, true);
+        mkdir($PATH.$user_id, 0777, true);
     }
 
     $PATH = $PATH.$user_id;
@@ -311,7 +312,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             $todo = ($fileinfo->isDir() ? 'rmdir' : 'unlink');
             $todo($fileinfo->getRealPath());
         }
-        rmdir($directory);
+        rmdir($PATH);
         clearstatcache();
         mkdir($PATH, 0777, true);
     }
@@ -368,6 +369,9 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
     if ($Type=="zip")
     {
+        print_r($fileZip);
+
+        die();
         
         unlink($PATHBASE.$project_name.".zip");
 
@@ -380,7 +384,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         //echo $fileZip;
 
 
-        print_r($fileZip);
+        
       if (file_exists($fileZip)) {
         /* header('Content-Description: File Transfer');
          header("Content-Type: application/zip");
@@ -580,7 +584,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
 }
 
-if ($TypeDe ==" zip")
+if ($TypeDep =="zip")
 {
     ExportProject($TypeDep, $_REQUEST["devid"]);
 }elseif ($TypeDep =="dom")
