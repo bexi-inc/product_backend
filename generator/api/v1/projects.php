@@ -294,7 +294,9 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 	global $AWS_REGION;
 	global $aws_pass;
 	global $aws_key;
+	global $Marshaler;
 	include ("../../exports.php");
+
 	$ret["error_code"] = "0";
 	if ($type==1 && $subdomain!="")
 	{
@@ -302,7 +304,7 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		ExportProject("dom",strval($idDev), $subdomain,"../../");
 
 
-		if ($ProjId !== "")
+		if ($ProjId != "")
 		{
 			$key = '
 		    {
@@ -323,21 +325,25 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		        "project_id" : "'.$Marshaler->unmarshalValue($table["data"]['Items'][0]['project_id']).'"
 		    }
 			';
+
 		}
+
 		
 
 		$updateData='{
 			":subd" : "'.$subdomain.'"
 		}';
+
+
 		$paramsNoms["#value"] = "value";
 		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, "", false);
 
-		print_r($resUpd);
 
-		$Data .= '{
+		$Data = '{
 				 "subdomain" : "'.$subdomain.'"
 				,"deviverable_id" : "'.$idDev.'"
 		}';
+
 
 		Insert("modu_subdomains",$Data,false);
 		
