@@ -58,7 +58,7 @@ function ExportProject($Type,$DevId, $subdomain = "")
             'TableName' => "modu_deliverables",
             "KeyConditionExpression"=> "deliverable_id = :id",
             "ExpressionAttributeValues"=> [
-                ":id" =>  ["S" => "'".$DevId."'"]
+                ":id" =>  ["S" => $DevId]
             ]
         ];
 
