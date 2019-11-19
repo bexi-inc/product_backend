@@ -382,7 +382,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
         print_r($fileZip);
       if (file_exists($fileZip)) {
-         header('Content-Description: File Transfer');
+        /* header('Content-Description: File Transfer');
          header("Content-Type: application/zip");
          header('Content-Disposition: attachment; filename="'.basename($fileZip).'"');
          header('Expires: 0');
@@ -392,7 +392,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         ob_clean();
          
          flush();
-         readfile($fileZip);
+         readfile($fileZip);*/
          // delete file
          @unlink($fileZip);
      
