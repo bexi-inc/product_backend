@@ -498,7 +498,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
            $cdir = scandir($dir);
            foreach ($cdir as $key => $value)
            {
-                echo "copian archivo ". $dir . DIRECTORY_SEPARATOR . $value;
+                //echo "copian archivo ". $dir . DIRECTORY_SEPARATOR . $value;
               if (!in_array($value,array(".","..")))
               {
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
