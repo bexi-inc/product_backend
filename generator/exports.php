@@ -19,7 +19,7 @@ use Aws\S3\S3Client;
 use Aws\Route53\Route53Client;
 use Aws\Exception\AwsException;
 
-function ExportProject($Type, $subdomain = "")
+function ExportProject($Type,$DevId, $subdomain = "")
 {
     include "config.php";
     //echo "Tiempo: ".(microtime(true) - $timeini)."<br>";
@@ -49,7 +49,7 @@ function ExportProject($Type, $subdomain = "")
     //$iduser = $_REQUEST["user"];
     //$CodeId = (isset($_REQUEST["devid"]) ? $_REQUEST["devid"] :  microtime(true));
 
-    if (!isset($_REQUEST["devid"]))
+    if (!isset($DevId))
     {
         die("No Deliverable Id");
     }
@@ -58,7 +58,7 @@ function ExportProject($Type, $subdomain = "")
             'TableName' => "modu_deliverables",
             "KeyConditionExpression"=> "deliverable_id = :id",
             "ExpressionAttributeValues"=> [
-                ":id" =>  ["S" => $_REQUEST["devid"]]
+                ":id" =>  ["S" => $DevId]
             ]
         ];
 
@@ -509,15 +509,17 @@ function ExportProject($Type, $subdomain = "")
             echo $e->getMessage();
             echo "\n";
         }
+
+        return $BUCKET_NAME;
     }
 
 }
 
 if ($TypeDe ==" zip")
 {
-    ExportProject($TypeDep);
+    ExportProject($TypeDep, $_REQUEST["devid"]);
 }elseif ($TypeDep =="dom")
 {
-    ExportProject($TypeDep, $_REQUEST["dominio"]);
+    ExportProject($TypeDep,  $_REQUEST["devid"], $_REQUEST["dominio"]);
 }
 ?>

@@ -297,7 +297,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 	if ($type==1 && $subdomain!="")
 	{
 
-		ExportProject("dom",$subdomain);
+		ExportProject("dom",$idDev, $subdomain);
 
 		$key = '
 	    {
