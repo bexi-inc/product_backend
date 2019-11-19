@@ -339,12 +339,11 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, "", false);
 
 
-		$Data .= '{
+		$Data = '{
 				 "subdomain" : "'.$subdomain.'"
 				,"deviverable_id" : "'.$idDev.'"
 		}';
 
-		print_r($Data);
 
 		Insert("modu_subdomains",$Data,false);
 		
