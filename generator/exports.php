@@ -437,8 +437,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             //echo "Succeed in setting bucket website configuration.\n";
         } catch (AwsException $e) {
             // Display error message
-            //echo $e->getMessage();
-           // echo "\n";
+            echo $e->getMessage();
+            echo "\n";
         }
 
         try {
