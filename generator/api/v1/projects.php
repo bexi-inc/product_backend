@@ -324,6 +324,9 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		    }
 			';
 		}
+
+
+		print_r($key);
 		
 
 		$updateData='{
