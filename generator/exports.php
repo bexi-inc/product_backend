@@ -459,7 +459,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             ]);
 
 
-            $result = $client->changeResourceRecordSets(array(
+            $result = $s3Client->changeResourceRecordSets(array(
                 // HostedZoneId is required
                 'HostedZoneId' => 'Z2ABCD1234EFGH',
                 // ChangeBatch is required
