@@ -380,6 +380,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         //echo $fileZip;
 
 
+        print_r($fileZip);
       if (file_exists($fileZip)) {
          header('Content-Description: File Transfer');
          header("Content-Type: application/zip");
