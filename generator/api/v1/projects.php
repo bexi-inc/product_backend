@@ -303,7 +303,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 
 		$key = '
 	    {
-	        "deliverable_id": '.strval($idDev).'
+	        "deliverable_id": "'.strval($idDev).'"
 	    }
 		';
 
