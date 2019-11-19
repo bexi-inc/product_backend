@@ -665,7 +665,7 @@ function bgchange(btid) {
                 $(this).after('<p class="bexi_unspash">Photo by <a href="' + $(this).attr('bexi_au_link') + '" >' + $(this).attr('bexi_img_au') + '</a> on <a href="https://unsplash.com/?utm_source=Bexi+Web+Generator&utm_medium=referral">Unspash</a></p>'); 
             }
             */
-        })
+        });
        $(".map").wrap('<div class="bexi_editor_map" style="width: 100%;height:100%;"></div>');
        $(".bexi_editor_map").each(function(){
         var num=Math.floor((Math.random() * 10000) + 50000);
