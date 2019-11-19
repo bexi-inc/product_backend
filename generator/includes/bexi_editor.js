@@ -1566,6 +1566,7 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
+        console.log(this);
         console.log("beforeupload");
         window.response_img=save_img(window.bexi_tagid,images[0]);
 
