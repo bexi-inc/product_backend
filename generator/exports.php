@@ -475,14 +475,14 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                         // ResourceRecordSet is required
                         'ResourceRecordSet' => array(
                             // Name is required
-                            'Name' => "'".$subdomain.".getmodu.com.'",
+                            'Name' => $subdomain.".getmodu.com.",
                             // Type is required
                             'Type' => 'CNAME',
                             'TTL' => 600,
                             'ResourceRecords' => array(
                                 array(
                                     // Value is required
-                                    'Value' => "'".$subdomain.".getmodu.com.s3-website.us-east-2.amazonaws.com'"
+                                    'Value' => $subdomain.".getmodu.com.s3-website.us-east-2.amazonaws.com"
                                 ),
                             ),
                         ),
@@ -507,14 +507,14 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                         // ResourceRecordSet is required
                         'ResourceRecordSet' => array(
                             // Name is required
-                            'Name' => "'".$subdomain.".getmodu.com.'",
+                            'Name' => $subdomain.".getmodu.com.",
                             // Type is required
                             'Type' => 'CNAME',
                             'TTL' => 600,
                             'ResourceRecords' => array(
                                 array(
                                     // Value is required
-                                    'Value' => "'".$subdomain.".getmodu.com.s3-website.us-east-2.amazonaws.com'"
+                                    'Value' => $subdomain.".getmodu.com.s3-website.us-east-2.amazonaws.com"
                                 ),
                             ),
                         ),
