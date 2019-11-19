@@ -1,6 +1,6 @@
 /********global variables********/
 window.bexi_tagid=null;
-window.response_img=null;
+window.response_img=[];
 
 function rgb2hex(rgb){
      rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
@@ -1566,16 +1566,15 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        console.log(this);
-        console.log("beforeupload");
-        window.response_img=save_img(window.bexi_tagid,images[0]);
+        window.response_img.push(save_img(window.bexi_tagid,images[0]));
 
         //this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
       'image.inserted': function ($img, response) {
         console.log("inserted");
         // Image was inserted in the editor.
-        window.response_img.done(function(data){
+        var res=window.response_img.shift();
+        res.done(function(data){
           var jresponse =JSON.parse(data);
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src);
