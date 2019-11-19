@@ -19,7 +19,7 @@ use Aws\S3\S3Client;
 use Aws\Route53\Route53Client;
 use Aws\Exception\AwsException;
 
-function ExportProject($Type,$DevId, $subdomain = "")
+function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 {
     include "config.php";
     //echo "Tiempo: ".(microtime(true) - $timeini)."<br>";
@@ -342,10 +342,10 @@ function ExportProject($Type,$DevId, $subdomain = "")
     fwrite($myfile, $file_css);
     fclose($myfile);
 
-    copy("includes/jquery-ui.min.css", $PATHFILES."jquery-ui.min.css" );
-    copy("includes/jquery-3.4.1.min.js", $PATHFILES."jquery-3.4.1.min.js" );
-    copy("modu_final.js", $PATHFILES."modu_final.js" );
-    copy("css/bexi.css", $PATHFILES."bexi.css" );
+    copy($refpath."includes/jquery-ui.min.css", $PATHFILES."jquery-ui.min.css" );
+    copy($refpath."includes/jquery-3.4.1.min.js", $PATHFILES."jquery-3.4.1.min.js" );
+    copy($refpath."modu_final.js", $PATHFILES."modu_final.js" );
+    copy($refpath."css/bexi.css", $PATHFILES."bexi.css" );
 
     foreach ($images as $img)
     {

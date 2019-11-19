@@ -33,7 +33,7 @@ function setImages($contenido,$keywords = ""){
 	    	];
 	    	$data = Crew\Unsplash\Photo::random($filters);
 	    }
-	    //$pos++;
+	    
 
 	   	 	//print_r($data);
 	     	//echo $data->user['name'];
@@ -73,7 +73,7 @@ function setImages($contenido,$keywords = ""){
 
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
 			}
-	    
+	    $pos++;
 	}
 
 	$pos=0;
