@@ -307,6 +307,13 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 	    }
 		';
 
+		$Data ='{
+			":devId" : "'.$userId.'"
+		}';
+
+		$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId", "" , "" , false);
+		print_r($table);
+
 		$updateData='{
 			":subd" : "'.$subdomain.'"
 		}';

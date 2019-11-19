@@ -93,7 +93,7 @@ function Update($tableName, $KeyJson, $UpdateExpression, $paramsJson ,$Expressio
 
 	$eav = $Marshaler->marshalJson($paramsJson);
 
-	print_r($key);
+	//print_r($key);
 
 	$params = [
 	    'TableName' => ($useprefix ? $db_prefix : '').$tableName,
@@ -103,7 +103,7 @@ function Update($tableName, $KeyJson, $UpdateExpression, $paramsJson ,$Expressio
 	    'ReturnValues' => 'UPDATED_NEW'
 	];
 
-	print_r($params);
+	//print_r($params);
 
 	if ($ExpressionNames)
 	{
