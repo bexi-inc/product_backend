@@ -62,7 +62,7 @@ function ExportProject($Type,$DevId, $subdomain = "")
             ]
         ];
 
-        print_r(gettype ($DevId));
+        //print_r(gettype ($DevId));
         //print_r($params);
 
          $result = $dynamodb->query($params);
