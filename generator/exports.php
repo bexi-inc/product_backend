@@ -351,7 +351,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     {
         if (substr( $img["old_src"],0,2)=="./")
         {
-            echo $refpath.substr($img["old_src"],2). "  to ".$PATHIMG.$img["filename"]." ";
+            //echo $refpath.substr($img["old_src"],2). "  to ".$PATHIMG.$img["filename"]." ";
             if (!copy($refpath.substr($img["old_src"],2), $PATHIMG.$img["filename"] ))
             {
                  $errors= error_get_last();
@@ -477,9 +477,9 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
            $dir = $PATH."files/imgs/";
            $cdir = scandir($dir);
-           print_r($dir);
            foreach ($cdir as $key => $value)
            {
+                echo "copian archivo ". $dir . DIRECTORY_SEPARATOR . $value;
               if (!in_array($value,array(".","..")))
               {
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
@@ -487,6 +487,25 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/imgs/".$value,
+                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
+                    ]);
+                 }
+              }
+           } 
+
+
+           $dir = $PATH."files/img/";
+           $cdir = scandir($dir);
+           foreach ($cdir as $key => $value)
+           {
+                echo "copian archivo ". $dir . DIRECTORY_SEPARATOR . $value;
+              if (!in_array($value,array(".","..")))
+              {
+                 if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
+                 {
+                     $result = $s3Client->putObject([
+                        'Bucket' => $BUCKET_NAME,
+                        'Key' => "files/img/".$value,
                         'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
                     ]);
                  }
