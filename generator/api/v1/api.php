@@ -160,7 +160,7 @@ $res["error_code"]=0;
  			
  		}
  		//die("CreateProject");
- 		$res = CreateProject($Dynamodb, $_REQ->userid, $_REQ->projectname, " ", $_REQ->projectindustry, $_REQ->brandcolors, $_REQ->textcolor, $_REQ->projectkeywords,  $_REQ->productorservice);
+ 		$res = CreateNewProject($Dynamodb, $_REQ->userid, $_REQ->projectname, " ", $_REQ->projectindustry, $_REQ->brandcolors, $_REQ->textcolor, $_REQ->projectkeywords,  $_REQ->productorservice);
  		break;
 
  	case "CreateDeliverable":
