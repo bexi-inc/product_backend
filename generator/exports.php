@@ -16,6 +16,7 @@ use Aws\DynamoDb\Exception\DynamoDbException;
 use Aws\DynamoDb\Marshaler;
 
 use Aws\S3\S3Client;
+use Aws\Route53\Route53Client;
 use Aws\Exception\AwsException;
 
 function ExportProject($Type, $subdomain = "")
@@ -470,6 +471,36 @@ function ExportProject($Type, $subdomain = "")
                  }
               }
            } 
+
+           /* $result = $client->changeResourceRecordSets(array(
+                // HostedZoneId is required
+                'HostedZoneId' => 'Z2ABCD1234EFGH',
+                // ChangeBatch is required
+                'ChangeBatch' => array(
+                    'Comment' => 'string',
+                    // Changes is required
+                    'Changes' => array(
+                        array(
+                            // Action is required
+                            'Action' => 'CREATE',
+                            // ResourceRecordSet is required
+                            'ResourceRecordSet' => array(
+                                // Name is required
+                                'Name' => $subdomain.'.mydomain.com.',
+                                // Type is required
+                                'Type' => 'CNAME',
+                                'TTL' => 600,
+                                'ResourceRecords' => array(
+                                    array(
+                                        // Value is required
+                                        'Value' => '".$."',
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ));*/
 
 
            // echo "Succeed in put a policy on bucket: " . $BUCKET_NAME . "\n";
