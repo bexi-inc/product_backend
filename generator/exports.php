@@ -482,7 +482,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                             'ResourceRecords' => array(
                                 array(
                                     // Value is required
-                                    'Value' => .$subdomain.'getmodu.com.s3-website.us-east-2.amazonaws.com',
+                                    'Value' => $subdomain.'getmodu.com.s3-website.us-east-2.amazonaws.com',
                                 ),
                             ),
                         ),
