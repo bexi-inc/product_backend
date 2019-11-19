@@ -438,6 +438,7 @@ function ExportProject($Type, $subdomain = "")
            } 
 
            $dir = $PATH."files/";
+           echo $dir;
            $cdir = scandir($dir);
            print_r($cdir);
            foreach ($cdir as $key => $value)
@@ -456,6 +457,7 @@ function ExportProject($Type, $subdomain = "")
            } 
 
            $dir = $PATH."files/imgs/";
+           echo $dir;
            $cdir = scandir($dir);
            foreach ($cdir as $key => $value)
            {
