@@ -344,7 +344,8 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 				,"deviverable_id" : "'.$idDev.'"
 		}';
 
-		print_r($data);
+		print_r($Data);
+
 		Insert("modu_subdomains",$Data,false);
 		
 		if (!$resUpd["error"])
