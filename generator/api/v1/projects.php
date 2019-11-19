@@ -183,6 +183,7 @@ function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors,
 
 function ExistDomain($domain)
 {
+	global $Marshaler;
 	$data='
 	    {
 	        ":sdom": "'.$domain.'"
