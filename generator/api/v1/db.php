@@ -103,6 +103,8 @@ function Update($tableName, $KeyJson, $UpdateExpression, $paramsJson ,$Expressio
 	    'ReturnValues' => 'UPDATED_NEW'
 	];
 
+	print_r($params);
+
 	if ($ExpressionNames)
 	{
 		$params ["ExpressionAttributeNames"] = $ExpressionNames;
