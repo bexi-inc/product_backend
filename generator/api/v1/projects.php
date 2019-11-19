@@ -292,7 +292,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 	global $AWS_REGION;
 	global $aws_pass;
 	global $aws_key;
-	include ("../exports.php");
+	include ("../../exports.php");
 	$ret["error_code"] = "0";
 	if ($type==1 && $subdomain!="")
 	{
