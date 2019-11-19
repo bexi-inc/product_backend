@@ -301,14 +301,14 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 
 		$key = '
 	    {
-	        "deliverable_id": "'.$idDev.'"
+	        "deliverable_id": '.strval($idDev).'
 	    }
 		';
 		$updateData='{
 			":subd" : "'.$subdomain.'"
 		}';
 		$paramsNoms["#value"] = "value";
-		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, "",false);
+		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, "", false);
 
 
 		$Data .= '{
