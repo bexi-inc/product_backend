@@ -1579,7 +1579,6 @@ function initialize_editors_text(){
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src);
           window.bexi_tagid=jresponse.id;
-          window.response_img=null;
           auto_save();
         });
       },
@@ -1591,7 +1590,6 @@ function initialize_editors_text(){
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src);
           window.bexi_tagid=jresponse.id;
-          window.response_img=null;
           auto_save();
         });
       },
