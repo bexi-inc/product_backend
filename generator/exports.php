@@ -478,7 +478,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                                 // Name is required
                                 'Name' => $subdomain.'.getmodu.com.',
                                 // Type is required
-                                'Type' => 'CNAME',
+                                'Type' => 'A',
                                 'TTL' => 600,
                                 'ResourceRecords' => array(
                                     array(
