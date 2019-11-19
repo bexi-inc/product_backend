@@ -605,14 +605,14 @@ background-color: #e7e7e7 !important;
 
 }
 
-/*
+
  .bexi_img_full
  {
- 	
+  width: 100%;
+  height: auto;
  }
- width: 100%;
- 	height: auto;
-*/
+
+
 
  .vcenter {
     display: inline-block;
