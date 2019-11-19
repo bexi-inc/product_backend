@@ -169,7 +169,7 @@ $( document ).ready(function() {
                 type: 'POST',
                 async : false,
             }).done(function( data, textStatus, jqXHR ) {
-                $(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid +'" frameborder="0" onload="this.style.opacity = 1" modu-id="' + data.codeid + '"></iframe></div>');  
+                $(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" onload="this.style.opacity = 1" modu-id="' + data.codeid + '"></iframe></div>');  
              })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {
