@@ -302,7 +302,7 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		ExportProject("dom",strval($idDev), $subdomain,"../../");
 
 
-		if ($ProjId !== "")
+		if ($ProjId != "")
 		{
 			$key = '
 		    {
