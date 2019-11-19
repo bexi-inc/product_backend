@@ -493,33 +493,34 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
             die();
             $result = $s3Client->changeResourceRecordSets(array(
-                // HostedZoneId is required
-                'HostedZoneId' => 'Z2F596910Z445W',
-                // ChangeBatch is required
-                'ChangeBatch' => 
-                array(
-                        'Comment' => 'test',
-                        // Changes is required
-                        'Changes' => array(
-                            array(
-                                // Action is required
-                                'Action' => 'CREATE',
-                                // ResourceRecordSet is required
-                                'ResourceRecordSet' => array(
-                                    // Name is required
-                                    'Name' => $subdomain.'.getmodu.com.',
-                                    // Type is required
-                                    'Type' => 'A',
-                                    'TTL' => 600,
-                                    'ResourceRecords' => array(
-                                            // Value is required
-                                            'Value' => "'".$subdomain."getmodu.com.s3-website.us-east-2.amazonaws.com'",
-                                    ),
+            // HostedZoneId is required
+            'HostedZoneId' => 'Z2F596910Z445W',
+            // ChangeBatch is required
+            'ChangeBatch' => array(
+                'Comment' => 'string',
+                // Changes is required
+                'Changes' => array(
+                    array(
+                        // Action is required
+                        'Action' => 'CREATE',
+                        // ResourceRecordSet is required
+                        'ResourceRecordSet' => array(
+                            // Name is required
+                            'Name' => $subdomain.'.getmodu.com.',
+                            // Type is required
+                            'Type' => 'CNAME',
+                            'TTL' => 600,
+                            'ResourceRecords' => array(
+                                array(
+                                    // Value is required
+                                    'Value' => .$subdomain.'getmodu.com.s3-website.us-east-2.amazonaws.com',
                                 ),
                             ),
                         ),
+                    ),
                 ),
-            ));
+            ),
+        ));
            $dir = $PATH;
            $cdir = scandir($dir);
            foreach ($cdir as $key => $value)
