@@ -62,11 +62,8 @@ function ExportProject($Type,$DevId, $subdomain = "")
             ]
         ];
 
-        print_r($params);
-
          $result = $dynamodb->query($params);
 
-         print_r($result);
 
 
          $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
@@ -77,7 +74,7 @@ function ExportProject($Type,$DevId, $subdomain = "")
             'TableName' => "modu_projects",
              "KeyConditionExpression"=> "project_id = :id",
             "ExpressionAttributeValues"=> [
-                ":id" =>  ["S" => $project_id]
+                ":id" =>  ["S" => "'".$project_id."'"]
             ]
         ];
 
