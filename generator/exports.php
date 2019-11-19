@@ -421,6 +421,26 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
         //print_r($result);
 
+        $params = [
+            'Bucket' => $BUCKET_NAME,
+            'WebsiteConfiguration' => [
+                'ErrorDocument' => [
+                    'Key' => 'error.html',
+                ],
+                'IndexDocument' => [
+                    'Suffix' => 'index.html',
+                ],
+            ]
+        ];
+        try {
+            $resp = $s3Client->putBucketWebsite($params);
+            //echo "Succeed in setting bucket website configuration.\n";
+        } catch (AwsException $e) {
+            // Display error message
+            //echo $e->getMessage();
+           // echo "\n";
+        }
+
         try {
             $resp = $s3Client->putBucketPolicy([
                 'Bucket' => $BUCKET_NAME,
@@ -439,6 +459,35 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             ]);
 
 
+            $result = $client->changeResourceRecordSets(array(
+                // HostedZoneId is required
+                'HostedZoneId' => 'Z2ABCD1234EFGH',
+                // ChangeBatch is required
+                'ChangeBatch' => array(
+                    'Comment' => 'string',
+                    // Changes is required
+                    'Changes' => array(
+                        array(
+                            // Action is required
+                            'Action' => 'CREATE',
+                            // ResourceRecordSet is required
+                            'ResourceRecordSet' => array(
+                                // Name is required
+                                'Name' => $subdomain.'.getmodu.com.',
+                                // Type is required
+                                'Type' => 'CNAME',
+                                'TTL' => 600,
+                                'ResourceRecords' => array(
+                                    array(
+                                        // Value is required
+                                        'Value' => "'".$subdomain."getmodu.com.s3-website.us-east-2.amazonaws.com'",
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ));
            $dir = $PATH;
            $cdir = scandir($dir);
            foreach ($cdir as $key => $value)
@@ -512,35 +561,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
               }
            } 
 
-           /* $result = $client->changeResourceRecordSets(array(
-                // HostedZoneId is required
-                'HostedZoneId' => 'Z2ABCD1234EFGH',
-                // ChangeBatch is required
-                'ChangeBatch' => array(
-                    'Comment' => 'string',
-                    // Changes is required
-                    'Changes' => array(
-                        array(
-                            // Action is required
-                            'Action' => 'CREATE',
-                            // ResourceRecordSet is required
-                            'ResourceRecordSet' => array(
-                                // Name is required
-                                'Name' => $subdomain.'.mydomain.com.',
-                                // Type is required
-                                'Type' => 'CNAME',
-                                'TTL' => 600,
-                                'ResourceRecords' => array(
-                                    array(
-                                        // Value is required
-                                        'Value' => '".$."',
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            ));*/
+        
 
 
            // echo "Succeed in put a policy on bucket: " . $BUCKET_NAME . "\n";
