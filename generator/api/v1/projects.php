@@ -294,7 +294,9 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 	global $AWS_REGION;
 	global $aws_pass;
 	global $aws_key;
+	global $Marshaler;
 	include ("../../exports.php");
+	
 	$ret["error_code"] = "0";
 	if ($type==1 && $subdomain!="")
 	{
