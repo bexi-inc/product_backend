@@ -369,13 +369,15 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
     if ($Type=="zip")
     {
-        print_r($fileZip);
-
-        die();
+        
         
         unlink($PATHBASE.$project_name.".zip");
 
         $fileZip = $PATHBASE.$project_name.".zip" ;
+        
+        print_r($fileZip);
+
+        die();
         
         zipme($PATH,$fileZip);
 
