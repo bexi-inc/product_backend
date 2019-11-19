@@ -1297,9 +1297,9 @@ background-color: #e7e7e7 !important;
   margin-bottom: 0px !important ;
 }
 
-img.fr-view.fr-dib{
-  margin: unset;
-} 
+/*img.fr-view.fr-dib{
+  
+} margin: unset !important;/*
 
 /******* For unsplash Manager ********/
 .image-list {
