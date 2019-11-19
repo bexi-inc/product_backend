@@ -466,7 +466,7 @@ function ExportProject($Type, $subdomain = "")
                 echo "iniciando folder ".$value;
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
                  {
-                    echo ("upload = files/".$value)
+                    echo ("upload = files/".$value);
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/".$value,
