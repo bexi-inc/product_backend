@@ -1220,7 +1220,6 @@ function auto_save()
     cc.find('div.fr-element').contents().unwrap();
     cc.find('div.alt-wrap').contents().unwrap();
     cc.find(".bexi_unspash").remove();
-    //console.log(cc);
     var request=$.ajax({
       url: "./ajax/autosave.php",
       data: { devid:did,userid: uid, projectid : pid,code:cc.html()} ,
@@ -1331,7 +1330,6 @@ function initialize_editors_text(){
           auto_save();
         },
         'image.beforeRemove': function ($img) {
-          console.log($img.attr("id"),"before");
           $("#"+$img.attr("id")).remove();
           $(".fr-active").remove();
           auto_save();
@@ -1402,7 +1400,6 @@ function initialize_editors_text(){
             auto_save();
           },
           'image.beforeRemove': function ($img) {
-            console.log($img.attr("id"),"before");
             $("#"+$img.attr("id")).remove();
             $(".fr-active").remove();
             auto_save();
@@ -1473,7 +1470,6 @@ function initialize_editors_text(){
             auto_save();
           },
           'image.beforeRemove': function ($img) {
-            console.log($img.attr("id"),"before");
             $("#"+$img.attr("id")).remove();
             $(".fr-active").remove();
             auto_save();
@@ -1543,7 +1539,6 @@ function initialize_editors_text(){
           auto_save();
         },
         'image.beforeRemove': function ($img) {
-          console.log($img.attr("id"),"before");
           $("#"+$img.attr("id")).remove();
           $(".fr-active").remove();
           auto_save();
