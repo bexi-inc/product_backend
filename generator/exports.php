@@ -461,7 +461,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 }',
             ]);
 
-            die
+            
             $result = $s3Client->changeResourceRecordSets(array(
             // HostedZoneId is required
             'HostedZoneId' => 'Z2F596910Z445W',
@@ -483,7 +483,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                             'ResourceRecords' => array(
                                 array(
                                     // Value is required
-                                    'Value' => "'".$subdomain.".getmodu.com.s3-website.us-east-2.amazonaws.com'",
+                                    'Value' => "'".$subdomain.".getmodu.com.s3-website.us-east-2.amazonaws.com'"
                                 ),
                             ),
                         ),
