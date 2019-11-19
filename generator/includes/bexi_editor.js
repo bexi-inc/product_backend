@@ -157,6 +157,7 @@ function bgchangeurl(ID){
         $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
       }
       $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+url+")");
+      $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
       $("#inptext"+ID).val("");
       $( "#dialog-img"+(ID).toString()).dialog("close");
     }else{
@@ -373,6 +374,7 @@ function Manager_unsplash2(ID,numpag)
               $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
             }
             $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+item.url+")");
+            $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
             $("#cont_unspl"+ID).empty();
             $("#cont_unspl"+ID).css("height","0px");
             $("#cont_pag"+ID).empty();
@@ -618,6 +620,7 @@ function bgchange(btid) {
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"')");
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
           $('#inpimg'+ID).val(null);
+          $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
         });
       }
       $( "#dialog-img"+(ID).toString()).dialog("close");
