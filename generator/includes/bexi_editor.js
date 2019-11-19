@@ -1556,13 +1556,12 @@ function initialize_editors_text(){
     {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
+      initOnClick: true,
       charCounterCount: false,
       toolbarBottom : false,
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
-      fontFamilySelection: true,
-      fontFamilyDefaultSelection: 'Font',
     // Set max image size to 5MB.
     imageMaxSize: 5 * 1024 * 1024,
 
@@ -1589,7 +1588,6 @@ function initialize_editors_text(){
       },
       'image.replaced': function ($img, response) {
         // Image was replaced in the editor.
-        console.log($img.attr("id"),"replaced");
         window.response_img.done(function(data){
           var jresponse =JSON.parse(data);
           $img.attr("id",jresponse.id);
@@ -1617,12 +1615,10 @@ function initialize_editors_text(){
         auto_save();
       },
       'image.beforeRemove': function ($img) {
-        console.log($img.attr("id"),"before");
         $("#"+$img.attr("id")).remove();
         $(".fr-active").remove();
         auto_save();
         return false;
-        
       }
     }
     });
