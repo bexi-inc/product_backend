@@ -49,6 +49,7 @@ function edit_map(ID)
           {
             var url=map.attr("src",new_url);
           }
+          auto_save();
           $( this ).dialog("close");
           newDiv.remove();
         },
@@ -88,6 +89,7 @@ function remove_map(ID)
       buttons: {
         "Yes": function() {
         $("#btool"+ID).closest(".bexi_editor_map").remove();
+        auto_save();
           $( this ).dialog("close");
           newDiv.remove();
         },
