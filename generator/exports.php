@@ -448,10 +448,10 @@ function ExportProject($Type, $subdomain = "")
                  echo "iniciando folder ".$value."<br>";
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
                  {
-                    echo "Subiendo ".$dir . DIRECTORY_SEPARATOR . $value."<br>";
+                    echo "Subiendo ".$dir . DIRECTORY_SEPARATOR . $value." a /files/".$value;
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
-                        'Key' => "/files/".$value,
+                        'Key' => "files/".$value,
                         'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
                     ]);
                  }
