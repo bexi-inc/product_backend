@@ -476,6 +476,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
            } 
 
            $dir = $PATH."files/imgs/";
+           print_r($dir);
            $cdir = scandir($dir);
            print_r($cdir);
            foreach ($cdir as $key => $value)
