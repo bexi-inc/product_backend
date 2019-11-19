@@ -1576,13 +1576,11 @@ function initialize_editors_text(){
         console.log("inserted");
         // Image was inserted in the editor.
         var res=window.response_img.shift();
-        res.done(function(data){
-          var jresponse =JSON.parse(data);
+          var jresponse =JSON.parse(res);
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src);
           window.bexi_tagid=jresponse.id;
           auto_save();
-        });
       },
       'image.replaced': function ($img, response) {
         console.log("remplaced");
