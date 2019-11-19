@@ -310,8 +310,6 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		        "project_id" : "'.$ProjId.'"
 		    }
 			';
-
-			echo "Si existe ".$ProjId;
 		}else{
 			$Data ='{
 			":devId" : "'.$idDev.'"
@@ -319,7 +317,6 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 
 			$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId", "" , "" , false);
 
-			print_r($table);
 			$key = '
 		    {
 		        "deliverable_id": "'.$idDev.'",
@@ -328,8 +325,6 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 			';
 		}
 
-
-		print_r($key);
 		
 
 		$updateData='{
@@ -338,7 +333,6 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		$paramsNoms["#value"] = "value";
 		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, "", false);
 
-		print_r($resUpd);
 
 		$Data .= '{
 				 "subdomain" : "'.$subdomain.'"
