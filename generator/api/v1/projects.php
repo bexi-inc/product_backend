@@ -319,14 +319,13 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 
 			$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId", "" , "" , false);
 
-			print_r($table);
-			
 			$key = '
 		    {
 		        "deliverable_id": "'.$idDev.'",
 		        "project_id" : "'.$Marshaler->unmarshalValue($table["data"]['Items'][0]['project_id']).'"
 		    }
 			';
+
 		}
 
 		
@@ -334,9 +333,13 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		$updateData='{
 			":subd" : "'.$subdomain.'"
 		}';
+
+		print_r($key);
+
 		$paramsNoms["#value"] = "value";
 		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, "", false);
 
+		print_r($resUpd);
 
 		$Data .= '{
 				 "subdomain" : "'.$subdomain.'"
