@@ -58,15 +58,17 @@ function ExportProject($Type,$DevId, $subdomain = "")
             'TableName' => "modu_deliverables",
             "KeyConditionExpression"=> "deliverable_id = :id",
             "ExpressionAttributeValues"=> [
-                ":id" =>  ["S" => $DevId]
+                ":id" =>  ["S" => '"'.$DevId.'"']
             ]
         ];
+
+        print_r($params);
 
          $result = $dynamodb->query($params);
 
          print_r($result);
 
-         
+
          $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
          $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
 
