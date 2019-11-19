@@ -289,7 +289,7 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 	return $res;
 }
 
-function DeployDeliverable($idDev, $type, $subdomain="")
+function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 {
 	global $AWS_REGION;
 	global $aws_pass;
@@ -301,18 +301,30 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 
 		ExportProject("dom",strval($idDev), $subdomain,"../../");
 
-		$key = '
-	    {
-	        "deliverable_id": "'.$idDev.'"
-	    }
-		';
 
-		$Data ='{
+		if ($ProjId !== "")
+		{
+			$key = '
+		    {
+		        "deliverable_id": "'.$idDev.'",
+		        "project_id" : "'.$ProjId.'"
+		    }
+			';
+		}else{
+			$Data ='{
 			":devId" : "'.$idDev.'"
-		}';
+			}';
 
-		$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId", "" , "" , false);
-		print_r($table);
+			$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId", "" , "" , false);
+
+			$key = '
+		    {
+		        "deliverable_id": "'.$idDev.'",
+		        "project_id" : "'.$Marshaler->unmarshalValue($table["data"]['Items'][0]['project_id']).'"
+		    }
+			';
+		}
+		
 
 		$updateData='{
 			":subd" : "'.$subdomain.'"

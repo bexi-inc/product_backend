@@ -192,7 +192,7 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			
  		}
- 		$res = DeployDeliverable($_REQ->deliverable,1,$_REQ->domain);
+ 		$res = DeployDeliverable($_REQ->deliverable,$_REQ->projectid,1,$_REQ->domain);
  		break;
  	case "DeployDeliverableToDownload":
  		if (!isset($_REQ->deliverable))
@@ -201,7 +201,7 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			
  		}
- 		$res = DeployDeliverable($_REQ->deliverable,2);
+ 		$res = DeployDeliverable($_REQ->deliverable,$_REQ->projectid,2);
  		break;
  	default:
  		echo "REQ";
