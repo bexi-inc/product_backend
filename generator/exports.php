@@ -461,6 +461,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 }',
             ]);
 
+/*
             $result = $s3Client->changeResourceRecordSets(array(
             // HostedZoneId is required
             'HostedZoneId' => 'Z2F596910Z445W',
@@ -489,7 +490,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                     ),
                 ),
             ),
-        ));
+        ));*/
            $dir = $PATH;
            $cdir = scandir($dir);
            foreach ($cdir as $key => $value)
