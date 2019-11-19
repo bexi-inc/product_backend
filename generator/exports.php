@@ -461,6 +461,7 @@ function ExportProject($Type, $subdomain = "")
            {
               if (!in_array($value,array(".","..")))
               {
+                echo "iniciando folder ".$value;
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
                  {
                     echo ("upload = files/".$value)
