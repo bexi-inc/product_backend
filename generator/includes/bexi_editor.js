@@ -1566,8 +1566,10 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        window.response_img.push(save_img(window.bexi_tagid,images[0]));
-
+        var res=save_img(window.bexi_tagid,images[0]);
+        res.done(function(){
+          window.response_img.push(res);
+        });
         //this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
       'image.inserted': function ($img, response) {
