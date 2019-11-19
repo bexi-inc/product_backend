@@ -438,42 +438,33 @@ function ExportProject($Type, $subdomain = "")
            } 
 
            $dir = $PATH."files/";
-           echo $dir;
            $cdir = scandir($dir);
-           print_r($cdir);
            foreach ($cdir as $key => $value)
            {
               if (!in_array($value,array(".","..")))
               {
-                 echo "iniciando folder ".$value."<br>";
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
                  {
-                    echo "Subiendo ".$dir . DIRECTORY_SEPARATOR . $value." a /files/".$value;
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/".$value,
                         'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
                     ]);
-
-                     print_r($result);
                  }
               }
            } 
 
            $dir = $PATH."files/imgs/";
-           echo $dir;
            $cdir = scandir($dir);
            foreach ($cdir as $key => $value)
            {
               if (!in_array($value,array(".","..")))
               {
-                echo "iniciando folder ".$value;
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
                  {
-                    echo ("upload = files/".$value);
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
-                        'Key' => "files/".$value,
+                        'Key' => "files/imgs/".$value,
                         'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
                     ]);
                  }
