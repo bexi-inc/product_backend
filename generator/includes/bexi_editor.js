@@ -123,6 +123,7 @@ function remove_content(ID)
       buttons: {
         "Yes": function() {
         $("#collapsetools"+ID).closest(".bexi_module").remove();
+        auto_save();
           $( this ).dialog("close");
           newDiv.remove();
         },
