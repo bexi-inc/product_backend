@@ -1287,30 +1287,29 @@ function initialize_editors_text(){
             auto_save();
         },
         'image.beforeUpload': function (images) {
-          window.response_img=save_img(window.bexi_tagid,images[0]);
+          var res=save_img(window.bexi_tagid,images[0]);
+          res.done(function(){
+            window.response_img.push(res);
+          });
           //this.opts.imageUploadParams.tagid=window.bexi_tagid;
         },
         'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
-          window.response_img.done(function(data){
-            var jresponse =JSON.parse(data);
+          var res=window.response_img.shift();
+            var jresponse =JSON.parse(res);
             $img.attr("id",jresponse.id);
             $img.attr("src",jresponse.src);
             window.bexi_tagid=jresponse.id;
-            window.response_img=null;
             auto_save();
-          });
         },
         'image.replaced': function ($img, response) {
           // Image was replaced in the editor.
-          window.response_img.done(function(data){
-            var jresponse =JSON.parse(data);
+          var res=window.response_img.shift();
+            var jresponse =JSON.parse(res);
             $img.attr("id",jresponse.id);
             $img.attr("src",jresponse.src);
             window.bexi_tagid=jresponse.id;
-            window.response_img=null;
             auto_save();
-          });
         },
         'click': function (clickEvent) {
           // Do something here.
@@ -1357,30 +1356,29 @@ function initialize_editors_text(){
               auto_save();
           },
           'image.beforeUpload': function (images) {
-            window.response_img=save_img(window.bexi_tagid,images[0]);
+            var res=save_img(window.bexi_tagid,images[0]);
+            res.done(function(){
+              window.response_img.push(res);
+            });
             //this.opts.imageUploadParams.tagid=window.bexi_tagid;
           },
           'image.inserted': function ($img, response) {
             // Image was inserted in the editor.
-            window.response_img.done(function(data){
-              var jresponse =JSON.parse(data);
+            var res=window.response_img.shift();
+              var jresponse =JSON.parse(res);
               $img.attr("id",jresponse.id);
               $img.attr("src",jresponse.src);
               window.bexi_tagid=jresponse.id;
-              window.response_img=null;
               auto_save();
-            });
           },
           'image.replaced': function ($img, response) {
             // Image was replaced in the editor.
-            window.response_img.done(function(data){
-              var jresponse =JSON.parse(data);
+            var res=window.response_img.shift();
+              var jresponse =JSON.parse(res);
               $img.attr("id",jresponse.id);
               $img.attr("src",jresponse.src);
               window.bexi_tagid=jresponse.id;
-              window.response_img=null;
               auto_save();
-            });
           },
           'click': function (clickEvent) {
             // Do something here.
@@ -1427,30 +1425,29 @@ function initialize_editors_text(){
               auto_save();
           },
           'image.beforeUpload': function (images) {
-            window.response_img=save_img(window.bexi_tagid,images[0]);
+            var res=save_img(window.bexi_tagid,images[0]);
+            res.done(function(){
+              window.response_img.push(res);
+            });
             //this.opts.imageUploadParams.tagid=window.bexi_tagid;
           },
           'image.inserted': function ($img, response) {
             // Image was inserted in the editor.
-            window.response_img.done(function(data){
-              var jresponse =JSON.parse(data);
+            var res=window.response_img.shift();
+              var jresponse =JSON.parse(res);
               $img.attr("id",jresponse.id);
               $img.attr("src",jresponse.src);
               window.bexi_tagid=jresponse.id;
-              window.response_img=null;
               auto_save();
-            });
           },
           'image.replaced': function ($img, response) {
             // Image was replaced in the editor.
-            window.response_img.done(function(data){
-              var jresponse =JSON.parse(data);
+            var res=window.response_img.shift();
+              var jresponse =JSON.parse(res);
               $img.attr("id",jresponse.id);
               $img.attr("src",jresponse.src);
               window.bexi_tagid=jresponse.id;
-              window.response_img=null;
               auto_save();
-            });
           },
           'click': function (clickEvent) {
             // Do something here.
@@ -1496,30 +1493,29 @@ function initialize_editors_text(){
             auto_save();
         },
         'image.beforeUpload': function (images) {
-          window.response_img=save_img(window.bexi_tagid,images[0]);
+          var res=save_img(window.bexi_tagid,images[0]);
+          res.done(function(){
+            window.response_img.push(res);
+          });
           //this.opts.imageUploadParams.tagid=window.bexi_tagid;
         },
         'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
-          window.response_img.done(function(data){
-            var jresponse =JSON.parse(data);
+          var res=window.response_img.shift();
+            var jresponse =JSON.parse(res);
             $img.attr("id",jresponse.id);
             $img.attr("src",jresponse.src);
             window.bexi_tagid=jresponse.id;
-            window.response_img=null;
             auto_save();
-          });
         },
         'image.replaced': function ($img, response) {
           // Image was replaced in the editor.
-          window.response_img.done(function(data){
-            var jresponse =JSON.parse(data);
+          var res=window.response_img.shift();
+            var jresponse =JSON.parse(res);
             $img.attr("id",jresponse.id);
             $img.attr("src",jresponse.src);
             window.bexi_tagid=jresponse.id;
-            window.response_img=null;
             auto_save();
-          });
         },
         'click': function (clickEvent) {
           // Do something here.
@@ -1573,7 +1569,6 @@ function initialize_editors_text(){
         //this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
       'image.inserted': function ($img, response) {
-        console.log("inserted");
         // Image was inserted in the editor.
         var res=window.response_img.shift();
           var jresponse =JSON.parse(res);
@@ -1583,15 +1578,13 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.replaced': function ($img, response) {
-        console.log("remplaced");
         // Image was replaced in the editor.
-        window.response_img.done(function(data){
-          var jresponse =JSON.parse(data);
+        var res=window.response_img.shift();
+          var jresponse =JSON.parse(res);
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src);
           window.bexi_tagid=jresponse.id;
           auto_save();
-        });
       },
       'click': function (clickEvent) {
         // Do something here.
