@@ -297,8 +297,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
     $PATHBASE = $PATH."/".$_REQUEST["devid"]."/";
 
-    unlink($PATHBASE.$project_name.".zip");
-
+   
     $PATH = $PATH."/".$_REQUEST["devid"]."/PUBLISH/";
 
     if (!file_exists($PATH)) {
@@ -369,7 +368,11 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
     if ($Type=="zip")
     {
+        
+        unlink($PATHBASE.$project_name.".zip");
+
         $fileZip = $PATHBASE.$project_name.".zip" ;
+        
         zipme($PATH,$fileZip);
 
         //print_r($images);
