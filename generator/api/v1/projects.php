@@ -297,7 +297,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 	if ($type==1 && $subdomain!="")
 	{
 
-		ExportProject("dom",$idDev, $subdomain);
+		ExportProject("dom",strval($idDev), $subdomain);
 
 		$key = '
 	    {
@@ -308,7 +308,7 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 			":subd" : "'.$subdomain.'"
 		}';
 		$paramsNoms["#value"] = "value";
-		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, false);
+		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, "",false);
 
 
 		$Data .= '{
