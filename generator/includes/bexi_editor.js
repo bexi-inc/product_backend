@@ -26,6 +26,120 @@ function clear_classes(classes){
   return class_clear;
 }
 
+function edit_map(ID)
+{
+  var newDiv = $(document.createElement('div'));
+  newDiv.attr("Title", "Map Settings");
+  newDiv.attr("data-id", "#" + ID);
+  newDiv.css("display", "block");
+  newDiv.css("height", "auto");
+  newDiv.css("width", "auto");
+  newDiv.css("overflow", "visible");
+  newDiv.html('SRC:<input id="inptext'+ID+'" type="text" placeholder="Paste your embed map here..." tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">');
+    $(newDiv).dialog({
+      resizable: false,
+      height: "auto",
+      width: 500,
+      modal: true,
+      buttons: {
+        "Save": function() {
+        var map=$("#btool"+ID).closest(".bexi_editor_map").find(".map");
+        var new_url=$("#inptext"+ID).val();
+          if(new_url!="")
+          {
+            var url=map.attr("src",new_url);
+          }
+          $( this ).dialog("close");
+          newDiv.remove();
+        },
+        "Cancel": function() {
+          $( this ).dialog("close");
+          newDiv.remove();
+        }
+      },
+      open: function() {
+      $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+      var map=$("#btool"+ID).closest(".bexi_editor_map").find(".map");
+      var url=map.attr("src");
+      $("#inptext"+ID).val(url);
+    },
+    close: function( event, ui ) {
+      newDiv.remove();
+    }
+  });
+}
+
+
+function remove_map(ID)
+{
+  var newDiv = $(document.createElement('div'));
+  newDiv.attr("Title", "Remove Map");
+  newDiv.attr("data-id", "#" + ID);
+  newDiv.css("display", "block");
+  newDiv.css("height", "auto");
+  newDiv.css("width", "auto");
+  newDiv.css("overflow", "visible");
+  newDiv.html("Are you sure you'd like to delete this map?");
+    $(newDiv).dialog({
+      resizable: false,
+      height: "auto",
+      width: 500,
+      modal: true,
+      buttons: {
+        "Yes": function() {
+        $("#btool"+ID).closest(".bexi_editor_map").remove();
+          $( this ).dialog("close");
+          newDiv.remove();
+        },
+        "Cancel": function() {
+          $( this ).dialog("close");
+          newDiv.remove();
+        }
+      },
+      open: function() {
+      $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+    },
+    close: function( event, ui ) {
+      newDiv.remove();
+    }
+  });
+}
+
+function remove_content(ID)
+{
+  var newDiv = $(document.createElement('div'));
+  newDiv.attr("Title", "Remove Content");
+  newDiv.attr("data-id", "#" + ID);
+  newDiv.css("display", "block");
+  newDiv.css("height", "auto");
+  newDiv.css("width", "auto");
+  newDiv.css("overflow", "visible");
+  newDiv.html("Are you sure you'd like to delete this content block?");
+    $(newDiv).dialog({
+      resizable: false,
+      height: "auto",
+      width: 500,
+      modal: true,
+      buttons: {
+        "Yes": function() {
+        $("#collapsetools"+ID).closest(".bexi_module").remove();
+          $( this ).dialog("close");
+          newDiv.remove();
+        },
+        "Cancel": function() {
+          $( this ).dialog("close");
+          newDiv.remove();
+        }
+      },
+      open: function() {
+      $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+    },
+    close: function( event, ui ) {
+      newDiv.remove();
+    }
+  });
+}
+
 function bgchangeurl(ID){
   var url=$("#inptext"+ID).val();
   if(url!=""){
@@ -549,6 +663,18 @@ function bgchange(btid) {
             }
             */
         })
+       $(".map").wrap('<div class="bexi_editor_map" style="width: 100%;height:100%;"></div>');
+       $(".bexi_editor_map").each(function(){
+        var num=Math.floor((Math.random() * 10000) + 50000);
+        $(this).css("position", "relative");
+        $(this).prepend(
+          '<button id="btool'+num+'" class="toolbtn remove shadow_box" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; right: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-edit"></i></button>'+
+          '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 6;position: absolute; top: 53px; right: 15px;background-color: White;padding:10px;">'+
+            '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Edit" onClick="edit_map('+num+')" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-link toolbtn"></i></button>'+
+            '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Remove" onClick="remove_map('+num+')" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-trash toolbtn"></i></button>'+
+          '</div>'
+         );
+       });
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
        $("form").submit(function(e){
@@ -557,11 +683,21 @@ function bgchange(btid) {
        add_action_forms();
        $('.bexi_module').each(function() {
         var num=Math.floor((Math.random() * 10000) + 1);
+        var pos=$(this).attr("class").search("hero");
+        var rbutton="";
+        if(pos==-1){
+          var pos=$(this).attr("class").search("hea");
+          if(pos==-1){
+             rbutton='<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Remove Content Block" onClick="remove_content('+num+')" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-trash toolbtn"></i></button>';
+          }
+        }
+
         $(this).prepend(
           '<button class="toolbtn remove" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 5;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
           '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 6;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
             '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
+            rbutton+
           '</div>'+
           '<div id="dialog-img'+num+'" class="remove ui-helper-hidden">'+
             '<div id="tabs-img">'+
@@ -1076,6 +1212,7 @@ function auto_save()
     cc.find('.bexi_editor_link').contents().unwrap();
     cc.find('.bexi_editor_title').contents().unwrap();
     cc.find('.bexi_editor_subtitle').contents().unwrap();
+    cc.find('.bexi_editor_map').contents().unwrap();
     cc.find('div.fr-wrapper').contents().unwrap();
     cc.find('div.fr-element').contents().unwrap();
     cc.find('div.alt-wrap').contents().unwrap();
