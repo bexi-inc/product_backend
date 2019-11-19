@@ -58,7 +58,7 @@ function ExportProject($Type,$DevId, $subdomain = "")
             'TableName' => "modu_deliverables",
             "KeyConditionExpression"=> "deliverable_id = :id",
             "ExpressionAttributeValues"=> [
-                ":id" =>  ["S" => '"'.$DevId.'"']
+                ":id" =>  ["S" => "'".$DevId."'"]
             ]
         ];
 
@@ -93,7 +93,8 @@ function ExportProject($Type,$DevId, $subdomain = "")
         echo "\r\n";
         echo "<head>";
         echo "\r\n";
-        echo "<meta charset='utf-8'>";
+       // echo "<meta charset='utf-8'>";
+        echo '<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />';
         echo "\r\n";
         echo "<title>Bexi DNA Project</title>";
         echo "\r\n";
