@@ -202,6 +202,7 @@ function ExistDomain($domain)
 		    {
 		    	$ret["error_code"] = "0";
 		    	$ret["exists"] = "true";
+		    	 $ret["message"] = "subdomain already exists";
 		    	return $ret;
 		    }else{
 		    	$ret["error_code"] = "0";
@@ -305,12 +306,15 @@ function DeployDeliverable($idDev, $type, $subdomain="")
 	        "deliverable_id": '.strval($idDev).'
 	    }
 		';
+
+		print_r($key);
 		$updateData='{
 			":subd" : "'.$subdomain.'"
 		}';
 		$paramsNoms["#value"] = "value";
 		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, "", false);
 
+		print_r($resUpd);
 
 		$Data .= '{
 				 "subdomain" : "'.$subdomain.'"
