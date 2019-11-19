@@ -63,6 +63,10 @@ function ExportProject($Type,$DevId, $subdomain = "")
         ];
 
          $result = $dynamodb->query($params);
+
+         print_r($result);
+
+         
          $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
          $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
 
