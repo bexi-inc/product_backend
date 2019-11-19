@@ -351,7 +351,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     {
         if (substr( $img["old_src"],0,2)=="./")
         {
-            echo $refpath.substr($img["old_src"],2). "  ";
+            echo $refpath.substr($img["old_src"],2). "  to ".$PATHIMG.$img["filename"]." ";
             if (!copy($refpath.substr($img["old_src"],2), $PATHIMG.$img["filename"] ))
             {
                  $errors= error_get_last();
@@ -477,6 +477,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
            $dir = $PATH."files/imgs/";
            $cdir = scandir($dir);
+           print_r($dir);
            foreach ($cdir as $key => $value)
            {
               if (!in_array($value,array(".","..")))
