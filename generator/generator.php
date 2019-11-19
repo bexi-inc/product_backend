@@ -464,7 +464,7 @@ if (isset($_REQUEST["projectid"]))
     if($first_load===1||$_REQUEST["target"]=="selector")
     {
         $doc = new DOMDocument();
-        $doc->loadHTML($content);
+        $doc->loadHTML('<?xml encoding="UTF-8">' .$content);
         $tags = $doc->getElementsByTagName('i');
         foreach ($tags as $tag) {
             $styles = $tag->getAttribute('style');
@@ -566,6 +566,11 @@ if (isset($_REQUEST["projectid"]))
                  }
             }
         }
+        // dirty fix
+        foreach ($doc->childNodes as $item)
+        if ($item->nodeType == XML_PI_NODE)
+            $doc->removeChild($item); // remove hack
+        $doc->encoding = 'UTF-8'; // insert proper
         $content = $doc->saveHTML();
     }
     echo "<div id='modu_main'>";
