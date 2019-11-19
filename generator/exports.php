@@ -491,7 +491,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             ),
         );
 
-            die($params);
+            print_r($params);
+            die();
             $result = $s3Client->changeResourceRecordSets(array(
             // HostedZoneId is required
             'HostedZoneId' => 'Z2F596910Z445W',
