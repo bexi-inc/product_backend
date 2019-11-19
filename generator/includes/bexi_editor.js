@@ -1551,7 +1551,6 @@ function initialize_editors_text(){
     {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
-      initOnClick: true,
       charCounterCount: false,
       toolbarBottom : false,
       imageDefaultAlign: 'center',
