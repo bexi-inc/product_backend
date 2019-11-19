@@ -1193,7 +1193,7 @@ function add_action_forms(){
 function styles_ptags(){
   var c= $("#modu_main");
   c.find("p").each(function(){
-    if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!=-1)
+    if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
     {
       $(this).css("padding","0px");
     }
@@ -1566,10 +1566,13 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
+        console.log("beforeupload");
         window.response_img=save_img(window.bexi_tagid,images[0]);
+
         //this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
       'image.inserted': function ($img, response) {
+        console.log("inserted");
         // Image was inserted in the editor.
         window.response_img.done(function(data){
           var jresponse =JSON.parse(data);
@@ -1581,6 +1584,7 @@ function initialize_editors_text(){
         });
       },
       'image.replaced': function ($img, response) {
+        console.log("remplaced");
         // Image was replaced in the editor.
         window.response_img.done(function(data){
           var jresponse =JSON.parse(data);
