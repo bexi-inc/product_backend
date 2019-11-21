@@ -480,9 +480,9 @@ if (isset($_REQUEST["projectid"]))
                         parse_str($url["query"],$result_array);
                         $result_array['q']=0;
                         print_r($result_array);
-                        $src = urldecode(http_build_query($result_array));  
+                        $src = urldecode($url["scheme"]."://".$url["path"]."?".http_build_query($result_array));  
                         print_r($src);  
-                        $tag->SetAttribute('src',$url["scheme"]."://".$url["path"].$src);
+                        $tag->SetAttribute('src'.$src);
                     }
                     
                     
