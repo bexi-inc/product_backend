@@ -71,7 +71,7 @@ function AddNewProject()
     {
       $.ajax({
                 url: 'ajax/projects.php',
-                data: {"cmd" : "CreateProject", "user" : "<? echo $_REQUEST['user']; ?>"},
+                data: {"cmd" : "CreateProject", "user" : UserParam},
                 dataType: "json",
                 type: 'POST',
             }).done(function( data, textStatus, jqXHR ) {
