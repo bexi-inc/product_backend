@@ -479,7 +479,8 @@ if (isset($_REQUEST["projectid"]))
                         parse_str($src, $result_array);
                         $result_array['q']=0;
                         print_r($result_array);
-                        $src = http_build_query($result_array);    
+                        $src = http_build_query($result_array);  
+                        print_r($src);  
                         $tag->SetAttribute('src',$src);
                     }
                     
