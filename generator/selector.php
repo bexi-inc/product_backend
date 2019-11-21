@@ -71,7 +71,7 @@ if (isset($_REQUEST["projectid"]))
 }
 
 
-
+/*
 	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
 	$data["url"]= "http://generator.getmodu.com/generator.php?target=selector&user=".$_REQUEST["user"].'&codeid='.$res["codeid"]."&projectid=".$_REQUEST["projectid"];
@@ -99,7 +99,7 @@ if (isset($_REQUEST["projectid"]))
 	$data["codeid"] = $res["codeid"];
 
 	$Projs[] = $data;
-	
+	*/
 
 	//print_r($Projs);
 	//die();
@@ -306,29 +306,7 @@ if (isset($_REQUEST["projectid"]))
 	<a class="selector_prev" onclick="plusSlides(1)">&#10094;</a>
 	<a class="selector_next" onclick="plusSlides(-1)">&#10095;</a>
 	<div class="bexi_sliders" id="modu_sliders" style="width: 90%; margin-left: 5%; position: relative; height: 100%; margin-right: 5%; overflow: hidden;" >
-		<div class="thumbnail-container mySlides">
-			<div class="thumbnail ">
-			  <iframe src="<? echo $Projs[0]['url']; ?>" frameborder="0" onload="this.style.opacity = 1" class="project_active" modu-id="<? echo $Projs[0]['codeid']; ?>"></iframe>
-			</div>
-		</div>
-
-		<div class="thumbnail-container mySlides">
-			<div class="thumbnail">
-			  <iframe src="<? echo $Projs[1]['url']; ?>" frameborder="0" onload="this.style.opacity = 1"  class="project_active"  modu-id="<? echo $Projs[1]['codeid']; ?>"></iframe>
-			</div>
-		</div>
-
-		<div class="thumbnail-container mySlides">
-			<div class="thumbnail">
-			  <iframe src="<? echo $Projs[2]['url']; ?>" frameborder="0" onload="this.style.opacity = 1"  modu-id="<? echo $Projs[2]['codeid']; ?>"></iframe>
-			</div>
-		</div>
-
-		<div class="thumbnail-container mySlides">
-			<div class="thumbnail">
-			  <iframe src="<? echo $Projs[3]['url']; ?>" frameborder="0" onload="this.style.opacity = 1"  modu-id="<? echo $Projs[3]['codeid']; ?>"></iframe>
-			</div>
-		</div>
+		
 	</div>
 </div>
 </body>

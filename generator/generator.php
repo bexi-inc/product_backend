@@ -146,7 +146,7 @@ elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
     ];
 
      $result = $dynamodb->query($params);
-     print_r($result);
+     //print_r($result);
      $project_id = $_REQUEST["codeid"];
      $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
 }

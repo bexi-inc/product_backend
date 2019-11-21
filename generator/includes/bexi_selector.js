@@ -123,6 +123,11 @@ function AddNewProject()
   slides[slideIndex-1].style.display = "block";
   //dots[slideIndex-1].className += " active";
 } */
+
+  AddNewProject();
+  AddNewProject();
+  AddNewProject();
+  AddNewProject();
   console.log("slider");
 
   var n=1;
