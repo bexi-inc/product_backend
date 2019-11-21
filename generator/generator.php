@@ -476,12 +476,13 @@ if (isset($_REQUEST["projectid"]))
                     $src = $tag->getAttribute('src');
                     if (stripos($src,"https://images.unsplash.com")===0)
                     {
-                        parse_str($src, $result_array);
+                        $url = parse_url ($src);
+                        parse_str($url["query"],$result_array)
                         $result_array['q']=0;
                         print_r($result_array);
-                        $src = urldecode (http_build_query($result_array));  
+                        $src = urldecode(http_build_query($result_array));  
                         print_r($src);  
-                        $tag->SetAttribute('src',$src);
+                        $tag->SetAttribute('src',$url["scheme"]."://".$url["path"].$src);
                     }
                     
                     
