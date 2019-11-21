@@ -461,10 +461,26 @@ if (isset($_REQUEST["projectid"]))
     echo "<div class='' style='width:100%; background-color: #fff; border-radius: 15px; -moz-border-radius: 15px;
         -webkit-border-radius: 15px;  overflow:hidden; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.05); box-shadow: 0 1px 3px rgba(0,0,0,.05);'>";
     */
-    if($first_load===1||$_REQUEST["target"]=="selector")
+
+    
+
+    if($first_load===1 || $_REQUEST["target"]=="selector")
     {
         $doc = new DOMDocument();
         $doc->loadHTML('<?xml encoding="UTF-8">' .$content);
+
+        if ($_REQUEST["target"]=="selector")
+        {
+             $tags = $doc->getElementsByTagName('img');
+                foreach ($tags as $tag) {
+                    $src = $tag->getAttribute('src');
+                    $pos=strpos($class,"bexi_logo");
+                    if($pos!==false){
+                        $tag->setAttribute('src',$logourl);
+                     }
+                }
+        }
+
         $tags = $doc->getElementsByTagName('i');
         foreach ($tags as $tag) {
             $styles = $tag->getAttribute('style');

@@ -182,10 +182,10 @@ function setImages($contenido,$keywords = ""){
 		    $data = Crew\Unsplash\Photo::random($filters);
 	    }
 	    	//print_r($filters);
-	   	 	//print_r($data);
+	   	 	print_r($data);
 	     	//echo $data->user['name'];
 	     	$contenido=substr_replace($contenido,' bexi_img_au="'.$data->user['name'].'"  bexi_au_link="'.$data->user["links"]["html"].'" ',$pos2 + 2 ,0);
-	    	$contenido=substr_replace($contenido,$data->urls['custom'],$pos,$pos2-$pos);
+	    	$contenido=substr_replace($contenido,$data->urls['custom'],$pos,$pos2-$pos+1);
 	    	$tagend = strpos($contenido,">",$pos);
 	    	$tagstar = $tagend;
 	    	while(substr($contenido, $tagstar,1)!="<")
