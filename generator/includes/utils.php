@@ -166,8 +166,7 @@ function setImages($contenido,$keywords = ""){
 	            'featured' => true,
 	            'w'        => $imgdata[1],
 	            'h'        => $imgdata[2],
-	            'query'    => $keywords,
-	            'q'			=> 0
+	            'query'    => $keywords
 	    ];
 	    //print_r($filters);
 	    try
@@ -178,13 +177,12 @@ function setImages($contenido,$keywords = ""){
 	   	 	$filters = [
 		            'featured' => true,
 		            'w'        => $imgdata[1],
-		            'h'        => $imgdata[2],
-	            	'q'			=> 0
+		            'h'        => $imgdata[2]
 		    ];
 		    $data = Crew\Unsplash\Photo::random($filters);
 	    }
 	    	//print_r($filters);
-	   	 	print_r($data);
+	   	 	//print_r($data);
 	     	//echo $data->user['name'];
 	     	$contenido=substr_replace($contenido,' bexi_img_au="'.$data->user['name'].'"  bexi_au_link="'.$data->user["links"]["html"].'" ',$pos2 + 2 ,0);
 	    	$contenido=substr_replace($contenido,$data->urls['custom'],$pos,$pos2-$pos+1);

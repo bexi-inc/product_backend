@@ -474,10 +474,16 @@ if (isset($_REQUEST["projectid"]))
              $tags = $doc->getElementsByTagName('img');
                 foreach ($tags as $tag) {
                     $src = $tag->getAttribute('src');
-                    $pos=strpos($class,"bexi_logo");
-                    if($pos!==false){
-                        $tag->setAttribute('src',$logourl);
-                     }
+                    if (stripos($src,"https://images.unsplash.com")===0)
+                    {
+                        parse_str($src, $result_array);
+                        $result_array['q']=0;
+                        print_r($result_array);
+                        $src = http_build_query($result_array);    
+                        $tag->SetAttribute('src',$src);
+                    }
+                    
+                    
                 }
         }
 
@@ -488,7 +494,7 @@ if (isset($_REQUEST["projectid"]))
             $new_style="";
             foreach ($comp as $item)
             {
-               $pos=strpos($item,"color");
+               $pos=stripos($item,"color");
                if($pos===false){
                 $new_style .= $item.";";
                 }
