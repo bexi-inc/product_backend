@@ -477,7 +477,7 @@ if (isset($_REQUEST["projectid"]))
                     if (stripos($src,"https://images.unsplash.com")===0)
                     {
                         $url = parse_url ($src);
-                        parse_str($url["query"],$result_array)
+                        parse_str($url["query"],$result_array);
                         $result_array['q']=0;
                         print_r($result_array);
                         $src = urldecode(http_build_query($result_array));  
