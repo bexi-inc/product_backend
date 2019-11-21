@@ -166,7 +166,8 @@ function setImages($contenido,$keywords = ""){
 	            'featured' => true,
 	            'w'        => $imgdata[1],
 	            'h'        => $imgdata[2],
-	            'query'    => $keywords
+	            'query'    => $keywords,
+	            'q'			=> 0
 	    ];
 	    //print_r($filters);
 	    try
@@ -177,7 +178,8 @@ function setImages($contenido,$keywords = ""){
 	   	 	$filters = [
 		            'featured' => true,
 		            'w'        => $imgdata[1],
-		            'h'        => $imgdata[2]
+		            'h'        => $imgdata[2],
+	            	'q'			=> 0
 		    ];
 		    $data = Crew\Unsplash\Photo::random($filters);
 	    }
