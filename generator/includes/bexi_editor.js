@@ -1578,7 +1578,7 @@ function initialize_editors_text(){
           window.response_img.push(data);
           var jresponse =JSON.parse(data);
           $("#"+window.bexi_tagid).attr("id",jresponse.id);
-          $("#"+window.bexi_tagid).attr("id",jresponse.src);
+          $("#"+window.bexi_tagid).attr("src",jresponse.src);
           auto_save();
         });
       },
