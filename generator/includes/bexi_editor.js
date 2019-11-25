@@ -1576,33 +1576,46 @@ function initialize_editors_text(){
         res.done(function(data){
           console.log("entra");
           window.response_img.push(data);
+          var jresponse =JSON.parse(data);
+          $("#"+window.bexi_tagid).attr("id",jresponse.id);
+          $("#"+window.bexi_tagid).attr("id",jresponse.src);
+          auto_save();
         });
       },
       'image.inserted': function ($img, response) {
         // Image was inserted in the editor.
         console.log("inserted");
-      },
-      'image.replaced': function ($img, response) {
-        console.log("replaced");
-        // Image was replaced in the editor.
-        var res=window.response_img.shift();
+        if(window.response_img.length!=0){
+          var res=window.response_img.shift();
           var jresponse =JSON.parse(res);
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src);
           window.bexi_tagid=jresponse.id;
           auto_save();
+        }
+      },
+      'image.replaced': function ($img, response) {
+        console.log("replaced");
+        // Image was replaced in the editor.
+        if(window.response_img.length!=0){
+          var res=window.response_img.shift();
+          var jresponse =JSON.parse(res);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src);
+          window.bexi_tagid=jresponse.id;
+          auto_save();
+        }
       },
       'image.loaded': function ($img) {
         console.log("loaded");
-        while (window.response_img.length==0) {
-          console.log("ciclado");
+        if(window.response_img.length!=0){
+          var res=window.response_img.shift();
+          var jresponse =JSON.parse(res);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src);
+          window.bexi_tagid=jresponse.id;
+          auto_save();
         }
-        var res=window.response_img.shift();
-        var jresponse =JSON.parse(res);
-        $img.attr("id",jresponse.id);
-        $img.attr("src",jresponse.src);
-        window.bexi_tagid=jresponse.id;
-        auto_save();
       },
       'click': function (clickEvent) {
         // Do something here.
