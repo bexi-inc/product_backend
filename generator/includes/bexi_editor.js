@@ -1250,7 +1250,7 @@ function save_img(TAGID,FILE){
   data.append("projectid",pid);
   data.append("tagid",TAGID);
   var request=$.ajax({
-    async:false,
+    cache: false,
     url: "./ajax/uploadfile.php",
     data: data,
     processData: false,
@@ -1360,6 +1360,13 @@ function initialize_editors_text(){
           window.bexi_tagid=jresponse.id;
           auto_save();
           */
+        },
+        'image.uploaded':function(e, editor, response){
+          console.log("uploaded")
+          // Insert image.
+          var jresponse =JSON.parse(response);
+          editor.image.insert(jresponse.src, false, null, editor.image.get(), response);
+          return false;
         }
       }
     });
