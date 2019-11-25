@@ -1573,6 +1573,7 @@ function initialize_editors_text(){
       'image.beforeUpload': function (images) {
         console.log("before");
         var res=save_img(window.bexi_tagid,images[0]);
+        console.log(res);
         $.when($(res)).then(function(data, status, xhr) {
           // Lógica de respuesta aquí.
           window.response_img.push(res);
