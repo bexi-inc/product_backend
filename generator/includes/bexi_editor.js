@@ -1348,6 +1348,7 @@ function initialize_editors_text(){
           auto_save();
         },
         'image.beforeRemove': function ($img) {
+          console.log("before remove");
           auto_save();
         },
         'image.replaced': function ($img, response) {
