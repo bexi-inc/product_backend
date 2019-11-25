@@ -1574,6 +1574,7 @@ function initialize_editors_text(){
         console.log("before");
         var res=save_img(window.bexi_tagid,images[0]);
         res.done(function(data){
+          console.log("entra");
           window.response_img.push(data);
         });
         console.log(window.response_img);
