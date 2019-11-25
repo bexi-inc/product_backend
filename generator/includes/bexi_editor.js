@@ -1306,7 +1306,7 @@ function initialize_editors_text(){
             auto_save();
         },
         'image.beforeUpload': function (images) {
-          console.log(this.opts);
+          this.opts.imageUploadParams.tagid=window.bexi_tagid;
             //window.response_img.push(images[0]);
         },
         'image.inserted': function ($img, response) {
