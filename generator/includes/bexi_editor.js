@@ -1350,6 +1350,12 @@ function initialize_editors_text(){
         },
         'image.replaced': function ($img, response) {
           console.log("replaced");
+          var jresponse =JSON.parse(response);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src);
+          window.bexi_tagid=jresponse.id;
+          auto_save();
+          return false;
         }
       }
     });
