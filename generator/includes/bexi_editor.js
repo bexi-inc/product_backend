@@ -1373,10 +1373,10 @@ function initialize_editors_text(){
           auto_save();
         },
         'image.beforeRemove': function ($img) {
-          $("#"+$img.attr("id")).remove();
-          $(".fr-active").hide();
+          //$("#"+$img.attr("id")).remove();
+          //$(".fr-active").hide();
           auto_save();
-          return false;
+          //return false;
         }
       }
     });
