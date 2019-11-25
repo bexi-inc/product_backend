@@ -1322,6 +1322,11 @@ function initialize_editors_text(){
               auto_save();
             });
             */
+           var jresponse =JSON.parse(response);
+           $img.attr("id",jresponse.id);
+           $img.attr("src",jresponse.src);
+           window.bexi_tagid=jresponse.id;
+           auto_save();
         },
         'click': function (clickEvent) {
           // Do something here.
