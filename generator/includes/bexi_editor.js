@@ -1295,58 +1295,19 @@ function initialize_editors_text(){
             auto_save();
         },
         'image.beforeUpload': function (images) {
-          var res=save_img(window.bexi_tagid,images[0]);
-          res.done(function(data){
-            window.response_img.push(data);
-            var jresponse =JSON.parse(data);
-            if(window.bexi_tagid!=null)
-            {
-              $("#"+window.bexi_tagid).attr("id",jresponse.id);
-              $("#"+window.bexi_tagid).attr("src",jresponse.src);
-              window.bexi_tagid=jresponse.id;
-            }else{
-              $("img").each(function(){
-                var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
-                if(pos!=-1){
-                  $(this).attr("id",jresponse.id);
-                  $(this).attr("src",jresponse.src);
-                  window.bexi_tagid=jresponse.id;
-                }
-              });
-            }
-            auto_save();
-          });
+            window.response_img.push(images[0]);
         },
         'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
-          if(window.response_img.length!=0){
-            var res=window.response_img.shift();
-            var jresponse =JSON.parse(res);
-            $img.attr("id",jresponse.id);
-            $img.attr("src",jresponse.src);
-            window.bexi_tagid=jresponse.id;
-            auto_save();
-          }
-        },
-        'image.replaced': function ($img, response) {
-          // Image was replaced in the editor.
-          if(window.response_img.length!=0){
-            var res=window.response_img.shift();
-            var jresponse =JSON.parse(res);
-            $img.attr("id",jresponse.id);
-            $img.attr("src",jresponse.src);
-            window.bexi_tagid=jresponse.id;
-            auto_save();
-          }
-        },
-        'image.loaded': function ($img) {
-          if(window.response_img.length!=0){
-            var res=window.response_img.shift();
-            var jresponse =JSON.parse(res);
-            $img.attr("id",jresponse.id);
-            $img.attr("src",jresponse.src);
-            window.bexi_tagid=jresponse.id;
-            auto_save();
+            var file=window.response_img.shift();
+            var res = save_img($img.attr("id"),file);
+            res.done(function(data){
+              var jresponse =JSON.parse(data);
+              $img.attr("id",jresponse.id);
+              $img.attr("src",jresponse.src);
+              window.bexi_tagid=jresponse.id;
+              auto_save();
+            });
           }
         },
         'click': function (clickEvent) {
