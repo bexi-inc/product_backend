@@ -1309,6 +1309,7 @@ function initialize_editors_text(){
             }else{
               $("img").each(function(){
                 var pos=$(this).attr("src").search("blob:http//");
+                console.log($(this).attr("src"));
                 if(pos!==-1){
                   $(this).attr("id",jresponse.id);
                   $(this).attr("src",jresponse.src);
