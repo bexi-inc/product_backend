@@ -1331,6 +1331,7 @@ function initialize_editors_text(){
         'click': function (clickEvent) {
           // Do something here.
           // this is the editor instance.
+          /*
           if(clickEvent.currentTarget.tagName=="IMG")
           {
             window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
@@ -1338,6 +1339,7 @@ function initialize_editors_text(){
           else{
             window.bexi_tagid=null;
           }
+          */
         },
         'initialized': function (event, editor) {
           styles_ptags();
@@ -1355,7 +1357,6 @@ function initialize_editors_text(){
           $img.attr("src",jresponse.src);
           window.bexi_tagid=jresponse.id;
           auto_save();
-          return false;
         }
       }
     });
