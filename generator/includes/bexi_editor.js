@@ -1308,10 +1308,10 @@ function initialize_editors_text(){
               $("#"+window.bexi_tagid).attr("src",jresponse.src);
             }else{
               $("img").each(function(item){
-                var pos=$(item).attr("src").search("blob:http//");
+                var pos=item.attr("src").search("blob:http//");
                 if(pos!==-1){
-                  $(item).attr("id",jresponse.id);
-                  $(item).attr("src",jresponse.src);
+                  item.attr("id",jresponse.id);
+                  item.attr("src",jresponse.src);
                   console.log("encontrado");
                 }
               });
