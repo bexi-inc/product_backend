@@ -44,7 +44,13 @@ function edit_map(ID)
       buttons: {
         "Save": function() {
         var map=$("#btool"+ID).closest(".bexi_editor_map").find(".map");
+        var str=$("#inptext"+ID).val();
+        var element=$.parseHTML(str);
         var new_url=$("#inptext"+ID).val();
+        if($(element).attr("src")!=undefined)
+        {
+          new_url=$(element).attr("src");
+        }
           if(new_url!="")
           {
             var url=map.attr("src",new_url);
@@ -1296,8 +1302,8 @@ function initialize_editors_text(){
           });
           //this.opts.imageUploadParams.tagid=window.bexi_tagid;
         },
-        'image.inserted': function ($img, response) {
-          // Image was inserted in the editor.
+        'image.loaded': function ($img, response) {
+          // Image was loaded in the editor.
           var res=window.response_img.shift();
             var jresponse =JSON.parse(res);
             $img.attr("id",jresponse.id);
@@ -1365,8 +1371,8 @@ function initialize_editors_text(){
             });
             //this.opts.imageUploadParams.tagid=window.bexi_tagid;
           },
-          'image.inserted': function ($img, response) {
-            // Image was inserted in the editor.
+          'image.loaded': function ($img, response) {
+            // Image was loaded in the editor.
             var res=window.response_img.shift();
               var jresponse =JSON.parse(res);
               $img.attr("id",jresponse.id);
@@ -1434,8 +1440,8 @@ function initialize_editors_text(){
             });
             //this.opts.imageUploadParams.tagid=window.bexi_tagid;
           },
-          'image.inserted': function ($img, response) {
-            // Image was inserted in the editor.
+          'image.loaded': function ($img, response) {
+            // Image was loaded in the editor.
             var res=window.response_img.shift();
               var jresponse =JSON.parse(res);
               $img.attr("id",jresponse.id);
@@ -1502,8 +1508,8 @@ function initialize_editors_text(){
           });
           //this.opts.imageUploadParams.tagid=window.bexi_tagid;
         },
-        'image.inserted': function ($img, response) {
-          // Image was inserted in the editor.
+        'image.loaded': function ($img, response) {
+          // Image was loaded in the editor.
           var res=window.response_img.shift();
             var jresponse =JSON.parse(res);
             $img.attr("id",jresponse.id);
@@ -1565,15 +1571,16 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
+        console.log("before");
         var res=save_img(window.bexi_tagid,images[0]);
         res.done(function(){
           window.response_img.push(res);
         });
         //this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
-      'image.inserted': function ($img, response) {
-        // Image was inserted in the editor.
-        var res=window.response_img.shift();
+      'image.loaded': function ($img, response) {
+        // Image was loaded in the editor.
+          var res=window.response_img.shift();
           var jresponse =JSON.parse(res);
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src);
