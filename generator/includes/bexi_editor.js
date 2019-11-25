@@ -1251,6 +1251,7 @@ function save_img(TAGID,FILE){
   data.append("projectid",pid);
   data.append("tagid",TAGID);
   var request=$.ajax({
+    async: false,
     url: "./ajax/uploadfile.php",
     data: data,
     processData: false,
@@ -1302,8 +1303,8 @@ function initialize_editors_text(){
           });
           //this.opts.imageUploadParams.tagid=window.bexi_tagid;
         },
-        'image.loaded': function ($img, response) {
-          // Image was loaded in the editor.
+        'image.inserted': function ($img, response) {
+          // Image was inserted in the editor.
           var res=window.response_img.shift();
             var jresponse =JSON.parse(res);
             $img.attr("id",jresponse.id);
@@ -1371,8 +1372,8 @@ function initialize_editors_text(){
             });
             //this.opts.imageUploadParams.tagid=window.bexi_tagid;
           },
-          'image.loaded': function ($img, response) {
-            // Image was loaded in the editor.
+          'image.inserted': function ($img, response) {
+            // Image was inserted in the editor.
             var res=window.response_img.shift();
               var jresponse =JSON.parse(res);
               $img.attr("id",jresponse.id);
@@ -1440,8 +1441,8 @@ function initialize_editors_text(){
             });
             //this.opts.imageUploadParams.tagid=window.bexi_tagid;
           },
-          'image.loaded': function ($img, response) {
-            // Image was loaded in the editor.
+          'image.inserted': function ($img, response) {
+            // Image was inserted in the editor.
             var res=window.response_img.shift();
               var jresponse =JSON.parse(res);
               $img.attr("id",jresponse.id);
@@ -1508,8 +1509,8 @@ function initialize_editors_text(){
           });
           //this.opts.imageUploadParams.tagid=window.bexi_tagid;
         },
-        'image.loaded': function ($img, response) {
-          // Image was loaded in the editor.
+        'image.inserted': function ($img, response) {
+          // Image was inserted in the editor.
           var res=window.response_img.shift();
             var jresponse =JSON.parse(res);
             $img.attr("id",jresponse.id);
@@ -1576,10 +1577,10 @@ function initialize_editors_text(){
         res.done(function(){
           window.response_img.push(res);
         });
-        //this.opts.imageUploadParams.tagid=window.bexi_tagid;
       },
-      'image.loaded': function ($img, response) {
-        // Image was loaded in the editor.
+      'image.inserted': function ($img, response) {
+        // Image was inserted in the editor.
+        console.log("inserted");
           var res=window.response_img.shift();
           var jresponse =JSON.parse(res);
           $img.attr("id",jresponse.id);
@@ -1588,6 +1589,7 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.replaced': function ($img, response) {
+        console.log("replaced");
         // Image was replaced in the editor.
         var res=window.response_img.shift();
           var jresponse =JSON.parse(res);
@@ -1595,6 +1597,10 @@ function initialize_editors_text(){
           $img.attr("src",jresponse.src);
           window.bexi_tagid=jresponse.id;
           auto_save();
+      },
+      'image.loaded': function ($img) {
+        console.log("loaded");
+        console.log($img);
       },
       'click': function (clickEvent) {
         // Do something here.
