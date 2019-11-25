@@ -1578,18 +1578,10 @@ function initialize_editors_text(){
           console.log("entra");
           window.response_img.push(data);
         });
-        console.log(window.response_img);
       },
       'image.inserted': function ($img, response) {
         // Image was inserted in the editor.
         console.log("inserted");
-        console.log(window.response_img);
-          var res=window.response_img.shift();
-          var jresponse =JSON.parse(res);
-          $img.attr("id",jresponse.id);
-          $img.attr("src",jresponse.src);
-          window.bexi_tagid=jresponse.id;
-          auto_save();
       },
       'image.replaced': function ($img, response) {
         console.log("replaced");
@@ -1603,7 +1595,15 @@ function initialize_editors_text(){
       },
       'image.loaded': function ($img) {
         console.log("loaded");
-        console.log($img);
+        while (window.response_img.length==0) {
+          console.log("ciclado");
+        }
+        var res=window.response_img.shift();
+        var jresponse =JSON.parse(res);
+        $img.attr("id",jresponse.id);
+        $img.attr("src",jresponse.src);
+        window.bexi_tagid=jresponse.id;
+        auto_save();
       },
       'click': function (clickEvent) {
         // Do something here.
