@@ -1374,7 +1374,7 @@ function initialize_editors_text(){
         },
         'image.beforeRemove': function ($img) {
           $("#"+$img.attr("id")).remove();
-          $(".fr-active").remove();
+          $(".fr-active").hide();
           auto_save();
           return false;
         }
