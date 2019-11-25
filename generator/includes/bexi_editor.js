@@ -1307,11 +1307,11 @@ function initialize_editors_text(){
               $("#"+window.bexi_tagid).attr("id",jresponse.id);
               $("#"+window.bexi_tagid).attr("src",jresponse.src);
             }else{
-              $("img").each(function(item){
-                var pos=item.attr("src").search("blob:http//");
+              $("img").each(function(){
+                var pos=$(this).attr("src").search("blob:http//");
                 if(pos!==-1){
-                  item.attr("id",jresponse.id);
-                  item.attr("src",jresponse.src);
+                  $(this).attr("id",jresponse.id);
+                  $(this).attr("src",jresponse.src);
                   console.log("encontrado");
                 }
               });
