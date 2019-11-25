@@ -1285,7 +1285,17 @@ function initialize_editors_text(){
       },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
       imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
+        imageUploadParam: 'file',
 
+        // Set the image upload URL.
+        imageUploadURL: './ajax/uploadfile.php',
+    
+        // Additional upload params.
+        imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+    
+        // Set request type.
+        imageUploadMethod: 'POST',
+  
         // Set max image size to 5MB.
         imageMaxSize: 5 * 1024 * 1024,
 
@@ -1296,10 +1306,12 @@ function initialize_editors_text(){
             auto_save();
         },
         'image.beforeUpload': function (images) {
-            window.response_img.push(images[0]);
+          console.log(this.opts);
+            //window.response_img.push(images[0]);
         },
         'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
+          /*
             var file=window.response_img.shift();
             var res = save_img($img.attr("id"),file);
             res.done(function(data){
@@ -1309,6 +1321,7 @@ function initialize_editors_text(){
               window.bexi_tagid=jresponse.id;
               auto_save();
             });
+            */
         },
         'click': function (clickEvent) {
           // Do something here.
