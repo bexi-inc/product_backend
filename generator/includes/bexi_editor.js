@@ -1251,7 +1251,6 @@ function save_img(TAGID,FILE){
   data.append("projectid",pid);
   data.append("tagid",TAGID);
   var request=$.ajax({
-    async: false,
     url: "./ajax/uploadfile.php",
     data: data,
     processData: false,
@@ -1574,13 +1573,16 @@ function initialize_editors_text(){
       'image.beforeUpload': function (images) {
         console.log("before");
         var res=save_img(window.bexi_tagid,images[0]);
-        res.done(function(){
+        $.when(res).then(function(data, status, xhr) {
+          // Lógica de respuesta aquí.
           window.response_img.push(res);
         });
+        console.log(window.response_img);
       },
       'image.inserted': function ($img, response) {
         // Image was inserted in the editor.
         console.log("inserted");
+        console.log(window.response_img);
           var res=window.response_img.shift();
           var jresponse =JSON.parse(res);
           $img.attr("id",jresponse.id);
