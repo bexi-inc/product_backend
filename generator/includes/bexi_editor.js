@@ -925,7 +925,6 @@ function bgchange(btid) {
             var obj=this._original_html;
             var ID=$(obj).attr('id');
             $("#"+ID).css("font-size",val+'px');
-            console.log (val);
           }
         });
 
@@ -1296,24 +1295,22 @@ function initialize_editors_text(){
             auto_save();
         },
         'image.beforeUpload': function (images) {
-          console.log("before");
           var res=save_img(window.bexi_tagid,images[0]);
           res.done(function(data){
-            console.log("entra");
             window.response_img.push(data);
             var jresponse =JSON.parse(data);
             if(window.bexi_tagid!=null)
             {
               $("#"+window.bexi_tagid).attr("id",jresponse.id);
               $("#"+window.bexi_tagid).attr("src",jresponse.src);
+              window.bexi_tagid=jresponse.id;
             }else{
               $("img").each(function(){
                 var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
-                console.log(pos);
                 if(pos!=-1){
                   $(this).attr("id",jresponse.id);
                   $(this).attr("src",jresponse.src);
-                  console.log("encontrado");
+                  window.bexi_tagid=jresponse.id;
                 }
               });
             }
@@ -1322,7 +1319,6 @@ function initialize_editors_text(){
         },
         'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
-          console.log("inserted");
           if(window.response_img.length!=0){
             var res=window.response_img.shift();
             var jresponse =JSON.parse(res);
@@ -1333,7 +1329,6 @@ function initialize_editors_text(){
           }
         },
         'image.replaced': function ($img, response) {
-          console.log("replaced");
           // Image was replaced in the editor.
           if(window.response_img.length!=0){
             var res=window.response_img.shift();
@@ -1345,7 +1340,6 @@ function initialize_editors_text(){
           }
         },
         'image.loaded': function ($img) {
-          console.log("loaded");
           if(window.response_img.length!=0){
             var res=window.response_img.shift();
             var jresponse =JSON.parse(res);
@@ -1373,10 +1367,7 @@ function initialize_editors_text(){
           auto_save();
         },
         'image.beforeRemove': function ($img) {
-          //$("#"+$img.attr("id")).remove();
-          //$(".fr-active").hide();
           auto_save();
-          //return false;
         }
       }
     });
@@ -1400,20 +1391,30 @@ function initialize_editors_text(){
               auto_save();
           },
           'image.beforeUpload': function (images) {
-            console.log("before");
             var res=save_img(window.bexi_tagid,images[0]);
             res.done(function(data){
-              console.log("entra");
               window.response_img.push(data);
               var jresponse =JSON.parse(data);
-              $("#"+window.bexi_tagid).attr("id",jresponse.id);
-              $("#"+window.bexi_tagid).attr("src",jresponse.src);
+              if(window.bexi_tagid!=null)
+              {
+                $("#"+window.bexi_tagid).attr("id",jresponse.id);
+                $("#"+window.bexi_tagid).attr("src",jresponse.src);
+                window.bexi_tagid=jresponse.id;
+              }else{
+                $("img").each(function(){
+                  var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
+                  if(pos!=-1){
+                    $(this).attr("id",jresponse.id);
+                    $(this).attr("src",jresponse.src);
+                    window.bexi_tagid=jresponse.id;
+                  }
+                });
+              }
               auto_save();
             });
           },
           'image.inserted': function ($img, response) {
             // Image was inserted in the editor.
-            console.log("inserted");
             if(window.response_img.length!=0){
               var res=window.response_img.shift();
               var jresponse =JSON.parse(res);
@@ -1424,7 +1425,6 @@ function initialize_editors_text(){
             }
           },
           'image.replaced': function ($img, response) {
-            console.log("replaced");
             // Image was replaced in the editor.
             if(window.response_img.length!=0){
               var res=window.response_img.shift();
@@ -1436,7 +1436,6 @@ function initialize_editors_text(){
             }
           },
           'image.loaded': function ($img) {
-            console.log("loaded");
             if(window.response_img.length!=0){
               var res=window.response_img.shift();
               var jresponse =JSON.parse(res);
@@ -1464,10 +1463,7 @@ function initialize_editors_text(){
             auto_save();
           },
           'image.beforeRemove': function ($img) {
-            $("#"+$img.attr("id")).remove();
-            $(".fr-active").remove();
             auto_save();
-            return false;
           }
       }
     });
@@ -1491,20 +1487,30 @@ function initialize_editors_text(){
               auto_save();
           },
           'image.beforeUpload': function (images) {
-            console.log("before");
             var res=save_img(window.bexi_tagid,images[0]);
             res.done(function(data){
-              console.log("entra");
               window.response_img.push(data);
               var jresponse =JSON.parse(data);
-              $("#"+window.bexi_tagid).attr("id",jresponse.id);
-              $("#"+window.bexi_tagid).attr("src",jresponse.src);
+              if(window.bexi_tagid!=null)
+              {
+                $("#"+window.bexi_tagid).attr("id",jresponse.id);
+                $("#"+window.bexi_tagid).attr("src",jresponse.src);
+                window.bexi_tagid=jresponse.id;
+              }else{
+                $("img").each(function(){
+                  var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
+                  if(pos!=-1){
+                    $(this).attr("id",jresponse.id);
+                    $(this).attr("src",jresponse.src);
+                    window.bexi_tagid=jresponse.id;
+                  }
+                });
+              }
               auto_save();
             });
           },
           'image.inserted': function ($img, response) {
             // Image was inserted in the editor.
-            console.log("inserted");
             if(window.response_img.length!=0){
               var res=window.response_img.shift();
               var jresponse =JSON.parse(res);
@@ -1515,7 +1521,6 @@ function initialize_editors_text(){
             }
           },
           'image.replaced': function ($img, response) {
-            console.log("replaced");
             // Image was replaced in the editor.
             if(window.response_img.length!=0){
               var res=window.response_img.shift();
@@ -1527,7 +1532,6 @@ function initialize_editors_text(){
             }
           },
           'image.loaded': function ($img) {
-            console.log("loaded");
             if(window.response_img.length!=0){
               var res=window.response_img.shift();
               var jresponse =JSON.parse(res);
@@ -1555,10 +1559,7 @@ function initialize_editors_text(){
             auto_save();
           },
           'image.beforeRemove': function ($img) {
-            $("#"+$img.attr("id")).remove();
-            $(".fr-active").remove();
             auto_save();
-            return false;
           }
       }
     });
@@ -1581,20 +1582,30 @@ function initialize_editors_text(){
             auto_save();
         },
         'image.beforeUpload': function (images) {
-          console.log("before");
           var res=save_img(window.bexi_tagid,images[0]);
           res.done(function(data){
-            console.log("entra");
             window.response_img.push(data);
             var jresponse =JSON.parse(data);
-            $("#"+window.bexi_tagid).attr("id",jresponse.id);
-            $("#"+window.bexi_tagid).attr("src",jresponse.src);
+            if(window.bexi_tagid!=null)
+            {
+              $("#"+window.bexi_tagid).attr("id",jresponse.id);
+              $("#"+window.bexi_tagid).attr("src",jresponse.src);
+              window.bexi_tagid=jresponse.id;
+            }else{
+              $("img").each(function(){
+                var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
+                if(pos!=-1){
+                  $(this).attr("id",jresponse.id);
+                  $(this).attr("src",jresponse.src);
+                  window.bexi_tagid=jresponse.id;
+                }
+              });
+            }
             auto_save();
           });
         },
         'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
-          console.log("inserted");
           if(window.response_img.length!=0){
             var res=window.response_img.shift();
             var jresponse =JSON.parse(res);
@@ -1605,7 +1616,6 @@ function initialize_editors_text(){
           }
         },
         'image.replaced': function ($img, response) {
-          console.log("replaced");
           // Image was replaced in the editor.
           if(window.response_img.length!=0){
             var res=window.response_img.shift();
@@ -1617,7 +1627,6 @@ function initialize_editors_text(){
           }
         },
         'image.loaded': function ($img) {
-          console.log("loaded");
           if(window.response_img.length!=0){
             var res=window.response_img.shift();
             var jresponse =JSON.parse(res);
@@ -1645,10 +1654,7 @@ function initialize_editors_text(){
           auto_save();
         },
         'image.beforeRemove': function ($img) {
-          $("#"+$img.attr("id")).remove();
-          $(".fr-active").remove();
           auto_save();
-          return false;
         }
     }
     });
@@ -1672,20 +1678,30 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        console.log("before");
         var res=save_img(window.bexi_tagid,images[0]);
         res.done(function(data){
-          console.log("entra");
           window.response_img.push(data);
           var jresponse =JSON.parse(data);
-          $("#"+window.bexi_tagid).attr("id",jresponse.id);
-          $("#"+window.bexi_tagid).attr("src",jresponse.src);
+          if(window.bexi_tagid!=null)
+          {
+            $("#"+window.bexi_tagid).attr("id",jresponse.id);
+            $("#"+window.bexi_tagid).attr("src",jresponse.src);
+            window.bexi_tagid=jresponse.id;
+          }else{
+            $("img").each(function(){
+              var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
+              if(pos!=-1){
+                $(this).attr("id",jresponse.id);
+                $(this).attr("src",jresponse.src);
+                window.bexi_tagid=jresponse.id;
+              }
+            });
+          }
           auto_save();
         });
       },
       'image.inserted': function ($img, response) {
         // Image was inserted in the editor.
-        console.log("inserted");
         if(window.response_img.length!=0){
           var res=window.response_img.shift();
           var jresponse =JSON.parse(res);
@@ -1696,7 +1712,6 @@ function initialize_editors_text(){
         }
       },
       'image.replaced': function ($img, response) {
-        console.log("replaced");
         // Image was replaced in the editor.
         if(window.response_img.length!=0){
           var res=window.response_img.shift();
@@ -1708,7 +1723,6 @@ function initialize_editors_text(){
         }
       },
       'image.loaded': function ($img) {
-        console.log("loaded");
         if(window.response_img.length!=0){
           var res=window.response_img.shift();
           var jresponse =JSON.parse(res);
