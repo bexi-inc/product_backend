@@ -1322,16 +1322,17 @@ function initialize_editors_text(){
               auto_save();
             });
             */
+           /*
            var jresponse =JSON.parse(response);
            $img.attr("id",jresponse.id);
            $img.attr("src",jresponse.src);
            window.bexi_tagid=jresponse.id;
            auto_save();
+           */
         },
         'click': function (clickEvent) {
           // Do something here.
           // this is the editor instance.
-          /*
           if(clickEvent.currentTarget.tagName=="IMG")
           {
             window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
@@ -1339,7 +1340,6 @@ function initialize_editors_text(){
           else{
             window.bexi_tagid=null;
           }
-          */
         },
         'initialized': function (event, editor) {
           styles_ptags();
@@ -1352,11 +1352,13 @@ function initialize_editors_text(){
         },
         'image.replaced': function ($img, response) {
           console.log("replaced");
+          /*
           var jresponse =JSON.parse(response);
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src);
           window.bexi_tagid=jresponse.id;
           auto_save();
+          */
         }
       }
     });
