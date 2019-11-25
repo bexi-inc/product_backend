@@ -1251,7 +1251,6 @@ function save_img(TAGID,FILE){
   data.append("projectid",pid);
   data.append("tagid",TAGID);
   var request=$.ajax({
-    async: false,
     url: "./ajax/uploadfile.php",
     data: data,
     processData: false,
