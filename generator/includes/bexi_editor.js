@@ -1308,7 +1308,7 @@ function initialize_editors_text(){
               $("#"+window.bexi_tagid).attr("src",jresponse.src);
             }else{
               $("img").each(function(){
-                var pos=$(this).attr("src").search("blob:http//");
+                var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
                 console.log(pos);
                 if(pos!=-1){
                   $(this).attr("id",jresponse.id);
