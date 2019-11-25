@@ -1308,7 +1308,6 @@ function initialize_editors_text(){
               window.bexi_tagid=jresponse.id;
               auto_save();
             });
-          }
         },
         'click': function (clickEvent) {
           // Do something here.
