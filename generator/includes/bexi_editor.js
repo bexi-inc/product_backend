@@ -1362,8 +1362,8 @@ function initialize_editors_text(){
           */
         },
         'image.uploaded':function(response){
-          console.log("uploaded")
-          console.log(JSON.parse(response));
+          console.log("uploaded");
+          var jresponse=JSON.parse(response);
           // Insert image.
           if(window.bexi_tagid!=null)
           {
