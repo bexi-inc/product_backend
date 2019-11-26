@@ -1238,7 +1238,7 @@ function auto_save()
       }
     });
     cc.find("div").each(function(){
-      if($(this).attr("id")==undefined||$(this).attr("class").search("fr")!==-1)
+      if($(this).attr("id")==undefined||$(this).attr("class").search("fr-")!==-1)
       {
         $(this).remove();
       }
