@@ -1313,10 +1313,9 @@ function initialize_editors_text(){
           // Image was inserted in the editor.
            var jresponse =JSON.parse(response);
            $img.attr("id",jresponse.id);
-           $img.attr("src",jresponse.src);
+           $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
            var str=$img.prop('outerHTML');
            console.log(str);
-           $img.replaceWith(str);
            window.bexi_tagid=jresponse.id;
            auto_save();
         },
