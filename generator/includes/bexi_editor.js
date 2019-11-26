@@ -1240,6 +1240,10 @@ function auto_save()
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
 function save_img(TAGID,FILE){
+  var newDiv = $(document.createElement('div'));
+  newDiv.html(
+  "<img src='reload.gif' width='32px' height='32px'>"
+    );
   var did=$("#devId").val();
   var pid=$("#codeId").val();
   var uid=$("#userId").val();
@@ -1251,13 +1255,28 @@ function save_img(TAGID,FILE){
   data.append("tagid",TAGID);
   var request=$.ajax({
     url: "./ajax/uploadfile.php",
-    async:false,
     data: data,
     processData: false,
     contentType: false,
     method:"POST",
-    success: function(response){
-    }
+    beforeSend: function(){
+      // Show image container
+      $(newDiv).dialog({
+        resizable: false,
+        height: "auto",
+        width: 400,
+        modal: true,
+        create: function() {
+         // remove the title of the dialog as we want to use the tab's one
+         $(this).parent().children('.ui-dialog-titlebar').remove();
+        }
+      });
+     },
+     complete:function(data){
+      // Hide image container
+      $(newDiv).dialog("close");
+      newDiv.remove();
+     }
   });
   return request;
 }
