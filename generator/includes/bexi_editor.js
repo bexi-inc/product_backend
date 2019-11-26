@@ -1222,6 +1222,7 @@ function auto_save()
     cc.find('.bexi_editor_button').contents().unwrap();
     cc.find('.bexi_editor_text').contents().unwrap();
     cc.find('.bexi_editor_link').contents().unwrap();
+    cc.find('.bexi_editor_img').contents().unwrap();
     cc.find('.bexi_editor_title').contents().unwrap();
     cc.find('.bexi_editor_subtitle').contents().unwrap();
     cc.find('.bexi_editor_map').contents().unwrap();
@@ -1229,6 +1230,12 @@ function auto_save()
     cc.find('div.fr-element').contents().unwrap();
     cc.find('div.alt-wrap').contents().unwrap();
     cc.find(".bexi_unspash").remove();
+    c.find("p").each(function(){
+      if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
+      {
+        $(this).contents().unwrap();
+      }
+    });
     var request=$.ajax({
       url: "./ajax/autosave.php",
       data: { devid:did,userid: uid, projectid : pid,code:cc.html()} ,
