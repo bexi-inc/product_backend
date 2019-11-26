@@ -1191,7 +1191,7 @@ function bgchange(btid) {
 
 
 
-
+/*
 function add_action_forms(){
   $(".bexi_form").each(function(){
     $(this).submit(function(e){
@@ -1200,6 +1200,7 @@ function add_action_forms(){
     });
   });
 }
+*/
 
 function styles_ptags(){
   var c= $("#modu_main");

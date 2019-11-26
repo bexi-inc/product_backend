@@ -18,3 +18,12 @@ function send_data(ID,event){
             }
         });
 }
+
+$(document).ready(function(){
+    $(".bexi_form").each(function(){
+        $(this).submit(function(e){
+          e.preventDefault();
+          send_data($(this).attr("id"),e);
+        });
+      });
+});
