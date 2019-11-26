@@ -1361,7 +1361,7 @@ function initialize_editors_text(){
           auto_save();
           */
         },
-        'image.uploaded':function(e, editor, response){
+        'image.uploaded':function(response){
           console.log("uploaded")
           console.log(response);
           console.log(JSON.parse(response));
