@@ -1617,14 +1617,14 @@ function initialize_editors_text(){
           if(window.bexi_tagid!=null)
           {
             $("#"+window.bexi_tagid).attr("id",jresponse.id);
-            $("#"+window.bexi_tagid).attr("src",jresponse.src);
+            $("#"+window.bexi_tagid).attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
             window.bexi_tagid=jresponse.id;
           }else{
             $("img").each(function(){
               var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
               if(pos!=-1){
                 $(this).attr("id",jresponse.id);
-                $(this).attr("src",jresponse.src);
+                $(this).attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
                 window.bexi_tagid=jresponse.id;
               }
             });
