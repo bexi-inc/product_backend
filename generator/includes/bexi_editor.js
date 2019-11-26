@@ -1202,7 +1202,7 @@ function add_action_forms(){
 
 function styles_ptags(){
   var c= $("#modu_main");
-  c.find("p").each(function(){
+  $("p").each(function(){
     console.log($(this).attr("class"));
     if($(this).attr("class")===undefined)
     {
