@@ -1296,9 +1296,23 @@ background-color: #e7e7e7 !important;
   margin-bottom: 0px !important ;
 }
 
-/*img.fr-view.fr-dib{
-  
-} margin: unset !important;/*
+
+img.fr-view.fr-dib.fr-fir{
+  margin-right: 0;
+  text-align: right;
+} /* Alling right froala img export*/
+
+img.fr-view.fr-dib {
+  margin: 5px auto;
+  display: block;
+  float: none;
+  vertical-align: top;
+}/* Alling center froala img export*/
+
+img.fr-view.fr-dib.fr-fil {
+  margin-left: 0;
+  text-align: left;
+}/* Alling left froala img export*/
 
 /******* For unsplash Manager ********/
 .image-list {
