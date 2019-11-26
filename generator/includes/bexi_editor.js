@@ -1314,7 +1314,7 @@ function initialize_editors_text(){
            var jresponse =JSON.parse(response);
            $img.attr("id",jresponse.id);
            $img.attr("src",jresponse.src);
-           var str=$img.html();
+           var str=$img.prop('outerHTML');
            console.log(str);
            $img.replaceWith(str);
            window.bexi_tagid=jresponse.id;
