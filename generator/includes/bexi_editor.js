@@ -668,9 +668,8 @@ function bgchange(btid) {
         $(".bexi_img").each(function() {
           //$(this).wrap( '<div class="bexi_editor_img" style="width:auto;height:auto;"></div>');
           var str=$(this).parent().attr("class");
-          console.log(str);
           if(str!==undefined){
-            if(str.search("bexi_editor_img")!==-1)
+            if(str.search("bexi_editor_img")===-1)
             {
               $(this).parent().attr("class",str+" bexi_editor_img");
             }
