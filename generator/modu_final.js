@@ -1,6 +1,7 @@
 var email="";
 
-function send_data(ID){
+function send_data(ID,event){
+    event.preventDefault();
         $.ajax({
             url: 'http://generator.getmodu.com/ajax/sendform.php', // url where to submit the request
             type : "POST", // type of action POST || GET
