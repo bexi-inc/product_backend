@@ -666,6 +666,7 @@ function bgchange(btid) {
         }); 
       
         $(".bexi_img").each(function() {
+          $(this).wrap( '<div class="bexi_editor_img" style="width:100%;height:100%;"></div>');
             var attr = $(this).attr('bexi_img_au');
             /*
           if (typeof attr !== typeof undefined && attr !== false) 
@@ -1612,6 +1613,89 @@ function initialize_editors_text(){
     }
     });
 
+    var editorimg = new FroalaEditor('.bexi_editor_img',
+    {
+      key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
+      toolbarInline: true,
+      charCounterCount: false,
+      toolbarBottom : false,
+      imageDefaultAlign: 'center',
+      imageDefaultMargin: 0,
+      imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
+      imageUploadParam: 'file',
+
+      // Set the image upload URL.
+      imageUploadURL: './ajax/uploadfile.php',
+  
+      // Additional upload params.
+      imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+  
+      // Set request type.
+      imageUploadMethod: 'POST',
+
+      // Set max image size to 5MB.
+      imageMaxSize: 5 * 1024 * 1024,
+
+      // Allow to upload PNG and JPG.
+      imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+    events : {
+      'blur': function () {
+          auto_save();
+      },
+      'image.beforeUpload': function (images) {
+        this.opts.imageUploadParams.tagid=window.bexi_tagid;
+      },
+      'image.uploaded': function (response) {
+      },
+      'image.inserted': function ($img, response) {
+        // Image was inserted in the editor.
+        var jresponse =JSON.parse(response);
+        $img.attr("id",jresponse.id);
+        $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+        window.bexi_tagid=jresponse.id;
+        auto_save();
+      },
+      'image.replaced': function ($img, response) {
+        // Image was replaced in the editor.
+        var jresponse =JSON.parse(response);
+        $img.attr("id",jresponse.id);
+        $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+        window.bexi_tagid=jresponse.id;
+        auto_save();
+      },
+      'image.loaded': function ($img) {
+        if(window.response_img.length!=0){
+          var res=window.response_img.shift();
+          var jresponse =JSON.parse(res);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src);
+          window.bexi_tagid=jresponse.id;
+          auto_save();
+        }
+      },
+      'click': function (clickEvent) {
+        // Do something here.
+        // this is the editor instance.
+        if(clickEvent.currentTarget.tagName=="IMG")
+        {
+          window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+        }
+        else{
+          window.bexi_tagid=null;
+        }
+      },
+      'initialized': function () {
+        styles_ptags();
+      },
+      'image.resizeEnd': function ($img) {
+        auto_save();
+      },
+      'image.beforeRemove': function ($img) {
+        auto_save();
+      }
+    }
+    });
+/*
     var editorimg = new FroalaEditor('.bexi_img',
     {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
@@ -1688,7 +1772,7 @@ function initialize_editors_text(){
       }
     }
     });
-
+*/
     var editorbtn = new FroalaEditor('.bexi_editor_button',
     {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
