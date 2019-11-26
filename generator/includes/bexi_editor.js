@@ -773,7 +773,6 @@ function bgchange(btid) {
           previewImg(this.id);
         });
       });
-      /*
       $('.bexi_icon').each(function() {
         var str=$(this).attr('style');
         if(str!==undefined)
@@ -785,9 +784,8 @@ function bgchange(btid) {
           str="width:auto;";
         }
         str+="margin-bottom:unset;";
-        $(this).wrap( '<span class="bexi_editor_icon" style="'+str+'"></span>' );
+        $(this).wrap( '<p class="bexi_editor_icon" style="'+str+'"></p>' );
       });
-      */
         /************** ICON COLOR ******************/
        FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
        FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'fas fa-tint'});
@@ -1831,7 +1829,7 @@ function initialize_editors_text(){
       }
     });
 
-    var editorico = new FroalaEditor('.bexi_icon', {
+    var editorico = new FroalaEditor('.bexi_editor_icon', {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       toolbarInline: true,
