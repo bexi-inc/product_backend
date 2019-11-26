@@ -785,7 +785,7 @@ function bgchange(btid) {
           str+="width:auto;";
         }
         str+="margin-bottom:unset;";
-        $(this).wrap( '<spam class="bexi_editor_icon" style="'+str+'"></spam>' );
+        $(this).wrap( '<span class="bexi_editor_icon" style="'+str+'"></span>' );
       });
 
         /************** ICON COLOR ******************/
