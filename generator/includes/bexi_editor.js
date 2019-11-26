@@ -1235,7 +1235,6 @@ function auto_save()
     cc.find('.bexi_editor_button').contents().unwrap();
     cc.find('.bexi_editor_text').contents().unwrap();
     cc.find('.bexi_editor_link').contents().unwrap();
-    cc.find('.bexi_editor_img').contents().unwrap();
     cc.find('.bexi_editor_title').contents().unwrap();
     cc.find('.bexi_editor_subtitle').contents().unwrap();
     cc.find('.bexi_editor_map').contents().unwrap();
