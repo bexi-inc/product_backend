@@ -1205,6 +1205,7 @@ function styles_ptags(){
     if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
     {
       $(this).css("padding","0px");
+      $(this).css("margin","0px");
     }
   });
 }
