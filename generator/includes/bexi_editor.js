@@ -1633,17 +1633,17 @@ function initialize_editors_text(){
         });
       },
       'image.uploaded': function (response) {
-        var make=1;
-        while (make==1) {
-          console.log(window.response_img.length);
-          if(window.response_img.length!=0){
-            make=0;
-            window.response_img.shift();
-          }
-        }
       },
       'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
+          var make=1;
+          while (make==1) {
+            console.log(window.response_img.length);
+            if(window.response_img.length!=0){
+              make=0;
+              window.response_img.shift();
+            }
+          }
       },
       'image.replaced': function ($img, response) {
         // Image was replaced in the editor.
