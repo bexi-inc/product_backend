@@ -1203,6 +1203,7 @@ function add_action_forms(){
 function styles_ptags(){
   var c= $("#modu_main");
   $("p").each(function(){
+    console.log($(this));
     console.log($(this).attr("class"));
     if($(this).attr("class")===undefined)
     {
