@@ -1195,7 +1195,7 @@ function bgchange(btid) {
 function add_action_forms(){
   $(".bexi_form").each(function(){
     var id=$(this).find("button[type=submit]").attr("id");
-    $("#"+id).click(function(e){
+    $("#"+id).submit(function(e){
       send_data(id);
     });
   });
