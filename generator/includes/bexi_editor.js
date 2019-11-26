@@ -1600,17 +1600,6 @@ function initialize_editors_text(){
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
-      imageUploadParam: 'file',
-
-      // Set the image upload URL.
-      imageUploadURL: './ajax/uploadfile.php',
-  
-      // Additional upload params.
-      imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
-  
-      // Set request type.
-      imageUploadMethod: 'POST',
-
       // Set max image size to 5MB.
       imageMaxSize: 5 * 1024 * 1024,
 
@@ -1621,33 +1610,45 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        this.opts.imageUploadParams.tagid=window.bexi_tagid;
+        var res=save_img(window.bexi_tagid,images[0]);
+        res.done(function(data){
+          window.response_img.push(data);
+          var jresponse =JSON.parse(data);
+          if(window.bexi_tagid!=null)
+          {
+            $("#"+window.bexi_tagid).attr("id",jresponse.id);
+            $("#"+window.bexi_tagid).attr("src",jresponse.src);
+            window.bexi_tagid=jresponse.id;
+          }else{
+            $("img").each(function(){
+              var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
+              if(pos!=-1){
+                $(this).attr("id",jresponse.id);
+                $(this).attr("src",jresponse.src);
+                window.bexi_tagid=jresponse.id;
+              }
+            });
+          }
+          auto_save();
+        });
+      },
+      'image.uploaded': function (response) {
+        var make=1;
+        while (make==1) {
+          console.log(window.response_img.length);
+          if(window.response_img.length!=0){
+            make=0;
+            window.response_img.shift();
+          }
+        }
       },
       'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
-          var jresponse =JSON.parse(response);
-          $img.attr("id",jresponse.id);
-          $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
-          window.bexi_tagid=jresponse.id;
-          auto_save();
       },
       'image.replaced': function ($img, response) {
         // Image was replaced in the editor.
-        var jresponse =JSON.parse(response);
-        $img.attr("id",jresponse.id);
-        $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
-        window.bexi_tagid=jresponse.id;
-        auto_save();
       },
       'image.loaded': function ($img) {
-        if(window.response_img.length!=0){
-          var res=window.response_img.shift();
-          var jresponse =JSON.parse(res);
-          $img.attr("id",jresponse.id);
-          $img.attr("src",jresponse.src);
-          window.bexi_tagid=jresponse.id;
-          auto_save();
-        }
       },
       'click': function (clickEvent) {
         // Do something here.
