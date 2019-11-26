@@ -1243,7 +1243,8 @@ function save_img(TAGID,FILE){
   var newDiv = $(document.createElement('div'));
   newDiv.attr("class","C my-auto");
   newDiv.html(
-  "<img src='./img/uploading.gif' width='50px' height='50px'>"
+  "<img src='./img/uploading.gif' width='50px' height='50px'>"+
+  "<spam>Uploading...</spam>"
     );
   var did=$("#devId").val();
   var pid=$("#codeId").val();
