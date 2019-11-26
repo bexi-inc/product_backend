@@ -666,7 +666,7 @@ function bgchange(btid) {
         }); 
       
         $(".bexi_img").each(function() {
-          $(this).wrap( '<div class="bexi_editor_img" style="width:100%;height:100%;"></div>');
+          $(this).wrap( '<div class="bexi_editor_img" style="width:auto;height:auto;"></div>');
             var attr = $(this).attr('bexi_img_au');
             /*
           if (typeof attr !== typeof undefined && attr !== false) 
@@ -676,7 +676,7 @@ function bgchange(btid) {
             }
             */
         });
-       $(".map").wrap('<div class="bexi_editor_map" style="width: auto;height:auto;"></div>');
+       $(".map").wrap('<div class="bexi_editor_map" style="width: 100%;height:100%;"></div>');
        $(".bexi_editor_map").each(function(){
         var num=Math.floor((Math.random() * 10000) + 50000);
         $(this).css("position", "relative");
@@ -1829,7 +1829,7 @@ function initialize_editors_text(){
       }
     });
 
-    var editorico = new FroalaEditor('.bexi_editor_icon', {
+    var editorico = new FroalaEditor('.bexi_icon', {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       toolbarInline: true,
