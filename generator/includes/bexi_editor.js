@@ -1237,6 +1237,12 @@ function auto_save()
         $(this).contents().unwrap();
       }
     });
+    cc.find("div").each(function(){
+      if($(this).attr("id")==undefined||$(this).attr("class").search("fr")!==-1)
+      {
+        $(this).remove();
+      }
+    });
     var request=$.ajax({
       url: "./ajax/autosave.php",
       data: { devid:did,userid: uid, projectid : pid,code:cc.html()} ,
