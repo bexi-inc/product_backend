@@ -1241,7 +1241,7 @@ function auto_save()
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
 function save_img(TAGID,FILE){
   var newDiv = $(document.createElement('div'));
-  newDiv.attr("class","C my-auto");
+  newDiv.attr("class","C align-items-center");
   newDiv.html(
   "<img src='./img/uploading.gif' width='50px' height='50px'>"+
   "<spam>Uploading...</spam>"
@@ -1265,7 +1265,7 @@ function save_img(TAGID,FILE){
       // Show image container
       $(newDiv).dialog({
         resizable: false,
-        height: 80,
+        height: 100,
         width: 80,
         modal: true,
         create: function() {
