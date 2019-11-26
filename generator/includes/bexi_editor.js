@@ -1342,6 +1342,13 @@ function initialize_editors_text(){
         },
         'image.replaced': function ($img, response) {
           console.log("replaced");
+          var jresponse =JSON.parse(response);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+          var str=$img.prop('outerHTML');
+          console.log(str);
+          window.bexi_tagid=jresponse.id;
+          auto_save();
         }
       }
     });
