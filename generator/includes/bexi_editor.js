@@ -666,16 +666,7 @@ function bgchange(btid) {
         }); 
       
         $(".bexi_img").each(function() {
-          //$(this).wrap( '<div class="bexi_editor_img" style="width:auto;height:auto;"></div>');
-          var str=$(this).parent().attr("class");
-          if(str!==undefined){
-            if(str.search("bexi_editor_img")===-1)
-            {
-              $(this).parent().attr("class",str+" bexi_editor_img");
-            }
-          }else{
-            $(this).parent().attr("class","bexi_editor_img");
-          }
+          $(this).wrap( '<div class="bexi_editor_img" style="width:auto;height:auto;"></div>');
             var attr = $(this).attr('bexi_img_au');
             /*
           if (typeof attr !== typeof undefined && attr !== false) 
@@ -1648,7 +1639,6 @@ function initialize_editors_text(){
       toolbarBottom : false,
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
-      htmlAllowedEmptyTags: ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6','a'],
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
       imageUploadParam: 'file',
 
