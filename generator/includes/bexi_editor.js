@@ -1831,7 +1831,7 @@ function initialize_editors_text(){
       }
     });
 
-    var editorico = new FroalaEditor('.bexi_editor_icon', {
+    var editorico = new FroalaEditor('.bexi_icon', {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       toolbarInline: true,
