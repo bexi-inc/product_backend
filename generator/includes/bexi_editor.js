@@ -782,7 +782,7 @@ function bgchange(btid) {
             str+="width:auto;";
           }
         }else{
-          str+="width:auto;";
+          str="width:auto;";
         }
         str+="margin-bottom:unset;";
         $(this).wrap( '<span class="bexi_editor_icon" style="'+str+'"></span>' );
