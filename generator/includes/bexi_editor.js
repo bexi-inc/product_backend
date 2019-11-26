@@ -1228,6 +1228,7 @@ function auto_save()
     cc.find('.bexi_editor_link').contents().unwrap();
     cc.find('.bexi_editor_title').contents().unwrap();
     cc.find('.bexi_editor_subtitle').contents().unwrap();
+    cc.find('.bexi_editor_img').contents().unwrap();
     cc.find('.bexi_editor_map').contents().unwrap();
     cc.find('div.fr-wrapper').contents().unwrap();
     cc.find('div.fr-element').contents().unwrap();
