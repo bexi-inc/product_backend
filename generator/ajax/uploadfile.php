@@ -79,7 +79,7 @@ if (isset($_REQUEST["devid"]))
 	$projectid = $_REQUEST["projectid"];
 }
 
-if (!$idfile || is_null($idfile) || $idfile== "null")
+if (!$idfile || is_null($idfile) || $idfile== "null"||$idfile=="undefined")
 {
 	$idfile = uniqid();
 }

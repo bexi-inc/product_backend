@@ -623,7 +623,7 @@ function bgchange(btid) {
         var response =save_img(id,$('#inpimg'+ID).prop('files')[0]);
         response.done(function(data){
           var jdata=JSON.parse(data);
-          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"')");
+          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"?timestamp=" + new Date().getTime()+"')");
           $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
           $('#inpimg'+ID).val(null);
           $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
@@ -666,6 +666,7 @@ function bgchange(btid) {
         }); 
       
         $(".bexi_img").each(function() {
+          $(this).wrap( '<div class="bexi_editor_img" style="width:100%;height:100%;"></div>');
             var attr = $(this).attr('bexi_img_au');
             /*
           if (typeof attr !== typeof undefined && attr !== false) 
@@ -925,7 +926,6 @@ function bgchange(btid) {
             var obj=this._original_html;
             var ID=$(obj).attr('id');
             $("#"+ID).css("font-size",val+'px');
-            console.log (val);
           }
         });
 
@@ -1205,6 +1205,7 @@ function styles_ptags(){
     if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
     {
       $(this).css("padding","0px");
+      $(this).css("margin","0px");
     }
   });
 }
@@ -1222,6 +1223,7 @@ function auto_save()
     cc.find('.bexi_editor_button').contents().unwrap();
     cc.find('.bexi_editor_text').contents().unwrap();
     cc.find('.bexi_editor_link').contents().unwrap();
+    cc.find('.bexi_editor_img').contents().unwrap();
     cc.find('.bexi_editor_title').contents().unwrap();
     cc.find('.bexi_editor_subtitle').contents().unwrap();
     cc.find('.bexi_editor_map').contents().unwrap();
@@ -1229,6 +1231,12 @@ function auto_save()
     cc.find('div.fr-element').contents().unwrap();
     cc.find('div.alt-wrap').contents().unwrap();
     cc.find(".bexi_unspash").remove();
+    cc.find("p").each(function(){
+      if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
+      {
+        $(this).contents().unwrap();
+      }
+    });
     var request=$.ajax({
       url: "./ajax/autosave.php",
       data: { devid:did,userid: uid, projectid : pid,code:cc.html()} ,
@@ -1241,6 +1249,12 @@ function auto_save()
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
 function save_img(TAGID,FILE){
+  var newDiv = $(document.createElement('div'));
+  newDiv.attr("class","C align-items-center");
+  newDiv.html(
+  "<img src='./img/uploading.gif' width='50px' height='50px'>"+
+  "<spam>Uploading...</spam>"
+    );
   var did=$("#devId").val();
   var pid=$("#codeId").val();
   var uid=$("#userId").val();
@@ -1256,8 +1270,24 @@ function save_img(TAGID,FILE){
     processData: false,
     contentType: false,
     method:"POST",
-    success: function(response){
-    }
+    beforeSend: function(){
+      // Show image container
+      $(newDiv).dialog({
+        resizable: false,
+        height: 100,
+        width: 80,
+        modal: true,
+        create: function() {
+         // remove the title of the dialog as we want to use the tab's one
+         $(this).parent().children('.ui-dialog-titlebar').remove();
+        }
+      });
+     },
+     complete:function(data){
+      // Hide image container
+      $(newDiv).dialog("close");
+      newDiv.remove();
+     }
   });
   return request;
 }
@@ -1285,7 +1315,17 @@ function initialize_editors_text(){
       },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
       imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
+        imageUploadParam: 'file',
 
+        // Set the image upload URL.
+        imageUploadURL: './ajax/uploadfile.php',
+    
+        // Additional upload params.
+        imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+    
+        // Set request type.
+        imageUploadMethod: 'POST',
+  
         // Set max image size to 5MB.
         imageMaxSize: 5 * 1024 * 1024,
 
@@ -1296,64 +1336,15 @@ function initialize_editors_text(){
             auto_save();
         },
         'image.beforeUpload': function (images) {
-          console.log("before");
-          var res=save_img(window.bexi_tagid,images[0]);
-          res.done(function(data){
-            console.log("entra");
-            window.response_img.push(data);
-            var jresponse =JSON.parse(data);
-            if(window.bexi_tagid!=null)
-            {
-              $("#"+window.bexi_tagid).attr("id",jresponse.id);
-              $("#"+window.bexi_tagid).attr("src",jresponse.src);
-            }else{
-              $("img").each(function(){
-                var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
-                console.log(pos);
-                if(pos!=-1){
-                  $(this).attr("id",jresponse.id);
-                  $(this).attr("src",jresponse.src);
-                  console.log("encontrado");
-                }
-              });
-            }
-            auto_save();
-          });
+          this.opts.imageUploadParams.tagid=window.bexi_tagid;
         },
         'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
-          console.log("inserted");
-          if(window.response_img.length!=0){
-            var res=window.response_img.shift();
-            var jresponse =JSON.parse(res);
-            $img.attr("id",jresponse.id);
-            $img.attr("src",jresponse.src);
-            window.bexi_tagid=jresponse.id;
-            auto_save();
-          }
-        },
-        'image.replaced': function ($img, response) {
-          console.log("replaced");
-          // Image was replaced in the editor.
-          if(window.response_img.length!=0){
-            var res=window.response_img.shift();
-            var jresponse =JSON.parse(res);
-            $img.attr("id",jresponse.id);
-            $img.attr("src",jresponse.src);
-            window.bexi_tagid=jresponse.id;
-            auto_save();
-          }
-        },
-        'image.loaded': function ($img) {
-          console.log("loaded");
-          if(window.response_img.length!=0){
-            var res=window.response_img.shift();
-            var jresponse =JSON.parse(res);
-            $img.attr("id",jresponse.id);
-            $img.attr("src",jresponse.src);
-            window.bexi_tagid=jresponse.id;
-            auto_save();
-          }
+           var jresponse =JSON.parse(response);
+           $img.attr("id",jresponse.id);
+           $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+           window.bexi_tagid=jresponse.id;
+           auto_save();
         },
         'click': function (clickEvent) {
           // Do something here.
@@ -1373,10 +1364,14 @@ function initialize_editors_text(){
           auto_save();
         },
         'image.beforeRemove': function ($img) {
-          //$("#"+$img.attr("id")).remove();
-          //$(".fr-active").hide();
           auto_save();
-          //return false;
+        },
+        'image.replaced': function ($img, response) {
+          var jresponse =JSON.parse(response);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+          window.bexi_tagid=jresponse.id;
+          auto_save();
         }
       }
     });
@@ -1388,8 +1383,20 @@ function initialize_editors_text(){
       charCounterCount: false,
       toolbarVisibleWithoutSelection: true,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
+      imageUploadParam: 'file',
+
+      // Set the image upload URL.
+      imageUploadURL: './ajax/uploadfile.php',
+
+      // Additional upload params.
+      imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+
+      // Set request type.
+      imageUploadMethod: 'POST',
+
       // Set max image size to 5MB.
       imageMaxSize: 5 * 1024 * 1024,
 
@@ -1400,43 +1407,25 @@ function initialize_editors_text(){
               auto_save();
           },
           'image.beforeUpload': function (images) {
-            console.log("before");
-            var res=save_img(window.bexi_tagid,images[0]);
-            res.done(function(data){
-              console.log("entra");
-              window.response_img.push(data);
-              var jresponse =JSON.parse(data);
-              $("#"+window.bexi_tagid).attr("id",jresponse.id);
-              $("#"+window.bexi_tagid).attr("src",jresponse.src);
-              auto_save();
-            });
+            this.opts.imageUploadParams.tagid=window.bexi_tagid;
           },
           'image.inserted': function ($img, response) {
             // Image was inserted in the editor.
-            console.log("inserted");
-            if(window.response_img.length!=0){
-              var res=window.response_img.shift();
-              var jresponse =JSON.parse(res);
-              $img.attr("id",jresponse.id);
-              $img.attr("src",jresponse.src);
-              window.bexi_tagid=jresponse.id;
-              auto_save();
-            }
+            var jresponse =JSON.parse(response);
+            $img.attr("id",jresponse.id);
+            $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+            window.bexi_tagid=jresponse.id;
+            auto_save();
           },
           'image.replaced': function ($img, response) {
-            console.log("replaced");
             // Image was replaced in the editor.
-            if(window.response_img.length!=0){
-              var res=window.response_img.shift();
-              var jresponse =JSON.parse(res);
-              $img.attr("id",jresponse.id);
-              $img.attr("src",jresponse.src);
-              window.bexi_tagid=jresponse.id;
-              auto_save();
-            }
+            var jresponse =JSON.parse(response);
+            $img.attr("id",jresponse.id);
+            $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+            window.bexi_tagid=jresponse.id;
+            auto_save();
           },
           'image.loaded': function ($img) {
-            console.log("loaded");
             if(window.response_img.length!=0){
               var res=window.response_img.shift();
               var jresponse =JSON.parse(res);
@@ -1464,10 +1453,7 @@ function initialize_editors_text(){
             auto_save();
           },
           'image.beforeRemove': function ($img) {
-            $("#"+$img.attr("id")).remove();
-            $(".fr-active").remove();
             auto_save();
-            return false;
           }
       }
     });
@@ -1479,8 +1465,20 @@ function initialize_editors_text(){
       charCounterCount: false,
       toolbarVisibleWithoutSelection: true,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
+      imageUploadParam: 'file',
+
+      // Set the image upload URL.
+      imageUploadURL: './ajax/uploadfile.php',
+  
+      // Additional upload params.
+      imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+  
+      // Set request type.
+      imageUploadMethod: 'POST',
+
       // Set max image size to 5MB.
       imageMaxSize: 5 * 1024 * 1024,
 
@@ -1491,43 +1489,25 @@ function initialize_editors_text(){
               auto_save();
           },
           'image.beforeUpload': function (images) {
-            console.log("before");
-            var res=save_img(window.bexi_tagid,images[0]);
-            res.done(function(data){
-              console.log("entra");
-              window.response_img.push(data);
-              var jresponse =JSON.parse(data);
-              $("#"+window.bexi_tagid).attr("id",jresponse.id);
-              $("#"+window.bexi_tagid).attr("src",jresponse.src);
-              auto_save();
-            });
+            this.opts.imageUploadParams.tagid=window.bexi_tagid;
           },
           'image.inserted': function ($img, response) {
             // Image was inserted in the editor.
-            console.log("inserted");
-            if(window.response_img.length!=0){
-              var res=window.response_img.shift();
-              var jresponse =JSON.parse(res);
-              $img.attr("id",jresponse.id);
-              $img.attr("src",jresponse.src);
-              window.bexi_tagid=jresponse.id;
-              auto_save();
-            }
+            var jresponse =JSON.parse(response);
+            $img.attr("id",jresponse.id);
+            $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+            window.bexi_tagid=jresponse.id;
+            auto_save();
           },
           'image.replaced': function ($img, response) {
-            console.log("replaced");
             // Image was replaced in the editor.
-            if(window.response_img.length!=0){
-              var res=window.response_img.shift();
-              var jresponse =JSON.parse(res);
-              $img.attr("id",jresponse.id);
-              $img.attr("src",jresponse.src);
-              window.bexi_tagid=jresponse.id;
-              auto_save();
-            }
+            var jresponse =JSON.parse(response);
+            $img.attr("id",jresponse.id);
+            $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+            window.bexi_tagid=jresponse.id;
+            auto_save();
           },
           'image.loaded': function ($img) {
-            console.log("loaded");
             if(window.response_img.length!=0){
               var res=window.response_img.shift();
               var jresponse =JSON.parse(res);
@@ -1555,10 +1535,7 @@ function initialize_editors_text(){
             auto_save();
           },
           'image.beforeRemove': function ($img) {
-            $("#"+$img.attr("id")).remove();
-            $(".fr-active").remove();
             auto_save();
-            return false;
           }
       }
     });
@@ -1569,55 +1546,49 @@ function initialize_editors_text(){
       toolbarInline: true,
       charCounterCount: false,
       linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
-    // Set max image size to 5MB.
-    imageMaxSize: 5 * 1024 * 1024,
+      imageUploadParam: 'file',
 
-    // Allow to upload PNG and JPG.
-    imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+      // Set the image upload URL.
+      imageUploadURL: './ajax/uploadfile.php',
+  
+      // Additional upload params.
+      imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+  
+      // Set request type.
+      imageUploadMethod: 'POST',
+
+      // Set max image size to 5MB.
+      imageMaxSize: 5 * 1024 * 1024,
+
+      // Allow to upload PNG and JPG.
+      imageAllowedTypes: ['jpeg', 'jpg', 'png'],
     events : {
           'blur': function () {
             auto_save();
         },
         'image.beforeUpload': function (images) {
-          console.log("before");
-          var res=save_img(window.bexi_tagid,images[0]);
-          res.done(function(data){
-            console.log("entra");
-            window.response_img.push(data);
-            var jresponse =JSON.parse(data);
-            $("#"+window.bexi_tagid).attr("id",jresponse.id);
-            $("#"+window.bexi_tagid).attr("src",jresponse.src);
-            auto_save();
-          });
+          this.opts.imageUploadParams.tagid=window.bexi_tagid;
         },
         'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
-          console.log("inserted");
-          if(window.response_img.length!=0){
-            var res=window.response_img.shift();
-            var jresponse =JSON.parse(res);
-            $img.attr("id",jresponse.id);
-            $img.attr("src",jresponse.src);
-            window.bexi_tagid=jresponse.id;
-            auto_save();
-          }
+          var jresponse =JSON.parse(response);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+          window.bexi_tagid=jresponse.id;
+          auto_save();
         },
         'image.replaced': function ($img, response) {
-          console.log("replaced");
           // Image was replaced in the editor.
-          if(window.response_img.length!=0){
-            var res=window.response_img.shift();
-            var jresponse =JSON.parse(res);
-            $img.attr("id",jresponse.id);
-            $img.attr("src",jresponse.src);
-            window.bexi_tagid=jresponse.id;
-            auto_save();
-          }
+          var jresponse =JSON.parse(response);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+          window.bexi_tagid=jresponse.id;
+          auto_save();
         },
         'image.loaded': function ($img) {
-          console.log("loaded");
           if(window.response_img.length!=0){
             var res=window.response_img.shift();
             var jresponse =JSON.parse(res);
@@ -1645,15 +1616,12 @@ function initialize_editors_text(){
           auto_save();
         },
         'image.beforeRemove': function ($img) {
-          $("#"+$img.attr("id")).remove();
-          $(".fr-active").remove();
           auto_save();
-          return false;
         }
     }
     });
 
-    var editorimg = new FroalaEditor('.bexi_img',
+    var editorimg = new FroalaEditor('.bexi_editor_img',
     {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
@@ -1662,53 +1630,48 @@ function initialize_editors_text(){
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
-    // Set max image size to 5MB.
-    imageMaxSize: 5 * 1024 * 1024,
+      imageUploadParam: 'file',
 
-    // Allow to upload PNG and JPG.
-    imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+      // Set the image upload URL.
+      imageUploadURL: './ajax/uploadfile.php',
+  
+      // Additional upload params.
+      imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+  
+      // Set request type.
+      imageUploadMethod: 'POST',
+
+      // Set max image size to 5MB.
+      imageMaxSize: 5 * 1024 * 1024,
+
+      // Allow to upload PNG and JPG.
+      imageAllowedTypes: ['jpeg', 'jpg', 'png'],
     events : {
       'blur': function () {
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        console.log("before");
-        var res=save_img(window.bexi_tagid,images[0]);
-        res.done(function(data){
-          console.log("entra");
-          window.response_img.push(data);
-          var jresponse =JSON.parse(data);
-          $("#"+window.bexi_tagid).attr("id",jresponse.id);
-          $("#"+window.bexi_tagid).attr("src",jresponse.src);
-          auto_save();
-        });
+        this.opts.imageUploadParams.tagid=window.bexi_tagid;
+      },
+      'image.uploaded': function (response) {
       },
       'image.inserted': function ($img, response) {
         // Image was inserted in the editor.
-        console.log("inserted");
-        if(window.response_img.length!=0){
-          var res=window.response_img.shift();
-          var jresponse =JSON.parse(res);
-          $img.attr("id",jresponse.id);
-          $img.attr("src",jresponse.src);
-          window.bexi_tagid=jresponse.id;
-          auto_save();
-        }
+        var jresponse =JSON.parse(response);
+        $img.attr("id",jresponse.id);
+        $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+        window.bexi_tagid=jresponse.id;
+        auto_save();
       },
       'image.replaced': function ($img, response) {
-        console.log("replaced");
         // Image was replaced in the editor.
-        if(window.response_img.length!=0){
-          var res=window.response_img.shift();
-          var jresponse =JSON.parse(res);
-          $img.attr("id",jresponse.id);
-          $img.attr("src",jresponse.src);
-          window.bexi_tagid=jresponse.id;
-          auto_save();
-        }
+        var jresponse =JSON.parse(response);
+        $img.attr("id",jresponse.id);
+        $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+        window.bexi_tagid=jresponse.id;
+        auto_save();
       },
       'image.loaded': function ($img) {
-        console.log("loaded");
         if(window.response_img.length!=0){
           var res=window.response_img.shift();
           var jresponse =JSON.parse(res);
@@ -1736,6 +1699,80 @@ function initialize_editors_text(){
         auto_save();
       },
       'image.beforeRemove': function ($img) {
+        auto_save();
+      }
+    }
+    });
+/*
+    var editorimg = new FroalaEditor('.bexi_img',
+    {
+      key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
+      toolbarInline: true,
+      charCounterCount: false,
+      toolbarBottom : false,
+      imageDefaultAlign: 'center',
+      imageDefaultMargin: 0,
+      imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
+      // Set max image size to 5MB.
+      imageMaxSize: 5 * 1024 * 1024,
+
+      // Allow to upload PNG and JPG.
+      imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+    events : {
+      'blur': function () {
+          auto_save();
+      },
+      'image.beforeUpload': function (images) {
+        var res=save_img(window.bexi_tagid,images[0]);
+        res.done(function(data){
+          window.response_img.push(data);
+          var jresponse =JSON.parse(data);
+          if(window.bexi_tagid!=null)
+          {
+            $("#"+window.bexi_tagid).attr("id",jresponse.id);
+            $("#"+window.bexi_tagid).attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+            window.bexi_tagid=jresponse.id;
+          }else{
+            $("img").each(function(){
+              var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
+              if(pos!=-1){
+                $(this).attr("id",jresponse.id);
+                $(this).attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+                window.bexi_tagid=jresponse.id;
+              }
+            });
+          }
+          auto_save();
+        });
+      },
+      'image.uploaded': function (response) {
+      },
+      'image.inserted': function ($img, response) {
+          // Image was inserted in the editor.
+      },
+      'image.replaced': function ($img, response) {
+        // Image was replaced in the editor.
+      },
+      'image.loaded': function ($img) {
+      },
+      'click': function (clickEvent) {
+        // Do something here.
+        // this is the editor instance.
+        if(clickEvent.currentTarget.tagName=="IMG")
+        {
+          window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+        }
+        else{
+          window.bexi_tagid=null;
+        }
+      },
+      'initialized': function () {
+        styles_ptags();
+      },
+      'image.resizeEnd': function ($img) {
+        auto_save();
+      },
+      'image.beforeRemove': function ($img) {
         $("#"+$img.attr("id")).remove();
         $(".fr-active").remove();
         auto_save();
@@ -1743,7 +1780,7 @@ function initialize_editors_text(){
       }
     }
     });
-
+*/
     var editorbtn = new FroalaEditor('.bexi_editor_button',
     {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
