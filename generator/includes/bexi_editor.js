@@ -773,7 +773,7 @@ function bgchange(btid) {
           previewImg(this.id);
         });
       });
-
+      /*
       $('.bexi_icon').each(function() {
         var str=$(this).attr('style');
         if(str!==undefined)
@@ -787,7 +787,7 @@ function bgchange(btid) {
         str+="margin-bottom:unset;";
         $(this).wrap( '<span class="bexi_editor_icon" style="'+str+'"></span>' );
       });
-
+      */
         /************** ICON COLOR ******************/
        FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
        FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'fas fa-tint'});
