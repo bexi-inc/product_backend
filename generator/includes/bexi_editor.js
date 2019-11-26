@@ -1264,8 +1264,8 @@ function save_img(TAGID,FILE){
       // Show image container
       $(newDiv).dialog({
         resizable: false,
-        height: 60,
-        width: 60,
+        height: 80,
+        width: 80,
         modal: true,
         create: function() {
          // remove the title of the dialog as we want to use the tab's one
