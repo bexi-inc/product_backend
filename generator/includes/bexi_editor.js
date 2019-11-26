@@ -666,7 +666,16 @@ function bgchange(btid) {
         }); 
       
         $(".bexi_img").each(function() {
-          $(this).wrap( '<div class="bexi_editor_img" style="width:auto;height:auto;"></div>');
+          //$(this).wrap( '<div class="bexi_editor_img" style="width:auto;height:auto;"></div>');
+          var str=$(this).parent().attr("class");
+          if(str!==undefined){
+            if(str.search("bexi_editor_img")!==-1)
+            {
+              $(this).parent().attr("class",str+" bexi_editor_img");
+            }
+          }else{
+            $(this).parent().attr("class","bexi_editor_img");
+          }
             var attr = $(this).attr('bexi_img_au');
             /*
           if (typeof attr !== typeof undefined && attr !== false) 
