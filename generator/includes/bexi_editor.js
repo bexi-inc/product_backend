@@ -1196,6 +1196,7 @@ function add_action_forms(){
   $(".bexi_form").each(function(){
     $(this).submit(function(e){
       send_data($(this).attr("id"));
+      e.preventDefault();
     });
   });
 }
