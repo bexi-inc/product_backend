@@ -658,7 +658,7 @@ function bgchange(btid) {
 
        $( ".bexi_link" ).wrap( "<div class='bexi_editor_link' style='width:100%;'></div>" );
 
-       //$( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
+       $( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
        $( ".bexi_video" ).wrap( "<div class='bexi_editor_video' style='width: 100%;'></div>" );
        $('.bexi_img').bind('contextmenu', function(e) {
