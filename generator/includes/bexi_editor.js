@@ -692,7 +692,6 @@ function bgchange(btid) {
        $("form").submit(function(e){
         e.preventDefault();
         });
-       add_action_forms();
        $('.bexi_module').each(function() {
         var num=Math.floor((Math.random() * 10000) + 1);
         var pos=$(this).attr("class").search("hero");
