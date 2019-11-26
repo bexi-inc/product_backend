@@ -676,7 +676,7 @@ function bgchange(btid) {
             }
             */
         });
-       $(".map").wrap('<div class="bexi_editor_map" style="width: 100%;height:100%;"></div>');
+       $(".map").wrap('<div class="bexi_editor_map" style="width: auto;height:auto;"></div>');
        $(".bexi_editor_map").each(function(){
         var num=Math.floor((Math.random() * 10000) + 50000);
         $(this).css("position", "relative");
