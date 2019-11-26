@@ -1311,24 +1311,14 @@ function initialize_editors_text(){
         },
         'image.inserted': function ($img, response) {
           // Image was inserted in the editor.
-          /*
-            var file=window.response_img.shift();
-            var res = save_img($img.attr("id"),file);
-            res.done(function(data){
-              var jresponse =JSON.parse(data);
-              $img.attr("id",jresponse.id);
-              $img.attr("src",jresponse.src);
-              window.bexi_tagid=jresponse.id;
-              auto_save();
-            });
-            */
-           /*
            var jresponse =JSON.parse(response);
            $img.attr("id",jresponse.id);
            $img.attr("src",jresponse.src);
+           var str=$img.html();
+           console.log(str);
+           $img.replaceWith(str);
            window.bexi_tagid=jresponse.id;
            auto_save();
-           */
         },
         'click': function (clickEvent) {
           // Do something here.
@@ -1353,34 +1343,6 @@ function initialize_editors_text(){
         },
         'image.replaced': function ($img, response) {
           console.log("replaced");
-          /*
-          var jresponse =JSON.parse(response);
-          $img.attr("id",jresponse.id);
-          $img.attr("src",jresponse.src);
-          window.bexi_tagid=jresponse.id;
-          auto_save();
-          */
-        },
-        'image.uploaded':function(response){
-          console.log("uploaded");
-          var jresponse=JSON.parse(response);
-          // Insert image.
-          if(window.bexi_tagid!=null)
-          {
-            $("#"+window.bexi_tagid).attr("id",jresponse.id);
-            $("#"+window.bexi_tagid).attr("src",jresponse.src);
-            window.bexi_tagid=jresponse.id;
-          }else{
-            $("img").each(function(){
-              var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
-              if(pos!=-1){
-                $(this).attr("id",jresponse.id);
-                $(this).attr("src",jresponse.src);
-                window.bexi_tagid=jresponse.id;
-              }
-            });
-          }
-          return false;
         }
       }
     });
