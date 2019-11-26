@@ -1194,7 +1194,7 @@ function bgchange(btid) {
 function add_action_forms(){
   $(".bexi_form").each(function(){
     $(this).find("button[type=submit]").click(function(){
-      
+
     });
   });
 }
@@ -1202,10 +1202,15 @@ function add_action_forms(){
 function styles_ptags(){
   var c= $("#modu_main");
   c.find("p").each(function(){
-    if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
+    if($(this).attr("class")===undefined)
     {
       $(this).css("padding","0px");
       $(this).css("margin","0px");
+    }else{
+      if($(this).attr("class").search("bexi_editor")!==-1){
+        $(this).css("padding","0px");
+        $(this).css("margin","0px");
+      }
     }
   });
 }
