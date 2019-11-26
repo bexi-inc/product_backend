@@ -419,7 +419,7 @@ if (isset($_REQUEST["projectid"]))
     echo'<script src="./config.js"></script>';
 
 
-    echo'<script src="./modu_final.js"></script>';
+    /*echo'<script src="./modu_final.js"></script>';*/
 
     echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
     echo $FontImport;
