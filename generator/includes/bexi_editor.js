@@ -1207,6 +1207,7 @@ function styles_ptags(){
     console.log($(this).attr("class"));
     if($(this).attr("class")===undefined)
     {
+      console.log("entro");
       $(this).css("padding","0px");
       $(this).css("margin","0px");
     }else{
