@@ -1242,7 +1242,7 @@ function auto_save()
 function save_img(TAGID,FILE){
   var newDiv = $(document.createElement('div'));
   newDiv.html(
-  "<img src='reload.gif' width='32px' height='32px'>"
+  "<img src='./img/uploading.gif' width='50px' height='50px'>"
     );
   var did=$("#devId").val();
   var pid=$("#codeId").val();
