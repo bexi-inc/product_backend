@@ -1648,6 +1648,7 @@ function initialize_editors_text(){
       toolbarBottom : false,
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
+      htmlAllowedEmptyTags: ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6','a'],
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
       imageUploadParam: 'file',
 
