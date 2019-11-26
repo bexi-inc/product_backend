@@ -1363,8 +1363,9 @@ function initialize_editors_text(){
         },
         'image.uploaded':function(e, editor, response){
           console.log("uploaded")
+          console.log(response);
+          console.log(JSON.parse(response));
           // Insert image.
-          var jresponse =JSON.parse(response);
           editor.image.insert(jresponse.src, false, null, editor.image.get(), response);
           return false;
         }
