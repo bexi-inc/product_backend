@@ -1802,7 +1802,6 @@ function initialize_editors_text(){
       },
       'contentChanged': function () {
         auto_save();
-        console.log("content changed");
       }
     }
     });
