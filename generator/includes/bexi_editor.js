@@ -1813,6 +1813,7 @@ function initialize_editors_text(){
         }
       },
       'initialized': function () {
+        console.log("initialized");
         styles_ptags();
       }
     });
