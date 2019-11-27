@@ -77,7 +77,7 @@ function AddNewProject()
             }).done(function( data, textStatus, jqXHR ) {
               console.log("numeros de Sliders: ",$("#modu_sliders .mySlides").length );
               var ClassActive = "";
-              if ($("#modu_sliders .mySlides").length<=2)
+              if ($("#modu_sliders .mySlides").length<2)
               {
                    ClassActive = "project_active";
               }
