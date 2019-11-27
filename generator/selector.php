@@ -214,13 +214,13 @@ if (isset($_REQUEST["projectid"]))
 	.selector_next {
 	  right: 0;
 	  border-radius: 3px 0 0 3px;
-	  background-image: url("./img/right.png");
+	  background-image: url("./imgs/right.png");
 	}
 
 	.selector_prev {
 	  left: 0;
 	  border-radius: 3px 0 0 3px;
-	  background-image: url("./img/left.png");
+	  background-image: url("./imgs/left.png");
 	}
 
 	/* On hover, add a black background color with a little bit see-through */
