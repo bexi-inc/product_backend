@@ -548,10 +548,15 @@ if (isset($_REQUEST["projectid"]))
                 if($pos!==false){
                     $tag->setAttribute('src',$logourl);
                  }
-                 $pos=strpos($class,"bexi_img");
-                 if($pos!==false){
-                     $tag->setAttribute('class',$class." fr-view fr-dib");
-                }
+            }
+        }
+
+        $tags = $doc->getElementsByTagName('img');
+        foreach ($tags as $tag) {
+            $class = $tag->getAttribute('class');
+             $pos=strpos($class,"bexi_img");
+             if($pos!==false){
+                 $tag->setAttribute('class',$class." fr-view fr-dib");
             }
         }
         
