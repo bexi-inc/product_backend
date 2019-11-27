@@ -1202,11 +1202,8 @@ function add_action_forms(){
 
 function styles_ptags(){
   $("#modu_main").find("p").each(function(){
-    console.log($(this));
-    console.log($(this).attr("class"));
     if($(this).attr("class")===undefined)
     {
-      console.log("entro");
       $(this).css("padding","0px");
       $(this).css("margin","0px");
     }else{
@@ -1811,7 +1808,6 @@ function initialize_editors_text(){
             auto_save();
         },
         'initialized': function () {
-          console.log("initialized");
           styles_ptags();
         }
       }
