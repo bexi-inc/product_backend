@@ -689,6 +689,9 @@ function bgchange(btid) {
        });
        $(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
+       $(".bexi_form").each(function(){
+          $(this).find("input").removeAttr('required');
+       });
        $("form").submit(function(e){
         e.preventDefault();
         });
@@ -1249,6 +1252,9 @@ function auto_save()
           $(this).remove();
         }
       }
+    });
+    cc.find(".bexi_form").each(function(){
+      $(this).find("input").attr('required', true);
     });
     var request=$.ajax({
       url: "./ajax/autosave.php",
