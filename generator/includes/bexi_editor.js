@@ -1239,6 +1239,7 @@ function auto_save()
     cc.find('div.fr-element').contents().unwrap();
     cc.find('div.alt-wrap').contents().unwrap();
     cc.find(".bexi_unspash").remove();
+    cc.find(".fr-video").contents().unwrap();
     cc.find("p").each(function(){
       if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
       {
