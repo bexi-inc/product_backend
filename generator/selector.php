@@ -250,6 +250,7 @@ if (isset($_REQUEST["projectid"]))
 		  background-color:rgba(0, 0, 0, 0.3);
 	}*/
 	.thumbnail{
+		height: calc(var(--thumbnail-height)+50px);
 		background-color: transparent;
 	}/*	background-color: #000; */ 
 	</style>
