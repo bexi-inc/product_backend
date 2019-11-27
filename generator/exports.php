@@ -504,7 +504,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                         ),
                     ),
                 ),
-            );
+            ));
            $dir = $PATH;
            $cdir = scandir($dir);
            foreach ($cdir as $key => $value)
