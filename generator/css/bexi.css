@@ -1314,6 +1314,11 @@ img.fr-view.fr-dib.fr-fil {
   text-align: left;
 }/* Alling left froala img export*/
 
+img.fr-view{
+  position: relative;
+  max-width: 100%;
+} /* Adds responsivness to froala img*/
+
 /******* For unsplash Manager ********/
 .image-list {
   margin-bottom: 10px;
