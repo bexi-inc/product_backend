@@ -165,6 +165,7 @@ if (isset($_REQUEST["projectid"]))
 
 	/* This facilitates the fade-in transition instead of flicker. It also helps us maintain the illusion that this is an image, since some webpages will have a preloading animation or wait for some images to download */
 	.thumbnail iframe {
+	  margin:25px;
 	  opacity: 0.7;
 	  transition: all 300ms ease-in-out;
 	  border-radius:25px;
@@ -251,6 +252,7 @@ if (isset($_REQUEST["projectid"]))
 	}*/
 	.thumbnail{
 		height: calc(var(--thumbnail-height)+50px);
+		width: calc(var(--thumbnail-width)+50px);
 		background-color: transparent;
 	}/*	background-color: #000; */ 
 	</style>
