@@ -1799,6 +1799,10 @@ function initialize_editors_text(){
         $(".fr-active").remove();
         auto_save();
         return false;
+      },
+      'contentChanged': function () {
+        auto_save();
+        console.log("content changed");
       }
     }
     });
