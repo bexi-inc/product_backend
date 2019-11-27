@@ -207,27 +207,35 @@ if (isset($_REQUEST["projectid"]))
 	  border-radius: 0 3px 3px 0;
 	  user-select: none;
 	  z-index: 999;
-	  background-color: rgba(0,0,0,0.3);
-	}
+	}/*	  background-color: rgba(0,0,0,0.3); */
 
 	/* Position the "next button" to the right */
 	.selector_next {
 	  right: 0;
 	  border-radius: 3px 0 0 3px;
-	  background-image: url("./imgs/right.png");
+	  background-image: url("./imgs/right_gray.png");
+	  background-position: center; /* Center the image */
+	  background-repeat: no-repeat; /* Do not repeat the image */
+	  background-size: cover; /* Resize the background image to cover the entire container */
 	}
 
 	.selector_prev {
 	  left: 0;
 	  border-radius: 3px 0 0 3px;
-	  background-image: url("./imgs/left.png");
+	  background-image: url("./imgs/left_gray.png");
+	  background-position: center; /* Center the image */
+	  background-repeat: no-repeat; /* Do not repeat the image */
+	  background-size: cover; /* Resize the background image to cover the entire container */
 	}
 
 	/* On hover, add a black background color with a little bit see-through */
-	.selector_prev:hover, .selector_next:hover {
-	  background-color: rgba(0,0,0,0.7);
-	}
+	.selector_prev:hover{
+		background-image: url("./imgs/left.png");
+	}/*background-color: rgba(0,0,0,0.7); */
 
+	.selector_next:hover {
+		background-image: url("./imgs/right.png");
+	}/*background-color: rgba(0,0,0,0.7); */
 /*
 	.mySlides:hover:after{
 		  content: url('imgs/edit.png');;
@@ -305,8 +313,8 @@ if (isset($_REQUEST["projectid"]))
 <body>
 <div class="main_selector">
 	<!-- Next and previous buttons -->
-	<a class="selector_prev" onclick="plusSlides(1)">&#10094;</a>
-	<a class="selector_next" onclick="plusSlides(-1)">&#10095;</a>
+	<a class="selector_prev" onclick="plusSlides(1)"></a>
+	<a class="selector_next" onclick="plusSlides(-1)"></a>
 	<div class="bexi_sliders" id="modu_sliders" style="width: 90%; margin-left: 5%; position: relative; height: 100%; margin-right: 5%; overflow: hidden;" >
 		
 	</div>
