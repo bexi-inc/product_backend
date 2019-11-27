@@ -11,7 +11,7 @@ function send_data(ID,event){
                 // you can see the result from the console
                 // tab of the developer tools
                 $("#"+ID).empty();
-                $("#"+ID).prepend('<div class="row m-0 C">Thanks! Your message was successfully submitted.</div>');
+                $("#"+ID).prepend('<div class="row m-0 C" style="Backgroound-color:White;">Thanks! Your message was successfully submitted.</div>');
             },
             error: function(xhr, resp, text) {
                 alert("Sorry, something went wrong =(");
