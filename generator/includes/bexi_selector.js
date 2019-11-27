@@ -75,6 +75,8 @@ function AddNewProject()
                 dataType: "json",
                 type: 'POST',
             }).done(function( data, textStatus, jqXHR ) {
+              //Revisamos si se han agregado menos de 2 sliders y si se han agregado menos de 2
+              //los marcamos como project_active para que se active el boton de seleccionar al dar click
               console.log("numeros de Sliders: ",$("#modu_sliders .mySlides").length );
               var ClassActive = "";
               if ($("#modu_sliders .mySlides").length<2)
