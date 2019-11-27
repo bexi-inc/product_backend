@@ -75,6 +75,7 @@ function AddNewProject()
                 dataType: "json",
                 type: 'POST',
             }).done(function( data, textStatus, jqXHR ) {
+              console.log($("#modu_sliders .mySlides").length );
               $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="thumbnail"><iframe src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" onload="this.style.opacity = 1" modu-id="' + data.codeid + '"></iframe></div></div>');
               console.log($(".bexi_sliders .mySlides").length);
                if ($(".bexi_sliders .mySlides").length<=4)
