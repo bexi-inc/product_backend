@@ -389,42 +389,42 @@ background-color: #e7e7e7 !important;
 
 /*------------ Carousel rules -----------------*/
 .carousel-control-prev {
-    left: -10%;
+    left: -10% !important;
 }
 
 .carousel-control-next {
-    right: -10%;
+    right: -10% !important;
 }
 
 .carousel-indicators{
-    bottom: -40px;
+    bottom: -40px !important;
 }
 .carousel-indicators li {
-    background-color: var(--color-2);
-    mix-blend-mode: difference;
+    background-color: var(--color-2) !important;
+    mix-blend-mode: difference !important;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  height: 100px;
-  width: 100px;
-  outline: black;
-  background-size: 100%, 100%;
-  background-image: none;
+  height: 100px !important;
+  width: 100px !important;
+  outline: black !important;
+  background-size: 100%, 100% !important;
+  background-image: none !important;
 }
 
 .carousel-control-next-icon:after
 {
-  content: '>';
-  font-size: 55px;
-  color: var(--color-2);
-  mix-blend-mode: difference;
+  content: '>' !important;
+  font-size: 55px !important;
+  color: var(--color-2) !important;
+  mix-blend-mode: difference !important;
 }
 
 .carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 55px;
-  color: var(--color-2);
+  content: '<' !important;
+  font-size: 55px !important;
+  color: var(--color-2) !important;
 }
 
 
