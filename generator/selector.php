@@ -155,6 +155,7 @@ if (isset($_REQUEST["projectid"]))
 	  -o-transform-origin: 0 0;
 	  -webkit-transform: scale(var(--thumbnail-zoom));
 	  -webkit-transform-origin: 0 0;
+	  border-radius:25px;
 	}
 
 	/* This is our screen sizing */
