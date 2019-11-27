@@ -687,7 +687,7 @@ function bgchange(btid) {
           '</div>'
          );
        });
-       $(".bexi_img").addClass("fr-view fr-dib");
+       //$(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
        $(".bexi_form").each(function(){
           $(this).find("input").removeAttr('required');
@@ -1216,7 +1216,6 @@ function styles_ptags(){
       }
     }
   });
-  auto_save();
 }
 
 function auto_save()
