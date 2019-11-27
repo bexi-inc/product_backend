@@ -463,7 +463,6 @@ if (isset($_REQUEST["projectid"]))
     */
 
     
-
     if($first_load===1 || $_REQUEST["target"]=="selector")
     {
         $doc = new DOMDocument();
@@ -539,7 +538,7 @@ if (isset($_REQUEST["projectid"]))
             }
             $tag->setAttribute('class',$new_class);
         }
-
+        print_r($logourl);
         if($logourl!=""||$logourl!=null)
         {
             $tags = $doc->getElementsByTagName('img');
