@@ -250,6 +250,7 @@ if (isset($_REQUEST["projectid"]))
 		  background-color:rgba(0, 0, 0, 0.3);
 	}*/
 	.thumbnail{
+		background-color: transparent;
 	}/*	background-color: #000; */ 
 	</style>
 	<script type="text/javascript">
