@@ -1185,6 +1185,7 @@ function bgchange(btid) {
        });
 
       initialize_editors_text();
+      styles_ptags();
 });/**END OF DOCUMENT READY ***/
 
 
@@ -1201,8 +1202,7 @@ function add_action_forms(){
 */
 
 function styles_ptags(){
-  var c= $("#modu_main");
-  $("p").each(function(){
+  $("#modu_main").find("p").each(function(){
     console.log($(this));
     console.log($(this).attr("class"));
     if($(this).attr("class")===undefined)
@@ -1815,7 +1815,6 @@ function initialize_editors_text(){
       'initialized': function () {
         styles_ptags();
       }
-
     });
 
     var editorvid = new FroalaEditor('.bexi_editor_video', {
