@@ -1185,7 +1185,6 @@ function bgchange(btid) {
        });
 
       initialize_editors_text();
-      styles_ptags();
 });/**END OF DOCUMENT READY ***/
 
 
@@ -1810,11 +1809,11 @@ function initialize_editors_text(){
       events : {
         'blur': function () {
             auto_save();
+        },
+        'initialized': function () {
+          console.log("initialized");
+          styles_ptags();
         }
-      },
-      'initialized': function () {
-        console.log("initialized");
-        styles_ptags();
       }
     });
 
@@ -1830,10 +1829,10 @@ function initialize_editors_text(){
       events : {
         'blur': function () {
             auto_save();
+        },
+        'initialized': function () {
+          styles_ptags();
         }
-      },
-      'initialized': function () {
-        styles_ptags();
       }
     });
 
