@@ -1216,6 +1216,7 @@ function styles_ptags(){
       }
     }
   });
+  auto_save();
 }
 
 function auto_save()
