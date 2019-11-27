@@ -211,6 +211,7 @@ if (isset($_REQUEST["projectid"]))
 
 	/* Position the "next button" to the right */
 	.selector_next {
+	  margin-right:15px;
 	  right: 0;
 	  border-radius: 3px 0 0 3px;
 	  background-image: url("./imgs/right_gray.png");
@@ -220,6 +221,7 @@ if (isset($_REQUEST["projectid"]))
 	}
 
 	.selector_prev {
+	  margin-left:15px;
 	  left: 0;
 	  border-radius: 3px 0 0 3px;
 	  background-image: url("./imgs/left_gray.png");
