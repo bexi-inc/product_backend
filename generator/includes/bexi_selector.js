@@ -27,10 +27,13 @@ window.onmessage = function(e){
       if ($(this).attr("modu-id") != data[1]){
         looser = $(this).attr("modu-id");
         //console.log(looser);
+        $(".FrameSelected").removeClass("FrameSelected");
       }
     });
-    FrameSel = "frame-"+data[1];
-    $(FrameSel).addClass("FrameSelected");
+    FrameSel = $.escapeSelector("frame-"+data[1]);
+    console.log("frame to sel ","#" + FrameSel);
+    $("#" + FrameSel).addClass("FrameSelected");
+    console.log(data[0] + '|' + data[1] + '|' + looser);
     if (window.top != window.self) {
       window.top.postMessage(data[0] + '|' + data[1] + '|' + looser, '*')
     }
@@ -219,7 +222,7 @@ $( document ).ready(function() {
                 type: 'POST',
                 async : true,
             }).done(function( data, textStatus, jqXHR ) {
-                $(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe></div>');  
+                $(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe></div>');  
              })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {

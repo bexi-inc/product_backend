@@ -258,7 +258,7 @@ if (isset($_REQUEST["projectid"]))
 
 	.FrameSelected {
 	  -webkit-box-shadow:0 5px 20px rgba(45, 211, 214,.2),0 -5px 10px rgba(45, 211, 214,.2) !important;
-	  box-shadow:0 5px 20px rgba(45, 211, 214,.2),0 -5px 10px rgba(45, 211, 214,.2) !important;
+	  box-shadow:0 15px 30px rgba(45, 211, 214,.9),0 5px 20px rgba(45, 211, 214,.9) !important;
 	}
 
 	.project_inactive
