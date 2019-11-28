@@ -52,7 +52,7 @@ if (isset($_REQUEST["projectid"]))
     //print_r($params);
     $result_proj = $dynamodb->query($params);
 
-    if (count($result_proj)>0)
+    if (count($result_proj["Items"])>0)
     {
         
         if (isset($result_proj['Items'][0]["keywords"]) && !is_null($result_proj['Items'][0]["keywords"]))
