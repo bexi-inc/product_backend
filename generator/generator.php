@@ -101,35 +101,6 @@ if(isset($_REQUEST["devid"]))
 
        // print_r($Result2);
     }
-
-
-    $params = [
-        'TableName' => "modu_projects",
-         "KeyConditionExpression"=> "project_id = :id",
-        "ExpressionAttributeValues"=> [
-            ":id" =>  ["S" => $project_id]
-        ]
-    ];
-
-    $result_proj = $dynamodb->query($params);
-
-    if (count($result_proj['Items'])>0)
-    {
-        
-        if (isset($result_proj['Items'][0]["logofull"]) && !is_null($result_proj['Items'][0]["logofull"]))
-        {
-            $logourl=PATHWEB.$marshaler->unmarshalValue($result_proj['Items'][0]["user_id"])."/".$project_id."/logos/".$marshaler->unmarshalValue($result_proj['Items'][0]["logofull"]);
-
-           // print_r($result_proj);
-           // echo($logurl);
-        }else
-        {
-            $logourl="";
-        }
-    }else{
-        $logourl = "";
-    }
-
 }
 elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
 {
@@ -149,8 +120,7 @@ elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
      //print_r($result);
      $project_id = $_REQUEST["codeid"];
      $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
-}
-else{
+}else{
 
 
 
@@ -355,6 +325,35 @@ if (isset($_REQUEST["projectid"]))
 {
     $project_id = $_REQUEST["projectid"];
 }
+
+/*****************************************
+OBTENEMOS EL LOGO EN BASE AL PROJECT ID
+******************************************/
+ $params = [
+        'TableName' => "modu_projects",
+         "KeyConditionExpression"=> "project_id = :id",
+        "ExpressionAttributeValues"=> [
+            ":id" =>  ["S" => $project_id]
+        ]
+    ];
+
+    $result_proj = $dynamodb->query($params);
+    if (count($result_proj['Items'])>0)
+    {
+        
+        if (isset($result_proj['Items'][0]["logofull"]) && !is_null($result_proj['Items'][0]["logofull"]))
+        {
+            $logourl=PATHWEB.$marshaler->unmarshalValue($result_proj['Items'][0]["user_id"])."/".$project_id."/logos/".$marshaler->unmarshalValue($result_proj['Items'][0]["logofull"]);
+
+           // print_r($result_proj);
+           // echo($logurl);
+        }else
+        {
+            $logourl="";
+        }
+    }else{
+        $logourl = "";
+    }
 
    
     ob_start();
