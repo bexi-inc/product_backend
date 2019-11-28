@@ -85,7 +85,7 @@ function AddNewProject()
               }else{
                   ClassActive = "project_inactive";
               }
-              $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="thumbnail"><iframe class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe></div></div>');
+              $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="thumbnail"><iframe id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe></div></div>');
               console.log($(".bexi_sliders .mySlides").length);
                if ($(".bexi_sliders .mySlides").length<=4)
                {
