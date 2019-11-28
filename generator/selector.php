@@ -284,7 +284,7 @@ if (isset($_REQUEST["projectid"]))
 	<!-- Next and previous buttons -->
 	<a class="selector_prev" onclick="plusSlides(1)"></a>
 	<a class="selector_next" onclick="plusSlides(-1)"></a>
-	<div class="bexi_sliders" id="modu_sliders" style="width: 90%; margin-left: 5%; position: relative; height: 100%; margin-right: 5%; overflow: hidden;" >
+	<div class="bexi_sliders" id="modu_sliders" style="width: 95%; margin-left: 5%; position: relative; height: 100%; margin-right: 0%; overflow: hidden;" >
 		
 	</div>
 </div>
