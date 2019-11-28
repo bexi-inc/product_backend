@@ -256,6 +256,10 @@ if (isset($_REQUEST["projectid"]))
 		background-color: transparent;
 	}/*	background-color: #000; */ 
 
+	.FrameSelected {
+	  -webkit-box-shadow:0 5px 20px rgba(45, 211, 214,.2),0 -5px 10px rgba(45, 211, 214,.2) !important;
+	  box-shadow:0 5px 20px rgba(45, 211, 214,.2),0 -5px 10px rgba(45, 211, 214,.2) !important;
+	}
 
 	.project_inactive
 	{
@@ -270,53 +274,7 @@ if (isset($_REQUEST["projectid"]))
 		var Heightparam = <? echo (isset($_REQUEST["screen_height"]) ? $_REQUEST["screen_height"] : "0"); ?>;
 		var UserParam = <? echo (isset($_REQUEST["user"]) ? $_REQUEST["user"] : "0"); ?>;
 		var ProjectIdParam = '<? echo (isset($_REQUEST["projectid"]) ? $_REQUEST["projectid"] : "0"); ?>';
-		var KeywordsParams = '<? echo (isset($keywords) ? $keywords : ""); ?>';
-
-		window.onmessage = function(e){
-			console.log("onmessage");
-			data = e.data.split("|");
-			console.log(e.data);
-		    if (data[0] == 'SelectProject') {
-		        //console.log('Selector SelectProject = ' + data[1]);
-		        //var frames= document.getElementsByClassName("project_active");
-		        //console.log (frames);
-		       /* for(var i = 0; i < frames.length; ++i){
-		        	console.log("Send GetCode");
-				    frames[i].contentWindow.postMessage('getCode', '*');;
-				}*/
-		        /*for (var fr in frames) {
-		        	console.log(fr);
-		        }*/
-		        looser = "";
-		        //console.log(data);
-		        $(".project_active").each(function(){
-		        	//console.log("project_active");
-		        	//console.log($(this).attr("modu-id"));
-		        	if ($(this).attr("modu-id") != data[1]){
-		        		looser = $(this).attr("modu-id");
-		        		//console.log(looser);
-		        	}
-		        });
-		        console.log("Send winnder and looser");
-
-		        console.log (data[0] + '|' + data[1] + '|' + looser);
-		         if (window.top != window.self) {
-		         	window.top.postMessage(data[0] + '|' + data[1] + '|' + looser, '*')
-		         }
-
-		    }
-		};
-
-		$( document ).ready(function() {
-			/*$("iframe").each(function() {
-				//console.log("iframe");
-				$(this).attr("id",uniqId());
-				//alert($(this).)
-			});*/
-			
-		});
-
-		
+		var KeywordsParams = '<? echo (isset($keywords) ? $keywords : ""); ?>';		
 
 	</script>
 	<script type="text/javascript" src="includes/bexi_selector.js"></script>
