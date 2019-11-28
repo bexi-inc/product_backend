@@ -85,7 +85,7 @@ function AddNewProject()
               }else{
                   ClassActive = "project_inactive";
               }
-              $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="thumbnail"><iframe class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" onload="this.style.opacity = 1" modu-id="' + data.codeid + '"></iframe></div></div>');
+              $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="thumbnail"><iframe class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe></div></div>');
               console.log($(".bexi_sliders .mySlides").length);
                if ($(".bexi_sliders .mySlides").length<=4)
                {
@@ -184,7 +184,7 @@ $( document ).ready(function() {
                 type: 'POST',
                 async : true,
             }).done(function( data, textStatus, jqXHR ) {
-                $(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" onload="this.style.opacity = 1" modu-id="' + data.codeid + '"></iframe></div>');  
+                $(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe></div>');  
              })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {
@@ -213,7 +213,7 @@ $( document ).ready(function() {
  				//{
  					$(this).animate({
 					    left: pos * sliderSize * myWidth,
-					    opacity: '1'
+					   // opacity: '1'
 					 }, 800);
  				//}
         if ((npos-slideIndex)>=1 && (npos-slideIndex)<=2)
@@ -248,7 +248,7 @@ $( document ).ready(function() {
  			//console.log("Prev left=" + (pos * sliderSize * myWidth));
  			$(this).animate({
 				left: pos * sliderSize * myWidth,
-				opacity: '1'
+				//opacity: '1'
 			}, 800);
 
        //console.log("nframe - " + (npos-slideIndex));
