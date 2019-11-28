@@ -82,6 +82,8 @@ function AddNewProject()
               if ($("#modu_sliders .mySlides").length<2)
               {
                    ClassActive = "project_active";
+              }else{
+                  ClassActive = "project_inactive";
               }
               $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="thumbnail"><iframe class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" onload="this.style.opacity = 1" modu-id="' + data.codeid + '"></iframe></div></div>');
               console.log($(".bexi_sliders .mySlides").length);
@@ -217,8 +219,10 @@ $( document ).ready(function() {
         if ((npos-slideIndex)>=1 && (npos-slideIndex)<=2)
         {
            $("iframe", this).addClass("project_active");
+           $("iframe", this).removeClass("project_inactive");
         }else{
            $("iframe", this).removeClass("project_active");
+           $("iframe", this).addClass("project_inactive");
         }
  				npos = npos + 1;
  			});

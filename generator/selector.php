@@ -255,6 +255,12 @@ if (isset($_REQUEST["projectid"]))
 		width: calc(var(--thumbnail-width)+50px);
 		background-color: transparent;
 	}/*	background-color: #000; */ 
+
+
+	.project_inactive
+	{
+		opacity : 0.2;
+	}
 	</style>
 	<script type="text/javascript">
 
