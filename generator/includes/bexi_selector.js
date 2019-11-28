@@ -293,8 +293,10 @@ $( document ).ready(function() {
        if ((npos-slideIndex)>=1 && (npos-slideIndex)<=2)
         {
            $("iframe",this).addClass("project_active");
+           $("iframe", this).removeClass("project_inactive");
         }else{
            $("iframe",this).removeClass("project_active");
+            $("iframe", this).addClass("project_inactive");
         }
 
  			npos = npos + 1;
