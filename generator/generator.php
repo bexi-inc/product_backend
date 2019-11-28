@@ -537,7 +537,6 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
             }
             $tag->setAttribute('class',$new_class);
         }
-        print_r($logourl);
         if($logourl!=""||$logourl!=null)
         {
             $tags = $doc->getElementsByTagName('img');
