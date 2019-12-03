@@ -109,7 +109,7 @@ function AddNewProject()
     {
       var uId=uniqId();
       var newDiv = $(document.createElement('div'));
-      newDiv.attr("class","C align-items-center mx-auto");
+      newDiv.attr("class","justify-content-center align-items-center text-center");
       newDiv.css("width",myWidth);
       newDiv.html(
       "<img src='./img/uploading.gif' width='150px' height='150px'>"+
@@ -232,7 +232,7 @@ $( document ).ready(function() {
  			var slider = 0;
        var uId=uniqId();
        var newDiv = $(document.createElement('div'));
-       newDiv.attr("class","C align-items-center mx-auto");
+       newDiv.attr("class","justify-content-center align-items-center text-center");
        newDiv.css("width",myWidth);
        newDiv.html(
        "<img src='./img/uploading.gif' width='150px' height='150px'>"+
