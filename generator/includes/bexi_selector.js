@@ -124,9 +124,8 @@ function AddNewProject()
       newDiv.css("height",GetHeightScreen()+"px");
       newDiv.css("padding-top",GetHeightScreen()+"px");
       newDiv.html(
-        "<div class=row m-0 text-center><img src='./img/uploading.gif' width='150px' height='150px'></div>"+
-        "<div class=row m-0 text-center><spam style='font-size:100px;'>Loading...</spam></div>"
-          );
+        '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
+        );
       $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
       $.ajax({
                 url: 'ajax/projects.php',
@@ -239,8 +238,7 @@ $( document ).ready(function() {
        newDiv.css("height",GetHeightScreen()+"px");
        newDiv.css("padding-top",GetHeightScreen()+"px");
        newDiv.html(
-       "<div class=row m-0 text-center><img src='./img/uploading.gif' width='150px' height='150px'></div>"+
-       "<div class=row m-0 text-center><spam style='font-size:100px;'>Loading...</spam></div>"
+         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );
          $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
