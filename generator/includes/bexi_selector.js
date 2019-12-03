@@ -290,13 +290,20 @@ $( document ).ready(function() {
 			}, 800);
 
        //console.log("nframe - " + (npos-slideIndex));
-       if ((npos-slideIndex)>=1 && (npos-slideIndex)<=2)
+       //console.log("left: ", npos-slideIndex);
+
+       /****************************************************
+       Activamos los frames que se movera a la pantalla principal el frame -1 que se volvera 0 y el 0 que se volvera 1
+       *****************************************************/
+       if ((npos-slideIndex)>=-1 && (npos-slideIndex)<=0)
         {
+           //console.log("project_active : ", npos-slideIndex);
            $("iframe",this).addClass("project_active");
            $("iframe", this).removeClass("project_inactive");
         }else{
-           $("iframe",this).removeClass("project_active");
-            $("iframe", this).addClass("project_inactive");
+          //console.log("project_inactive : ", npos-slideIndex);
+          $("iframe",this).removeClass("project_active");
+          $("iframe", this).addClass("project_inactive");
         }
 
  			npos = npos + 1;
