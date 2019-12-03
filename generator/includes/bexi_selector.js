@@ -110,6 +110,7 @@ function AddNewProject()
       var uId=uniqId();
       var newDiv = $(document.createElement('div'));
       newDiv.attr("class","C align-items-center mx-auto");
+      newDiv.css("width",myWidth);
       newDiv.html(
       "<img src='./img/uploading.gif' width='150px' height='150px'>"+
       "<spam>Uploading...</spam>"
@@ -232,6 +233,7 @@ $( document ).ready(function() {
        var uId=uniqId();
        var newDiv = $(document.createElement('div'));
        newDiv.attr("class","C align-items-center mx-auto");
+       newDiv.css("width",myWidth);
        newDiv.html(
        "<img src='./img/uploading.gif' width='150px' height='150px'>"+
        "<spam>Uploading...</spam>"
