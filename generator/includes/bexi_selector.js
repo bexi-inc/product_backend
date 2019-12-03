@@ -111,6 +111,7 @@ function AddNewProject()
       var newDiv = $(document.createElement('div'));
       newDiv.attr("class","justify-content-center align-items-center text-center");
       newDiv.css("width",myWidth);
+      newDiv.css("height",myHeight);
       newDiv.html(
       "<img src='./img/uploading.gif' width='150px' height='150px'>"+
       "<spam>Uploading...</spam>"
