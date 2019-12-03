@@ -107,11 +107,27 @@ function GetHeightScreen()
 
 function AddNewProject()
     {
+      var uId=uniqId();
+      var newDiv = $(document.createElement('div'));
+      newDiv.attr("class","C align-items-center");
+      newDiv.html(
+      "<img src='./img/uploading.gif' width='50px' height='50px'>"+
+      "<spam>Uploading...</spam>"
+        );
+      $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
       $.ajax({
                 url: 'ajax/projects.php',
                 data: {"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams },
                 dataType: "json",
                 type: 'POST',
+                beforeSend: function(){
+                  // Show image container
+                  $("#"+uId).append(newDiv);
+                 },
+                 complete:function(data){
+                  // Hide image container
+                  newDiv.remove();
+                 }
             }).done(function( data, textStatus, jqXHR ) {
               //Revisamos si se han agregado menos de 2 sliders y si se han agregado menos de 2
               //los marcamos como project_active para que se active el boton de seleccionar al dar click
@@ -123,7 +139,7 @@ function AddNewProject()
               }else{
                   ClassActive = "project_inactive";
               }
-              $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="thumbnail"><iframe id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe></div></div>');
+              $("#"+uId).append('<iframe id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               console.log($(".bexi_sliders .mySlides").length);
                if ($(".bexi_sliders .mySlides").length<=4)
                {
@@ -149,7 +165,7 @@ function AddNewProject()
            if ( console && console.log ) {
                console.log( "La solicitud a fallado: " +  textStatus);
            }
-      });;
+      });
     }
 
  $(function() {
