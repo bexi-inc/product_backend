@@ -229,7 +229,15 @@ $( document ).ready(function() {
  		{
  			var npos = 1;
  			var slider = 0;
-
+       var uId=uniqId();
+       var newDiv = $(document.createElement('div'));
+       newDiv.attr("class","C align-items-center mx-auto");
+       newDiv.html(
+       "<img src='./img/uploading.gif' width='150px' height='150px'>"+
+       "<spam>Uploading...</spam>"
+         );
+         $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
+         //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
  			  console.log("cmd", "CreateProject", "user" , UserParam, "keywords" , KeywordsParams);
         $.ajax({
                 url: 'ajax/projects.php',
@@ -237,8 +245,16 @@ $( document ).ready(function() {
                 dataType: "json",
                 type: 'POST',
                 async : true,
+                beforeSend: function(){
+                  // Show image container
+                  $("#"+uId).append(newDiv);
+                 },
+                 complete:function(data){
+                  // Hide image container
+                  newDiv.remove();
+                 }
             }).done(function( data, textStatus, jqXHR ) {
-                $(".bexi_sliders").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe></div>');  
+                $("#"+uId).append('<iframe id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');  
              })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {
