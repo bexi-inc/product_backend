@@ -113,9 +113,9 @@ function AddNewProject()
       newDiv.css("width",myWidth);
       newDiv.css("height",myHeight);
       newDiv.html(
-      "<img src='./img/uploading.gif' width='150px' height='150px'>"+
-      "<spam style='font-size:100px;'>Uploading...</spam>"
-        );
+        "<div class=row m-0 text-center><img src='./img/uploading.gif' width='150px' height='150px'></div>"+
+        "<div class=row m-0 text-center><spam style='font-size:100px;'>Uploading...</spam></div>"
+          );
       $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
       $.ajax({
                 url: 'ajax/projects.php',
@@ -237,8 +237,8 @@ $( document ).ready(function() {
        newDiv.css("width",myWidth);
        newDiv.css("height",myHeight);
        newDiv.html(
-       "<img src='./img/uploading.gif' width='150px' height='150px'>"+
-       "<spam style='font-size:100px;'>Uploading...</spam>"
+       "<div class=row m-0 text-center><img src='./img/uploading.gif' width='150px' height='150px'></div>"+
+       "<div class=row m-0 text-center><spam style='font-size:100px;'>Uploading...</spam></div>"
          );
          $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
