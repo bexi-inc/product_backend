@@ -107,6 +107,16 @@ function GetHeightScreen()
 
 function AddNewProject()
     {
+      //Revisamos si se han agregado menos de 2 sliders y si se han agregado menos de 2
+      //los marcamos como project_active para que se active el boton de seleccionar al dar click
+      console.log("numeros de Sliders: ",$("#modu_sliders .mySlides").length );
+      var ClassActive = "";
+      if ($("#modu_sliders .mySlides").length<2)
+      {
+            ClassActive = "project_active";
+      }else{
+          ClassActive = "project_inactive";
+      }
       var uId=uniqId();
       var newDiv = $(document.createElement('div'));
       newDiv.attr("class","justify-content-center align-items-center text-center my-auto");
@@ -131,16 +141,6 @@ function AddNewProject()
                   newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
-              //Revisamos si se han agregado menos de 2 sliders y si se han agregado menos de 2
-              //los marcamos como project_active para que se active el boton de seleccionar al dar click
-              console.log("numeros de Sliders: ",$("#modu_sliders .mySlides").length );
-              var ClassActive = "";
-              if ($("#modu_sliders .mySlides").length<2)
-              {
-                   ClassActive = "project_active";
-              }else{
-                  ClassActive = "project_inactive";
-              }
               $("#"+uId).append('<iframe id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               console.log($(".bexi_sliders .mySlides").length);
                if ($(".bexi_sliders .mySlides").length<=4)
