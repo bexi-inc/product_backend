@@ -122,6 +122,7 @@ function AddNewProject()
       newDiv.attr("class","justify-content-center align-items-center text-center my-auto");
       newDiv.css("width",GetWidthScreen());
       newDiv.css("height",GetHeightScreen());
+      newDiv.css("padding-top",(GetHeightScreen()/2));
       newDiv.html(
         "<div class=row m-0 text-center><img src='./img/uploading.gif' width='150px' height='150px'></div>"+
         "<div class=row m-0 text-center><spam style='font-size:100px;'>Loading...</spam></div>"
@@ -233,9 +234,10 @@ $( document ).ready(function() {
  			var slider = 0;
        var uId=uniqId();
        var newDiv = $(document.createElement('div'));
-       newDiv.attr("class","justify-content-center align-items-center text-center my-auto");
+       newDiv.attr("class","justify-content-center align-items-center text-center");
        newDiv.css("width",GetWidthScreen());
        newDiv.css("height",GetHeightScreen());
+       newDiv.css("padding-top",(GetHeightScreen()/2));
        newDiv.html(
        "<div class=row m-0 text-center><img src='./img/uploading.gif' width='150px' height='150px'></div>"+
        "<div class=row m-0 text-center><spam style='font-size:100px;'>Loading...</spam></div>"
