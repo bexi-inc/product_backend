@@ -109,9 +109,9 @@ function AddNewProject()
     {
       var uId=uniqId();
       var newDiv = $(document.createElement('div'));
-      newDiv.attr("class","C align-items-center");
+      newDiv.attr("class","C align-items-center mx-auto");
       newDiv.html(
-      "<img src='./img/uploading.gif' width='50px' height='50px'>"+
+      "<img src='./img/uploading.gif' width='150px' height='150px'>"+
       "<spam>Uploading...</spam>"
         );
       $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
