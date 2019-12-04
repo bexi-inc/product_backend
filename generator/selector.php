@@ -254,11 +254,15 @@ if (isset($_REQUEST["projectid"]))
 		height: calc(var(--thumbnail-height)+50px);
 		width: calc(var(--thumbnail-width)+50px);
 		background-color: transparent;
+		position:relative;
 	}/*	background-color: #000; */ 
 
 	.thumbnail:after{ /* I have higher Z-index so I can catch the click! Yey */
 		content:"";
+		position:absolute;
 		z-index:1;
+		left:0;
+		top:0;
 	}
 
 
