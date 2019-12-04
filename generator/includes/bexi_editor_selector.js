@@ -12,13 +12,4 @@ $(document).ready(function() {
 */
   });
 
-  	$('[id*="frame-"]').each(function(){
-		console.log("adrian");
-		$(this).contentWindow.document.onclick = function() {
-			alert("frame contents clicked");
-			console.log("Project Selected by adrian");
-		};
-	//window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
-	});
-
 });
