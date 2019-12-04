@@ -257,14 +257,6 @@ if (isset($_REQUEST["projectid"]))
 		position:relative;
 	}/*	background-color: #000; */ 
 
-	.thumbnail:after{ /* I have higher Z-index so I can catch the click! Yey */
-		content:"";
-		position:absolute;
-		z-index:1;
-		left:0;
-		top:0;
-	}
-
 
 	.FrameSelected {
 	  -webkit-box-shadow:0 5px 20px rgba(45, 211, 214,.2),0 -5px 10px rgba(45, 211, 214,.2) !important;
