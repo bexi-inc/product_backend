@@ -108,6 +108,11 @@ function frameload(ID){
   $("#load-"+ID).remove();
  }
 
+ function frameclick(){
+  alert("frame contents clicked");
+  console.log("Project Selected by adrian");
+ }
+
 
 function AddNewProject()
     {
@@ -148,7 +153,7 @@ function AddNewProject()
                   //newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
-              $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+              $("#"+uId).append('<iframe onclick="frameclick()" onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               console.log($(".bexi_sliders .mySlides").length);
                if ($(".bexi_sliders .mySlides").length<=4)
                {
