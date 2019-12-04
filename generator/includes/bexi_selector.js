@@ -138,7 +138,7 @@ function AddNewProject()
       newDiv.html(
         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
         );
-      $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail" style="position:relative;"></div></div>');
+      $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" onclick="frameclick()" class="thumbnail" style="position:relative;"></div></div>');
       $.ajax({
                 url: 'ajax/projects.php',
                 data: {"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams },
@@ -153,7 +153,7 @@ function AddNewProject()
                   //newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
-              $("#"+uId).append('<iframe onclick="frameclick()" onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+              $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               console.log($(".bexi_sliders .mySlides").length);
                if ($(".bexi_sliders .mySlides").length<=4)
                {
