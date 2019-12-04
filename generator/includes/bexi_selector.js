@@ -104,6 +104,10 @@ function GetHeightScreen()
   return myHeight;
 };
 
+function frameload(ID){
+  $("#load-"+ID).remove();
+ }
+
 
 function AddNewProject()
     {
@@ -119,10 +123,13 @@ function AddNewProject()
       }
       var uId=uniqId();
       var newDiv = $(document.createElement('div'));
-      newDiv.attr("class","justify-content-center align-items-center text-center my-auto");
+      newDiv.attr("class","justify-content-center align-items-center text-center");
+      newDiv.attr("id","load-"+uId);
       newDiv.css("width",GetWidthScreen()+"px");
       newDiv.css("height",GetHeightScreen()+"px");
       newDiv.css("padding-top",GetHeightScreen()+"px");
+      newDiv.css("position","absolute");
+      newDiv.css("z-index","999");
       newDiv.html(
         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
         );
@@ -141,7 +148,7 @@ function AddNewProject()
                   newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
-              $("#"+uId).append('<iframe id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+              $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               console.log($(".bexi_sliders .mySlides").length);
                if ($(".bexi_sliders .mySlides").length<=4)
                {
@@ -215,7 +222,6 @@ $( document ).ready(function() {
 });
 
 function frameload(ID){
-  alert("iframe loaded");
   $("#load-"+ID).remove();
  }
 
@@ -265,11 +271,7 @@ function frameload(ID){
                   //newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
-                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');  
-                $('#frame-'+data.codeid).on('load', function(){
-                  //your code (will be called once iframe is done loading)
-                  $("#load-"+uId).remove();
-                });
+                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {
