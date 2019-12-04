@@ -237,10 +237,12 @@ $( document ).ready(function() {
        newDiv.css("width",GetWidthScreen()+"px");
        newDiv.css("height",GetHeightScreen()+"px");
        newDiv.css("padding-top",GetHeightScreen()+"px");
+       newDiv.css("position","absolute");
+       newDiv.css("z-index","999");
        newDiv.html(
          '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );
-         $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
+         $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail" style="position:relative;"></div></div>');
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
  			  console.log("cmd", "CreateProject", "user" , UserParam, "keywords" , KeywordsParams);
         $.ajax({
@@ -255,11 +257,15 @@ $( document ).ready(function() {
                  },
                  complete:function(data){
                   // Hide image container
-                  newDiv.remove();
+                  //newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
                 $("#"+uId).append('<iframe id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');  
-             })
+                $('#frame-'+data.codeid).on('load', function(){
+                  //your code (will be called once iframe is done loading)
+                  newDiv.remove();
+                });
+              })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {
                console.log( "La solicitud a fallado: " +  textStatus);
