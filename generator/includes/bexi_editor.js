@@ -1257,7 +1257,7 @@ function auto_save()
     cc.find(".bexi_form").each(function(){
       $(this).find("input").attr('required', true);
     });
-    cc.each(function(){
+    cc.find("*").each(function(){
       console.log($(this).attr("tabindex"));
       if($(this).attr("tabindex")!==undefined && $(this).attr("tabindex")===-1)
       {
