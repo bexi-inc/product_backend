@@ -11,4 +11,10 @@ $(document).ready(function() {
   		window.parent.dispatchEvent(myEvent);
 */
   });
+
+  	$('[id*="frame-"]').click(function(){
+	console.log("Project Selected by adrian");
+	//window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
+	});
+
 });
