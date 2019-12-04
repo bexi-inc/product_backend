@@ -138,7 +138,7 @@ function AddNewProject()
       newDiv.html(
         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
         );
-      $("#modu_sliders").append('<div class="thumbnail-container mySlides" style="position:relative;"><div id="'+uId+'" onclick="frameclick()" class="thumbnail"></div></div>');
+      $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" onclick="frameclick()" class="thumbnail"></div></div>');
       $.ajax({
                 url: 'ajax/projects.php',
                 data: {"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams },
