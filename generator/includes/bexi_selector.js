@@ -175,6 +175,8 @@ function AddNewProject()
                console.log( "La solicitud a fallado: " +  textStatus);
            }
       });
+      $(".selector_prev").removeClass("hidden");
+      $(".selector_prev").addClass("visible");
     }
 
  $(function() {
@@ -358,7 +360,12 @@ function frameload(ID){
  			npos = npos + 1;
  		});
  		slideIndex = slideIndex - 1;
- 	}
+   }
+   if(slideIndex===0)
+   {
+     $(".selector_prev").addClass("hidden");
+     $(".selector_prev").removeClass("visible");
+   }
  }
 
 
