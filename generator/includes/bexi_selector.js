@@ -214,6 +214,10 @@ $( document ).ready(function() {
     console.log("ready");
 });
 
+function frameload(ID){
+  alert("iframe loaded");
+  $("#load-"+ID).remove();
+ }
 
  function plusSlides(n)
  {
@@ -261,7 +265,7 @@ $( document ).ready(function() {
                   //newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
-                $("#"+uId).append('<iframe id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');  
+                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');  
                 $('#frame-'+data.codeid).on('load', function(){
                   //your code (will be called once iframe is done loading)
                   $("#load-"+uId).remove();
