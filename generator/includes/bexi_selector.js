@@ -361,7 +361,7 @@ function frameload(ID){
  		});
  		slideIndex = slideIndex - 1;
    }
-   if(slideIndex===0)
+   if(slideIndex===1)
    {
      $(".selector_prev").addClass("hidden");
      $(".selector_prev").removeClass("visible");
