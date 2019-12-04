@@ -1259,7 +1259,7 @@ function auto_save()
     });
     cc.find("*").each(function(){
       console.log($(this).attr("tabindex"));
-      if($(this).attr("tabindex")!==undefined && $(this).attr("tabindex")===-1)
+      if($(this).attr("tabindex")!==undefined && $(this).attr("tabindex")==="-1")
       {
         console.log("entro");
         $(this).remove();
