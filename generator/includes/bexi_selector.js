@@ -138,7 +138,7 @@ function AddNewProject()
       newDiv.html(
         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
         );
-      $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" onclick="frameclick()" class="thumbnail" style="position:relative;"></div></div>');
+      $("#modu_sliders").append('<div class="thumbnail-container mySlides" style="position:relative;"><div id="'+uId+'" onclick="frameclick()" class="thumbnail"></div></div>');
       $.ajax({
                 url: 'ajax/projects.php',
                 data: {"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams },
@@ -260,7 +260,7 @@ function frameload(ID){
        newDiv.html(
          '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );
-         $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail" style="position:relative;"></div></div>');
+         $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
  			  console.log("cmd", "CreateProject", "user" , UserParam, "keywords" , KeywordsParams);
         $.ajax({
