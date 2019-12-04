@@ -234,6 +234,7 @@ $( document ).ready(function() {
        var uId=uniqId();
        var newDiv = $(document.createElement('div'));
        newDiv.attr("class","justify-content-center align-items-center text-center");
+       newDiv.attr("id","load-"+uId);
        newDiv.css("width",GetWidthScreen()+"px");
        newDiv.css("height",GetHeightScreen()+"px");
        newDiv.css("padding-top",GetHeightScreen()+"px");
@@ -263,7 +264,7 @@ $( document ).ready(function() {
                 $("#"+uId).append('<iframe id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');  
                 $('#frame-'+data.codeid).on('load', function(){
                   //your code (will be called once iframe is done loading)
-                  newDiv.remove();
+                  $("#load-"+uId).remove();
                 });
               })
        .fail(function( jqXHR, textStatus, errorThrown ) {
