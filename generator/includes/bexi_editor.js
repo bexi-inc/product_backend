@@ -1258,8 +1258,10 @@ function auto_save()
       $(this).find("input").attr('required', true);
     });
     cc.find("*").each(function(){
+      console.log($(this).attr("tabindex"));
       if($(this).attr("tabindex")!==undefined && $(this).attr("tabindex")===-1)
       {
+        console.log("entro");
         $(this).remove();
       }
     });
