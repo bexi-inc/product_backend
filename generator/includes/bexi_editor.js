@@ -1257,6 +1257,12 @@ function auto_save()
     cc.find(".bexi_form").each(function(){
       $(this).find("input").attr('required', true);
     });
+    cc.each(function(){
+      if($(this).attr("tabindex")!==undefined && $(this).attr("tabindex")===-1)
+      {
+        $(this).remove();
+      }
+    });
     var request=$.ajax({
       url: "./ajax/autosave.php",
       data: { devid:did,userid: uid, projectid : pid,code:cc.html()} ,
