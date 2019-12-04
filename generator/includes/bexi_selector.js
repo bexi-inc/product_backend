@@ -145,7 +145,7 @@ function AddNewProject()
                  },
                  complete:function(data){
                   // Hide image container
-                  newDiv.remove();
+                  //newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
               $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
