@@ -217,7 +217,7 @@ function setImages($contenido,$keywords = ""){
 				//echo "add bexi_img";
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
 				*/
-				$content = $doc->saveHTML();
+				$content = $dom->saveHTML();
 			}
 	   
 	    $pos++;
