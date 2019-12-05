@@ -208,11 +208,9 @@ function setImages($contenido,$keywords = ""){
 			{
 				$pos_class=strpos($taghtml,"class");
 				$pos_class2 = strpos($taghtml,"'",$pos_class);
-				$pos_class3 = strpos($taghtml,'"',$pos_class);
-
-				if ($pos_class3 < $pos_class2)
+				if(!$pos_class2)
 				{
-					$pos_class2 = $pos_class3;
+					$pos_class2 = strpos($taghtml,'"',$pos_class);
 				}
 				//echo $tagstar."=>".$pos_class2;
 				//echo "add bexi_img";
