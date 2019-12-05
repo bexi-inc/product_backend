@@ -691,6 +691,8 @@ function bgchange(btid) {
        $(".bexi_module").css("position", "relative");
        $(".bexi_form").each(function(){
           $(this).find("input").removeAttr('required');
+          $(this).find("input").attr('disabled', true);
+          $(this).find("input").attr('autocomplete', off);
        });
        $("form").submit(function(e){
         e.preventDefault();
@@ -1256,6 +1258,8 @@ function auto_save()
     });
     cc.find(".bexi_form").each(function(){
       $(this).find("input").attr('required', true);
+      $(this).find("input").removeAttr('disabled');
+      $(this).find("input").removeAttr('autocomplete');
     });
     cc.find("*").each(function(){
       if($(this).attr("tabindex")!==undefined && $(this).attr("tabindex")==="-1")
