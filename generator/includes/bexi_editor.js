@@ -1377,7 +1377,7 @@ function initialize_editors_text(){
           // this is the editor instance.
           if(clickEvent.currentTarget.tagName=="IMG")
           {
-            window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+            window.bexi_tagid=$(clickEvent.currentTarget).attr("id").replace(/\s/g, '');
           }
           else{
             window.bexi_tagid=null;
@@ -1466,7 +1466,7 @@ function initialize_editors_text(){
             // this is the editor instance.
             if(clickEvent.currentTarget.tagName=="IMG")
             {
-              window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+              window.bexi_tagid=$(clickEvent.currentTarget).attr("id").replace(/\s/g, '');
             }
             else{
               window.bexi_tagid=null;
@@ -1548,7 +1548,7 @@ function initialize_editors_text(){
             // this is the editor instance.
             if(clickEvent.currentTarget.tagName=="IMG")
             {
-              window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+              window.bexi_tagid=$(clickEvent.currentTarget).attr("id").replace(/\s/g, '');
             }
             else{
               window.bexi_tagid=null;
@@ -1629,7 +1629,7 @@ function initialize_editors_text(){
           // this is the editor instance.
           if(clickEvent.currentTarget.tagName=="IMG")
           {
-            window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+            window.bexi_tagid=$(clickEvent.currentTarget).attr("id").replace(/\s/g, '');
           }
           else{
             window.bexi_tagid=null;
@@ -1788,7 +1788,7 @@ function initialize_editors_text(){
         // this is the editor instance.
         if(clickEvent.currentTarget.tagName=="IMG")
         {
-          window.bexi_tagid=$(clickEvent.currentTarget).attr("id");
+          window.bexi_tagid=$(clickEvent.currentTarget).attr("id").replace(/\s/g, '');
         }
         else{
           window.bexi_tagid=null;
