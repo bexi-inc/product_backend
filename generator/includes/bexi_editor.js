@@ -874,7 +874,7 @@ function bgchange(btid) {
               modal: true,
               buttons: {
                 "Save": function() {
-                  $("#"+ID).css("background-color",$("#colorpicker_"+ID).minicolors("rgbaString"));
+                  $("#"+ID).css("background-color",$("#colorpicker_"+ID).minicolors("rgbString"));
                   $( this ).dialog( "close" );
                   newDiv.remove();
                 },
@@ -893,9 +893,9 @@ function bgchange(btid) {
           $("#colorpicker_"+ID).minicolors({
             control: $(this).attr('data-control') || 'hue',
             inline: $(this).attr('data-inline') === 'true',
-            letterCase: 'lowercase',
-            format: 'rgb',
-            opacity: true,
+            letterCase: 'uppercase',
+            format: 'hex',
+            swatches: ["#000000","#444444","#666666","#999999","#cccccc","#eeeeee","#f3f3f3","#ffffff","#f00","#f90","#ff0","#0f0","#0ff","#00f"],
             change: function(hex, opacity) {
             },
             theme: 'bootstrap'
