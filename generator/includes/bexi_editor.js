@@ -1332,19 +1332,24 @@ function initialize_editors_text(){
       toolbarVisibleWithoutSelection: true,
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
+      imageStyles: {
+        'fr-rounded': 'Rounded',
+        'fr-bordered': 'Bordered'
+      },
       toolbarButtons : {
         'moreText': {
-            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting']
+            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
           },
           'moreParagraph': {
-            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight', 'outdent', 'indent', 'quote']
+            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'lineHeight', 'outdent', 'indent', 'quote']
           },
           'moreRich': {
-            'buttons': ['insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR']
+            'buttons': ['insertLink', 'insertImage', 'insertVideo','fontAwesome','emoticons', 'specialCharacters'],
+            'buttonsVisible': 4
           }
       },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
         imageUploadParam: 'file',
 
         // Set the image upload URL.
@@ -1412,8 +1417,24 @@ function initialize_editors_text(){
       toolbarInline: true,
       charCounterCount: false,
       toolbarVisibleWithoutSelection: true,
+      imageStyles: {
+        'fr-rounded': 'Rounded',
+        'fr-bordered': 'Bordered'
+      },
+      toolbarButtons : {
+        'moreText': {
+            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
+          },
+          'moreParagraph': {
+            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'lineHeight', 'outdent', 'indent', 'quote']
+          },
+          'moreRich': {
+            'buttons': ['insertLink', 'insertImage', 'insertVideo','fontAwesome','emoticons', 'specialCharacters'],
+            'buttonsVisible': 4
+          }
+      },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
       imageUploadParam: 'file',
@@ -1494,8 +1515,24 @@ function initialize_editors_text(){
       toolbarInline: true,
       charCounterCount: false,
       toolbarVisibleWithoutSelection: true,
+      imageStyles: {
+        'fr-rounded': 'Rounded',
+        'fr-bordered': 'Bordered'
+      },
+      toolbarButtons : {
+        'moreText': {
+            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
+          },
+          'moreParagraph': {
+            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'lineHeight', 'outdent', 'indent', 'quote']
+          },
+          'moreRich': {
+            'buttons': ['insertLink', 'insertImage', 'insertVideo','fontAwesome','emoticons', 'specialCharacters'],
+            'buttonsVisible': 4
+          }
+      },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
       imageUploadParam: 'file',
@@ -1575,8 +1612,12 @@ function initialize_editors_text(){
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       toolbarInline: true,
       charCounterCount: false,
+      imageStyles: {
+        'fr-rounded': 'Rounded',
+        'fr-bordered': 'Bordered'
+      },
       linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
-      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
       imageUploadParam: 'file',
@@ -1744,6 +1785,11 @@ function initialize_editors_text(){
       toolbarBottom : false,
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
+      imageStyles: {
+        'fr-rounded': 'Rounded',
+        'fr-bordered': 'Bordered'
+      },
+      imageEditButtons: ['imageReplace', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageStyle', 'imageAlt', 'imageSize'],
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
       // Set max image size to 5MB.
       imageMaxSize: 5 * 1024 * 1024,
