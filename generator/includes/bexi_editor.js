@@ -859,6 +859,7 @@ function bgchange(btid) {
           var obj=this._original_html;
           var ID=$(obj).attr('id');
           var color=$("#"+ID).css('background-color');
+          color=rgb2hex(color);
           var newDiv = $(document.createElement('div'));
           newDiv.attr("Title", "Icon Settings");
           newDiv.attr("data-id", "#" + ID);
