@@ -206,7 +206,8 @@ function setImages($contenido,$keywords = ""){
 			//echo $tagimg->getAttribute('class');
 			if (strpos($tagimg->getAttribute('class'),"bexi_img") == false )
 			{
-				$pos_class=strpos($taghtml,"class");
+				$doc->setAttribute($tagimg->getAttribute('class')." bexi_img"));
+				/*$pos_class=strpos($taghtml,"class");
 				$pos_class2 = strpos($taghtml,"'",$pos_class);
 				if(!$pos_class2)
 				{
@@ -215,7 +216,8 @@ function setImages($contenido,$keywords = ""){
 				//echo $tagstar."=>".$pos_class2;
 				//echo "add bexi_img";
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
-				
+				*/
+				$content = $doc->saveHTML();
 			}
 	   
 	    $pos++;
