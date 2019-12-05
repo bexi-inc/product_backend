@@ -802,6 +802,7 @@ function bgchange(btid) {
           var obj=this._original_html;
           var ID=$(obj).attr('id');
           var color=$("#"+ID).css('color');
+          color=rgb2hex(color);
           var newDiv = $(document.createElement('div'));
           newDiv.attr("Title", "Icon Settings");
           newDiv.attr("data-id", "#" + ID);
@@ -836,9 +837,9 @@ function bgchange(btid) {
           $("#colorpicker_"+ID).minicolors({
             control: $(this).attr('data-control') || 'hue',
             inline: $(this).attr('data-inline') === 'true',
-            letterCase: 'lowercase',
-            format: 'rgb',
-            opacity: false,
+            letterCase: 'uppercase',
+            format: 'hex',
+            swatches: ["#000000","#444444","#666666","#999999","#cccccc","#eeeeee","#f3f3f3","#ffffff","#f00","#f90","#ff0","#0f0","#0ff","#00f"],
             change: function(hex, opacity) {
             },
             theme: 'bootstrap'
