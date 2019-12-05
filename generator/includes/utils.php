@@ -206,7 +206,7 @@ function setImages($contenido,$keywords = ""){
 			//echo $tagimg->getAttribute('class');
 			if (strpos($tagimg->getAttribute('class'),"bexi_img") == false )
 			{
-				$doc->setAttribute('class',$tagimg->getAttribute('class')." bexi_img"));
+				$doc->setAttribute('class',$tagimg->getAttribute('class')." bexi_img");
 				/*$pos_class=strpos($taghtml,"class");
 				$pos_class2 = strpos($taghtml,"'",$pos_class);
 				if(!$pos_class2)
