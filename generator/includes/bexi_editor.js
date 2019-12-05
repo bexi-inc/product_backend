@@ -692,7 +692,7 @@ function bgchange(btid) {
        $(".bexi_form").each(function(){
           $(this).find("input").removeAttr('required');
           $(this).find("input").attr('disabled', true);
-          $(this).find("input").attr('autocomplete', off);
+          $(this).find("input").attr('autocomplete',"off");
        });
        $("form").submit(function(e){
         e.preventDefault();
