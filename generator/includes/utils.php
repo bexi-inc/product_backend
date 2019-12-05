@@ -212,11 +212,15 @@ function setImages($contenido,$keywords = ""){
 				{
 					$pos_class2 = strpos($taghtml,'"',$pos_class);
 				}
-				echo $tagstar . "=>".$pos_class." => ".$pos_class2
+				echo $tagstar . "=>".$pos_class." => ".$pos_class2;
 				//echo "add bexi_img";
 				//$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2  ,0);
 				
 			}
+
+			$contenido = $doc->saveHTML();
+
+			$
 	   
 	    $pos++;
 	}
