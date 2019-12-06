@@ -1383,7 +1383,7 @@ function initialize_editors_text(){
            var jresponse =JSON.parse(response);
            $img.attr("id",jresponse.id);
            $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
-           $img.addClasss("fr-view");
+           $img.addClass("fr-view");
            window.bexi_tagid=jresponse.id;
            auto_save();
         },
