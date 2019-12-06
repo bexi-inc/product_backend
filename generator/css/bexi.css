@@ -1353,6 +1353,19 @@ button.fr-rounded{
   background-clip: padding-box;
 }/* Adds less rounded desing to buttons*/
 
+
+.fr-view .fr-video.fr-dvb.fr-fvr {
+  text-align: right;
+}/* Adds video design responsive*/
+.fr-view .fr-video.fr-dvb {
+  display: block;
+  clear: both;
+}/* Adds video design responsive*/
+.fr-view .fr-video {
+  text-align: center;
+  position: relative;
+}/* Adds video design responsive*/
+
 /******* For unsplash Manager ********/
 .image-list {
   margin-bottom: 10px;
