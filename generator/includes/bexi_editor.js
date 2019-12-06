@@ -1928,6 +1928,7 @@ function initialize_editors_text(){
       placeholderText: '',
       quickInsertEnabled: false,
       emoticonsUseImage: false,
+      multiLine: false,
       toolbarVisibleWithoutSelection: true,
       htmlAllowedEmptyTags: ['i','.fas','div'],
       htmlDoNotWrapTags: ['script', 'style', 'img','i'],
