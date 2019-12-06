@@ -1296,6 +1296,12 @@ background-color: #e7e7e7 !important;
   margin-bottom: 0px !important ;
 }
 
+.video_responsive{
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
 /*------------ Froala rules -----------------*/
 
 img.fr-view.fr-dib.fr-fir{
@@ -1352,6 +1358,25 @@ button.fr-rounded{
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }/* Adds less rounded desing to buttons*/
+
+
+.fr-video.fr-dvb.fr-fvr {
+  text-align: right;
+}/* Adds video design responsive*/
+
+.fr-video.fr-dvb {
+  display: block;
+  clear: both;
+}/* Adds video design responsive*/
+
+.fr-view .fr-video.fr-dvb.fr-fvl {
+  text-align: left;
+}/* Adds video design responsive allign to left*/
+
+.fr-view .fr-video.fr-dvb.fr-fvr {
+  text-align: right;
+}/* Adds video design responsive allign to right*/
+
 
 /******* For unsplash Manager ********/
 .image-list {
