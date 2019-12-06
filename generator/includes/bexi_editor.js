@@ -1852,6 +1852,7 @@ function initialize_editors_text(){
           });
         }else{
           alert("Image too large");
+          return false;
         }
       },
       'image.uploaded': function (response) {
