@@ -1244,6 +1244,24 @@ function auto_save()
     cc.find('div.alt-wrap').contents().unwrap();
     cc.find(".bexi_unspash").remove();
     //cc.find(".fr-video").contents().unwrap();
+    cc.find("span").each(function(){
+      if($(this).attr("class").search("fr-video")!==-1)
+      {
+        $(this).wrap("<div class='video_responsive'></div>");
+        $(this).find("iframe").each(function(){
+          var maxwidth=$(this).css("width");
+          var maxheight=$(this).css("height");
+          $(this).css("position","absolute");
+          $(this).css("top","0");
+          $(this).css("left","0");
+          $(this).css("width","100%");
+          $(this).css("height","100%");
+          $(this).css("max-width",maxwidth);
+          $(this).css("max-height",maxheight);
+        });
+      }
+    });
+
     cc.find("p").each(function(){
       if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
       {
