@@ -1929,7 +1929,6 @@ function initialize_editors_text(){
       quickInsertEnabled: false,
       emoticonsUseImage: false,
       multiLine: false,
-      enter: $.FroalaEditor.ENTER_BR,
       toolbarVisibleWithoutSelection: true,
       htmlAllowedEmptyTags: ['i','.fas','div'],
       htmlDoNotWrapTags: ['script', 'style', 'img','i'],
