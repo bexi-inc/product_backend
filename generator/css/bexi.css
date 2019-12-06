@@ -1326,6 +1326,19 @@ img.fr-view{
   vertical-align: top;
 }/* Adds responsivness to froala img added in text*/
 
+img.fr-bordered{
+  border: solid 5px #CCC;
+}/* Adds borders to images*/
+
+img.fr-rounded{
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}/* Adds rounded border to images*/
+
 /******* For unsplash Manager ********/
 .image-list {
   margin-bottom: 10px;
