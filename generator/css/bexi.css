@@ -1340,11 +1340,11 @@ img.fr-rounded{
   background-clip: padding-box;
 }/* Adds rounded border to images*/
 
-.fr-view button.fr-large{
+button.fr-large{
   font-size: 24px;
 }/* Adds large font to buttons*/
 
-.fr-view button.fr-rounded{
+button.fr-rounded{
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
