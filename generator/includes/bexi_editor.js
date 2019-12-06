@@ -1488,16 +1488,6 @@ function initialize_editors_text(){
             window.bexi_tagid=jresponse.id;
             auto_save();
           },
-          'image.loaded': function ($img) {
-            if(window.response_img.length!=0){
-              var res=window.response_img.shift();
-              var jresponse =JSON.parse(res);
-              $img.attr("id",jresponse.id);
-              $img.attr("src",jresponse.src);
-              window.bexi_tagid=jresponse.id;
-              auto_save();
-            }
-          },
           'click': function (clickEvent) {
             // Do something here.
             // this is the editor instance.
@@ -1591,16 +1581,6 @@ function initialize_editors_text(){
             window.bexi_tagid=jresponse.id;
             auto_save();
           },
-          'image.loaded': function ($img) {
-            if(window.response_img.length!=0){
-              var res=window.response_img.shift();
-              var jresponse =JSON.parse(res);
-              $img.attr("id",jresponse.id);
-              $img.attr("src",jresponse.src);
-              window.bexi_tagid=jresponse.id;
-              auto_save();
-            }
-          },
           'click': function (clickEvent) {
             // Do something here.
             // this is the editor instance.
@@ -1680,16 +1660,6 @@ function initialize_editors_text(){
           $img.addClass("fr-view");
           window.bexi_tagid=jresponse.id;
           auto_save();
-        },
-        'image.loaded': function ($img) {
-          if(window.response_img.length!=0){
-            var res=window.response_img.shift();
-            var jresponse =JSON.parse(res);
-            $img.attr("id",jresponse.id);
-            $img.attr("src",jresponse.src);
-            window.bexi_tagid=jresponse.id;
-            auto_save();
-          }
         },
         'click': function (clickEvent) {
           // Do something here.
@@ -1831,7 +1801,6 @@ function initialize_editors_text(){
         {
           var res=save_img(window.bexi_tagid,images[0]);
           res.done(function(data){
-            window.response_img.push(data);
             var jresponse =JSON.parse(data);
             if(window.bexi_tagid!=null)
             {
