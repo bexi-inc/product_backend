@@ -1383,6 +1383,7 @@ function initialize_editors_text(){
            var jresponse =JSON.parse(response);
            $img.attr("id",jresponse.id);
            $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+           $img.addClasss("fr-view");
            window.bexi_tagid=jresponse.id;
            auto_save();
         },
@@ -1410,6 +1411,7 @@ function initialize_editors_text(){
           var jresponse =JSON.parse(response);
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+          $img.addClasss("fr-view");
           window.bexi_tagid=jresponse.id;
           auto_save();
         }
@@ -1473,6 +1475,7 @@ function initialize_editors_text(){
             var jresponse =JSON.parse(response);
             $img.attr("id",jresponse.id);
             $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+            $img.addClasss("fr-view");
             window.bexi_tagid=jresponse.id;
             auto_save();
           },
@@ -1481,6 +1484,7 @@ function initialize_editors_text(){
             var jresponse =JSON.parse(response);
             $img.attr("id",jresponse.id);
             $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+            $img.addClasss("fr-view");
             window.bexi_tagid=jresponse.id;
             auto_save();
           },
@@ -1574,6 +1578,7 @@ function initialize_editors_text(){
             var jresponse =JSON.parse(response);
             $img.attr("id",jresponse.id);
             $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+            $img.addClasss("fr-view");
             window.bexi_tagid=jresponse.id;
             auto_save();
           },
@@ -1582,6 +1587,7 @@ function initialize_editors_text(){
             var jresponse =JSON.parse(response);
             $img.attr("id",jresponse.id);
             $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+            $img.addClasss("fr-view");
             window.bexi_tagid=jresponse.id;
             auto_save();
           },
@@ -1662,6 +1668,7 @@ function initialize_editors_text(){
           var jresponse =JSON.parse(response);
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+          $img.addClasss("fr-view");
           window.bexi_tagid=jresponse.id;
           auto_save();
         },
@@ -1670,6 +1677,7 @@ function initialize_editors_text(){
           var jresponse =JSON.parse(response);
           $img.attr("id",jresponse.id);
           $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+          $img.addClasss("fr-view");
           window.bexi_tagid=jresponse.id;
           auto_save();
         },
@@ -1818,28 +1826,33 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        console.log(images[0]);
-        var res=save_img(window.bexi_tagid,images[0]);
-        res.done(function(data){
-          window.response_img.push(data);
-          var jresponse =JSON.parse(data);
-          if(window.bexi_tagid!=null)
-          {
-            $("#"+window.bexi_tagid).attr("id",jresponse.id);
-            $("#"+window.bexi_tagid).attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
-            window.bexi_tagid=jresponse.id;
-          }else{
-            $("img").each(function(){
-              var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
-              if(pos!=-1){
-                $(this).attr("id",jresponse.id);
-                $(this).attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
-                window.bexi_tagid=jresponse.id;
-              }
-            });
-          }
-          auto_save();
-        });
+        console.log(images[0].size);
+        if(images[0].size<=(5 * 1024 * 1024))
+        {
+          var res=save_img(window.bexi_tagid,images[0]);
+          res.done(function(data){
+            window.response_img.push(data);
+            var jresponse =JSON.parse(data);
+            if(window.bexi_tagid!=null)
+            {
+              $("#"+window.bexi_tagid).attr("id",jresponse.id);
+              $("#"+window.bexi_tagid).attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+              window.bexi_tagid=jresponse.id;
+            }else{
+              $("img").each(function(){
+                var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
+                if(pos!=-1){
+                  $(this).attr("id",jresponse.id);
+                  $(this).attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+                  window.bexi_tagid=jresponse.id;
+                }
+              });
+            }
+            auto_save();
+          });
+        }else{
+          alert("Image too large");
+        }
       },
       'image.uploaded': function (response) {
       },
