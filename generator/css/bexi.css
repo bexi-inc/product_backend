@@ -1296,6 +1296,7 @@ background-color: #e7e7e7 !important;
   margin-bottom: 0px !important ;
 }
 
+/*------------ Froala rules -----------------*/
 
 img.fr-view.fr-dib.fr-fir{
   margin-right: 0;
@@ -1325,6 +1326,32 @@ img.fr-view{
   float: none;
   vertical-align: top;
 }/* Adds responsivness to froala img added in text*/
+
+img.fr-bordered{
+  border: solid 5px #CCC;
+}/* Adds borders to images*/
+
+img.fr-rounded{
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}/* Adds rounded border to images*/
+
+.fr-view button.fr-large{
+  font-size: 24px;
+}/* Adds large font to buttons*/
+
+.fr-view button.fr-rounded{
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}/* Adds less rounded desing to buttons*/
 
 /******* For unsplash Manager ********/
 .image-list {
