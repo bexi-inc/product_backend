@@ -1319,6 +1319,13 @@ img.fr-view{
   max-width: 100%;
 } /* Adds responsivness to froala img*/
 
+.fr-view img.fr-dib{
+  margin: 5px auto;
+  display: block;
+  float: none;
+  vertical-align: top;
+}/* Adds responsivness to froala img added in text*/
+
 /******* For unsplash Manager ********/
 .image-list {
   margin-bottom: 10px;
