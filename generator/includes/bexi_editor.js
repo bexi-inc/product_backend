@@ -1878,6 +1878,7 @@ function initialize_editors_text(){
       toolbarBottom : false,
       emoticonsUseImage: false,
       toolbarVisibleWithoutSelection: true,
+      toolbarButtons:{},
       events : {
         'blur': function () {
             auto_save();
