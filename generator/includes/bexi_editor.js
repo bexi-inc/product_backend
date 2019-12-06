@@ -1247,6 +1247,7 @@ function auto_save()
     cc.find("span").each(function(){
       if($(this).attr("class").search("fr-video")!==-1)
       {
+        $(this).addClass("video_responsive");
         $(this).find("iframe").each(function(){
           var maxwidth=$(this).css("width");
           var maxheight=$(this).css("height");
@@ -1258,7 +1259,7 @@ function auto_save()
           $(this).css("max-width",maxwidth);
           $(this).css("max-height",maxheight);
         });
-        $(this).wrap("<div class='video_responsive'></div>");
+        //$(this).wrap("<div class='video_responsive'></div>");
       }
     });
     cc.find("p").each(function(){
