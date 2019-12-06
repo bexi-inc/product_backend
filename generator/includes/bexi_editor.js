@@ -1243,7 +1243,7 @@ function auto_save()
     cc.find('div.fr-element').contents().unwrap();
     cc.find('div.alt-wrap').contents().unwrap();
     cc.find(".bexi_unspash").remove();
-    cc.find(".fr-video").contents().unwrap();
+    //cc.find(".fr-video").contents().unwrap();
     cc.find("p").each(function(){
       if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
       {
@@ -1928,6 +1928,8 @@ function initialize_editors_text(){
       placeholderText: '',
       quickInsertEnabled: false,
       emoticonsUseImage: false,
+      multiLine: false,
+      enter: FroalaEditor.ENTER_BR,
       toolbarVisibleWithoutSelection: true,
       htmlAllowedEmptyTags: ['i','.fas','div'],
       htmlDoNotWrapTags: ['script', 'style', 'img','i'],
@@ -1940,10 +1942,6 @@ function initialize_editors_text(){
      },
      events : {
       'keypress': function (keypressEvent) {
-        console.log(keypressEvent.keyCode,"codigo");
-        if ( keypressEvent.keyCode == 13 ) {
-          
-        }
         keypressEvent.preventDefault();
         return false;
       },
