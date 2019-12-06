@@ -1244,10 +1244,9 @@ function auto_save()
     cc.find('div.alt-wrap').contents().unwrap();
     cc.find(".bexi_unspash").remove();
     //cc.find(".fr-video").contents().unwrap();
-    cc.find("span").each(function(){
+    /*cc.find("span").each(function(){
       if($(this).attr("class").search("fr-video")!==-1)
       {
-        $(this).wrap("<div class='video_responsive'></div>");
         $(this).find("iframe").each(function(){
           var maxwidth=$(this).css("width");
           var maxheight=$(this).css("height");
@@ -1259,9 +1258,10 @@ function auto_save()
           $(this).css("max-width",maxwidth);
           $(this).css("max-height",maxheight);
         });
+        $(this).wrap("<div class='video_responsive'></div>");
       }
     });
-
+    */
     cc.find("p").each(function(){
       if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
       {
