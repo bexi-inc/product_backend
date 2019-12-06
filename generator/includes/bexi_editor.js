@@ -1942,10 +1942,6 @@ function initialize_editors_text(){
      },
      events : {
       'keypress': function (keypressEvent) {
-        console.log(keypressEvent.keyCode,"codigo");
-        if ( keypressEvent.keyCode == 13 ) {
-          
-        }
         keypressEvent.preventDefault();
         return false;
       },
