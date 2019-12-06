@@ -1361,10 +1361,6 @@ button.fr-rounded{
   display: block;
   clear: both;
 }/* Adds video design responsive*/
-.fr-video {
-  text-align: center;
-  position: relative;
-}/* Adds video design responsive*/
 
 /******* For unsplash Manager ********/
 .image-list {
