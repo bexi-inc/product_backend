@@ -1356,7 +1356,9 @@ function initialize_editors_text(){
       },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
       imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
-        imageUploadParam: 'file',
+      videoAllowedProviders: ['youtube', 'vimeo'],
+      videoInsertButtons: ['videoBack', '|', 'videoByURL'],  
+      imageUploadParam: 'file',
 
         // Set the image upload URL.
         imageUploadURL: './ajax/uploadfile.php',
@@ -1447,6 +1449,8 @@ function initialize_editors_text(){
       },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
       imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
+      videoAllowedProviders: ['youtube', 'vimeo'],
+      videoInsertButtons: ['videoBack', '|', 'videoByURL'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
       imageUploadParam: 'file',
@@ -1543,6 +1547,8 @@ function initialize_editors_text(){
       imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
+      videoAllowedProviders: ['youtube', 'vimeo'],
+      videoInsertButtons: ['videoBack', '|', 'videoByURL'],
       imageUploadParam: 'file',
 
       // Set the image upload URL.
