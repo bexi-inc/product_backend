@@ -1272,7 +1272,9 @@ function auto_save()
     var request=$.ajax({
       url: "./ajax/autosave.php",
       data: { devid:did,userid: uid, projectid : pid,code:cc.html()} ,
-      datatype:"json",
+      //datatype:"json",
+      contentType: 'application/json; charset=UTF-8',
+      processData: false,
       method:"POST",
       success: function(data){
       }
