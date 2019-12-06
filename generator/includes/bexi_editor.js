@@ -1244,7 +1244,7 @@ function auto_save()
     cc.find('div.alt-wrap').contents().unwrap();
     cc.find(".bexi_unspash").remove();
     //cc.find(".fr-video").contents().unwrap();
-    /*cc.find("span").each(function(){
+    cc.find("span").each(function(){
       if($(this).attr("class").search("fr-video")!==-1)
       {
         $(this).find("iframe").each(function(){
@@ -1261,7 +1261,6 @@ function auto_save()
         $(this).wrap("<div class='video_responsive'></div>");
       }
     });
-    */
     cc.find("p").each(function(){
       if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
       {
