@@ -1337,6 +1337,7 @@ function initialize_editors_text(){
       toolbarVisibleWithoutSelection: true,
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
+      emoticonsUseImage: false,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
@@ -1427,6 +1428,7 @@ function initialize_editors_text(){
       toolbarInline: true,
       charCounterCount: false,
       toolbarVisibleWithoutSelection: true,
+      emoticonsUseImage: false,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
@@ -1520,6 +1522,7 @@ function initialize_editors_text(){
       toolbarInline: true,
       charCounterCount: false,
       toolbarVisibleWithoutSelection: true,
+      emoticonsUseImage: false,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
@@ -1612,6 +1615,7 @@ function initialize_editors_text(){
       quickInsertEnabled: false,
       toolbarInline: true,
       charCounterCount: false,
+      emoticonsUseImage: false,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
@@ -1780,6 +1784,7 @@ function initialize_editors_text(){
       toolbarBottom : false,
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
+      emoticonsUseImage: false,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
@@ -1871,6 +1876,7 @@ function initialize_editors_text(){
       toolbarInline: true,
       charCounterCount: false,
       toolbarBottom : false,
+      emoticonsUseImage: false,
       toolbarVisibleWithoutSelection: true,
       events : {
         'blur': function () {
@@ -1914,6 +1920,7 @@ function initialize_editors_text(){
       fileUpload: false,
       placeholderText: '',
       quickInsertEnabled: false,
+      emoticonsUseImage: false,
       toolbarVisibleWithoutSelection: true,
       htmlAllowedEmptyTags: ['i','.fas','div'],
       htmlDoNotWrapTags: ['script', 'style', 'img','i'],
