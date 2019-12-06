@@ -1354,14 +1354,14 @@ button.fr-rounded{
 }/* Adds less rounded desing to buttons*/
 
 
-.fr-view .fr-video.fr-dvb.fr-fvr {
+.fr-video.fr-dvb.fr-fvr {
   text-align: right;
 }/* Adds video design responsive*/
-.fr-view .fr-video.fr-dvb {
+.fr-video.fr-dvb {
   display: block;
   clear: both;
 }/* Adds video design responsive*/
-.fr-view .fr-video {
+.fr-video {
   text-align: center;
   position: relative;
 }/* Adds video design responsive*/
