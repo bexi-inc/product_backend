@@ -1377,6 +1377,22 @@ button.fr-rounded{
   text-align: right;
 }/* Adds video design responsive allign to right*/
 
+blockquote {
+  border-left: solid 2px var(--color-1);
+  margin-left: 0;
+  padding-left: 5px;
+  color: var(--color-1);
+} /* Adds design to blockquote color1*/
+
+blockquote blockquote {
+  border-color: var(--color-2);
+  color: var(--color-2);
+} /* Adds design to blockquote color2*/
+
+blockquote blockquote blockquote {
+  border-color: var(--color-3);
+  color: var(--color-3);
+} /* Adds design to blockquote color3*/
 
 /******* For unsplash Manager ********/
 .image-list {
