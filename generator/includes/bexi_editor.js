@@ -1247,11 +1247,10 @@ function auto_save()
     cc.find("span").each(function(){
       if($(this).attr("class").search("fr-video")!==-1)
       {
-        $(this).addClass("video_responsive");
         $(this).find("iframe").each(function(){
           var maxwidth=$(this).css("width");
           var maxheight=$(this).css("height");
-          $(this).css("position","absolute");
+          //$(this).css("position","absolute");
           $(this).css("top","0");
           $(this).css("left","0");
           $(this).css("width","100%");
