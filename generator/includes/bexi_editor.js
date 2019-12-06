@@ -1818,6 +1818,7 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
+        console.log(images[0]);
         var res=save_img(window.bexi_tagid,images[0]);
         res.done(function(data){
           window.response_img.push(data);
