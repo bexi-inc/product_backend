@@ -1940,8 +1940,9 @@ function initialize_editors_text(){
      },
      events : {
       'keypress': function (keypressEvent) {
+        console.log(keypressEvent.keyCode,"codigo");
         if ( keypressEvent.keyCode == 13 ) {
-          console.log("enter presionado");
+          
         }
         keypressEvent.preventDefault();
         return false;
