@@ -600,7 +600,7 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
         foreach ($doc->childNodes as $item)
         if ($item->nodeType == XML_PI_NODE)
             $doc->removeChild($item); // remove hack
-        $doc->encoding = 'UTF-16'; // insert proper
+        $doc->encoding = 'UTF-8'; // insert proper
         $content = $doc->saveHTML();
     }
     echo "<div id='modu_main'>";
