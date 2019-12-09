@@ -6,7 +6,7 @@ function send_data(ID,event){
             url: 'http://generator.getmodu.com/ajax/sendform.php', // url where to submit the request
             type : "POST", // type of action POST || GET
             dataType : 'json', // data type
-            data : $("#"+ID).serialize() + "&e_to="+email, // post data || get data
+            data : $("#"+ID).serialize() + "&email_to="+email, // post data || get data
             success : function(result) {
                 // Do not touch
                 $("#"+ID).empty();
