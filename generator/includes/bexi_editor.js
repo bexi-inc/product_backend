@@ -637,7 +637,6 @@ function bgchange(btid) {
               height: "auto",
               width: 400,
               modal: true,
-              title: "File Max size Error",
               buttons: {
                 "Ok": function() {
                   $(this).dialog( "close" );
@@ -1882,7 +1881,6 @@ function initialize_editors_text(){
               height: "auto",
               width: 400,
               modal: true,
-              title: "File Max size Error",
               buttons: {
                 "Ok": function() {
                   $(this).dialog( "close" );
