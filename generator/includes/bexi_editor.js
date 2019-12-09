@@ -615,9 +615,7 @@ function bgchange(btid) {
       }
       if($('#inpimg'+ID).prop('files')[0])
       {
-        console.log("tiene un archivo");
         if($('#inpimg'+ID).prop('files')[0].size<=(3 * 1024 * 1024)){
-          console.log("entro a menor de max size");
           var id=$('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id");
           if(typeof id === "undefined")
           {
@@ -632,7 +630,7 @@ function bgchange(btid) {
             $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
           });
         }else{
-          console.log("entro al max size");
+          $( "#dialog-img"+(ID).toString()).dialog("close");
           var newDiv = $(document.createElement('div'));
           newDiv.html('Image too large(Max 3MB)');
           $(newDiv).dialog({
@@ -656,7 +654,6 @@ function bgchange(btid) {
         }
       }
       $('#inpimg'+ID).val("");
-      $( "#dialog-img"+(ID).toString()).dialog("close");
       auto_save();
     }
 
