@@ -347,15 +347,24 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $new_js = ob_get_contents ();
         ob_end_clean();
 
-        $modufile = fopen($PATH."modu_final_download.js", "w") or die("Unable to open file!");
+        $modufile = fopen($PATHPHP."modu_final.js", "w") or die("Unable to open file!");
         fwrite($modufile, $new_js);
         fclose($modufile);
 
-        copy($refpath."modu_final_download.js", $PATHPHP."modu_final.js" );
+        //copy($refpath."modu_final_download.js", $PATHPHP."modu_final.js" );
         copy($refpath."ajax/sendform_download.php", $PATHPHP."sendform.php" );
     }
     else{
-        copy($refpath."modu_final.js", $PATHFILES."modu_final.js" );
+        ob_start();
+        echo('var email="works";//email receiver');
+        include("modu_final_download.js");
+        $new_js = ob_get_contents ();
+        ob_end_clean();
+
+        $modufile = fopen($PATHFILES."modu_final.js", "w") or die("Unable to open file!");
+        fwrite($modufile, $new_js);
+        fclose($modufile);
+        //copy($refpath."modu_final.js", $PATHFILES."modu_final.js" );
     }
 
 
