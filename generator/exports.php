@@ -347,7 +347,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $new_js = ob_get_contents ();
         ob_end_clean();
 
-        $modufile = fopen($PATH."modu_final_download", "w") or die("Unable to open file!");
+        $modufile = fopen($PATH."modu_final_download.js", "w") or die("Unable to open file!");
         fwrite($modufile, $new_js);
         fclose($modufile);
 
