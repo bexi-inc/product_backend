@@ -77,13 +77,13 @@ function SentEmail($type,$userId, $delev)
 
 	// Replace recipient@example.com with a "To" address. If your account
 	// is still in the sandbox, this address must be verified.
-	$recipient = 'recipient@example.com';
+	$recipient = $user_email;
 
 	// Replace smtp_username with your Amazon SES SMTP user name.
-	$usernameSmtp = 'smtp_username';
+	$usernameSmtp = SMTP_USER;
 
 	// Replace smtp_password with your Amazon SES SMTP password.
-	$passwordSmtp = 'smtp_password';
+	$passwordSmtp = SMTP_PASS;
 
 	// Specify a configuration set. If you do not want to use a configuration
 	// set, comment or remove the next line.
