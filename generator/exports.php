@@ -341,6 +341,16 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
              mkdir($PATHPHP, 0777, true);
         }
 
+        ob_start();
+        echo('var email="works";//email receiver');
+        include("modu_final_download.js");
+        $new_js = ob_get_contents ();
+        ob_end_clean();
+
+        $modufile = fopen($PATH."modu_final_download", "w") or die("Unable to open file!");
+        fwrite($modufile, $new_js);
+        fclose($modufile);
+
         copy($refpath."modu_final_download.js", $PATHPHP."modu_final.js" );
         copy($refpath."ajax/sendform_download.php", $PATHPHP."sendform.php" );
     }
