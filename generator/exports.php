@@ -343,6 +343,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
         ob_start();
         echo('var email="works";//email receiver');
+        echo "\r\n";
         include("modu_final_download.js");
         $new_js = ob_get_contents ();
         ob_end_clean();
@@ -357,6 +358,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     else{
         ob_start();
         echo('var email="works";//email receiver');
+        echo "\r\n";
         include("modu_final_download.js");
         $new_js = ob_get_contents ();
         ob_end_clean();
