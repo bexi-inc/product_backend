@@ -1799,6 +1799,7 @@ function initialize_editors_text(){
     var editorimg = new FroalaEditor('.bexi_img',
     {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
+      imageCORSProxy: '',
       fileUpload: false,
       placeholderText: '',
       quickInsertEnabled: false,
@@ -1834,12 +1835,16 @@ function initialize_editors_text(){
               $("#"+window.bexi_tagid).attr("id",jresponse.id);
               $("#"+window.bexi_tagid).attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
               window.bexi_tagid=jresponse.id;
+              $("#"+window.bexi_tagid).removeAttr("bexi_au_link");
+              $("#"+window.bexi_tagid).removeAttr("bexi_img_au");
             }else{
               $("img").each(function(){
                 var pos=$(this).attr("src").search("blob:http://generator.getmodu.com/");
                 if(pos!=-1){
                   $(this).attr("id",jresponse.id);
                   $(this).attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+                  $(this).removeAttr("bexi_au_link");
+                  $(this).removeAttr("bexi_img_au");
                   window.bexi_tagid=jresponse.id;
                 }
               });
