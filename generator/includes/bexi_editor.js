@@ -1824,7 +1824,6 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        console.log(images[0]);
         if(images[0].size<=(5 * 1024 * 1024))
         {
           var res=save_img(window.bexi_tagid,images[0]);
