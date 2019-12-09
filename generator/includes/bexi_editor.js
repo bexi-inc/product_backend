@@ -631,7 +631,7 @@ function bgchange(btid) {
           });
         }else{
           var newDiv = $(document.createElement('div'));
-          newDiv.html('Image too large');
+          newDiv.html('Image too large(Max 3MB)');
           $(newDiv).dialog({
               resizable: false,
               height: "auto",
@@ -639,7 +639,7 @@ function bgchange(btid) {
               modal: true,
               buttons: {
                 "Ok": function() {
-                  $(this).dialog( "close" );
+                  $(newDiv).dialog( "close" );
                   newDiv.remove();
                 }
               },
@@ -1875,7 +1875,7 @@ function initialize_editors_text(){
           });
         }else{
           var newDiv = $(document.createElement('div'));
-          newDiv.html('Image too large');
+          newDiv.html('Image too large(Max 3MB)');
           $(newDiv).dialog({
               resizable: false,
               height: "auto",
