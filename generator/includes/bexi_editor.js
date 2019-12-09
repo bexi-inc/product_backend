@@ -615,19 +615,43 @@ function bgchange(btid) {
       }
       if($('#inpimg'+ID).prop('files')[0])
       {
-        var id=$('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id");
-        if(typeof id === "undefined")
-        {
-          id=null;
+        if($('#inpimg'+ID).prop('files')[0].size<=(3 * 1024 * 1024)){
+          var id=$('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id");
+          if(typeof id === "undefined")
+          {
+            id=null;
+          }
+          var response =save_img(id,$('#inpimg'+ID).prop('files')[0]);
+          response.done(function(data){
+            var jdata=JSON.parse(data);
+            $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"?timestamp=" + new Date().getTime()+"')");
+            $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
+            $('#inpimg'+ID).val(null);
+            $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
+          });
+        }else{
+          var newDiv = $(document.createElement('div'));
+          newDiv.html('Image too large');
+          $(newDiv).dialog({
+              resizable: false,
+              height: "auto",
+              width: 400,
+              modal: true,
+              title: "File Max size Error",
+              buttons: {
+                "Ok": function() {
+                  $(this).dialog( "close" );
+                  newDiv.remove();
+                }
+              },
+              open: function() {
+              $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+            },
+            close: function( event, ui ) {
+              newDiv.remove();
+            }
+          });
         }
-        var response =save_img(id,$('#inpimg'+ID).prop('files')[0]);
-        response.done(function(data){
-          var jdata=JSON.parse(data);
-          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"?timestamp=" + new Date().getTime()+"')");
-          $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
-          $('#inpimg'+ID).val(null);
-          $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
-        });
       }
       $( "#dialog-img"+(ID).toString()).dialog("close");
       auto_save();
@@ -1387,7 +1411,7 @@ function initialize_editors_text(){
         imageUploadMethod: 'POST',
   
         // Set max image size to 5MB.
-        imageMaxSize: 5 * 1024 * 1024,
+        imageMaxSize: 3 * 1024 * 1024,
 
         // Allow to upload PNG and JPG.
         imageAllowedTypes: ['jpeg', 'jpg', 'png'],
@@ -1482,7 +1506,7 @@ function initialize_editors_text(){
       imageUploadMethod: 'POST',
 
       // Set max image size to 5MB.
-      imageMaxSize: 5 * 1024 * 1024,
+      imageMaxSize: 3 * 1024 * 1024,
 
       // Allow to upload PNG and JPG.
       imageAllowedTypes: ['jpeg', 'jpg', 'png'],
@@ -1578,7 +1602,7 @@ function initialize_editors_text(){
       imageUploadMethod: 'POST',
 
       // Set max image size to 5MB.
-      imageMaxSize: 5 * 1024 * 1024,
+      imageMaxSize: 3 * 1024 * 1024,
 
       // Allow to upload PNG and JPG.
       imageAllowedTypes: ['jpeg', 'jpg', 'png'],
@@ -1659,7 +1683,7 @@ function initialize_editors_text(){
       imageUploadMethod: 'POST',
 
       // Set max image size to 5MB.
-      imageMaxSize: 5 * 1024 * 1024,
+      imageMaxSize: 3 * 1024 * 1024,
 
       // Allow to upload PNG and JPG.
       imageAllowedTypes: ['jpeg', 'jpg', 'png'],
@@ -1799,7 +1823,6 @@ function initialize_editors_text(){
     var editorimg = new FroalaEditor('.bexi_img',
     {
       key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
-      imageCORSProxy: '',
       fileUpload: false,
       placeholderText: '',
       quickInsertEnabled: false,
@@ -1816,7 +1839,7 @@ function initialize_editors_text(){
       imageEditButtons: ['imageReplace', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageStyle', 'imageAlt', 'imageSize'],
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
       // Set max image size to 5MB.
-      imageMaxSize: 5 * 1024 * 1024,
+      imageMaxSize: 3 * 1024 * 1024,
 
       // Allow to upload PNG and JPG.
       imageAllowedTypes: ['jpeg', 'jpg', 'png'],
@@ -1825,7 +1848,7 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
-        if(images[0].size<=(5 * 1024 * 1024))
+        if(images[0].size<=(3 * 1024 * 1024))
         {
           var res=save_img(window.bexi_tagid,images[0]);
           res.done(function(data){
@@ -1852,7 +1875,27 @@ function initialize_editors_text(){
             auto_save();
           });
         }else{
-          alert("Image too large");
+          var newDiv = $(document.createElement('div'));
+          newDiv.html('Image too large');
+          $(newDiv).dialog({
+              resizable: false,
+              height: "auto",
+              width: 400,
+              modal: true,
+              title: "File Max size Error",
+              buttons: {
+                "Ok": function() {
+                  $(this).dialog( "close" );
+                  newDiv.remove();
+                }
+              },
+              open: function() {
+              $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+            },
+            close: function( event, ui ) {
+              newDiv.remove();
+            }
+          });
           return false;
         }
       },
