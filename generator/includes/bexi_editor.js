@@ -655,6 +655,7 @@ function bgchange(btid) {
           });
         }
       }
+      $('#inpimg'+ID).val("");
       $( "#dialog-img"+(ID).toString()).dialog("close");
       auto_save();
     }
