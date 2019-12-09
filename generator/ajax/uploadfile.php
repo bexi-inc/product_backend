@@ -103,9 +103,9 @@ $target_file = $fullpath."/".$idfile.".".$imageFileType;
 $webpath = $webpath.$userid."/".$projectid . "/".$idfile.".".$imageFileType;
 //print_r($_FILES);
 
-if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-
-}
+//if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+//}
+copy($_FILES["file"]["tmp_name"], $target_file);
 
 $res["src"] = $webpath;
 $res["id"] = $idfile;
