@@ -1243,7 +1243,24 @@ function auto_save()
     cc.find('div.fr-element').contents().unwrap();
     cc.find('div.alt-wrap').contents().unwrap();
     cc.find(".bexi_unspash").remove();
-    cc.find(".fr-video").contents().unwrap();
+    //cc.find(".fr-video").contents().unwrap();
+    cc.find("span").each(function(){
+      if($(this).attr("class").search("fr-video")!==-1)
+      {
+        $(this).find("iframe").each(function(){
+          var maxwidth=$(this).css("width");
+          var maxheight=$(this).css("height");
+          //$(this).css("position","absolute");
+          $(this).css("top","0");
+          $(this).css("left","0");
+          $(this).css("width","100%");
+          $(this).css("height","100%");
+          $(this).css("max-width",maxwidth);
+          $(this).css("max-height",maxheight);
+        });
+        //$(this).wrap("<div class='video_responsive'></div>");
+      }
+    });
     cc.find("p").each(function(){
       if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
       {
@@ -1355,8 +1372,10 @@ function initialize_editors_text(){
           }
       },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
-        imageUploadParam: 'file',
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
+      videoAllowedProviders: ['youtube', 'vimeo'],
+      videoInsertButtons: ['videoBack', '|', 'videoByURL'],  
+      imageUploadParam: 'file',
 
         // Set the image upload URL.
         imageUploadURL: './ajax/uploadfile.php',
@@ -1446,7 +1465,9 @@ function initialize_editors_text(){
           }
       },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
+      videoAllowedProviders: ['youtube', 'vimeo'],
+      videoInsertButtons: ['videoBack', '|', 'videoByURL'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
       imageUploadParam: 'file',
@@ -1540,9 +1561,11 @@ function initialize_editors_text(){
           }
       },
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
-      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
+      videoAllowedProviders: ['youtube', 'vimeo'],
+      videoInsertButtons: ['videoBack', '|', 'videoByURL'],
       imageUploadParam: 'file',
 
       // Set the image upload URL.
@@ -1621,7 +1644,7 @@ function initialize_editors_text(){
         'fr-bordered': 'Bordered'
       },
       linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
-      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
       imageUploadParam: 'file',
@@ -1789,7 +1812,7 @@ function initialize_editors_text(){
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
       },
-      imageEditButtons: ['imageReplace', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageStyle', 'imageAlt', 'imageSize'],
+      imageEditButtons: ['imageReplace', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageStyle', 'imageAlt', 'imageSize'],
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
       // Set max image size to 5MB.
       imageMaxSize: 5 * 1024 * 1024,
@@ -1878,6 +1901,7 @@ function initialize_editors_text(){
       toolbarBottom : false,
       emoticonsUseImage: false,
       toolbarVisibleWithoutSelection: true,
+      toolbarButtons:{},
       events : {
         'blur': function () {
             auto_save();
@@ -1921,6 +1945,8 @@ function initialize_editors_text(){
       placeholderText: '',
       quickInsertEnabled: false,
       emoticonsUseImage: false,
+      multiLine: false,
+      enter: FroalaEditor.ENTER_BR,
       toolbarVisibleWithoutSelection: true,
       htmlAllowedEmptyTags: ['i','.fas','div'],
       htmlDoNotWrapTags: ['script', 'style', 'img','i'],

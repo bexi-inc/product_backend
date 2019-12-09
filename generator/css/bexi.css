@@ -1296,6 +1296,13 @@ background-color: #e7e7e7 !important;
   margin-bottom: 0px !important ;
 }
 
+.video_responsive{
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+/*------------ Froala rules -----------------*/
 
 img.fr-view.fr-dib.fr-fir{
   margin-right: 0;
@@ -1325,6 +1332,67 @@ img.fr-view{
   float: none;
   vertical-align: top;
 }/* Adds responsivness to froala img added in text*/
+
+img.fr-bordered{
+  border: solid 5px #CCC;
+}/* Adds borders to images*/
+
+img.fr-rounded{
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}/* Adds rounded border to images*/
+
+button.fr-large{
+  font-size: 24px;
+}/* Adds large font to buttons*/
+
+button.fr-rounded{
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}/* Adds less rounded desing to buttons*/
+
+
+.fr-video.fr-dvb.fr-fvr {
+  text-align: right;
+}/* Adds video design responsive*/
+
+.fr-video.fr-dvb {
+  display: block;
+  clear: both;
+}/* Adds video design responsive*/
+
+.fr-view .fr-video.fr-dvb.fr-fvl {
+  text-align: left;
+}/* Adds video design responsive allign to left*/
+
+.fr-view .fr-video.fr-dvb.fr-fvr {
+  text-align: right;
+}/* Adds video design responsive allign to right*/
+
+blockquote {
+  border-left: solid 2px var(--color-1) !important;
+  margin-left: 0;
+  padding-left: 5px;
+  color: var(--color-1) !important;
+} /* Adds design to blockquote color1*/
+
+blockquote blockquote {
+  border-color: var(--color-2) !important;
+  color: var(--color-2) !important;
+} /* Adds design to blockquote color2*/
+
+blockquote blockquote blockquote {
+  border-color: var(--color-3) !important;
+  color: var(--color-3) !important;
+} /* Adds design to blockquote color3*/
 
 /******* For unsplash Manager ********/
 .image-list {
