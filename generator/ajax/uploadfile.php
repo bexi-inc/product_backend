@@ -105,7 +105,15 @@ $webpath = $webpath.$userid."/".$projectid . "/".$idfile.".".$imageFileType;
 
 //if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 //}
-copy($_FILES["file"]["tmp_name"], $target_file);
+
+try {
+    copy($_FILES["file"]["tmp_name"], $target_file);
+    //echo "Succeed in setting bucket website configuration.\n";
+} catch (Exception  $e) {
+    // Display error message
+    echo $e->getMessage();
+    echo "\n";
+}
 
 $res["src"] = $webpath;
 $res["id"] = $idfile;
