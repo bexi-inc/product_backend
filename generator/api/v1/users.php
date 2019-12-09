@@ -352,8 +352,6 @@ function GmailSigin($code, $redirect="")
 	if ($token["error"])
 	{
 		$ret["error"]= $token["error"]." - ".$token["error_description"];
-		print_r($client);
-		print_r($token);
 	}else
 	{
 		$client->setAccessToken($token['access_token']);
