@@ -96,7 +96,7 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			break;
  		}
- 		$res=GmailSigin($_REQ->code, $_REQ->redirect_url);
+ 		$res=GmailSigin($_REQ->code);
  		break;
  	case 'CreateSubdomain':
  		if (!isset($_REQ->subdomian))
