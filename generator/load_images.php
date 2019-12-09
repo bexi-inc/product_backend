@@ -7,6 +7,11 @@ require 'vendor/autoload.php';
 // Delete the image.
 try {
 
+function clean($string) {
+  $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+
+  return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+}
 
 
 
@@ -36,7 +41,7 @@ foreach ($data->getResults() as $photo)
 	$imgs[] = array(
     	"url" => $photo["urls"]["regular"],
     	"thumb" => $photo["urls"]["thumb"],
-        "alt_description" => $photo["alt_description"]
+        "alt_description" => clean($photo["alt_description"])
 	);
 
 }
