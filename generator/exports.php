@@ -107,8 +107,12 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
         echo '<script src="files/jquery-3.4.1.min.js"></script>';
         echo '<link rel="stylesheet" href="files/jquery-ui.min.css">';
-        echo '<script src="files/modu_final.js"></script>';
-        
+        if ($Type=="zip")
+        {
+            echo '<script src="PHP/modu_final.js"></script>';
+        }else{
+            echo '<script src="files/modu_final.js"></script>';
+        }
         echo '<link rel="stylesheet" href="files/bexi.css">';
 
         echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>';
@@ -328,6 +332,22 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     }
 
     $PATHFILES= $PATH."/files/";
+    
+    if($Type=="zip")
+    {
+        $PATHPHP = $PATH."/PHP/";
+
+        if (!file_exists($PATHPHP)) {
+             mkdir($PATHPHP, 0777, true);
+        }
+
+        copy($refpath."modu_final_download.js", $PATHPHP."modu_final.js" );
+        copy($refpath."ajax/sendform_download.php", $PATHPHP."sendform.php" );
+    }
+    else{
+        copy($refpath."modu_final.js", $PATHFILES."modu_final.js" );
+    }
+
 
     ob_start();
     include("load_theme.php");
@@ -344,7 +364,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
     copy($refpath."includes/jquery-ui.min.css", $PATHFILES."jquery-ui.min.css" );
     copy($refpath."includes/jquery-3.4.1.min.js", $PATHFILES."jquery-3.4.1.min.js" );
-    copy($refpath."modu_final.js", $PATHFILES."modu_final.js" );
     copy($refpath."css/bexi.css", $PATHFILES."bexi.css" );
 
     foreach ($images as $img)

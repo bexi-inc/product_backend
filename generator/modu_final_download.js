@@ -3,7 +3,7 @@ var email="";//email receiver
 function send_data(ID,event){
     event.preventDefault();
         $.ajax({
-            url: 'http://generator.getmodu.com/ajax/sendform.php', // url where to submit the request
+            url: './PHP/sendform.php', // url where to submit the request
             type : "POST", // type of action POST || GET
             dataType : 'json', // data type
             data : $("#"+ID).serialize() + "&e_to="+email, // post data || get data
