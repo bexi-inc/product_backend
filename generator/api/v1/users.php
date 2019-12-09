@@ -335,13 +335,13 @@ function GmailSigin($code, $redirect="")
 	$client = new Google_Client();
 	$client->setClientId(GMAIL_CLIENT_ID);
 	$client->setClientSecret(GMAIL_CLIENT_SECRET);
-	if ($redirect!="")
+	/*if ($redirect!="")
 	{
 		$client->setRedirectUri($redirect);
-	}else{
+	}else{*/
 		$client->setRedirectUri(GMAIL_CLIENT_REDIRECT_URL);
 		//$client->setRedirectUri("http://localhost:8080");
-	}
+	//}
 	
 	$client->addScope("email");
 	$client->addScope("profile");
