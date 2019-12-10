@@ -153,14 +153,15 @@ $res["error_code"]=0;
  		/*print_r($_REQ);
  		echo "files";
  		print_r($_FILES);*/
- 		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->projectindustry) || !isset($_REQ->colors))
+ 		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->projectindustry) || !isset($_REQ->colors) || !isset($_REQ->email_contact)) 
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params CreateProject";
  			
  		}
  		//die("CreateProject");
- 		$res = CreateNewProject($Dynamodb, $_REQ->userid, $_REQ->projectname, " ", $_REQ->projectindustry, $_REQ->brandcolors, $_REQ->textcolor, $_REQ->projectkeywords,  $_REQ->productorservice);
+ 		print_r($_REQ);
+ 		$res = CreateNewProject($Dynamodb, $_REQ->userid, $_REQ->projectname, " ", $_REQ->projectindustry, $_REQ->brandcolors, $_REQ->textcolor, $_REQ->projectkeywords,  $_REQ->productorservice, $_REQ->email_contact, $_REQ->font_primary . $_REQ->font_secondary );
  		break;
 
  	case "CreateDeliverable":
