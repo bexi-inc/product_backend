@@ -108,7 +108,7 @@ function SendEmail($type,$user,$project = 0)
 	// If you're using Amazon SES in a region other than US West (Oregon),
 	// replace email-smtp.us-west-2.amazonaws.com with the Amazon SES SMTP
 	// endpoint in the appropriate region.
-	$host = 'email-smtp.'.AWS_REGION.'.amazonaws.com';
+	$host = 'email-smtp.'.AWS_REGION2.'.amazonaws.com';
 	$port = 587;
 
 	// The subject line of the email
