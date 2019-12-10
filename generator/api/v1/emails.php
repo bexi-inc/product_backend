@@ -142,10 +142,10 @@ function SendEmail($type,$user,$project = 0)
 	    // Specify the content of the message.
 	    $mail->isHTML(true);
 	    $mail->Subject    = $subject;
-	    $mail->Body       = $bodyHtml;
+	    $mail->Body       = $code;
 	    //$mail->AltBody    = $bodyText;
 
-	  	print_r($mail);
+	  	//print_r($mail);
 	    $mail->Send();
 	    echo "Email sent!" , PHP_EOL;
 	} catch (phpmailerException $e) {
