@@ -40,7 +40,7 @@ function SendEmail($type,$user,$project = 0)
 
 	$dynamodb = $sdk->createDynamoDb();
 	$marshaler = new Marshaler();
-	
+
 	switch ($type) {
 		case 1:
 			$code=file_get_contents("email_themes/welcome.html");
@@ -76,7 +76,7 @@ function SendEmail($type,$user,$project = 0)
         'TableName' => "bexi_prod_users",
          "KeyConditionExpression"=> "id = :id",
         "ExpressionAttributeValues"=> [
-            ":id" =>  ["S" => $user],
+            ":id" =>  ["S" => strval($user)],
         ]
     ];
 
