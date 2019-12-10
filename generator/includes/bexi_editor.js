@@ -1269,20 +1269,23 @@ function auto_save()
     cc.find(".bexi_unspash").remove();
     //cc.find(".fr-video").contents().unwrap();
     cc.find("span").each(function(){
-      if($(this).attr("class").search("fr-video")!==-1)
+      if($(this).attr("class")!==undefined)
       {
-        $(this).find("iframe").each(function(){
-          var maxwidth=$(this).css("width");
-          var maxheight=$(this).css("height");
-          //$(this).css("position","absolute");
-          $(this).css("top","0");
-          $(this).css("left","0");
-          $(this).css("width","100%");
-          $(this).css("height","100%");
-          $(this).css("max-width",maxwidth);
-          $(this).css("max-height",maxheight);
-        });
-        //$(this).wrap("<div class='video_responsive'></div>");
+        if($(this).attr("class").search("fr-video")!==-1)
+        {
+          $(this).find("iframe").each(function(){
+            var maxwidth=$(this).css("width");
+            var maxheight=$(this).css("height");
+            //$(this).css("position","absolute");
+            $(this).css("top","0");
+            $(this).css("left","0");
+            $(this).css("width","100%");
+            $(this).css("height","100%");
+            $(this).css("max-width",maxwidth);
+            $(this).css("max-height",maxheight);
+          });
+          //$(this).wrap("<div class='video_responsive'></div>");
+        }
       }
     });
     cc.find("p").each(function(){
@@ -1669,14 +1672,7 @@ function initialize_editors_text(){
       },
       toolbarButtons : {
         'moreText': {
-            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
-          },
-          'moreParagraph': {
-            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'lineHeight', 'outdent', 'indent', 'quote']
-          },
-          'moreRich': {
-            'buttons': ['insertLink', 'insertImage', 'insertVideo','fontAwesome','emoticons', 'specialCharacters'],
-            'buttonsVisible': 4
+            'buttons': ['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
           }
       },
       linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
