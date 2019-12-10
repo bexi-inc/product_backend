@@ -62,6 +62,11 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 	if (!$resIns["error"])
 	{
 		$ret["user_id"] = $userid;
+
+		// Sent welcome email
+		SendEmail(1,$userid);
+
+		//Update next id user
 		$userid = $userid+1;
 
 		$key = '
@@ -445,6 +450,11 @@ function GmailSigin($code, $redirect="")
 		if (!$resIns["error"])
 		{
 			$ret["user_id"] = $userid;
+
+			// Send Welcome Email
+			SendEmail(1,$userid);
+
+			// Update next folio User
 			$userid = $userid+1;
 
 			$key = '
