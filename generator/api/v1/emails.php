@@ -232,7 +232,7 @@ function SendEmail($type,$user,$project = 0)
 
 if ($_REQUEST["test"])
 {
-	SendEmail(1,48);
+	SendEmail($_REQUEST["type"],48);
 }
 
 ?>
