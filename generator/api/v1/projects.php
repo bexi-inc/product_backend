@@ -107,6 +107,10 @@ function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors,
 
 	$Data .= ((isset($_FILES["logofullcolor"]["name"])) ? ', "logofull" : "'.$_FILES["logofullcolor"]["name"].'"' : '');
 	
+	print_r($font_secondary);
+	print_r($pfontprimary);
+	print_r($pfontsecondary);
+
 	$Data .= ((isset($pemailcontact)) ? ', "email_contact" : "'.$pemailcontact.'"' : '');
 	$Data .= ((isset($pfontprimary)) ? ', "font_primary" : "'.$pfontprimary.'"' : '');
 	$Data .= ((isset($pfontsecondary)) ? ', "font_secondary" : "'.$pfontsecondary.'"' : '');
