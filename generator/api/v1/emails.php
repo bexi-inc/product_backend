@@ -76,7 +76,7 @@ function SendEmail($type,$user,$project = 0)
         'TableName' => "bexi_prod_users",
          "KeyConditionExpression"=> "id = :id",
         "ExpressionAttributeValues"=> [
-            ":id" =>  ["S" => '"'.$user.'"'],
+            ":id" =>  ["S" => strval($user)],
         ]
     ];
 
