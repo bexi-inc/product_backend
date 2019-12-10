@@ -76,11 +76,11 @@ function SendEmail($type,$user,$project = 0)
         'TableName' => "bexi_prod_users",
          "KeyConditionExpression"=> "id = :id",
         "ExpressionAttributeValues"=> [
-            ":id" =>  ["S" => '"'.strval($user).'"'],
+            ":id" =>  ["S" => '"'.$user.'"'],
         ]
     ];
 
-    print_r($params);
+    //print_r($params);
      $result = $dynamodb->query($params);
 
      $user_email = $marshaler->unmarshalValue($result['Items'][0]["username"]);
