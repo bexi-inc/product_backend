@@ -1670,11 +1670,9 @@ function initialize_editors_text(){
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
       },
-      toolbarButtons : {
-        'moreText': {
-            'buttons': ['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
-          }
-      },
+      toolbarButtons :
+        ['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
+      ,
       linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
       imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
