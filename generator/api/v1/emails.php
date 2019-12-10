@@ -212,10 +212,11 @@ function SendEmail($type,$user,$project = 0)
 	    echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
 	}
 }
+*/
 
 if ($_REQUEST["test"])
 {
-	SendEmail(1,2);
-}*/
+	SendEmail(1,48);
+}
 
 ?>
