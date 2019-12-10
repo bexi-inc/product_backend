@@ -21,7 +21,7 @@ require '../../vendor/autoload.php';
 require_once "emails.php";
 require "db.php";
 require "users.php";
-require "emails.php";
+//require "emails.php";
 require "projects.php";
 
 
