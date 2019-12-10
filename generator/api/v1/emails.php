@@ -29,6 +29,17 @@ type:
 
 function SendEmail($type,$user,$project = 0)
 {
+	global $aws_key, $aws_pass, $AWS_REGION;
+	$credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
+
+	$sdk = new Aws\Sdk([
+    'region'   => $AWS_REGION,
+    'version'  => 'latest',
+    'credentials' => $credentials
+	]);
+
+	$dynamodb = $sdk->createDynamoDb();
+	$marshaler = new Marshaler();
 	switch ($type) {
 		case 1:
 			$code=file_get_contents("email_themes/welcome.html");
