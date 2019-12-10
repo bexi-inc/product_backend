@@ -80,6 +80,7 @@ function SendEmail($type,$user,$project = 0)
         ]
     ];
 
+    print_r($params);
      $result = $dynamodb->query($params);
 
      $user_email = $marshaler->unmarshalValue($result['Items'][0]["username"]);
