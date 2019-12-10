@@ -1,4 +1,3 @@
-var email="";//email receiver
 
 function send_data(ID,event){
     event.preventDefault();
