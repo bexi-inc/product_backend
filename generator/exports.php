@@ -85,6 +85,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
          $result2 = $dynamodb->query($params);
          $user_id = $marshaler->unmarshalValue($result2['Items'][0]["user_id"]);
          $project_name = $marshaler->unmarshalValue($result2['Items'][0]["project_name"]);
+         $email_contact = $marshaler->unmarshalValue($result2['Items'][0]["email_contact"]);
 
 
     ob_start();
