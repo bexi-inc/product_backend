@@ -124,7 +124,7 @@ function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors,
 	$Data = $Data . '}';
 
 
-	//print_r($Data);
+	print_r($Data);
 
 	$resIns=Insert("modu_projects",$Data, false);
 
