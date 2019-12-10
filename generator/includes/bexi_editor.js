@@ -1667,6 +1667,18 @@ function initialize_editors_text(){
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
       },
+      toolbarButtons : {
+        'moreText': {
+            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
+          },
+          'moreParagraph': {
+            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'lineHeight', 'outdent', 'indent', 'quote']
+          },
+          'moreRich': {
+            'buttons': ['insertLink', 'insertImage', 'insertVideo','fontAwesome','emoticons', 'specialCharacters'],
+            'buttonsVisible': 4
+          }
+      },
       linkEditButtons:['linkOpen', 'linkEdit', 'linkRemove','bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting'],
       imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
       fontFamilySelection: true,
