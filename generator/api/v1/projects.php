@@ -106,10 +106,6 @@ function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors,
 	$Data .= ((trim($pgoal) != '' ) ? ',"project_goal" :  "'.$pgoal.'" ' : '' );
 
 	$Data .= ((isset($_FILES["logofullcolor"]["name"])) ? ', "logofull" : "'.$_FILES["logofullcolor"]["name"].'"' : '');
-	
-	print_r($font_secondary);
-	print_r($pfontprimary);
-	print_r($pfontsecondary);
 
 	$Data .= ((isset($pemailcontact)) ? ', "email_contact" : "'.$pemailcontact.'"' : '');
 	$Data .= ((isset($pfontprimary)) ? ', "font_primary" : "'.$pfontprimary.'"' : '');
@@ -128,10 +124,11 @@ function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors,
 	$Data = $Data . '}';
 
 
-	print_r($Data);
+	//print_r($Data);
 
 	$resIns=Insert("modu_projects",$Data, false);
 
+	print_r($resIns);
 	if (!$resIns["error"])
 	{
 		$res["error"]="0";
