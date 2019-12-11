@@ -79,7 +79,7 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 			        'TableName' => "modu_projects",
 			         "KeyConditionExpression"=> "project_id = :id",
 			        "ExpressionAttributeValues"=> [
-			            ":id" =>  ["S" => $projectId]
+			            ":id" =>  ["S" => strval($projectId)]
 			        ]
 			    ];
 
