@@ -68,7 +68,6 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 			    ]
 			];
 
-			echo "opteniendo Project ID";
 		    $result = $dynamodb->query($params);
 
 		   
@@ -86,7 +85,6 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 
 			    //print_r($params);
 
-			    echo "opteniendo Project Name y user";
 			    $result_proj = $dynamodb->query($params);
 
 			   // print_r($result);
@@ -130,7 +128,6 @@ function SendEmail($type,$user,$IdRef = 0, $data)
     ];
 
     //print_r($params);
-    echo "opteniendo Email";
      $result = $dynamodb->query($params);
 
      //print_r($result['Items']);
