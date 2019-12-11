@@ -76,9 +76,9 @@ if (count($result["Items"])>0)
     }
 
     $fontprimary="";
-    $fontprimary = "\n--font-1:'".$marshaler->unmarshalValue($result["Items"][0]["font_primary"])."'\n";
+    $fontprimary = "--font-1:'".$marshaler->unmarshalValue($result["Items"][0]["font_primary"])."';";
     $fontsecondary="";
-    $fontsecondary = "\n--font-2:'".$marshaler->unmarshalValue($result["Items"][0]["font_secondary"])."'\n";
+    $fontsecondary = "--font-2:'".$marshaler->unmarshalValue($result["Items"][0]["font_secondary"]).";'";
     
 }
 
@@ -104,16 +104,24 @@ if ($vartxtcol=="")
 
 if($fontprimary=="")
 {
-    echo "\n--font-1:'Montserrat', sans-serif\n";
+    echo "";
+    echo "--font-1:'Montserrat', sans-serif;";
+    echo "";
 }else{
+    echo "";
     echo $fontprimary;
+    echo "";
 }
 
 if($fontsecondary=="")
 {
-    echo "--font-2:'Montserrat', sans-serif\n";
+    echo "";
+    echo "--font-2:'Montserrat', sans-serif;";
+    echo "";
 }else{
+    echo "";
     echo $fontsecondary;
+    echo "";
 }
 echo "}";
 
