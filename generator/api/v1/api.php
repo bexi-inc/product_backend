@@ -203,6 +203,7 @@ $res["error_code"]=0;
  			
  		}
  		$res = DeployDeliverable($_REQ->deliverable,$_REQ->projectid,2);
+ 		SendEmail(5,$userid,$_REQ->projectid,$res);
  		break;
  	default:
  		echo "REQ";

@@ -27,7 +27,7 @@ type:
 	6:	published_project
 ***************************************/
 
-function SendEmail($type,$user,$project = 0)
+function SendEmail($type,$user,$project = 0, $data)
 {
 	global $aws_key, $aws_pass, $AWS_REGION;
 	$credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
@@ -60,6 +60,24 @@ function SendEmail($type,$user,$project = 0)
 			break;
 		case 5:
 			$code=file_get_contents("email_themes/download_html.html");
+			$params = [
+		        'TableName' => "modu_projects",
+		         "KeyConditionExpression"=> "project_id = :id",
+		        "ExpressionAttributeValues"=> [
+		            ":id" =>  ["S" => $project_id]
+		        ]
+		    ];
+
+		    $result_proj = $dynamodb->query($params);
+
+		    $ProjectName="";
+		    if (count($result_proj['Items'])>0)
+    		{
+    			$ProjectName = $marshaler->unmarshalValue($result_proj['Items'][0]["project_name"]);
+    		}
+
+    		$code=str_replace("{project_name}",$ProjectName,$coce);
+			$code=str_replace("{link}",$data["link"],$coce);
 			$subject = "Download";
 			break;
 		case 6:
