@@ -189,7 +189,9 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 
 	  	//print_r($mail);
 	    $mail->Send();
-	   // echo "Email sent!" , PHP_EOL;
+	    echo "Email sent!" , PHP_EOL;
+
+	    print_r($mail);
 	} catch (phpmailerException $e) {
 	    echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
 	} catch (Exception $e) {
