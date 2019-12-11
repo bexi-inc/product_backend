@@ -113,19 +113,28 @@ function Login($connDyn, $email, $password)
 		$dbdata = $table["data"]['Items'];
 		if (count($dbdata)>0)
 		{
-		    if (password_verify($password,$Marshaler->unmarshalValue($dbdata[0]['password'])))
-		    {
-		    	$ret["error_code"] = "0";
-		    	$user["id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
-		    	$user["username"] = $Marshaler->unmarshalValue($dbdata[0]['username']);
-
-		    	$ret["user"] = $user;
-		    	return $ret;
-		    }else{
-		    	$ret["error_code"] = "100";
-		    	$ret["message"] = "incorrect user or password";
-		    	return $ret;
-		    }
+			if(isset($dbdata[0]['password']) && !is_null($dbdata[0]['password']))
+			{
+				if (password_verify($password,$Marshaler->unmarshalValue($dbdata[0]['password'])))
+				{
+					$ret["error_code"] = "0";
+					$user["id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
+					$user["username"] = $Marshaler->unmarshalValue($dbdata[0]['username']);
+	
+					$ret["user"] = $user;
+					return $ret;
+				}else{
+					$ret["error_code"] = "100";
+					$ret["message"] = "incorrect user or password";
+					return $ret;
+				}
+			}
+			else
+			{
+				$ret["error_code"] = "100";
+				$ret["message"] = "This email must be used with Google Login";
+				return $ret;
+			}
 		}else{
 			$ret["error_code"] = "100";
 		    $ret["message"] = "incorrect user or password";
