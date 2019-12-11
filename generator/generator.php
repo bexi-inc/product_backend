@@ -362,7 +362,7 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
 
         if (isset($result_proj['Items'][0]["font_secondary"]) && !is_null($result_proj['Items'][0]["font_secondary"]))
         {
-            $fontprimary=$marshaler->unmarshalValue($result_proj['Items'][0]["font_secondary"]);
+            $fontsecondary=$marshaler->unmarshalValue($result_proj['Items'][0]["font_secondary"]);
         }else
         {
             $fontsecondary="";
