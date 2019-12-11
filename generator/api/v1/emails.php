@@ -70,8 +70,7 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 
 		    $result = $dynamodb->query($params);
 
-		    print_r($result);
-		    die();
+		   
 		    if (count($result['Items'])>0)
 		    {
 		    	$projectId = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
@@ -84,8 +83,12 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 			        ]
 			    ];
 
+			    print_r($params);
 
 			    $result_proj = $dynamodb->query($params);
+
+			    print_r($result);
+		    	die();
 
 			    $ProjectName="";
 
