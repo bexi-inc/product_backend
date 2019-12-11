@@ -379,7 +379,7 @@ function ExistDomain_publish($idDev)
 		":devId" : "'.$idDev.'"
 	}';
 
-	$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId");
+	$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId",false);
 
 	if ($table["error"]=="")
 	{
@@ -404,7 +404,6 @@ function ExistDomain_publish($idDev)
 		    $ret["message"] = "Deliverable not found";
 		    return $ret;
 		}
-
 	}
 	else{
 		$ret["error_code"] = "500";
