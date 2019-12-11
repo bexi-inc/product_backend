@@ -87,14 +87,18 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 
 			    $result_proj = $dynamodb->query($params);
 
-			    //print_r($result);
-		    	//die();
+			    print_r($result);
+		    	die();
 
 			    $ProjectName="";
 
 			    if (count($result_proj['Items'])>0)
 	    		{
 	    			$ProjectName = $marshaler->unmarshalValue($result_proj['Items'][0]["project_name"]);
+	    			if ($user=-1)
+	    			{
+	    				$user = $marshaler->unmarshalValue($result_proj['Items'][0]["user_id"]);
+	    			}
 	    		}
 
 	    		$code=str_replace("{project_name}",$ProjectName,$coce);
