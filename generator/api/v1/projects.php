@@ -379,7 +379,7 @@ function ExistDomain_publish($idDev)
 		":devId" : "'.$idDev.'"
 	}';
 
-	$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId",false);
+	$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId","","",false);
 
 	if ($table["error"]=="")
 	{
