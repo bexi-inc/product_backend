@@ -76,9 +76,9 @@ if (count($result["Items"])>0)
     }
 
     $fontprimary="";
-    $fontprimary = "--font-1:'".$marshaler->unmarshalValue($result["Items"][0]["font_primary"])."';";
+    $fontprimary = '--font-1:"'.$marshaler->unmarshalValue($result["Items"][0]["font_primary"]).'";';
     $fontsecondary="";
-    $fontsecondary = "--font-2:'".$marshaler->unmarshalValue($result["Items"][0]["font_secondary"])."';";
+    $fontsecondary = '--font-2:"'.$marshaler->unmarshalValue($result["Items"][0]["font_secondary"]).'";';
     
 }
 
