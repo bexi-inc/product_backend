@@ -86,7 +86,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
          $user_id = $marshaler->unmarshalValue($result2['Items'][0]["user_id"]);
          $project_name = $marshaler->unmarshalValue($result2['Items'][0]["project_name"]);
          $email_contact = $marshaler->unmarshalValue($result2['Items'][0]["email_contact"]);
-
+         $fontprimary=$marshaler->unmarshalValue($result2['Items'][0]["font_primary"]);
+         $fontsecondary=$marshaler->unmarshalValue($result2['Items'][0]["font_secondary"]);
 
     ob_start();
 
@@ -128,6 +129,18 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
         /**************   ICON FONTS **************/
         echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
+        /**************   GOOGLE FONTS **************/
+        if($fontprimary!=="")
+        {
+            $fontprimary = str_replace(' ', '+', $fontprimary);
+            echo"<link href='https://fonts.googleapis.com/css?family=".$fontprimary."' rel='stylesheet'>";
+        }
+    
+        if($fontsecondary!=="")
+        {
+            $fontsecondary = str_replace(' ', '+', $fontsecondary);
+            echo"<link href='https://fonts.googleapis.com/css?family=".$fontsecondary."' rel='stylesheet'>";
+        }
 
         echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
         echo "\r\n";
