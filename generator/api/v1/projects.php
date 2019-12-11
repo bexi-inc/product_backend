@@ -387,15 +387,15 @@ function ExistDomain_publish($idDev)
 		if (count($dbdata)>0)
 		{
 			print_r($dbdata[0]);
-		    	$ret["error_code"] = "0";
-
-				$domain = $Marshaler->unmarshalValue($dbdata[0]['subdomain']);
-				if(isset($domain) && !is_null($domain) && $domain!=="")
+				$ret["error_code"] = "0";
+				if(isset($dbdata[0]['subdomain']) && !is_null($dbdata[0]['subdomain']))
 				{
 					$ret["exists"] = "true";
 					$ret["message"] = "subdomain already exists";
+					//$domain = $Marshaler->unmarshalValue($dbdata[0]['subdomain']);
 				}
-				else{
+				else
+				{
 					$ret["exists"] = "false";
 					$ret["message"] = "subdomain do not exists";
 				}
