@@ -87,8 +87,8 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 
 			    $result_proj = $dynamodb->query($params);
 
-			    print_r($result);
-		    	die();
+			   // print_r($result);
+		    	//die();
 
 			    $ProjectName="";
 
