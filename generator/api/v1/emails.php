@@ -64,7 +64,7 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 		        'TableName' => "modu_deliverables",
 		         "KeyConditionExpression"=> "deliverable_id = :id",
 		        "ExpressionAttributeValues"=> [
-		            ":id" =>  ["S" => $IdRef ]
+		            ":id" =>  ["S" => strval($IdRef) ]
 			    ]
 			];
 
