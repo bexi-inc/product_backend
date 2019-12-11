@@ -204,7 +204,16 @@ $res["error_code"]=0;
  		}
  		$res = DeployDeliverable($_REQ->deliverable,$_REQ->projectid,2);
  		SendEmail(5,-1, $_REQ->deliverable, $res);
- 		break;
+		 break;
+	case "ExistDomainpublish":
+		if (!isset($_REQ->deliverableid))
+		{
+			$res["error_code"]="502";
+			$res["message"]="Invalid params";
+			
+		}
+		$res = ExistDomain_publish($_REQ->deliverableid);
+		break;
  	default:
  		echo "REQ";
  		print_r($_REQ);

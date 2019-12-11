@@ -370,4 +370,47 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 	return $ret;
 }
 
+function ExistDomain_publish($idDev)
+{
+	global $Marshaler;
+	$ret["error_code"] = "0";
+
+	$Data ='{
+		":devId" : "'.$idDev.'"
+	}';
+
+	$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId");
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+		    	$ret["error_code"] = "0";
+
+				$domain = $Marshaler->unmarshalValue($dbdata[0]['subdomain']);
+				if(isset($domain) && !is_null($domain) && $domain!=="")
+				{
+					$ret["exists"] = "true";
+					$ret["message"] = "subdomain already exists";
+				}
+				else{
+					$ret["exists"] = "false";
+					$ret["message"] = "subdomain do not exists";
+				}
+		    	return $ret;
+		}else{
+			$ret["error_code"] = "100";
+		    $ret["message"] = "Deliverable not found";
+		    return $ret;
+		}
+
+	}
+	else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
+}
+
 ?>
