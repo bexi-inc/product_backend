@@ -72,27 +72,37 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 
 		    print_r($result);
 		    die();
-		    $projectId = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
+		    if (count($result['Items'])>0)
+		    {
+		    	$projectId = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
 
-			$params = [
-		        'TableName' => "modu_projects",
-		         "KeyConditionExpression"=> "project_id = :id",
-		        "ExpressionAttributeValues"=> [
-		            ":id" =>  ["S" => $projectId]
-		        ]
-		    ];
+				$params = [
+			        'TableName' => "modu_projects",
+			         "KeyConditionExpression"=> "project_id = :id",
+			        "ExpressionAttributeValues"=> [
+			            ":id" =>  ["S" => $projectId]
+			        ]
+			    ];
 
-		    $result_proj = $dynamodb->query($params);
+			    print_r($params);
+			    die();
+			    
+			    $result_proj = $dynamodb->query($params);
 
-		    $ProjectName="";
-		    if (count($result_proj['Items'])>0)
-    		{
-    			$ProjectName = $marshaler->unmarshalValue($result_proj['Items'][0]["project_name"]);
-    		}
+			    $ProjectName="";
 
-    		$code=str_replace("{project_name}",$ProjectName,$coce);
-			$code=str_replace("{link}",$data["link"],$coce);
-			$subject = "Download";
+			    if (count($result_proj['Items'])>0)
+	    		{
+	    			$ProjectName = $marshaler->unmarshalValue($result_proj['Items'][0]["project_name"]);
+	    		}
+
+	    		$code=str_replace("{project_name}",$ProjectName,$coce);
+				$code=str_replace("{link}",$data["link"],$coce);
+				$subject = "Download";
+		    }else{
+		    	return;
+		    }
+		    
 			break;
 		case 6:
 			$code=file_get_contents("email_themes/published_project.html");
