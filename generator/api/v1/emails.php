@@ -65,7 +65,8 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 		         "KeyConditionExpression"=> "deliverable_id = :id",
 		        "ExpressionAttributeValues"=> [
 		            ":id" =>  ["S" => $IdRef ]
-		    ];
+			    ]
+			];
 
 		    $result = $dynamodb->query($params);
 		    $projectId = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
