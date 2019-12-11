@@ -69,6 +69,7 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 			];
 
 		    $result = $dynamodb->query($params);
+		    print_r($result);
 		    $projectId = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
 
 			$params = [
