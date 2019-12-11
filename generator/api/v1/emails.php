@@ -101,8 +101,8 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 	    			}
 	    		}
 
-	    		$code=str_replace("{project_name}",$ProjectName,$coce);
-				$code=str_replace("{link}",$data["link"],$coce);
+	    		$code = str_replace("{project_name}",$ProjectName,$code);
+				$code = str_replace("{link}",$data["link"],$code);
 				$subject = "Download";
 		    }else{
 		    	return;
