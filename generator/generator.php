@@ -351,8 +351,27 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
         {
             $logourl="";
         }
+
+        if (isset($result_proj['Items'][0]["font_primary"]) && !is_null($result_proj['Items'][0]["font_primary"]))
+        {
+            $fontprimary=$marshaler->unmarshalValue($result_proj['Items'][0]["font_primary"]);
+        }else
+        {
+            $fontprimary="";
+        }
+
+        if (isset($result_proj['Items'][0]["font_secondary"]) && !is_null($result_proj['Items'][0]["font_secondary"]))
+        {
+            $fontprimary=$marshaler->unmarshalValue($result_proj['Items'][0]["font_secondary"]);
+        }else
+        {
+            $fontsecondary="";
+        }
+
     }else{
         $logourl = "";
+        $fontprimary="";
+        $fontsecondary="";
     }
 
    
@@ -416,7 +435,17 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
     echo'<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>';
     echo'<script src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/plugins/font_family.min.js"></script>';
     echo'<script src="./config.js"></script>';
+    if($fontprimary!=="")
+    {
+        $fontprimary = str_replace(' ', '+', $fontprimary);
+        echo"<link href='https://fonts.googleapis.com/css?family=".$fontprimary."' rel='stylesheet'>";
+    }
 
+    if($fontsecondary!=="")
+    {
+        $fontsecondary = str_replace(' ', '+', $fontsecondary);
+        echo"<link href='https://fonts.googleapis.com/css?family=".$fontsecondary."' rel='stylesheet'>";
+    }
 
     /*echo'<script src="./modu_final.js"></script>';*/
 
