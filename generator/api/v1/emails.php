@@ -161,12 +161,7 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 	// The subject line of the email
 	//$subject = 'Amazon SES test (SMTP interface accessed using PHP)';
 
-	// The HTML-formatted body of the email
-	$bodyHtml = '<h1>Email Test</h1>
-	    <p>This email was sent through the
-	    <a href="https://aws.amazon.com/ses">Amazon SES</a> SMTP
-	    interface using the <a href="https://github.com/PHPMailer/PHPMailer">
-	    PHPMailer</a> class.</p>';
+	
 
 	$mail = new PHPMailer(true);
 
@@ -194,7 +189,7 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 
 	  	//print_r($mail);
 	    $mail->Send();
-	    echo "Email sent!" , PHP_EOL;
+	   // echo "Email sent!" , PHP_EOL;
 	} catch (phpmailerException $e) {
 	    echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
 	} catch (Exception $e) {
