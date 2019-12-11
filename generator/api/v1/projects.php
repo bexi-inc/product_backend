@@ -376,7 +376,7 @@ function ExistDomain_publish($idDev)
 	$ret["error_code"] = "0";
 
 	$Data ='{
-		":devId" : "'.$idDev.'"
+		":devId" : '.$idDev.'
 	}';
 
 	$table = ExecuteQuery("modu_deliverables",$Data,"deliverable_id = :devId","","",false);
