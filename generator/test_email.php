@@ -8,4 +8,6 @@ $message = wordwrap($message, 70, "\r\n");
 $headers = "From: MANUEL CUEVAS <hello@getmodu.com>\r\n";
 // Send
 print_r(mail('admin@vikingosol.com', 'My Subject', $message, $headers));
+print_r(mail('manuel.cuevas@tedesi.com', 'My Subject', $message, $headers));
+print_r(mail('trislos@gmail.com', 'My Subject', $message, $headers));
 ?>
