@@ -377,7 +377,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         echo "\r\n";
         echo('var project_name="'.$project_name.'";//project_name');
         echo "\r\n";
-        include("modu_final_download.js");
+        include("modu_final.js");
         $new_js = ob_get_contents ();
         ob_end_clean();
 

@@ -1,4 +1,5 @@
 <?php
+ header("Access-Control-Allow-Origin: *");
 
 function get_html(){
     $numItems = count($_POST);
