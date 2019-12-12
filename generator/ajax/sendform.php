@@ -34,7 +34,7 @@ function get_html(){
     $subject = "Form Project- ".$_POST["project_name"];
     $message = get_html();
     $from = "noreply@getmodu.com";
-    $headers = "From: getModu.com";
+    $headers = "From: getModu.com". "\r\n";
     $headers .= "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
