@@ -27,7 +27,7 @@ type:
 	6:	published_project
 ***************************************/
 
-function SendEmail($type,$user,$IdRef = 0, $data)
+function SendEmail($type,$user,$IdRef = 0, $data = [])
 {
 	global $aws_key, $aws_pass, $AWS_REGION;
 	$credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
