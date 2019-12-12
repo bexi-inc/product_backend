@@ -845,6 +845,7 @@ function bgchange(btid) {
                   $("#"+ID).css("color",$("#colorpicker_"+ID).minicolors("rgbString"));
                   $( this ).dialog( "close" );
                   newDiv.remove();
+                  auto_save();
                 },
                 "Cancel": function() {
                   $( this ).dialog( "close" );
@@ -903,6 +904,7 @@ function bgchange(btid) {
                   $("#"+ID).css("background-color",$("#colorpicker_"+ID).minicolors("rgbString"));
                   $( this ).dialog( "close" );
                   newDiv.remove();
+                  auto_save();
                 },
                 "Cancel": function() {
                   $( this ).dialog( "close" );
@@ -958,6 +960,7 @@ function bgchange(btid) {
             var obj=this._original_html;
             var ID=$(obj).attr('id');
             $("#"+ID).css("font-size",val+'px');
+            auto_save();
           }
         });
 
@@ -1011,6 +1014,7 @@ function bgchange(btid) {
                  }
                  $( this ).dialog( "close" );
                  newDiv.remove();
+                 auto_save();
                },
                "Cancel": function() {
                  $( this ).dialog( "close" );
@@ -1049,6 +1053,7 @@ function bgchange(btid) {
           var obj=this._original_html;
           var ID=$(obj).attr('id');
           $('#'+ID).closest(".bexi_editor_icon").remove();
+          auto_save();
         }
       });
 
