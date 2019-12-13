@@ -2,7 +2,7 @@
 //include "http://generator.getmodu.com/api/v1/emails.php"; //include email sender
 echo(__DIR__);
 include "../config.php";
-include( __DIR__.'/../api/v1/emails.php');
+include "/../api/v1/emails.php";
 
 header("Access-Control-Allow-Origin: *");
 
