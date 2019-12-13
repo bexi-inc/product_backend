@@ -69,7 +69,7 @@ function GetProjects($userId)
 				{
 					$micro_date = date($Marshaler->unmarshalValue($project["date_create"]));
 					$date_array = explode(".",$micro_date);
-					$date = date("m-d-Y",$date_array[0]);
+					$date = date("Y-m-d",$date_array[0]);
 					$proj["create_date"] = $date;	
 				}else{
 					$proj["create_date"] = "Undefine";
