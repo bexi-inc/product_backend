@@ -487,14 +487,13 @@ function create_recipe($proj_id)
 			foreach ($newparts as $part) {
 				$final [] =  $part["contents"][array_rand($part["contents"], 1)];//add the id-content random to the array
 			}
-			print_r($final);
 		}
 	}else{
 		$ret["error_code"] = "500";
 	    $ret["message"] =  $table["error"];
 	    return $ret;
 	}
-	$res["data"] = $projects;
+	$res["data"] = $final;
 	//print_r($res);
 	return  $res;
 
