@@ -469,11 +469,11 @@ function create_recipe($proj_id)
 			$temparray=[];
 			$temparray=array_slice($parts, 2,2);//copy part 2,3
 			shuffle($temparray);
-			array_splice( $parts, 1,2,$temparray);
+			array_splice( $parts, 2,2,$temparray);
 			$temparray=array_slice($parts, 4,4);//copy part 4,5,6,7
 			print_r($temparray);
 			shuffle($temparray);
-			array_splice( $parts, 3,3,$temparray);
+			array_splice( $parts, 4,4,$temparray);
 			print_r($parts);
 
 			//random pickup contents for each part
