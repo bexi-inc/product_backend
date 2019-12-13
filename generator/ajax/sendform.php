@@ -1,5 +1,5 @@
 <?php
-include './api/v1/emails.php'; //include email sender
+include '../api/v1/emails.php'; //include email sender
 header("Access-Control-Allow-Origin: *");
 
 function get_html(){
