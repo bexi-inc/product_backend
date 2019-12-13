@@ -61,106 +61,121 @@ function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="")
 		    $contenido = substr_replace(GethtmlCode($dynamodb,  $marshaler, $marshaler->unmarshalValue($result['Items'][$key]['id']))," id='module_hea' ",4,0);
 		    $css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
 
-		    $_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
+			$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
+			
+			/****************************************************************mi codigo ************************/
+			$recipe=create_recipe(123);
+			$recipe=$recipe["data"];
+			for ($i = 1; $i <= count($recipe); $i++) {
+				$ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$recipe[$i]),$Keywords);
+				$contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
+				//$css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
 
-		    //echo "Tiempo 6 : ".(microtime(true) - $timeini)."<br>";
+				$_SESSION["modules"][]=$recipe[$i];
+			}
 
-		    $params = [
-		        'TableName' => "bexi_prod_contentblock",
-		        "IndexName" => "type-index",
-		        'ProjectionExpression' => 'id, #cod, is_content, #tp, file_css, file_html',
-		         "KeyConditionExpression"=> "#tp = :vtipo",
-		        "ExpressionAttributeValues"=> [
-		            ":vtipo" =>  ["S" => "int"]
-		        ],
-		        "ExpressionAttributeNames" =>   
-		            [ '#tp' => 'type',
-		                '#cod' => 'code' ]
 
-		    ];
+			/***************************************************************************************************alv de manuel *************************************/
 
-		    //$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
+			// //echo "Tiempo 6 : ".(microtime(true) - $timeini)."<br>";
 
-		    //$contenido="";
+		    // $params = [
+		    //     'TableName' => "bexi_prod_contentblock",
+		    //     "IndexName" => "type-index",
+		    //     'ProjectionExpression' => 'id, #cod, is_content, #tp, file_css, file_html',
+		    //      "KeyConditionExpression"=> "#tp = :vtipo",
+		    //     "ExpressionAttributeValues"=> [
+		    //         ":vtipo" =>  ["S" => "int"]
+		    //     ],
+		    //     "ExpressionAttributeNames" =>   
+		    //         [ '#tp' => 'type',
+		    //             '#cod' => 'code' ]
 
-		     $result = $dynamodb->query($params);
+		    // ];
 
-		     //echo "Tiempo 7 : ".(microtime(true) - $timeini)."<br>";
+		    // //$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-		    $key = array_rand ($result['Items'],1);
+		    // //$contenido="";
 
-		    $ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($result['Items'][$key]['id'])),$Keywords);
-		    $contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
-		    $css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
+		    //  $result = $dynamodb->query($params);
 
-		    $_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
+		    //  //echo "Tiempo 7 : ".(microtime(true) - $timeini)."<br>";
 
-		    //echo "Tiempo 8 : ".(microtime(true) - $timeini)."<br>";
+		    // $key = array_rand ($result['Items'],1);
+
+		    // $ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($result['Items'][$key]['id'])),$Keywords);
+		    // $contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
+		    // $css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
+
+		    // $_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
+
+		    // //echo "Tiempo 8 : ".(microtime(true) - $timeini)."<br>";
 		            
-		    /******************************************************
-		    ************    CALCULAMOS EL CONTENIDO ***************
-		    ******************************************************/
+		    // /******************************************************
+		    // ************    CALCULAMOS EL CONTENIDO ***************
+		    // ******************************************************/
 
-		    $nmods=rand(1,12);
-		    $modulos ="";
+		    // $nmods=rand(1,12);
+		    // $modulos ="";
 
-		    $params = [
-		        'TableName' => "bexi_prod_contentblock",
-		        "FilterExpression" => "#tp <> :vtipo1 AND #tp<>:vtipo2 AND #tp<>:vtipo3",
-		        'ProjectionExpression' => 'id, #cod, is_content, #tp, file_css, file_html',
-		        "ExpressionAttributeValues"=> [
-		            ":vtipo1" =>  ["S" => "foo"],
-		            ":vtipo2" =>  ["S" => "hea"],
-		            ":vtipo3" =>  ["S" => "int"]
-		            ],
-		        "ExpressionAttributeNames" =>   
-		            [ '#tp' => 'type',
-		              '#cod' => 'code' ]
-		        ];
+		    // $params = [
+		    //     'TableName' => "bexi_prod_contentblock",
+		    //     "FilterExpression" => "#tp <> :vtipo1 AND #tp<>:vtipo2 AND #tp<>:vtipo3",
+		    //     'ProjectionExpression' => 'id, #cod, is_content, #tp, file_css, file_html',
+		    //     "ExpressionAttributeValues"=> [
+		    //         ":vtipo1" =>  ["S" => "foo"],
+		    //         ":vtipo2" =>  ["S" => "hea"],
+		    //         ":vtipo3" =>  ["S" => "int"]
+		    //         ],
+		    //     "ExpressionAttributeNames" =>   
+		    //         [ '#tp' => 'type',
+		    //           '#cod' => 'code' ]
+		    //     ];
 
-		        $result = $dynamodb->scan($params);
+		    //     $result = $dynamodb->scan($params);
 
-		    for ($i = 1; $i <= $nmods; $i++) {
+		    // for ($i = 1; $i <= $nmods; $i++) {
 
 		        
 
-		      //  echo "Tiempo 9 : ".(microtime(true) - $timeini)."<br>";
+		    //   //  echo "Tiempo 9 : ".(microtime(true) - $timeini)."<br>";
 
-		        $key = array_rand ($result['Items'],1);
+		    //     $key = array_rand ($result['Items'],1);
 
-		        $ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($result['Items'][$key]['id'])),$Keywords);
-		        $contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
+		    //     $ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($result['Items'][$key]['id'])),$Keywords);
+		    //     $contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
 		        
 
-		        $css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
+		    //     $css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
 
-		        $_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
-		        //echo "Tiempo 10 : ".(microtime(true) - $timeini)."<br>";
+		    //     $_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
+		    //     //echo "Tiempo 10 : ".(microtime(true) - $timeini)."<br>";
 		        
-		        unset($result['Items'][$key]);     
-		    }
+		    //     unset($result['Items'][$key]);     
+		    // }
 
-		    //echo "Tiempo 11 : ".(microtime(true) - $timeini)."<br>";
-		    $params = [
-		        'TableName' => "bexi_prod_contentblock",
-		        "IndexName" => "type-index",
-		         'ProjectionExpression' => 'id, #cod, is_content, #tp, file_css, file_html',
-		         "KeyConditionExpression"=> "#tp = :vtype",
-		        "ExpressionAttributeValues"=> [
-		            ":vtype" =>  ["S" => "foo"]
-		        ],
-		        "ExpressionAttributeNames" =>   
-		            [ '#tp' => 'type',
-		              '#cod' => 'code' ]
-		        ];
+		    // //echo "Tiempo 11 : ".(microtime(true) - $timeini)."<br>";
+		    // $params = [
+		    //     'TableName' => "bexi_prod_contentblock",
+		    //     "IndexName" => "type-index",
+		    //      'ProjectionExpression' => 'id, #cod, is_content, #tp, file_css, file_html',
+		    //      "KeyConditionExpression"=> "#tp = :vtype",
+		    //     "ExpressionAttributeValues"=> [
+		    //         ":vtype" =>  ["S" => "foo"]
+		    //     ],
+		    //     "ExpressionAttributeNames" =>   
+		    //         [ '#tp' => 'type',
+		    //           '#cod' => 'code' ]
+		    //     ];
 
 
-		     $set_colors = $dynamodb->query($params);
+		    //  $set_colors = $dynamodb->query($params);
 
-		    $key = array_rand ($set_colors['Items'],1);
-		    $contenido.=GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($set_colors['Items'][$key]['id']));
-		    $css[]=$marshaler->unmarshalValue($set_colors['Items'][$key]["file_css"]);
+		    // $key = array_rand ($set_colors['Items'],1);
+		    // $contenido.=GethtmlCode($dynamodb,$marshaler,$marshaler->unmarshalValue($set_colors['Items'][$key]['id']));
+			// $css[]=$marshaler->unmarshalValue($set_colors['Items'][$key]["file_css"]);
 
+/***************************************************************************************************alv de manuel *************************************/
 		    //$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
 
 
