@@ -468,7 +468,7 @@ function create_recipe($proj_id)
 			}
 			
 			$temparray=[];
-			$temparray=array_slice($parts, 2,2);//copy part 2,3
+			$temparray=array_slice($parts, 1,2);//copy part 2,3
 			shuffle($temparray);
 
 			array_splice( $parts,1,2,$temparray);
