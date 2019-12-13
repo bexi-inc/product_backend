@@ -440,20 +440,22 @@ function create_recipe($proj_id)
 
 	if ($table["error"]=="")
 	{
-		$dbdata = $Marshaler->unmarshalValue($table["data"]['Items']);
-		print_r($dbdata);
+		$dbdata = $table["data"]['Items'];
 		//print_r($table["data"]['Items'][0]["part"]["M"][0]);
 		if (count($dbdata)>0)
 		{
 			$res["error"]=0;
-			foreach ($dbdata[0]['part'] as $key => $value) {
+			foreach ($table["data"]['Items'][0]['part']["M"] as $key => $value) {
+				print($key);
 				$parttemp = [];//temporaly part with the values converted
 				$parttemp["number"] = $key;//get the number
+				/*
                 $contents=[];//save array of contents id
-                foreach ($value as $content) {
-                    $contents[]=$content;
+                foreach ($value["L"] as $content) {
+                    $contents[]=$Marshaler->unmarshalValue($content);
                 }
 				$parttemp["contents"] = $contents;
+				*/
 				$parts [] = $parttemp;//add the part to the array
 			}
 			print_r($parts);
