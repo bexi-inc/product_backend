@@ -197,8 +197,14 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 	}
 }
 
-function SendEmailForm($type,$user,$IdRef = 0, $data) 
+function SendEmailForm($to, $subject, $message, $headers) 
 {
+
+	/*********************/
+	/* Function made for */
+	/* user submit forms */
+	/*********************/
+
 	global $aws_key, $aws_pass, $AWS_REGION;
 	$credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
 
@@ -211,23 +217,9 @@ function SendEmailForm($type,$user,$IdRef = 0, $data)
 	$dynamodb = $sdk->createDynamoDb();
 	$marshaler = new Marshaler();
 
-	$code=//data;
-	$subject = //"lo que envíe";
-
-	// O
-	$params = [
-        'TableName' => "bexi_prod_users",
-         "KeyConditionExpression"=> "id = :id",
-        "ExpressionAttributeValues"=> [
-            ":id" =>  ["S" => strval($user)],
-        ]
-    ];
-
-    //print_r($params);
-     $result = $dynamodb->query($params);
-
-     //print_r($result['Items']);
-     $user_email = $marshaler->unmarshalValue($result['Items'][0]["username"]);
+	$code= $message;//data
+	$subject = $subject; //subject
+	$user_email = $to; //To
 
 	// Replace sender@example.com with your "From" address.
 	// This address must be verified with Amazon SES.
@@ -264,7 +256,7 @@ function SendEmailForm($type,$user,$IdRef = 0, $data)
 	try {
 	    // Specify the SMTP settings.
 	    $mail->isSMTP();
-	    $mail->setFrom($sender, $senderName); //de BD
+	    $mail->setFrom($sender, $senderName); //from BD
 	    $mail->Username   = $usernameSmtp;
 	    $mail->Password   = $passwordSmtp;
 	    $mail->Host       = $host;
@@ -279,8 +271,8 @@ function SendEmailForm($type,$user,$IdRef = 0, $data)
 
 	    // Specify the content of the message.
 	    $mail->isHTML(true);
-	    $mail->Subject    = $subject;   //cambiar
-	    $mail->Body       = $code;		//cambiar
+	    $mail->Subject    = $subject;   //change
+	    $mail->Body       = $code;		//change
 	    //$mail->AltBody    = $bodyText;
 
 	  	//print_r($mail);
