@@ -555,7 +555,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                                 'ResourceRecords' => array(
                                     array(
                                         // Value is required
-                                        'Value' => $subdomain.AWS_BUCKET_URL;
+                                        'Value' => $subdomain.AWS_BUCKET_URL
                                     ),
                                 ),
                             ),
