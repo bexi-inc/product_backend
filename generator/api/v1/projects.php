@@ -456,7 +456,7 @@ function create_recipe($proj_id)
 				$parttemp["contents"]=$value;
 				$parts [] = $parttemp;//add the part to the array
 			}
-			//mix parts 1-2 and 3-6
+			/********* Add espaces in missing parts **********/
 			for ($i=0;$i <= 7; $i++) {
 				if($parts[$i]["number"]!==$i)
 				{
@@ -466,22 +466,28 @@ function create_recipe($proj_id)
 					array_splice( $parts, $i, 0, $parttemp);
 				}
 			}
-			
+			/*********vary order between 2-3**********/
 			$temparray=[];
 			$temparray=array_slice($parts, 1,2);//copy part 2,3
 			shuffle($temparray);
-
 			array_splice( $parts,1,2,$temparray);
-			
+			/*********vary order between 4-7**********/
 			$temparray=array_slice($parts, 3,4);//copy part 4,5,6,7
 			shuffle($temparray);
 			array_splice( $parts,3,4,$temparray);
-			print_r($parts);
-
+			/********* remove espaces in missing parts **********/
+			$newparts=[];
+			for ($i=0;$i <= 7; $i++) {
+				if($parts[$i]["number"]!==-1)
+				{
+					$newparts[]=$parts[$i];
+				}
+			}
 			//random pickup contents for each part
-			foreach ($parts as $part) {
+			foreach ($newparts as $part) {
 				$final [] =  $part["contents"][array_rand($part["contents"], 1)];//add the id-content random to the array
 			}
+			print_r($final);
 		}
 	}else{
 		$ret["error_code"] = "500";
