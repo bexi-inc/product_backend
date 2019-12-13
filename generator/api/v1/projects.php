@@ -103,7 +103,7 @@ function GetProjects($userId)
 }
 
 
-function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $txtcolors,  $pkeywords , $pservices, $pemailcontact, $pfontprimary, $pfontsecondary)
+function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $txtcolors,  $pkeywords , $pservices, $pemailcontact, $pfontprimary, $pfontsecondary, $offering, $offering)
 {
 	global $Marshaler;
 	$pid = microtime(true);
@@ -121,6 +121,9 @@ function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors,
 	$Data .= ((isset($pemailcontact)) ? ', "email_contact" : "'.$pemailcontact.'"' : '');
 	$Data .= ((isset($pfontprimary)) ? ', "font_primary" : "'.$pfontprimary.'"' : '');
 	$Data .= ((isset($pfontsecondary)) ? ', "font_secondary" : "'.$pfontsecondary.'"' : '');
+
+	$Data .= ((isset($pfontsecondary)) ? ', "project_offering" : "'.$offering.'"' : '');
+	$Data .= ((isset($pfontsecondary)) ? ', "project_goal" : "'.$offering.'"' : '');
 
 	$Data .= ' ,"status" : "0"
 		,"colors" : [
