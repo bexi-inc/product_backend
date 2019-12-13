@@ -349,7 +349,8 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		
 
 		$updateData='{
-			":subd" : "'.$subdomain.'"
+			":subd" : "'.$subdomain.'",
+			":domain_status" : "0"
 		}';
 
 
