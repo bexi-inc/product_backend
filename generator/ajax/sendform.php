@@ -43,6 +43,9 @@ function get_html(){
     $headers .= "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-    
-    SendEmailForm($to, $subject, $message);
+    try {
+        SendEmailForm($to, $subject, $message);
+    } catch (Exception $e) {
+        echo "An error occurred. {$e->errorMessage()}", PHP_EOL;
+    }
 ?>
