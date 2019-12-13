@@ -456,14 +456,11 @@ function create_recipe($proj_id)
 				$parttemp["contents"]=$value;
 				$parts [] = $parttemp;//add the part to the array
 			}
-			print_r($parts);
 			//random pickup contents for each part
 			foreach ($parts as $part) {
-				$parttemp = [];//temporaly part with the values converted
-				$parttemp["number"] = $key;//get the number
-				$parttemp["contents"]=$value;
-				$parts [] = $parttemp;//add the part to the array
+				$final [] =  array_rand($part["contents"], 1);//add the id-content random to the array
 			}
+			print_r($final);
 		}
 	}else{
 		$ret["error_code"] = "500";
