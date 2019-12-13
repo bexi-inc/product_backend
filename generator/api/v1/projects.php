@@ -374,11 +374,12 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 			$ret["message"] =  $resUpd["error"];
 		}
 		//$ret["link"]="http://".$subdomain.".getmodu.com.s3-website.us-east-2.amazonaws.com/";
-		$ret["link"]="http://".$subdomain.".getmodu.com/";
+		$ret["link"] = "http://".$subdomain.".getmodu.com/";
+		$ret["aws_link"] = $subdomain.AWS_BUCKET_URL;
 
 	}elseif ($type==2)
 	{
-		$ret["link"] = "http://generator.getmodu.com/exports.php?Type=zip&devid=".$idDev;
+		$ret["link"] = "http://generator.getmodu.com/exports.php?type=zip&devid=".$idDev;
 	}
 	
 	return $ret;
