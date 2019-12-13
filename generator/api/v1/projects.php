@@ -456,10 +456,9 @@ function create_recipe($proj_id)
 				$parttemp["contents"]=$value;
 				$parts [] = $parttemp;//add the part to the array
 			}
-			$temparray=[];
-			//mix parts 2-3 and 4-7
+			//mix parts 1-2 and 3-6
 			for ($i=0;$i < 7; $i++) {
-				if($parts[$i]["number"]!==$i)
+				if($parts[$i]["number"]==$i)
 				{
 					$parttemp = [];
 					$parttemp["number"] = -1;
@@ -467,6 +466,13 @@ function create_recipe($proj_id)
 					array_splice( $parts, $i, 0, $parttemp);
 				}
 			}
+			$temparray=[];
+			$temparray=array_slice($parts, 1,2);
+			shuffle($temparray);
+			array_splice( $parts, 1, 0,2,$temparray);
+			$temparray=array_slice($parts, 3,3);
+			shuffle($temparray);
+			array_splice( $parts, 3, 0,3,$temparray);
 			print_r($parts);
 
 			//random pickup contents for each part
