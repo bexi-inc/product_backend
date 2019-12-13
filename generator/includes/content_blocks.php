@@ -1,5 +1,90 @@
 
 <?
+
+function create_recipe($db, $coder,$proj_id)
+{
+    $type=1;//get type of recipe
+	$ret["error_code"] = "0";
+
+
+	$eav = $coder->marshalJson('
+		{
+			":id": "'.$type.'" 
+		}
+	');
+
+	$params = [
+		'TableName' => "modu_recipes_lp",
+		"KeyConditionExpression"=> "#id = :id",
+		"ExpressionAttributeValues"=> [
+			":id" =>  ["S" => $idParam]
+		],
+		"ExpressionAttributeNames" =>   
+			[ '#id' => 'id' ]
+		
+	];
+
+
+ 	$table = $db->query($params);
+	$parts = []; //array to save the parts
+	$final=[];
+	//print_r($table);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $coder->unmarshalValue($table["data"]['Items'][0]["part"]);
+		//print_r($table["data"]['Items'][0]["part"]["M"][0]);
+		if (count($dbdata)>0)
+		{
+			$res["error"]=0;
+			foreach ($dbdata as $key => $value) {
+				$parttemp = [];//temporaly part with the values converted
+				$parttemp["number"] = $key;//get the number
+				$parttemp["contents"]=$value;
+				$parts [] = $parttemp;//add the part to the array
+			}
+			/********* Add espaces in missing parts **********/
+			for ($i=0;$i <= 7; $i++) {
+				if($parts[$i]["number"]!==$i)
+				{
+					$parttemp = [];
+					$parttemp["number"] = -1;
+					$parttemp["contents"];
+					array_splice( $parts, $i, 0, $parttemp);
+				}
+			}
+			/*********vary order between 2-3**********/
+			$temparray=[];
+			$temparray=array_slice($parts, 1,2);//copy part 2,3
+			shuffle($temparray);
+			array_splice( $parts,1,2,$temparray);
+			/*********vary order between 4-7**********/
+			$temparray=array_slice($parts, 3,4);//copy part 4,5,6,7
+			shuffle($temparray);
+			array_splice( $parts,3,4,$temparray);
+			/********* remove espaces in missing parts **********/
+			$newparts=[];
+			for ($i=0;$i <= 7; $i++) {
+				if($parts[$i]["number"]!==-1)
+				{
+					$newparts[]=$parts[$i];
+				}
+			}
+			//random pickup contents for each part
+			foreach ($newparts as $part) {
+				$final [] =  $part["contents"][array_rand($part["contents"], 1)];//add the id-content random to the array
+			}
+		}
+	}else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
+	$res["data"] = $final;
+	//print_r($res);
+	return  $res;
+}
+
 function GethtmlCode($db, $coder, $idParam)
 {
 
@@ -63,7 +148,7 @@ function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="")
 			$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
 			
 			/****************************************************************mi codigo ************************/
-			/*
+			$recipe=create_recipe($dynamodb,  $marshaler,123);
 			$recipe=$recipe["data"];
 			for ($i = 1; $i <= count($recipe); $i++) {
 				$ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$recipe[$i]),$Keywords);
@@ -72,7 +157,7 @@ function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="")
 
 				$_SESSION["modules"][]=$recipe[$i];
 			}
-			*/
+			
 
 			/***************************************************************************************************alv de manuel *************************************/
 
