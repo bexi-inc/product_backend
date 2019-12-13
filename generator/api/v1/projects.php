@@ -349,7 +349,8 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		
 
 		$updateData='{
-			":subd" : "'.$subdomain.'"
+			":subd" : "'.$subdomain.'",
+			":domain_status" : "0"
 		}';
 
 
@@ -374,11 +375,12 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 			$ret["message"] =  $resUpd["error"];
 		}
 		//$ret["link"]="http://".$subdomain.".getmodu.com.s3-website.us-east-2.amazonaws.com/";
-		$ret["link"]="http://".$subdomain.".getmodu.com/";
+		$ret["link"] = "http://".$subdomain.".getmodu.com/";
+		$ret["aws_link"] = $subdomain.AWS_BUCKET_URL;
 
 	}elseif ($type==2)
 	{
-		$ret["link"] = "http://generator.getmodu.com/exports.php?Type=zip&devid=".$idDev;
+		$ret["link"] = "http://generator.getmodu.com/exports.php?type=zip&devid=".$idDev;
 	}
 	
 	return $ret;
@@ -438,7 +440,7 @@ function create_recipe($proj_id)
 
 	$table = ExecuteQuery("modu_recipes_lp",$userData,"id = :id", "" , "" , false);
 	$parts = []; //array to save the parts
-
+	$final=[];
 	//print_r($table);
 
 	if ($table["error"]=="")
@@ -452,18 +454,16 @@ function create_recipe($proj_id)
 				$parttemp = [];//temporaly part with the values converted
 				$parttemp["number"] = $key;//get the number
 				$parttemp["contents"]=$value;
-				/*
-                $contents=[];//save array of contents id
-                foreach ($value as $content) {
-					$contents[]=$content;
-                }
-				$parttemp["contents"] = $contents;
-				*/
 				$parts [] = $parttemp;//add the part to the array
 			}
 			print_r($parts);
-            //random pickup contents for each part
-
+			//random pickup contents for each part
+			foreach ($parts as $part) {
+				$parttemp = [];//temporaly part with the values converted
+				$parttemp["number"] = $key;//get the number
+				$parttemp["contents"]=$value;
+				$parts [] = $parttemp;//add the part to the array
+			}
 		}
 	}else{
 		$ret["error_code"] = "500";
