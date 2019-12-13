@@ -437,12 +437,12 @@ function create_recipe($proj_id)
 	$parts = []; //array to save the parts
 
 
-	print_r($table);
+	//print_r($table);
 
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
-		//print_r($dbdata);
+		print_r($table["data"]['Items']["part"][0]);
 		if (count($dbdata)>0)
 		{
 			$res["error"]=0;
