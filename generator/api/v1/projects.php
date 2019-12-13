@@ -441,11 +441,11 @@ function create_recipe($proj_id)
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
-		print($table["data"]['Items'][0]["part"]["M"]);
+		print_r($table["data"]['Items'][0]["part"]["M"]);
 		if (count($dbdata)>0)
 		{
 			$res["error"]=0;
-			foreach ($table["data"]['Items']['part'] as $part) {
+			foreach ($table["data"]['Items'][0]['part'] as $part) {
 				$parttemp = [];//temporaly part with the values converted
                 $parttemp["number"] = $Marshaler->unmarshalValue($part[0]);//get the number
                 $contents=[];//save array of contents id
