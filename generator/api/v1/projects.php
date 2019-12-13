@@ -36,7 +36,13 @@ function GetTypeStr($Type)
 }
 
 function sortFunction( $a, $b ) {
-    return new date("Y-m-d",strtotime($a["date_create"])) - new date("Y-m-d",strtotime($b["date_create"]));
+    $a = date('Y-m-d', strtotime($a["date_create"]));
+    $b = date('Y-m-d', strtotime($b["date_create"]));
+
+    if ($a == $b) {
+        return 0;
+    }
+    return ($a < $b) ? -1 : 1;
 }
 
 function GetProjects($userId)
