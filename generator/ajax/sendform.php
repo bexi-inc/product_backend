@@ -4,6 +4,7 @@ echo(__DIR__);
 include "../config.php";
 require_once "../api/v1/emails.php";
 
+header("Access-Control-Allow-Origin: *");
 
 function get_html(){
     $numItems = count($_POST);
@@ -43,6 +44,7 @@ function get_html(){
     $headers .= "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
+    
     try {
         SendEmailForm($to, $subject, $message);
     } catch (Exception $e) {
