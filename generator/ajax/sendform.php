@@ -1,11 +1,11 @@
 <?php
 //include "http://generator.getmodu.com/api/v1/emails.php"; //include email sender
-header("Access-Control-Allow-Origin: *");
-
+echo(__DIR__);
 include "../config.php";
 include( __DIR__.'/../api/v1/emails.php');
 
-echo ( __DIR__);
+header("Access-Control-Allow-Origin: *");
+
 function get_html(){
     $numItems = count($_POST);
     $i = 0;
