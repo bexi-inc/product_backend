@@ -5,7 +5,7 @@ header("Access-Control-Allow-Origin: *");
 include "../config.php";
 include( __DIR__.'/../api/v1/emails.php');
 
-echo ( __DIR__.'/../api/v1/emails.php');
+echo ( __DIR__);
 function get_html(){
     $numItems = count($_POST);
     $i = 0;
