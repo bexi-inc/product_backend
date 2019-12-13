@@ -214,6 +214,14 @@ $res["error_code"]=0;
 		}
 		$res = ExistDomain_publish($_REQ->deliverableid);
 		break;
+	case "create_recipe":
+		if (!isset($_REQ->projectid))
+		{
+			$res["error_code"]="502";
+			$res["message"]="Invalid params";
+		}
+		$res = create_recipe($_REQ->projectid);
+		break;
  	default:
  		echo "REQ";
  		print_r($_REQ);

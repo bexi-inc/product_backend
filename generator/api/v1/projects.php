@@ -423,4 +423,53 @@ function ExistDomain_publish($idDev)
 	}
 }
 
+function create_recipe($proj_id)
+{
+    $type=1;//get type of recipe
+	global $Marshaler;
+	$ret["error_code"] = "0";
+
+	$userData ='{
+		":id" : "'.$type.'"
+	}';
+
+	$table = ExecuteQuery("modu_recipes_lp",$userData,"id = :id", "" , "" , false);
+	$parts = []; //array to save the parts
+
+
+	print_r($table);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		//print_r($dbdata);
+		if (count($dbdata)>0)
+		{
+			$res["error"]=0;
+			foreach ($table["data"]['Items']['part'] as $part) {
+				$parttemp = [];//temporaly part with the values converted
+                $parttemp["number"] = $Marshaler->unmarshalValue($part[0]);//get the number
+                $contents=[];//save array of contents id
+                foreach ($part[1] as $content) {
+                    $contents[]=$Marshaler->unmarshalValue($content);
+                }
+				$parttemp["contents"] = $contents;
+
+				$parts [] = $parttemp;//add the part to the array
+            }
+
+            //random pickup contents for each part
+
+		}
+	}else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
+	$res["data"] = $projects;
+	//print_r($res);
+	return  $res;
+
+}
+
 ?>
