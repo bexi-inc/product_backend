@@ -457,7 +457,7 @@ function create_recipe($proj_id)
 				$parts [] = $parttemp;//add the part to the array
 			}
 			//mix parts 1-2 and 3-6
-			for ($i=0;$i < 7; $i++) {
+			for ($i=0;$i <= 7; $i++) {
 				if($parts[$i]["number"]==$i)
 				{
 					$parttemp = [];
