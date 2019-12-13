@@ -120,7 +120,7 @@ elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
      //print_r($result);
      $project_id = $_REQUEST["codeid"];
      $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
-}else if(false){
+}else{
 
 
 
