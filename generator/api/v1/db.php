@@ -17,7 +17,7 @@ $sdk = new Aws\Sdk([
 $Dynamodb = $sdk->createDynamoDb();
 $Marshaler = new Marshaler();
 
-function ExecuteQuery($tableName,$paramsJson, $KeyCondition, $indexname = "",$ExpressionNames="", $useprefix=true)
+function ExecuteQuery($tableName,$paramsJson, $KeyCondition, $indexname = "",$ExpressionNames="", $useprefix=true, $SortDesc = false)
 {
 	global $Dynamodb;
 	global $Marshaler;
@@ -46,6 +46,11 @@ function ExecuteQuery($tableName,$paramsJson, $KeyCondition, $indexname = "",$Ex
 	if ($indexname!="")
 	{
 		$params["IndexName"] = $indexname;
+	}
+
+	if ($SortDesc)
+	{
+		$params["ScanIndexForward"] = true;
 	}
 
 	$ret["error"]="";
