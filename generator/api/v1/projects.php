@@ -89,7 +89,7 @@ function GetProjects($userId)
 				//echo date('Y-m-d H:i:s', $proj["date_create"]);
 				$projects [] = $proj;
 			}
-			//usort($projects, "sortFunction");
+			usort($projects, "sortFunction");
 		}
 	}else{
 		$ret["error_code"] = "500";
