@@ -1,6 +1,6 @@
 <?php
 //include "http://generator.getmodu.com/api/v1/emails.php"; //include email sender
-
+echo(__DIR__);
 header("Access-Control-Allow-Origin: *");
 include "../config.php";
 include "../api/v1/emails.php";
