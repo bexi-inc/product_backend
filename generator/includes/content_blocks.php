@@ -1,6 +1,5 @@
 
 <?
-include "../api/v1/projects.php";
 function GethtmlCode($db, $coder, $idParam)
 {
 
@@ -64,8 +63,6 @@ function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="")
 			$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
 			
 			/****************************************************************mi codigo ************************/
-			$recipe=create_recipe("123");
-			echo($recipe);
 			/*
 			$recipe=$recipe["data"];
 			for ($i = 1; $i <= count($recipe); $i++) {
