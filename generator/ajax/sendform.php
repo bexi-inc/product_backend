@@ -1,4 +1,5 @@
 <?php
+//include emails
  header("Access-Control-Allow-Origin: *");
 
 function get_html(){
@@ -31,7 +32,7 @@ function get_html(){
 }
 
 
-	$to = $_POST["email_to"];
+	$to = $_POST["email_to"]; //send email
     $subject = "Form Project- ".$_POST["project_name"];
     $message = get_html();
     $from = "noreply@getmodu.com";
@@ -39,7 +40,7 @@ function get_html(){
     $headers .= "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-    if (mail($to, $subject, $message, $headers)) {
+    if (mail($to, $subject, $message, $headers)) { //llamar el mail de emails
         $res["error"] = 0;
 	    $res["error_msj"] = "Mail Sent.";
     }
