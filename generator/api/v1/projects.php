@@ -35,6 +35,10 @@ function GetTypeStr($Type)
 	}
 }
 
+function sortFunction( $a, $b ) {
+    return strtotime($a["date_create"]) - strtotime($b["date_create"]);
+}
+
 function GetProjects($userId)
 {
 	global $Marshaler;
@@ -79,6 +83,7 @@ function GetProjects($userId)
 				//echo date('Y-m-d H:i:s', $proj["date_create"]);
 				$projects [] = $proj;
 			}
+			usort($projects, "sortFunction");
 		}
 	}else{
 		$ret["error_code"] = "500";
