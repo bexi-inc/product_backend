@@ -430,7 +430,7 @@ function ExistDomain_publish($idDev)
 
 function create_recipe($proj_id)
 {
-    $type=5;//get type of recipe
+    $type=1;//get type of recipe
 	global $Marshaler;
 	$ret["error_code"] = "0";
 
@@ -457,8 +457,8 @@ function create_recipe($proj_id)
 				$parts [] = $parttemp;//add the part to the array
 			}
 			//mix parts 1-2 and 3-6
-			for ($i=0;$i < 7; $i++) {
-				if($parts[$i]["number"]==$i)
+			for ($i=0;$i <= 7; $i++) {
+				if($parts[$i]["number"]!==$i)
 				{
 					$parttemp = [];
 					$parttemp["number"] = -1;
@@ -466,17 +466,16 @@ function create_recipe($proj_id)
 					array_splice( $parts, $i, 0, $parttemp);
 				}
 			}
+			
 			$temparray=[];
-			$temparray=array_slice($parts, 2,2);//copy part 2,3
+			$temparray=array_slice($parts, 1,2);//copy part 2,3
 			shuffle($temparray);
-			array_splice( $parts, 2,2,$temparray);
-			/*
-			$temparray=[];
-			$temparray=array_slice($parts, 4,4);//copy part 4,5,6,7
-			print_r($temparray);
+
+			array_splice( $parts,1,2,$temparray);
+			
+			$temparray=array_slice($parts, 3,4);//copy part 4,5,6,7
 			shuffle($temparray);
-			array_splice( $parts, 4,4,$temparray);
-			*/
+			array_splice( $parts,3,4,$temparray);
 			print_r($parts);
 
 			//random pickup contents for each part
