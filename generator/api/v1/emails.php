@@ -197,7 +197,7 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 	}
 }
 
-function SendEmailForm($to, $subject, $message, $headers) 
+function SendEmailForm($to, $subject, $message) 
 {
 
 	/*********************/
@@ -276,13 +276,18 @@ function SendEmailForm($to, $subject, $message, $headers)
 	    //$mail->AltBody    = $bodyText;
 
 	  	//print_r($mail);
-	    $mail->Send();
+		$mail->Send();
+		
+		return true;
 	   //echo "Email sent!" , PHP_EOL;
 	} catch (phpmailerException $e) {
-	    echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
+		echo "An error occurred. {$e->errorMessage()}", PHP_EOL;
+		return false; //Catch errors from PHPMailer.
 	} catch (Exception $e) {
-	    echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
+		echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
+		return false;
 	}
+
 }
 
 	/*
