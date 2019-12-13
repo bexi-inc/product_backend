@@ -448,13 +448,14 @@ function create_recipe($proj_id)
 			foreach ($table["data"]['Items'][0]['part']["M"] as $key => $value) {
 				print($key);
 				$parttemp = [];//temporaly part with the values converted
-                $parttemp["number"] = $Marshaler->unmarshalValue($key);//get the number
+				$parttemp["number"] = $Marshaler->unmarshalValue($key);//get the number
+				/*
                 $contents=[];//save array of contents id
                 foreach ($value["L"] as $content) {
                     $contents[]=$Marshaler->unmarshalValue($content);
                 }
 				$parttemp["contents"] = $contents;
-
+				*/
 				$parts [] = $parttemp;//add the part to the array
 			}
 			print_r($parts);
