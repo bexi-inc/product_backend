@@ -36,7 +36,7 @@ function GetTypeStr($Type)
 }
 
 function sortFunction( $a, $b ) {
-    return strtotime($a["date_create"]) - strtotime($b["date_create"]);
+    return new date("Y-m-d",strtotime($a["date_create"])) - new date("Y-m-d",strtotime($b["date_create"]));
 }
 
 function GetProjects($userId)
