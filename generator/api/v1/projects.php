@@ -440,7 +440,7 @@ function create_recipe($proj_id)
 
 	if ($table["error"]=="")
 	{
-		$dbdata = $marshaler->unmarshalValue($table["data"]['Items'][0]["part"]);
+		$dbdata = $Marshaler->unmarshalValue($table["data"]['Items'][0]["part"]);
 		//print_r($table["data"]['Items'][0]["part"]["M"][0]);
 		if (count($dbdata)>0)
 		{
