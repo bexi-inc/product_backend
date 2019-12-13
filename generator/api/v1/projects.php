@@ -35,6 +35,16 @@ function GetTypeStr($Type)
 	}
 }
 
+function sortFunction( $a, $b ) {
+    $a = strtotime($a["date_create"]);
+    $b = strtotime($b["date_create"]);
+
+    if ($a == $b) {
+        return 0;
+    }
+    return ($a < $b) ? -1 : 1;
+}
+
 function GetProjects($userId)
 {
 	global $Marshaler;
@@ -79,6 +89,7 @@ function GetProjects($userId)
 				//echo date('Y-m-d H:i:s', $proj["date_create"]);
 				$projects [] = $proj;
 			}
+			$projects=array_reverse($projects);
 		}
 	}else{
 		$ret["error_code"] = "500";
@@ -410,6 +421,56 @@ function ExistDomain_publish($idDev)
 	    $ret["message"] =  $table["error"];
 	    return $ret;
 	}
+}
+
+function create_recipe($proj_id)
+{
+    $type=1;//get type of recipe
+	global $Marshaler;
+	$ret["error_code"] = "0";
+
+	$userData ='{
+		":id" : "'.$type.'"
+	}';
+
+	$table = ExecuteQuery("modu_recipes_lp",$userData,"id = :id", "" , "" , false);
+	$parts = []; //array to save the parts
+
+	//print_r($table);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		//print_r($table["data"]['Items'][0]["part"]["M"][0]);
+		if (count($dbdata)>0)
+		{
+			$res["error"]=0;
+			foreach ($table["data"]['Items'][0]['part']["M"] as $key => $value) {
+				print($key);
+				$parttemp = [];//temporaly part with the values converted
+				$parttemp["number"] = $key;//get the number
+				/*
+                $contents=[];//save array of contents id
+                foreach ($value["L"] as $content) {
+                    $contents[]=$Marshaler->unmarshalValue($content);
+                }
+				$parttemp["contents"] = $contents;
+				*/
+				$parts [] = $parttemp;//add the part to the array
+			}
+			print_r($parts);
+            //random pickup contents for each part
+
+		}
+	}else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
+	$res["data"] = $projects;
+	//print_r($res);
+	return  $res;
+
 }
 
 ?>

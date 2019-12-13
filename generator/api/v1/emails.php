@@ -27,7 +27,7 @@ type:
 	6:	published_project
 ***************************************/
 
-function SendEmail($type,$user,$IdRef = 0, $data)
+function SendEmail($type,$user,$IdRef = 0, $data = [])
 {
 	global $aws_key, $aws_pass, $AWS_REGION;
 	$credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
@@ -191,9 +191,9 @@ function SendEmail($type,$user,$IdRef = 0, $data)
 	    $mail->Send();
 	   //echo "Email sent!" , PHP_EOL;
 	} catch (phpmailerException $e) {
-	    echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
+	   // echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
 	} catch (Exception $e) {
-	    echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
+	   // echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
 	}
 }
 
