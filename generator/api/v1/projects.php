@@ -461,7 +461,10 @@ function create_recipe($proj_id)
 			for ($i=0;$i < 7; $i++) {
 				if($parts[$i]["number"]!==$i)
 				{
-					array_splice( $parts, $i+1, 0, null);
+					$parttemp = [];
+					$parttemp["number"] = -1;
+					$parttemp["contents"];
+					array_splice( $parts, $i+1, 0, $parttemp);
 				}
 			}
 			print_r($parts);
