@@ -464,7 +464,7 @@ function create_recipe($proj_id)
 					$parttemp = [];
 					$parttemp["number"] = -1;
 					$parttemp["contents"];
-					array_splice( $parts, $i+1, 0, $parttemp);
+					array_splice( $parts, $i, 0, $parttemp);
 				}
 			}
 			print_r($parts);
