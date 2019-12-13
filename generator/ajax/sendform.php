@@ -1,5 +1,6 @@
 <?php
 //include "http://generator.getmodu.com/api/v1/emails.php"; //include email sender
+try {
 echo(__DIR__);
 include "../config.php";
 require_once "../api/v1/emails.php";
@@ -45,7 +46,7 @@ function get_html(){
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
     
-    try {
+    
         SendEmailForm($to, $subject, $message);
     } catch (Exception $e) {
         echo "An error occurred. {$e->errorMessage()}", PHP_EOL;
