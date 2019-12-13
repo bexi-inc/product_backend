@@ -436,7 +436,7 @@ function create_recipe($proj_id)
 	$table = ExecuteQuery("modu_recipes_lp",$userData,"id = :id", "" , "" , false);
 	$parts = []; //array to save the parts
 
-
+	print_r($table["data"]['Items']["part"]);
 	//print_r($table);
 
 	if ($table["error"]=="")
