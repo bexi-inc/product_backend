@@ -103,7 +103,7 @@ function GetProjects($userId)
 }
 
 
-function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $txtcolors,  $pkeywords , $pservices, $pemailcontact, $pfontprimary, $pfontsecondary)
+function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $txtcolors,  $pkeywords , $pservices, $pemailcontact, $pfontprimary, $pfontsecondary, $offering, $offering)
 {
 	global $Marshaler;
 	$pid = microtime(true);
@@ -121,6 +121,9 @@ function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors,
 	$Data .= ((isset($pemailcontact)) ? ', "email_contact" : "'.$pemailcontact.'"' : '');
 	$Data .= ((isset($pfontprimary)) ? ', "font_primary" : "'.$pfontprimary.'"' : '');
 	$Data .= ((isset($pfontsecondary)) ? ', "font_secondary" : "'.$pfontsecondary.'"' : '');
+
+	$Data .= ((isset($pfontsecondary)) ? ', "project_offering" : "'.$offering.'"' : '');
+	$Data .= ((isset($pfontsecondary)) ? ', "project_goal" : "'.$offering.'"' : '');
 
 	$Data .= ' ,"status" : "0"
 		,"colors" : [
@@ -448,17 +451,17 @@ function create_recipe($proj_id)
 			foreach ($dbdata as $key => $value) {
 				$parttemp = [];//temporaly part with the values converted
 				$parttemp["number"] = $key;//get the number
-				print_r($key);
-				print_r($value);
+				$parttemp["contents"]=$value;
 				/*
                 $contents=[];//save array of contents id
-                foreach ($value["L"] as $content) {
+                foreach ($value as $content) {
 					$contents[]=$content;
                 }
 				$parttemp["contents"] = $contents;
 				*/
 				$parts [] = $parttemp;//add the part to the array
 			}
+			print_r($parts);
             //random pickup contents for each part
 
 		}
