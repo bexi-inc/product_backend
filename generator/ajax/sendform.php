@@ -1,7 +1,8 @@
 <?php
 //include "http://generator.getmodu.com/api/v1/emails.php"; //include email sender
-
+echo(__DIR__);
 header("Access-Control-Allow-Origin: *");
+include "../config.php";
 include "../api/v1/emails.php";
 function get_html(){
     $numItems = count($_POST);
@@ -42,13 +43,5 @@ function get_html(){
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
     
-    if (SendEmailForm($to, $subject, $message)) { //call to the email sender
-        $res["error"] = 0;
-	    $res["error_msj"] = "Mail Sent.";
-    }
-    else {
-        $res["error"] = "failed";
-    }
-
-    echo json_encode($res);
+    SendEmailForm($to, $subject, $message);
 ?>
