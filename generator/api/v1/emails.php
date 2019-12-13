@@ -281,10 +281,10 @@ function SendEmailForm($to, $subject, $message)
 		return true;
 	   //echo "Email sent!" , PHP_EOL;
 	} catch (phpmailerException $e) {
-		echo "An error occurred. {$e->errorMessage()}", PHP_EOL;
-		return false; //Catch errors from PHPMailer.
+		//echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
+		return false; 
 	} catch (Exception $e) {
-		echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
+		//echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
 		return false;
 	}
 
