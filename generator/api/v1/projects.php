@@ -36,8 +36,8 @@ function GetTypeStr($Type)
 }
 
 function sortFunction( $a, $b ) {
-    $a = date('Y-m-d', strtotime($a["date_create"]));
-    $b = date('Y-m-d', strtotime($b["date_create"]));
+    $a = strtotime($a["date_create"]);
+    $b = strtotime($b["date_create"]);
 
     if ($a == $b) {
         return 0;
