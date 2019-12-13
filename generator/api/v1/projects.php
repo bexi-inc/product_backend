@@ -451,7 +451,7 @@ function create_recipe($proj_id)
 				
                 $contents=[];//save array of contents id
                 foreach ($value["L"] as $content) {
-					print($content);
+					print_r($content);
 					$contents[]=$content;
                 }
 				$parttemp["contents"] = $contents;
