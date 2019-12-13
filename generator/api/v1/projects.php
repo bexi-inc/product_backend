@@ -442,7 +442,7 @@ function create_recipe($proj_id)
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
-		print_r($table["data"]['Items']["part"][0]);
+		print_r($table["data"]['Items']["part"]);
 		if (count($dbdata)>0)
 		{
 			$res["error"]=0;
