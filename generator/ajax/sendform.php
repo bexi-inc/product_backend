@@ -40,7 +40,7 @@ function get_html(){
     $headers .= "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-     
+    /* 
     if (SendEmailForm($to, $subject, $message)) { //call to the email sender
         $res["error"] = 0;
 	    $res["error_msj"] = "Mail Sent.";
@@ -49,5 +49,5 @@ function get_html(){
         $res["error"] = "failed";
     }
 
-    echo json_encode($res);
+    echo json_encode($res);*/
 ?>
