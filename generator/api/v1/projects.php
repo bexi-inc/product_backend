@@ -480,7 +480,7 @@ function create_recipe($proj_id)
 			print_r($parts);
 			$newparts=[];
 			for ($i=0;$i <= 7; $i++) {
-				if($parts[$i]["number"]!=="-1")
+				if($parts[$i]["number"])
 				{
 					$newparts[]=$parts[$i];
 				}
