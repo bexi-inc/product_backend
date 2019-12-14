@@ -194,6 +194,11 @@ $res["error_code"]=0;
  			
  		}
  		$res = DeployDeliverable($_REQ->deliverable,$_REQ->projectid,1,$_REQ->domain);
+ 		/*if ($res["error_code"]==0)
+ 		{
+ 			SendEmail(5,-1, $_REQ->deliverable, $res);
+ 		}*/
+ 		
  		break;
  	case "DeployDeliverableToDownload":
  		if (!isset($_REQ->deliverable))
@@ -203,7 +208,10 @@ $res["error_code"]=0;
  			
  		}
  		$res = DeployDeliverable($_REQ->deliverable,$_REQ->projectid,2);
- 		SendEmail(5,-1, $_REQ->deliverable, $res);
+ 		if ($res["error_code"]==0)
+ 		{
+ 			SendEmail(5,-1, $_REQ->deliverable, $res);
+ 		}
 		 break;
 	case "ExistDomainpublish":
 		if (!isset($_REQ->deliverableid))
