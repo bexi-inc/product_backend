@@ -362,11 +362,11 @@ function SendEmailForm($to, $subject, $message)
 	    echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
 	}
 }
-*/
+
 
 if ($_REQUEST["test"])
 {
 	SendEmail($_REQUEST["type"],$_REQUEST["user"]);
 }
-
+*/
 ?>
