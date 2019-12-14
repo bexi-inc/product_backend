@@ -470,7 +470,6 @@ function create_recipe($proj_id)
 				}
 			}
 			/*********vary order between 2-3**********/
-			print_r($parts);
 			$temparray=[];
 			$temparray=array_slice($parts, 1,2);//copy part 2,3
 			shuffle($temparray);
