@@ -1,5 +1,5 @@
 <?php
-
+set_include_path('/var/www/generator.bexi.co/public_html/product_backend/generator/');
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;

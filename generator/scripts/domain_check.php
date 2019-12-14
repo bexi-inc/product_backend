@@ -35,9 +35,10 @@ $result = $dynamodb->query($params);
 
 foreach ($result['Items'] as $subd)
 {
-	$subdomain = $marshaler->unmarshalValue($subd["subdomain"]).".".MAIN_DOMAIN;
+	$subdomain = $marshaler->unmarshalValue($subd["subdomain"]);
+	$dns_domain = $subdomain.".".MAIN_DOMAIN;
 	$deliverable = $marshaler->unmarshalValue($subd["deliverable_id"]);		
-	 if ( gethostbyname($subdomain) != $subdomain ) {
+	 if ( gethostbyname($dns_domain) != $dns_domain ) {
 
 		$key = $marshaler->marshalJson('
 		    {
