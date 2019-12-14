@@ -7,7 +7,7 @@ function Gettyperecipe($offering, $goal)
 {
 	$type=1;
 
-	if($offering=="App)"||$offering=="SaaS")
+	if($offering=="App"||$offering=="SaaS")
 	{
 		if(strpos($goal,"Sales Leads")!==false||strpos($goal,"Sales inquiries")!==false||strpos($goal,"Meetings/Appointments")!==false){
 			$type=1;
