@@ -10,8 +10,8 @@ use Aws\DynamoDb\Marshaler;
 
 // If necessary, modify the path in the require statement below to refer to the
 // location of your Composer autoload.php file.
-require '../../vendor/autoload.php';
-require_once ("../../config.php");
+include_once ('../../vendor/autoload.php');
+include_once ("../../config.php");
 
 
 date_default_timezone_set('UTC');
