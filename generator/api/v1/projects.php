@@ -531,7 +531,6 @@ function create_recipe($proj_id)
 		":id" : "'.$proj_id.'"
 	}';
 	$table = ExecuteQuery("modu_projects",$userData,"project_id = :id", "" , "" , false);
-	print_r($table);
 	if($table["error"]==""){
 		$type = $Marshaler->unmarshalValue($table["data"]['Items'][0]["recipe_type"]);//get type of recipe
 	}else{
