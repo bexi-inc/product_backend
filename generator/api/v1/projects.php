@@ -522,7 +522,7 @@ function ExistDomain_publish($idDev)
 
 function create_recipe($proj_id)
 {
-    $type=6;//get type of recipe
+    $type=4;//get type of recipe
 	global $Marshaler;
 	$ret["error_code"] = "0";
 
