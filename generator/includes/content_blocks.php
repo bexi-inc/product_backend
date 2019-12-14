@@ -69,6 +69,7 @@ function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="")
 			$recipe=create_recipe("123");
 			
 			$recipe=$recipe["data"];
+			print_r($recipe);
 			/*
 			for ($i = 1; $i <= count($recipe); $i++) {
 				$ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$recipe[$i]),$Keywords);
