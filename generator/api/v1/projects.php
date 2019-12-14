@@ -294,6 +294,7 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 		,"loser_id" : "'.$loser.'" 
 		,"loser_code" : "'.$loser_code.'" 
 		,"type" : "'.$type.'" 
+		,domain_status : '0'
 	';
 	$Data = $Data . '}';
 
@@ -355,7 +356,8 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 
 
 		$paramsNoms["#value"] = "value";
-		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd, domain_status='0'",$updateData, "", false);
+		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd, domain_status=:dstatus",$updateData, "", false);
+
 
 
 		$Data = '{
