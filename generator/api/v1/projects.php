@@ -294,7 +294,7 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 		,"loser_id" : "'.$loser.'" 
 		,"loser_code" : "'.$loser_code.'" 
 		,"type" : "'.$type.'" 
-		,"domain_status" : '0'
+		,domain_status : '0'
 	';
 	$Data = $Data . '}';
 
@@ -482,7 +482,7 @@ function create_recipe($proj_id)
 			/********* remove espaces in missing parts **********/
 			$newparts=[];
 			for ($i=0;$i <= 7; $i++) {
-				if($parts[$i]["number"])
+				if(isset($parts[$i]["number"]))
 				{
 					$newparts[]=$parts[$i];
 				}
