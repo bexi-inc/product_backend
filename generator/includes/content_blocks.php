@@ -28,7 +28,7 @@ function GethtmlCode($db, $coder, $idParam)
 }
 
 
-function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="")
+function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="",$project_id)
 { 
 	$eav = $marshaler->marshalJson('
 		        {
@@ -66,7 +66,7 @@ function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="")
 			
 			/****************************************************************mi codigo ************************/
 			
-			$recipe=create_recipe("123");
+			$recipe=create_recipe($project_id);
 			
 			$recipe=$recipe["data"];
 			
