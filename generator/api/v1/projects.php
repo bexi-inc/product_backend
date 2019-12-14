@@ -350,17 +350,18 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 
 		$updateData='{
 			":subd" : "'.$subdomain.'",
-			":domain_status" : "0"
+			":dstatus" : "0"
 		}';
 
 
 		$paramsNoms["#value"] = "value";
-		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, "", false);
+		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd, domain_status='0'",$updateData, "", false);
 
 
 		$Data = '{
 				 "subdomain" : "'.$subdomain.'"
 				,"deviverable_id" : "'.$idDev.'"
+				,"domain_status" : "0"
 		}';
 
 
