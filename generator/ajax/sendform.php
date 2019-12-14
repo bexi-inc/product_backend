@@ -1,8 +1,6 @@
 <?php
-include_once "http://generator.getmodu.com/api/v1/emails.php"; //include email sender
-include "../config.php";
-//include_once "../api/v1/emails.php";
-
+//include "http://generator.getmodu.com/api/v1/emails.php"; //include email sender
+require_once '../api/v1/emails.php';
 header("Access-Control-Allow-Origin: *");
 
 function get_html(){
@@ -44,9 +42,13 @@ function get_html(){
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
     
-    try {
-        SendEmailForm($to, $subject, $message);
-    } catch (Exception $e) {
-        echo "An error occurred. {$e->errorMessage()}", PHP_EOL;
+    if (SendEmailForm($to, $subject, $message)) { //call to the email sender
+        $res["error"] = 0;
+	    $res["error_msj"] = "Mail Sent.";
     }
+    else {
+        $res["error"] = "failed";
+    }
+
+    echo json_encode($res);
 ?>
