@@ -522,9 +522,20 @@ function ExistDomain_publish($idDev)
 
 function create_recipe($proj_id)
 {
-    $type=7;//get type of recipe
 	global $Marshaler;
 	$ret["error_code"] = "0";
+	$type=1;//get type of recipe
+	$userData ='{
+		":id" : "'.$proj_id.'"
+	}';
+	$table = ExecuteQuery("modu_projects",$userData,"proj_id = :id", "" , "" , false);
+	if($table["error"]==""){
+		$type = $Marshaler->unmarshalValue($table["data"]['Items'][0]["recipe_type"]);//get type of recipe
+	}else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
 
 	$userData ='{
 		":id" : "'.$type.'"
