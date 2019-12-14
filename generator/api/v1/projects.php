@@ -482,7 +482,7 @@ function create_recipe($proj_id)
 			/********* remove espaces in missing parts **********/
 			$newparts=[];
 			for ($i=0;$i <= 7; $i++) {
-				if($parts[$i]["number"]!==null)
+				if(isset($parts[$i]["number"]))
 				{
 					$newparts[]=$parts[$i];
 				}
