@@ -294,7 +294,11 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 		,"loser_id" : "'.$loser.'" 
 		,"loser_code" : "'.$loser_code.'" 
 		,"type" : "'.$type.'" 
+<<<<<<< HEAD
+		,"domain_status" : "0"
+=======
 		,domain_status : '0'
+>>>>>>> origin/master
 	';
 	$Data = $Data . '}';
 
