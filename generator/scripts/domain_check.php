@@ -37,7 +37,7 @@ foreach ($result['Items'] as $subd)
 {
 	$subdomain = $marshaler->unmarshalValue($subd["subdomain"]);
 	$deliverable = $marshaler->unmarshalValue($subd["deliverable_id"]);		
-	 if ( gethostbyname($domain) != $domain ) {
+	 if ( gethostbyname($subdomain) != $subdomain ) {
 
 		$key = $marshaler->marshalJson('
 		    {
