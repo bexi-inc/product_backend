@@ -1,6 +1,5 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-echo("FORM EMAILS ACCESSED");
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -98,16 +97,16 @@ function SendEmailForm($to, $subject, $message)
 
 	  	//print_r($mail);
 		$mail->Send();
-		return true;
+		return "send";
 		
 	   //echo "Email sent!" , PHP_EOL;
 	} catch (phpmailerException $e) {
-        echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
-        return false;
+        //echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
+        return "error";
 		
 	} catch (Exception $e) {
-        echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
-        return false;
+        //echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
+        return "error";
 		
 	}
 

@@ -9,7 +9,7 @@ function send_data(ID,event){
             success : function(result) {
                 // Do not touch
                 $("#"+ID).empty();
-                $("#"+ID).prepend('<div class="row m-0 C" style="Backgroound-color:White;">Thanks! Your message was successfully submitted.</div>');
+                $("#"+ID).prepend('<div class="row m-0 C" style="Background-color:White;">Thanks! Your message was successfully submitted.</div>');
             },
             error: function(xhr, resp, text) {
                 alert("Sorry, something went wrong =(");
