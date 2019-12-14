@@ -42,8 +42,8 @@ function get_html(){
     $headers .= "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-    $test = SendEmailForm($to, $subject, $message);
-    if ($test == "1") { //call to the email sender
+    $test = SendEmailForm($to, $subject, $message); print_r($test);
+    if ($test == "send") { //call to the email sender
         $res["error"] = 0;
 	    $res["error_msj"] = "Mail Sent.";
     }
