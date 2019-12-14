@@ -362,7 +362,7 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 
 		$Data = '{
 				 "subdomain" : "'.$subdomain.'"
-				,"deviverable_id" : "'.$idDev.'"
+				,"deliverable_id" : "'.$idDev.'"
 				,"domain_status" : "0"
 		}';
 
