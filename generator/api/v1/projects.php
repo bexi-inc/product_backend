@@ -3,6 +3,95 @@
 use Aws\S3\S3Client;
 use Aws\Exception\AwsException;
 
+function Gettyperecipe($offering, $goal)
+{
+	$type=1;
+
+	if($offering=="App)"||$offering=="SaaS")
+	{
+		if(strpos($goal,"Sales Leads")!==false||strpos($goal,"Sales inquiries")!==false||strpos($goal,"Meetings/Appointments")!==false){
+			$type=1;
+			return $type;
+		}
+
+		if(strpos($goal,"Installs")!==false||strpos($goal,"Users")!==false){
+			$type=3;
+			return $type;
+		}
+
+		if(strpos($goal,"Subscribers")!==false||strpos($goal,"Sign-up")!==false){
+			$type=1;
+			return $type;
+		}
+
+		if(strpos($goal,"Promote Content")!==false||strpos($goal,"Promote Video")!==false||strpos($goal,"Inbound Leads")!==false){
+			$type=5;
+			return $type;
+		}
+
+		if(strpos($goal,"Promote Video")!==false){
+			$type=6;
+			return $type;
+		}
+	}
+
+
+	if($offering=="Service (Digital/Physical)")
+	{
+		if(strpos($goal,"Sales Leads")!==false||strpos($goal,"Sales inquiries")!==false||strpos($goal,"Meetings/Appointments")!==false){
+			$type=2;
+			return $type;
+		}
+
+		if(strpos($goal,"Subscribers")!==false||strpos($goal,"Sign-up")!==false){
+			$type=2;
+			return $type;
+		}
+
+		if(strpos($goal,"Promote Content")!==false){
+			$type=5;
+			return $type;
+		}
+
+		if(strpos($goal,"Promote Video")!==false){
+			$type=6;
+			return $type;
+		}
+	}
+
+	if($offering=="Event")
+	{
+		if(strpos($goal,"Registrations")!==false||strpos($goal,"Attendees")!==false){
+			$type=7;
+			return $type;
+		}
+
+		if(strpos($goal,"Stay informed")!==false){
+			$type=7;
+			return $type;
+		}
+
+		if(strpos($goal,"Subscribers")!==false||strpos($goal,"Sign-up")!==false){
+			$type=7;
+			return $type;
+		}
+	}
+
+	if($offering=="Product (Digital/Physical)")
+	{
+		if(strpos($goal,"Installs")!==false||strpos($goal,"Users")!==false){
+			$type=8;
+			return $type;
+		}
+
+		if(strpos($goal,"Promote my product")!==false||strpos($goal,"Views in my LP")!==false){
+			$type=8;
+			return $type;
+		}
+	}
+	return $type;
+}
+
 function GetStatusStr($status)
 {
 	switch($status){
@@ -362,7 +451,7 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 
 		$Data = '{
 				 "subdomain" : "'.$subdomain.'"
-				,"deviverable_id" : "'.$idDev.'"
+				,"deliverable_id" : "'.$idDev.'"
 				,"domain_status" : "0"
 		}';
 
