@@ -2,6 +2,7 @@
 
 include "/var/www/generator.bexi.co/public_html/product_backend/generator/config.php";
 require '/var/www/generator.bexi.co/public_html/product_backend/generator/vendor/autoload.php';
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/api/v1/email.php";
 
 //echo "Tiempo 2 : ".(microtime(true) - $timeini)."<br>";
 
@@ -34,7 +35,8 @@ $result = $dynamodb->query($params);
 
 foreach ($result['Items'] as $subd)
 {
-	$subdomain = $marshaler->unmarshalValue($subd["subdomain"]);	
+	$subdomain = $marshaler->unmarshalValue($subd["subdomain"]);
+	$deliverable = $marshaler->unmarshalValue($subd["deliverable_id"]);		
 	 if ( gethostbyname($domain) != $domain ) {
 
 		$key = $marshaler->marshalJson('
@@ -49,7 +51,7 @@ foreach ($result['Items'] as $subd)
 		    }
 		');
 
-		print_r($key);
+		//print_r($key);
 
 		$params = [
 		    'TableName' => "modu_subdomains",
@@ -62,7 +64,9 @@ foreach ($result['Items'] as $subd)
 
 		//print_r($params);
 
-		$result = $dynamodb->updateItem($params);
+		$result2 = $dynamodb->updateItem($params);
+
+	    SendEmail(6,-1, $deliverable);
 
 	 	echo $subdomain." DNS Record found";
 	 }

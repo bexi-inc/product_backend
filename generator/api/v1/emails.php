@@ -60,6 +60,8 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 			break;
 		case 5:
 			$code=file_get_contents("email_themes/download_html.html");
+			$subject = "Download";
+
 			$params = [
 		        'TableName' => "modu_deliverables",
 		         "KeyConditionExpression"=> "deliverable_id = :id",
@@ -103,7 +105,7 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 
 	    		$code = str_replace("{project_name}",$ProjectName,$code);
 				$code = str_replace("{link}",$data["link"],$code);
-				$subject = "Download";
+				
 		    }else{
 		    	return;
 		    }
@@ -112,6 +114,56 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 		case 6:
 			$code=file_get_contents("email_themes/published_project.html");
 			$subject = "Project Published";
+
+			$params = [
+		        'TableName' => "modu_deliverables",
+		         "KeyConditionExpression"=> "deliverable_id = :id",
+		        "ExpressionAttributeValues"=> [
+		            ":id" =>  ["S" => strval($IdRef) ]
+			    ]
+			];
+
+		    $result = $dynamodb->query($params);
+
+		   
+		    if (count($result['Items'])>0)
+		    {
+		    	$projectId = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
+		    	$subdomain = $marshaler->unmarshalValue($result["Items"][0]["subdomain"]);
+
+				$params = [
+			        'TableName' => "modu_projects",
+			         "KeyConditionExpression"=> "project_id = :id",
+			        "ExpressionAttributeValues"=> [
+			            ":id" =>  ["S" => strval($projectId)]
+			        ]
+			    ];
+
+			    //print_r($params);
+
+			    $result_proj = $dynamodb->query($params);
+
+			   // print_r($result);
+		    	//die();
+
+			    $ProjectName="";
+
+			    if (count($result_proj['Items'])>0)
+	    		{
+	    			$ProjectName = $marshaler->unmarshalValue($result_proj['Items'][0]["project_name"]);
+	    			if ($user=-1)
+	    			{
+	    				$user = $marshaler->unmarshalValue($result_proj['Items'][0]["user_id"]);
+	    			}
+	    		}
+
+	    		$code = str_replace("{project_name}",$ProjectName,$code);
+				$code = str_replace("{link}","http://".$subdomain.".getmodu.com/";,$code);
+				
+		    }else{
+		    	return;
+		    }
+
 			break;
 		default:
 			# code...
