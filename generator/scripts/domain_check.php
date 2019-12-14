@@ -1,7 +1,7 @@
 <?
 
-include "../config.php";
-require '../vendor/autoload.php';
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/config.php";
+require '/var/www/generator.bexi.co/public_html/product_backend/generator/vendor/autoload.php';
 
 //echo "Tiempo 2 : ".(microtime(true) - $timeini)."<br>";
 
