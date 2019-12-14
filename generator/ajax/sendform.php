@@ -43,7 +43,7 @@ function get_html(){
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
     $test = SendEmailForm($to, $subject, $message);
-    if ($test === 1) { //call to the email sender
+    if ($test == "1") { //call to the email sender
         $res["error"] = 0;
 	    $res["error_msj"] = "Mail Sent.";
     }
