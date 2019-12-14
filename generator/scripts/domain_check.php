@@ -2,7 +2,7 @@
 
 include "/var/www/generator.bexi.co/public_html/product_backend/generator/config.php";
 require '/var/www/generator.bexi.co/public_html/product_backend/generator/vendor/autoload.php';
-include "/var/www/generator.bexi.co/public_html/product_backend/generator/api/v1/email.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/api/v1/emails.php";
 
 //echo "Tiempo 2 : ".(microtime(true) - $timeini)."<br>";
 
