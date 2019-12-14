@@ -158,7 +158,7 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 	    		}
 
 	    		$code = str_replace("{project_name}",$ProjectName,$code);
-				$code = str_replace("{link}","http://".$subdomain.".getmodu.com/",$code);
+				$code = str_replace("{link}","http://".$subdomain.".".MAIN_DOMAIN."/",$code);
 				
 		    }else{
 		    	return;

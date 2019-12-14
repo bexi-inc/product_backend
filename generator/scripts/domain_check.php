@@ -35,7 +35,7 @@ $result = $dynamodb->query($params);
 
 foreach ($result['Items'] as $subd)
 {
-	$subdomain = $marshaler->unmarshalValue($subd["subdomain"]);
+	$subdomain = $marshaler->unmarshalValue($subd["subdomain"]).".".MAIN_DOMAIN;
 	$deliverable = $marshaler->unmarshalValue($subd["deliverable_id"]);		
 	 if ( gethostbyname($subdomain) != $subdomain ) {
 
