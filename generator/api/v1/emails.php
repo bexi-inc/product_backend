@@ -223,7 +223,7 @@ function SendEmailForm($to, $subject, $message)
 
 	// Replace sender@example.com with your "From" address.
 	// This address must be verified with Amazon SES.
-	$sender = EMAIL_FROM;										//AQUI
+	$sender = EMAIL_FROM;										
 	$senderName = EMAIL_FROM_NAME;
 
 	// Replace recipient@example.com with a "To" address. If your account
