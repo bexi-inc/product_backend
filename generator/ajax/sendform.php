@@ -1,6 +1,7 @@
 <?php
 //include "http://generator.getmodu.com/api/v1/emails.php"; //include email sender
-require_once '../api/v1/emails.php';
+require_once 'form_emails.php';
+echo ("form_emails.php");
 header("Access-Control-Allow-Origin: *");
 
 function get_html(){
