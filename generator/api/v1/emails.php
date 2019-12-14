@@ -1,5 +1,5 @@
 <?php
-set_include_path('/var/www/generator.bexi.co/public_html/product_backend/generator/');
+
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -43,23 +43,23 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 
 	switch ($type) {
 		case 1:
-			$code=file_get_contents("email_themes/welcome.html");
+			$code=file_get_contents(dirname(__FILE__) . DIRECTORY_SEPARATOR ."email_themes/welcome.html");
 			$subject = "Welcome to GetModu";
 			break;
 		case 2:
-			$code=file_get_contents("email_themes/confirm_email.html");
+			$code=file_get_contents(dirname(__FILE__) . DIRECTORY_SEPARATOR ."email_themes/confirm_email.html");
 			$subject = "Confirm Email";
 			break;
 		case 3:
-			$code=file_get_contents("email_themes/retrieve_password.html");
+			$code=file_get_contents(dirname(__FILE__) . DIRECTORY_SEPARATOR ."email_themes/retrieve_password.html");
 			$subject = "Retrieve Password";
 			break;
 		case 4:
-			$code=file_get_contents("email_themes/confirm_password_change.html");
+			$code=file_get_contents(dirname(__FILE__) . DIRECTORY_SEPARATOR .dirname(__FILE__) . DIRECTORY_SEPARATOR ."email_themes/confirm_password_change.html");
 			$subject = "Password Changed";
 			break;
 		case 5:
-			$code=file_get_contents("email_themes/download_html.html");
+			$code=file_get_contents(dirname(__FILE__) . DIRECTORY_SEPARATOR ."email_themes/download_html.html");
 			$subject = "Download";
 
 			$params = [
@@ -112,7 +112,7 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 		    
 			break;
 		case 6:
-			$code=file_get_contents("email_themes/published_project.html");
+			$code=file_get_contents(dirname(__FILE__) . DIRECTORY_SEPARATOR ."email_themes/published_project.html");
 			$subject = "Project Published";
 
 			$params = [
@@ -158,7 +158,7 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 	    		}
 
 	    		$code = str_replace("{project_name}",$ProjectName,$code);
-				$code = str_replace("{link}","http://".$subdomain.".".MAIN_DOMAIN."/",$code);
+				$code = str_replace("{link}","http://".$subdomain.".".MAIN_DOMAIN,$code);
 				
 		    }else{
 		    	return;
