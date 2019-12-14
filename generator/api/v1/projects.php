@@ -24,7 +24,7 @@ function Gettyperecipe($offering, $goal)
 			return $type;
 		}
 
-		if(strpos($goal,"Promote Content")!==false||strpos($goal,"Promote Video")!==false||strpos($goal,"Inbound Leads")!==false){
+		if(strpos($goal,"Promote Content")!==false||strpos($goal,"Inbound Leads")!==false){
 			$type=5;
 			return $type;
 		}
