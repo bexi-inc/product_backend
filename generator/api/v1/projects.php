@@ -350,17 +350,18 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 
 		$updateData='{
 			":subd" : "'.$subdomain.'",
-			":domain_status" : "0"
+			":dstatus" : "0"
 		}';
 
 
 		$paramsNoms["#value"] = "value";
-		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd",$updateData, "", false);
+		$resUpd = Update("modu_deliverables",$key,"set subdomain = :subd, domain_status='0'",$updateData, "", false);
 
 
 		$Data = '{
 				 "subdomain" : "'.$subdomain.'"
 				,"deviverable_id" : "'.$idDev.'"
+				,"domain_status" : "0"
 		}';
 
 
@@ -430,7 +431,7 @@ function ExistDomain_publish($idDev)
 
 function create_recipe($proj_id)
 {
-    $type=1;//get type of recipe
+    $type=5;//get type of recipe
 	global $Marshaler;
 	$ret["error_code"] = "0";
 
@@ -478,7 +479,7 @@ function create_recipe($proj_id)
 			/********* remove espaces in missing parts **********/
 			$newparts=[];
 			for ($i=0;$i <= 7; $i++) {
-				if($parts[$i]["number"]!==-1)
+				if($parts[$i]["number"]!=="-1")
 				{
 					$newparts[]=$parts[$i];
 				}
