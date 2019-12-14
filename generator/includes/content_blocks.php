@@ -67,8 +67,9 @@ function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="")
 			/****************************************************************mi codigo ************************/
 			
 			$recipe=create_recipe("123");
-			/*
+			
 			$recipe=$recipe["data"];
+			/*
 			for ($i = 1; $i <= count($recipe); $i++) {
 				$ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$recipe[$i]),$Keywords);
 				$contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
