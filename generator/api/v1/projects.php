@@ -213,6 +213,8 @@ function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors,
 
 	$Data .= ((isset($offering)) ? ', "project_offering" : "'.$offering.'"' : '');
 	$Data .= ((isset($goal)) ? ', "project_goal" : "'.$goal.'"' : '');
+	$recipetype=Gettyperecipe($offering,$goal);
+	$Data .=', "recipe_type" : "'.$recipetype.'"';
 
 	$Data .= ' ,"status" : "0"
 		,"colors" : [
