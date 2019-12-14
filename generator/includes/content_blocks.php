@@ -72,7 +72,13 @@ function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="")
 			
 			for ($i = 0; $i < count($recipe); $i++) {
 				$ContenidoTmp=setImages(GethtmlCode($dynamodb,$marshaler,$recipe[$i]),$Keywords);
-				$contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
+				if($i==count($recipe)-1)
+				{
+					$contenido .= $ContenidoTmp;
+				}
+				else{
+					$contenido .= substr_replace($ContenidoTmp," id='module_".$i."' ",4,0);
+				}
 				//$css[]=$marshaler->unmarshalValue($result['Items'][$key]["file_css"]);
 
 				$_SESSION["modules"][]=$recipe[$i];
