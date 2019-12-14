@@ -477,6 +477,7 @@ function create_recipe($proj_id)
 			shuffle($temparray);
 			array_splice( $parts,3,4,$temparray);
 			/********* remove espaces in missing parts **********/
+			print_r($parts);
 			$newparts=[];
 			for ($i=0;$i <= 7; $i++) {
 				if($parts[$i]["number"]!=="-1")
