@@ -433,7 +433,7 @@ function ExistDomain_publish($idDev)
 
 function create_recipe($proj_id)
 {
-    $type=5;//get type of recipe
+    $type=6;//get type of recipe
 	global $Marshaler;
 	$ret["error_code"] = "0";
 
@@ -470,7 +470,6 @@ function create_recipe($proj_id)
 				}
 			}
 			/*********vary order between 2-3**********/
-			print_r($parts);
 			$temparray=[];
 			$temparray=array_slice($parts, 1,2);//copy part 2,3
 			shuffle($temparray);
