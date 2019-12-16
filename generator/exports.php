@@ -12,7 +12,7 @@ include "includes/content_blocks.php";
 if (isset($_REQUEST["type"]))
 {
     $TypeDep = $_REQUEST["type"];
-}elseif(isset($_REQUEST["Type"])
+} elseif(isset($_REQUEST["Type"]))
 {
      $TypeDep = $_REQUEST["Type"];
 }
