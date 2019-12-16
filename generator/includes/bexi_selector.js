@@ -244,19 +244,19 @@ function frameload(ID){
  			var npos = 1;
  			var slider = 0;
        var uId=uniqId();
-         $("#modu_sliders").append('<div class="thumbnail-container mySlides hidden"><div id="'+uId+'" class="thumbnail"></div></div>');
-         var newDiv = $(document.createElement('div'));
-         newDiv.attr("class","justify-content-center align-items-center text-center");
-         newDiv.attr("id","load-"+uId);
-         newDiv.css("width",GetWidthScreen()+"px");
-         newDiv.css("height",GetHeightScreen()+"px");
-         newDiv.css("padding-top",GetHeightScreen()+"px");
-         newDiv.css("position","absolute");
-         newDiv.css("z-index","-999");
-         newDiv.addClass("hidden");
-         newDiv.html(
-           '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
-           );
+       var newDiv = $(document.createElement('div'));
+       newDiv.attr("class","justify-content-center align-items-center text-center");
+       newDiv.attr("id","load-"+uId);
+       newDiv.css("width",GetWidthScreen()+"px");
+       newDiv.css("height",GetHeightScreen()+"px");
+       newDiv.css("padding-top",GetHeightScreen()+"px");
+       newDiv.css("position","absolute");
+       newDiv.css("z-index","999");
+       newDiv.html(
+         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
+         );
+         $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
+
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
  			  console.log("cmd", "CreateProject", "user" , UserParam, "keywords" , KeywordsParams);
         $.ajax({
@@ -268,11 +268,6 @@ function frameload(ID){
                 beforeSend: function(){
                   // Show image container
                   $("#"+uId).append(newDiv);
-                  $("#"+uId).removeClass("hidden");
-                  $("#"+uId).addClass("visible");
-                  $("#load-"+uId).removeClass("hidden");
-                  $("#load-"+uId).addClass("visible");
-                  $("#load-"+uId).css("z-index","999");
                  },
                  complete:function(data){
                   // Hide image container
