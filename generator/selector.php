@@ -142,6 +142,7 @@ if (isset($_REQUEST["projectid"]))
 	  top: 0;
 	  background: #f9f9f9;
 	  float: left;
+	  overflow: hidden;
 	  height: calc(var(--thumbnail-height)+50px);
 		width: calc(var(--thumbnail-width)+50px);
 	  /*border-style: solid;*/	
