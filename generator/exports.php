@@ -9,8 +9,14 @@ include "includes/utils.php";
 require 'vendor/autoload.php';
 include "includes/content_blocks.php";
 
+if (isset($_REQUEST["type"]))
+{
+    $TypeDep = $_REQUEST["type"];
+} elseif(isset($_REQUEST["Type"]))
+{
+     $TypeDep = $_REQUEST["Type"];
+}
 
-$TypeDep = $_REQUEST["type"];
 
 
 use Aws\DynamoDb\Exception\DynamoDbException;

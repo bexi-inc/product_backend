@@ -10,7 +10,7 @@ use Aws\DynamoDb\Marshaler;
 
 // If necessary, modify the path in the require statement below to refer to the
 // location of your Composer autoload.php file.
-include_once '../vendor/autoload.php';
+include_once ('../vendor/autoload.php');
 include_once ("../config.php");
 
 
