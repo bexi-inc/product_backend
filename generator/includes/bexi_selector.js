@@ -252,6 +252,7 @@ function frameload(ID){
        newDiv.css("padding-top",GetHeightScreen()+"px");
        newDiv.css("position","absolute");
        newDiv.css("z-index","999");
+       $(newDiv).addClass("hidden");
        newDiv.html(
          '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );
@@ -267,7 +268,8 @@ function frameload(ID){
                 async : true,
                 beforeSend: function(){
                   // Show image container
-                  $("#"+uId).append(newDiv).delay(800);
+                  $("#"+uId).append(newDiv);
+                  $(newDiv).addClass("visible");
                  },
                  complete:function(data){
                   // Hide image container
