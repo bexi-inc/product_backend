@@ -135,6 +135,7 @@ if (isset($_REQUEST["projectid"]))
 	  /*height: calc(var(--thumbnail-height) * var(--thumbnail-zoom));
 	  	  overflow: hidden;
 	  */
+	  	  /*border-style: solid;*/	
 	.thumbnail-container {
 	  height: 100%;
 	  display: inline-block;
@@ -144,7 +145,6 @@ if (isset($_REQUEST["projectid"]))
 	  float: left;
 	  height: calc(var(--thumbnail-height)+50px);
 		width: calc(var(--thumbnail-width)+50px);
-	  /*border-style: solid;*/	
 	}
 
 	
