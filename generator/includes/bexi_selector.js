@@ -256,7 +256,7 @@ function frameload(ID){
        newDiv.html(
          '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );
-         $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
+         $("#modu_sliders").append('<div class="thumbnail-container mySlides hidden"><div id="'+uId+'" class="thumbnail"></div></div>');
 
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
  			  console.log("cmd", "CreateProject", "user" , UserParam, "keywords" , KeywordsParams);
@@ -268,7 +268,10 @@ function frameload(ID){
                 async : true,
                 beforeSend: function(){
                   // Show image container
-                  $("#"+uId).append(newDiv).delay(1000);
+                  $("#"+uId).append(newDiv);
+                  $("#"+uId).removeClass("hidden");
+                  $("#"+uId).addClass("visible");
+                  $(newDiv).removeClass("hidden");
                   $(newDiv).addClass("visible");
                  },
                  complete:function(data){
