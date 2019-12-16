@@ -136,7 +136,7 @@ function AddNewProject()
       $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
       $.ajax({
                 url: 'ajax/projects.php',
-                data: {"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams },
+                data: {"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams,"project_id": ProjectIdParam},
                 dataType: "json",
                 type: 'POST',
                 beforeSend: function(){
@@ -260,7 +260,7 @@ function frameload(ID){
  			  console.log("cmd", "CreateProject", "user" , UserParam, "keywords" , KeywordsParams);
         $.ajax({
                 url: 'ajax/projects.php',
-                data: {"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams},
+                data: {"cmd" : "CreateProject", "user" : UserParam, "keywords" : KeywordsParams,"project_id": ProjectIdParam},
                 dataType: "json",
                 type: 'POST',
                 async : true,

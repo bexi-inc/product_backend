@@ -130,13 +130,14 @@ if (isset($_REQUEST["projectid"]))
 	}
 
 	/* This container helps the thumbnail behave as if it were an unscaled IMG element */
-	.thumbnail-container {
-	  /*width: calc(var(--thumbnail-width) * var(--thumbnail-zoom));*/
+		  /*width: calc(var(--thumbnail-width) * var(--thumbnail-zoom));*/
 	 /*width: 36%;*/
-	  /*height: calc(var(--thumbnail-height) * var(--thumbnail-zoom));*/
+	  /*height: calc(var(--thumbnail-height) * var(--thumbnail-zoom));
+	  	  overflow: hidden;
+	  */
+	.thumbnail-container {
 	  height: 100%;
 	  display: inline-block;
-	  overflow: hidden;
 	  position: absolute;
 	  top: 0;
 	  background: #f9f9f9;

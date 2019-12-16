@@ -7,7 +7,7 @@ function Gettyperecipe($offering, $goal)
 {
 	$type=1;
 
-	if($offering=="App)"||$offering=="SaaS")
+	if($offering=="App"||$offering=="SaaS")
 	{
 		if(strpos($goal,"Sales Leads")!==false||strpos($goal,"Sales inquiries")!==false||strpos($goal,"Meetings/Appointments")!==false){
 			$type=1;
@@ -24,7 +24,7 @@ function Gettyperecipe($offering, $goal)
 			return $type;
 		}
 
-		if(strpos($goal,"Promote Content")!==false||strpos($goal,"Promote Video")!==false||strpos($goal,"Inbound Leads")!==false){
+		if(strpos($goal,"Promote Content")!==false||strpos($goal,"Inbound Leads")!==false){
 			$type=5;
 			return $type;
 		}
@@ -213,6 +213,8 @@ function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors,
 
 	$Data .= ((isset($offering)) ? ', "project_offering" : "'.$offering.'"' : '');
 	$Data .= ((isset($goal)) ? ', "project_goal" : "'.$goal.'"' : '');
+	$recipetype=Gettyperecipe($offering,$goal);
+	$Data .=', "recipe_type" : "'.$recipetype.'"';
 
 	$Data .= ' ,"status" : "0"
 		,"colors" : [
@@ -522,9 +524,20 @@ function ExistDomain_publish($idDev)
 
 function create_recipe($proj_id)
 {
-    $type=7;//get type of recipe
 	global $Marshaler;
 	$ret["error_code"] = "0";
+	$type=1;//get type of recipe
+	$userData ='{
+		":id" : "'.$proj_id.'"
+	}';
+	$table = ExecuteQuery("modu_projects",$userData,"project_id = :id", "" , "" , false);
+	if($table["error"]==""){
+		$type = $Marshaler->unmarshalValue($table["data"]['Items'][0]["recipe_type"]);//get type of recipe
+	}else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
 
 	$userData ='{
 		":id" : "'.$type.'"
