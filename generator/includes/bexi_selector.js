@@ -222,7 +222,7 @@ $( document ).ready(function() {
 });
 
 function frameload(ID){
-  $("#load-"+ID).remove();
+  //$("#load-"+ID).remove();
  }
 
  function plusSlides(n)
