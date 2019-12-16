@@ -256,6 +256,7 @@ function frameload(ID){
          '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );
          $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
+
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
  			  console.log("cmd", "CreateProject", "user" , UserParam, "keywords" , KeywordsParams);
         $.ajax({
@@ -266,7 +267,7 @@ function frameload(ID){
                 async : true,
                 beforeSend: function(){
                   // Show image container
-                  $("#"+uId).append(newDiv);
+                  $("#"+uId).append(newDiv).delay(800);
                  },
                  complete:function(data){
                   // Hide image container
