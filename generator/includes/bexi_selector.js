@@ -268,7 +268,7 @@ function frameload(ID){
                 async : true,
                 beforeSend: function(){
                   // Show image container
-                  $("#"+uId).append(newDiv);
+                  $("#"+uId).append(newDiv).delay(1000);
                   $(newDiv).addClass("visible");
                  },
                  complete:function(data){
