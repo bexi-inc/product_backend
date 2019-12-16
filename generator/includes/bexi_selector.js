@@ -222,7 +222,7 @@ $( document ).ready(function() {
 });
 
 function frameload(ID){
-  //$("#load-"+ID).remove();
+  $("#load-"+ID).remove();
  }
 
  function plusSlides(n)
@@ -266,14 +266,15 @@ function frameload(ID){
                 type: 'POST',
                 async : true,
                 beforeSend: function(){
-                  // Show image container
-                  $("#"+uId).append(newDiv);
+
                  },
                  complete:function(data){
                   // Hide image container
                   //newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
+                // Show image container
+                $("#"+uId).append(newDiv);
                 $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               })
        .fail(function( jqXHR, textStatus, errorThrown ) {
