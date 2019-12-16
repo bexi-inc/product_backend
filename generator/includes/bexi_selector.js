@@ -251,8 +251,8 @@ function frameload(ID){
        newDiv.css("height",GetHeightScreen()+"px");
        newDiv.css("padding-top",GetHeightScreen()+"px");
        newDiv.css("position","absolute");
-       newDiv.css("z-index","999");
-       $(newDiv).addClass("hidden");
+       newDiv.css("z-index","-999");
+       newDiv.addClass("hidden");
        newDiv.html(
          '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );
@@ -271,8 +271,9 @@ function frameload(ID){
                   $("#"+uId).append(newDiv);
                   $("#"+uId).removeClass("hidden");
                   $("#"+uId).addClass("visible");
-                  $(newDiv).removeClass("hidden");
-                  $(newDiv).addClass("visible");
+                  $("#load-"+uId).removeClass("hidden");
+                  $("#load-"+uId).addClass("visible");
+                  $("#load-"+uId).css("z-index","999");
                  },
                  complete:function(data){
                   // Hide image container
