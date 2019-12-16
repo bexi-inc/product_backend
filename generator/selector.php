@@ -140,7 +140,7 @@ if (isset($_REQUEST["projectid"]))
 	  display: inline-block;
 	  position: absolute;
 	  top: 0;
-	  background: #f9f9f9;
+	  background-color: transparent;
 	  float: left;
 	  height: calc(var(--thumbnail-height)+50px);
 		width: calc(var(--thumbnail-width)+50px);
