@@ -502,7 +502,8 @@ function ExistDomain_publish($idDev)
 					$ret["domain"] = $Marshaler->unmarshalValue($dbdata[0]['subdomain']);
 					$ret["exists"] = "true";
 					$ret["message"] = "subdomain already exists";
-
+					$ret["status"] = 0;
+					
 					$Data ='{
 						":subdomain " : "'.$ret["domain"].'"
 					}';
