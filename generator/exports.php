@@ -499,12 +499,12 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 'Bucket' => $BUCKET_NAME,
             ]);
 
-            print_r($result);
         } catch (AwsException $e) {
             // output error message if fails
             $ret["error_code"]="500";
             $ret["error_msj"] = $e->getMessage();
             echo "Error";
+            echo $e->getMessage();
             print_r($e);
             return $ret;
         }
