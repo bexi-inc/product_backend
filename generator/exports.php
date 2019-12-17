@@ -489,10 +489,12 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
 
         try {
-            $result = $s3Client->createBucket([
-                'ACL' => 'public-read',
-                'Bucket' => $BUCKET_NAME,
-            ]);
+            if(!$s3Client->doesBucketExist($bucket)) {
+                $result = $s3Client->createBucket([
+                    'ACL' => 'public-read',
+                    'Bucket' => $BUCKET_NAME,
+                ]);
+            }
         } catch (AwsException $e) {
             // output error message if fails
             $ret["error_code"]="500";
