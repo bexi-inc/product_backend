@@ -7,7 +7,7 @@ include "includes/global.php";
 include "includes/utils.php";
     
 require 'vendor/autoload.php';
-include "includes/content_blocks.php";
+//include "includes/content_blocks.php";
 
 if (isset($_REQUEST["type"]))
 {
@@ -522,6 +522,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             echo "\n";
         }
 
+        print_r($resp);
+        
         try {
             $resp = $s3Client->putBucketPolicy([
                 'Bucket' => $BUCKET_NAME,
