@@ -503,12 +503,14 @@ function ExistDomain_publish($idDev)
 					$ret["exists"] = "true";
 					$ret["message"] = "subdomain already exists";
 					$ret["status"] = 0;
-					
+
 					$Data ='{
-						":subdomain " : "'.$ret["domain"].'"
+						":subd " : "'.$ret["domain"].'"
 					}';
 
-					$tblDom = ExecuteQuery("modu_subdomains",$Data,"subdomain  = :subdomain","","",false);
+					print_r($Data);
+
+					$tblDom = ExecuteQuery("modu_subdomains",$Data,"subdomain  = :subd","","",false);
 					if ($tblDom["error"]=="")
 					{
 						$dbDoms = $tblDom["data"]['Items'];
