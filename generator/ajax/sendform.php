@@ -29,16 +29,16 @@ function get_html(){
             }
         }
     }
-    $string.='<tr><td class="one-column"><table width="100%" role="presentation" style="border-spacing: 0;font-family: sans-serif;color: #333333;"> <tr> <td colspan="0" height="70"></td></tr><tr><td class="inner contents" style="padding: 10px;width: 100%;text-align: left;"> <p style="color: #B8C7DC;font-size: 12px;margin: 0;font-family: Arial,sans-serif;font-weight: 200;" class="email-text">© 2019 Bexi, Inc. All rights reserved. 101 Estudillo Avenue, San Leandro, CA 94577</p><a href="http://www.bexi.io" target="_blank" style="color: #2DD3D6;font-size: 12px;text-decoration: none;font-weight: bold;font-family: Arial,sans-serif;" class="email-text">www.bexi.io</a> </td></tr></table> </td></tr></table><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></div></center></body></html>';
+    $string.='<tr><td class="one-column"><table width="100%" role="presentation" style="border-spacing: 0;font-family: sans-serif;color: #333333;"> <tr> <td colspan="0" height="70"></td></tr><tr><td class="inner contents" style="padding: 10px;width: 100%;text-align: left;"> <p style="color: #B8C7DC;font-size: 12px;margin: 0;font-family: Arial,sans-serif;font-weight: 200;" class="email-text">&#9400; 2019 Bexi, Inc. All rights reserved. 101 Estudillo Avenue, San Leandro, CA 94577</p><a href="http://www.bexi.io" target="_blank" style="color: #2DD3D6;font-size: 12px;text-decoration: none;font-weight: bold;font-family: Arial,sans-serif;" class="email-text">www.bexi.io</a> </td></tr></table> </td></tr></table><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></div></center></body></html>';
     return $string;
 }
 
 
 	$to = $_POST["email_to"]; //send email to
-    $subject = "Form Project- ".$_POST["project_name"];
+    $subject = "MODU Form contact info - ".$_POST["project_name"];
     $message = get_html();
     $from = "noreply@getmodu.com";
-    $headers = "From: GetModu <hello@getmodu.com>\r\n";
+    $headers = "From: Modu by Bexi <hello@getmodu.com>\r\n";
     $headers .= "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
