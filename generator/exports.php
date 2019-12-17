@@ -490,7 +490,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             ],
         ]);
 
-        print_r($s3Client);
+        //print_r($s3Client);
 
 
         try {
