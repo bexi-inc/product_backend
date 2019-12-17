@@ -13,7 +13,8 @@
 
 body:hover  #img_select_project
 {
-	display: block !important;
+  display: block !important;
+  cursor:pointer;
 }
 
 .hero{

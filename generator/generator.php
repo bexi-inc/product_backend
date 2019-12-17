@@ -470,7 +470,8 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
 
     if ($_REQUEST["target"]=="selector")
     {
-        echo "<img id='img_select_project' src='imgs/edit.png' bexi-code='".$CodeId."'>";
+        //echo "<img id='img_select_project' src='imgs/edit.png' bexi-code='".$CodeId."'>";
+        echo "<div id='img_select_project' bexi-code='".$CodeId."'></div>";
     }
     if (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
     {
