@@ -510,11 +510,10 @@ function ExistDomain_publish($idDev)
 
 					$tblDom = ExecuteQuery("modu_subdomains",$Data,"subdomain  = :subd","","",false);
 
-					print_r($tblDom);
-
 					if ($tblDom["error"]=="")
 					{
 						$dbDoms = $tblDom["data"]['Items'];
+						print_r($dbDoms);
 						if (count($dbDoms)>0)
 						{
 							if(isset($dbDoms[0]['domain_status']))
