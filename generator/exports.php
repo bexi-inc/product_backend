@@ -609,7 +609,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => $value,
-                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value
+                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
                     ]);
                  }
               }
@@ -628,7 +628,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/".$value,
-                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value
+                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
                     ]);
                  }
               }
@@ -646,7 +646,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/imgs/".$value,
-                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value
+                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
                     ]);
                  }
               }
@@ -665,7 +665,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/img/".$value,
-                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value
+                        'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
                     ]);
                  }
               }
