@@ -981,22 +981,22 @@ background-color: #e7e7e7 !important;
         box-shadow: 0 0 0 0.2rem var(--color-2) !important; }
   
   .btn-warning {
-    color: #ffff !important;
+    color: #fff !important;
     background-color: var(--color-2) !important;
     border-color: var(--color-2) !important; }
     .btn-warning:hover {
-      color: #ffff !important;
+      color: #fff !important;
       background-color: var(--color-2) !important;
       border-color: var(--color-2) !important; }
     .btn-warning:focus, .btn-warning.focus {
       box-shadow: 0 0 0 0.2rem var(--color-2) !important; }
     .btn-warning.disabled, .btn-warning:disabled {
-      color: #ffff !important;
+      color: #fff !important;
       background-color: var(--color-2) !important;
       border-color: var(--color-2) !important; }
     .btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active,
     .show > .btn-warning.dropdown-toggle {
-      color: #ffff !important;
+      color: #fff !important;
       background-color: var(--color-2) !important;
       border-color: var(--color-2) !important; }
       .btn-warning:not(:disabled):not(.disabled):active:focus, .btn-warning:not(:disabled):not(.disabled).active:focus,
@@ -1027,22 +1027,22 @@ background-color: #e7e7e7 !important;
         box-shadow: 0 0 0 0.2rem var(--color-2) !important; }
   
   .btn-light {
-    color: #ffff !important;
+    color: #fff !important;
     background-color: var(--color-2) !important;
     border-color: var(--color-2) !important; }
     .btn-light:hover {
-      color: #ffff !important;
+      color: #fff !important;
       background-color: var(--color-2) !important;
       border-color: var(--color-2) !important; }
     .btn-light:focus, .btn-light.focus {
       box-shadow: 0 0 0 0.2rem var(--color-2) !important; }
     .btn-light.disabled, .btn-light:disabled {
-      color: #ffff !important;
+      color: #fff !important;
       background-color: var(--color-2) !important;
       border-color: var(--color-2) !important; }
     .btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active,
     .show > .btn-light.dropdown-toggle {
-      color: #ffff !important;
+      color: #fff !important;
       background-color: var(--color-2) !important;
       border-color: var(--color-2) !important; }
       .btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus,
