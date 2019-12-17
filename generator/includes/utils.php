@@ -247,7 +247,13 @@ function setImages($contenido,$keywords = ""){
 		            'w'        => $imgdata[1],
 		            'h'        => $imgdata[2]
 		    ];
-		    $data = Crew\Unsplash\Photo::random($filters);
+
+		    try
+	    	{
+		    	$data = Crew\Unsplash\Photo::random($filters);
+		    } catch (Crew\Unsplash\Exception $e2) {
+
+		    }
 	   }
 
 	    	$contenido=substr_replace($contenido,$data->urls['full'],$pos,$pos2-$pos + 1);
