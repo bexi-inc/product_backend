@@ -505,6 +505,9 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             $clear->clear();
         } catch (AwsException $e) {
             // output error message if fails
+            $ret["error_code"]="500";
+            $ret["error_msj"] = $e->getMessage();
+            return $ret;
         }
 
 
