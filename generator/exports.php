@@ -486,7 +486,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 'secret' => $aws_pass,
             ],
         ]);
-
+/*
         $list = $s3Client->listBuckets();
         $exist=false;
         foreach ($list['Buckets'] as $bucket) {
@@ -516,7 +516,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             }
         }
 
-
+*/
         try {
             $result = $s3Client->createBucket([
                 'ACL' => 'public-read',
