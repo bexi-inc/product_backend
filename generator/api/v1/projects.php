@@ -513,7 +513,7 @@ function ExistDomain_publish($idDev)
 					if ($tblDom["error"]=="")
 					{
 						$dbDoms = $tblDom["data"]['Items'];
-						print_r($dbDoms);
+					
 						if (count($dbDoms)>0)
 						{
 							if(isset($dbDoms[0]['domain_status']))
