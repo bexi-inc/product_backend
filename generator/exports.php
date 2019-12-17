@@ -590,8 +590,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                         'Bucket' => $BUCKET_NAME,
                         'Key' => $value,
                         'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
-                        'CacheControl'=> "no-cache",
-                        'Expires'=> new Date()
                     ]);
                  }
               }
@@ -620,8 +618,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/".$value,
                         'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
-                        'CacheControl'=> "no-cache",
-                        'Expires'=> new Date()
                     ]);
                  }
               }
@@ -649,8 +645,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/imgs/".$value,
                         'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
-                        'CacheControl'=> "no-cache",
-                        'Expires'=> new Date()
                     ]);
                  }
               }
@@ -679,8 +673,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/img/".$value,
                         'SourceFile' => $dir . DIRECTORY_SEPARATOR . $value,
-                        'CacheControl'=> "no-cache",
-                        'Expires'=> new Date()
                     ]);
                  }
               }
