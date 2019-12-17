@@ -500,13 +500,14 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             return $ret;
         }
             // Delete the objects in the bucket
-        try {
+        /*
+            try {
             $clear = new ClearBucket($s3Client, $BUCKET_NAME);
             $clear->clear();
         } catch (AwsException $e) {
             // output error message if fails
         }
-
+        */
 
         //print_r($result);
 

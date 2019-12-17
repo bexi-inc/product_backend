@@ -129,7 +129,7 @@ function AddNewProject()
       newDiv.css("height",GetHeightScreen()+"px");
       newDiv.css("padding-top",GetHeightScreen()+"px");
       newDiv.css("position","absolute");
-      newDiv.css("z-index","999");
+      newDiv.css("z-index","100");
       newDiv.html(
         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
         );
@@ -251,7 +251,7 @@ function frameload(ID){
        newDiv.css("height",GetHeightScreen()+"px");
        newDiv.css("padding-top",GetHeightScreen()+"px");
        newDiv.css("position","absolute");
-       newDiv.css("z-index","999");
+       newDiv.css("z-index","100");
        newDiv.html(
          '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );

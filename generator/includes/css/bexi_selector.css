@@ -2,18 +2,17 @@
 {
 	display:none; 
 	position: fixed; 
-	margin-top: -150px; 
-	margin-left: -150px; 
   z-index: 99999;
   padding-top: 50%;
-  padding-bottom: 50%;
+  padding-bottom: 70%;
   padding-left: 50%;
   padding-right: 50%;
+  cursor:pointer;
 }
 
 body:hover  #img_select_project
 {
-	display: block !important;
+  display: block !important;
 }
 
 .hero{
