@@ -9,12 +9,12 @@
   padding-bottom: 50%;
   padding-left: 50%;
   padding-right: 50%;
+  cursor:pointer;
 }
 
 body:hover  #img_select_project
 {
   display: block !important;
-  cursor:pointer;
 }
 
 .hero{
