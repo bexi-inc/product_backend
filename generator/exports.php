@@ -510,8 +510,10 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             $s3Client->waitUntil('BucketNotExists', array('Bucket' => $bucket));
             } catch (AwsException $e) {
                 // output error message if fails
+                $ret["error_code"]="500";
+                $ret["error_msj"] = $e->getMessage();
+                return $ret;
             }
-        
         }
 
 
