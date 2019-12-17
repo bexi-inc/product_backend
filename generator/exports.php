@@ -430,6 +430,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     $fileZip = $PATHBASE.$project_name.".zip" ;
 
 
+    print_r($Type);
 
     if ($Type=="zip")
     {
@@ -468,6 +469,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     }elseif ($Type=="dom")
     {
         $BUCKET_NAME = $subdomain.'.getmodu.com';
+
+        print_r($BUCKET_NAME);
 
         $s3Client = new S3Client([
             'version'     => 'latest',
@@ -513,6 +516,9 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 ],
             ]
         ];
+
+        print_r($params);
+
         try {
             $resp = $s3Client->putBucketWebsite($params);
             //echo "Succeed in setting bucket website configuration.\n";
@@ -523,7 +529,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         }
 
         print_r($resp);
-        
+
         try {
             $resp = $s3Client->putBucketPolicy([
                 'Bucket' => $BUCKET_NAME,
