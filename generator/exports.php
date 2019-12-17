@@ -499,6 +499,17 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             $ret["error_msj"] = $e->getMessage();
             return $ret;
         }
+            // Delete the objects in the bucket
+        try {
+            $clear = new ClearBucket($s3Client, $BUCKET_NAME);
+            $clear->clear();
+        } catch (AwsException $e) {
+            // output error message if fails
+            $ret["error_code"]="500";
+            $ret["error_msj"] = $e->getMessage();
+            return $ret;
+        }
+
 
         //print_r($result);
 
