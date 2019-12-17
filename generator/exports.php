@@ -430,7 +430,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     $fileZip = $PATHBASE.$project_name.".zip" ;
 
 
-    print_r($Type);
 
     if ($Type=="zip")
     {
@@ -470,8 +469,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     {
         $BUCKET_NAME = $subdomain.'.getmodu.com';
 
-        print_r($BUCKET_NAME);
-
         $s3Client = new S3Client([
             'version'     => 'latest',
             'region'      => $AWS_REGION,
@@ -490,22 +487,16 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             ],
         ]);
 
-        //print_r($s3Client);
-
 
         try {
             $result = $s3Client->createBucket([
                 'ACL' => 'public-read',
                 'Bucket' => $BUCKET_NAME,
             ]);
-
         } catch (AwsException $e) {
             // output error message if fails
             $ret["error_code"]="500";
             $ret["error_msj"] = $e->getMessage();
-            echo "Error";
-            echo $e->getMessage();
-            print_r($e);
             return $ret;
         }
 
@@ -522,9 +513,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 ],
             ]
         ];
-
-        print_r($params);
-
         try {
             $resp = $s3Client->putBucketWebsite($params);
             //echo "Succeed in setting bucket website configuration.\n";
@@ -534,8 +522,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             echo "\n";
         }
 
-        print_r($resp);
-
+        
         try {
             $resp = $s3Client->putBucketPolicy([
                 'Bucket' => $BUCKET_NAME,
