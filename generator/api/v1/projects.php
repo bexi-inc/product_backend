@@ -502,10 +502,32 @@ function ExistDomain_publish($idDev)
 					$ret["domain"] = $Marshaler->unmarshalValue($dbdata[0]['subdomain']);
 					$ret["exists"] = "true";
 					$ret["message"] = "subdomain already exists";
+					$ret["status"] = 0;
+
+					$Data ='{
+						":subd" : "'.$ret["domain"].'"
+					}';
+
+					$tblDom = ExecuteQuery("modu_subdomains",$Data,"subdomain  = :subd","","",false);
+
+					if ($tblDom["error"]=="")
+					{
+						$dbDoms = $tblDom["data"]['Items'];
+					
+						if (count($dbDoms)>0)
+						{
+							if(isset($dbDoms[0]['domain_status']))
+							{
+								$ret["status"] = $Marshaler->unmarshalValue($dbDoms[0]['domain_status']);
+							}
+						}
+					}
+
 				}
 				else
 				{
 					$ret["exists"] = "false";
+					$ret["status"] = "0";
 					$ret["message"] = "subdomain do not exists";
 				}
 		    	return $ret;

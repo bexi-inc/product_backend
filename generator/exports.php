@@ -577,6 +577,15 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
               {
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
                  {
+                     try {
+                        $s3Client->deleteObject([
+                            'Bucket' => $BUCKET_NAME,
+                            'Key' => $value
+                        ]);
+                     } catch (\Throwable $th) {
+                         //throw $th;
+                     }
+
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => $value,
@@ -596,6 +605,15 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
                  {
                     //echo "Subiendo ".$dir . DIRECTORY_SEPARATOR . $value;
+                    try {
+                        $s3Client->deleteObject([
+                            'Bucket' => $BUCKET_NAME,
+                            'Key' => "files/".$value
+                        ]);
+                     } catch (\Throwable $th) {
+                         //throw $th;
+                     }
+
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/".$value,
@@ -614,6 +632,15 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
               {
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
                  {
+                    try {
+                        $s3Client->deleteObject([
+                            'Bucket' => $BUCKET_NAME,
+                            'Key' => "files/imgs/".$value
+                        ]);
+                     } catch (\Throwable $th) {
+                         //throw $th;
+                     }
+
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/imgs/".$value,
@@ -633,6 +660,15 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
               {
                  if (!is_dir($dir . DIRECTORY_SEPARATOR . $value))
                  {
+                    try {
+                        $s3Client->deleteObject([
+                            'Bucket' => $BUCKET_NAME,
+                            'Key' => "files/img/".$value
+                        ]);
+                     } catch (\Throwable $th) {
+                         //throw $th;
+                     }
+
                      $result = $s3Client->putObject([
                         'Bucket' => $BUCKET_NAME,
                         'Key' => "files/img/".$value,
