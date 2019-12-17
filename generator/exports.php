@@ -489,7 +489,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
 
         try {
-            if(!$s3Client->doesBucketExist($bucket)) {
+            if(!$s3Client->doesBucketExist($BUCKET_NAME)) {
                 $result = $s3Client->createBucket([
                     'ACL' => 'public-read',
                     'Bucket' => $BUCKET_NAME,
