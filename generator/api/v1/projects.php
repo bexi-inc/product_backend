@@ -508,9 +508,10 @@ function ExistDomain_publish($idDev)
 						":subd " : "'.$ret["domain"].'"
 					}';
 
-					print_r($Data);
-
 					$tblDom = ExecuteQuery("modu_subdomains",$Data,"subdomain  = :subd","","",false);
+
+					print_r($tblDom);
+					
 					if ($tblDom["error"]=="")
 					{
 						$dbDoms = $tblDom["data"]['Items'];
