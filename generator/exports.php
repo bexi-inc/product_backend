@@ -662,6 +662,6 @@ if ($TypeDep =="zip")
     ExportProject($TypeDep, $_REQUEST["devid"]);
 }elseif ($TypeDep =="dom")
 {
-    ExportProject($TypeDep,  $_REQUEST["devid"], $_REQUEST["dominio"]);
+    echo ExportProject($TypeDep,  $_REQUEST["devid"], $_REQUEST["dominio"]);
 }
 ?>
