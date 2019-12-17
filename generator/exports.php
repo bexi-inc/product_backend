@@ -486,37 +486,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 'secret' => $aws_pass,
             ],
         ]);
-/*
-        $list = $s3Client->listBuckets();
-        $exist=false;
-        foreach ($list['Buckets'] as $bucket) {
-            // Each Bucket value will contain a Name and CreationDate
-            if($bucket['Name']===$BUCKET_NAME)
-            {
-                $exist=true;
-            }
-        }
 
-        if($exist)
-        {
-            // Delete the objects in the bucket
-            try {
-            $clear = new ClearBucket($s3Client, $BUCKET_NAME);
-            $clear->clear();
-            // Delete the bucket
-            $s3Client->deleteBucket(array('Bucket' => $bucket));
-
-            // Wait until the bucket is not accessible
-            $s3Client->waitUntil('BucketNotExists', array('Bucket' => $bucket));
-            } catch (AwsException $e) {
-                // output error message if fails
-                $ret["error_code"]="500";
-                $ret["error_msj"] = $e->getMessage();
-                return $ret;
-            }
-        }
-
-*/
         try {
             $result = $s3Client->createBucket([
                 'ACL' => 'public-read',
