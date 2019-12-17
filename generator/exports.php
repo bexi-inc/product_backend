@@ -504,6 +504,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             // output error message if fails
             $ret["error_code"]="500";
             $ret["error_msj"] = $e->getMessage();
+            echo "Error";
+            print_r($e);
             return $ret;
         }
 
