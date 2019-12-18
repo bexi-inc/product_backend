@@ -164,7 +164,7 @@ function GetProjects($userId)
 				$userData2 ='{
 					":projectid" : "'.$proj["project_id"].'"
 				}';
-				$table2 = ExecuteQuery("modu_deliverables",$userData2,"project_id = :projectid", "" , "" , false);
+				$table2 = ExecuteQuery("modu_deliverables",$userData2,"project_id = :projectid", "project_id" , "" , false);
 				if ($table2["error"]=="")
 				{
 					$dbdata2 = $table2["data"]['Items'];
