@@ -490,6 +490,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 ],
                 ]);
 
+
                 $result = $s3Client->createBucket([
                     'ACL' => 'public-read',
                     'Bucket' => $BUCKET_NAME,
@@ -542,36 +543,38 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 }',
             ]);
 
-
-            $result = $clientRoute->changeResourceRecordSets(array(
-                // HostedZoneId is required
-                'HostedZoneId' => 'Z2F596910Z445W',
-                // ChangeBatch is required
-                'ChangeBatch' => array(
-                    'Comment' => 'string',
-                    // Changes is required
-                    'Changes' => array(
-                        array(
-                            // Action is required
-                            'Action' => 'CREATE',
-                            // ResourceRecordSet is required
-                            'ResourceRecordSet' => array(
-                                // Name is required
-                                'Name' => $subdomain.".getmodu.com.",
-                                // Type is required
-                                'Type' => 'CNAME',
-                                'TTL' => 300,
-                                'ResourceRecords' => array(
-                                    array(
-                                        // Value is required
-                                        'Value' => $subdomain.AWS_BUCKET_URL
+            if(isset($clientRoute))
+            {
+                $result = $clientRoute->changeResourceRecordSets(array(
+                    // HostedZoneId is required
+                    'HostedZoneId' => 'Z2F596910Z445W',
+                    // ChangeBatch is required
+                    'ChangeBatch' => array(
+                        'Comment' => 'string',
+                        // Changes is required
+                        'Changes' => array(
+                            array(
+                                // Action is required
+                                'Action' => 'CREATE',
+                                // ResourceRecordSet is required
+                                'ResourceRecordSet' => array(
+                                    // Name is required
+                                    'Name' => $subdomain.".getmodu.com.",
+                                    // Type is required
+                                    'Type' => 'CNAME',
+                                    'TTL' => 300,
+                                    'ResourceRecords' => array(
+                                        array(
+                                            // Value is required
+                                            'Value' => $subdomain.AWS_BUCKET_URL
+                                        ),
                                     ),
                                 ),
                             ),
                         ),
                     ),
-                ),
-            ));
+                ));
+            }
            $dir = $PATH;
            $cdir = scandir($dir);
            foreach ($cdir as $key => $value)
