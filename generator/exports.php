@@ -478,18 +478,18 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             ],
         ]);
 
-        $clientRoute = Route53Client::factory([
-                'version'     => 'latest',
-                'region'      => $AWS_REGION,
-                'credentials' => [
-                'key'    => $aws_key,
-                'secret' => $aws_pass,
-            ],
-        ]);
-
-
         try {
             if(!$s3Client->doesBucketExist($BUCKET_NAME)) {
+
+                $clientRoute = Route53Client::factory([
+                    'version'     => 'latest',
+                    'region'      => $AWS_REGION,
+                    'credentials' => [
+                    'key'    => $aws_key,
+                    'secret' => $aws_pass,
+                ],
+                ]);
+
                 $result = $s3Client->createBucket([
                     'ACL' => 'public-read',
                     'Bucket' => $BUCKET_NAME,
