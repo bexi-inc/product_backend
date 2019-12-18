@@ -173,6 +173,12 @@ function GetProjects($userId)
 						$proj["deliverable_id"]=$Marshaler->unmarshalValue($dbdata2[0]["deliverable_id"]);
 					}
 				}
+				else
+				{
+					$ret["error_code"] = "500";
+					$ret["message"] =  $table2["error"];
+					return $ret;
+				}
 
 
 				$proj["project_name"] = $Marshaler->unmarshalValue($project["project_name"]);
