@@ -165,9 +165,9 @@ function GetProjects($userId)
 					":projectid" : "'.$proj["project_id"].'"
 				}';
 				$table2 = ExecuteQuery("modu_deliverables",$userData2,"project_id = :projectid", "" , "" , false);
-				if ($table["error"]=="")
+				if ($table2["error"]=="")
 				{
-					$dbdata2 = $table["data"]['Items'];
+					$dbdata2 = $table2["data"]['Items'];
 					if (count($dbdata)>0)
 					{
 						$proj["deliverable_id"]=$Marshaler->unmarshalValue($dbdata2[0]["deliverable_id"]);
