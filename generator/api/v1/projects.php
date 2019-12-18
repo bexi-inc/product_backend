@@ -164,13 +164,14 @@ function GetProjects($userId)
 				$userData2 ='{
 					":projectid" : "'.$proj["project_id"].'"
 				}';
-				$table2 = ExecuteQuery("modu_deliverables",$userData2,"project_id = :projectid", "project_id-index" , "" , false);
+				$table2 = ExecuteQuery("modu_deliverables",$userData2,"project_id = :projectid", "lastproject_id-index" , "" , false);
 				if ($table2["error"]=="")
 				{
 					$dbdata2 = $table2["data"]['Items'];
 					if (count($dbdata2)>0)
 					{
-						$proj["deliverable_id"]=$Marshaler->unmarshalValue($dbdata2[0]["deliverable_id"]);
+						$last=count($dbdata2)-1;
+						$proj["deliverable_id"]=$Marshaler->unmarshalValue($dbdata2[$last]["deliverable_id"]);
 					}
 				}
 				else
