@@ -159,6 +159,22 @@ function GetProjects($userId)
 			foreach ($table["data"]['Items'] as $project) {
 				$proj = []; 
 				$proj["project_id"] = $Marshaler->unmarshalValue($project["project_id"]);
+
+				//get deliverable from the project
+				$userData2 ='{
+					":projectid" : "'.$proj["project_id"].'"
+				}';
+				$table2 = ExecuteQuery("modu_deliverables",$userData2,"project_id = :projectid", "" , "" , false);
+				if ($table["error"]=="")
+				{
+					$dbdata2 = $table["data"]['Items'];
+					if (count($dbdata)>0)
+					{
+						$proj["deliverable_id"]=$Marshaler->unmarshalValue($dbdata2[0]["deliverable_id"]);
+					}
+				}
+
+
 				$proj["project_name"] = $Marshaler->unmarshalValue($project["project_name"]);
 				$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
 				$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
