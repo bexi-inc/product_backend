@@ -214,6 +214,7 @@ function Manager_unsplash4(ID,numpag)
             $("#"+ID).append(img);
             $("#cont"+ID).dialog( "close" );
             $("#cont"+ID).remove();
+            auto_save();
           }
           $(img).click(add_img);
           var newdiv= $(document.createElement('div'));
@@ -292,6 +293,7 @@ function icon_manager(ID,numpag)
             $("#"+ID).attr("class",cl+item.class);
             $("#diag_icon"+ID).dialog( "close" );
             $("#diag_icon"+ID).remove();
+            auto_save();
           });
           $("#cont_icon"+ID).append(ico);
       });
@@ -389,6 +391,7 @@ function Manager_unsplash2(ID,numpag)
             $("#inptext"+ID).val("");
             $( "#dialog-img"+ID).css("height","auto");
             $("#dialog-img"+ID).dialog( "close" );
+            auto_save();
           });
           var newdiv= $(document.createElement('div'));
           newdiv.attr("class", "grid-item");
