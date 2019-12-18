@@ -398,14 +398,8 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
 
 
     /**************   FROALA EDITOR **************/
-/*
     echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
-    */
-    echo '<link href="https://editor-latest.s3.amazonaws.com/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />';
-    echo '<link href="https://editor-latest.s3.amazonaws.com/css/froala_style.min.css" rel="stylesheet" type="text/css" />';
-
-    echo '<script type="text/javascript" src="https://editor-latest.s3.amazonaws.com/js/froala_editor.pkgd.min.js"></script>';
 
     echo'<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/third_party/font_awesome.min.js"></script>';
 
