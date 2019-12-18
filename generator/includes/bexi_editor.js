@@ -476,6 +476,7 @@ function Manager_unsplash(ID,numpag)
             $("#"+ID).attr("src",item.url);
             $("#cont"+ID).dialog( "close" );
             $("#cont"+ID).remove();
+            auto_save();
           });
           var newdiv= $(document.createElement('div'));
           newdiv.attr("class", "grid-item");
