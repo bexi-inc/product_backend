@@ -168,7 +168,7 @@ function GetProjects($userId)
 				if ($table2["error"]=="")
 				{
 					$dbdata2 = $table2["data"]['Items'];
-					if (count($dbdata)>0)
+					if (count($dbdata2)>0)
 					{
 						$proj["deliverable_id"]=$Marshaler->unmarshalValue($dbdata2[0]["deliverable_id"]);
 					}
