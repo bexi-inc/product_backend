@@ -10,16 +10,16 @@
 </head>
 <body>
 
-<div class="bexi_container">
-    <div class="row justify-content-center py-5" style="position: relative;">
-        <div class="col-md-6 C p-5 shadow_box" style="background-color: white;">
-            <h2 id="%id%" class="bexi_title Black C">Digital App</h2>
-            <p id="%id%" class="bexi_text Lead_text Gray C p-0">
-                <input type="text" name="subject" id="subject" value="977">
-            </p>
-            <p id="%id%" class="mt-4 C">
-                <a class="btn btn-primary bexi_button" href="#" style="width: auto;">Download</a>
-            </p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 C shadow_box" style="background-color: white;padding-bottom: 20px;">
+            <h2 id="%id%" class="bexi_title Black C" style="font-family: Arial, Helvetica, sans-serif;">Digital App</h2>
+            <input type="text" name="subject" id="subject" value="977">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 C shadow_box" style="background-color: white;padding-bottom: 20px;">
+            <iframe src="http://generator.getmodu.com/view_module.php?id=977" frameborder="1"></iframe>
         </div>
     </div>
 </div>
@@ -32,7 +32,7 @@ $( document ).ready(function() {
             alert('ENTER');
         }
     });
-    
+
 });
     
 
