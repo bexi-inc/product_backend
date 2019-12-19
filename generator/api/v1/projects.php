@@ -662,7 +662,7 @@ function ExistDeliverable($projectid,$type)
 	    }
 	';
 
-	$table = ExecuteQuery("modu_deliverables",$data,"project_id = :projectid,type = :typ","type-project_id-index","",false);
+	$table = ExecuteQuery("modu_deliverables",$data,"project_id = :projectid AND type = :typ","type-project_id-index","",false);
 
 	if ($table["error"]=="")
 	{
