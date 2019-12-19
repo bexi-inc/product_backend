@@ -731,11 +731,11 @@ function EditDeliverable($deliverable_id,$project_id,$winner, $loser)
 	
 
 	$updateData ='{
-		"datec" : "'.$pid.'"
-		,"winnerid" : "'.$winner.'"
-		,"htmlcode" : "'.$winner_code.'"
-		,"loserid" : "'.$loser.'"
-		,"losercode" : "'.$loser_code.'"
+		":datec" : "'.$pid.'"
+		,":winnerid" : "'.$winner.'"
+		,":htmlcode" : "'.$winner_code.'"
+		,":loserid" : "'.$loser.'"
+		,":losercode" : "'.$loser_code.'"
 	';
 	$updateData = $updateData . '}';
 
