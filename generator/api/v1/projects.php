@@ -731,7 +731,7 @@ function EditDeliverable($deliverable_id,$project_id,$winner, $loser)
 	
 
 	$updateData ='{
-		":datec" : "'.$pid.'"
+		":datem" : "'.$pid.'"
 		,":winnerid" : "'.$winner.'"
 		,":htmlcode" : "'.$winner_code.'"
 		,":loserid" : "'.$loser.'"
@@ -739,7 +739,7 @@ function EditDeliverable($deliverable_id,$project_id,$winner, $loser)
 	';
 	$updateData = $updateData . '}';
 
-	$updateQ ='set date_create =:datec,winner_id =:winnerid,html_code =:htmlcode,loser_id =:loserid,loser_code =:losercode';
+	$updateQ ='set date_modified =:datem,winner_id =:winnerid,html_code =:htmlcode,loser_id =:loserid,loser_code =:losercode';
 
 	
 	$key = '
