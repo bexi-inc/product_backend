@@ -755,7 +755,7 @@ function EditDeliverable($deliverable_id, $winner, $loser)
 	    }
 	';
 
-	$resUpd = Update("users",$key,$updateQ,$updateData);
+	$resUpd = Update("modu_deliverables",$key,$updateQ,$updateData);
 
 	if (!$resUpd["error"])
 	{
