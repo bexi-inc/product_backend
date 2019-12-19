@@ -689,7 +689,7 @@ function ExistDeliverable($projectid,$type)
 }
 
 
-function EditDeliverable($deliverable_id, $winner, $loser)
+function EditDeliverable($deliverable_id,$project_id,$winner, $loser)
 {
 	global $Marshaler;
 	$pid = microtime(true);
@@ -744,7 +744,8 @@ function EditDeliverable($deliverable_id, $winner, $loser)
 	
 	$key = '
 	    {
-	        "deliverable_id": "'.$deliverable_id.'"
+			"deliverable_id": "'.$deliverable_id.'",
+			"project_id" : "'.$project_id.'"
 	    }
 	';
 
