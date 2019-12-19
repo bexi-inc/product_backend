@@ -649,4 +649,124 @@ function create_recipe($proj_id)
 
 }
 
+function ExistDeliverable($projectid,$type)
+{
+	global $Marshaler;
+	$pid = microtime(true);
+	
+
+	$data='
+	    {
+			":projectid": "'.$projectid.'",
+			":typ": "'.$type.'"
+	    }
+	';
+
+	$table = ExecuteQuery("modu_deliverables",$data,"project_id = :projectid,type = :typ","type-project_id-index","",false);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+			$res["error"]="0";
+			$res["message"] = "Deliverable found";
+			$res["deliverable_id"] =  $Marshaler->unmarshalValue($dbdata[0]['deliverable_id']);
+		}
+		else
+		{
+			$res["error_code"] = "100";
+		    $res["message"] = "Deliverable not found";
+		    return $res;
+		}
+	}
+	else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
+	return $res;
+}
+
+
+function EditDeliverable($deliverable_id, $winner, $loser, $type)
+{
+	global $Marshaler;
+	$pid = microtime(true);
+	
+
+	$data='
+	    {
+	        ":id": "'.$winner.'"
+	    }
+	';
+
+	$table = ExecuteQuery("bexi_projects_tmp",$data,"id = :id","","",false);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+		    $winner_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
+		}
+	}
+
+	$data='
+	    {
+	        ":id": "'.$loser.'"
+	    }
+	';
+
+	$table = ExecuteQuery("bexi_projects_tmp",$data,"id = :id","","",false);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+		    $loser_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
+		}
+	}
+	
+
+	$updateData ='{
+		"datecreate" : "'.$pid.'"
+		,"winnerid" : "'.$winner.'"
+		,"htmlcode" : "'.$winner_code.'"
+		,"loserid" : "'.$loser.'"
+		,"losercode" : "'.$loser_code.'"
+	';
+	$updateData = $updateData . '}';
+
+	$updateQ ='{
+		"date_create =: datecreate"
+		,"winner_id =: winnerid"
+		,"html_code =: htmlcode"
+		,"loser_id =: loserid"
+		,"loser_code =: losercode"
+	';
+	$updateQ = $updateQ . '}';
+
+	
+	$key = '
+	    {
+	        "deliverable_id": "'.$deliverable_id.'"
+	    }
+	';
+
+	$resUpd = Update("users",$key,$updateQ,$updateData);
+
+	if (!$resUpd["error"])
+	{
+		$ret["error_code"]="0";
+		$ret["message"] = "Deliverable updated";
+	}else{
+		$ret["error_code"]="500";
+		$ret["message"] =  $resUpd["error"];
+	}
+	return $ret;
+}
+
+
 ?>
