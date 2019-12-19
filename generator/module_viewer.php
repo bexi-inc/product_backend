@@ -15,9 +15,7 @@
         <div class="col-md-6 C p-5 shadow_box" style="background-color: white;">
             <h2 id="%id%" class="bexi_title Black C">Digital App</h2>
             <p id="%id%" class="bexi_text Lead_text Gray C p-0">
-                <form name="form" action="" method="get">
-                    <input type="text" name="subject" id="subject" value="Car Loan">
-                </form>
+                <input type="text" name="subject" id="subject" value="977">
             </p>
             <p id="%id%" class="mt-4 C">
                 <a class="btn btn-primary bexi_button" href="#" style="width: auto;">Download</a>
@@ -27,14 +25,18 @@
 </div>
     
     <script>
+$( document ).ready(function() {
 
     $("#subject").on('keyup', function (e) {
         if (e.keyCode === 13) {
             alert('ENTER');
         }
     });
+    
+});
+    
 
-    $('#abc_frame').attr('src', url);
+    //$('#abc_frame').attr('src', url);
     </script>
 
 </body>
