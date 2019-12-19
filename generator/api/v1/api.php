@@ -239,17 +239,12 @@ $res["error_code"]=0;
 		$res = ExistDeliverable($_REQ->projectid, $_REQ->type);
 		break;
 	case "EditDeliverable":
-		/*print_r($_REQ);
-		echo "files";
-		print_r($_FILES);*/
 		if (!isset($_REQ->deliverableid) || !isset($_REQ->winnerid) || !isset($_REQ->loserid))
 		{
 			$res["error_code"]="502";
 			$res["message"]="Invalid params CreateProject";
-			
 		}
-		//die("CreateProject");
-		$res = EditDeliverable($_REQ->projectid, $_REQ->winnerid, $_REQ->loserid);
+		$res = EditDeliverable($_REQ->deliverableid, $_REQ->winnerid, $_REQ->loserid);
 		break;
  	default:
  		echo "REQ";
