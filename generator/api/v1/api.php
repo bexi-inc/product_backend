@@ -230,6 +230,18 @@ $res["error_code"]=0;
 		}
 		$res = create_recipe($_REQ->projectid);
 		break;
+	case "ExistDeliverable":
+		/*print_r($_REQ);
+		echo "files";
+		print_r($_FILES);*/
+		if (!isset($_REQ->projectid) || !isset($_REQ->type))
+		{
+			$res["error_code"]="502";
+			$res["message"]="Invalid params CreateProject";
+		}
+		//die("CreateProject");
+		$res = ExistDeliverable($_REQ->projectid, $_REQ->type);
+		break;
  	default:
  		echo "REQ";
  		print_r($_REQ);
