@@ -744,8 +744,7 @@ function EditDeliverable($deliverable_id,$project_id,$winner, $loser)
 	
 	$key = '
 	    {
-			"deliverable_id": "'.$deliverable_id.'",
-			"project_id" : "'.$project_id.'"
+			"deliverable_id": "'.$deliverable_id.'"
 	    }
 	';
 
