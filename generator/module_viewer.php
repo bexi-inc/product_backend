@@ -1,5 +1,3 @@
-
-
 <?
 
 include "includes/global.php";
@@ -61,11 +59,6 @@ $contenido="";
 $contenido=$marshaler->unmarshalValue($result['Items'][0]['html_code']);
 $css[]=$marshaler->unmarshalValue($result['Items'][0]["file_css"]);
 
-if ( $contenido === '')
-{
-    echo ("There's nothing here")
-}
-
 $contenido = setImages($contenido,"");
 
 
@@ -97,6 +90,16 @@ echo '<link rel="stylesheet" href="./css/bexi_panel.css" >';
 echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>';
 echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
 echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
+
+/**************   FROALA EDITOR **************/
+
+echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
+echo'<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/third_party/font_awesome.min.js"></script>';
+
+echo'<link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >';
+
+echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
 
 /**************   ICON FONTS **************/
 echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
