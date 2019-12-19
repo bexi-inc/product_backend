@@ -739,7 +739,7 @@ function EditDeliverable($deliverable_id,$project_id,$winner, $loser)
 	';
 	$updateData = $updateData . '}';
 
-	$updateQ ='set date_create =: datecreate,winner_id =: winnerid,html_code =: htmlcode,loser_id =: loserid,loser_code =: losercode';
+	$updateQ ='set date_create =:datecreate,winner_id =:winnerid,html_code =:htmlcode,loser_id =:loserid,loser_code =:losercode';
 
 	
 	$key = '
