@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form" action="" method="post">
+        <input type="text" name="block" id="block" value="980">
+    </form>
 <?
 
 include "includes/global.php";
@@ -46,7 +58,7 @@ $params = [
     'TableName' => "bexi_prod_contentblock",
      "KeyConditionExpression"=> "id = :vid",
     "ExpressionAttributeValues"=> [
-        ":vid" =>  ["S" => '980']
+        ":vid" =>  ["S" => $_POST['block'];]
     ]
 ];
 
@@ -212,3 +224,7 @@ echo "\r\n";
 echo "</html>";
 echo "\r\n";
 ?>
+
+</body>
+</html>
+
