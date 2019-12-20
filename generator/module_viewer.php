@@ -9,28 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/bexi.css" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-        [style*="--aspect-ratio"] > :first-child {
-        width: 100%;
-        }
-        [style*="--aspect-ratio"] > img {  
-        height: auto;
-        } 
-        @supports (--custom:property) {
-        [style*="--aspect-ratio"] {
-            position: relative;
-        }
-        [style*="--aspect-ratio"]::before {
-            content: "";
-            display: block;
-            padding-bottom: calc(100% / (var(--aspect-ratio)));
-        }  
-        [style*="--aspect-ratio"] > :first-child {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-        }  
-        }
+        
         .iframe-container {
         overflow: hidden;
         padding-top: 56.25%;
@@ -64,7 +43,7 @@
 </head>
 <body style="background-color:#E7EAEA">
 
-<div class="container ml-1 mr-1 p-0">
+<div class="container ml-1 mr-1 justify-content-center p-0">
     <div class="row justify-content-center">
         <div class="col-4 C">
             <p class="back" >BACK</p>
@@ -78,7 +57,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;">
-            <div style="--aspect-ratio: 16/9;">
+            <div style="">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
             </div>
             <!--<div class="iframe-container">
