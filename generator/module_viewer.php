@@ -37,13 +37,14 @@
 
 <div>
     <div class="row justify-content-center">
-        <div class="col-md-6 C" style="background-color: white;padding-bottom: 20px;">
-        <figure>
-            <div>
-                LOGO
-            </div>
-        </figure>
+        <div class="col-4 C">
+            <p>BACK</p>
+        </div>
+        <div class="col-4 C">
             <input type="text" name="subject" class="bexi_input" id="subject" value="977">
+        </div>
+        <div class="col-4 C">
+            <p>NEXT</p>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -57,7 +58,15 @@
     
     <script>
         $( document ).ready(function() {
-
+            $.ajax({
+                url: 'ajax/aux_viewer.php',
+                data: {"cmd" : "blocks"},
+                dataType: "json",
+                type: 'POST',
+                 complete:function(data){
+                    console.log(data);
+                 }
+            });
             $("#subject").on('keyup', function (e) {
                 if (e.keyCode === 13) {
                     alert('ENTER');

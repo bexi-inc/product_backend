@@ -127,4 +127,23 @@ function Update($tableName, $KeyJson, $UpdateExpression, $paramsJson ,$Expressio
 	return $ret;
 }
 
+function scanAll($tableName){
+
+	global $Dynamodb;
+	try {
+		$result = $Dynamodb->scan(array(
+			'TableName' => $tableName            
+			)
+		);
+		$ret["result"]=$result;
+	} 
+	catch (DynamoDbException $e) {
+
+		$ret["error"]= $e->getMessage();
+		
+	}
+
+	return $ret;
+}
+
 ?>
