@@ -76,19 +76,19 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-1 C">
-            <button class="buttons2 back mr-0"><i class="fas fa-angle-double-left"></i></button>
+            <button class="buttons2 first mr-0"><i class="fas fa-angle-double-left"></i></button>
         </div>
-        <div class="col-2 C">
-            <button class="buttons back ml-0"><i class="fas fa-chevron-left"></i>BACK</button>
+        <div class="col-3 C">
+            <button class="buttons back ml-0"><i class="fas fa-chevron-left"></i> BACK</button>
         </div>
-        <div class="col-6 C">
+        <div class="col-4 C">
             <input type="text" name="subject" class="bexi_input" id="subject" value="977">
         </div>
-        <div class="col-2 C">
-            <button class="buttons next mr-0">NEXT<i class="fas fa-chevron-right"></i></button>
+        <div class="col-3 C">
+            <button class="buttons next mr-0">NEXT <i class="fas fa-chevron-right"></i></button>
         </div>
         <div class="col-1 C ">
-            <button class="buttons2 back ml-0"><i class="fas fa-angle-double-right"></i></button>
+            <button class="buttons2 last ml-0"><i class="fas fa-angle-double-right"></i></button>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -170,6 +170,16 @@
                     $("#subject").val(window.contents[current].id);
                     console.log('IF NEXT');
                 }
+                
+            });
+            $(".last").click(function () {
+                var n = window.contents.length;
+                var n = n - 1;
+                console.log(n,'n');
+                    var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[n].id;
+                    $('#viewer').attr('src', url);
+                    $('#viewer').attr('current', n);
+                    $("#subject").val(window.contents[n].id);
                 
             });
             $(".back").click(function () {
