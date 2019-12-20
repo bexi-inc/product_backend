@@ -1290,8 +1290,15 @@ function auto_save()
             $(this).css("left","0");
             $(this).css("width","100%");
             $(this).css("height","100%");
-            $(this).css("max-width",maxwidth);
-            $(this).css("max-height",maxheight);
+            if(maxwidth!==0)
+            {
+              $(this).css("max-width",maxwidth);
+            }
+            if(maxheight!==0)
+            {
+              $(this).css("max-height",maxheight);
+            }
+            $(this).css("position","absolute");
           });
           //$(this).wrap("<div class='video_responsive'></div>");
         }
