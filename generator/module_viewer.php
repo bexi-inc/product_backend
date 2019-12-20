@@ -92,6 +92,7 @@
             $(".next").click(function () {
                 var n = window.contents.lenght;
                 var current = $('#viewer').attr('current') + 1;
+                console.log(current);
                 if (current < n){
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
