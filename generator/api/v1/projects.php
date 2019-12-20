@@ -777,7 +777,6 @@ function GetIdContents()
 	global $Marshaler;
 	
 	$table = scanAll("bexi_prod_contentblock");
-	echo $table;
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
