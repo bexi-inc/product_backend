@@ -143,6 +143,7 @@
                     }
                     else{
                         alert("The content block that you're trying to access was deleted from the Data Base");
+                        var current = parseInt($('#viewer').attr('current'));
                         $("#subject").val(window.contents[current].id);
                     }
                     
