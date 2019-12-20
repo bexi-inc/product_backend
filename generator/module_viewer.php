@@ -50,9 +50,9 @@
         .iframe-container-4x3 {
         padding-top: 75%;
         }
-        
+
         #viewer{
-            zoom: 0.71;
+            zoom: -0.71;
             -moz-transform:scale(0.75);
             -moz-transform-origin: 0 0;
             -o-transform: scale(0.75);
@@ -78,12 +78,12 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;">
-            <!--<div style="--aspect-ratio: 16/9;">
+            <div style="--aspect-ratio: 16/9;">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
-            </div>-->
-            <div class="iframe-container">
+            </div>
+            <!--<div class="iframe-container">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
-            </div>        
+            </div>   -->     
         </div>
     </div>
 </div>
