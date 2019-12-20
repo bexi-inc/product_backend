@@ -13,14 +13,14 @@
     <style>
         
         .iframe-container {
-        overflow: hidden;
+        
         padding-top: 56.25%;
         position: relative;
         }
         
         .iframe-container iframe {
         border: 0;
-        height: 100%;
+        
         left: 0;
         position: absolute;
         top: 0;
@@ -93,13 +93,10 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;">
+        <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;max-height: 650px;">
             <div class="iframe-container">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
-            </div>
-            <!--<div class="iframe-container">
-                <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
-            </div>   -->     
+            </div>  
         </div>
     </div>
 </div>
