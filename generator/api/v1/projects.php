@@ -783,8 +783,6 @@ function GetIdContents()
 		if (count($dbdata)>0)
 		{
             $contents=[];
-			$res["error"]="0";
-			$res["message"] = "Deliverable found";
             foreach ($dbdata as $item) {
 				$parttemp = [];//temporaly part with the values converted
 				$parttemp["id"] = $Marshaler->unmarshalValue($item["id"]);

@@ -9,6 +9,7 @@ switch ($cmd) {
 	case "blocks":
 		   $res["data"] = GetIdContents();
 		   $res["error"] = 0;
+		   print_r($res["data"]);
     break;
 }
 
