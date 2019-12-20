@@ -66,7 +66,7 @@
                 dataType: "json",
                 type: 'POST',
                  complete:function(data){
-                     var jdata = $.parseJSON(data);
+                     var jdata = JSON.parse(data);
                     console.log(jdata);
                  }
             });
