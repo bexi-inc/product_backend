@@ -50,6 +50,22 @@
         .iframe-container-4x3 {
         padding-top: 75%;
         }
+        iframe {
+        -moz-transform: scale(0.25, 0.25); 
+        -webkit-transform: scale(0.25, 0.25); 
+        -o-transform: scale(0.25, 0.25);
+        -ms-transform: scale(0.25, 0.25);
+        transform: scale(0.25, 0.25); 
+        -moz-transform-origin: top left;
+        -webkit-transform-origin: top left;
+        -o-transform-origin: top left;
+        -ms-transform-origin: top left;
+        transform-origin: top left;
+        }
+        #viewer{
+            -moz-transform: scale(0.25, 0.25); 
+            -moz-transform-origin: top left;
+        }
     </style>
 </head>
 <body style="background-color:#E7EAEA">
