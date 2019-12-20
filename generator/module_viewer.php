@@ -85,8 +85,22 @@
                 if (e.keyCode === 13) {
                     alert('ENTER');
                     var id = $("#subject").val();
-                    var url = "http://generator.getmodu.com/view_module.php?id=" + id;
-                    $('#viewer').attr('src', url);
+                    var exist = 0;
+                    for (let index = 0; index < window.contents.length; index++) {
+                        if (window.contents[index].id == id) {
+                            exist = 1;
+                        }
+                        
+                    }
+                    if (exit == 1) {
+                        var url = "http://generator.getmodu.com/view_module.php?id=" + id;
+                        $('#viewer').attr('src', url);
+                        $('#viewer').attr('current', id);
+                    }
+                    else{
+                        alert('NON EXISTENT')
+                    }
+                    
                 }
             });
             $(".next").click(function () {
