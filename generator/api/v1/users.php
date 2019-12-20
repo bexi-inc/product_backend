@@ -49,12 +49,15 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 		$userid =  $Marshaler->unmarshalValue($dbdata[0]['value']);
 	}
 	
+	$token_email = bin2hex(openssl_random_pseudo_bytes(16));
+
 	$userData ='{
 		"id" : "'.$userid.'",
 		"username" : "'.$email.'",
 		"name" :  "'.$name.'",
 		"last_name" : "' . $lastname . '",
-		"password" : "'.password_hash($password,PASSWORD_DEFAULT).'"
+		"password" : "'.password_hash($password,PASSWORD_DEFAULT).'",
+		"email_token" : "'.$token_email.'"
 	}';
 
 	$resIns=Insert("users",$userData);
@@ -64,7 +67,7 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 		$ret["user_id"] = $userid;
 
 		// Sent welcome email
-		SendEmail(1,$userid);
+		SendEmail(2,$userid);
 
 		//Update next id user
 		$userid = $userid+1;
