@@ -59,6 +59,13 @@
 </body>
 
     <script>
+        window.contents;
+        function SortByName(a, b){
+            var aID = a.id;
+            var bID = b.id; 
+            return ((aID < bID) ? -1 : ((aID > bID) ? 1 : 0));
+        }
+                    
         $( document ).ready(function() {
             $.ajax({
                 url: 'http://generator.getmodu.com/api/v1/api.php',
@@ -67,8 +74,9 @@
                 type: 'POST',
                  complete:function(data){
                     
-                    var response = data.responseJSON.contents;
-                    console.log(response);
+                    window.contents = data.responseJSON.contents;
+                    window.contents.sort(SortByName);
+                    console.log(window.contents);
                  }
             });
             $("#subject").on('keyup', function (e) {
