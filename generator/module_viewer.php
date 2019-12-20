@@ -102,7 +102,7 @@
             });
             $(".back").click(function () {
                 var n = window.contents.length;
-                var current = $('#viewer').attr('current') - 1;
+                var current = parseInt($('#viewer').attr('current')) - 1;
                 if (current >= 0){
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
