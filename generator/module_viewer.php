@@ -40,14 +40,35 @@
             line-height: 1;
             letter-spacing: 2px;
             color: #fff;
-            background-color: #aaa;
-
+            background-color: #FF6364;
+            margin: auto;
+            display: block;
+            top: 15%;
+            width: 150px;
+            font-weight: 700;
         }
 
         .buttons:hover{
             color: #fff;
-            background-color: #000;
+            background-color: #221F93;
         }
+
+        .buttons2{
+            position: relative;
+            display: table;
+            padding: 20px 12px;
+            border: 0;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1;
+            letter-spacing: 2px;
+            color: #fff;
+            background-color: #FF6364;
+            margin: auto;
+            display: block;
+            top: 15%;
+        }
+
         #viewer{
             zoom: -0.35;
             -moz-transform:scale(0.75);
@@ -61,21 +82,27 @@
 </head>
 <body style="background-color:#E7EAEA">
 
-<div class="container ml-1 mr-1 justify-content-center p-0">
+<div class="container-fluid p-0">
     <div class="row justify-content-center">
-        <div class="col-4 C">
-            <button class="buttons back">BACK</button>
+        <div class="col-2 C">
+            <button class="buttons2 back">&#8676;</button>
         </div>
-        <div class="col-4 C">
+        <div class="col-3 C">
+            <button class="buttons back">&#8592;</button>
+        </div>
+        <div class="col-2 C">
             <input type="text" name="subject" class="bexi_input" id="subject" value="977">
         </div>
-        <div class="col-4 C">
-            <button class="buttons next">NEXT</button>
+        <div class="col-3 C">
+            <button class="buttons next">&#8594;</button>
+        </div>
+        <div class="col-2 C">
+            <button class="buttons2 back">&#8677;</button>
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;">
-            <div style="iframe-container">
+            <div class="iframe-container">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
             </div>
             <!--<div class="iframe-container">
@@ -93,7 +120,15 @@
             var aID = a.id;
             var bID = b.id; 
             return (aID-bID);
-        }
+        };
+        function setIframeHeight(iframe) {
+            if (iframe) {
+                var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+                if (iframeWin.document.body) {
+                    iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+                }
+            }
+        };
         $( document ).ready(function() {
             $.ajax({
                 url: 'http://generator.getmodu.com/api/v1/api.php',
@@ -161,6 +196,7 @@
                     console.log('IF BACK');
                 }
             });
+            setIframeHeight(document.getElementById('#viewer'));
              
         });
     </script>
