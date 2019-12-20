@@ -104,10 +104,7 @@
         <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;">
             <div class="iframe-container">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
-            </div>
-            <!--<div class="iframe-container">
-                <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
-            </div>   -->     
+            </div>  
         </div>
     </div>
 </div>
@@ -120,14 +117,6 @@
             var aID = a.id;
             var bID = b.id; 
             return (aID-bID);
-        };
-        function setIframeHeight(iframe) {
-            if (iframe) {
-                var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-                if (iframeWin.document.body) {
-                    iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
-                }
-            }
         };
         $( document ).ready(function() {
             $.ajax({
@@ -184,15 +173,7 @@
                 }
                 
             });
-            $(".last").click(function () {
-                var n = window.contents.length;
-                var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[n].id;
-                $('#viewer').attr('src', url);
-                $('#viewer').attr('current', window.contents[n].id);
-                $("#subject").val(window.contents[n].id);
-                console.log('IF LAST');
-
-            });
+            
             $(".back").click(function () {
                 var current = parseInt($('#viewer').attr('current')) - 1;
                 console.log(current);
@@ -204,15 +185,8 @@
                     console.log('IF BACK');
                 }
             });
-            $(".first").click(function () {
-                var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[0].id;
-                $('#viewer').attr('src', url);
-                $('#viewer').attr('current', window.contents[0].id);
-                $("#subject").val(window.contents[0].id);
-                console.log('IF FIRST');
-            });
-            setIframeHeight(document.getElementById('#viewer'));
-             
+            
+
         });
     </script>
 </html>
