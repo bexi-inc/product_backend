@@ -78,6 +78,7 @@
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[0].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', 0);
+                    $("#subject").val(window.contents[0].id);
                     console.log(window.contents);
                  }
             });
