@@ -13,17 +13,15 @@
     <style>
         
         .iframe-container {
-        overflow: hidden;
-        position: relative;
-        height: 650px;
+            min-height: calc(100vh - 100px);
         }
         
         .iframe-container iframe {
         border: 0;
         left: 0;
-        position: absolute;
         top: 0;
         width: 100%;
+        min-height: calc(100vh - 100px);
         }
         
         /* 4x3 Aspect Ratio */
@@ -91,8 +89,8 @@
             <button class="buttons2 last ml-0"><i class="fas fa-angle-double-right"></i></button>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;max-height: 650px;">
+    <div class="row m-0 justify-content-center">
+        <div class="col-md-12 C shadow_box" style="background-color: white;">
             <div class="iframe-container">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
             </div>  
