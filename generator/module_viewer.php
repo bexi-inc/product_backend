@@ -61,7 +61,7 @@
     <script>
         $( document ).ready(function() {
             $.ajax({
-                url: './ajax/aux_viewer.php',
+                url: 'http://generator.getmodu.com/api/v1/api.php',
                 data: {"cmd" : "blocks"},
                 dataType: "json",
                 type: 'POST',
