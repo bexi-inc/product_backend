@@ -86,17 +86,18 @@
                 if (e.keyCode === 13) {
                     var id = $("#subject").val();
                     var exist = 0;
-                    var index;
-                    for (index = 0; index < window.contents.length; index++) {
+                    var pos;
+                    for (let index = 0; index < window.contents.length; index++) {
                         if (window.contents[index].id == id) {
                             exist = 1;
+                            pos = index;
+                            index = window.contents.length;
                         }
-                        
                     }
                     if (exist == 1) {
                         var url = "http://generator.getmodu.com/view_module.php?id=" + id;
                         $('#viewer').attr('src', url);
-                        $('#viewer').attr('current', index);
+                        $('#viewer').attr('current', pos);
                     }
                     else{
                         alert('NON EXISTENT');
