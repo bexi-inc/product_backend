@@ -55,11 +55,13 @@
         </div>
     </div>
 </div>
-    
+
+</body>
+
     <script>
         $( document ).ready(function() {
             $.ajax({
-                url: 'ajax/aux_viewer.php',
+                url: './ajax/aux_viewer.php',
                 data: {"cmd" : "blocks"},
                 dataType: "json",
                 type: 'POST',
@@ -78,6 +80,4 @@
 
         });
     </script>
-
-</body>
 </html>
