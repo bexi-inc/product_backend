@@ -249,6 +249,15 @@ $res["error_code"]=0;
 	case "scan":
 		$res = GetIdContents();
 		break;
+	case "ConfirmEmail":
+ 		if (!isset($_REQ->email_token))
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			
+ 		}
+ 		//$res = ExistDomain($_REQ->domain);
+ 		break;
  	default:
  		echo "REQ";
  		print_r($_REQ);
