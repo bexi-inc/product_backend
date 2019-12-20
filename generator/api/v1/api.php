@@ -246,6 +246,9 @@ $res["error_code"]=0;
 		}
 		$res = EditDeliverable($_REQ->deliverableid,$_REQ->projectid, $_REQ->winnerid, $_REQ->loserid);
 		break;
+	case "scan":
+		$res = GetIdContents();
+		break;
  	default:
  		echo "REQ";
  		print_r($_REQ);
