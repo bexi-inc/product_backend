@@ -83,7 +83,6 @@
             });
             $("#subject").on('keyup', function (e) {
                 if (e.keyCode === 13) {
-                    alert('ENTER');
                     var id = $("#subject").val();
                     var exist = 0;
                     for (let index = 0; index < window.contents.length; index++) {
@@ -92,7 +91,7 @@
                         }
                         
                     }
-                    if (exit == 1) {
+                    if (exist == 1) {
                         var url = "http://generator.getmodu.com/view_module.php?id=" + id;
                         $('#viewer').attr('src', url);
                         $('#viewer').attr('current', id);
