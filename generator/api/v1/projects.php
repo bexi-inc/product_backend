@@ -777,12 +777,12 @@ function GetIdContents()
 	global $Marshaler;
 	
 	$table = scanAll("bexi_prod_contentblock");
+	print_r($table);
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
 		if (count($dbdata)>0)
 		{
-			print_r($dbdata);
             $contents=[];
 			$res["error"]="0";
 			$res["message"] = "Deliverable found";
