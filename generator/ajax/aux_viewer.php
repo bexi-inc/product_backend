@@ -1,6 +1,6 @@
 <?
 
-include "./api/v1/db.php";
+include "../api/v1/db.php";
 
 $cmd = $_REQUEST["cmd"];
 
