@@ -109,14 +109,6 @@
             var bID = b.id; 
             return (aID-bID);
         };
-        function setIframeHeight(iframe) {
-            if (iframe) {
-                var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-                if (iframeWin.document.body) {
-                    iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
-                }
-            }
-        };
         $( document ).ready(function() {
             $.ajax({
                 url: 'http://generator.getmodu.com/api/v1/api.php',
@@ -194,7 +186,14 @@
                     console.log('IF BACK');
                 }
             });
-            setIframeHeight(document.getElementById('#viewer'));
+            $(".first").click(function () {
+                var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[0].id;
+                $('#viewer').attr('src', url);
+                $('#viewer').attr('current', 0);
+                $("#subject").val(window.contents[0].id);
+                
+            });
+            
              
         });
     </script>
