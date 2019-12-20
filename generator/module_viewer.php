@@ -119,6 +119,8 @@
             $(".back").click(function () {
                 var n = window.contents.length;
                 var current = parseInt($('#viewer').attr('current')) - 1;
+                console.log(n,"n");
+                console.log(current);
                 if (current >= 0){
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
