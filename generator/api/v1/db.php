@@ -136,7 +136,7 @@ function scanAll($tableName){
 			)
 		);
 		$ret["result"]=$result;
-		print_r($result);
+		echo $result;
 	} 
 	catch (DynamoDbException $e) {
 
