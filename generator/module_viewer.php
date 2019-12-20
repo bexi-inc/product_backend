@@ -50,7 +50,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6 C shadow_box" style="background-color: white;padding-bottom: 20px;">
             <div style="--aspect-ratio: 16/9;">
-                <iframe src="http://generator.getmodu.com/view_module.php?id=977" id="viewer" width="1600" height="600" frameborder="0"></iframe>
+                <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
             </div>        
         </div>
     </div>
@@ -76,7 +76,7 @@
                     
                     window.contents = data.responseJSON.contents;
                     window.contents.sort(SortByName);
-                    var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[0]
+                    var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[0].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', 0);
                     console.log(window.contents);
@@ -86,7 +86,7 @@
                 if (e.keyCode === 13) {
                     alert('ENTER');
                     var id = $("#subject").val();
-                    var url = "http://generator.getmodu.com/view_module.php?id=" + id
+                    var url = "http://generator.getmodu.com/view_module.php?id=" + id;
                     $('#viewer').attr('src', url);
                 }
             });
