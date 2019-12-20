@@ -75,7 +75,7 @@
                     
                     window.contents = data.responseJSON.contents;
                     window.contents.sort(SortByName);
-                    var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[0].id;
+                    var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[0].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', 0);
                     $("#subject").val(window.contents[0].id);
@@ -95,12 +95,13 @@
                         }
                     }
                     if (exist == 1) {
-                        var url = "http://generator.getmodu.com/view_module.php?id=" + id;
+                        var url = "http://generator.getmodu.com/aux_viewer.php?id=" + id;
                         $('#viewer').attr('src', url);
                         $('#viewer').attr('current', pos);
                     }
                     else{
                         alert('NON EXISTENT');
+                        $("#subject").val($('#viewer').attr('current'));
                     }
                     
                 }
@@ -111,7 +112,7 @@
                 console.log(n,'n');
                 console.log(current);
                 if (current < n){
-                    var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
+                    var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', current);
                     $("#subject").val(window.contents[current].id);
@@ -124,7 +125,7 @@
                 var current = parseInt($('#viewer').attr('current')) - 1;
                 console.log(current);
                 if (current >= 0){
-                    var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
+                    var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', current);
                     $("#subject").val(window.contents[current].id);
