@@ -66,8 +66,7 @@
                 dataType: "json",
                 type: 'POST',
                  complete:function(data){
-                     var jdata = JSON.parse(data);
-                    console.log(jdata);
+                    console.log(data);
                  }
             });
             $("#subject").on('keyup', function (e) {
