@@ -86,8 +86,8 @@
                 if (e.keyCode === 13) {
                     var id = $("#subject").val();
                     var exist = 0;
-                    var index = 0;
-                    for (index < window.contents.length; index++) {
+                    var index;
+                    for (index = 0 ;index < window.contents.length; index++) {
                         if (window.contents[index].id == id) {
                             exist = 1;
                         }
