@@ -87,7 +87,7 @@
                     var id = $("#subject").val();
                     var exist = 0;
                     var index;
-                    for (index = 0 ;index < window.contents.length; index++) {
+                    for (index = 0; index < window.contents.length; index++) {
                         if (window.contents[index].id == id) {
                             exist = 1;
                         }
@@ -107,22 +107,27 @@
             $(".next").click(function () {
                 var n = window.contents.length;
                 var current = parseInt($('#viewer').attr('current')) + 1;
+                console.log(n,'n');
+                console.log(current);
                 if (current < n){
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', current);
                     $("#subject").val(window.contents[current].id);
+                    console.log('IF NEXT');
                 }
                 
             });
             $(".back").click(function () {
                 var n = window.contents.length;
                 var current = parseInt($('#viewer').attr('current')) - 1;
+                console.log(current);
                 if (current >= 0){
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', current);
                     $("#subject").val(window.contents[current].id);
+                    console.log('IF BACK');
                 }
             });
              
