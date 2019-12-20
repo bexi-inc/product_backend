@@ -76,6 +76,9 @@
                     
                     window.contents = data.responseJSON.contents;
                     window.contents.sort(SortByName);
+                    var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[0]
+                    $('#viewer').attr('src', url);
+                    $('#viewer').attr('current', 0);
                     console.log(window.contents);
                  }
             });
