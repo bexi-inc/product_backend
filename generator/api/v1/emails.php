@@ -60,9 +60,13 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 		   
 		    if (count($result['Items'])>0)
 		    {
-		    	$projectId = $marshaler->unmarshalValue($result['Items'][0]["email_token"]);
+		    	$token = $marshaler->unmarshalValue($result['Items'][0]["email_token"]);
 		    }
+
 			$code=file_get_contents(dirname(__FILE__) . DIRECTORY_SEPARATOR ."email_themes/confirm_email.html");
+
+			$code = str_replace("{project_name}","http://app.getmodu.com/#/?token_email=".$token,$code);
+			
 			$subject = "Confirm Email";
 			break;
 		case 3:
