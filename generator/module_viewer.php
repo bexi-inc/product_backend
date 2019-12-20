@@ -93,10 +93,12 @@
                 var n = window.contents.lenght;
                 var current = $('#viewer').attr('current') + 1;
                 console.log(current);
+                console.log(n,"n");
                 if (current < n){
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', current);
+                    console.log("ENTRO");
                 }
                 
             });
