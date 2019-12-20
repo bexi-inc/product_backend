@@ -100,6 +100,13 @@
     </div>
 </div>
 
+<div id="dialog-message" title="The content block was deleted">
+  <p class="C">
+    <i class="fas fa-exclamation-triangle" style="color:#FF6364;"></i><br>
+    The content block that you're trying to access was deleted from the Data Base
+  </p>
+</div>
+
 </body>
 
     <script>
@@ -144,8 +151,15 @@
                         $('#viewer').attr('current', pos);
                     }
                     else{
-                        alert('NON EXISTENT');
-                        $("#subject").val($('#viewer').attr('current'));
+                        $( "#dialog-message" ).dialog({
+                            modal: true,
+                            buttons: {
+                                Ok: function() {
+                                $( this ).dialog( "close" );
+                                }
+                            }
+                        });
+                        $("#subject").val(window.contents[current].id);
                     }
                     
                 }
