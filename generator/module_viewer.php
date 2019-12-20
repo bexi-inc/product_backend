@@ -62,7 +62,7 @@
         $( document ).ready(function() {
             $.ajax({
                 url: 'http://generator.getmodu.com/api/v1/api.php',
-                data: {"cmd" : "blocks"},
+                data: {"cmd" : "scan"},
                 dataType: "json",
                 type: 'POST',
                  complete:function(data){
