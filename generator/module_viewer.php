@@ -70,7 +70,7 @@
 </head>
 <body style="background-color:#E7EAEA">
 
-<div class="container">
+<div class="container ml-1 mr-1 p-0">
     <div class="row justify-content-center">
         <div class="col-4 C">
             <p class="back" >BACK</p>
