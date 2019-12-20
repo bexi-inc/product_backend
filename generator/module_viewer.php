@@ -31,6 +31,25 @@
             height: 100%;
         }  
         }
+        .iframe-container {
+        overflow: hidden;
+        padding-top: 56.25%;
+        position: relative;
+        }
+        
+        .iframe-container iframe {
+        border: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        }
+        
+        /* 4x3 Aspect Ratio */
+        .iframe-container-4x3 {
+        padding-top: 75%;
+        }
     </style>
 </head>
 <body style="background-color:#E7EAEA">
@@ -49,7 +68,10 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;">
-            <div style="--aspect-ratio: 16/9;">
+            <!--<div style="--aspect-ratio: 16/9;">
+                <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
+            </div>-->
+            <div class="iframe-container">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
             </div>        
         </div>
