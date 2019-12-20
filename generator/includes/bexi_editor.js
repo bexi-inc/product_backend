@@ -1284,17 +1284,18 @@ function auto_save()
         {
           $(this).find("iframe").each(function(){
             var maxwidth=$(this).css("width");
+            console.log(maxwidth);
             var maxheight=$(this).css("height");
             //$(this).css("position","absolute");
             $(this).css("top","0");
             $(this).css("left","0");
             $(this).css("width","100%");
             $(this).css("height","100%");
-            if(maxwidth!==0)
+            if(maxwidth!=="0px")
             {
               $(this).css("max-width",maxwidth);
             }
-            if(maxheight!==0)
+            if(maxheight!=="0px")
             {
               $(this).css("max-height",maxheight);
             }
