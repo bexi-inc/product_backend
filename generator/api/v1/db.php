@@ -132,7 +132,7 @@ function scanAll($tableName){
 	global $Dynamodb;
 	try {
 		$result = $Dynamodb->scan(array(
-			'TableName' => $tableName            
+			'TableName' => "'".$tableName."'"
 			)
 		);
 		$ret["result"]=$result;
