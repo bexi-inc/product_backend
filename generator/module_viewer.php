@@ -84,37 +84,30 @@
 
 <div class="container-fluid p-0">
     <div class="row justify-content-center">
-        <div class="col-2 C">
-            <button class="buttons2 back">&#8676;</button>
+        <div class="col-1 C">
+            <button class="buttons2 first">&#8676;</button>
         </div>
-<<<<<<< HEAD
         <div class="col-4 C">
             <button class="buttons back">BACK</button>
-=======
-        <div class="col-3 C">
-            <button class="buttons back">&#8592;</button>
->>>>>>> parent of 5d85f42... Update module_viewer.php
         </div>
         <div class="col-2 C">
-            <input type="text" name="subject" class="bexi_input" id="subject" value="977">
+            <input type="text" name="subject" class="bexi_input C" id="subject" value="977">
         </div>
-<<<<<<< HEAD
         <div class="col-4 C">
-            <button class="buttons next">NEXT</button>
-=======
-        <div class="col-3 C">
             <button class="buttons next">&#8594;</button>
->>>>>>> parent of 5d85f42... Update module_viewer.php
         </div>
-        <div class="col-2 C">
-            <button class="buttons2 back">&#8677;</button>
+        <div class="col-1 C">
+            <button class="buttons2 last">NEXT</button>
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;">
             <div class="iframe-container">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
-            </div>  
+            </div>
+            <!--<div class="iframe-container">
+                <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
+            </div>   -->     
         </div>
     </div>
 </div>
@@ -127,6 +120,14 @@
             var aID = a.id;
             var bID = b.id; 
             return (aID-bID);
+        };
+        function setIframeHeight(iframe) {
+            if (iframe) {
+                var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+                if (iframeWin.document.body) {
+                    iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+                }
+            }
         };
         $( document ).ready(function() {
             $.ajax({
@@ -183,10 +184,6 @@
                 }
                 
             });
-<<<<<<< HEAD
-            
-=======
->>>>>>> parent of 5d85f42... Update module_viewer.php
             $(".back").click(function () {
                 var n = window.contents.length;
                 var current = parseInt($('#viewer').attr('current')) - 1;
@@ -199,13 +196,8 @@
                     console.log('IF BACK');
                 }
             });
-<<<<<<< HEAD
-            
-
-=======
             setIframeHeight(document.getElementById('#viewer'));
              
->>>>>>> parent of 5d85f42... Update module_viewer.php
         });
     </script>
 </html>
