@@ -65,7 +65,7 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 
 			$code=file_get_contents(dirname(__FILE__) . DIRECTORY_SEPARATOR ."email_themes/confirm_email.html");
 
-			$code = str_replace("{project_name}","http://app.getmodu.com/#/?token_email=".$token,$code);
+			$code = str_replace("{link}","http://app.getmodu.com/#/?token_email=".$token,$code);
 			
 			$subject = "Confirm Email";
 			break;
