@@ -63,7 +63,7 @@
         function SortByName(a, b){
             var aID = a.id;
             var bID = b.id; 
-            return ((aID < bID) ? -1 : ((aID > bID) ? 1 : 0));
+            return ((aID > bID) ? -1 : ((aID < bID) ? 1 : 0));
         }
                     
         $( document ).ready(function() {
