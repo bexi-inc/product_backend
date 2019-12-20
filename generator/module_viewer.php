@@ -98,7 +98,7 @@
                         $('#viewer').attr('current', id);
                     }
                     else{
-                        alert('NON EXISTENT')
+                        alert('NON EXISTENT');
                     }
                     
                 }
