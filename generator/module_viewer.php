@@ -30,8 +30,26 @@
         padding-top: 75%;
         }
 
+        .buttons{
+            position: relative;
+            display: table;
+            padding: 20px 12px;
+            border: 0;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1;
+            letter-spacing: 2px;
+            color: #fff;
+            background-color: #aaa;
+
+        }
+
+        .buttons:hover{
+            color: #fff;
+            background-color: #000;
+        }
         #viewer{
-            zoom: -0.71;
+            zoom: -0.35;
             -moz-transform:scale(0.75);
             -moz-transform-origin: 0 0;
             -o-transform: scale(0.75);
@@ -46,18 +64,18 @@
 <div class="container ml-1 mr-1 justify-content-center p-0">
     <div class="row justify-content-center">
         <div class="col-4 C">
-            <p class="back" >BACK</p>
+            <button class="buttons back">BACK</button>
         </div>
         <div class="col-4 C">
             <input type="text" name="subject" class="bexi_input" id="subject" value="977">
         </div>
         <div class="col-4 C">
-            <p class="next" >NEXT</p>
+            <button class="buttons next">NEXT</button>
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;">
-            <div style="">
+            <div style="iframe-container">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
             </div>
             <!--<div class="iframe-container">
