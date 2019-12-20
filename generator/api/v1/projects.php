@@ -782,6 +782,7 @@ function GetIdContents()
 		$dbdata = $table["data"]['Items'];
 		if (count($dbdata)>0)
 		{
+			print_r($dbdata);
             $contents=[];
 			$res["error"]="0";
 			$res["message"] = "Deliverable found";
