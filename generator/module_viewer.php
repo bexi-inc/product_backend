@@ -82,7 +82,7 @@
             <button class="buttons back ml-0"><i class="fas fa-chevron-left"></i> BACK</button>
         </div>
         <div class="col-4 C">
-            <input type="text" name="subject" class="bexi_input" id="subject" value="977">
+            <input type="text" name="subject" class="bexi_input C" id="subject" value="977">
         </div>
         <div class="col-3 C">
             <button class="buttons next mr-0">NEXT <i class="fas fa-chevron-right"></i></button>
