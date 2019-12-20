@@ -90,7 +90,7 @@
                 }
             });
             $(".next").click(function () {
-                var n = window.contents.lenght;
+                var n = window.contents.length;
                 var current = $('#viewer').attr('current') + 1;
                 console.log(current);
                 console.log(n,"n");
@@ -103,7 +103,7 @@
                 
             });
             $(".back").click(function () {
-                var n = window.contents.lenght;
+                var n = window.contents.length;
                 var current = $('#viewer').attr('current') - 1;
                 if (current >= 0){
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
