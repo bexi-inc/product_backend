@@ -86,7 +86,8 @@
                 if (e.keyCode === 13) {
                     var id = $("#subject").val();
                     var exist = 0;
-                    for (let index = 0; index < window.contents.length; index++) {
+                    var index = 0;
+                    for (index < window.contents.length; index++) {
                         if (window.contents[index].id == id) {
                             exist = 1;
                         }
@@ -95,7 +96,7 @@
                     if (exist == 1) {
                         var url = "http://generator.getmodu.com/view_module.php?id=" + id;
                         $('#viewer').attr('src', url);
-                        $('#viewer').attr('current', id);
+                        $('#viewer').attr('current', index);
                     }
                     else{
                         alert('NON EXISTENT');
@@ -106,8 +107,6 @@
             $(".next").click(function () {
                 var n = window.contents.length;
                 var current = parseInt($('#viewer').attr('current')) + 1;
-                console.log(n,"n");
-                console.log(current);
                 if (current < n){
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
@@ -119,8 +118,6 @@
             $(".back").click(function () {
                 var n = window.contents.length;
                 var current = parseInt($('#viewer').attr('current')) - 1;
-                console.log(n,"n");
-                console.log(current);
                 if (current >= 0){
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
