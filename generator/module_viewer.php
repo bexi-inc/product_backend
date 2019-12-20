@@ -35,7 +35,7 @@
 </head>
 <body style="background-color:#E7EAEA">
 
-<div>
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-4 C">
             <p class="back" >BACK</p>
@@ -48,7 +48,7 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-6 C shadow_box" style="background-color: white;padding-bottom: 20px;">
+        <div class="col-md-11 C shadow_box" style="background-color: white;padding: 20px;">
             <div style="--aspect-ratio: 16/9;">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
             </div>        
