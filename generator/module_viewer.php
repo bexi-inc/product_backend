@@ -91,14 +91,12 @@
             });
             $(".next").click(function () {
                 var n = window.contents.length;
-                var current = $('#viewer').attr('current') + 1;
+                var current = parseInt($('#viewer').attr('current')) + 1;
                 console.log(current);
-                console.log(n,"n");
                 if (current < n){
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', current);
-                    console.log("ENTRO");
                 }
                 
             });
