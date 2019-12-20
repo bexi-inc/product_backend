@@ -38,13 +38,13 @@
 <div>
     <div class="row justify-content-center">
         <div class="col-4 C">
-            <p>BACK</p>
+            <p class="back" >BACK</p>
         </div>
         <div class="col-4 C">
             <input type="text" name="subject" class="bexi_input" id="subject" value="977">
         </div>
         <div class="col-4 C">
-            <p>NEXT</p>
+            <p class="next" >NEXT</p>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -65,7 +65,12 @@
             var bID = b.id; 
             return (aID-bID);
         }
-                    
+        function next(){
+            console.log('it works next');
+        }
+        function back(){
+            console.log('it works back');
+        }
         $( document ).ready(function() {
             $.ajax({
                 url: 'http://generator.getmodu.com/api/v1/api.php',
@@ -90,7 +95,9 @@
                     $('#viewer').attr('src', url);
                 }
             });
-
+            $(".next").on('click', next());
+            $(".back").on('click', back());
+             
         });
     </script>
 </html>
