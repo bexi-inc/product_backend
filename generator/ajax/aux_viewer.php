@@ -7,7 +7,8 @@ $cmd = $_REQUEST["cmd"];
 
 switch ($cmd) {
 	case "blocks":
-		   $res = GetIdContents();
+		   $res["data"] = GetIdContents();
+		   $res["error"] = 0;
     break;
 }
 
