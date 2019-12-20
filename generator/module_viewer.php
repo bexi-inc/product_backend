@@ -79,13 +79,13 @@
         <div class="col-1 C">
             <button class="buttons2 back"><i class="fas fa-angle-double-left"></i></button>
         </div>
-        <div class="col-1 C">
+        <div class="col-2 C">
             <button class="buttons back"><i class="fas fa-chevron-left"></i>BACK</button>
         </div>
-        <div class="col-8 C">
+        <div class="col-6 C">
             <input type="text" name="subject" class="bexi_input" id="subject" value="977">
         </div>
-        <div class="col-1 C">
+        <div class="col-2 C">
             <button class="buttons next">NEXT<i class="fas fa-chevron-right"></i></button>
         </div>
         <div class="col-1 C">
