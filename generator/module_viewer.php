@@ -97,6 +97,7 @@
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', current);
+                    $("#subject").val(window.contents[current].id);
                 }
                 
             });
@@ -107,6 +108,7 @@
                     var url = "http://generator.getmodu.com/view_module.php?id=" + window.contents[current].id;
                     $('#viewer').attr('src', url);
                     $('#viewer').attr('current', current);
+                    $("#subject").val(window.contents[current].id);
                 }
             });
              
