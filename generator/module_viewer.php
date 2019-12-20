@@ -65,12 +65,6 @@
             var bID = b.id; 
             return (aID-bID);
         }
-        function next(){
-            console.log('it works next');
-        }
-        function back(){
-            console.log('it works back');
-        }
         $( document ).ready(function() {
             $.ajax({
                 url: 'http://generator.getmodu.com/api/v1/api.php',
@@ -95,8 +89,12 @@
                     $('#viewer').attr('src', url);
                 }
             });
-            $(".next").on('click', next());
-            $(".back").on('click', back());
+            $(".next").click(function () {
+                console.log('it works next');
+            });
+            $(".back").click(function () {
+                console.log('it works back');
+            });
              
         });
     </script>
