@@ -57,7 +57,8 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 		"name" :  "'.$name.'",
 		"last_name" : "' . $lastname . '",
 		"password" : "'.password_hash($password,PASSWORD_DEFAULT).'",
-		"email_token" : "'.$token_email.'"
+		"email_token" : "'.$token_email.'",
+		"email_confirm" : 1
 	}';
 
 	$resIns=Insert("users",$userData);
@@ -444,6 +445,7 @@ function GmailSigin($code, $redirect="")
 		$userData ='{
 			"id" : "'.$userid.'",
 			"username" : "'.$email.'",
+			"email_confirm" : 1,
 		';
 		if ((isset($name)) && $name != "")
 		{

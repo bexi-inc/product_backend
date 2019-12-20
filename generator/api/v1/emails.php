@@ -47,6 +47,21 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 			$subject = "Welcome to GetModu";
 			break;
 		case 2:
+			$params = [
+		        'TableName' => "bexi_prod_users",
+		         "KeyConditionExpression"=> "id = :id",
+		        "ExpressionAttributeValues"=> [
+		            ":id" =>  ["S" => strval($user) ]
+			    ]
+			];
+
+		    $result = $dynamodb->query($params);
+
+		   
+		    if (count($result['Items'])>0)
+		    {
+		    	$projectId = $marshaler->unmarshalValue($result['Items'][0]["email_token"]);
+		    }
 			$code=file_get_contents(dirname(__FILE__) . DIRECTORY_SEPARATOR ."email_themes/confirm_email.html");
 			$subject = "Confirm Email";
 			break;
