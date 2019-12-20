@@ -13,14 +13,13 @@
     <style>
         
         .iframe-container {
-        
-        padding-top: 56.25%;
+        overflow: hidden;
         position: relative;
+        height: 650px;
         }
         
         .iframe-container iframe {
         border: 0;
-        
         left: 0;
         position: absolute;
         top: 0;
@@ -77,19 +76,19 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-1 C">
-            <button class="buttons2 back"><i class="fas fa-angle-double-left"></i></button>
+            <button class="buttons2 back mr-0"><i class="fas fa-angle-double-left"></i></button>
         </div>
         <div class="col-2 C">
-            <button class="buttons back"><i class="fas fa-chevron-left"></i>BACK</button>
+            <button class="buttons back ml-0"><i class="fas fa-chevron-left"></i>BACK</button>
         </div>
         <div class="col-6 C">
             <input type="text" name="subject" class="bexi_input" id="subject" value="977">
         </div>
         <div class="col-2 C">
-            <button class="buttons next">NEXT<i class="fas fa-chevron-right"></i></button>
+            <button class="buttons next mr-0">NEXT<i class="fas fa-chevron-right"></i></button>
         </div>
-        <div class="col-1 C">
-            <button class="buttons2 back"><i class="fas fa-angle-double-right"></i></button>
+        <div class="col-1 C ">
+            <button class="buttons2 back ml-0"><i class="fas fa-angle-double-right"></i></button>
         </div>
     </div>
     <div class="row justify-content-center">
