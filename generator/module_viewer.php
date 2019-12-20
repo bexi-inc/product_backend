@@ -13,7 +13,7 @@
     <style>
         
         .iframe-container {
-            min-height: calc(100vh - 100px);
+            min-height: calc(103vh - 100px);
         }
         
         .iframe-container iframe {
@@ -21,7 +21,7 @@
         left: 0;
         top: 0;
         width: 100%;
-        min-height: calc(100vh - 100px);
+        min-height: calc(103vh - 100px);
         }
         
         /* 4x3 Aspect Ratio */
@@ -69,10 +69,10 @@
         }
     </style>
 </head>
-<body style="background-color:#E7EAEA">
+<body style="background-color:#fff">
 
 <div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center shadow_box" style="background-color:#E7EAEA">
         <div class="col-1 C">
             <button class="buttons2 first mr-0"><i class="fas fa-angle-double-left"></i></button>
         </div>
@@ -89,8 +89,8 @@
             <button class="buttons2 last ml-0"><i class="fas fa-angle-double-right"></i></button>
         </div>
     </div>
-    <div class="row m-0 justify-content-center">
-        <div class="col-md-12 C shadow_box" style="background-color: white;">
+    <div class="row justify-content-center">
+        <div class="col-md-12 C">
             <div class="iframe-container">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
             </div>  
