@@ -135,7 +135,7 @@ function scanAll($tableName){
 			'TableName' => $tableName
 			)
 		);
-		$ret["result"]=$result;
+		$ret["data"]=$result;
 	} 
 	catch (DynamoDbException $e) {
 
