@@ -8,6 +8,8 @@
     <script src="includes/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bexi.css" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <style>
         
         .iframe-container {
@@ -68,36 +70,26 @@
             display: block;
             top: 15%;
         }
-
-        #viewer{
-            zoom: -0.35;
-            -moz-transform:scale(0.75);
-            -moz-transform-origin: 0 0;
-            -o-transform: scale(0.75);
-            -o-transform-origin: 0 0;
-            -webkit-transform: scale(0.75);
-            -webkit-transform-origin: 0 0;
-        }
     </style>
 </head>
 <body style="background-color:#E7EAEA">
 
-<div class="container-fluid p-0">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-2 C">
-            <button class="buttons2 back">&#8676;</button>
+        <div class="col-1 C">
+            <button class="buttons2 back"><i class="fas fa-angle-double-left"></i></button>
         </div>
-        <div class="col-3 C">
-            <button class="buttons back">&#8592;</button>
+        <div class="col-1 C">
+            <button class="buttons back"><i class="fas fa-chevron-left"></i>BACK</button>
         </div>
-        <div class="col-2 C">
+        <div class="col-8 C">
             <input type="text" name="subject" class="bexi_input" id="subject" value="977">
         </div>
-        <div class="col-3 C">
-            <button class="buttons next">&#8594;</button>
+        <div class="col-1 C">
+            <button class="buttons next">NEXT<i class="fas fa-chevron-right"></i></button>
         </div>
-        <div class="col-2 C">
-            <button class="buttons2 back">&#8677;</button>
+        <div class="col-1 C">
+            <button class="buttons2 back"><i class="fas fa-angle-double-right"></i></button>
         </div>
     </div>
     <div class="row justify-content-center">
