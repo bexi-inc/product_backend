@@ -63,8 +63,13 @@
         transform-origin: top left;
         }
         #viewer{
-            -moz-transform: scale(0.25, 0.25); 
-            -moz-transform-origin: top left;
+            zoom: 0.71;
+            -moz-transform:scale(0.75);
+            -moz-transform-origin: 0 0;
+            -o-transform: scale(0.75);
+            -o-transform-origin: 0 0;
+            -webkit-transform: scale(0.75);
+            -webkit-transform-origin: 0 0;
         }
     </style>
 </head>
