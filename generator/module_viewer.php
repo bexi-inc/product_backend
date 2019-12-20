@@ -90,7 +90,7 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-12 C">
+        <div class="col-md-12 p-0 C">
             <div class="iframe-container">
                 <iframe src="" id="viewer" width="1600" height="600" frameborder="0"></iframe>
             </div>  
