@@ -112,6 +112,23 @@ echo "\r\n";
 ?>
     
 <?
+echo "<style>";
+echo ":root {
+    ";
+echo "   --color-1: rgb(246, 135, 0);
+--color-2: rgb(246, 135, 0);
+--color-3: white;";
+echo "      --color-text-1:black;
+    --color-text-2:grey;
+";
+echo "";
+echo "--font-1:'Montserrat', sans-serif;";
+echo "";
+echo "";
+echo "--font-2:'Montserrat', sans-serif;";
+echo "";
+echo "}";
+echo "</style>";
 echo "</head>";
 echo "\r\n";
 

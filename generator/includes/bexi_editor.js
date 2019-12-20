@@ -1977,6 +1977,9 @@ function initialize_editors_text(){
         },
         'initialized': function () {
           styles_ptags();
+        },
+        'contentChanged': function () {
+          auto_save();
         }
       }
     });
@@ -1999,6 +2002,9 @@ function initialize_editors_text(){
         },
         'initialized': function () {
           styles_ptags();
+        },
+        'contentChanged': function () {
+          auto_save();
         }
       }
     });
@@ -2040,10 +2046,13 @@ function initialize_editors_text(){
       },
       'blur': function () {
         auto_save();
+      },
+      'initialized': function () {
+        styles_ptags();
+      },
+      'contentChanged': function () {
+        auto_save();
       }
-    },
-    'initialized': function () {
-      styles_ptags();
     }
     });
 }
