@@ -88,13 +88,13 @@
             <button class="buttons2 first">&#8676;</button>
         </div>
         <div class="col-4 C">
-            <button class="buttons back">&#8592;</button>
+            <button class="buttons back">BACK</button>
         </div>
         <div class="col-2 C">
             <input type="text" name="subject" class="bexi_input C" id="subject" value="977">
         </div>
         <div class="col-4 C">
-            <button class="buttons next">&#8594;</button>
+            <button class="buttons next">NEXT</button>
         </div>
         <div class="col-1 C">
             <button class="buttons2 last">&#8677;</button>
@@ -185,14 +185,13 @@
                 
             });
             $(".last").click(function () {
-                    var n = window.contents.length;
-                    var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[n].id;
-                    $('#viewer').attr('src', url);
-                    $('#viewer').attr('current', window.contents[n].id);
-                    $("#subject").val(window.contents[n].id);
-                    console.log('IF LAST');
-                }
-                
+                var n = window.contents.length;
+                var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[n].id;
+                $('#viewer').attr('src', url);
+                $('#viewer').attr('current', window.contents[n].id);
+                $("#subject").val(window.contents[n].id);
+                console.log('IF LAST');
+
             });
             $(".back").click(function () {
                 var current = parseInt($('#viewer').attr('current')) - 1;
@@ -206,13 +205,11 @@
                 }
             });
             $(".first").click(function () {
-                    var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[0].id;
-                    $('#viewer').attr('src', url);
-                    $('#viewer').attr('current', window.contents[0].id);
-                    $("#subject").val(window.contents[0].id);
-                    console.log('IF LAST');
-                }
-                
+                var url = "http://generator.getmodu.com/aux_viewer.php?id=" + window.contents[0].id;
+                $('#viewer').attr('src', url);
+                $('#viewer').attr('current', window.contents[0].id);
+                $("#subject").val(window.contents[0].id);
+                console.log('IF FIRST');
             });
             setIframeHeight(document.getElementById('#viewer'));
              
