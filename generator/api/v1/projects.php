@@ -172,6 +172,15 @@ function GetProjects($userId)
 					{
 						$last=count($dbdata2)-1;
 						$proj["deliverable_id"]=$Marshaler->unmarshalValue($dbdata2[$last]["deliverable_id"]);
+
+						if(isset($dbdata2[$last]["subdomain"]))
+						{
+							$dom=$Marshaler->unmarshalValue($dbdata2[$last]["subdomain"]);
+							if($dom!="")
+							{
+								$proj["link"]="http://".$dom.".getmodu.com/";
+							}
+						}
 					}
 				}
 				else
@@ -186,6 +195,7 @@ function GetProjects($userId)
 				$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
 				$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
 				$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
+
 
 				if ($project["date_create"])
 				{
