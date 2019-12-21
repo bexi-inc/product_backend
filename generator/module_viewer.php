@@ -21,7 +21,7 @@
         left: 0;
         top: 0;
         width: 100%;
-        min-height: calc(102vh - 100px);
+        min-height: calc(102vh - 85px);
         }
         
         /* 4x3 Aspect Ratio */
