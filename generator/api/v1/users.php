@@ -41,10 +41,10 @@ function ConfirmEmail($connDyn, $email_token)
 		$ret["error_code"] = "500";
 	    $ret["message"] =  "Email Token doesn't exists";
 	    //echo $table["error"];
-	    return $ret;
+	   // return $ret;
 	}
 
-	
+	return $ret;
 }
 
 function SigIn($connDyn, $email, $name, $lastname, $password)
