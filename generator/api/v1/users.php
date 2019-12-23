@@ -4,7 +4,7 @@ function ConfirmEmail($connDyn, $email_token)
 {
 	global $Marshaler;
 	$ret["error_code"] = "0";
-	$ret["confirm "]=0;
+	$ret["confirm"]=0;
 
 	$data='
 	    {
@@ -19,7 +19,7 @@ function ConfirmEmail($connDyn, $email_token)
 		if (count($dbdata)>0)
 		{
 		    $userid = $Marshaler->unmarshalValue($dbdata[0]['id']);
-		    $ret["confirm "]=1;
+		    $ret["confirm"]=1;
 		    SendEmail(1,$userid);
 
 		    $key = '
