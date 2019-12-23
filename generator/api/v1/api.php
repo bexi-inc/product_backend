@@ -256,6 +256,7 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params";
  			
  		}
+ 		$res = ConfirmEmail($Dynamodb,$_REQ->email_token);
  		//$res = ExistDomain($_REQ->domain);
  		break;
  	default:

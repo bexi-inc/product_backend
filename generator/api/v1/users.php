@@ -1,5 +1,48 @@
 <?
 
+function ConfirmEmail($connDyn, $email_token)
+{
+	global $Marshaler;
+	$ret["error_code"] = "0";
+
+	$data='
+	    {
+	        ":token ": "'.$email_token.'"
+	    }
+	';
+
+	$table = ExecuteQuery("users",$data,"email_token  = :token","email_token-index");
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+		    $userid = $Marshaler->unmarshalValue($dbdata[0]['id']);
+		    SendEmail(1,$userid);
+
+		    $key = '
+			    {
+			        "id": "'.$userid.'"
+			    }
+			';
+
+			$updateData='{
+				":token" : " "
+			}';
+
+			$paramsNoms["#value"] = "value";
+			$resUpd = Update("users",$key,"set email_token = :token",$updateData);
+		}
+
+	}
+	else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  "Email Token doesn't exists";
+	    return $ret;
+	}
+
+	
+}
 
 function SigIn($connDyn, $email, $name, $lastname, $password)
 {
