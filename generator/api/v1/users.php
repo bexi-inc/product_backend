@@ -7,7 +7,7 @@ function ConfirmEmail($connDyn, $email_token)
 
 	$data='
 	    {
-	        ":token ": "'.$email_token.'"
+	        ":token": "'.$email_token.'"
 	    }
 	';
 
@@ -38,7 +38,7 @@ function ConfirmEmail($connDyn, $email_token)
 	else{
 		$ret["error_code"] = "500";
 	    $ret["message"] =  "Email Token doesn't exists";
-	    echo $table["error"];
+	    //echo $table["error"];
 	    return $ret;
 	}
 
