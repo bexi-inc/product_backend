@@ -50,6 +50,32 @@ function ConfirmEmail($connDyn, $email_token)
 function SigIn($connDyn, $email, $name, $lastname, $password)
 {
 	global $Marshaler;
+	/********validate email on white list*******/
+	$data='
+	{
+		":email": "'.$email.'"
+	}
+	';
+	$table = ExecuteQuery("modu_white_list",$data,"email = :email","email-index","",false);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)==0)
+		{
+				$ret["error_code"] = "300";
+				$ret["message"] = "This email its not allowed";
+				return $ret;
+		}
+
+	}
+	else{
+		$ret["error_code"] = "500";
+		$ret["message"] =  $table["error"];
+		return $ret;
+	}
+
+	
 	$ret["error_code"] = "0";
 
 	$data='
@@ -435,7 +461,32 @@ function GmailSigin($code, $redirect="")
 		}
 		$email =  $google_account_info->email;
 		
-		
+		/********validate email on white list*******/
+		$data='
+	    {
+	        ":email": "'.$email.'"
+	    }
+		';
+		$table = ExecuteQuery("modu_white_list",$data,"email = :email","email-index","",false);
+
+		if ($table["error"]=="")
+		{
+			$dbdata = $table["data"]['Items'];
+			if (count($dbdata)==0)
+			{
+			    	$ret["error_code"] = "300";
+			    	$ret["message"] = "This email its not allowed";
+			    	return $ret;
+			}
+
+		}
+		else{
+			$ret["error_code"] = "500";
+		    $ret["message"] =  $table["error"];
+		    return $ret;
+		}
+
+
 		$idgoogle =  $google_account_info->id;
 
 		//print_r($google_account_info);
