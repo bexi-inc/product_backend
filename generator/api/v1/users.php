@@ -63,7 +63,7 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 		$dbdata = $table["data"]['Items'];
 		if (count($dbdata)==0)
 		{
-				$ret["error_code"] = "300";
+				$ret["error_code"] = "101";
 				$ret["message"] = "This email its not allowed";
 				return $ret;
 		}
@@ -75,7 +75,7 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 		return $ret;
 	}
 
-	
+
 	$ret["error_code"] = "0";
 
 	$data='
@@ -474,7 +474,7 @@ function GmailSigin($code, $redirect="")
 			$dbdata = $table["data"]['Items'];
 			if (count($dbdata)==0)
 			{
-			    	$ret["error_code"] = "300";
+			    	$ret["error_code"] = "101";
 			    	$ret["message"] = "This email its not allowed";
 			    	return $ret;
 			}
