@@ -645,7 +645,18 @@ function create_recipe($proj_id)
 			}
 			//random pickup contents for each part
 			foreach ($newparts as $part) {
-				$final [] =  $part["contents"][array_rand($part["contents"], 1)];//add the id-content random to the array
+				//check if its the first and if there is only one content on the list
+				if(count($final)>0 && count($part["contents"])>1)
+				{
+					$last=$final[count($final)-1];//get last id
+					$temp=$last;
+					do {
+						$temp=$part["contents"][array_rand($part["contents"], 1)];
+					} while ($temp != $last);
+					$final [] =$temp;
+				}else{
+					$final [] =  $part["contents"][array_rand($part["contents"], 1)];//add the id-content random to the array
+				}
 			}
 		}
 	}else{
