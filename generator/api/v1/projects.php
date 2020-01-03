@@ -651,6 +651,7 @@ function create_recipe($proj_id)
 					$last=$final[count($final)-1];//get last id
 					$temp=$last;
 					do {
+						print_r("entro");
 						$temp=$part["contents"][array_rand($part["contents"], 1)];
 					} while ($temp !== $last);
 					$final [] =$temp;
