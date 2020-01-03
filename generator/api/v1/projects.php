@@ -652,7 +652,7 @@ function create_recipe($proj_id)
 					$temp=$last;
 					do {
 						$temp=$part["contents"][array_rand($part["contents"], 1)];
-					} while ($temp != $last);
+					} while ($temp !== $last);
 					$final [] =$temp;
 				}else{
 					$final [] =  $part["contents"][array_rand($part["contents"], 1)];//add the id-content random to the array
