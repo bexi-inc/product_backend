@@ -481,10 +481,12 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $local_file = $fileZip;
 
         /* Connect using basic FTP */
-        $connect_it = ftp_connect( $ftp_host,22);
+        $connect_it = ftp_connect($ftp_host,22);
 
         /* Login to FTP */
-        $login_result = ftp_login( $connect_it, $ftp_user_name, $ftp_user_pass );
+        $login_result = ftp_login( $connect_it,$ftp_user_name, $ftp_user_pass);
+        
+        print_r($login_result);
 
         /* Send $local_file to FTP */
         if ( ftp_put( $connect_it, "/var/www/html/", $local_file, FTP_BINARY ) ) {
