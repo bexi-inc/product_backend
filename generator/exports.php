@@ -478,7 +478,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
 
         /* File and path to send to remote FTP server */
-        $local_file = $PATH.$subdomain.".zip";
+        $local_file = $fileZip;
 
         /* Connect using basic FTP */
         $connect_it = ftp_connect( $ftp_host);
@@ -487,7 +487,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $login_result = ftp_login( $connect_it, $ftp_user_name, $ftp_user_pass );
 
         /* Send $local_file to FTP */
-        if ( ftp_put( $connect_it, "/var/www/html", $local_file, FTP_BINARY ) ) {
+        if ( ftp_put( $connect_it, "/var/www/html/", $local_file, FTP_BINARY ) ) {
             echo "WOOT! Successfully transfer $local_file\n";
         }
         else {
