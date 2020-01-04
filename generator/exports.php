@@ -485,8 +485,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
         /* Login to FTP */
         $login_result = ftp_login( $connect_it,$ftp_user_name, $ftp_user_pass);
-        
-        print_r($login_result);
+
+        echo $login_result;
 
         /* Send $local_file to FTP */
         if ( ftp_put( $connect_it, "/var/www/html/", $local_file, FTP_BINARY ) ) {
