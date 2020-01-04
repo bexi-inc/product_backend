@@ -467,6 +467,37 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
        }
     }elseif ($Type=="dom")
     {
+        /*********** test for ftp ***********/
+        unlink($PATHBASE.$subdomain.".zip");//delete the zip if exist
+        $fileZip = $PATHBASE.$subdomain.".zip" ;
+        zipme($PATH,$fileZip);
+        /* FTP Account (Remote Server) */
+        $ftp_host = '62.151.176.163'; /* host */
+        $ftp_user_name = 'root'; /* username */
+        $ftp_user_pass = 'Kt01i8dGTU'; /* password */
+
+
+        /* File and path to send to remote FTP server */
+        $local_file = $fileZip;
+
+        /* Connect using basic FTP */
+        $connect_it = ftp_connect( $ftp_host );
+
+        /* Login to FTP */
+        $login_result = ftp_login( $connect_it, $ftp_user_name, $ftp_user_pass );
+
+        /* Send $local_file to FTP */
+        if ( ftp_put( $connect_it, "/var/www/html/zips/", $local_file, FTP_BINARY ) ) {
+            echo "WOOT! Successfully transfer $local_file\n";
+        }
+        else {
+            echo "Doh! There was a problem\n";
+        }
+
+        /* Close the connection */
+        ftp_close( $connect_it );
+        unlink($PATHBASE.$subdomain.".zip");//delete the zip
+        /***************** end test ******************/
         $BUCKET_NAME = $subdomain.'.getmodu.com';
 
         $s3Client = new S3Client([
