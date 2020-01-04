@@ -472,7 +472,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $fileZip = $PATHBASE.$subdomain.".zip" ;
         zipme($PATH,$fileZip);
         /* FTP Account (Remote Server) */
-        $connection = ssh2_connect('62.151.176.163', 22);
+        $connection = ssh2_connect('sftp://62.151.176.163', 22);
         ssh2_auth_password($connection,'root','Kt01i8dGTU');
 
         /* File and path to send to remote FTP server */
@@ -485,9 +485,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         else {
             echo "Doh! There was a problem\n";
         }
-
-        /* Close the connection */
-        ftp_close( $connect_it );
         unlink($PATHBASE.$subdomain.".zip");//delete the zip
         /***************** end test ******************/
         $BUCKET_NAME = $subdomain.'.getmodu.com';
