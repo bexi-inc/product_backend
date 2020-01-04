@@ -481,6 +481,22 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         /* Send $local_file to FTP */
         if (ssh2_scp_send($connection,$local_file, '/var/www/html/'.$subdomain.".zip", 0644)) {
             echo "WOOT! Successfully transfer $local_file\n";
+            
+            $url = 'http://62.151.176.163/var/www/html/';
+            $fields_string ='subdomain='.$subdomain;
+            //open connection
+            $ch = curl_init();
+
+            //set the url, number of POST vars, POST data
+            curl_setopt($ch,CURLOPT_URL, $url);
+            curl_setopt($ch,CURLOPT_POST,1);
+            curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+
+            //execute post
+            $resultunzip = curl_exec($ch);
+            print_r($resultunzip);
+            //close connection
+            curl_close($ch);
         }
         else {
             echo "Doh! There was a problem\n";
