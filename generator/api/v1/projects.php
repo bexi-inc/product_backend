@@ -503,7 +503,7 @@ function DeployDeliverable($idDev, $ProjId, $type, $subdomain="")
 		}
 		//$ret["link"]="http://".$subdomain.".getmodu.com.s3-website.us-east-2.amazonaws.com/";
 		$ret["link"] = "http://".$subdomain.".getmodu.com/";
-		$ret["aws_link"] = $subdomain.AWS_BUCKET_URL;
+		$ret["aws_link"] = $subdomain.BEXI_BUCKET_URL;
 
 	}elseif ($type==2)
 	{
