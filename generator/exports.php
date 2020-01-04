@@ -482,7 +482,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         if (ssh2_scp_send($connection,$local_file, '/var/www/html/'.$subdomain.".zip", 0644)) {
             echo "WOOT! Successfully transfer $local_file\n";
             
-            $url = 'http://62.151.176.163/var/www/html/';
+            $url = 'http://62.151.176.163/';
             $fields_string ='subdomain='.$subdomain;
             //open connection
             $ch = curl_init();
