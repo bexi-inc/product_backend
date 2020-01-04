@@ -479,7 +479,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $local_file = $fileZip;
 
         /* Send $local_file to FTP */
-        if (ssh2_scp_send($connection,$local_file, '/var/www/html/', 0644)) {
+        if (ssh2_scp_send($connection,$local_file, '/var/www/html/'.$subdomain.".zip", 0644)) {
             echo "WOOT! Successfully transfer $local_file\n";
         }
         else {
