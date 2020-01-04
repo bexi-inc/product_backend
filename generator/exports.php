@@ -496,7 +496,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             print_r($resultunzip);
             if($resultunzip["dir"]==="0")
             {
-                echo "it works";
+                print_r("it works");
                 $clientRoute = Route53Client::factory([
                     'version'     => 'latest',
                     'region'      => $AWS_REGION,
