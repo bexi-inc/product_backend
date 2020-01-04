@@ -478,7 +478,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
 
         /* File and path to send to remote FTP server */
-        $local_file = $fileZip;
+        $local_file = $PATH.$subdomain.".zip";
 
         /* Connect using basic FTP */
         $connect_it = ftp_connect( $ftp_host);
