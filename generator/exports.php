@@ -489,7 +489,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             curl_setopt($ch,CURLOPT_URL, $url);
             curl_setopt($ch,CURLOPT_POST,1);
             curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
-
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //execute post
             $resultunzip = curl_exec($ch);
             print_r($resultunzip);
