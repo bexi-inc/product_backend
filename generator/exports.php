@@ -480,7 +480,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
         /* Send $local_file to FTP */
         if (ssh2_scp_send($connection,$local_file, '/var/www/html/'.$subdomain.".zip", 0644)) {
-            echo "WOOT! Successfully transfer\n";
             $url = 'http://server-hosting.s01.getmodu.com/unzip.php';
             $fields_string ='subdomain='.$subdomain;
             //open connection
