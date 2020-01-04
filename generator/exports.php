@@ -493,7 +493,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
             //execute post
             $resultunzip = curl_exec($ch);
-            if($result["dir"]==="0")
+            if($resultunzip["dir"]==="0")
             {
                 $clientRoute = Route53Client::factory([
                     'version'     => 'latest',
