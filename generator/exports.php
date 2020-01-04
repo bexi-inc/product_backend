@@ -480,9 +480,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
         /* Send $local_file to FTP */
         if (ssh2_scp_send($connection,$local_file, '/var/www/html/'.$subdomain.".zip", 0644)) {
-            echo "WOOT! Successfully transfer $local_file\n";
-            
-            $url = 'http://62.151.176.163/unzip.php';
+            echo "WOOT! Successfully transfer\n";
+            $url = 'http://server-hosting.s01.getmodu.com/unzip.php';
             $fields_string ='subdomain='.$subdomain;
             //open connection
             $ch = curl_init();
@@ -494,7 +493,47 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
             //execute post
             $resultunzip = curl_exec($ch);
-            echo $resultunzip;
+            if($result["dir"]==="0")
+            {
+                $clientRoute = Route53Client::factory([
+                    'version'     => 'latest',
+                    'region'      => $AWS_REGION,
+                    'credentials' => [
+                    'key'    => $aws_key,
+                    'secret' => $aws_pass,
+                ],
+                ]);
+                
+                $result = $clientRoute->changeResourceRecordSets(array(
+                    // HostedZoneId is required
+                    'HostedZoneId' => 'Z2F596910Z445W',
+                    // ChangeBatch is required
+                    'ChangeBatch' => array(
+                        'Comment' => 'string',
+                        // Changes is required
+                        'Changes' => array(
+                            array(
+                                // Action is required
+                                'Action' => 'CREATE',
+                                // ResourceRecordSet is required
+                                'ResourceRecordSet' => array(
+                                    // Name is required
+                                    'Name' => $subdomain.".getmodu.com.",
+                                    // Type is required
+                                    'Type' => 'CNAME',
+                                    'TTL' => 300,
+                                    'ResourceRecords' => array(
+                                        array(
+                                            // Value is required
+                                            'Value' => $subdomain.BEXI_BUCKET_URL
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ));
+            }
             //close connection
             curl_close($ch);
         }
@@ -503,8 +542,10 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         }
         unlink($PATHBASE.$subdomain.".zip");//delete the zip
         /***************** end test ******************/
+
         $BUCKET_NAME = $subdomain.'.getmodu.com';
 
+        /*
         $s3Client = new S3Client([
             'version'     => 'latest',
             'region'      => $AWS_REGION,
@@ -683,17 +724,13 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                  }
               }
            } 
-
-        
-
-
            // echo "Succeed in put a policy on bucket: " . $BUCKET_NAME . "\n";
         } catch (AwsException $e) {
             // Display error message
             echo $e->getMessage();
             echo "\n";
         }
-
+        */
         return $BUCKET_NAME;
     }
 
