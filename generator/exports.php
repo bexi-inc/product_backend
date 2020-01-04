@@ -492,8 +492,10 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
             //execute post
             $resultunzip = curl_exec($ch);
+            print_r($resultunzip);
             if($resultunzip["dir"]==="0")
             {
+                echo("it works");
                 $clientRoute = Route53Client::factory([
                     'version'     => 'latest',
                     'region'      => $AWS_REGION,
