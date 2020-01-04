@@ -472,24 +472,14 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $fileZip = $PATHBASE.$subdomain.".zip" ;
         zipme($PATH,$fileZip);
         /* FTP Account (Remote Server) */
-        $ftp_host = '62.151.176.163'; /* host */
-        $ftp_user_name = 'root'; /* username */
-        $ftp_user_pass = 'Kt01i8dGTU'; /* password */
-
+        $connection = ssh2_connect('62.151.176.163', 22);
+        ssh2_auth_password($connection,'root','Kt01i8dGTU');
 
         /* File and path to send to remote FTP server */
         $local_file = $fileZip;
 
-        /* Connect using basic FTP */
-        $connect_it = ftp_connect($ftp_host,22);
-
-        /* Login to FTP */
-        $login_result = ftp_login( $connect_it,$ftp_user_name, $ftp_user_pass);
-
-        echo $login_result;
-
         /* Send $local_file to FTP */
-        if ( ftp_put( $connect_it, "/var/www/html/", $local_file, FTP_BINARY ) ) {
+        if (ssh2_scp_send($connection,$local_file, '/var/www/html/', 0644)) {
             echo "WOOT! Successfully transfer $local_file\n";
         }
         else {
