@@ -494,7 +494,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
             //execute post
             $resultunzip = curl_exec($ch);
-            print_r($resultunzip);
+            echo $resultunzip;
             //close connection
             curl_close($ch);
         }
