@@ -492,6 +492,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //execute post
             $resultunzip = curl_exec($ch);
+            $resultunzip=json_decode($resultunzip);
             print_r($resultunzip);
             if($resultunzip["dir"]==="0")
             {
