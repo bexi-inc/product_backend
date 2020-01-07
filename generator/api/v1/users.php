@@ -64,7 +64,7 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 		if (count($dbdata)==0)
 		{
 				$ret["error_code"] = "300";
-				$ret["message"] = "This email its not allowed";
+				$ret["message"] = "To request access, go to getmodu.com.";
 				return $ret;
 		}
 
@@ -475,7 +475,7 @@ function GmailSigin($code, $redirect="")
 			if (count($dbdata)==0)
 			{
 			    	$ret["error_code"] = "300";
-			    	$ret["message"] = "This email its not allowed";
+			    	$ret["message"] = "To request access, go to getmodu.com.";
 			    	return $ret;
 			}
 
