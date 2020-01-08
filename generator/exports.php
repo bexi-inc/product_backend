@@ -106,7 +106,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         echo "<meta charset='utf-8'>";
         //echo '<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />';
         echo "\r\n";
-        echo "<title>Bexi DNA Project</title>";
+        echo "<title>".$project_name."</title>";
         echo "\r\n";
 
         echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
