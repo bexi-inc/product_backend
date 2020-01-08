@@ -275,7 +275,7 @@ function frameload(ID){
             }).done(function( data, textStatus, jqXHR ) {
                 // Show image container
                 $("#"+uId).append(newDiv);
-                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.bexi.co/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.getmodu.com/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {
