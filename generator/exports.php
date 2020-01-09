@@ -472,8 +472,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $fileZip = $PATHBASE.$subdomain.".zip" ;
         zipme($PATH,$fileZip);
         /* FTP Account (Remote Server) */
-        $connection = ssh2_connect('62.151.176.163', 22);
-        ssh2_auth_password($connection,'root','Kt01i8dGTU');
+        $connection = ssh2_connect(SFTP_HOST, SFTP_PORT);
+        ssh2_auth_password($connection,SFTP_USER,SFTP_PASS);
 
         /* File and path to send to remote FTP server */
         $local_file = $fileZip;
