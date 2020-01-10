@@ -384,7 +384,7 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 		if (count($dbdata)>0)
 		{
 			$winner_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
-			$userid=$Marshaler->unmarshalValue($dbdata[0]['id']);
+			$userid=$Marshaler->unmarshalValue($dbdata[0]['user']);
 		}
 	}
 
