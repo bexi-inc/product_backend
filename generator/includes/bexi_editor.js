@@ -1390,7 +1390,7 @@ function initialize_editors_text(){
     var editortxt = new FroalaEditor('.bexi_editor_text',
     {
       //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
-      key : FroalaKey,
+      key : "qc1H2pE1B3A1D7C6E5ovpnB-21B3xsgC3E3G3C2B7D5A3F4B2G3==",
       fileUpload: false,
       placeholderText: '',
       quickInsertEnabled: false,
