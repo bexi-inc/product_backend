@@ -368,7 +368,7 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 {
 	global $Marshaler;
 	$pid = microtime(true);
-	
+	$userid=null;
 
 	$data='
 	    {
@@ -383,7 +383,8 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 		$dbdata = $table["data"]['Items'];
 		if (count($dbdata)>0)
 		{
-		    $winner_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
+			$winner_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
+			$userid=$Marshaler->unmarshalValue($dbdata[0]['id']);
 		}
 	}
 
@@ -403,8 +404,40 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 		    $loser_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
 		}
 	}
-	
-	
+	//delete all temporally desings code
+	$data='
+	{
+		":user": "'.$userid.'"
+	}
+	';
+
+	$table = ExecuteQuery("bexi_projects_tmp",$data,"user = :user","user-index","",false);
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+            foreach ($dbdata as $item) {
+				$tempid = $Marshaler->unmarshalValue($item["id"]);
+				$key='
+					{
+						":id": "'.$tempid.'",
+						":user": "'.$userid.'"
+					}
+				';
+				$resul=remove("bexi_projects_tmp",$key);
+            }
+
+            $ret["error_code"] = "0";
+            $ret["contents"] = $contents;
+	        return $ret;
+		}
+	}
+	else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
 	//print_r($Data);
 
 

@@ -140,10 +140,33 @@ function scanAll($tableName){
 	catch (DynamoDbException $e) {
 
 		$ret["error"]= $e->getMessage();
-		
+
 	}
 
 	return $ret;
+}
+
+function remove($tableName,$key)
+{
+
+	global $Dynamodb;
+	global $Marshaler;
+	
+
+	$key = $Marshaler->marshalJson($key);
+
+	$params = [
+		'TableName' => $tableName,
+		'key'=> $key
+	];
+
+	$ret["error"]="";
+	try {
+	    $ret["data"] = $Dynamodb->deleteItem($params);
+	} catch (DynamoDbException $e) {
+		 $ret["error"]=$e->getMessage();
+	}
+	return  $ret;
 }
 
 ?>
