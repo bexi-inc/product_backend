@@ -1409,3 +1409,7 @@ blockquote blockquote blockquote {
 .grid-item{
   display: table;
 }
+
+.transpa-bg{
+  background-position-y: center;
+}
