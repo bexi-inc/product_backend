@@ -460,6 +460,9 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
         echo '<link rel="stylesheet" type="text/css" href="includes/css/bexi_selector.css">';
         echo '<script type="text/javascript"  src="includes/bexi_editor_selector.js"></script>';
     }else{
+        echo '<script type="text/javascript" >
+                var FroalaKey = "'.FROALA_KEY.'";
+              </script>';
         echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >'; 
         echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
     }

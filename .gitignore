@@ -1,4 +1,5 @@
 /generator/config.php
+/generator/config_debug.php
 /generator/config.js
 /sftp-config.json
 /generator/migration.php
