@@ -726,6 +726,7 @@ function ExistDeliverable($projectid,$type)
 			$res["error"]="0";
 			$res["message"] = "Deliverable found";
 			$res["deliverable_id"] =  $Marshaler->unmarshalValue($dbdata[0]['deliverable_id']);
+			$res["dev_status"]=$Marshaler->unmarshalValue($dbdata[0]['dev_status']);
 		}
 		else
 		{
@@ -741,7 +742,6 @@ function ExistDeliverable($projectid,$type)
 	}
 	return $res;
 }
-
 
 function EditDeliverable($deliverable_id,$project_id,$winner, $loser)
 {

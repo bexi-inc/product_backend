@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);*/
 include "includes/global.php";
 include "includes/utils.php";
-    
+require "db.php";
 require 'vendor/autoload.php';
 //include "includes/content_blocks.php";
 
@@ -79,6 +79,18 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
          $project_id = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
          $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
 
+
+        /******************update dev_status***************************/
+        $key = '
+        {
+            "deliverable_id": "'.$DevId.'",
+            "project_id" : "'.$project_id.'"
+        }
+        ';
+        $updateData='{
+            ":dvstatus" : "1"
+        }';
+        $resUpd = Update("modu_deliverables",$key,"set domain_status=:dvstatus",$updateData, "", false);
 
         $params = [
             'TableName' => "modu_projects",
