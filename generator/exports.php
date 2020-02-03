@@ -139,9 +139,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
         echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
 
-
-        
-
+        /**************   BEXI ANALYTICS **************/
+        echo '<script type="text/javascript" src="http://'.ANALYTICS_DOMAIN.'/js/bexi_analytics.js"></script>';
 
 
         echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
@@ -172,7 +171,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         echo  "</div>";
 
         echo "\r\n";
-
+        echo '<script type="text/javascript">b = new baw("'.$DevId.'");</script>';
+        echo "\r\n";
         echo ' <script>
                     anima_isHidden = function(e) {
                         if (!(e instanceof HTMLElement)) return !1;
