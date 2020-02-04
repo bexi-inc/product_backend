@@ -80,7 +80,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
 
         /******************update dev_status***************************/
-        $key = '
+        $updatekey = '
         {
             "deliverable_id": "'.$DevId.'",
             "project_id" : "'.$project_id.'"
@@ -89,7 +89,19 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $updateData='{
             ":dvstatus" : "1"
         }';
-        $resUpd = Update("modu_deliverables",$key,"set domain_status=:dvstatus",$updateData, "", false);
+
+        $jupdatekey=$marshaler->marshalJson($updatekey);
+        $jupdatedata=$marshaler->marshalJson($updateData);
+
+        $updateparams = [
+            'TableName' => 'modu_deliverables',
+            'Key' => $jupdatekey,
+            'UpdateExpression' => "set domain_status=:dvstatus",
+            'ExpressionAttributeValues'=> $jupdatedata,
+            'ReturnValues' => 'UPDATED_NEW'
+        ];
+
+        $resUpd = $dynamodb->updateItem($updateparams);
 
         $params = [
             'TableName' => "modu_projects",
