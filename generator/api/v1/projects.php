@@ -422,10 +422,11 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 				$key='
 					{
 						":id": "'.$tempid.'",
-						":user": "'.$userid.'"
+						"#user": "'.$userid.'"
 					}
 				';
-				$resul=remove("bexi_projects_tmp",$key);
+				$paramsNoms["#user"] = "user";
+				$resul=remove("bexi_projects_tmp",$key, $paramsNoms);
             }
 
             $ret["error_code"] = "0";

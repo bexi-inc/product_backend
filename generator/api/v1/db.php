@@ -146,7 +146,7 @@ function scanAll($tableName){
 	return $ret;
 }
 
-function remove($tableName,$key)
+function remove($tableName,$key,$ExpressionNames="")
 {
 
 	global $Dynamodb;
@@ -159,6 +159,11 @@ function remove($tableName,$key)
 		'TableName' => $tableName,
 		'key'=> $key
 	];
+
+	if ($ExpressionNames)
+	{
+		$params ["ExpressionAttributeNames"] = $ExpressionNames;
+	}
 
 	$ret["error"]="";
 	try {
