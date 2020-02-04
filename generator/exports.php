@@ -96,12 +96,14 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $updateparams = [
             'TableName' => 'modu_deliverables',
             'Key' => $jupdatekey,
-            'UpdateExpression' => "set domain_status=:dvstatus",
+            'UpdateExpression' => "set dev_status=:dvstatus",
             'ExpressionAttributeValues'=> $jupdatedata,
             'ReturnValues' => 'UPDATED_NEW'
         ];
 
         $resUpd = $dynamodb->updateItem($updateparams);
+
+        print_r($resUpd)
 
         $params = [
             'TableName' => "modu_projects",
