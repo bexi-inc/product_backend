@@ -157,8 +157,13 @@ function remove($tableName,$key)
 
 	$params = [
 		'TableName' => $tableName,
-		'key'=> $key
+		'Key'=> $key
 	];
+
+	if ($ExpressionNames)
+	{
+		$params ["ExpressionAttributeNames"] = $ExpressionNames;
+	}
 
 	$ret["error"]="";
 	try {
