@@ -5,7 +5,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);*/
 include "includes/global.php";
 include "includes/utils.php";
-require "db.php";
 require 'vendor/autoload.php';
 //include "includes/content_blocks.php";
 
