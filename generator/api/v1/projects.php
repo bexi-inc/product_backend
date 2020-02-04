@@ -421,8 +421,8 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 				$tempid = $Marshaler->unmarshalValue($item["id"]);
 				$key='
 					{
-						":id": "'.$tempid.'",
-						":user": "'.$userid.'"
+						"id": "'.$tempid.'",
+						"user": "'.$userid.'"
 					}
 				';
 				$resul=remove("bexi_projects_tmp",$key);
