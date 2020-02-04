@@ -393,7 +393,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $new_js = ob_get_contents ();
         ob_end_clean();
 
-        $modufile = fopen($PATHPHP."modu_final.js", "w") or die("Unable to open file!");
+        $modufile = fopen($PATHPHP."modu_final.js", "w") or die("Unable to open file modu1!");
         fwrite($modufile, $new_js);
         fclose($modufile);
 
@@ -410,7 +410,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $new_js = ob_get_contents ();
         ob_end_clean();
 
-        $modufile = fopen($PATHFILES."modu_final.js", "w") or die("Unable to open file!");
+        $modufile = fopen($PATHFILES."modu_final.js", "w") or die("Unable to open file modu2!");
         fwrite($modufile, $new_js);
         fclose($modufile);
         //copy($refpath."modu_final.js", $PATHFILES."modu_final.js" );
@@ -422,11 +422,11 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     $file_css = ob_get_contents ();
     ob_end_clean();
 
-    $indexfile = fopen($PATH."index.html", "w") or die("Unable to open file!");
+    $indexfile = fopen($PATH."index.html", "w") or die("Unable to open file modu3!");
     fwrite($indexfile, $code);
     fclose($indexfile);
 
-    $myfile = fopen($PATHFILES."theme.css", "w") or die("Unable to open file!");
+    $myfile = fopen($PATHFILES."theme.css", "w") or die("Unable to open file modu4!");
     fwrite($myfile, $file_css);
     fclose($myfile);
 
