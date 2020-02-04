@@ -407,11 +407,11 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 	//delete all temporally desings code
 	$data='
 	{
-		":user": "'.$userid.'"
+		":usr": "'.$userid.'"
 	}
 	';
-
-	$table = ExecuteQuery("bexi_projects_tmp",$data,"user = :user","user-index","",false);
+	$paramsNoms["#user"] = "user";
+	$table = ExecuteQuery("bexi_projects_tmp",$data,"#user = :usr","user-index",$paramsNoms,false);
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
@@ -428,10 +428,6 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 				$paramsNoms["#user"] = "user";
 				$resul=remove("bexi_projects_tmp",$key, $paramsNoms);
             }
-
-            $ret["error_code"] = "0";
-            $ret["contents"] = $contents;
-	        return $ret;
 		}
 	}
 	else{
@@ -727,6 +723,7 @@ function ExistDeliverable($projectid,$type)
 			$res["error"]="0";
 			$res["message"] = "Deliverable found";
 			$res["deliverable_id"] =  $Marshaler->unmarshalValue($dbdata[0]['deliverable_id']);
+			$res["dev_status"]=$Marshaler->unmarshalValue($dbdata[0]['dev_status']);
 		}
 		else
 		{
@@ -742,7 +739,6 @@ function ExistDeliverable($projectid,$type)
 	}
 	return $res;
 }
-
 
 function EditDeliverable($deliverable_id,$project_id,$winner, $loser)
 {

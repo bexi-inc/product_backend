@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);*/
 include "includes/global.php";
 include "includes/utils.php";
-    
+require "db.php";
 require 'vendor/autoload.php';
 //include "includes/content_blocks.php";
 
@@ -80,6 +80,18 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
          $contenido =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["html_code"])));
 
 
+        /******************update dev_status***************************/
+        $key = '
+        {
+            "deliverable_id": "'.$DevId.'",
+            "project_id" : "'.$project_id.'"
+        }
+        ';
+        $updateData='{
+            ":dvstatus" : "1"
+        }';
+        $resUpd = Update("modu_deliverables",$key,"set domain_status=:dvstatus",$updateData, "", false);
+
         $params = [
             'TableName' => "modu_projects",
              "KeyConditionExpression"=> "project_id = :id",
@@ -127,9 +139,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
         echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
 
-
-        
-
+        /**************   BEXI ANALYTICS **************/
+        echo '<script type="text/javascript" src="http://'.ANALYTICS_DOMAIN.'/js/bexi_analytics.js"></script>';
 
 
         echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >';
@@ -160,7 +171,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         echo  "</div>";
 
         echo "\r\n";
-
+        echo '<script type="text/javascript">b = new baw("'.$DevId.'");</script>';
+        echo "\r\n";
         echo ' <script>
                     anima_isHidden = function(e) {
                         if (!(e instanceof HTMLElement)) return !1;
