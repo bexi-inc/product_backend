@@ -103,8 +103,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
         $resUpd = $dynamodb->updateItem($updateparams);
 
-        print_r($resUpd)
-
         $params = [
             'TableName' => "modu_projects",
              "KeyConditionExpression"=> "project_id = :id",
