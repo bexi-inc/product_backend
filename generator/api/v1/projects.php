@@ -422,7 +422,7 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 				$key='
 					{
 						":id": "'.$tempid.'",
-						"user": "'.$userid.'"
+						":user": "'.$userid.'"
 					}
 				';
 				$resul=remove("bexi_projects_tmp",$key);
