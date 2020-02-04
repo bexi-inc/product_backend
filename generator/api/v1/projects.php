@@ -427,6 +427,13 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 				';
 				$paramsNoms["#user"] = "user";
 				$resul=remove("bexi_projects_tmp",$key, $paramsNoms);
+				if($resul["error"]!=="")
+				{
+
+					$ret["error_code"] = "600";
+					$ret["message"] =  $resul["error"];
+					return $ret;
+				}
             }
 		}
 	}
