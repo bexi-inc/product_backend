@@ -427,10 +427,6 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 				';
 				$resul=remove("bexi_projects_tmp",$key);
             }
-
-            $ret["error_code"] = "0";
-            $ret["contents"] = $contents;
-	        return $ret;
 		}
 	}
 	else{
