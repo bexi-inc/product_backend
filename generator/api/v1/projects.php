@@ -407,11 +407,11 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 	//delete all temporally desings code
 	$data='
 	{
-		":user": "'.$userid.'"
+		":usr": "'.$userid.'"
 	}
 	';
-
-	$table = ExecuteQuery("bexi_projects_tmp",$data,"user = :user","user-index","",false);
+	$paramsNoms["#user"] = "user";
+	$table = ExecuteQuery("bexi_projects_tmp",$data,"#user = :usr","user-index",$paramsNoms,false);
 	if ($table["error"]=="")
 	{
 		$dbdata = $table["data"]['Items'];
