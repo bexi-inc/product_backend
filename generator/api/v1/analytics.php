@@ -6,7 +6,7 @@ function GetAnalyticsData($connDyn, $id)
 {
 	global $Marshaler;
 	$ret["error_code"] = "0";
-
+/*
 	$project_data ='{
 		":id" : "'.$id.'"
 	}';
@@ -35,7 +35,9 @@ function GetAnalyticsData($connDyn, $id)
 		$ret["message"] = "Unable to get data";
 		echo "error";
 		return $ret;
-	}
+	}*/
+
+	$site_id = $id;
 
 	$dates=[];
 	for ($x = 0; $x <= 6; $x++) {
