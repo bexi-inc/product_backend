@@ -170,7 +170,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             echo"<link href='https://fonts.googleapis.com/css?family=".$fontsecondary."' rel='stylesheet'>";
         }
 
-        echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
         echo "\r\n";
         echo "</head>";
         echo "\r\n";
