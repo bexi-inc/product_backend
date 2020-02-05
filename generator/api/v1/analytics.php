@@ -42,7 +42,7 @@ function GetAnalyticsData($connDyn, $id)
 	$dates=[];
 	for ($x = 0; $x <= 6; $x++) {
 	    $rep_date = date("Ymd", strtotime("-".$x." days", strtotime(date("Y-m-d"))));
-	    $rep_date2 = date("d/m/y", strtotime("-".$x." days", strtotime(date("Y-m-d"))));
+	    $rep_date2 = date("d/m/Y", strtotime("-".$x." days", strtotime(date("Y-m-d"))));
 
 	    #Add Date for return to dashboard
 	    $dates[]=$rep_date2;
