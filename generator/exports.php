@@ -182,7 +182,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         echo  "</div>";
 
         echo "\r\n";
-        echo '<script type="text/javascript">b = new baw("'.$DevId.'");</script>';
+        echo '<script type="text/javascript">$( document ).ready(function() { b = new baw("'.$DevId.'"); });</script>';
         echo "\r\n";
         echo ' <script>
                     anima_isHidden = function(e) {
