@@ -170,7 +170,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             echo"<link href='https://fonts.googleapis.com/css?family=".$fontsecondary."' rel='stylesheet'>";
         }
 
-        echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
         echo "\r\n";
         echo "</head>";
         echo "\r\n";
@@ -182,7 +181,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         echo  "</div>";
 
         echo "\r\n";
-        echo '<script type="text/javascript">b = new baw("'.$DevId.'");</script>';
+        echo '<script type="text/javascript">$( document ).ready(function() { b = new baw("'.$DevId.'"); });</script>';
         echo "\r\n";
         echo ' <script>
                     anima_isHidden = function(e) {
