@@ -23,6 +23,7 @@ require "db.php";
 require "users.php";
 //require "emails.php";
 require "projects.php";
+require "analytics.php";
 
 
 
@@ -258,6 +259,9 @@ $res["error_code"]=0;
  		}
  		$res = ConfirmEmail($Dynamodb,$_REQ->email_token);
  		//$res = ExistDomain($_REQ->domain);
+ 		break;
+ 	case "GetAnalyticsDashboard":
+ 		return GetAnalyticsData($Dynamodb,$_REQ->deliverableid);
  		break;
  	default:
  		echo "REQ";
