@@ -151,6 +151,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
 
         /**************   BEXI ANALYTICS **************/
+        echo '<script type="module" src="http://'.ANALYTICS_DOMAIN.'/js/js.cookie.mjs"></script>';
+        echo '<script nomodule defer src="http://'.ANALYTICS_DOMAIN.'/js/js.cookie.js"></script>';
         echo '<script type="text/javascript" src="http://'.ANALYTICS_DOMAIN.'/js/bexi_analytics.js"></script>';
 
 
