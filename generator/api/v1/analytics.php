@@ -55,6 +55,10 @@ function GetAnalyticsData($connDyn, $id)
 		$table = ExecuteQuery("baw_events",$events_data,"site_id = :id AND e_date = :pDate", "site_id-e_date-index" , "" , false);
 
 
+		$scroll["0-25"]=0;
+		$scroll["26-50"]=0;
+		$scroll["51-75"]=0;
+		$scroll["76-100"]=0;
 		if ($table["error"]=="")
 		{
 			$dbdata = $table["data"]['Items'];
@@ -62,6 +66,7 @@ function GetAnalyticsData($connDyn, $id)
 			{
 				$session_data=[];
 				$users_data=[];
+				$time_page=[];
 				$tvisits = 0;
 				$tnewUsers = 0;
 				$tclicks = 0;
@@ -93,13 +98,35 @@ function GetAnalyticsData($connDyn, $id)
 						case "click":
 							$tclicks = $tclicks + $Marshaler->unmarshalValue($e['value']);
 							break;
+
+						case "scroll_percentage":
+							$scroll_value = $Marshaler->unmarshalValue($e['value']);
+							if ($scroll_value >=0 && $scroll_value <=25)
+							{
+								$scroll["0-25"]++;
+							}elseif ($scroll_value>25 && $scroll_value<=50)
+							{
+								$scroll["26-50"]++;
+							}elseif ($scroll_value>50 && $scroll_value<=75)
+							{
+								$scroll["51-75"]++;
+							}
+							elseif ($scroll_value>75 )
+							{
+								$scroll["76-100"]++;
+							}
+							break;
+						case "time_page":
+							$time_page [] = $Marshaler->unmarshalValue($e['value']);
+							break;
 					}
 				}
 				$sessions[] = count($session_data);
 				$users[] = count($users_data);
 				$visits[] = $tvisits;
 				$new_users[] = $tnewUsers;
-				$clicks[] = $tclicks
+				$clicks[] = $tclicks;
+				$timevisits [] = array_sum($time_page) / count($time_page);
 
 				//print_r($session_data);
 			}
@@ -110,6 +137,8 @@ function GetAnalyticsData($connDyn, $id)
 				$new_users[] = 0;
 				$visits[] = 0;
 				$clicks[] = 0;
+				$timevisits [] =0;
+
 			}
 		}else{
 			echo "error ".$table["error"];
@@ -121,6 +150,9 @@ function GetAnalyticsData($connDyn, $id)
 	$return["new_users"] = $new_users;
 	$return["sessions"] = $sessions;
 	$return["visits"] = $visits;
+	$return["average_duration"] = $timevisits;
+	$return["total_clicks_per_day"] = $clicks;
+	$return["page_scroll"] = $scroll;
 	echo json_encode($return);
 	//print_r($dates);
 }
