@@ -64,6 +64,7 @@ function GetAnalyticsData($connDyn, $id)
 				$users_data=[];
 				$tvisits = 0;
 				$tnewUsers = 0;
+				$tclicks = 0;
 				foreach  ($dbdata as $e)
 				{
 					
@@ -89,12 +90,16 @@ function GetAnalyticsData($connDyn, $id)
 							}
 
 							break;
+						case "click":
+							$tclicks = $tclicks + $Marshaler->unmarshalValue($e['value']);
+							break;
 					}
 				}
 				$sessions[] = count($session_data);
 				$users[] = count($users_data);
 				$visits[] = $tvisits;
 				$new_users[] = $tnewUsers;
+				$clicks[] = $tclicks
 
 				//print_r($session_data);
 			}
@@ -104,6 +109,7 @@ function GetAnalyticsData($connDyn, $id)
 				$sessions[] = 0;
 				$new_users[] = 0;
 				$visits[] = 0;
+				$clicks[] = 0;
 			}
 		}else{
 			echo "error ".$table["error"];
