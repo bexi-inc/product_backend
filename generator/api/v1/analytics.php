@@ -117,7 +117,11 @@ function GetAnalyticsData($connDyn, $id)
 							}
 							break;
 						case "time_page":
-							$time_page [] = $Marshaler->unmarshalValue($e['value']);
+							if (is_array($e['value']))
+							{
+								$time_page [] = $Marshaler->unmarshalValue($e['value']);
+							}
+							
 							break;
 					}
 				}
