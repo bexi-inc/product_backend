@@ -99,7 +99,7 @@ function GetAnalyticsData($connDyn, $id)
 				$users[] = count($users_data);
 				$visits[] = $tvisits;
 				$new_users[] = $tnewUsers;
-				$clicks[] = $tclicks
+				$clicks[] = $tclicks;
 
 				//print_r($session_data);
 			}
