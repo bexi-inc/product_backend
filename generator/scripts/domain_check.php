@@ -67,6 +67,33 @@ foreach ($result['Items'] as $subd)
 		//print_r($params);
 
 		$result2 = $dynamodb->updateItem($params);
+		try
+		{
+			$key = $marshaler->marshalJson('
+			    {
+			        "deliverable_id" : "' . $deliverable . '"
+			    }
+			');
+
+
+			$params = [
+			    'TableName' => "modu_deliverables",
+			    'Key' => $key,
+			    'UpdateExpression' => 
+			        'set domain_status = :st',
+			    'ExpressionAttributeValues'=> $eav,
+			    'ReturnValues' => 'UPDATED_NEW'
+			];
+
+			//print_r($params);
+
+			$result2 = $dynamodb->updateItem($params);
+		} catch (Exception $e) {
+			print_r($e);
+		}
+
+		
+
 
 	    SendEmail(6,-1, $deliverable);
 
