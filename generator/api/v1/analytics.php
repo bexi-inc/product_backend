@@ -120,7 +120,7 @@ function GetAnalyticsData($connDyn, $id)
 
 						case "scroll_percentage":
 							if (is_array($e['value']))
-							{(
+							{
 								$scroll_value = $Marshaler->unmarshalValue($e['value']);
 								if ($scroll_value >=0 && $scroll_value <=25)
 								{
