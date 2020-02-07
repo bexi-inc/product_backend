@@ -172,7 +172,7 @@ function GetProjects($userId)
 					{
 						$last=count($dbdata2)-1;
 						$proj["deliverable_id"]=$Marshaler->unmarshalValue($dbdata2[$last]["deliverable_id"]);
-
+						$proj["status"] =$Marshaler->unmarshalValue($dbdata2[$last]["dev_status"]);
 						if(isset($dbdata2[$last]["subdomain"]))
 						{
 							$dom=$Marshaler->unmarshalValue($dbdata2[$last]["subdomain"]);
@@ -192,7 +192,7 @@ function GetProjects($userId)
 
 
 				$proj["project_name"] = $Marshaler->unmarshalValue($project["project_name"]);
-				$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
+				//$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
 				$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
 				$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
 
