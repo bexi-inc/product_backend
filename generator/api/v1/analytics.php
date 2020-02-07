@@ -71,6 +71,11 @@ function GetAnalyticsData($connDyn, $id)
 				$tnewUsers = 0;
 				$tclicks = 0;
 				$traffic = [];
+
+				$traffic["Search"] = 0 ;
+				$traffic["Direct"] = 0 ;
+				$traffic["Other"] = 0 ;
+				$traffic["Social"] = 0 ;
 				foreach  ($dbdata as $e)
 				{
 					
@@ -114,21 +119,25 @@ function GetAnalyticsData($connDyn, $id)
 							break;
 
 						case "scroll_percentage":
-							$scroll_value = $Marshaler->unmarshalValue($e['value']);
-							if ($scroll_value >=0 && $scroll_value <=25)
-							{
-								$scroll["0-25"]++;
-							}elseif ($scroll_value>25 && $scroll_value<=50)
-							{
-								$scroll["26-50"]++;
-							}elseif ($scroll_value>50 && $scroll_value<=75)
-							{
-								$scroll["51-75"]++;
+							if (is_array($e['value']))
+							{(
+								$scroll_value = $Marshaler->unmarshalValue($e['value']);
+								if ($scroll_value >=0 && $scroll_value <=25)
+								{
+									$scroll["0-25"]++;
+								}elseif ($scroll_value>25 && $scroll_value<=50)
+								{
+									$scroll["26-50"]++;
+								}elseif ($scroll_value>50 && $scroll_value<=75)
+								{
+									$scroll["51-75"]++;
+								}
+								elseif ($scroll_value>75 )
+								{
+									$scroll["76-100"]++;
+								}
 							}
-							elseif ($scroll_value>75 )
-							{
-								$scroll["76-100"]++;
-							}
+							
 							break;
 						case "time_page":
 							if (is_array($e['value']))
