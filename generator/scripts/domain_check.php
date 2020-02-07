@@ -1,5 +1,6 @@
 <?
 set_include_path('/var/www/generator.bexi.co/public_html/product_backend/generator/');
+set_include_path('/var/www/generator.bexi.co/public_html/product_backend/generator/api/v1/');
 include "config.php";
 require 'vendor/autoload.php';
 include "api/v1/emails.php";
