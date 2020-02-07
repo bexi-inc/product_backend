@@ -70,6 +70,7 @@ function GetAnalyticsData($connDyn, $id)
 				$tvisits = 0;
 				$tnewUsers = 0;
 				$tclicks = 0;
+				$traffic = [];
 				foreach  ($dbdata as $e)
 				{
 					
@@ -93,6 +94,19 @@ function GetAnalyticsData($connDyn, $id)
 							{
 								$session_data[] = $session_id;
 							}
+
+							if ($e["ref_type"])
+							{
+								$ref_type = $Marshaler->unmarshalValue($e['ref_type']);
+								if ($traffic[$ref_type])
+								{
+									$traffic[$ref_type] ++;
+
+								}else{
+									$traffic[$ref_type] = 1;
+								}
+							}
+
 
 							break;
 						case "click":
@@ -157,6 +171,7 @@ function GetAnalyticsData($connDyn, $id)
 	$return["average_duration"] = $timevisits;
 	$return["total_clicks_per_day"] = $clicks;
 	$return["page_scroll"] = $scroll;
+	$return["traffic_sources"] = $traffic;
 	echo json_encode($return);
 	//print_r($dates);
 }
