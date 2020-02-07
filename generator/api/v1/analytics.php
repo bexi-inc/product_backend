@@ -156,8 +156,13 @@ function GetAnalyticsData($connDyn, $id)
 				$visits[] = $tvisits;
 				$new_users[] = $tnewUsers;
 				$clicks[] = $tclicks;
-				$timevisits [] = array_sum($time_page) / count($time_page);
-
+				if (count($time_page)>0)
+				{
+					$timevisits [] = array_sum($time_page) / count($time_page);
+				}else
+				{
+					$timevisits [] = 0;
+				}
 				//print_r($session_data);
 			}
 			else{
