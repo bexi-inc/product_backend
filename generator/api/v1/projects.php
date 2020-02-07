@@ -178,8 +178,15 @@ function GetProjects($userId)
 							$dom=$Marshaler->unmarshalValue($dbdata2[$last]["subdomain"]);
 							if($dom!="")
 							{
-								$proj["link"]="http://".$dom.".getmodu.com/";
-								$proj["temp_link"]=$dom.BEXI_BUCKET_URL;
+								if(isset($dbdata2[$last]["domain_status"])){
+									$dom_status=$Marshaler->unmarshalValue($dbdata2[$last]["domain_status"]);
+									if($dom_status==="1"){
+										$proj["link"]="http://".$dom.".getmodu.com/";
+									}
+									else{
+										$proj["link"]=$dom.BEXI_BUCKET_URL;
+									}
+								}
 							}
 						}
 					}
