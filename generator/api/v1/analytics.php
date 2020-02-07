@@ -115,16 +115,16 @@ function GetAnalyticsData($connDyn, $id)
 
 							break;
 						case "click":
-							if (is_array($e['value']))
+							if (is_array($e['e_value']))
 							{
-								$tclicks = $tclicks + $Marshaler->unmarshalValue($e['value']);
+								$tclicks = $tclicks + $Marshaler->unmarshalValue($e['e_value']);
 							}
 							break;
 
 						case "scroll_percentage":
-							if (is_array($e['value']))
+							if (is_array($e['e_value']))
 							{
-								$scroll_value = $Marshaler->unmarshalValue($e['value']);
+								$scroll_value = $Marshaler->unmarshalValue($e['e_value']);
 								if ($scroll_value >=0 && $scroll_value <=25)
 								{
 									$scroll["0-25"]++;
@@ -143,9 +143,9 @@ function GetAnalyticsData($connDyn, $id)
 							
 							break;
 						case "time_page":
-							if (is_array($e['value']))
+							if (is_array($e['e_value']))
 							{
-								$time_page [] = $Marshaler->unmarshalValue($e['value']);
+								$time_page [] = $Marshaler->unmarshalValue($e['e_value']);
 							}
 							
 							break;
