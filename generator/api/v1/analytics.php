@@ -140,6 +140,7 @@ function GetAnalyticsData($connDyn, $id)
 								{
 									$scroll["76-100"]++;
 								}
+								print_r($scroll);	
 							}
 							
 							break;
