@@ -115,7 +115,10 @@ function GetAnalyticsData($connDyn, $id)
 
 							break;
 						case "click":
-							$tclicks = $tclicks + $Marshaler->unmarshalValue($e['value']);
+							if (is_array($e['value']))
+							{
+								$tclicks = $tclicks + $Marshaler->unmarshalValue($e['value']);
+							}
 							break;
 
 						case "scroll_percentage":
