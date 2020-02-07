@@ -40,6 +40,10 @@ function GetAnalyticsData($connDyn, $id)
 	$site_id = $id;
 
 	$dates=[];
+	$scroll["0-25"]=0;
+		$scroll["26-50"]=0;
+		$scroll["51-75"]=0;
+		$scroll["76-100"]=0;
 	for ($x = 0; $x <= 6; $x++) {
 	    $rep_date = date("Ymd", strtotime("-".$x." days", strtotime(date("Y-m-d"))));
 	    $rep_date2 = date("m/d/Y", strtotime("-".$x." days", strtotime(date("Y-m-d"))));
@@ -55,10 +59,7 @@ function GetAnalyticsData($connDyn, $id)
 		$table = ExecuteQuery("baw_events",$events_data,"site_id = :id AND e_date = :pDate", "site_id-e_date-index" , "" , false);
 
 
-		$scroll["0-25"]=0;
-		$scroll["26-50"]=0;
-		$scroll["51-75"]=0;
-		$scroll["76-100"]=0;
+		
 		if ($table["error"]=="")
 		{
 			$dbdata = $table["data"]['Items'];
@@ -125,7 +126,7 @@ function GetAnalyticsData($connDyn, $id)
 							if (is_array($e['e_value']))
 							{
 								$scroll_value = $Marshaler->unmarshalValue($e['e_value']);
-								echo "scroll_percentage ".$scroll_value;
+								//echo "scroll_percentage ".$scroll_value;
 								if ($scroll_value >=0 && $scroll_value <=25)
 								{
 									$scroll["0-25"]++;
@@ -140,6 +141,7 @@ function GetAnalyticsData($connDyn, $id)
 								{
 									$scroll["76-100"]++;
 								}
+								//print_r($scroll);	
 							}
 							
 							break;
