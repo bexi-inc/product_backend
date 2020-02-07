@@ -184,7 +184,7 @@ function GetProjects($userId)
 										$proj["link"]="http://".$dom.".getmodu.com/";
 									}
 									else{
-										$proj["link"]=$dom.BEXI_BUCKET_URL;
+										$proj["link"]="http://".$dom.BEXI_BUCKET_URL;
 									}
 								}
 							}
