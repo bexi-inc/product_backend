@@ -125,7 +125,7 @@ function GetAnalyticsData($connDyn, $id)
 							if (is_array($e['e_value']))
 							{
 								$scroll_value = $Marshaler->unmarshalValue($e['e_value']);
-								echo "scroll_percentage ".$scroll_value;
+								//echo "scroll_percentage ".$scroll_value;
 								if ($scroll_value >=0 && $scroll_value <=25)
 								{
 									$scroll["0-25"]++;
@@ -140,7 +140,7 @@ function GetAnalyticsData($connDyn, $id)
 								{
 									$scroll["76-100"]++;
 								}
-								print_r($scroll);	
+								//print_r($scroll);	
 							}
 							
 							break;
