@@ -179,6 +179,7 @@ function GetProjects($userId)
 							if($dom!="")
 							{
 								$proj["link"]="http://".$dom.".getmodu.com/";
+								$proj["temp_link"]=$dom.BEXI_BUCKET_URL;
 							}
 						}
 					}
