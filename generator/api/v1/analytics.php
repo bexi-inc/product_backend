@@ -70,6 +70,12 @@ function GetAnalyticsData($connDyn, $id)
 				$tvisits = 0;
 				$tnewUsers = 0;
 				$tclicks = 0;
+				$traffic = [];
+
+				$traffic["Search"] = 0 ;
+				$traffic["Direct"] = 0 ;
+				$traffic["Other"] = 0 ;
+				$traffic["Social"] = 0 ;
 				foreach  ($dbdata as $e)
 				{
 					
@@ -94,30 +100,55 @@ function GetAnalyticsData($connDyn, $id)
 								$session_data[] = $session_id;
 							}
 
+							if ($e["ref_type"])
+							{
+								$ref_type = $Marshaler->unmarshalValue($e['ref_type']);
+								if ($traffic[$ref_type])
+								{
+									$traffic[$ref_type] ++;
+
+								}else{
+									$traffic[$ref_type] = 1;
+								}
+							}
+
+
 							break;
 						case "click":
-							$tclicks = $tclicks + $Marshaler->unmarshalValue($e['value']);
+							if (is_array($e['e_value']))
+							{
+								$tclicks = $tclicks + $Marshaler->unmarshalValue($e['e_value']);
+							}
 							break;
 
 						case "scroll_percentage":
-							$scroll_value = $Marshaler->unmarshalValue($e['value']);
-							if ($scroll_value >=0 && $scroll_value <=25)
+							if (is_array($e['e_value']))
 							{
-								$scroll["0-25"]++;
-							}elseif ($scroll_value>25 && $scroll_value<=50)
-							{
-								$scroll["26-50"]++;
-							}elseif ($scroll_value>50 && $scroll_value<=75)
-							{
-								$scroll["51-75"]++;
+								$scroll_value = $Marshaler->unmarshalValue($e['e_value']);
+								echo "scroll_percentage ".$scroll_value;
+								if ($scroll_value >=0 && $scroll_value <=25)
+								{
+									$scroll["0-25"]++;
+								}elseif ($scroll_value>25 && $scroll_value<=50)
+								{
+									$scroll["26-50"]++;
+								}elseif ($scroll_value>50 && $scroll_value<=75)
+								{
+									$scroll["51-75"]++;
+								}
+								elseif ($scroll_value>75 )
+								{
+									$scroll["76-100"]++;
+								}
 							}
-							elseif ($scroll_value>75 )
-							{
-								$scroll["76-100"]++;
-							}
+							
 							break;
 						case "time_page":
-							$time_page [] = $Marshaler->unmarshalValue($e['value']);
+							if (is_array($e['e_value']))
+							{
+								$time_page [] = $Marshaler->unmarshalValue($e['e_value']);
+							}
+							
 							break;
 					}
 				}
@@ -126,8 +157,13 @@ function GetAnalyticsData($connDyn, $id)
 				$visits[] = $tvisits;
 				$new_users[] = $tnewUsers;
 				$clicks[] = $tclicks;
-				$timevisits [] = array_sum($time_page) / count($time_page);
-
+				if (count($time_page)>0)
+				{
+					$timevisits [] = array_sum($time_page) / count($time_page);
+				}else
+				{
+					$timevisits [] = 0;
+				}
 				//print_r($session_data);
 			}
 			else{
@@ -153,6 +189,7 @@ function GetAnalyticsData($connDyn, $id)
 	$return["average_duration"] = $timevisits;
 	$return["total_clicks_per_day"] = $clicks;
 	$return["page_scroll"] = $scroll;
+	$return["traffic_sources"] = $traffic;
 	echo json_encode($return);
 	//print_r($dates);
 }
