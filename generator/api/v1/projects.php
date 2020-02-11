@@ -71,6 +71,11 @@ function Gettyperecipe($offering, $goal)
 			return $type;
 		}
 
+		if(strpos($goal,"Promote Event")!==false){
+			$type=7;
+			return $type;
+		}
+
 		if(strpos($goal,"Subscribers")!==false||strpos($goal,"Sign-up")!==false){
 			$type=7;
 			return $type;
