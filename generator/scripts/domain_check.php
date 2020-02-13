@@ -92,7 +92,7 @@ foreach ($result['Items'] as $subd)
 
 			$result2 = $dynamodb->updateItem($params);
 		} catch (Exception $e) {
-			print_r($e);
+			print_r($e->getMessage());
 		}
 
 		
