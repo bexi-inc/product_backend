@@ -38,7 +38,8 @@ $result = $dynamodb->query($params);
 foreach ($result['Items'] as $subd)
 {
 	$subdomain = $marshaler->unmarshalValue($subd["subdomain"]);
-	$dns_domain = $subdomain.".".MAIN_DOMAIN;
+	//$dns_domain = $subdomain.".".MAIN_DOMAIN;
+	$dns_domain = $subdomain.".getmodu.com";
 	$deliverable = $marshaler->unmarshalValue($subd["deliverable_id"]);
 
 	echo $dns_domain. "  ".gethostbyname($dns_domain);
