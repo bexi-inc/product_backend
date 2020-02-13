@@ -45,9 +45,20 @@ foreach ($result['Items'] as $subd)
 	echo $dns_domain. "  ".gethostbyname($dns_domain);
 	 if ( gethostbyname($dns_domain) != $dns_domain ) {
 
+	 	$params = [
+            'TableName' => "modu_deliverables",
+            "KeyConditionExpression"=> "deliverable_id = :id",
+            "ExpressionAttributeValues"=> [
+                ":id" =>  ["S" => $deliverable]
+            ]
+        ];
+
+        $result2 = $dynamodb->query($params);
+
+
 		$key = $marshaler->marshalJson('
 		    {
-		        "subdomain" : "' . $subdomain . '"
+		        "deliverable_id " : "' . $deliverable . '"
 		    }
 		');
 
