@@ -45,7 +45,7 @@ foreach ($result['Items'] as $subd)
 	echo $dns_domain. "  ".gethostbyname($dns_domain);
 	 if ( gethostbyname($dns_domain) != $dns_domain ) {
 
-	 	
+
 
 		$key = $marshaler->marshalJson('
 		    {
@@ -89,8 +89,8 @@ foreach ($result['Items'] as $subd)
 
 			$key = $marshaler->marshalJson('
 			    {
-			        "deliverable_id " : "' . $deliverable . '",
-			        "project_id " : "'.$marshaler->unmarshalValue($result2['Items'][0]["project_id"]).'"
+			        "deliverable_id" : "' . $deliverable . '",
+			        "project_id" : "'.$marshaler->unmarshalValue($result2['Items'][0]["project_id"]).'"
 			    }
 			');
 
