@@ -45,26 +45,13 @@ foreach ($result['Items'] as $subd)
 	echo $dns_domain. "  ".gethostbyname($dns_domain);
 	 if ( gethostbyname($dns_domain) != $dns_domain ) {
 
-	 	$params = [
-            'TableName' => "modu_deliverables",
-            "KeyConditionExpression"=> "deliverable_id = :id",
-            "ExpressionAttributeValues"=> [
-                ":id" =>  ["S" => $deliverable]
-            ]
-        ];
-
-        $result2 = $dynamodb->query($params);
-
-        print_r($result2['Items'][0]["project_id"]);
+	 	
 
 		$key = $marshaler->marshalJson('
 		    {
-		        "deliverable_id " : "' . $deliverable . '",
-		        "project_id " : "'.$marshaler->unmarshalValue($result2['Items'][0]["project_id"]).'"
+		        "subdomain" : "' . $subdomain . '"
 		    }
 		');
-
-		print_r($key);
 
 		$eav = $marshaler->marshalJson('
 		    {
@@ -88,9 +75,22 @@ foreach ($result['Items'] as $subd)
 		$result2 = $dynamodb->updateItem($params);
 		try
 		{
+			$params = [
+	            'TableName' => "modu_deliverables",
+	            "KeyConditionExpression"=> "deliverable_id = :id",
+	            "ExpressionAttributeValues"=> [
+	                ":id" =>  ["S" => $deliverable]
+	            ]
+	        ];
+
+	        $result2 = $dynamodb->query($params);
+
+	        print_r($result2['Items'][0]["project_id"]);
+
 			$key = $marshaler->marshalJson('
 			    {
-			        "deliverable_id" : "' . $deliverable . '"
+			        "deliverable_id " : "' . $deliverable . '",
+			        "project_id " : "'.$marshaler->unmarshalValue($result2['Items'][0]["project_id"]).'"
 			    }
 			');
 
