@@ -63,6 +63,8 @@ foreach ($result['Items'] as $subd)
 		    }
 		');
 
+		print_r($key);
+
 		$eav = $marshaler->marshalJson('
 		    {
 		        ":st": "1"
