@@ -55,6 +55,7 @@ foreach ($result['Items'] as $subd)
 
         $result2 = $dynamodb->query($params);
 
+        print_r($result2);
 
 		$key = $marshaler->marshalJson('
 		    {
