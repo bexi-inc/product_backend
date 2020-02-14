@@ -71,7 +71,7 @@ if (isset($_REQUEST["devid"]))
 
     if (count($result['Items'])>0)
     {
-    	$user =  $marshaler->unmarshalValue($result['Items'][0]["user_id"]);	
+    	$userid =  $marshaler->unmarshalValue($result['Items'][0]["user_id"]);	
     }
     
 }else{
