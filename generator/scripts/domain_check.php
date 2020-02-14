@@ -55,7 +55,7 @@ foreach ($result['Items'] as $subd)
 
         $result2 = $dynamodb->query($params);
 
-        print_r($result2);
+        print_r($result2['Items'][0]["project_id"]);
 
 		$key = $marshaler->marshalJson('
 		    {
