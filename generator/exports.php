@@ -293,10 +293,11 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                     $new_src_url = './files/imgs/'.pathinfo($old_src,PATHINFO_BASENAME);
 
                     $img = [];
-                    $srcpath = str_ireplace ("https://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$old_src);
-                    $srcpath = str_ireplace ("http://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$srcpath);
-                    $img["old_src"] = $srcpath;
+                    //$srcpath = str_ireplace ("https://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$old_src);
+                    //$srcpath = str_ireplace ("http://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$srcpath);
                     $filename = pathinfo($old_src,PATHINFO_BASENAME  );
+                    $srcpath="/var/www/uploads.getmodu.com/public_html/".$user_id."/".$project_id."/".$filename;
+                    $img["old_src"] = $srcpath;
                     $img["filename"] = $filename;
                     $img["new_src"] = $new_src_url;
                     $images[] = $img;
@@ -445,7 +446,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                  echo "COPY ERROR: ".$errors['type'];
             } 
         }else{
-            copy($img["old_src"], $PATHIMG.$img["filename"] );    
+            copy($img["old_src"], $PATHIMG.$img["filename"] );
         }
         
     }
