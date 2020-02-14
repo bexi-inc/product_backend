@@ -59,7 +59,7 @@ foreach ($result['Items'] as $subd)
 		$key = $marshaler->marshalJson('
 		    {
 		        "deliverable_id " : "' . $deliverable . '",
-		        "project_id " : "'.$result2['Items'][0]["project_id "].'"
+		        "project_id " : "'.$result2['Items'][0]["project_id"].'"
 		    }
 		');
 
