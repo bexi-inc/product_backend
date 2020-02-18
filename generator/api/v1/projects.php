@@ -139,8 +139,51 @@ function sortFunction( $a, $b ) {
     return ($a < $b) ? -1 : 1;
 }
 
+function Delete_temporals($userid){
+
+	//delete all temporally desings code
+	$data='
+	{
+		":usr": "'.$userid.'"
+	}
+	';
+	$paramsNoms["#user"] = "user";
+	$table = ExecuteQuery("bexi_projects_tmp",$data,"#user = :usr","user-index",$paramsNoms,false);
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		if (count($dbdata)>0)
+		{
+            foreach ($dbdata as $item) {
+				$tempid = $Marshaler->unmarshalValue($item["id"]);
+				$key='
+					{
+						"id": "'.$tempid.'",
+						"user": "'.$userid.'"
+					}
+				';
+				$resul=remove("bexi_projects_tmp",$key);
+				if($resul["error"]!=="")
+				{
+
+					$ret["error_code"] = "600";
+					$ret["message"] =  $resul["error"];
+					return $ret;
+				}
+            }
+		}
+	}
+	else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
+}
+
 function GetProjects($userId)
 {
+
+	Delete_temporals($userId);
 	global $Marshaler;
 	$ret["error_code"] = "0";
 
@@ -417,43 +460,7 @@ function CreateDeliverable($projectid, $winner, $loser, $type)
 		    $loser_code = $Marshaler->unmarshalValue($dbdata[0]['code']);
 		}
 	}
-	//delete all temporally desings code
-	$data='
-	{
-		":usr": "'.$userid.'"
-	}
-	';
-	$paramsNoms["#user"] = "user";
-	$table = ExecuteQuery("bexi_projects_tmp",$data,"#user = :usr","user-index",$paramsNoms,false);
-	if ($table["error"]=="")
-	{
-		$dbdata = $table["data"]['Items'];
-		if (count($dbdata)>0)
-		{
-            foreach ($dbdata as $item) {
-				$tempid = $Marshaler->unmarshalValue($item["id"]);
-				$key='
-					{
-						"id": "'.$tempid.'",
-						"user": "'.$userid.'"
-					}
-				';
-				$resul=remove("bexi_projects_tmp",$key);
-				if($resul["error"]!=="")
-				{
 
-					$ret["error_code"] = "600";
-					$ret["message"] =  $resul["error"];
-					return $ret;
-				}
-            }
-		}
-	}
-	else{
-		$ret["error_code"] = "500";
-	    $ret["message"] =  $table["error"];
-	    return $ret;
-	}
 	//print_r($Data);
 
 
