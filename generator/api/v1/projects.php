@@ -140,7 +140,7 @@ function sortFunction( $a, $b ) {
 }
 
 function Delete_temporals($userid){
-
+	global $Marshaler;
 	//delete all temporally desings code
 	$data='
 	{
