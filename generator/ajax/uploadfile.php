@@ -22,7 +22,7 @@ $dynamodb = $sdk->createDynamoDb();
 $marshaler = new Marshaler();
 
 $path = "/var/www/uploads.getmodu.com/public_html/";
-$webpath = "http://uploads.getmodu.com/";
+$webpath = "http://".PATHWEB."/";
 
 
 //print_r($_REQUEST);

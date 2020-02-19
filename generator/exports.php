@@ -288,7 +288,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 $tag->setAttribute('src',$img["new_src"]);
                 $images[] = $img;
             }else{
-                $pos = strpos(pathinfo($old_src,PATHINFO_DIRNAME),"uploads.getmodu.com");
+                $pos = strpos(pathinfo($old_src,PATHINFO_DIRNAME),PATHWEB);
                 if($pos===true){
                     $new_src_url = './files/imgs/'.pathinfo($old_src,PATHINFO_BASENAME);
 
