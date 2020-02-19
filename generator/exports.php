@@ -299,7 +299,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                     {
                         $filename=substr($filename,0,$pos);
                     }
-                    $new_src_url = './files/imgs/'.$filename;
+                    $new_src_url = './files/img/'.$filename;
                     $srcpath="/var/www/uploads.getmodu.com/public_html/".$user_id."/".$project_id."/".$filename;
                     $img["old_src"] = $srcpath;
                     $img["filename"] = $filename;
@@ -450,7 +450,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                  echo "COPY ERROR: ".$errors['type'];
             } 
         }else{
-            echo $img["old_src"];
             if(!copy($img["old_src"], $PATHIMG.$img["filename"])){
             $errors= error_get_last();
             echo "COPY ERROR: ".$errors['type'];
@@ -480,7 +479,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         //echo $fileZip;
 
 
-        /*
+    
       if (file_exists($fileZip)) {
          header('Content-Description: File Transfer');
          header("Content-Type: application/zip");
@@ -497,7 +496,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
          @unlink($fileZip);
      
        }
-       */
+
     }elseif ($Type=="dom")
     {
         /*********** test for ftp ***********/
