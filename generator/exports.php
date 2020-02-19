@@ -290,8 +290,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             }else{
                 $pos = strpos(pathinfo($old_src,PATHINFO_DIRNAME),PATHWEB);
                 if($pos!==false){
-                    $new_src_url = './files/imgs/'.pathinfo($old_src,PATHINFO_BASENAME);
-
                     $img = [];
                     //$srcpath = str_ireplace ("https://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$old_src);
                     //$srcpath = str_ireplace ("http://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$srcpath);
@@ -301,6 +299,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                     {
                         $filename=substr($filename,0,$pos-1);
                     }
+                    $new_src_url = './files/imgs/'.$filename;
                     $srcpath="/var/www/uploads.getmodu.com/public_html/".$user_id."/".$project_id."/".$filename;
                     $img["old_src"] = $srcpath;
                     $img["filename"] = $filename;
