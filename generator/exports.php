@@ -289,7 +289,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                 $images[] = $img;
             }else{
                 $pos = strpos(pathinfo($old_src,PATHINFO_DIRNAME),PATHWEB);
-                if($pos===true){
+                if($pos!==false){
                     $new_src_url = './files/imgs/'.pathinfo($old_src,PATHINFO_BASENAME);
 
                     $img = [];
