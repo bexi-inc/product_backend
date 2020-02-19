@@ -450,7 +450,10 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                  echo "COPY ERROR: ".$errors['type'];
             } 
         }else{
-            copy($img["old_src"], $PATHIMG.$img["filename"] );
+            if(!copy($img["old_src"], $PATHIMG.$img["filename"])){
+            $errors= error_get_last();
+            echo "COPY ERROR: ".$errors['type'];
+            }
         }
         
     }
