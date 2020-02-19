@@ -290,7 +290,7 @@ if (isset($_REQUEST["projectid"]))
 		var UserParam = <? echo (isset($_REQUEST["user"]) ? $_REQUEST["user"] : "0"); ?>;
 		var ProjectIdParam = '<? echo (isset($_REQUEST["projectid"]) ? $_REQUEST["projectid"] : "0"); ?>';
 		var KeywordsParams = '<? echo (isset($keywords) ? $keywords : ""); ?>';		
-
+		var MAIN_DOMAIN ='<? echo MAIN_DOMAIN; ?>';
 	</script>
 	<script type="text/javascript" src="includes/bexi_selector.js"></script>
 </head>
