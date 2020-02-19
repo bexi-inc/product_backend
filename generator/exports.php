@@ -295,7 +295,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                     $img = [];
                     //$srcpath = str_ireplace ("https://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$old_src);
                     //$srcpath = str_ireplace ("http://uploads.getmodu.com", "/var/www/uploads.getmodu.com/public_html/",$srcpath);
-                    $filename = pathinfo($old_src,PATHINFO_BASENAME  );
+                    $filename = pathinfo($old_src,PATHINFO_BASENAME);
+                    print_r($filename);
                     $srcpath="/var/www/uploads.getmodu.com/public_html/".$user_id."/".$project_id."/".$filename;
                     $img["old_src"] = $srcpath;
                     $img["filename"] = $filename;
