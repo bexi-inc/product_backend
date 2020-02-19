@@ -297,7 +297,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
                     $pos=strpos($filename,"?timestamp=");
                     if($pos!==false)
                     {
-                        $filename=substr($filename,0,$pos-1);
+                        $filename=substr($filename,0,$pos);
                     }
                     $new_src_url = './files/imgs/'.$filename;
                     $srcpath="/var/www/uploads.getmodu.com/public_html/".$user_id."/".$project_id."/".$filename;
