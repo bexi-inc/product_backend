@@ -476,7 +476,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         //echo $fileZip;
 
 
-        
+        /*
       if (file_exists($fileZip)) {
          header('Content-Description: File Transfer');
          header("Content-Type: application/zip");
@@ -493,6 +493,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
          @unlink($fileZip);
      
        }
+       */
     }elseif ($Type=="dom")
     {
         /*********** test for ftp ***********/
