@@ -403,6 +403,41 @@ function UpdateProfile($connDyn, $userid, $username, $name, $last_name, $company
 }
 
 
+function UploadAvatar($userid)
+{
+	$key = '
+	    {
+	        "id": "'.$userid.'"
+	    }
+	';
+
+	$updateData = ' ":avatar" : "'. $_FILES["avatar"]["tmp_name"] .'"';
+	$updateQ =  " avatar = :avatar";
+
+	$resUpd = Update("users",$key, $updateQ, $updateData);
+	if (!$resUpd["error"])
+	{
+		if (!file_exists(PATHAVATARS.$useruseridid)) {
+			mkdir($path.$userid, 0777, true);
+		}
+
+		$fullpath= PATHAVATARS.$userid."/";
+
+
+		$target_file = $fullpath . $_FILES["avatar"]["name"];
+
+		if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
+
+		}
+		$ret["error_code"] = "0";
+		$ret["message"] = "profiel avatar";
+	}else{
+		$ret["error_code"] = "500";
+		$ret["message"] =  $resUpd["error"];
+	}
+}
+
+
 function GetGmailLoginLink()
 { 
 	$client = new Google_Client();

@@ -191,7 +191,7 @@ function GetProjects($userId)
 		":userid" : "'.$userId.'"
 	}';
 
-	$table = ExecuteQuery("modu_projects",$userData,"user_id = :userid", "user_id-index" , "" , false);
+	$table = ExecuteQuery(TBL_PROJECTS,$userData,"user_id = :userid", "user_id-index" , "" , false);
 	$projects = []; 
 
 
@@ -281,96 +281,28 @@ function GetProjects($userId)
 }
 
 
-function CreateNewProject($connDyn, $userid, $pname, $pgoal, $industry, $colors, $txtcolors,  $pkeywords , $pservices, $pemailcontact, $pfontprimary, $pfontsecondary, $offering, $goal)
+function CreateNewProject($connDyn, $pcampaign, $pname)
 {
 	global $Marshaler;
-	$pid = microtime(true);
+	$pid = uniqid("",true);
+	$pDate = microtime(true);
 	$Data ='{
 		"project_id" : "'.$pid.'"
-		,"user_id" : "'.$userid.'"
-		,"date_create" : "'.$pid.'"
-		,"project_name" : "'.$pname.'"
-		,"industry" : "'.$industry.'" ';
-
-	$Data .= ((trim($pgoal) != '' ) ? ',"project_goal" :  "'.$pgoal.'" ' : '' );
-
-	$Data .= ((isset($_FILES["logofullcolor"]["name"])) ? ', "logofull" : "'.$_FILES["logofullcolor"]["name"].'"' : '');
-
-	$Data .= ((isset($pemailcontact)) ? ', "email_contact" : "'.$pemailcontact.'"' : '');
-	$Data .= ((isset($pfontprimary)) ? ', "font_primary" : "'.$pfontprimary.'"' : '');
-	$Data .= ((isset($pfontsecondary)) ? ', "font_secondary" : "'.$pfontsecondary.'"' : '');
-
-	$Data .= ((isset($offering)) ? ', "project_offering" : "'.$offering.'"' : '');
-	$Data .= ((isset($goal)) ? ', "project_goal" : "'.$goal.'"' : '');
-	$recipetype=Gettyperecipe($offering,$goal);
-	$Data .=', "recipe_type" : "'.$recipetype.'"';
-
-	$Data .= ' ,"status" : "0"
-		,"colors" : [
-				'.$colors.'
-		]
-		,"txtcolors" : [
-				'.$txtcolors.'
-		]
-		,"keywords" : "'.$pkeywords.'"
-		,"pservices" : "'.$pservices.'"
-	';
+		,"campaign_id" : "'.$pcampaign.'"
+		,"date_create" : "'.$pDate.'"
+		,"project_name" : "'.$pname.'"';
 	$Data = $Data . '}';
 
 
 	//print_r($Data);
 
-	$resIns=Insert("modu_projects",$Data, false);
+	$resIns=Insert(TBL_PROJECTS,$Data, false);
 
 	
 	if (!$resIns["error"])
 	{
 		$res["error"]="0";
 		$res["id"] =  $pid;
-
-
-		if (!file_exists(PAHTSERVER.$userid)) {
-		    mkdir($path.$userid, 0777, true);
-		}
-
-		if (!file_exists(PAHTSERVERth.$userid."/".$pid)) {
-		    mkdir($path.$userid."/".$pid, 0777, true);
-		}
-
-		$fullpath= PAHTSERVER.$userid."/".$pid . "/";
-
-		if (!file_exists($fullpath."/logos")) {
-		    mkdir($fullpath."/logos", 0777, true);
-		}
-
-		$fullpath .= "/logos/";
-
-		
-		/*$uploadOk = 1;
-		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-		$target_file = $fullpath."/".$idfile.".".$imageFileType;*/
-		//$webpath = PATHWEB.$userid."/".$projectid . "/logos/".$_FILES["logofullcolor"]["name"];
-		//print_r($_FILES);
-
-		$target_file = $fullpath . $_FILES["logofullcolor"]["name"];
-
-		if (move_uploaded_file($_FILES["logofullcolor"]["tmp_name"], $target_file)) {
-
-		}
-
-		$target_file = $fullpath . $_FILES["logodarker"]["name"];
-
-		if (move_uploaded_file($_FILES["logodarker"]["tmp_name"], $target_file)) {
-
-		}
-
-		$target_file = $fullpath . $_FILES["logolighter"]["name"];
-
-		if (move_uploaded_file($_FILES["logolighter"]["tmp_name"], $target_file)) {
-
-		}
-
 		return $res;
 	}else{
 		$ret["error_code"] = "500";
@@ -641,7 +573,7 @@ function create_recipe($proj_id)
 	$userData ='{
 		":id" : "'.$proj_id.'"
 	}';
-	$table = ExecuteQuery("modu_projects",$userData,"project_id = :id", "" , "" , false);
+	$table = ExecuteQuery(TBL_PROJECTS,$userData,"project_id = :id", "" , "" , false);
 	if($table["error"]==""){
 		$type = $Marshaler->unmarshalValue($table["data"]['Items'][0]["recipe_type"]);//get type of recipe
 	}else{

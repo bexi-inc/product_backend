@@ -80,6 +80,15 @@ $res["error_code"]=0;
  		$res=UpdatePassword($Dynamodb,$_REQ->userid, $_REQ->password);
  		
  		break;
+ 	case 'UploadAvatar':
+ 		if (!isset($_REQ->userid))  
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			break;
+ 		}
+ 		$res = UploadAvatar($_REQ->userid);
+ 	break;
  	case 'UpdateProfile':
  		if (!isset($_REQ->userid))  
  		{

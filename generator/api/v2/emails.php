@@ -97,7 +97,7 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 		    	$projectId = $marshaler->unmarshalValue($result['Items'][0]["project_id"]);
 
 				$params = [
-			        'TableName' => "modu_projects",
+			        'TableName' => TBL_PROJECTS,
 			         "KeyConditionExpression"=> "project_id = :id",
 			        "ExpressionAttributeValues"=> [
 			            ":id" =>  ["S" => strval($projectId)]
@@ -151,7 +151,7 @@ function SendEmail($type,$user,$IdRef = 0, $data = [])
 		    	$subdomain = $marshaler->unmarshalValue($result["Items"][0]["subdomain"]);
 
 				$params = [
-			        'TableName' => "modu_projects",
+			        'TableName' => TBL_PROJECTS,
 			         "KeyConditionExpression"=> "project_id = :id",
 			        "ExpressionAttributeValues"=> [
 			            ":id" =>  ["S" => strval($projectId)]
