@@ -411,6 +411,7 @@ function UploadAvatar($userid)
 	    }
 	';
 
+	print_r($_FILES["avatar"]);
 	$updateData = ' ":avatar" : "'. $_FILES["avatar"]["tmp_name"] .'"';
 	$updateQ =  " avatar = :avatar";
 
