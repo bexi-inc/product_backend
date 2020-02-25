@@ -432,11 +432,13 @@ function UploadAvatar($userid)
 
 		}
 		$ret["error_code"] = "0";
-		$ret["message"] = "profiel avatar";
+		$ret["message"] = "upload avatar sucessfull";
+		$ret["avatar"] =  $_FILES["avatar"]["name"];
 	}else{
 		$ret["error_code"] = "500";
 		$ret["message"] =  $resUpd["error"];
 	}
+	return $ret;
 }
 
 
