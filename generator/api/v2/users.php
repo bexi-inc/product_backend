@@ -413,7 +413,7 @@ function UploadAvatar($userid)
 
 	//print_r($_FILES["avatar"]);
 
-	$updateData = ' "{ :avatar" : "'. $_FILES["avatar"]["name"] .'" }';
+	$updateData = '{ ":avatar" : "'. $_FILES["avatar"]["name"] .'" }';
 	$updateQ =  "set avatar = :avatar";
 
 	$resUpd = Update("users",$key, $updateQ, $updateData);
