@@ -258,7 +258,7 @@ function GetProfile($connDyn, $userId)
 		    	$user["plan_id"] = isset($dbdata[0]['plan_id']) ? $Marshaler->unmarshalValue($dbdata[0]['plan_id']) : '';
 
 		    	$protocol = current(explode('/',$_SERVER['SERVER_PROTOCOL']));
-		    	$user["avatar"] =  isset($dbdata[0]['avatar']) ? $protocol."://".PATHWEB."avatars/".$user["id"]."/".$Marshaler->unmarshalValue($dbdata[0]['avatar']) : '';
+		    	$user["avatar"] =  isset($dbdata[0]['avatar']) ? $protocol."://".PATHWEB."/avatars/".$user["id"]."/".$Marshaler->unmarshalValue($dbdata[0]['avatar']) : '';
 
 		    	$ret["user"] = $user;
 		    	return $ret;
@@ -422,8 +422,12 @@ function UploadAvatar($userid)
 	$resUpd = Update("users",$key, $updateQ, $updateData);
 	if (!$resUpd["error"])
 	{
-		if (!file_exists(PATHAVATARS.$useruseridid)) {
-			mkdir($path.$userid, 0777, true);
+		if (!file_exists(PATHAVATARS)) {
+			mkdir(PATHAVATARS, 0777, true);
+		}
+
+		if (!file_exists(PATHAVATARS.$userid)) {
+			mkdir(PATHAVATARS.$userid, 0777, true);
 		}
 
 		$fullpath= PATHAVATARS.$userid."/";
@@ -437,7 +441,7 @@ function UploadAvatar($userid)
 		$ret["error_code"] = "0";
 		$ret["message"] = "upload avatar sucessfull";
 		$protocol = current(explode('/',$_SERVER['SERVER_PROTOCOL']));
-		$ret["avatar"] =  $protocol."://".PATHWEB."avatars/".$userid."/".$_FILES["avatar"]["name"];
+		$ret["avatar"] =  $protocol."://".PATHWEB."/avatars/".$userid."/".$_FILES["avatar"]["name"];
 	}else{
 		$ret["error_code"] = "500";
 		$ret["message"] =  $resUpd["error"];
