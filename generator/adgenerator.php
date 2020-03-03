@@ -1,4 +1,8 @@
 <?
+include "includes/global.php";
+include "includes/utils.php";
+include "config.php";
+require 'vendor/autoload.php';
 
 function init_array($m, $n, $value = 0) {
     return array_fill(0, $m, array_fill(0, $n, $value));
