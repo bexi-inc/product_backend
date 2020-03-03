@@ -266,6 +266,20 @@ echo'<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/a
 /**************   ICON FONTS **************/
 echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
 
+
+/**************   Jquery dialog **************/
+echo '<script src="includes/jquery-ui.min.js"></script>';
+echo '<link rel="stylesheet" type="text/css" href="includes/jquery-ui.theme.css" >';
+
+/**************   Jquery palett colors **************/
+echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jquery.minicolors.css">
+      <script type="text/javascript" src="includes/jquery.minicolors.min.js"></script>';
+
+/**************   PAGINATION **************/
+echo '<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>';
+echo '<script src="includes/pagination.js"></script>';
+echo'<link rel="stylesheet" type="text/css" href="includes/css/bs-pagination.css" >';
+
 /**************   EDITOR **************/
 echo '<script type="text/javascript"  src="includes/ad_editor.js"></script>';
 
