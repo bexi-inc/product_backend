@@ -226,7 +226,7 @@ function initialize_editors_text(){
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
       },
-      imageEditButtons: ['imageReplace', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageStyle', 'imageAlt', 'imageSize'],
+      imageEditButtons: ['imageReplace', 'imageAlign', 'imageRemove', '|','-','imageSize'],
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
       // Set max image size to 5MB.
       imageMaxSize: 3 * 1024 * 1024,
