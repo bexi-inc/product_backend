@@ -56,7 +56,6 @@ $(document).ready(function() {
         newDiv.css("height", "auto");
         newDiv.css("width", "auto");
         newDiv.css("overflow", "visible");
-        newDiv.css("z-index","99999");
         newDiv.html("Color:<input type='text' id='colorpicker_"+ID+"' class='form-control' data-control='hue' value='" + color + "'>");
         $(newDiv).dialog({
             resizable: false,
