@@ -270,6 +270,7 @@ echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonym
 /**************   Jquery dialog **************/
 echo '<script src="includes/jquery-ui.min.js"></script>';
 echo '<link rel="stylesheet" type="text/css" href="includes/jquery-ui.theme.css" >';
+echo '<link rel="stylesheet" href="includes/jquery-ui.min.css">';
 echo '<style type="text/css">';
 echo '.ui-dialog { z-index: 9999 !important ;}';
 echo '.ui-front { z-index: 9999 !important; }';
