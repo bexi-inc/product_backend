@@ -19,6 +19,22 @@ function auto_save(){
 
 };
 
+
+function styles_ptags(){
+    $("#modu_main").find("p").each(function(){
+      if($(this).attr("class")===undefined)
+      {
+        $(this).css("padding","0px");
+        $(this).css("margin","0px");
+      }else{
+        if($(this).attr("class").search("bexi_editor")!==-1){
+          $(this).css("padding","0px");
+          $(this).css("margin","0px");
+        }
+      }
+    });
+  }
+
 function initialize_editors_text(){
 
     var editortitles = new FroalaEditor('.bexi_editor_title',
