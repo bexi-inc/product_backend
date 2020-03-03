@@ -1,3 +1,27 @@
+function rgb2hex(rgb){
+    rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+    return (rgb && rgb.length === 4) ? "#" +
+     ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+     ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+     ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+}
+
+function validate_url(url){
+ var result=/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)/.test(url);
+ return result;
+}
+
+function clear_classes(classes){
+ var classList = classes.split(/\s+/);
+ var class_clear="";
+ $.each(classList, function(index, item) {
+     if (/^fa([a-z]?)$/.test(item)==false&&(/^fa-+/).test(item)==false) {
+         class_clear+=item+" ";
+     }
+ });
+ return class_clear;
+}
+
 $(document).ready(function() {
     $( ".bexi_title" ).wrap( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
