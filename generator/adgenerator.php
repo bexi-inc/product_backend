@@ -310,7 +310,7 @@ if(isset($coords["text2"]))
 if(isset($coords["icon"]))
 {
     //icon
-    echo '<div  style="position:absolute;z-index:3;top:'.($coords["icon"][1]*$yblock).'px;left:'.($coords["icon"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;"><i class="fas fa-edit bexi_icon" style="font-size:'.($yblock/2).'px;"></i></div>';
+    echo '<div  style="position:absolute;z-index:3;top:'.($coords["icon"][1]*$yblock).'px;left:'.($coords["icon"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;"><i class="fab fa-jedi-order bexi_icon" style="font-size:'.($yblock/2).'px;"></i></div>';
 
 }
 
