@@ -271,10 +271,6 @@ echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonym
 echo '<link rel="stylesheet" href="includes/jquery-ui.min.css">';
 echo '<script src="includes/jquery-ui.min.js"></script>';
 echo '<link rel="stylesheet" type="text/css" href="includes/jquery-ui.theme.css" >';
-echo '<style type="text/css">';
-echo '.ui-dialog { z-index: 9999 !important ;}';
-echo '.ui-front { z-index: 9999 !important; }';
-echo '</style>';
 
 /**************   Jquery palett colors **************/
 echo '<link rel="stylesheet" type="text/css" media="all" href="includes/css/jquery.minicolors.css">
