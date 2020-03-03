@@ -14,6 +14,11 @@ $(document).ready(function() {
     initialize_editors_text();
 });
 
+
+function auto_save(){
+
+};
+
 function initialize_editors_text(){
     console.log("KEy == " + FroalaKey);
     var editortxt = new FroalaEditor('.bexi_editor_text',
