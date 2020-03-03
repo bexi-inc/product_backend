@@ -233,7 +233,7 @@ function search_element($recipe,$element){
 
 $xdim=1200;//width of final ad
 $ydim=628;//height of final ad
-$coords=main_loop(5,5,"1,2O,3O,4O,5");
+$coords=main_loop(5,5,"1,2,3,4,5");
 $xblock=$xdim/5;
 $yblock=$ydim/5;
 echo "<!doctype html>";
