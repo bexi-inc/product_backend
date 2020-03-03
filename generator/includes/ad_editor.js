@@ -40,6 +40,7 @@ function initialize_editors_text(){
     var editortitles = new FroalaEditor('.bexi_editor_title',
     {
       //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
+      iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
       placeholderText: '',
@@ -133,6 +134,7 @@ function initialize_editors_text(){
     var editorsubtitles = new FroalaEditor('.bexi_editor_subtitle',
     {
       //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
+      iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
       placeholderText: '',
@@ -228,6 +230,7 @@ function initialize_editors_text(){
     var editorimg = new FroalaEditor('.bexi_img',
     {
       //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
+      iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
       placeholderText: '',
@@ -346,6 +349,7 @@ function initialize_editors_text(){
     var editorbtn = new FroalaEditor('.bexi_editor_button',
     {
       //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
+      iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
       placeholderText: '',
