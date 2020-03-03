@@ -11,6 +11,178 @@ $(document).ready(function() {
 
     $('.bexi_icon').wrap( '<p class="bexi_editor_icon" ></p>');
 
+    /************** ICON COLOR ******************/
+    FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+    FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'fas fa-tint'});
+    FroalaEditor.RegisterCommand('iconcolor', {
+        title: 'Icon Color',
+        icon: 'icon_block',
+        focus: false,
+        undo: false,
+        refreshAfterCallback: false,
+        callback: function () {
+        var obj=this._original_html;
+        var ID=$(obj).attr('id');
+        var color=$("#"+ID).css('color');
+        color=rgb2hex(color);
+        var newDiv = $(document.createElement('div'));
+        newDiv.attr("Title", "Icon Settings");
+        newDiv.attr("data-id", "#" + ID);
+        newDiv.css("display", "block");
+        newDiv.css("height", "auto");
+        newDiv.css("width", "auto");
+        newDiv.css("overflow", "visible");
+        newDiv.html("Color:<input type='text' id='colorpicker_"+ID+"' class='form-control' data-control='hue' value='" + color + "'>");
+        $(newDiv).dialog({
+            resizable: false,
+            height: "auto",
+            width: 500,
+            modal: true,
+            buttons: {
+                "Save": function() {
+                $("#"+ID).css("color",$("#colorpicker_"+ID).minicolors("rgbString"));
+                $( this ).dialog( "close" );
+                newDiv.remove();
+                auto_save();
+                },
+                "Cancel": function() {
+                $( this ).dialog( "close" );
+                newDiv.remove();
+                }
+            },
+            open: function() {
+            $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+        },
+        close: function( event, ui ) {
+            newDiv.remove();
+        }
+        });
+        $("#colorpicker_"+ID).minicolors({
+            control: $(this).attr('data-control') || 'hue',
+            inline: $(this).attr('data-inline') === 'true',
+            letterCase: 'uppercase',
+            format: 'hex',
+            swatches: ["#000000","#444444","#666666","#999999","#cccccc","#eeeeee","#f3f3f3","#ffffff","#f00","#f90","#ff0","#0f0","#0ff","#00f"],
+            change: function(hex, opacity) {
+            },
+            theme: 'bootstrap'
+        });
+        }
+    });
+
+    /************** ICON BGCOLOR ******************/
+    FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+    FroalaEditor.DefineIcon('icon_block2', {FA5NAME: 'fas fa-paint-brush'});
+    FroalaEditor.RegisterCommand('iconbgcolor', {
+        title: 'Icon Background Color',
+        icon: 'icon_block2',
+        focus: false,
+        undo: false,
+        refreshAfterCallback: false,
+        callback: function () {
+        var obj=this._original_html;
+        var ID=$(obj).attr('id');
+        var color=$("#"+ID).css('background-color');
+        color=rgb2hex(color);
+        var newDiv = $(document.createElement('div'));
+        newDiv.attr("Title", "Icon Settings");
+        newDiv.attr("data-id", "#" + ID);
+        newDiv.css("display", "block");
+        newDiv.css("height", "auto");
+        newDiv.css("width", "auto");
+        newDiv.css("overflow", "visible");
+        newDiv.html("Background Color:<input type='text' id='colorpicker_"+ID+"' class='form-control' data-control='hue' value='" + color + "'>");
+        $(newDiv).dialog({
+            resizable: false,
+            height: "auto",
+            width: 500,
+            modal: true,
+            buttons: {
+                "Save": function() {
+                $("#"+ID).css("background-color",$("#colorpicker_"+ID).minicolors("rgbString"));
+                $( this ).dialog( "close" );
+                newDiv.remove();
+                auto_save();
+                },
+                "Cancel": function() {
+                $( this ).dialog( "close" );
+                newDiv.remove();
+                }
+            },
+            open: function() {
+            $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+        },
+            close: function( event, ui ) {
+            newDiv.remove();
+            }
+        });
+        $("#colorpicker_"+ID).minicolors({
+            control: $(this).attr('data-control') || 'hue',
+            inline: $(this).attr('data-inline') === 'true',
+            letterCase: 'uppercase',
+            format: 'hex',
+            swatches: ["#000000","#444444","#666666","#999999","#cccccc","#eeeeee","#f3f3f3","#ffffff","#f00","#f90","#ff0","#0f0","#0ff","#00f"],
+            change: function(hex, opacity) {
+            },
+            theme: 'bootstrap'
+        });
+        }
+    });
+
+
+    /************** ICON REMOVE ******************/
+    FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+    FroalaEditor.DefineIcon('icon_block6', {FA5NAME: 'fas fa-trash'});
+    FroalaEditor.RegisterCommand('iconremove', {
+    title: 'Remove',
+    icon: 'icon_block6',
+    focus: false,
+    undo: false,
+    refreshAfterCallback: false,
+    callback: function () {
+        var obj=this._original_html;
+        var ID=$(obj).attr('id');
+        $('#'+ID).closest(".bexi_editor_icon").remove();
+        auto_save();
+    }
+    });
+
+    /************** ICON SIZE ******************/
+    FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+    FroalaEditor.DefineIcon('icon_block3', {FA5NAME: 'fas fa-text-height'});
+    FroalaEditor.RegisterCommand('iconsize', {
+        title: 'Icon Size',
+        icon: 'icon_block3',
+        type: 'dropdown',
+        focus: false,
+        undo: false,
+        refreshAfterCallback: true,
+        options: {
+        '8': '8',
+        '9': '9',
+        '10': '10',
+        '11': '11',
+        '12': '12',
+        '14': '14',
+        '18': '18',
+        '24': '24',
+        '30': '30',
+        '36': '36',
+        '48': '48',
+        '60': '60',
+        '72': '72',
+        '96': '96',
+        },
+        callback: function (cmd, val) {
+        var obj=this._original_html;
+        var ID=$(obj).attr('id');
+        $("#"+ID).css("font-size",val+'px');
+        auto_save();
+        }
+    });
+
+
+
     initialize_editors_text();
 });
 
@@ -394,7 +566,7 @@ function initialize_editors_text(){
       pluginsEnabled: ['fontAwesome', 'fontFamily', 'fontSize'],
       toolbarButtons : {
          'moreMisc' : {
-             'buttons' : ['iconcolor','iconbgcolor','iconsize','iconlink','iconexchange','iconremove'],
+             'buttons' : ['iconcolor','iconbgcolor','iconsize','iconexchange','iconremove'],
              'buttonsVisible': 6
          }
      },
