@@ -368,7 +368,7 @@ $(document).ready(function() {
     $( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
     $('.bexi_icon').wrap( '<p class="bexi_editor_icon" ></p>');
-
+    var num=Math.floor((Math.random() * 10000) + 1);
     $(this).prepend(
       '<button class="toolbtn remove" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 110;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
       '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 111;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
