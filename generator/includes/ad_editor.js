@@ -224,7 +224,7 @@ function set_pagination2(ID,npag)
   });
 }
 
-
+*/
 function bgchange(btid) {
   var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
   if (vcolor =="rgba(0,0,0,0)")
@@ -275,7 +275,7 @@ function bgchange(btid) {
     });
     auto_save();
   }
-
+/*
   function bgimgchange(btid) {
     $( "#dialog-img"+(btid-10000).toString()).dialog({
               resizable: false,
