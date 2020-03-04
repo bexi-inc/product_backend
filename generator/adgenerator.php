@@ -304,9 +304,10 @@ echo '.bexi_module{
     padding-top:80px;
     padding-bottom: 80px;
     padding-left: 0px;
-    padding-right: 0px;
-    width: 100%;
-    background-size: cover;
+    padding-right: 0px;';
+echo 'width:'. $xdim .'px;';
+echo 'height:'.$ydim .'px;';
+echo 'background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }';
