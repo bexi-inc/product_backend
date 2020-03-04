@@ -255,9 +255,10 @@ echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/
 echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
 
 /**************   FROALA EDITOR **************/
-echo '<script type="text/javascript" >
-var FroalaKey = "'.FROALA_KEY.'";
-</script>';
+echo '<script type="text/javascript" >';
+echo 'var FroalaKey = "'.FROALA_KEY.'";';
+echo 'var t1maxchar="'.(($xblock*3)/($yblock/2)).'";';
+echo '</script>';
 echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />';
 echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
 echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/third_party/font_awesome.min.js"></script>';
@@ -299,7 +300,7 @@ if(isset($coords["button"]))
 if(isset($coords["text1"]))
 {
     //text1
-    echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;"><h1 class="bexi_title">Text1</h1></div>';
+    echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;"><h1 class="bexi_title" style="font-size:'.($yblock/2).'">Text1</h1></div>';
 }
 
 if(isset($coords["text2"]))
