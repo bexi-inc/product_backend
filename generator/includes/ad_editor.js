@@ -96,6 +96,266 @@ function set_pagination_icon(ID,npag)
   });
 }
 
+/*
+function bgchangeurl(ID){
+  var url=$("#inptext"+ID).val();
+  if(url!=""){
+    if(validate_url(url)==true)
+    {
+      var exist= false;
+      if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
+      {
+        var exist=true;
+      }
+      if(exist==false){
+        $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+      }
+      $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+url+")");
+      $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
+      $("#inptext"+ID).val("");
+      $( "#dialog-img"+(ID).toString()).dialog("close");
+    }else{
+      alert("Url invalid!");
+    }
+  }
+  auto_save();
+}
+
+function Manager_unsplash2(ID,numpag)
+{
+  var request=null;
+  if(  $("#cont_unspl"+ID).masonry().length)
+  {
+    $("#cont_unspl"+ID).masonry('destroy');
+  }
+  $("#cont_unspl"+ID).empty();
+  var keys=$('#inptextsearch'+ID).val();
+  if(keys!="")
+  {
+    request=$.ajax({
+      url: "load_images.php",
+      data: { key: keys, npag : numpag} ,
+      datatype:"json",
+      success: function(data){
+      var jdata=JSON.parse(data);
+      total=jdata.total;
+      var $grid = $("#cont_unspl"+ID).masonry({
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: 200,
+        gutter: 10
+      });
+      $.each(jdata.images, function(index, item) {
+          var img = new Image();
+          img.src = item.thumb;
+          img.setAttribute("class", "image-list");
+          img.setAttribute("alt", item.alt_description);
+          img.onload=function(){
+            $grid.masonry();
+          };
+          $(img).css("cursor","pointer");
+          $(img).click(function(){
+            var exist= false;
+            if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
+            {
+              var exist=true;
+            }
+            if(exist==false){
+              $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+            }
+            $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+item.url+")");
+            $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
+            $("#cont_unspl"+ID).empty();
+            $("#cont_unspl"+ID).css("height","0px");
+            $("#cont_pag"+ID).empty();
+            $("#cont_pag"+ID).css("height","0px");
+            $("#inptextsearch"+ID).val("");
+            $("#inptext"+ID).val("");
+            $( "#dialog-img"+ID).css("height","auto");
+            $("#dialog-img"+ID).dialog( "close" );
+            auto_save();
+          });
+          var newdiv= $(document.createElement('div'));
+          newdiv.attr("class", "grid-item");
+          $(newdiv).append(img);
+          $("#cont_unspl"+ID).append(newdiv);
+          $grid.append(newdiv);
+          $grid.masonry( 'appended',newdiv);
+      });
+      $( "#dialog-img"+ID).css("height","400px");
+      $( "#dialog-img"+ID).closest(".ui-dialog").css("position","fixed");
+      $( "#dialog-img"+ID).closest(".ui-dialog").css("top","80px");
+      }
+    });
+  }
+  return request;
+}
+
+function set_pagination2(ID,npag)
+{
+  var pag_cont =$('#cont_pag'+ID);
+  pag_cont.pagination({
+  
+    // current page
+    current: 1, 
+  
+    // the number of entires per page
+    length: 10, 
+  
+    // pagination size
+    size: 2,
+  
+    // Prev/Next text
+    prev: "&lt;", 
+    next: "&gt;", 
+  
+    // fired on each click
+    ajax:function(options, refresh, $target){
+     pag_cont.hide();
+      var t = Manager_unsplash2(ID,options.current);
+     t.done(function(data){
+       var jdata=JSON.parse(data);
+      refresh({
+        total: jdata.total
+      });
+      pag_cont.show();
+     })
+    }
+  });
+}
+
+
+function bgchange(btid) {
+  var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
+  if (vcolor =="rgba(0,0,0,0)")
+  {
+    vcolor ="rgba(0,0,0,1)";
+  }
+  var newDiv = $(document.createElement('div'));
+  newDiv.attr("Title", "Content Block Settings");
+  newDiv.attr("data-id", "#" + btid);
+  newDiv.css("display", "block");
+  newDiv.css("height", "auto");
+  newDiv.css("width", "auto");
+  newDiv.css("overflow", "visible");
+  newDiv.html("Color:<input type='text' id='colorpicker_"+btid+"' class='form-control' data-control='hue' data-format='rgb' value='" + vcolor + "'>");
+  $(newDiv).dialog({
+            resizable: false,
+            height: "auto",
+            width: 500,
+            modal: true,
+            buttons: {
+              "Save": function() {
+                $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_"+btid).minicolors("rgbaString")+'!important;');
+                $( this ).dialog( "close" );
+                newDiv.remove();
+              },
+              Cancel: function() {
+                $( this ).dialog( "close" );
+                newDiv.remove();
+              }
+            },
+            open: function() {
+              $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+          },
+          close: function( event, ui ) {
+            newDiv.remove();
+          }
+    });
+    $("#colorpicker_"+btid).minicolors({
+      control: $(this).attr('data-control') || 'hue',
+      inline: $(this).attr('data-inline') === 'true',
+      letterCase: 'lowercase',
+      changeDelay: 200,
+      format:'rgb',
+      opacity: true,
+      theme: 'bootstrap',
+      change: function(value, opacity) {
+      }
+    });
+    auto_save();
+  }
+
+  function bgimgchange(btid) {
+    $( "#dialog-img"+(btid-10000).toString()).dialog({
+              resizable: false,
+              height: "auto",
+              width: 750,
+              modal: true,
+              create: function() {
+                $(this).find('#tabs-img').tabs();
+               // remove the title of the dialog as we want to use the tab's one
+               $(this).parent().children('.ui-dialog-titlebar').remove();
+              },
+              buttons: {
+                Cancel: function() {
+                  $("#cont_unspl"+(btid-10000)).empty();
+                  $("#cont_unspl"+(btid-10000)).css("height","0px");
+                  $("#cont_pag"+(btid-10000)).empty();
+                  $("#cont_pag"+(btid-10000)).css("height","0px");
+                  $("#inptextsearch"+(btid-10000)).val("");
+                  $("#inptext"+(btid-10000)).val("");
+                  $( "#dialog-img"+(btid-10000)).css("height","auto");
+                  $( this ).dialog("close");
+                }
+              }
+      });
+      auto_save();
+    }
+
+    function previewImg(ID) {
+      var exist= false;
+      if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
+      {
+        var exist=true;
+      }
+      if(exist==false){
+        $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+      }
+      if($('#inpimg'+ID).prop('files')[0])
+      {
+        if($('#inpimg'+ID).prop('files')[0].size<=(3 * 1024 * 1024)){
+          var id=$('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id");
+          if(typeof id === "undefined")
+          {
+            id=null;
+          }
+          var response =save_img(id,$('#inpimg'+ID).prop('files')[0]);
+          response.done(function(data){
+            var jdata=JSON.parse(data);
+            $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"?timestamp=" + new Date().getTime()+"')");
+            $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
+            $('#inpimg'+ID).val(null);
+            $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
+          });
+        }else{
+          $( "#dialog-img"+(ID).toString()).dialog("close");
+          var newDiv = $(document.createElement('div'));
+          newDiv.html('Image too large(Max 3MB)');
+          $(newDiv).dialog({
+              resizable: false,
+              height: "auto",
+              width: 400,
+              modal: true,
+              buttons: {
+                "Ok": function() {
+                  $(newDiv).dialog( "close" );
+                  newDiv.remove();
+                }
+              },
+              open: function() {
+              $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+            },
+            close: function( event, ui ) {
+              newDiv.remove();
+            }
+          });
+        }
+      }
+      $('#inpimg'+ID).val("");
+      auto_save();
+    }
+*/
 $(document).ready(function() {
     $( ".bexi_title" ).wrap( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
@@ -108,6 +368,48 @@ $(document).ready(function() {
     $( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
     $('.bexi_icon').wrap( '<p class="bexi_editor_icon" ></p>');
+
+    $(this).prepend(
+      '<button class="toolbtn remove" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 110;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
+      '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 111;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
+        '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
+        '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
+        rbutton+
+      '</div>'+
+      '<div id="dialog-img'+num+'" class="remove ui-helper-hidden">'+
+        '<div id="tabs-img">'+
+          '<ul>'+
+            '<li><a data-tooltip="true" title="Upload" href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
+            '<li><a data-tooltip="true" title="Link" href="#tab-2"><i class="fas fa-link"></i></a></li>'+
+            '<li><a data-tooltip="true" title="Search" href="#tab-3"><i class="far fa-images"></i></a></li>'+
+          '</ul>'+
+          '<div id="tab-1">'+
+            '<div id="'+num+'" class="col-lg-12 dropzone">'+
+              '<label  for="inpimg'+num+'" Class="C" style="height:100%;width:100%;cursor: pointer;">Drop Your Image Here<Br>(Or Click)</label>'+
+              '<input class="bgimginput" id="inpimg'+num+'" accept="image/*" onchange="previewImg('+num+')" style="display:none;" type="file">'+
+            '</div>'+
+          '</div>'+
+          '<div id="tab-2">'+
+            '<div class="fr-input-line R" data-children-count="1">'+
+              '<input id="inptext'+num+'" type="text" placeholder="http://" tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">'+
+              '<button class="align-self-end btn btn-outline-primary mt-3" type="button" onclick="bgchangeurl('+num+')">Change</button>'+
+            '</div>'+
+          '</div>'+
+          '<div id="tab-3">'+
+            '<div class="input-group mb-3">'+
+              '<input id="inptextsearch'+num+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+              '<div class="input-group-append">'+
+                '<button class="btn btn-outline-primary" type="button" onclick="set_pagination2(\''+num+'\','+1+');" id="button-addon2">Search</button>'+
+              '</div>'+
+            '</div>'+
+            '<div id="cont_unspl'+num+'">'+
+            '</div>'+
+            '<div id="cont_pag'+num+'" class="pagination">'+
+            '</div>'+
+          '</div>'+
+        '</div>'+
+      '</div>'
+    );
 
     /************** ICON COLOR ******************/
     FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
