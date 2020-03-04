@@ -305,7 +305,7 @@ echo "\r\n";
 echo "<body>";
 echo "\r\n";
 //main container
-echo '<div id="maindiv" style="position:relative;width:'.($xdim+4).'px;height:'.($ydim+4).'px;border: 2px solid red;" >';
+echo '<div class= "bexi_module" id="maindiv" style="position:relative;width:'.($xdim+4).'px;height:'.($ydim+4).'px;border: 2px solid red;" >';
 if(isset($coords["button"]))
 {
     //Button
