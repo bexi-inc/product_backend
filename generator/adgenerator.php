@@ -265,9 +265,9 @@ for ($i=1; $i < $count ; $i++) {
   echo ','.(($i*2)+8);
 }
 echo '];';
-echo 'var t2maxchar="'.(($xblock*2)/(0.5*($yblock/2))).'";';
+echo 'var t2maxchar="'.(($xblock*2)/(0.2*($yblock/2))).'";';
 echo 'var t2size=[8';
-$total=($yblock/3)-8;
+$total=($yblock/2)-8;
 $count=$total/2;
 for ($i=1; $i < $count ; $i++) {
   echo ','.(($i*2)+8);
