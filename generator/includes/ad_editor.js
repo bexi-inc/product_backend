@@ -371,7 +371,7 @@ function initialize_editors_text(){
       quickInsertEnabled: false,
       toolbarInline: true,
       charCounterCount: false,
-      charCounterMax: t1maxchar,
+      charCounterMax: 19,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       imageStyles: {
