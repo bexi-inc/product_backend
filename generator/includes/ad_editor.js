@@ -356,6 +356,14 @@ function bgchange(btid) {
       auto_save();
     }
 */
+
+/**************  Close the toolbar when click outside **************/
+$(document).click(function(e) {
+  if (!$(e.target).is('.bartool')) {
+      $('.collapse').collapse('hide');
+    }
+});
+
 $(document).ready(function() {
     $( ".bexi_title" ).wrap( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
