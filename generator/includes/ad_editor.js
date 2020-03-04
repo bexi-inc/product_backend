@@ -360,6 +360,7 @@ function styles_ptags(){
 
 function initialize_editors_text(){
 
+  t1maxchar=Math.round(t1maxchar);
   console.log(t1maxchar);
     var editortitles = new FroalaEditor('.bexi_editor_title',
     {
