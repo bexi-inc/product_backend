@@ -373,6 +373,7 @@ function initialize_editors_text(){
       toolbarInline: true,
       charCounterCount: true,
       charCounterMax: t1maxchar,
+      fontSize: t1size,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       imageStyles: {
