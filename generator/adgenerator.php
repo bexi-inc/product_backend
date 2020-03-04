@@ -299,7 +299,18 @@ echo'<link rel="stylesheet" type="text/css" href="includes/css/bs-pagination.css
 
 /**************   EDITOR **************/
 echo '<script type="text/javascript"  src="includes/ad_editor.js"></script>';
-
+echo'<style>';
+echo '.bexi_module{
+    padding-top:80px;
+    padding-bottom: 80px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}';
+echo'</style>';
 echo "</head>";
 echo "\r\n";
 echo "<body>";
