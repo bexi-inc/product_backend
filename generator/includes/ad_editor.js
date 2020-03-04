@@ -362,6 +362,9 @@ function initialize_editors_text(){
 
   t1maxchar=Math.round(t1maxchar);
   console.log(t1size);
+
+  t2maxchar=Math.round(t2maxchar);
+  console.log(t2size);
     var editortitles = new FroalaEditor('.bexi_editor_title',
     {
       //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
@@ -467,7 +470,9 @@ function initialize_editors_text(){
       placeholderText: '',
       quickInsertEnabled: false,
       toolbarInline: true,
-      charCounterCount: false,
+      charCounterCount: true,
+      charCounterMax: t2maxchar,
+      fontSize: t2size,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       imageStyles: {
