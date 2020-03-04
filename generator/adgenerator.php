@@ -261,7 +261,7 @@ echo 'var t1maxchar="'.(($xblock*3)/(0.3*($yblock/2))).'";';
 echo 'var t1size=[8';
 $total=($yblock/3)-8;
 $count=$total/2;
-for ($i=0; $i < $count ; $i++) { 
+for ($i=0; $i < $count ; $i++) {
   echo ','.(($i*2)+8);
 }
 echo '];';
