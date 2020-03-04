@@ -265,6 +265,14 @@ for ($i=1; $i < $count ; $i++) {
   echo ','.(($i*2)+8);
 }
 echo '];';
+echo 'var t2maxchar="'.(($xblock*3)/(0.3*($yblock/2))).'";';
+echo 'var t2size=[8';
+$total=($yblock/3)-8;
+$count=$total/2;
+for ($i=1; $i < $count ; $i++) {
+  echo ','.(($i*2)+8);
+}
+echo '];';
 echo '</script>';
 echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />';
 echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
@@ -313,7 +321,7 @@ if(isset($coords["text1"]))
 if(isset($coords["text2"]))
 {
     //text2
-    echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;"><h3 class="bexi_subtitle">Text2</h3></div>';
+    echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;"><h3 class="bexi_subtitle" style="font-size:'.($yblock/3).'px;line-height:'.(0.85*($yblock/4)).'px;">Text2</h3></div>';
 }
 
 if(isset($coords["icon"]))
