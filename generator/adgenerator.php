@@ -300,7 +300,7 @@ if(isset($coords["button"]))
 if(isset($coords["text1"]))
 {
     //text1
-    echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;"><h1 class="bexi_title" style="font-size:'.($yblock/2).'">Text1</h1></div>';
+    echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;"><h1 class="bexi_title" style="font-size:'.($yblock/2).'px;">Text1</h1></div>';
 }
 
 if(isset($coords["text2"]))
