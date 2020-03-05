@@ -346,13 +346,13 @@ if(isset($coords["button"]))
 if(isset($coords["text1"]))
 {
     //text1
-    echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px;line-height:'.(0.85*($yblock/3)).'px;">Text1</h1></div>';
+    echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(0.85*($yblock/3)).'px !important;">Text1</h1></div>';
 }
 
 if(isset($coords["text2"]))
 {
     //text2
-    echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px;line-height:'.(0.85*($yblock/4)).'px;">Text2</h3></div>';
+    echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">Text2</h3></div>';
 }
 
 if(isset($coords["icon"]))
