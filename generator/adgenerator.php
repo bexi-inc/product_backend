@@ -283,7 +283,7 @@ for ($i=1; $i < $count ; $i++) {
 }
 echo '];';
 echo 'var icon_size = []; icon_size[8]=8;';
-$total=($yblock/4)-8;
+$total=($yblock/2)-8;
 $count=$total/2;
 for ($i=1; $i < $count ; $i++) {
   echo 'icon_size['.(($i*2)+8).']='.(($i*2)+8).';';
