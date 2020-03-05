@@ -282,11 +282,11 @@ for ($i=1; $i < $count ; $i++) {
   echo ','.(($i*2)+8);
 }
 echo '];';
-echo 'var icon_size=["8:8"';
+echo 'var icon_size = []; icon_size["\\"8\\""]=8;';
 $total=($yblock/4)-8;
 $count=$total/2;
 for ($i=1; $i < $count ; $i++) {
-  echo ',"'.(($i*2)+8).':'.(($i*2)+8).'"';
+  echo 'icon_size["\\"'.(($i*2)+8).'\\""]='.(($i*2)+8).';';
 }
 echo '];';
 echo '</script>';
