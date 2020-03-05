@@ -1,6 +1,9 @@
 <?
 
 
+use Aws\DynamoDb\Exception\DynamoDbException;
+use Aws\DynamoDb\Marshaler;
+
 //echo "Tiempo 3 : ".(microtime(true) - $timeini)."<br>";
 
 $credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
