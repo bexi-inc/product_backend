@@ -194,7 +194,9 @@ function Login($connDyn, $email, $password)
 				if (password_verify($password,$Marshaler->unmarshalValue($dbdata[0]['password'])))
 				{
 					$ret["error_code"] = "0";
-					$user["id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
+					//$user["id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
+					$jwt_data["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
+			    	$ret["user_token"] = GetJWTToken($jwt_data);
 					$user["username"] = $Marshaler->unmarshalValue($dbdata[0]['username']);
 	
 					$ret["user"] = $user;
