@@ -103,15 +103,15 @@ function bgchangeurl(ID){
     if(validate_url(url)==true)
     {
       var exist= false;
-      if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
+      if( $("#collapsetools" +ID).closest(".bexi_module_ad").find(".transpa-bg").length)
       {
         var exist=true;
       }
       if(exist==false){
-        $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+        $('#collapsetools'+ID).closest(".bexi_module_ad").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
       }
-      $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+url+")");
-      $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
+      $('#collapsetools'+ID).closest(".bexi_module_ad").find(".transpa-bg").css("background-image","url("+url+")");
+      $('#collapsetools'+ID).closest(".bexi_module_ad").css("background-color","rgba(0,0,0,0)");
       $("#inptext"+ID).val("");
       $( "#dialog-img"+(ID).toString()).dialog("close");
     }else{
@@ -156,15 +156,15 @@ function Manager_unsplash2(ID,numpag)
           $(img).css("cursor","pointer");
           $(img).click(function(){
             var exist= false;
-            if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
+            if( $("#collapsetools" +ID).closest(".bexi_module_ad").find(".transpa-bg").length)
             {
               var exist=true;
             }
             if(exist==false){
-              $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+              $('#collapsetools'+ID).closest(".bexi_module_ad").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
             }
-            $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url("+item.url+")");
-            $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
+            $('#collapsetools'+ID).closest(".bexi_module_ad").find(".transpa-bg").css("background-image","url("+item.url+")");
+            $('#collapsetools'+ID).closest(".bexi_module_ad").css("background-color","rgba(0,0,0,0)");
             $("#cont_unspl"+ID).empty();
             $("#cont_unspl"+ID).css("height","0px");
             $("#cont_pag"+ID).empty();
@@ -392,17 +392,17 @@ function bgchange(btid) {
 
     function previewImg(ID) {
       var exist= false;
-      if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
+      if( $("#collapsetools" +ID).closest(".bexi_module_ad").find(".transpa-bg").length)
       {
         var exist=true;
       }
       if(exist==false){
-        $('#collapsetools'+ID).closest(".bexi_module").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
+        $('#collapsetools'+ID).closest(".bexi_module_ad").prepend('<div class="transpa-bg" style="background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>');
       }
       if($('#inpimg'+ID).prop('files')[0])
       {
         if($('#inpimg'+ID).prop('files')[0].size<=(3 * 1024 * 1024)){
-          var id=$('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id");
+          var id=$('#collapsetools'+ID).closest(".bexi_module_ad").find(".transpa-bg").attr("id");
           if(typeof id === "undefined")
           {
             id=null;
@@ -410,10 +410,10 @@ function bgchange(btid) {
           var response =save_img(id,$('#inpimg'+ID).prop('files')[0]);
           response.done(function(data){
             var jdata=JSON.parse(data);
-            $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").css("background-image","url('"+jdata.src+"?timestamp=" + new Date().getTime()+"')");
-            $('#collapsetools'+ID).closest(".bexi_module").find(".transpa-bg").attr("id",jdata.id);
+            $('#collapsetools'+ID).closest(".bexi_module_ad").find(".transpa-bg").css("background-image","url('"+jdata.src+"?timestamp=" + new Date().getTime()+"')");
+            $('#collapsetools'+ID).closest(".bexi_module_ad").find(".transpa-bg").attr("id",jdata.id);
             $('#inpimg'+ID).val(null);
-            $('#collapsetools'+ID).closest(".bexi_module").css("background-color","rgba(0,0,0,0)");
+            $('#collapsetools'+ID).closest(".bexi_module_ad").css("background-color","rgba(0,0,0,0)");
           });
         }else{
           $( "#dialog-img"+(ID).toString()).dialog("close");
