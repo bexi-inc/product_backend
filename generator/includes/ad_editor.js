@@ -686,7 +686,22 @@ $(document).ready(function() {
         focus: false,
         undo: false,
         refreshAfterCallback: true,
-        options: icon_size,
+        options: {
+        '8': '8',
+        '9': '9',
+        '10': '10',
+        '11': '11',
+        '12': '12',
+        '14': '14',
+        '18': '18',
+        '24': '24',
+        '30': '30',
+        '36': '36',
+        '48': '48',
+        '60': '60',
+        '72': '72',
+        '96': '96',
+        },
         callback: function (cmd, val) {
         var obj=this._original_html;
         var ID=$(obj).attr('id');
