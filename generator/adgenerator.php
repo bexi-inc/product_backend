@@ -282,11 +282,11 @@ for ($i=1; $i < $count ; $i++) {
   echo ','.(($i*2)+8);
 }
 echo '];';
-echo 'var icon_size = []; icon_size["\\"8\\""]=\'8\';';
-$total=($yblock/4)-8;
+echo 'var icon_size = []; icon_size[8]=8;';
+$total=($yblock/2)-8;
 $count=$total/2;
 for ($i=1; $i < $count ; $i++) {
-  echo 'icon_size["\\"'.(($i*2)+8).'\\""]=\''.(($i*2)+8).'\';';
+  echo 'icon_size['.(($i*2)+8).']='.(($i*2)+8).';';
 }
 echo '</script>';
 echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />';
