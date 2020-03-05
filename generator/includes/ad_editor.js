@@ -120,7 +120,7 @@ function bgchangeurl(ID){
   }
   auto_save();
 }
-/*
+
 function Manager_unsplash2(ID,numpag)
 {
   var request=null;
@@ -311,7 +311,7 @@ function set_pagination(ID,npag)
     }
   });
 }
-*/
+
 function bgchange(btid) {
   var vcolor = $("#" +btid).closest(".bexi_module_ad").css("background-color").replace(/\s/g, "");
   if (vcolor =="rgba(0,0,0,0)")
