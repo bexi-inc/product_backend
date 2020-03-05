@@ -77,13 +77,13 @@ $res["error_code"]=0;
 
  		$dataToken = DecodeJMT($_REQ->token);
 
- 		if ($dataToken["exp"]<= time())
+ 		if (isset($dataToken["error_txt"]))
  		{
-
  			$res["error_code"]="510";
- 			$res["message"]="Token Timeout";
+ 			$res["message"]=$dataToken["error_txt"];
  			break;
  		}
+ 		
  		$res=GetProfile($Dynamodb,$dataToken["data"]["user_id"]);
  		break;
  	case 'ChangePassword':

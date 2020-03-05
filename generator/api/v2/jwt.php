@@ -16,7 +16,13 @@ function GetJWTToken($data)
 
 function DecodeJMT($token)
 {
-	return JWT::decode($token, JWT_KEY, array('HS256'));
+	try
+	{
+		return JWT::decode($token, JWT_KEY, array('HS256'));
+	} catch (\Exception $e) {
+		$ret["error_txt"] = $e.getMessage();
+	}
+	
 }
 
 ?>
