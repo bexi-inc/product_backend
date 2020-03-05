@@ -288,7 +288,6 @@ $count=$total/2;
 for ($i=1; $i < $count ; $i++) {
   echo 'icon_size["\\"'.(($i*2)+8).'\\""]='.(($i*2)+8).';';
 }
-echo '];';
 echo '</script>';
 echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />';
 echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
