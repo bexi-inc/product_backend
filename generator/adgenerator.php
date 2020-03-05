@@ -236,6 +236,7 @@ $ydim=628;//height of final ad
 $coords=main_loop(5,5,"1,2,3,4,5");
 $xblock=$xdim/5;
 $yblock=$ydim/5;
+ob_start();
 echo "<!doctype html>";
 echo "\r\n";
 echo "<html>";
@@ -318,6 +319,7 @@ echo "\r\n";
 echo "<body>";
 echo "\r\n";
 echo '<div class= "bexi_module_ad" id="maindiv" style="position:relative;border: 2px solid red;" >';
+echo '<div class="transpa-bg" style="background-image: url("%bg_img%"); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>';
 if(isset($coords["button"]))
 {
     //Button
@@ -346,7 +348,7 @@ if(isset($coords["icon"]))
 if(isset($coords["img"]))
 {
     //Img
-    echo '<div  style="position:absolute;z-index:1;top:'.($coords["img"][1]*$yblock).'px;left:'.($coords["img"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(3*$yblock).'px;"><img id="'.uniqid().'" class="bexi_img" src="https://getuikit.com/v2/docs/images/placeholder_600x400.svg" alt="img" style="max-width:100%;height:auto;max-height:100%;"></div>';
+    echo '<div  style="position:absolute;z-index:1;top:'.($coords["img"][1]*$yblock).'px;left:'.($coords["img"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(3*$yblock).'px;"><img id="'.uniqid().'" class="bexi_img" src="%img|'.(3*$xblock).'|'.(3*$yblock).'|%" alt="img" style="max-width:100%;height:auto;max-height:100%;"></div>';
 }
 
 echo '</div>';
@@ -354,7 +356,13 @@ echo '</div>';
 echo "</body>";
 echo "\r\n";
 echo "</html>";
+$code = ob_get_contents ();
 
+ob_end_clean();
+
+$code=setImages($code,"");
+
+echo $code;
 
 //echo "<pre>";
 //print_r($coords);
