@@ -224,9 +224,96 @@ function set_pagination2(ID,npag)
   });
 }
 
+function Manager_unsplash(ID,numpag)
+{
+  var request=null;
+  if(  $("#cont_unspl"+ID).masonry().length)
+  {
+    $("#cont_unspl"+ID).masonry('destroy');
+  }
+  $("#cont_unspl"+ID).empty();
+  var keys=$('#inptext'+ID).val();
+  if(keys!="")
+  {
+    request=$.ajax({
+      url: "load_images.php",
+      data: { key: keys, npag : numpag} ,
+      datatype:"json",
+      success: function(data){
+      var jdata=JSON.parse(data);
+      total=jdata.total;
+      var $grid = $("#cont_unspl"+ID).masonry({
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: 200,
+        gutter: 10
+      });
+      $.each(jdata.images, function(index, item) {
+          var img = new Image();
+          img.src = item.thumb;
+          img.setAttribute("class", "image-list");
+          img.setAttribute("alt", item.alt_description);
+          img.onload=function(){
+            $grid.masonry();
+          };
+          $(img).css("cursor","pointer");
+          $(img).click(function(){
+            $("#"+ID).attr("src",item.url);
+            $("#cont"+ID).dialog( "close" );
+            $("#cont"+ID).remove();
+            auto_save();
+          });
+          var newdiv= $(document.createElement('div'));
+          newdiv.attr("class", "grid-item");
+          $(newdiv).append(img);
+          $("#cont_unspl"+ID).append(newdiv);
+          $grid.append(newdiv);
+          $grid.masonry( 'appended',newdiv);
+      });
+      $("#cont"+ID).css("height","400px");
+      $("#cont"+ID).closest(".ui-dialog").css("position","fixed");
+      $("#cont"+ID).closest(".ui-dialog").css("top","80px");
+      }
+    });
+  }
+  return request;
+}
+
+function set_pagination(ID,npag)
+{
+  var pag_cont =$('#cont_pag'+ID);
+  pag_cont.pagination({
+  
+    // current page
+    current: 1, 
+  
+    // the number of entires per page
+    length: 10, 
+  
+    // pagination size
+    size: 2,
+  
+    // Prev/Next text
+    prev: "&lt;", 
+    next: "&gt;", 
+  
+    // fired on each click
+    ajax:function(options, refresh, $target){
+     pag_cont.hide();
+      var t = Manager_unsplash(ID,options.current);
+     t.done(function(data){
+       var jdata=JSON.parse(data);
+      refresh({
+        total: jdata.total
+      });
+      pag_cont.show();
+     })
+    }
+  });
+}
 */
 function bgchange(btid) {
-  var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
+  var vcolor = $("#" +btid).closest(".bexi_module_ad").css("background-color").replace(/\s/g, "");
   if (vcolor =="rgba(0,0,0,0)")
   {
     vcolor ="rgba(0,0,0,1)";
@@ -246,7 +333,7 @@ function bgchange(btid) {
             modal: true,
             buttons: {
               "Save": function() {
-                $($(this).attr("data-id")).closest(".bexi_module").attr('style','position:relative; background-color:'+$("#colorpicker_"+btid).minicolors("rgbaString")+'!important;');
+                $($(this).attr("data-id")).closest(".bexi_module_ad").attr('style','position:relative; background-color:'+$("#colorpicker_"+btid).minicolors("rgbaString")+'!important;');
                 $( this ).dialog( "close" );
                 newDiv.remove();
               },
@@ -357,6 +444,12 @@ function bgchange(btid) {
     }
 */
 
+  /**************   Change trigger for tooltip **************/
+
+  $(function () {
+    $('[data-tooltip="true"]').tooltip()
+  })
+
 /**************  Close the toolbar when click outside **************/
 $(document).click(function(e) {
   if (!$(e.target).is('.bartool')) {
@@ -377,11 +470,11 @@ $(document).ready(function() {
 
     $('.bexi_icon').wrap( '<p class="bexi_editor_icon" ></p>');
     
-    $('.bexi_module').each(function() {
+    $('.bexi_module_ad').each(function() {
       var num=Math.floor((Math.random() * 10000) + 1);
     $(this).prepend(
-      '<button class="toolbtn remove" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 110;position: absolute; top: 15px; left: 15px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
-      '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 111;position: absolute; top: 53px; left: 15px;background-color: White;padding:10px;">'+
+      '<button class="toolbtn remove" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 110;position: absolute; margin-top: -40px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
+      '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 111;position: absolute; margin-top: -2px; background-color: White;padding:10px;">'+
         '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
         '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
       '</div>'+
@@ -420,6 +513,33 @@ $(document).ready(function() {
       '</div>'
     );
   });
+
+  // Prevent default drag behaviors
+  $(".dropzone").each(function(){
+    this.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    this.addEventListener('dragleave', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    this.addEventListener('dragenter', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    this.addEventListener('drop', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var fileInput = document.getElementById("inpimg"+this.id.toString());
+      fileInput.files = e.dataTransfer.files;
+      previewImg(this.id);
+    });
+  });
+
     /************** ICON COLOR ******************/
     FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
     FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'fas fa-tint'});
@@ -643,6 +763,62 @@ $(document).ready(function() {
       }
     });
 
+/************** Unsplash Manager ******************/
+FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+FroalaEditor.DefineIcon('icon_block5', {FA5NAME: 'fas fa-images'});
+FroalaEditor.RegisterCommand('unsplash_manager', {
+  title: 'Search image',
+  icon: 'icon_block5',
+  focus: false,
+  undo: false,
+  refreshAfterCallback: false,
+  callback: function () {
+    var ID=this.$el[0].getAttribute("id");
+    var $img = this.image.get();
+    if(ID==null)
+    {
+      ID=$img[0].getAttribute("id");
+    }
+    var newDiv = $(document.createElement('div'));
+    newDiv.attr("Title", "Search Image");
+    newDiv.attr("data-id", "#" + ID);
+    newDiv.attr("id", "cont" + ID);
+    newDiv.css("display", "block");
+    newDiv.css("height", "auto");
+    newDiv.css("width", "auto");
+    newDiv.css("overflow", "auto");
+    newDiv.html(
+    '<div class="input-group mb-3">'+
+    '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+    '<div class="input-group-append">'+
+      '<button class="btn btn-outline-primary" type="button" onclick="set_pagination(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
+    '</div>'+
+  '</div>'+
+  '<div id="cont_unspl'+ID+'">'+
+  '</div>'+
+  '<div id="cont_pag'+ID+'" class="pagination">'+
+  '</div>'
+    );
+    $(newDiv).dialog({
+        resizable: false,
+        height: "auto",
+        width: 800,
+        modal: true,
+        buttons: {
+          "Cancel": function() {
+            $( this ).dialog( "close" );
+            newDiv.remove();
+          }
+        },
+        open: function() {
+        $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+      },
+      close: function( event, ui ) {
+        newDiv.remove();
+      }
+    });
+  }
+});
 
 
     initialize_editors_text();
@@ -652,6 +828,53 @@ $(document).ready(function() {
 function auto_save(){
 
 };
+
+/********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
+function save_img(TAGID,FILE){
+  /*
+  var newDiv = $(document.createElement('div'));
+  newDiv.attr("class","C align-items-center");
+  newDiv.html(
+  "<img src='./img/uploading.gif' width='50px' height='50px'>"+
+  "<spam>Uploading...</spam>"
+    );
+  var did=$("#devId").val();
+  var pid=$("#codeId").val();
+  var uid=$("#userId").val();
+  var data = new FormData();
+  data.append("devid",did);
+  data.append("file",FILE);
+  data.append("userid",uid);
+  data.append("projectid",pid);
+  data.append("tagid",TAGID);
+  var request=$.ajax({
+    url: "./ajax/uploadfile.php",
+    data: data,
+    processData: false,
+    contentType: false,
+    method:"POST",
+    beforeSend: function(){
+      // Show image container
+      $(newDiv).dialog({
+        resizable: false,
+        height: 100,
+        width: 80,
+        modal: true,
+        create: function() {
+         // remove the title of the dialog as we want to use the tab's one
+         $(this).parent().children('.ui-dialog-titlebar').remove();
+        }
+      });
+     },
+     complete:function(data){
+      // Hide image container
+      $(newDiv).dialog("close");
+      newDiv.remove();
+     }
+  });
+  return request;
+  */
+}
 
 
 function styles_ptags(){
