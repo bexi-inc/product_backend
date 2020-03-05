@@ -300,13 +300,14 @@ echo'<link rel="stylesheet" type="text/css" href="includes/css/bs-pagination.css
 /**************   EDITOR **************/
 echo '<script type="text/javascript"  src="includes/ad_editor.js"></script>';
 echo'<style>';
-echo '.bexi_module{
-    padding-top:80px;
-    padding-bottom: 80px;
+echo '.bexi_module_ad{
+    padding-top:0px;
+    padding-bottom: 0px;
     padding-left: 0px;
-    padding-right: 0px;';
-echo 'width:'. $xdim .'px;';
-echo 'height:'.$ydim .'px;';
+    padding-right: 0px;
+    margin-top: 39px;';
+echo 'width:'. ($xdim+4) .'px;';
+echo 'height:'.($ydim+4) .'px;';
 echo 'background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -316,8 +317,7 @@ echo "</head>";
 echo "\r\n";
 echo "<body>";
 echo "\r\n";
-//main container
-echo '<div class= "bexi_module" id="maindiv" style="position:relative;width:'.($xdim+4).'px;height:'.($ydim+4).'px;border: 2px solid red;" >';
+echo '<div class= "bexi_module_ad" id="maindiv" style="position:relative;border: 2px solid red;" >';
 if(isset($coords["button"]))
 {
     //Button
