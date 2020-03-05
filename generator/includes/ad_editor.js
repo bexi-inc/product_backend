@@ -96,7 +96,7 @@ function set_pagination_icon(ID,npag)
   });
 }
 
-/*
+
 function bgchangeurl(ID){
   var url=$("#inptext"+ID).val();
   if(url!=""){
@@ -311,7 +311,7 @@ function set_pagination(ID,npag)
     }
   });
 }
-*/
+
 function bgchange(btid) {
   var vcolor = $("#" +btid).closest(".bexi_module_ad").css("background-color").replace(/\s/g, "");
   if (vcolor =="rgba(0,0,0,0)")
@@ -362,7 +362,7 @@ function bgchange(btid) {
     });
     auto_save();
   }
-/*
+
   function bgimgchange(btid) {
     $( "#dialog-img"+(btid-10000).toString()).dialog({
               resizable: false,
@@ -389,7 +389,7 @@ function bgchange(btid) {
       });
       auto_save();
     }
-
+/*
     function previewImg(ID) {
       var exist= false;
       if( $("#collapsetools" +ID).closest(".bexi_module_ad").find(".transpa-bg").length)

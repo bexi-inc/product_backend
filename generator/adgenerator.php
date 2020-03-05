@@ -263,9 +263,12 @@ echo '<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha25
 echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">';
 echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
 
+echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
+
 /**************   FROALA EDITOR **************/
 echo '<script type="text/javascript" >';
 echo 'var FroalaKey = "'.FROALA_KEY.'";';
+
 echo 'var t1maxchar="'.(($xblock*3)/(0.3*($yblock/2))).'";';
 echo 'var t1size=[8';
 $total=($yblock/3)-8;
@@ -343,13 +346,13 @@ if(isset($coords["button"]))
 if(isset($coords["text1"]))
 {
     //text1
-    echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px;line-height:'.(0.85*($yblock/3)).'px;">Text1</h1></div>';
+    echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(0.85*($yblock/3)).'px !important;">Text1</h1></div>';
 }
 
 if(isset($coords["text2"]))
 {
     //text2
-    echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px;line-height:'.(0.85*($yblock/4)).'px;">Text2</h3></div>';
+    echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">Text2</h3></div>';
 }
 
 if(isset($coords["icon"]))
