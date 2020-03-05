@@ -2,7 +2,7 @@
 
 function GetJWTToken($data)
 {
-	time = time();
+	$time = time();
 
 	$token = array(
     	'iat' => $time, // Tiempo que inició el token
