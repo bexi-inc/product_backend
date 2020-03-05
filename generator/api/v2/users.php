@@ -559,7 +559,9 @@ function GmailSigin($code, $redirect="")
 			    	$ret["error_code"] = "0";
 			    	
 			    	$ret["message"] = "";
-			    	$ret["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
+			    	//$ret["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
+			    	$jwt_data["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
+			    	$ret["user_token"] = GetJWTToken($jwt_data);
 			    	return $ret;
 			    }else{
 			    	$ret["error_code"] = "1";

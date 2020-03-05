@@ -18,8 +18,14 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 require "../../config.php";
 require '../../vendor/autoload.php';
 
+date_default_timezone_set('UTC');
+
+use Aws\DynamoDb\Exception\DynamoDbException;
+use Aws\DynamoDb\Marshaler;
+use Firebase\JWT\JWT;
 
 
+require_once "jwt.php";
 require_once "emails.php";
 require "db.php";
 require "users.php";
@@ -153,7 +159,7 @@ $res["error_code"]=0;
  		$res= ValidateToken($_REQ->token);
  		break;
  	case 'GetProjects' :
- 		if (!isset($_REQ->userid))
+ 		if (!isset($_REQ->userid) || !isset($_REQ->campaignid))
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
@@ -165,7 +171,7 @@ $res["error_code"]=0;
  		/*print_r($_REQ);
  		echo "files";
  		print_r($_FILES);*/
- 		if (!isset($_REQ->userid) || !isset($_REQ->projectname) || !isset($_REQ->projectgoal) || !isset($_REQ->projectindustry) || !isset($_REQ->colors) || !isset($_REQ->email_contact)) 
+ 		if (!isset($_REQ->userid) || !isset($_REQ->campaignid)) 
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params CreateProject";

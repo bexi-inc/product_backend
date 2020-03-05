@@ -16,6 +16,8 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 require "../../config.php";
 require '../../vendor/autoload.php';
 
+use Firebase\JWT\JWT;
+
 
 
 require_once "emails.php";

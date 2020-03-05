@@ -1,8 +1,5 @@
 <?
-date_default_timezone_set('UTC');
 
-use Aws\DynamoDb\Exception\DynamoDbException;
-use Aws\DynamoDb\Marshaler;
 
 //echo "Tiempo 3 : ".(microtime(true) - $timeini)."<br>";
 
