@@ -266,6 +266,9 @@ echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.
 /**************   FROALA EDITOR **************/
 echo '<script type="text/javascript" >';
 echo 'var FroalaKey = "'.FROALA_KEY.'";';
+
+echo'<link rel="stylesheet" type="text/css" href="css/bexi.css" >';
+
 echo 'var t1maxchar="'.(($xblock*3)/(0.3*($yblock/2))).'";';
 echo 'var t1size=[8';
 $total=($yblock/3)-8;
