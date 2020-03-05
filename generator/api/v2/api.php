@@ -77,10 +77,17 @@ $res["error_code"]=0;
 
  		$dataToken = DecodeJMT($_REQ->token);
 
- 		if (isset($dataToken["error_txt"]))
+ 		if (isset($dataToken["error_msg"]))
  		{
  			$res["error_code"]="510";
- 			$res["message"]=$dataToken["error_txt"];
+ 			$res["message"]=$dataToken["error_msg"];
+ 			break;
+ 		}
+
+ 		if (!isset($dataToken["data"]["user_id"]))
+ 		{
+ 			$res["error_code"]="510";
+ 			$res["message"]="Invalid Data";
  			break;
  		}
  		
