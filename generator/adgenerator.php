@@ -327,7 +327,7 @@ echo "\r\n";
 echo "<body>";
 echo "\r\n";
 echo '<div class= "bexi_module_ad" id="maindiv" style="position:relative;border: 2px solid red;" >';
-echo '<div class="transpa-bg" style="background-image: url("%bg_img%"); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>';
+echo '<div class="transpa-bg" style="background-image: url(%bg_img%); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>';
 if(isset($coords["button"]))
 {
     //Button
