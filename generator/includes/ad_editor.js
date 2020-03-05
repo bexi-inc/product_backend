@@ -96,7 +96,7 @@ function set_pagination_icon(ID,npag)
   });
 }
 
-/*
+
 function bgchangeurl(ID){
   var url=$("#inptext"+ID).val();
   if(url!=""){
@@ -120,7 +120,7 @@ function bgchangeurl(ID){
   }
   auto_save();
 }
-
+/*
 function Manager_unsplash2(ID,numpag)
 {
   var request=null;
