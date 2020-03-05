@@ -362,7 +362,7 @@ function bgchange(btid) {
     });
     auto_save();
   }
-/*
+
   function bgimgchange(btid) {
     $( "#dialog-img"+(btid-10000).toString()).dialog({
               resizable: false,
@@ -389,7 +389,7 @@ function bgchange(btid) {
       });
       auto_save();
     }
-
+/*
     function previewImg(ID) {
       var exist= false;
       if( $("#collapsetools" +ID).closest(".bexi_module_ad").find(".transpa-bg").length)
