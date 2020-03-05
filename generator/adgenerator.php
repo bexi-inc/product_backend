@@ -231,6 +231,14 @@ function search_element($recipe,$element){
     return $found;
 }
 
+
+Crew\Unsplash\HttpClient::init([
+    'applicationId' => $unspash_appid,
+    'secret'        => $unspash_secret,
+    'callbackUrl'   => 'https://your-application.com/oauth/callback',
+    'utmSource' => 'Bexi Generator'
+]);
+
 $xdim=1200;//width of final ad
 $ydim=628;//height of final ad
 $coords=main_loop(5,5,"1,2,3,4,5");
