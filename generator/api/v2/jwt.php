@@ -1,4 +1,5 @@
 <?
+use Firebase\JWT\JWT;
 
 function GetJWTToken($data)
 {
