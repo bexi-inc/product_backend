@@ -14,4 +14,9 @@ function GetJWTToken($data)
 	return JWT::encode($token, $JWT_KEY);
 }
 
+function DecodeJMT($token)
+{
+	return JWT::decode($token, $JWT_KEY, array('HS256'));
+}
+
 ?>

@@ -68,13 +68,23 @@ $res["error_code"]=0;
  		
  		break;
  	case 'GetProfile':
- 		if (!isset($_REQ->userid))  
+ 		if (!isset($_REQ->token))  
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
  			break;
  		}
- 		$res=GetProfile($Dynamodb,$_REQ->userid);
+
+ 		$dataToken = DecodeJMT($_REQ->token);
+
+ 		if ($dataToken["exp"]<= time())
+ 		{
+
+ 			$res["error_code"]="510";
+ 			$res["message"]="Token Timeout";
+ 			break;
+ 		}
+ 		$res=GetProfile($Dynamodb,$dataToken["data"]["user_id"]);
  		break;
  	case 'ChangePassword':
  		if (!isset($_REQ->userid) || !isset($_REQ->password))  
