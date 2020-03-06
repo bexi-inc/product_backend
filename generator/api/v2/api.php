@@ -91,6 +91,7 @@ $res["error_code"]=0;
  			break;
  		}
  		
+ 		print_r($dataToken);
  		$res=GetProfile($Dynamodb,$dataToken["data"]["user_id"]);
  		break;
  	case 'ChangePassword':
