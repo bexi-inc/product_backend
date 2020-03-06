@@ -77,9 +77,9 @@ $res["error_code"]=0;
 
  		$dataToken = DecodeJMT($_REQ->token);
 
- 		print_r($dataToken);
+ 		//print_r($dataToken);
 
- 		echo "DecodeJMT";
+ 		//echo "DecodeJMT";
 
  		if (isset($dataToken["error_msg"]))
  		{
@@ -88,7 +88,7 @@ $res["error_code"]=0;
  			break;
  		}
 
- 		if (!isset($dataToken["data"]["user_id"]))
+ 		if (!isset($dataToken->data->user_id))
  		{
  			$res["error_code"]="510";
  			$res["message"]="Invalid Data";
@@ -96,7 +96,7 @@ $res["error_code"]=0;
  		}
  		
 
- 		$res=GetProfile($Dynamodb,$dataToken["data"]["user_id"]);
+ 		$res=GetProfile($Dynamodb,$dataToken->data->user_id);
  		break;
  	case 'ChangePassword':
  		if (!isset($_REQ->userid) || !isset($_REQ->password))  
