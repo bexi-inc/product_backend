@@ -79,6 +79,8 @@ $res["error_code"]=0;
 
  		print_r($dataToken);
 
+ 		echo "DecodeJMT";
+
  		if (isset($dataToken["error_msg"]))
  		{
  			$res["error_code"]="510";
