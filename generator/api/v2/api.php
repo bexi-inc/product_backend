@@ -77,6 +77,8 @@ $res["error_code"]=0;
 
  		$dataToken = DecodeJMT($_REQ->token);
 
+ 		print_r($dataToken);
+
  		if (isset($dataToken["error_msg"]))
  		{
  			$res["error_code"]="510";
@@ -91,7 +93,7 @@ $res["error_code"]=0;
  			break;
  		}
  		
- 		print_r($dataToken);
+
  		$res=GetProfile($Dynamodb,$dataToken["data"]["user_id"]);
  		break;
  	case 'ChangePassword':
