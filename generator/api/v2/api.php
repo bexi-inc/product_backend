@@ -81,12 +81,15 @@ $res["error_code"]=0;
 
  		//echo "DecodeJMT";
 
- 		if (isset($dataToken["error_msg"]))
+ 		if (is_array ($dataToken))
  		{
- 			$res["error_code"]="510";
- 			$res["message"]=$dataToken["error_msg"];
- 			break;
- 		}
+	 		if (isset($dataToken["error_msg"]))
+	 		{
+	 			$res["error_code"]="510";
+	 			$res["message"]=$dataToken["error_msg"];
+	 			break;
+	 		}
+	 	}
 
  		if (!isset($dataToken->data->user_id))
  		{
