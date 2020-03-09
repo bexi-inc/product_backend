@@ -808,6 +808,66 @@ FroalaEditor.RegisterCommand('unsplash_manager', {
   }
 });
 
+/************** ICON BGCOLOR ******************/
+FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
+FroalaEditor.DefineIcon('icon_block50', {FA5NAME: 'fas fa-paint-brush'});
+FroalaEditor.RegisterCommand('buttonbgcolor', {
+    title: 'Button Background Color',
+    icon: 'icon_block50',
+    focus: false,
+    undo: false,
+    refreshAfterCallback: false,
+    callback: function () {
+    var obj=this._original_html;
+    var ID=$(obj).attr('id');
+    var color=$("#"+ID).css('background-color');
+    color=rgb2hex(color);
+    var newDiv = $(document.createElement('div'));
+    newDiv.attr("Title", "Button Settings");
+    newDiv.attr("data-id", "#" + ID);
+    newDiv.css("display", "block");
+    newDiv.css("height", "auto");
+    newDiv.css("width", "auto");
+    newDiv.css("overflow", "visible");
+    newDiv.html("Background Color:<input type='text' id='colorpicker_"+ID+"' class='form-control' data-control='hue' value='" + color + "'>");
+    $(newDiv).dialog({
+        resizable: false,
+        height: "auto",
+        width: 500,
+        modal: true,
+        buttons: {
+            "Save": function() {
+            $("#"+ID).css("background-color",$("#colorpicker_"+ID).minicolors("rgbString"));
+            $( this ).dialog( "close" );
+            newDiv.remove();
+            auto_save();
+            },
+            "Cancel": function() {
+            $( this ).dialog( "close" );
+            newDiv.remove();
+            }
+        },
+        open: function() {
+        $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
+    },
+        close: function( event, ui ) {
+        newDiv.remove();
+        }
+    });
+    $("#colorpicker_"+ID).minicolors({
+        control: $(this).attr('data-control') || 'hue',
+        inline: $(this).attr('data-inline') === 'true',
+        letterCase: 'uppercase',
+        format: 'hex',
+        swatches: ["#000000","#444444","#666666","#999999","#cccccc","#eeeeee","#f3f3f3","#ffffff","#f00","#f90","#ff0","#0f0","#0ff","#00f"],
+        change: function(hex, opacity) {
+        },
+        theme: 'bootstrap'
+    });
+    }
+});
+
+
     initialize_editors_text();
 });
 
@@ -1219,7 +1279,11 @@ function initialize_editors_text(){
       multiLine: false,
       toolbarButtons:{
         'moreText': {
-          'buttons': ['fontFamily', 'fontSize', 'textColor','backgroundColor']
+          'buttons': ['fontFamily', 'fontSize', 'textColor']
+        },
+        'moreMisc' : {
+          'buttons' : ['buttonbgcolor'],
+          'buttonsVisible': 2
         }
       },
       fontFamilySelection: true,
