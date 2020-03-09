@@ -83,6 +83,8 @@ function main_loop($xdim,$ydim,$recipe){
                 $restart="true";
                 $out=main_loop($xdim,$ydim,$recipe);//we recursively call the method again
             }
+            $probClass = rand(1,200);
+            $GLOBALS["buttonClass"] = $probClass>=1 && $probClass<=50 ? 'button-default' : ($probClass>=51 && $probClass<=100 ? 'button-default-2' : ($probClass>=101 && $probClass<=150 ? 'button-outline-1' : 'button-outline-2'));
         }
     }
 
@@ -291,6 +293,14 @@ $count=$total/2;
 for ($i=1; $i < $count ; $i++) {
   echo 'icon_size['.(($i*2)+8).']='.(($i*2)+8).';';
 }
+echo 'var buttonmaxchar="'.(($xblock*1)/(0.15*($yblock/2))).'";';
+echo 'var buttonsize=[8';
+$total=($yblock/4)-8;
+$count=$total/2;
+for ($i=1; $i < $count ; $i++) {
+  echo ','.(($i*2)+8);
+}
+echo '];';
 echo '</script>';
 echo '<link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />';
 echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>';
@@ -340,7 +350,8 @@ echo '<div class="transpa-bg" style="background-image: url(\'%bg_img%\'); backgr
 if(isset($coords["button"]))
 {
     //Button
-    echo '<button class="bexi_button" type="button" style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;">Click Me!</button>';
+    //echo '<button class="bexi_button" type="button" style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;">Click Me!</button>';
+    echo '<div  style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;"><div class="btn '.$GLOBALS["buttonClass"].'" style="font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">Click Me!</div></div>';
 }
 
 if(isset($coords["text1"]))
