@@ -1219,7 +1219,7 @@ function initialize_editors_text(){
       multiLine: false,
       toolbarButtons:{
         'moreText': {
-          'buttons': ['fontFamily', 'fontSize', 'textColor']
+          'buttons': ['fontFamily', 'fontSize', 'textColor','backgroundColor']
         }
       },
       fontFamilySelection: true,
