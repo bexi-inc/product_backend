@@ -808,7 +808,7 @@ FroalaEditor.RegisterCommand('unsplash_manager', {
   }
 });
 
-/************** ICON BGCOLOR ******************/
+/************** BUTTON BGCOLOR ******************/
 FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
 FroalaEditor.DefineIcon('icon_block50', {FA5NAME: 'fas fa-paint-brush'});
 FroalaEditor.RegisterCommand('buttonbgcolor', {
@@ -962,6 +962,7 @@ function initialize_editors_text(){
       fontSize: t1size,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
+      enter: FroalaEditor.ENTER_BR,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
@@ -1058,6 +1059,7 @@ function initialize_editors_text(){
       fontSize: t2size,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
+      enter: FroalaEditor.ENTER_BR,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
@@ -1279,11 +1281,11 @@ function initialize_editors_text(){
       multiLine: false,
       toolbarButtons:{
         'moreText': {
-          'buttons': ['fontFamily', 'fontSize', 'textColor']
+          'buttons': ['fontFamily', 'textColor']
         },
         'moreMisc' : {
           'buttons' : ['buttonbgcolor'],
-          'buttonsVisible': 2
+          'buttonsVisible': 1
         }
       },
       fontFamilySelection: true,
