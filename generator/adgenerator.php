@@ -293,9 +293,9 @@ $count=$total/2;
 for ($i=1; $i < $count ; $i++) {
   echo 'icon_size['.(($i*2)+8).']='.(($i*2)+8).';';
 }
-echo 'var buttonmaxchar="'.(($xblock*1)/(0.2*($yblock/2))).'";';
+echo 'var buttonmaxchar="'.(($xblock*1)/(0.15*($yblock/2))).'";';
 echo 'var buttonsize=[8';
-$total=($yblock/4)-8;
+$total=($yblock/5)-8;
 $count=$total/2;
 for ($i=1; $i < $count ; $i++) {
   echo ','.(($i*2)+8);
