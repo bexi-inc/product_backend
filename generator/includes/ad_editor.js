@@ -1216,7 +1216,7 @@ function initialize_editors_text(){
       toolbarBottom : false,
       emoticonsUseImage: false,
       toolbarVisibleWithoutSelection: true,
-      contenteditable : false,
+      multiLine: false
       toolbarButtons:{
         'moreText': {
           'buttons': ['fontFamily', 'fontSize', 'textColor']
