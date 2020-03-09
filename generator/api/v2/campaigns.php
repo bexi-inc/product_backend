@@ -6,7 +6,7 @@
 use Aws\S3\S3Client;
 use Aws\Exception\AwsException;
 
-function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $txtcolors,  $pkeywords , $cservices, $pemailcontact, $pfontprimary, $pfontsecondary, $offering, $goal)
+function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $txtcolors,  $pkeywords , $cservices, $pemailcontact, $pfontprimary, $pfontsecondary, $offering, $goal, $ProjectsTypes)
 {
 	global $Marshaler;
 	$pid = uniqid("",true);
@@ -39,6 +39,7 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 				'.$txtcolors.'
 		]
 		,"keywords" : "'.$pkeywords.'"
+		,"projects_types" : "'.json_encode($ProjectsTypes).'"
 	';
 	$Data = $Data . '}';
 

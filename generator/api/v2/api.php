@@ -228,7 +228,7 @@ $res["error_code"]=0;
  		}*/
  		//die("CreateProject");
  		//print_r($_REQ);
- 		$res = CreateCampaign($Dynamodb, $dataToken->data->user_id, $_REQ->campaignName , " ", $_REQ->campaignIndustry , $_REQ->brandColors, $_REQ->textcolor, $_REQ->campaignKeywords, "", $_REQ->contactEmail, $_REQ->fontTitle , $_REQ->fontContent, $_REQ->campaignOffering  , $_REQ->campaignGoal );
+ 		$res = CreateCampaign($Dynamodb, $dataToken->data->user_id, $_REQ->campaignName , " ", $_REQ->campaignIndustry , $_REQ->brandColors, $_REQ->textcolor, $_REQ->campaignKeywords, "", $_REQ->contactEmail, $_REQ->fontTitle , $_REQ->fontContent, $_REQ->campaignOffering  , $_REQ->campaignGoal, $_REQ->deliverableTypes );
  		break;
  	case "CreateProject":
  		/*print_r($_REQ);
