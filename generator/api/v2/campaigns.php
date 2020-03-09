@@ -39,12 +39,12 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 				'.$txtcolors.'
 		]
 		,"keywords" : "'.$pkeywords.'"
-		,"projects_types" : "'.json_encode($ProjectsTypes).'"
+		,"projects_types" : '.json_encode($ProjectsTypes).'
 	';
 	$Data = $Data . '}';
 
 
-	//print_r($Data);
+	print_r($Data);
 
 	$resIns=Insert("modu_campaigns",$Data, false);
 
