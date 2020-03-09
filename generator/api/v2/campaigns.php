@@ -6,7 +6,7 @@
 use Aws\S3\S3Client;
 use Aws\Exception\AwsException;
 
-function CreateCampaign($connDyn, $userid, $pname, $pgoal, $industry, $colors, $txtcolors,  $pkeywords , $pservices, $pemailcontact, $pfontprimary, $pfontsecondary, $offering, $goal)
+function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $txtcolors,  $pkeywords , $cservices, $pemailcontact, $pfontprimary, $pfontsecondary, $offering, $goal)
 {
 	global $Marshaler;
 	$pid = uniqid("",true);
@@ -14,10 +14,10 @@ function CreateCampaign($connDyn, $userid, $pname, $pgoal, $industry, $colors, $
 		"id" : "'.$pid.'"
 		,"user_id" : "'.$userid.'"
 		,"date_create" : "'.$pid.'"
-		,"campaign_name" : "'.$pname.'"
+		,"campaign_name" : "'.$cname.'"
 		,"industry" : "'.$industry.'" ';
 
-	$Data .= ((trim($pgoal) != '' ) ? ',"project_goal" :  "'.$pgoal.'" ' : '' );
+	$Data .= ((trim($pgoal) != '' ) ? ',"campaign_goal" :  "'.$cgoal.'" ' : '' );
 
 	$Data .= ((isset($_FILES["logofullcolor"]["name"])) ? ', "logofull" : "'.$_FILES["logofullcolor"]["name"].'"' : '');
 
@@ -25,10 +25,11 @@ function CreateCampaign($connDyn, $userid, $pname, $pgoal, $industry, $colors, $
 	$Data .= ((isset($pfontprimary)) ? ', "font_primary" : "'.$pfontprimary.'"' : '');
 	$Data .= ((isset($pfontsecondary)) ? ', "font_secondary" : "'.$pfontsecondary.'"' : '');
 
-	$Data .= ((isset($offering)) ? ', "project_offering" : "'.$offering.'"' : '');
-	$Data .= ((isset($goal)) ? ', "project_goal" : "'.$goal.'"' : '');
+	$Data .= ((isset($offering)) ? ', "campaign_offering" : "'.$offering.'"' : '');
+	$Data .= ((isset($goal)) ? ', "campaign_goal" : "'.$goal.'"' : '');
 	$recipetype=Gettyperecipe($offering,$goal);
 	$Data .=', "recipe_type" : "'.$recipetype.'"';
+	$Data .= ((!empty($cservices)) ? ', "campaign_services" : "'.$cservices.'"' : '');
 
 	$Data .= ' ,"status" : "0"
 		,"colors" : [
@@ -38,7 +39,6 @@ function CreateCampaign($connDyn, $userid, $pname, $pgoal, $industry, $colors, $
 				'.$txtcolors.'
 		]
 		,"keywords" : "'.$pkeywords.'"
-		,"pservices" : "'.$pservices.'"
 	';
 	$Data = $Data . '}';
 
