@@ -192,6 +192,43 @@ $res["error_code"]=0;
  		}
  		$res = GetProjects($_REQ->userid);
  		break;
+ 	case "CreateCampaign":
+ 		/*print_r($_REQ);
+ 		echo "files";
+ 		print_r($_FILES);*/
+ 		$dataToken = DecodeJMT($_REQ->token);
+
+ 		//print_r($dataToken);
+
+ 		//echo "DecodeJMT";
+
+ 		if (is_array ($dataToken))
+ 		{
+	 		if (isset($dataToken["error_msg"]))
+	 		{
+	 			$res["error_code"]="510";
+	 			$res["message"]=$dataToken["error_msg"];
+	 			break;
+	 		}
+	 	}
+
+ 		if (!isset($dataToken->data->user_id))
+ 		{
+ 			$res["error_code"]="510";
+ 			$res["message"]="Invalid Data";
+ 			break;
+ 		}
+ 		/*
+ 		if (!isset($_REQ->userid)) 
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params CreateProject";
+ 			
+ 		}*/
+ 		//die("CreateProject");
+ 		//print_r($_REQ);
+ 		$res = CreateCampaign($Dynamodb, $dataToken->data->user_id, $_REQ->campaignName , " ", $_REQ->campaignIndustry , $_REQ->brandColors, $_REQ->textcolor, $_REQ->campaignKeywords, "", $_REQ->contactEmail, $_REQ->fontTitle , $_REQ->fontContent, $_REQ->campaignOffering  , $_REQ->campaignGoal );
+ 		break;
  	case "CreateProject":
  		/*print_r($_REQ);
  		echo "files";
