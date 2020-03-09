@@ -94,8 +94,8 @@ $res["error_code"]=0;
 
  		if (!isset($dataToken->data->user_id))
  		{
- 			$res["error_code"]="510";
- 			$res["message"]="Invalid Data";
+ 			$res["error_code"]="555";
+ 			$res["message"]="Invalid Token";
  			break;
  		}
  		
@@ -215,8 +215,8 @@ $res["error_code"]=0;
 
  		if (!isset($dataToken->data->user_id))
  		{
- 			$res["error_code"]="510";
- 			$res["message"]="Invalid Data";
+ 			$res["error_code"]="555";
+ 			$res["message"]="Invalid Token";
  			break;
  		}
  		/*
