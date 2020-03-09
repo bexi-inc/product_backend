@@ -437,6 +437,7 @@ if(isset($_REQUEST["cmd"])){
            "id" : "'. $codeId .'",
            "user" : "'.$_REQUEST["user"].'",
            "code" : "'.base64_encode(gzcompress($code, 7)) .'",
+           "coords" : ['.json_encode($coords).'],
            "xblock" : "'.$xblock.'",
            "yblock" : "'.$yblock.'"
         }';
