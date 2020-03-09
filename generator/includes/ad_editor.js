@@ -1216,6 +1216,7 @@ function initialize_editors_text(){
       toolbarBottom : false,
       emoticonsUseImage: false,
       toolbarVisibleWithoutSelection: true,
+      enter: FroalaEditor.ENTER_BR,
       toolbarButtons:{
         'moreText': {
           'buttons': ['fontFamily', 'fontSize', 'textColor']
