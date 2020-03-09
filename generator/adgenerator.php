@@ -351,7 +351,7 @@ if(isset($coords["button"]))
 {
     //Button
     //echo '<button class="bexi_button" type="button" style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;">Click Me!</button>';
-    echo '<div  style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;"><div class="btn '.$GLOBALS["buttonClass"].'" style="font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">Click Me!</div></div>';
+    echo '<div  style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;"><div class="bexi_button btn '.$GLOBALS["buttonClass"].'" style="font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">Click Me!</div></div>';
 }
 
 if(isset($coords["text1"]))
