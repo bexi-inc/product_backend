@@ -32,6 +32,7 @@ require "users.php";
 //require "emails.php";
 require "projects.php";
 require "analytics.php";
+require "campaigns.php";
 
 
 
