@@ -44,7 +44,7 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 	$Data = $Data . '}';
 
 
-	print_r($Data);
+	//print_r($Data);
 
 	$resIns=Insert("modu_campaigns",$Data, false);
 
