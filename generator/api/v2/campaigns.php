@@ -177,7 +177,7 @@ function GetCampaigns($idUser)
 				$camp["campaign_goal"] = $Marshaler->unmarshalValue($dbRes["campaign_goal"]);
 				$camp["campaign_offering"] = $Marshaler->unmarshalValue($dbRes["campaign_offering"]);
 				$camp["status"] = $Marshaler->unmarshalValue($dbRes["status"]);
-				$camp["deliverables_types"] = ((!empty($dbRes["projects_types"]) : )$Marshaler->unmarshalValue($dbRes["projects_types"]) ? "");
+				$camp["deliverables_types"] = ((!empty($dbRes["projects_types"]) : ($Marshaler->unmarshalValue($dbRes["projects_types"])) ? "");
 				//$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
 				if (!empty($dbRes["campaign_industry"]))
 				{
