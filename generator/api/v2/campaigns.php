@@ -48,6 +48,7 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 
 	$resIns=Insert("modu_campaigns",$Data, false);
 
+	echo "Checking projects";
 	echo $ProjectsTypes;
 	print_r($ProjectsTypes); 
 	foreach ($ProjectsTypes as $ptype)
