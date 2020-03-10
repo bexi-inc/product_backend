@@ -15,7 +15,7 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 		,"user_id" : "'.$userid.'"
 		,"date_create" : "'.$pid.'"
 		,"campaign_name" : "'.$cname.'"
-		,"industry" : "'.$industry.'" ';
+		,"campaign_industry" : "'.$industry.'" ';
 
 	$Data .= ((trim($pgoal) != '' ) ? ',"campaign_goal" :  "'.$cgoal.'" ' : '' );
 
@@ -113,7 +113,7 @@ function GetCampaigns($idUser)
 	$ret["error_code"] = "0";
 
 	$userData ='{
-		":userid" : "'.$idUser.'"
+		":userid" : "'.$idUserd.'"
 	}';
 
 	$table = ExecuteQuery("modu_campaigns",$userData,"user_id = :userid", "user_id-index" , "" , false);
@@ -174,7 +174,13 @@ function GetCampaigns($idUser)
 
 				$proj["name"] = $Marshaler->unmarshalValue($project["campaign_name"]);
 				//$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
-				$proj["industry"] = $Marshaler->unmarshalValue($project["campaign_industry"]);
+				if (!empty($project["campaign_industry"]))
+				{
+					$proj["industry"] = $Marshaler->unmarshalValue($project["campaign_industry"]);
+				}else{
+					$proj["industry"] = "";
+				}
+				
 				//$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
 
 
