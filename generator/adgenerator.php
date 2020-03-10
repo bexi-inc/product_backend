@@ -444,7 +444,7 @@ if(isset($_REQUEST["cmd"])){
 
         ob_end_clean();
 
-        $code=setImages($code,$_REQUEST["keywords"]);
+        //$code=setImages($code,$_REQUEST["keywords"]);
         $doc = new DOMDocument();
         $doc->loadHTML('<?xml encoding="UTF-8">' .$code);
 
