@@ -239,7 +239,6 @@ function setImages($contenido,$keywords = ""){
 	    try
 	    {
 	   	 	$data = Crew\Unsplash\Photo::random($filters);
-	   	print_r($data);
 	   	} catch (Crew\Unsplash\Exception $e) {
 		     $filters = [
 		            'featured' => true,
