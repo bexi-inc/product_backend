@@ -456,7 +456,7 @@ if(isset($_REQUEST["cmd"])){
                     $url = parse_url($src);
                     parse_str($url["query"],$result_array);
                     $result_array['q']=0;
-                    $src = urldecode($url["scheme"]."://".$url["host"]."/".$url["path"]."?".http_build_query($result_array));
+                    $src = urldecode($url["scheme"]."://".$url["host"].$url["path"]."?".http_build_query($result_array));
                     $tag->SetAttribute('src',$src);
                 }
             }
