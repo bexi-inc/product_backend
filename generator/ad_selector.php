@@ -77,7 +77,7 @@ if (isset($_REQUEST["campaignid"]))
 	:root {
 	/*--thumbnail-width : 1440px;*/
 	--thumbnail-height : 280vh;
-	--thumbnail-zoom: 0.35;
+	--thumbnail-zoom: 1;
 	}
 
 	/* Basic CSS Reset */
