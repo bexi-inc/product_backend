@@ -75,7 +75,7 @@ if (isset($_REQUEST["campaignid"]))
 	<style type="text/css">
 			/* Variables */
 	:root {
-	/*--thumbnail-width : 1440px;*/
+	--thumbnail-width : 1440px;
 	--thumbnail-height : 280vh;
 	--thumbnail-zoom: 1;
 	}
