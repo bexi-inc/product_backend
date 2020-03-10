@@ -9,11 +9,11 @@ use Aws\Exception\AwsException;
 function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $txtcolors,  $pkeywords , $cservices, $pemailcontact, $pfontprimary, $pfontsecondary, $offering, $goal, $ProjectsTypes)
 {
 	global $Marshaler;
-	$pid = uniqid("",true);
+	$cId = uniqid("",true);
 	$Data ='{
-		"id" : "'.$pid.'"
+		"id" : "'.$cId.'"
 		,"user_id" : "'.$userid.'"
-		,"date_create" : "'.$pid.'"
+		,"date_create" : "'.microtime(true).'"
 		,"campaign_name" : "'.$cname.'"
 		,"campaign_industry" : "'.$industry.'" ';
 
@@ -48,22 +48,28 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 
 	$resIns=Insert("modu_campaigns",$Data, false);
 
+	print_r($ProjectsTypes); 
+	foreach ($ProjectsTypes as $ptype)
+	{
+		echo "CreateNewProject".$cId." - ".$cname." - ".$ptype." - ".$ptype;
+		CreateNewProject($connDyn,$cId,$cname." - ".$ptype,$ptype);
+	}
 	
 	if (!$resIns["error"])
 	{
 		$res["error"]="0";
-		$res["id"] =  $pid;
+		$res["id"] =  $cId;
 
 
 		if (!file_exists(PATHSERVER.$userid)) {
 		    mkdir($path.$userid, 0777, true);
 		}
 
-		if (!file_exists(PATHSERVER.$userid."/".$pid)) {
-		    mkdir($path.$userid."/".$pid, 0777, true);
+		if (!file_exists(PATHSERVER.$userid."/".$cId)) {
+		    mkdir($path.$userid."/".$cId, 0777, true);
 		}
 
-		$fullpath= PATHSERVER.$userid."/".$pid . "/";
+		$fullpath= PATHSERVER.$userid."/".$cId . "/";
 
 		if (!file_exists($fullpath."/logos")) {
 		    mkdir($fullpath."/logos", 0777, true);
