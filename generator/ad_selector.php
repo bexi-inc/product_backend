@@ -76,7 +76,7 @@ if (isset($_REQUEST["campaignid"]))
 			/* Variables */
 	:root {
 	--thumbnail-width : 65vw;
-	--thumbnail-height : 77vh;
+	--thumbnail-height : 109vh;
 	--thumbnail-zoom: 0.50;
 	}
 
