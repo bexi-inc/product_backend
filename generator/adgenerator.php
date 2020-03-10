@@ -468,7 +468,7 @@ if(isset($_REQUEST["cmd"])){
                 {
                     $style = $tag->getAttribute('style');
                     $src=get_string_between($style,'url(',');');
-                    if (stripos($src,"https://images.unsplash.com")===0)
+                    if (stripos($src,"https://images.unsplash.com")!==false)
                     {
                         $url = parse_url($src);
                         parse_str($url["query"],$result_array);
