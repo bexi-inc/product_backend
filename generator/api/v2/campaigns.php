@@ -49,7 +49,7 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 	$resIns=Insert("modu_campaigns",$Data, false);
 
 	//echo "Checking projects";
-	$proj_types = json_decode($ProjectsTypes)
+	$proj_types = json_decode($ProjectsTypes);
 	foreach ($ProjectsTypes as $ptype)
 	{
 		echo "CreateNewProject".$cId." - ".$cname." - ".$ptype." - ".$ptype;
