@@ -257,6 +257,24 @@ if(isset($_REQUEST["cmd"])){
             return $found;
         }
 
+        function get_string_between($string, $start, $end){
+            $string = ' ' . $string;
+            $ini = strpos($string, $start);
+            if ($ini == 0) return '';
+            $ini += strlen($start);
+            $len = strpos($string, $end, $ini) - $ini;
+            return substr($string, $ini, $len);
+        }
+
+        function set_string_between($string,$start, $end,$newstring){
+            $string = ' ' . $string;
+            $ini = strpos($string, $start);
+            if ($ini == 0) return '';
+            $ini += strlen($start);
+            $len = strpos($string, $end, $ini) - $ini;
+            return substr_replace($string, $newstring, $ini, $len);
+        }
+
 
         $xdim=1200;//width of final ad
         $ydim=628;//height of final ad
@@ -427,7 +445,47 @@ if(isset($_REQUEST["cmd"])){
         ob_end_clean();
 
         $code=setImages($code,$_REQUEST["keywords"]);
+        $doc = new DOMDocument();
+        $doc->loadHTML('<?xml encoding="UTF-8">' .$code);
 
+            $tags = $doc->getElementsByTagName('img');
+            foreach ($tags as $tag) {
+                $src = $tag->getAttribute('src');
+                if (stripos($src,"https://images.unsplash.com")===0)
+                {
+                    $url = parse_url ($src);
+                    parse_str($url["query"],$result_array);
+                    $result_array['q']=0;
+                    $src = urldecode($url["scheme"]."://".$url["host"]."/".$url["path"]."?".http_build_query($result_array));
+                    $tag->SetAttribute('src'.$src);
+                }
+            }
+
+            $tags=$doc->getElementsByTagName('div');
+            foreach ($tags as $tag) {
+                $class = $tag->getAttribute('class');
+                if (stripos($class,"transpa-bg")===0)
+                {
+                    $style = $tag->getAttribute('style');
+                    $src=get_string_between($style,'url(',');');
+                    if (stripos($src,"https://images.unsplash.com")===0)
+                    {
+                        $url = parse_url ($src);
+                        parse_str($url["query"],$result_array);
+                        $result_array['q']=0;
+                        $src = urldecode($url["scheme"]."://".$url["host"]."/".$url["path"]."?".http_build_query($result_array));
+                        $newstyle=set_string_between($style,'url(',');',$src);
+                        $tag->SetAttribute('style',$newstyle);
+                    }
+                }
+            }
+
+        // dirty fix
+        foreach ($doc->childNodes as $item)
+        if ($item->nodeType == XML_PI_NODE)
+            $doc->removeChild($item); // remove hack
+        $doc->encoding = 'UTF-8'; // insert proper
+        $code = $doc->saveHTML();
 
         /************** SAVE INTO DB ***************/
 
