@@ -511,9 +511,9 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
                         parse_str($url["query"],$result_array);
                         $result_array['q']=0;
                        // print_r($result_array);
-                        $src = urldecode($url["scheme"]."://".$url["host"]."/".$url["path"]."?".http_build_query($result_array));  
+                        $src = urldecode($url["scheme"]."://".$url["host"].$url["path"]."?".http_build_query($result_array));  
                         //print_r($src);  
-                        $tag->SetAttribute('src'.$src);
+                        $tag->SetAttribute('src',$src);
                     }
                     
                     

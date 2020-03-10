@@ -276,8 +276,8 @@ if(isset($_REQUEST["cmd"])){
         }
 
 
-        $xdim=1200;//width of final ad
-        $ydim=628;//height of final ad
+        $xdim=800;//width of final ad
+        $ydim=420;//height of final ad
 
         /***********Get recipe from DB **********/
         $params = [
@@ -451,30 +451,30 @@ if(isset($_REQUEST["cmd"])){
             $tags = $doc->getElementsByTagName('img');
             foreach ($tags as $tag) {
                 $src = $tag->getAttribute('src');
-                if (stripos($src,"https://images.unsplash.com")===0)
+                if (stripos($src,"https://images.unsplash.com")!==false)
                 {
-                    $url = parse_url ($src);
+                    $url = parse_url($src);
                     parse_str($url["query"],$result_array);
                     $result_array['q']=0;
-                    $src = urldecode($url["scheme"]."://".$url["host"]."/".$url["path"]."?".http_build_query($result_array));
-                    $tag->SetAttribute('src'.$src);
+                    $src = urldecode($url["scheme"]."://".$url["host"].$url["path"]."?".http_build_query($result_array));
+                    $tag->SetAttribute('src',$src);
                 }
             }
 
             $tags=$doc->getElementsByTagName('div');
             foreach ($tags as $tag) {
                 $class = $tag->getAttribute('class');
-                if (stripos($class,"transpa-bg")===0)
+                if (stripos($class,"transpa-bg")!==false)
                 {
                     $style = $tag->getAttribute('style');
-                    $src=get_string_between($style,'url(',');');
-                    if (stripos($src,"https://images.unsplash.com")===0)
+                    $src=get_string_between($style,"url('","');");
+                    if (stripos($src,"https://images.unsplash.com")!==false)
                     {
-                        $url = parse_url ($src);
+                        $url = parse_url($src);
                         parse_str($url["query"],$result_array);
                         $result_array['q']=0;
-                        $src = urldecode($url["scheme"]."://".$url["host"]."/".$url["path"]."?".http_build_query($result_array));
-                        $newstyle=set_string_between($style,'url(',');',$src);
+                        $src = urldecode($url["scheme"]."://".$url["host"].$url["path"]."?".http_build_query($result_array));
+                        $newstyle=set_string_between($style,"url('","');",$src);
                         $tag->SetAttribute('style',$newstyle);
                     }
                 }
