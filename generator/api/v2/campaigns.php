@@ -106,4 +106,103 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 }
 
 
+function GetCampaigns($idUser)
+{
+	
+	global $Marshaler;
+	$ret["error_code"] = "0";
+
+	$userData ='{
+		":userid" : "'.$userId.'"
+	}';
+
+	$table = ExecuteQuery("modu_campaigns",$userData,"user_id = :userid", "user_id-index" , "" , false);
+	$projects = []; 
+
+
+	//print_r($table);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		//print_r($dbdata);
+		if (count($dbdata)>0)
+		{
+			$res["error"]=0;
+			foreach ($table["data"]['Items'] as $project) {
+				$proj = []; 
+				$proj["id"] = $Marshaler->unmarshalValue($project["id"]);
+
+				//get deliverable from the project
+				/*$userData2 ='{
+					":projectid" : "'.$proj["project_id"].'"
+				}';
+				$table2 = ExecuteQuery("modu_deliverables",$userData2,"project_id = :projectid", "lastproject_id-index" , "" , false);
+				if ($table2["error"]=="")
+				{
+					$dbdata2 = $table2["data"]['Items'];
+					if (count($dbdata2)>0)
+					{
+						$last=count($dbdata2)-1;
+						$proj["deliverable_id"]=$Marshaler->unmarshalValue($dbdata2[$last]["deliverable_id"]);
+						$proj["status"] =$Marshaler->unmarshalValue($dbdata2[$last]["dev_status"]);
+						if(isset($dbdata2[$last]["subdomain"]))
+						{
+							$dom=$Marshaler->unmarshalValue($dbdata2[$last]["subdomain"]);
+							if($dom!="")
+							{
+								if(isset($dbdata2[$last]["domain_status"])){
+									$dom_status=$Marshaler->unmarshalValue($dbdata2[$last]["domain_status"]);
+									if($dom_status==="1"){
+										$proj["link"]="http://".$dom.".getmodu.com/";
+									}
+									else{
+										$proj["link"]="http://".$dom.BEXI_BUCKET_URL;
+									}
+								}
+							}
+						}
+					}
+				}
+				else
+				{
+					$ret["error_code"] = "500";
+					$ret["message"] =  $table2["error"];
+					return $ret;
+				}*/
+
+
+				$proj["name"] = $Marshaler->unmarshalValue($project["campaign_name"]);
+				//$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
+				$proj["industry"] = $Marshaler->unmarshalValue($project["campaign_industry"]);
+				//$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
+
+
+				if ($project["date_create"])
+				{
+					$micro_date = date($Marshaler->unmarshalValue($project["date_create"]));
+					$date_array = explode(".",$micro_date);
+					$date = date("Y-m-d",$date_array[0]);
+					$proj["create_date"] = $date;	
+				}else{
+					$proj["create_date"] = "Undefine";
+				}
+				
+
+				//echo date('Y-m-d H:i:s', $proj["date_create"]);
+				$projects [] = $proj;
+			}
+			$projects=array_reverse($projects);
+		}
+	}else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
+	$res["data"] = $projects;
+	//print_r($res);
+	return  $res;
+}
+
+
 ?>

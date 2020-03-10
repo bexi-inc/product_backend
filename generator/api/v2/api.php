@@ -193,6 +193,31 @@ $res["error_code"]=0;
  		}
  		$res = GetProjects($_REQ->userid);
  		break;
+ 	case 'GetCampaigns' :
+ 		$dataToken = DecodeJMT($_REQ->token);
+
+ 		//print_r($dataToken);
+
+ 		//echo "DecodeJMT";
+
+ 		if (is_array ($dataToken))
+ 		{
+	 		if (isset($dataToken["error_msg"]))
+	 		{
+	 			$res["error_code"]="510";
+	 			$res["message"]=$dataToken["error_msg"];
+	 			break;
+	 		}
+	 	}
+
+ 		if (!isset($dataToken->data->user_id))
+ 		{
+ 			$res["error_code"]="555";
+ 			$res["message"]="Invalid Token";
+ 			break;
+ 		}
+ 		$res = GetCampaigns($dataToken->data->user_id);
+ 		break;
  	case "CreateCampaign":
  		/*print_r($_REQ);
  		echo "files";
