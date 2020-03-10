@@ -194,9 +194,9 @@ $res["error_code"]=0;
  		$res = GetProjects($_REQ->userid);
  		break;
  	case "CreateCampaign":
- 		print_r($_REQ);
+ 		/*print_r($_REQ);
  		echo "files";
- 		print_r($_FILES);
+ 		print_r($_FILES);*/
  		$dataToken = DecodeJMT($_REQ->token);
 
  		//print_r($dataToken);

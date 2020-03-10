@@ -19,7 +19,7 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 
 	$Data .= ((trim($pgoal) != '' ) ? ',"campaign_goal" :  "'.$cgoal.'" ' : '' );
 
-	$Data .= ((isset($_FILES["logo "]["name"])) ? ', "logofull" : "'.$_FILES["logo "]["name"].'"' : '');
+	$Data .= ((isset($_FILES["logo"]["name"])) ? ', "logofull" : "'.$_FILES["logo"]["name"].'"' : '');
 
 	$Data .= ((isset($pemailcontact)) ? ', "email_contact" : "'.$pemailcontact.'"' : '');
 	$Data .= ((isset($pfontprimary)) ? ', "font_primary" : "'.$pfontprimary.'"' : '');
