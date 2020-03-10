@@ -281,7 +281,7 @@ function GetProjects($userId)
 }
 
 
-function CreateNewProject($connDyn, $pcampaign, $pname)
+function CreateNewProject($connDyn, $pcampaign, $pname, $pType)
 {
 	global $Marshaler;
 	$pid = uniqid("",true);
@@ -290,7 +290,9 @@ function CreateNewProject($connDyn, $pcampaign, $pname)
 		"project_id" : "'.$pid.'"
 		,"campaign_id" : "'.$pcampaign.'"
 		,"date_create" : "'.$pDate.'"
-		,"project_name" : "'.$pname.'"';
+		,"project_name" : "'.$pname.'"
+		,"project_type" : "'.$pType.'"';;
+
 	$Data = $Data . '}';
 
 
