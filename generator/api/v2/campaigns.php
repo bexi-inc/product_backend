@@ -196,7 +196,7 @@ function GetCampaigns($idUser)
 				//$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
 
 
-				if ($project["date_create"])
+				if ($dbRes["date_create"])
 				{
 					$micro_date = date($Marshaler->unmarshalValue($dbRes["date_create"]));
 					$date_array = explode(".",$micro_date);
