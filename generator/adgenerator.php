@@ -453,13 +453,11 @@ if(isset($_REQUEST["cmd"])){
         $res["codeid"]=$codeId;
         try {
             $result = $dynamodb->putItem($params);
-            //return true;
         } catch (DynamoDbException $e) {
             $res["error"] = $e->getMessage();
         }
-        //print_r($contenido);\
 
-        return $res;
+        echo stripslashes(json_encode($res));
     }
 
     if($_REQUEST["cmd"]=="selector" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
@@ -483,7 +481,7 @@ if(isset($_REQUEST["cmd"])){
 
     if($_REQUEST["cmd"]=="editor" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
     {
-
+        
     }
 
 }
