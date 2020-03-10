@@ -159,6 +159,19 @@ function AddNewProject()
   AddNewProject();
   AddNewProject();
   AddNewProject();
+  console.log("slider");
+
+  var n=1;
+     $(".bexi_sliders .mySlides").each(function() {
+       if (n<=4)
+       {
+         console.log("slider");
+         var lpos =(n-1) * sliderSize * GetWidthScreen();
+         console.log("left:" + lpos);
+         $(this).css({ 'top': 0, 'left': lpos });
+       }
+         n = n +1;
+     });
 
 });
 
