@@ -129,9 +129,9 @@ function GetCampaigns($idUser)
 		if (count($dbdata)>0)
 		{
 			$res["error"]=0;
-			foreach ($table["data"]['Items'] as $project) {
-				$proj = []; 
-				$proj["id"] = $Marshaler->unmarshalValue($project["id"]);
+			foreach ($table["data"]['Items'] as $dbRes) {
+				$camp = []; 
+				$camp["id"] = $Marshaler->unmarshalValue($dbRes["id"]);
 
 				//get deliverable from the project
 				/*$userData2 ='{
@@ -172,18 +172,18 @@ function GetCampaigns($idUser)
 				}*/
 
 
-				$proj["name"] = $Marshaler->unmarshalValue($project["campaign_name"]);
-				$proj["keywords"] = $Marshaler->unmarshalValue($project["keywords"]);
-				$proj["campaign_goal"] = $Marshaler->unmarshalValue($project["campaign_goal"]);
-				$proj["campaign_offering"] = $Marshaler->unmarshalValue($project["campaign_offering"]);
-				$proj["status"] = $Marshaler->unmarshalValue($project["status"]);
-				$proj["deliverables_types"] = $Marshaler->unmarshalValue($project["projects_types"]);
+				$camp["name"] = $Marshaler->unmarshalValue($dbRes["campaign_name"]);
+				$camp["keywords"] = $Marshaler->unmarshalValue($dbRes["keywords"]);
+				$camp["campaign_goal"] = $Marshaler->unmarshalValue($dbRes["campaign_goal"]);
+				$camp["campaign_offering"] = $Marshaler->unmarshalValue($dbRes["campaign_offering"]);
+				$camp["status"] = $Marshaler->unmarshalValue($dbRes["status"]);
+				$camp["deliverables_types"] = ((!empty($dbRes["projects_types"]) : )$Marshaler->unmarshalValue($dbRes["projects_types"]) ? "");
 				//$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
-				if (!empty($project["campaign_industry"]))
+				if (!empty($dbRes["campaign_industry"]))
 				{
-					$proj["industry"] = $Marshaler->unmarshalValue($project["campaign_industry"]);
+					$camp["industry"] = $Marshaler->unmarshalValue($dbRes["campaign_industry"]);
 				}else{
-					$proj["industry"] = "";
+					$camp["industry"] = "";
 				}
 				
 				//$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
@@ -191,17 +191,17 @@ function GetCampaigns($idUser)
 
 				if ($project["date_create"])
 				{
-					$micro_date = date($Marshaler->unmarshalValue($project["date_create"]));
+					$micro_date = date($Marshaler->unmarshalValue($dbRes["date_create"]));
 					$date_array = explode(".",$micro_date);
 					$date = date("Y-m-d",$date_array[0]);
-					$proj["create_date"] = $date;	
+					$camp["create_date"] = $date;	
 				}else{
-					$proj["create_date"] = "Undefine";
+					$camp["create_date"] = "Undefine";
 				}
 				
 
 				//echo date('Y-m-d H:i:s', $proj["date_create"]);
-				$projects [] = $proj;
+				$projects [] = $camp;
 			}
 			$projects=array_reverse($projects);
 		}
