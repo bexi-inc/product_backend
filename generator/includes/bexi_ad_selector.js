@@ -157,7 +157,7 @@ function AddNewProject()
 
  $(function() {
 //Set Variables 
-   document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
+   //document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
    //document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.5) + "px");
 /*function showSlides(n) {
   var i;
@@ -241,7 +241,7 @@ function frameload(ID){
                 data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"campaign_id": CampaignIdParam, "recipe":RecipeParams},
                 dataType: "json",
                 type: 'POST',
-                async : true,
+                //async : true,
                 beforeSend: function(){
 
                  },
