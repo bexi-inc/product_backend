@@ -157,7 +157,7 @@ function AddNewProject()
 
  $(function() {
 //Set Variables 
-   document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
+   //document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
    //document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.5) + "px");
 /*function showSlides(n) {
   var i;
@@ -241,7 +241,7 @@ function frameload(ID){
                 data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"campaign_id": CampaignIdParam, "recipe":RecipeParams},
                 dataType: "json",
                 type: 'POST',
-                async : true,
+                //async : true,
                 beforeSend: function(){
 
                  },
@@ -252,7 +252,7 @@ function frameload(ID){
             }).done(function( data, textStatus, jqXHR ) {
                 // Show image container
                 $("#"+uId).append(newDiv);
-                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.'+MAIN_DOMAIN+'/adgenerator.php?cmd=selector&user=' + UserParam + '&codeid=' + data.codeid + '&campaignid=' + CampaignIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.'+MAIN_DOMAIN+'/adgenerator.php?cmd=selector&user=' + UserParam + '&codeid=' + data.codeid + '&campaignid=' + CampaignIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {
