@@ -237,7 +237,7 @@ function frameload(ID){
 
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
         $.ajax({
-                url: 'adgenerator.php',
+                url: './adgenerator.php',
                 data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"campaign_id": CampaignIdParam, "recipe":RecipeParams},
                 dataType: "json",
                 type: 'POST',
