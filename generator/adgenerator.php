@@ -467,14 +467,14 @@ if(isset($_REQUEST["cmd"])){
                 if (stripos($class,"transpa-bg")!==false)
                 {
                     $style = $tag->getAttribute('style');
-                    $src=get_string_between($style,'url(',');');
+                    $src=get_string_between($style,"url('","');");
                     if (stripos($src,"https://images.unsplash.com")!==false)
                     {
                         $url = parse_url($src);
                         parse_str($url["query"],$result_array);
                         $result_array['q']=0;
                         $src = urldecode($url["scheme"]."://".$url["host"]."/".$url["path"]."?".http_build_query($result_array));
-                        $newstyle=set_string_between($style,'url(',');',$src);
+                        $newstyle=set_string_between($style,"url('","');",$src);
                         $tag->SetAttribute('style',$newstyle);
                     }
                 }
