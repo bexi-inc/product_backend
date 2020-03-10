@@ -52,7 +52,7 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 	$proj_types = json_decode($ProjectsTypes);
 	foreach ($proj_types as $ptype)
 	{
-		echo "CreateNewProject".$cId." - ".$cname." - ".$ptype." - ".$ptype;
+		//echo "CreateNewProject".$cId." - ".$cname." - ".$ptype." - ".$ptype;
 		CreateNewProject($connDyn,$cId,$cname." - ".$ptype,$ptype);
 	}
 	
