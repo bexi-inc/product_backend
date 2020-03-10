@@ -50,6 +50,7 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 
 	foreach ($ProjectsTypes as $ptype)
 	{
+		echo "CreateNewProject".$cId." - ".$cname." - ".$ptype." - ".$ptype;
 		CreateNewProject($connDyn,$cId,$cname." - ".$ptype,$ptype);
 	}
 	
