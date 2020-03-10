@@ -241,7 +241,7 @@ function frameload(ID){
                 data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"campaign_id": CampaignIdParam, "recipe":RecipeParams},
                 dataType: "json",
                 type: 'POST',
-                //async : true,
+                async : true,
                 beforeSend: function(){
 
                  },
