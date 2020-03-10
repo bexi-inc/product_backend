@@ -254,7 +254,7 @@ function setImages($contenido,$keywords = ""){
 		    }
 	   }
 
-	    	$contenido=substr_replace($contenido,$data->urls['full'],$pos,$pos2-$pos + 1);
+	    	$contenido=substr_replace($contenido,$data->urls['custom'],$pos,$pos2-$pos + 1);
 	    	
 	   
 	   // $pos++;
