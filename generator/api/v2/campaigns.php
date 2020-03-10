@@ -113,7 +113,7 @@ function GetCampaigns($idUser)
 	$ret["error_code"] = "0";
 
 	$userData ='{
-		":userid" : "'.$idUserd.'"
+		":userid" : "'.$idUser.'"
 	}';
 
 	$table = ExecuteQuery("modu_campaigns",$userData,"user_id = :userid", "user_id-index" , "" , false);
