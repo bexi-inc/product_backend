@@ -239,14 +239,13 @@ function setImages($contenido,$keywords = ""){
 	    try
 	    {
 	   	 	$data = Crew\Unsplash\Photo::random($filters);
-	   	
+	   	print_r($data);
 	   	} catch (Crew\Unsplash\Exception $e) {
 		     $filters = [
 		            'featured' => true,
 		            'w'        => $imgdata[1],
 		            'h'        => $imgdata[2]
 		    ];
-			print_r($filters);
 		    try
 	    	{
 		    	$data = Crew\Unsplash\Photo::random($filters);
