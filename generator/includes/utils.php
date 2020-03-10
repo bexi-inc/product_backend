@@ -236,7 +236,7 @@ function setImages($contenido,$keywords = ""){
 	            'h'        => $imgdata[2],
 	            'query'    => $keywords
 	    ];
-	    //print_r($filters);
+	    print_r($filters);
 	    try
 	    {
 	   	 	$data = Crew\Unsplash\Photo::random($filters);
