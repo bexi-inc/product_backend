@@ -132,6 +132,7 @@ if (isset($_REQUEST["campaignid"]))
         flex-flow: row wrap;
         align-items: center;
         height: 100vh;
+		overflow:hidden;
       }
 
 	  .pre-thumbnail{
