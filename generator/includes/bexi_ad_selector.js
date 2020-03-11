@@ -244,7 +244,7 @@ function frameload(ID){
       var size=$(".thumbnail-container").width();
       $("#pre-thumbnail").animate({borderSpacing: -90},{
         step: function(now,fx) {
-          console.log("do it");
+          console.log("size",size);
           $(this).css('-webkit-transform',"translateX(-"+(slideIndex*size)+"px)");
           $(this).css('-moz-transform',"translateX(-"+(slideIndex*size)+"px)");
           $(this).css('transform',"translateX(-"+(slideIndex*size)+"px)");
