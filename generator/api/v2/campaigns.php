@@ -246,7 +246,9 @@ function GetCampaign($idCampaign)
 		if (count($dbdata)>0)
 		{
 			$res["error"]=0;
-			$Campaign [] = json_decode($Marshaler->unmarshalJson($table["data"]['Items'][0]));
+			$Campaign = json_decode($Marshaler->unmarshalJson($table["data"]['Items'][0]));
+
+			$Campaign["logofull"]=PATHSERVER.$Campaign["user_id"]."/".$Campaign["id"] . "/".$Campaign["logofull"];
 			
 		}
 	}else{
