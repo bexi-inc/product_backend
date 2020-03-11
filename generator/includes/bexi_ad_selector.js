@@ -241,12 +241,13 @@ function frameload(ID){
            }
       });
 
+      var size=$(".thumbnail-container").css("width");
       $("#pre-thumbnail").animate({borderSpacing: -90},{
-        step: function() {
+        step: function(now,fx) {
           console.log("do it");
-          $(this).css('-webkit-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+"px)");
-          $(this).css('-moz-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+"px)");
-          $(this).css('transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+"px)");
+          $(this).css('-webkit-transform',"translateX(-"+(slideIndex*size)+"px)");
+          $(this).css('-moz-transform',"translateX(-"+(slideIndex*size)+"px)");
+          $(this).css('transform',"translateX(-"+(slideIndex*size)+"px)");
         },
         duration:1
       },1);
