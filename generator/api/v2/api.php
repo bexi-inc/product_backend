@@ -231,7 +231,7 @@ $res["error_code"]=0;
  			$res["message"]="Invalid params CreateProject";
  			
  		}
- 		$res = GetCampaign($dataToken->data->user_id);
+ 		$res = GetCampaign($_REQ->campaignid);
  		break;
  	case "CreateCampaign":
  		/*print_r($_REQ);
