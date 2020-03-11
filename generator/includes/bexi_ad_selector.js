@@ -5,9 +5,7 @@ var myHeight = 0 ;
 var FrameSel = "";
 
 window.onmessage = function(e){
-  console.log("onmessage");
   data = e.data.split("|");
-  console.log(e.data);
   if (data[0] == 'SelectProject') {
     looser = "";
     $(".project_active").each(function(){
@@ -17,9 +15,7 @@ window.onmessage = function(e){
       }
     });
     FrameSel = $.escapeSelector("frame-"+data[1]);
-    console.log("frame to sel ","#" + FrameSel);
     $("#" + FrameSel).addClass("FrameSelected");
-    console.log(data[0] + '|' + data[1] + '|' + looser);
     if (window.top != window.self) {
       window.top.postMessage(data[0] + '|' + data[1] + '|' + looser, '*')
     }
@@ -50,10 +46,6 @@ function GetWidthScreen()
   {
   		myWidth = Widthparam;
   }
-  console.log("Widthparam");
-  console.log(Widthparam);
-  console.log("myWidth ");
-  console.log(myWidth);
   return myWidth;
 };
 
@@ -75,10 +67,6 @@ function GetHeightScreen()
   {
       myHeight = Heightparam;
   }
-  console.log("Heightparam");
-  console.log(Heightparam);
-  console.log("myHeight ");
-  console.log(myHeight);
   return myHeight;
 };
 
@@ -91,7 +79,6 @@ function AddNewProject()
     {
       //Revisamos si se han agregado menos de 2 sliders y si se han agregado menos de 2
       //los marcamos como project_active para que se active el boton de seleccionar al dar click
-      console.log("numeros de Sliders: ",$("#pre-thumbnail .mySlides").length );
       var ClassActive = "";
       if ($("#pre-thumbnail .mySlides").length<2)
       {
@@ -159,7 +146,6 @@ function AddNewProject()
   AddNewProject();
   AddNewProject();
   AddNewProject();
-  console.log("slider");
 
   /*
   var n=1;
