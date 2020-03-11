@@ -218,6 +218,21 @@ $res["error_code"]=0;
  		}
  		$res = GetCampaigns($dataToken->data->user_id);
  		break;
+ 	case 'GetCampaign' :
+ 		$dataToken = DecodeJMT($_REQ->token);
+
+ 		//print_r($dataToken);
+
+ 		//echo "DecodeJMT";
+
+ 		if (!isset($_REQ->campaignid)) 
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params CreateProject";
+ 			
+ 		}
+ 		$res = GetCampaigns($dataToken->data->user_id);
+ 		break;
  	case "CreateCampaign":
  		/*print_r($_REQ);
  		echo "files";

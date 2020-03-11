@@ -223,4 +223,77 @@ function GetCampaigns($idUser)
 }
 
 
+function GetCampaign($idCampaign)
+{
+	
+	global $Marshaler;
+	$ret["error_code"] = "0";
+
+	$userData ='{
+		":id" : "'.$idCampaign.'"
+	}';
+
+	$table = ExecuteQuery("modu_campaigns",$userData,"id = :id", "" , "" , false);
+	$projects = []; 
+
+
+	//print_r($table);
+
+	if ($table["error"]=="")
+	{
+		$dbdata = $table["data"]['Items'];
+		//print_r($dbdata);
+		if (count($dbdata)>0)
+		{
+			$res["error"]=0;
+			$Campaign [] = $table["data"]['Items'][0];
+			/*foreach ($table["data"]['Items'] as $dbRes) {
+				$camp = []; 
+				$camp["id"] = $Marshaler->unmarshalValue($dbRes["id"]);
+
+
+				$camp["name"] = $Marshaler->unmarshalValue($dbRes["campaign_name"]);
+				$camp["keywords"] = $Marshaler->unmarshalValue($dbRes["keywords"]);
+				$camp["campaign_goal"] = $Marshaler->unmarshalValue($dbRes["campaign_goal"]);
+				$camp["campaign_offering"] = $Marshaler->unmarshalValue($dbRes["campaign_offering"]);
+				$camp["status"] = $Marshaler->unmarshalValue($dbRes["status"]);
+				$camp["deliverables_types"] = ( (!empty($dbRes["projects_types"])) ? ($Marshaler->unmarshalValue($dbRes["projects_types"]) ) : "" );
+				//$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
+				if (!empty($dbRes["campaign_industry"]))
+				{
+					$camp["industry"] = $Marshaler->unmarshalValue($dbRes["campaign_industry"]);
+				}else{
+					$camp["industry"] = "";
+				}
+				
+				//$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
+
+
+				if ($dbRes["date_create"])
+				{
+					$micro_date = date($Marshaler->unmarshalValue($dbRes["date_create"]));
+					$date_array = explode(".",$micro_date);
+					$date = date("Y-m-d",$date_array[0]);
+					$camp["create_date"] = $date;	
+				}else{
+					$camp["create_date"] = "Undefine";
+				}
+				
+
+				//echo date('Y-m-d H:i:s', $proj["date_create"]);
+				$projects [] = $camp;
+			}
+			$projects=array_reverse($projects);*/
+		}
+	}else{
+		$ret["error_code"] = "500";
+	    $ret["message"] =  $table["error"];
+	    return $ret;
+	}
+	$res["data"] = $Campaign;
+	//print_r($res);
+	return  $res;
+}
+
+
 ?>
