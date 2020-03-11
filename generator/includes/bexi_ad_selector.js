@@ -241,7 +241,7 @@ function frameload(ID){
            }
       });
 
-      $("#pre-thumbnail").animate({},{
+      $("#pre-thumbnail").animate({borderSpacing: -90},{
         step: function() {
           console.log("do it");
           $(this).css('-webkit-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+"px)");
