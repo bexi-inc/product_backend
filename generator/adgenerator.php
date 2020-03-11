@@ -390,8 +390,8 @@ if(isset($_REQUEST["cmd"])){
             padding-left: 0px;
             padding-right: 0px;';
             //margin-top: 39px;
-        echo 'width:'. ($xdim+4) .'px;';
-        echo 'height:'.($ydim+4) .'px;';
+        echo 'width:'. ($xdim) .'px;';
+        echo 'height:'.($ydim) .'px;';
         echo 'background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -401,7 +401,7 @@ if(isset($_REQUEST["cmd"])){
         echo "\r\n";
         echo "<body>";
         echo "\r\n";
-        echo '<div class= "bexi_module_ad" id="maindiv" style="position:relative;border: 2px solid red;background-color:rgba(0, 0, 0, 0.5);" >';
+        echo '<div class= "bexi_module_ad" id="maindiv" style="position:relative;background-color:rgba(0, 0, 0, 0.5);" >';
         echo '<div class="transpa-bg" style="background-image: url(\'%bg_img|'.($xdim).'|'.($ydim).'|%\'); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>';
         if(isset($coords["button"]))
         {
