@@ -276,8 +276,8 @@ if(isset($_REQUEST["cmd"])){
         }
 
 
-        $xdim=600;//width of final ad
-        $ydim=320;//height of final ad
+        $xdim=1200;//width of final ad
+        $ydim=628;//height of final ad
 
         /***********Get recipe from DB **********/
         $params = [
