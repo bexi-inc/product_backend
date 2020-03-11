@@ -248,8 +248,8 @@ function frameload(ID){
           $(this).css('-moz-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+"px)");
           $(this).css('transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+"px)");
         },
-        duration:'slow'
-      },'linear');
+        duration:1
+      },1);
     
  			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
