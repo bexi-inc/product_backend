@@ -127,12 +127,16 @@ if (isset($_REQUEST["campaignid"]))
         position: relative;
         margin-right: 20px;
       }
-      .thumbnails {
+      .bexi_sliders {
         display: flex;
         flex-flow: row wrap;
         align-items: center;
         height: 100vh;
       }
+
+	  .pre-thumbnail{
+		  white-space:nowrap;
+	  }
 
 	/* This pseudo element masks the iframe, so that mouse wheel scrolling and clicking do not affect the simulated "screenshot" */
 	/*.thumbnail:after {
