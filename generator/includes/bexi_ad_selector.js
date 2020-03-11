@@ -242,7 +242,7 @@ function frameload(ID){
       });
 
       $("#pre-thumbnail").animate({
-        transform:"translateX(-"+(slideIndex*sliderSize* myWidth)+");"
+        transform:"translateX(-"+(slideIndex*sliderSize* myWidth)+")"
       },800);
     
  			$(".pre-thumbnail .mySlides").each(function() {
