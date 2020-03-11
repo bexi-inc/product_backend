@@ -254,6 +254,9 @@ if (isset($_REQUEST["campaignid"]))
 	<a class="selector_prev hidden" onclick="plusSlides(1)"></a>
 	<a class="selector_next" onclick="plusSlides(-1)"></a>
 	<div class="bexi_sliders" id="modu_sliders" >
+	<div class="pre-thumbnail" id="pre-thumbnail">
+	
+	</div>
 	</div>
 </div>
 </body>
