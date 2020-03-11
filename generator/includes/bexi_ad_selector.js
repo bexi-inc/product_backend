@@ -111,7 +111,7 @@ function AddNewProject()
       newDiv.html(
         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
         );
-      $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
+        $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="pre-thumbnail"><div id="'+uId+'" class="thumbnail"></div></div></div>');
       $.ajax({
                 url: 'adgenerator.php',
                 data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"campaign_id": CampaignIdParam, "recipe":RecipeParams},
@@ -161,6 +161,7 @@ function AddNewProject()
   AddNewProject();
   console.log("slider");
 
+  /*
   var n=1;
      $(".bexi_sliders .mySlides").each(function() {
        if (n<=4)
@@ -172,7 +173,7 @@ function AddNewProject()
        }
          n = n +1;
      });
-
+*/
 });
 
 $( document ).ready(function() {
@@ -213,7 +214,7 @@ function frameload(ID){
        newDiv.html(
          '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );
-         $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
+         $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="pre-thumbnail"><div id="'+uId+'" class="thumbnail"></div></div></div>');
 
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
         $.ajax({
