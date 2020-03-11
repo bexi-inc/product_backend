@@ -241,7 +241,7 @@ function frameload(ID){
            }
       });
 
-      var size=$(".thumbnail-container").css("width");
+      var size=$(".thumbnail-container").width();
       $("#pre-thumbnail").animate({borderSpacing: -90},{
         step: function(now,fx) {
           console.log("do it");
