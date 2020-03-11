@@ -243,12 +243,13 @@ function frameload(ID){
 
       $("#pre-thumbnail").animate({},{
         step: function() {
+          console.log("do it");
           $(this).css('-webkit-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+")");
           $(this).css('-moz-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+")");
           $(this).css('transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+")");
         },
-        duration:800
-      },800);
+        duration:'slow'
+      },'linear');
     
  			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
