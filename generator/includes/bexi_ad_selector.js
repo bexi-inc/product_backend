@@ -241,8 +241,13 @@ function frameload(ID){
            }
       });
 
-      $("#pre-thumbnail").animate({
-        transform:"translateX(-"+(slideIndex*sliderSize* myWidth)+")"
+      $("#pre-thumbnail").animate({},{
+        step: function() {
+          $(this).css('-webkit-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+")");
+          $(this).css('-moz-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+")");
+          $(this).css('transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+")");
+        },
+        duration:800
       },800);
     
  			$(".pre-thumbnail .mySlides").each(function() {
