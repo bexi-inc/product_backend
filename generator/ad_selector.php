@@ -74,11 +74,6 @@ if (isset($_REQUEST["campaignid"]))
 	<script src="includes/jquery-3.4.1.min.js"></script>
 	<style type="text/css">
 			/* Variables */
-	:root {
-	--thumbnail-width : 65vw;
-	--thumbnail-height : 109vh;
-	--thumbnail-zoom: 0.50;
-	}
 
 	/* Basic CSS Reset */
 	* {
@@ -93,52 +88,51 @@ if (isset($_REQUEST["campaignid"]))
 	  /*margin-top: 50px;*/
 	}
 
-	/* This container helps the thumbnail behave as if it were an unscaled IMG element */
-		  /*width: calc(var(--thumbnail-width) * var(--thumbnail-zoom));*/
-	 /*width: 36%;*/
-	  /*height: calc(var(--thumbnail-height) * var(--thumbnail-zoom));
-	  	  overflow: hidden;
-	  */
-	  	  /*border-style: solid;*/	
-	.thumbnail-container {
-	  height: 100%;
-	  display: inline-block;
-	  position: absolute;
-	  top: 0;
-	  background-color: transparent;
-	  float: left;
-	  height: calc(var(--thumbnail-height)+50px);
-		width: calc(var(--thumbnail-width)+50px);
-	}
-
-	
-
-	/* This is a masking container for the zoomed iframe element */
-	.thumbnail {
-	  -ms-zoom: var(--thumbnail-zoom);
-	  -moz-transform: scale(var(--thumbnail-zoom));
-	  -moz-transform-origin: 0 0;
-	  -o-transform: scale(var(--thumbnail-zoom));
-	  -o-transform-origin: 0 0;
-	  -webkit-transform: scale(var(--thumbnail-zoom));
-	  -webkit-transform-origin: 0 0;
-	}
-
-	/* This is our screen sizing */
-	.thumbnail, .thumbnail iframe {
-	  width: var(--thumbnail-width);
-	  height: var(--thumbnail-height);
-	}
-
-	/* This facilitates the fade-in transition instead of flicker. It also helps us maintain the illusion that this is an image, since some webpages will have a preloading animation or wait for some images to download */
-	.thumbnail iframe {
-	  margin:25px;
-	  /*opacity: 0.7;*/
-	  transition: all 300ms ease-in-out;
-	  border-radius:25px;
-	  -webkit-box-shadow:0 5px 20px rgba(81,91,104,.2),0 -5px 10px rgba(81,91,104,.2);
-	  box-shadow:0 5px 20px rgba(81,91,104,.2),0 -5px 10px rgba(81,91,104,.2);
-	}
+	:root {
+        --width: 1204px;
+        --height: 632px;
+        /* scale **/
+        --zoom-factor: 0.5;
+      }
+      .thumbnail iframe {
+        width: var(--width);
+        height: var(--height);
+      }
+      .thumbnail {
+        position: relative;
+        display: table;
+        -ms-zoom: var(--zoom-factor);
+        -moz-transform: scale(var(--zoom-factor));
+        -moz-transform-origin: 0 0;
+        -o-transform: scale(var(--zoom-factor));
+        -o-transform-origin: 0 0;
+        -webkit-transform: scale(var(--zoom-factor));
+        -webkit-transform-origin: 0 0;
+      }
+      /** no interaction **/
+      .thumbnail:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      .thumbnail-container {
+        width: calc(var(--width) * var(--zoom-factor));
+        height: calc(var(--height) * var(--zoom-factor));
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        margin-right: 20px;
+      }
+      .thumbnails {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        height: 100vh;
+      }
 
 	/* This pseudo element masks the iframe, so that mouse wheel scrolling and clicking do not affect the simulated "screenshot" */
 	/*.thumbnail:after {
@@ -217,12 +211,6 @@ if (isset($_REQUEST["campaignid"]))
 		  padding-top: 50%;
 		  background-color:rgba(0, 0, 0, 0.3);
 	}*/
-	.thumbnail{
-		height: calc(var(--thumbnail-height)+50px);
-		width: calc(var(--thumbnail-width)+50px);
-		background-color: transparent;
-		position:relative;
-	}/*	background-color: #000; */ 
 
 
 	.FrameSelected {
