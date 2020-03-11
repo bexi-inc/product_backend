@@ -240,6 +240,10 @@ function frameload(ID){
                console.log( "La solicitud a fallado: " +  textStatus);
            }
       });
+
+      $("#pre-thumbnail").animate({
+        transform:"translateX(-"+(slideIndex*sliderSize* myWidth)+");"
+      },800);
     
  			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
