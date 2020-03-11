@@ -236,18 +236,15 @@ function setImages($contenido,$keywords = ""){
 	            'h'        => $imgdata[2],
 	            'query'    => $keywords
 	    ];
-	    //print_r($filters);
 	    try
 	    {
 	   	 	$data = Crew\Unsplash\Photo::random($filters);
-	   	
 	   	} catch (Crew\Unsplash\Exception $e) {
 		     $filters = [
 		            'featured' => true,
 		            'w'        => $imgdata[1],
 		            'h'        => $imgdata[2]
 		    ];
-
 		    try
 	    	{
 		    	$data = Crew\Unsplash\Photo::random($filters);
@@ -255,8 +252,13 @@ function setImages($contenido,$keywords = ""){
 
 		    }
 	   }
-
-	    	$contenido=substr_replace($contenido,$data->urls['full'],$pos,$pos2-$pos + 1);
+	   if(isset($data->urls['custom']))
+	   {
+		$contenido=substr_replace($contenido,$data->urls['custom'],$pos,$pos2-$pos + 1);
+	   }
+	   else{
+		$contenido=substr_replace($contenido,$data->urls['full'],$pos,$pos2-$pos + 1);
+	   }
 	    	
 	   
 	   // $pos++;
