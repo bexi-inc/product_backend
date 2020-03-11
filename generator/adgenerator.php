@@ -388,8 +388,8 @@ if(isset($_REQUEST["cmd"])){
             padding-top:0px;
             padding-bottom: 0px;
             padding-left: 0px;
-            padding-right: 0px;
-            margin-top: 39px;';
+            padding-right: 0px;';
+            //margin-top: 39px;
         echo 'width:'. ($xdim+4) .'px;';
         echo 'height:'.($ydim+4) .'px;';
         echo 'background-size: cover;
