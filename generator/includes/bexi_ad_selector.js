@@ -91,9 +91,9 @@ function AddNewProject()
     {
       //Revisamos si se han agregado menos de 2 sliders y si se han agregado menos de 2
       //los marcamos como project_active para que se active el boton de seleccionar al dar click
-      console.log("numeros de Sliders: ",$("#modu_sliders .mySlides").length );
+      console.log("numeros de Sliders: ",$("#pre-thumbnail .mySlides").length );
       var ClassActive = "";
-      if ($("#modu_sliders .mySlides").length<2)
+      if ($("#pre-thumbnail .mySlides").length<2)
       {
             ClassActive = "project_active";
       }else{
@@ -111,7 +111,7 @@ function AddNewProject()
       newDiv.html(
         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
         );
-        $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="pre-thumbnail"><div id="'+uId+'" class="thumbnail"></div></div></div>');
+        $("#pre-thumbnail").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
       $.ajax({
                 url: 'adgenerator.php',
                 data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"campaign_id": CampaignIdParam, "recipe":RecipeParams},
@@ -191,7 +191,7 @@ function frameload(ID){
  	//console.log("slideIndex=" + slideIndex);
  	if (n<0)
  	{
- 		var nPages = $(".bexi_sliders .mySlides").length;
+ 		var nPages = $(".pre-thumbnail .mySlides").length;
 
  		
  		//console.log("nPages=" + nPages);
@@ -214,7 +214,7 @@ function frameload(ID){
        newDiv.html(
          '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );
-         $("#modu_sliders").append('<div class="thumbnail-container mySlides"><div class="pre-thumbnail"><div id="'+uId+'" class="thumbnail"></div></div></div>');
+         $("#pre-thumbnail").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
 
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
         $.ajax({
@@ -241,7 +241,7 @@ function frameload(ID){
            }
       });
     
- 			$(".bexi_sliders .mySlides").each(function() {
+ 			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
  					 $(this).animate({
@@ -260,10 +260,12 @@ function frameload(ID){
          //console.log("nframe - " + (npos-slideIndex));
  				//if ( pos>=0  && pos <= 3)
  				//{
+/*
  					$(this).animate({
 					    left: pos * sliderSize * myWidth,
 					   // opacity: '1'
-					 }, 800);
+           }, 800);
+*/
  				//}
         if ((npos-slideIndex)>=1 && (npos-slideIndex)<=2)
         {
@@ -284,22 +286,23 @@ function frameload(ID){
  	if (n>0 && slideIndex > 1)
  	{
  		//console.log("prev");
- 		var nPages = $(".bexi_sliders .mySlides").length;
+ 		var nPages = $(".pre-thumbnail .mySlides").length;
  		
  			/*$(".main_selector").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe></div>');
  			*/
  		var npos = 1;
  		var slider = 0;
- 		$(".bexi_sliders .mySlides").each(function() {
+ 		$(".pre-thumbnail .mySlides").each(function() {
  				
  			var pos = npos - slideIndex + 1 ;
  			//console.log("Prev pos==" + pos);
  			//console.log("Prev left=" + (pos * sliderSize * myWidth));
- 			$(this).animate({
+/* 
+       $(this).animate({
 				left: pos * sliderSize * myWidth,
 				//opacity: '1'
 			}, 800);
-
+*/
        //console.log("nframe - " + (npos-slideIndex));
        //console.log("left: ", npos-slideIndex);
 
