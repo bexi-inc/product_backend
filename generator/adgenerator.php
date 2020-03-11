@@ -366,6 +366,11 @@ if(isset($_REQUEST["cmd"])){
         /**************   ICON FONTS **************/
         echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
 
+        $project_id = $_REQUEST["campaign_id"];
+        if ($project_id!="")
+        {
+            echo'<link rel="stylesheet" type="text/css" href="load_theme.php?projectid='.$project_id.'" >'; 
+        }
 
         /**************   Jquery dialog **************/
         echo '<link rel="stylesheet" href="includes/jquery-ui.min.css">';
@@ -407,32 +412,33 @@ if(isset($_REQUEST["cmd"])){
         {
             //Button
             //echo '<button class="bexi_button" type="button" style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;">Click Me!</button>';
-            echo '<div  style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;"><div id="'.uniqid().'" class="bexi_button btn '.$GLOBALS["buttonClass"].'" style="font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;margin-top:2px !important;margin-bottom:2px !important;max-width:none;">Click Me!</div></div>';
+            echo '<div  style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><div id="'.uniqid().'" class="bexi_button btn '.$GLOBALS["buttonClass"].'" style="font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;margin-top:2px !important;margin-bottom:2px !important;max-width:none;">Click Me!</div></div>';
         }
 
         if(isset($coords["text1"]))
         {
             //text1
-            echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(0.85*($yblock/3)).'px !important;">Text1</h1></div>';
+            echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(0.85*($yblock/3)).'px !important;">Text1</h1></div>';
         }
 
         if(isset($coords["text2"]))
         {
             //text2
-            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">Text2</h3></div>';
+            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">Text2</h3></div>';
         }
 
         if(isset($coords["icon"]))
         {
             //icon
-            echo '<div  style="position:absolute;z-index:3;top:'.($coords["icon"][1]*$yblock).'px;left:'.($coords["icon"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;"><i id="'.uniqid().'" class="fab fa-jedi-order bexi_icon" style="font-size:'.($yblock/2).'px;color:white;"></i></div>';
+            echo '<div  style="position:absolute;z-index:3;top:'.($coords["icon"][1]*$yblock).'px;left:'.($coords["icon"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><i id="'.uniqid().'" class="fab fa-jedi-order bexi_icon" style="font-size:'.($yblock/2).'px;color:white;"></i></div>';
 
         }
 
         if(isset($coords["img"]))
         {
             //Img
-            echo '<div  style="position:absolute;z-index:1;top:'.($coords["img"][1]*$yblock).'px;left:'.($coords["img"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(3*$yblock).'px;"><img id="'.uniqid().'" class="bexi_img m-0" src="%img|'.(3*$xblock).'|'.(3*$yblock).'|%" alt="img" style="max-width:100%;height:auto;max-height:100%;"></div>';
+            $probImgSize=rand(75,100)/100;
+            echo '<div  style="position:absolute;z-index:1;top:'.($coords["img"][1]*$yblock).'px;left:'.($coords["img"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(3*$yblock).'px;padding:5px;"><img id="'.uniqid().'" class="bexi_img m-0" src="%img|'.(3*$xblock*$probImgSize).'|'.(3*$yblock*$probImgSize).'|%" alt="img" style="max-width:100%;height:auto;max-height:100%;"></div>';
         }
 
         echo '</div>';
