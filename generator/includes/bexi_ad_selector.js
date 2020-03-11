@@ -244,9 +244,9 @@ function frameload(ID){
       $("#pre-thumbnail").animate({},{
         step: function() {
           console.log("do it");
-          $(this).css('-webkit-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+")");
-          $(this).css('-moz-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+")");
-          $(this).css('transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+")");
+          $(this).css('-webkit-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+"px)");
+          $(this).css('-moz-transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+"px)");
+          $(this).css('transform',"translateX(-"+(slideIndex*sliderSize* myWidth)+"px)");
         },
         duration:'slow'
       },'linear');
