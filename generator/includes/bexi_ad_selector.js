@@ -289,6 +289,7 @@ function frameload(ID){
      var slider = 0;
      var size=$(".thumbnail-container").width()+20;
      var actual=$("#pre-thumbnail").css("top");
+     console.log(actual);
      $("#pre-thumbnail").animate({top: actual+size},{
        step: function(now,fx) {
          $(this).css('-webkit-transform',"translateX("+(now)+"px)");
