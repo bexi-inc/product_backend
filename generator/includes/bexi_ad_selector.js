@@ -75,7 +75,9 @@ function frameload(ID){
 
  $(window).on('resize', function(){
   document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
+  console.log(slideIndex);
   var size=$(".thumbnail-container").width()+20;
+  console.log(size);
   $("#pre-thumbnail").css('-webkit-transform',"translateX(-"+(slideIndex*size)+"px)");
   $("#pre-thumbnail").css('-moz-transform',"translateX(-"+(slideIndex*size)+"px)");
   $("#pre-thumbnail").css('transform',"translateX(-"+(slideIndex*size)+"px)");
