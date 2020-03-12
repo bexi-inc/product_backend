@@ -290,7 +290,7 @@ function frameload(ID){
      var size=$(".thumbnail-container").width()+20;
      var actual=$("#pre-thumbnail").css("top");
      var final=actual-size;
-     console.log(final);
+     console.log(actual);
      $("#pre-thumbnail").animate({top: final},{
        step: function(now,fx) {
          console.log(now);
