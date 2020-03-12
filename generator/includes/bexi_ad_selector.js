@@ -99,6 +99,7 @@ function AddNewProject()
         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
         );
         $("#pre-thumbnail").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
+        $("#"+uId).append(newDiv);
       $.ajax({
                 url: 'adgenerator.php',
                 data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"campaign_id": CampaignIdParam, "recipe":RecipeParams},
@@ -106,7 +107,7 @@ function AddNewProject()
                 type: 'POST',
                 beforeSend: function(){
                   // Show image container
-                  $("#"+uId).append(newDiv);
+                  
                  },
                  complete:function(data){
                   // Hide image container
@@ -290,10 +291,8 @@ function frameload(ID){
      var size=$(".thumbnail-container").width()+20;
      var position=parseFloat($('#pre-thumbnail').css('top').replace('px',''));
      var final=position-size;
-     console.log(position);
      $("#pre-thumbnail").animate({top: final},{
        step: function(now,fx) {
-         console.log(now);
          $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
          $(this).css('-moz-transform',"translateX(-"+(now)+"px)");
          $(this).css('transform',"translateX(-"+(now)+"px)");
