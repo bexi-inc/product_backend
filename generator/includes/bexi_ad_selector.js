@@ -246,7 +246,7 @@ function AddNewProject()
       var position=parseFloat($('#pre-thumbnail').css('top').replace('px',''));
       console.log(position);
       console.log(((slideIndex-1)*size));
-      if(((slideIndex)*size)== position||$("#pre-thumbnail").css("top")=="auto"){
+      if(((slideIndex-1)*size)== position||$("#pre-thumbnail").css("top")=="auto"){
         $("#pre-thumbnail").animate({top: slideIndex*size},{
           step: function(now,fx) {
             $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
