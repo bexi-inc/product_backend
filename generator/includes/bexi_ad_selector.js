@@ -231,11 +231,11 @@ function frameload(ID){
       $("#pre-thumbnail").animate({borderSpacing: -90},{
         step: function(now,fx) {
           console.log("size",size);
-          $(this).css('-webkit-transform',"translateX(-"+(slideIndex*size)+"px)");
-          $(this).css('-moz-transform',"translateX(-"+(slideIndex*size)+"px)");
-          $(this).css('transform',"translateX(-"+(slideIndex*size)+"px)");
+          $(this).css('-webkit-transform',"translateX(-"+(slideIndex*now)+"px)");
+          $(this).css('-moz-transform',"translateX(-"+(slideIndex*now)+"px)");
+          $(this).css('transform',"translateX(-"+(slideIndex*now)+"px)");
         },
-        duration:1
+        duration:size
       });
     
  			$(".pre-thumbnail .mySlides").each(function() {
