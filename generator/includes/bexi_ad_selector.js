@@ -242,14 +242,15 @@ function AddNewProject()
            }
       });
 
-        $("#pre-thumbnail").animate({top: slideIndex*size},{
-          step: function(now,fx) {
-            $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
-            $(this).css('-moz-transform',"translateX(-"+(now)+"px)");
-            $(this).css('transform',"translateX(-"+(now)+"px)");
-          },
-          duration:'slow'
-        },'linear');
+      var size=$(".thumbnail-container").width()+20;
+      $("#pre-thumbnail").animate({top: slideIndex*size},{
+        step: function(now,fx) {
+          $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
+          $(this).css('-moz-transform',"translateX(-"+(now)+"px)");
+          $(this).css('transform',"translateX(-"+(now)+"px)");
+        },
+        duration:'slow'
+      },'linear');
  			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
