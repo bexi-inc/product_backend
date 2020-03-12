@@ -395,7 +395,7 @@ $res["error_code"]=0;
  		break;
  }
 
-echo json_encode( $res );
+echo json_encode( $res , JSON_UNESCAPED_SLASHES );
 die();
 
 ?>
