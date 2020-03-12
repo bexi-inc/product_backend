@@ -226,13 +226,6 @@ if (isset($_REQUEST["campaignid"]))
 
 	.pointer_select
 	{
-		display:block;
-		position: fixed;
-		z-index: 100;
-		padding-top: 50%;
-		padding-bottom: 70%;
-		padding-left: 50%;
-		padding-right: 50%;
 		cursor:pointer;
 	}
 
