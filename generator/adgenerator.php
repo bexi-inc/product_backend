@@ -335,7 +335,7 @@ if(isset($_REQUEST["cmd"])){
         echo ','.(($i*2)+8);
         }
         echo '];';
-        echo 'var t2maxchar="'.(($xblock*2)/(0.15*($yblock/2))).'";';
+        echo 'var t2maxchar="'.(($xblock*2)/(0.14*($yblock/2))).'";';
         echo 'var t2size=[8';
         $total=($yblock/4)-8;
         $count=$total/2;
@@ -418,13 +418,13 @@ if(isset($_REQUEST["cmd"])){
         if(isset($coords["text1"]))
         {
             //text1
-            echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(0.85*($yblock/3)).'px !important;">This is the Main Message</h1></div>';
+            echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(1.04*($yblock/3)).'px !important;">This is the Main Message</h1></div>';
         }
 
         if(isset($coords["text2"]))
         {
             //text2
-            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">You can also have a secondary message, to enforce the first one.</h3></div>';
+            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px !important;line-height:'.(1.04*($yblock/4)).'px !important;">You can also have a secondary message, to enforce the first one.</h3></div>';
         }
 
         if(isset($coords["icon"]))
