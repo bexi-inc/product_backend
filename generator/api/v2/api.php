@@ -185,13 +185,13 @@ $res["error_code"]=0;
  		$res= ValidateToken($_REQ->token);
  		break;
  	case 'GetProjects' :
- 		if (!isset($_REQ->userid) || !isset($_REQ->campaignid))
+ 		if (!isset($_REQ->campaignid))
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
  			
  		}
- 		$res = GetProjects($_REQ->userid);
+ 		$res = GetProjects($_REQ->campaignid);
  		break;
  	case 'GetCampaigns' :
  		$dataToken = DecodeJMT($_REQ->token);

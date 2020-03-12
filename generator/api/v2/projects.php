@@ -180,7 +180,7 @@ function Delete_temporals($userid){
 	}
 }
 
-function GetProjects($userId)
+function GetProjects($CampaginId)
 {
 
 	Delete_temporals($userId);
@@ -188,10 +188,10 @@ function GetProjects($userId)
 	$ret["error_code"] = "0";
 
 	$userData ='{
-		":userid" : "'.$userId.'"
+		":campaign_id" : "'.$CampaginId.'"
 	}';
 
-	$table = ExecuteQuery(TBL_PROJECTS,$userData,"user_id = :userid", "user_id-index" , "" , false);
+	$table = ExecuteQuery(TBL_PROJECTS,$userData,"campaign_id = :campaign_id", "campaign_id-index" , "" , false);
 	$projects = []; 
 
 
