@@ -90,9 +90,9 @@ function AddNewProject()
       var newDiv = $(document.createElement('div'));
       newDiv.attr("class","justify-content-center align-items-center text-center");
       newDiv.attr("id","load-"+uId);
-      newDiv.css("width",GetWidthScreen()+"px");
-      newDiv.css("height",GetHeightScreen()+"px");
-      newDiv.css("padding-top",GetHeightScreen()+"px");
+      newDiv.css("top","calc( 50% - (192px/2))");
+      newDiv.css("left","0");
+      newDiv.css("right","0");
       newDiv.css("position","absolute");
       newDiv.css("z-index","100");
       newDiv.html(
@@ -187,9 +187,9 @@ function AddNewProject()
        var newDiv = $(document.createElement('div'));
        newDiv.attr("class","justify-content-center align-items-center text-center");
        newDiv.attr("id","load-"+uId);
-       newDiv.css("width",GetWidthScreen()+"px");
-       newDiv.css("height",GetHeightScreen()+"px");
-       newDiv.css("padding-top",GetHeightScreen()+"px");
+       newDiv.css("top","calc( 50% - (192px/2))");
+       newDiv.css("left","0");
+       newDiv.css("right","0");
        newDiv.css("position","absolute");
        newDiv.css("z-index","100");
        newDiv.html(
