@@ -71,7 +71,7 @@ function GetHeightScreen()
 };
 
 function frameload(ID){
-  //$("#load-"+ID).remove();
+  $("#load-"+ID).remove();
  }
 
 
