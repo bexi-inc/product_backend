@@ -972,7 +972,8 @@ function initialize_editors_text(){
             'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
           },
           'moreParagraph': {
-            'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify']
+            'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify'],
+            'buttonsVisible': 4
           },
           'moreRich': {
             'buttons': ['fontAwesome','emoticons', 'specialCharacters'],
@@ -1069,7 +1070,8 @@ function initialize_editors_text(){
             'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
           },
           'moreParagraph': {
-            'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify']
+            'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify'],
+            'buttonsVisible': 4
           },
           'moreRich': {
             'buttons': ['fontAwesome','emoticons', 'specialCharacters'],
