@@ -337,7 +337,7 @@ if(isset($_REQUEST["cmd"])){
         echo '];';
         echo 'var t2maxchar="'.(($xblock*2)/(0.14*($yblock/2))).'";';
         echo 'var t2size=[8';
-        $total=($yblock/6)-8;
+        $total=($yblock/5)-8;
         $count=$total/2;
         for ($i=1; $i < $count ; $i++) {
         echo ','.(($i*2)+8);
@@ -424,7 +424,7 @@ if(isset($_REQUEST["cmd"])){
         if(isset($coords["text2"]))
         {
             //text2
-            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px !important;line-height:'.(1.04*($yblock/4)).'px !important;">You can also have a secondary message, to enforce the first one.</h3></div>';
+            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/5).'px !important;line-height:'.(1.04*($yblock/4)).'px !important;">You can also have a secondary message, to enforce the first one.</h3></div>';
         }
 
         if(isset($coords["icon"]))
