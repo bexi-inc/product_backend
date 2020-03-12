@@ -237,7 +237,7 @@ function frameload(ID){
         },
         duration:'slow'
       },'linear');
-    
+      $("#pre-thumbnail").css('top',0);
  			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
