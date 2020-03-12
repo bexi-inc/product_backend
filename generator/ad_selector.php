@@ -224,7 +224,7 @@ if (isset($_REQUEST["campaignid"]))
 	  box-shadow:0 15px 30px rgba(45, 211, 214,.9),0 5px 20px rgba(45, 211, 214,.9) !important;
 	}
 
-	.pointer_select
+	.pointer_SelectProject
 	{
 		cursor:pointer;
 	}
