@@ -15,8 +15,7 @@ window.onmessage = function(e){
         $(".FrameSelected").removeClass("FrameSelected");
       }
     });
-    FrameSel = $.escapeSelector("[modu-id|='"+data[1]+"']");
-    $("#" + FrameSel).addClass("FrameSelected");
+    $("#" + data[2]).addClass("FrameSelected");
     if (window.top != window.self) {
       window.top.postMessage(data[0] + '|' + data[1] + '|' + looser, '*')
     }
@@ -122,7 +121,7 @@ function AddNewProject()
               $("#"+uId).attr("bexi-code",data.codeid);
               $("#"+uId).click(
                 function(){
-                 window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
+                 window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code")+"|"+uId, '*');
                }
                );
        })
@@ -227,7 +226,7 @@ function AddNewProject()
                 $("#"+uId).attr("bexi-code",data.codeid);
                 $("#"+uId).click(
                   function(){
-                   window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
+                    window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code")+"|"+uId, '*');
                  }
                  );
               })
