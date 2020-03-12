@@ -15,7 +15,7 @@ window.onmessage = function(e){
         $(".FrameSelected").removeClass("FrameSelected");
       }
     });
-    FrameSel = $.escapeSelector("frame-"+data[1]);
+    FrameSel = $.escapeSelector("[modu-id|='"+data[1]+"']");
     $("#" + FrameSel).addClass("FrameSelected");
     if (window.top != window.self) {
       window.top.postMessage(data[0] + '|' + data[1] + '|' + looser, '*')
