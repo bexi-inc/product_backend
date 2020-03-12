@@ -290,11 +290,11 @@ function frameload(ID){
      var size=$(".thumbnail-container").width()+20;
      var actual=$("#pre-thumbnail").css("top");
      console.log(actual);
-     $("#pre-thumbnail").animate({top: actual+size},{
+     $("#pre-thumbnail").animate({top: actual-size},{
        step: function(now,fx) {
-         $(this).css('-webkit-transform',"translateX("+(now)+"px)");
-         $(this).css('-moz-transform',"translateX("+(now)+"px)");
-         $(this).css('transform',"translateX("+(now)+"px)");
+         $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
+         $(this).css('-moz-transform',"translateX(-"+(now)+"px)");
+         $(this).css('transform',"translateX(-"+(now)+"px)");
        },
        duration:'slow'
      },'linear');
