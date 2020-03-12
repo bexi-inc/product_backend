@@ -227,7 +227,7 @@ function frameload(ID){
            }
       });
 
-      var size=$(".thumbnail-container").width()-20;
+      var size=$(".thumbnail-container").width()+20;
       $("#pre-thumbnail").animate({top: slideIndex*size},{
         step: function(now,fx) {
           console.log("size",size);
