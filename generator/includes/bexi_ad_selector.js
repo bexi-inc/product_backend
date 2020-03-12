@@ -241,12 +241,7 @@ function AddNewProject()
                console.log( "La solicitud a fallado: " +  textStatus);
            }
       });
-
-      var size=$(".thumbnail-container").width()+20;
-      var position=parseFloat($('#pre-thumbnail').css('top').replace('px',''));
-      console.log(position);
-      console.log(((slideIndex-1)*size));
-      if(((slideIndex-1)*size)== position||$("#pre-thumbnail").css("top")=="auto"){
+      
         $("#pre-thumbnail").animate({top: slideIndex*size},{
           step: function(now,fx) {
             $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
