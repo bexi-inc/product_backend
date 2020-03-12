@@ -244,7 +244,7 @@ function AddNewProject()
 
       var size=$(".thumbnail-container").width()+20;
       console.log($("#pre-thumbnail").css("top"));
-      if(((slideIndex-1)*size)+"px"== $("#pre-thumbnail").css("top")){
+      if(((slideIndex-1)*size)+"px"== $("#pre-thumbnail").css("top")||$("#pre-thumbnail").css("top")=="auto"){
         $("#pre-thumbnail").animate({top: slideIndex*size},{
           step: function(now,fx) {
             $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
