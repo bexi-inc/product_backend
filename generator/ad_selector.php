@@ -137,6 +137,7 @@ if (isset($_REQUEST["campaignid"]))
 
 	  .pre-thumbnail{
 		  white-space:nowrap;
+		  padding-left:20px;
 	  }
 
 	/* This pseudo element masks the iframe, so that mouse wheel scrolling and clicking do not affect the simulated "screenshot" */
