@@ -243,9 +243,10 @@ function AddNewProject()
       });
 
       var size=$(".thumbnail-container").width()+20;
-      console.log($("#pre-thumbnail").css("top"));
-      console.log(((slideIndex-1)*size)+"px");
-      if((((slideIndex)*size)+"px")== $("#pre-thumbnail").css("top")||$("#pre-thumbnail").css("top")=="auto"){
+      var position=parseFloat($('#pre-thumbnail').css('top').replace('px',''));
+      console.log(position);
+      console.log(((slideIndex-1)*size));
+      if(((slideIndex)*size)== position||$("#pre-thumbnail").css("top")=="auto"){
         $("#pre-thumbnail").animate({top: slideIndex*size},{
           step: function(now,fx) {
             $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
