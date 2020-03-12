@@ -224,6 +224,18 @@ if (isset($_REQUEST["campaignid"]))
 	  box-shadow:0 15px 30px rgba(45, 211, 214,.9),0 5px 20px rgba(45, 211, 214,.9) !important;
 	}
 
+	.pointer_select
+	{
+		display:block;
+		position: fixed;
+		z-index: 100;
+		padding-top: 50%;
+		padding-bottom: 70%;
+		padding-left: 50%;
+		padding-right: 50%;
+		cursor:pointer;
+	}
+
 	.project_inactive
 	{
 		opacity : 0.2;
