@@ -122,7 +122,6 @@ function AddNewProject()
               $("#"+uId).attr("bexi-code",data.codeid);
               $("#"+uId).click(
                 function(){
-                 console.log("works");
                  window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
                }
                );
@@ -205,7 +204,7 @@ function AddNewProject()
        newDiv.html(
          '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
          );
-         $("#pre-thumbnail").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
+         $("#pre-thumbnail").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail pointer_SelectProject"></div></div>');
 
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
         $.ajax({
@@ -225,6 +224,12 @@ function AddNewProject()
                 // Show image container
                 $("#"+uId).append(newDiv);
                 $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.'+MAIN_DOMAIN+'/adgenerator.php?cmd=selector&user=' + UserParam + '&codeid=' + data.codeid + '&campaignid=' + CampaignIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+                $("#"+uId).attr("bexi-code",data.codeid);
+                $("#"+uId).click(
+                  function(){
+                   window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
+                 }
+                 );
               })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {
