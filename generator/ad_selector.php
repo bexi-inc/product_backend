@@ -92,7 +92,7 @@ if (isset($_REQUEST["campaignid"]))
         --width: 1204px;
         --height: 632px;
         /* scale **/
-        --zoom-factor: 0.5;
+        --zoom-factor: 0.7;
       }
       .thumbnail iframe {
         width: var(--width);
