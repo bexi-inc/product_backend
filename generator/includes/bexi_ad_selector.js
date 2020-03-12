@@ -230,14 +230,12 @@ function frameload(ID){
       var size=$(".thumbnail-container").width()+20;
       $("#pre-thumbnail").animate({top: slideIndex*size},{
         step: function(now,fx) {
-          console.log("size",size);
           $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
           $(this).css('-moz-transform',"translateX(-"+(now)+"px)");
           $(this).css('transform',"translateX(-"+(now)+"px)");
         },
         duration:'slow'
       },'linear');
-      //$("#pre-thumbnail").css('top',0);
  			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
@@ -288,7 +286,17 @@ function frameload(ID){
  			/*$(".main_selector").append('<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> <iframe src="http://generator.bexi.co/generator.localhost.php" frameborder="0" onload="this.style.opacity = 1"></iframe></div>');
  			*/
  		var npos = 1;
- 		var slider = 0;
+     var slider = 0;
+     var size=$(".thumbnail-container").width()+20;
+     var actual=$("#pre-thumbnail").css("top");
+     $("#pre-thumbnail").animate({top: actual+size},{
+       step: function(now,fx) {
+         $(this).css('-webkit-transform',"translateX("+(now)+"px)");
+         $(this).css('-moz-transform',"translateX("+(now)+"px)");
+         $(this).css('transform',"translateX("+(now)+"px)");
+       },
+       duration:'slow'
+     },'linear');
  		$(".pre-thumbnail .mySlides").each(function() {
  				
  			var pos = npos - slideIndex + 1 ;
