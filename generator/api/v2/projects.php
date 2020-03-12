@@ -183,7 +183,7 @@ function Delete_temporals($userid){
 function GetProjects($CampaginId)
 {
 
-	Delete_temporals($userId);
+	Delete_temporals($CampaginId);
 	global $Marshaler;
 	$ret["error_code"] = "0";
 
