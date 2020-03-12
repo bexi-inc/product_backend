@@ -972,7 +972,7 @@ function initialize_editors_text(){
             'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
           },
           'moreParagraph': {
-            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'lineHeight', 'outdent', 'indent', 'quote']
+            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'lineHeight']
           },
           'moreRich': {
             'buttons': ['fontAwesome','emoticons', 'specialCharacters'],
@@ -1069,7 +1069,7 @@ function initialize_editors_text(){
             'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
           },
           'moreParagraph': {
-            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'lineHeight', 'outdent', 'indent', 'quote']
+            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'lineHeight']
           },
           'moreRich': {
             'buttons': ['fontAwesome','emoticons', 'specialCharacters'],
