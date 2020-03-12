@@ -405,7 +405,6 @@ if(isset($_REQUEST["cmd"])){
         echo "</head>";
         echo "\r\n";
         echo "<body>";
-        echo "<div id='img_select_project' bexi-code='".$CodeId."' style='cursor:pointer;'></div>";
         echo "\r\n";
         echo '<div class= "bexi_module_ad" id="maindiv" style="position:relative;background-color:rgba(0, 0, 0, 0.5);" >';
         echo '<div class="transpa-bg" style="background-image: url(\'%bg_img|'.($xdim).'|'.($ydim).'|%\'); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>';
