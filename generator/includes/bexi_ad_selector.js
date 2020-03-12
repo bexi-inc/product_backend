@@ -75,13 +75,6 @@ function frameload(ID){
   $("#load-"+ID).remove();
  }
 
- $(".pointer_SelectProject").click(
-   function(){
-    console.log("works");
-    window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
-  }
-  );
-
  $(window).on('resize', function(){
   document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
 });
@@ -127,6 +120,12 @@ function AddNewProject()
             }).done(function( data, textStatus, jqXHR ) {
               $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.'+MAIN_DOMAIN+'/adgenerator.php?cmd=selector&user=' + UserParam + '&codeid=' + data.codeid + '&campaignid=' + CampaignIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               $("#"+uId).attr("bexi-code",data.codeid);
+              $("#"+uId).click(
+                function(){
+                 console.log("works");
+                 window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
+               }
+               );
        })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {
