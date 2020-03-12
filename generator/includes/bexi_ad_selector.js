@@ -103,7 +103,6 @@ function AddNewProject()
         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
         );
         $("#pre-thumbnail").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail pointer_select"></div></div>');
-        console.log(newDiv);
         $("#"+uId).append(newDiv);
       $.ajax({
                 url: 'adgenerator.php',
