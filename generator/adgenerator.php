@@ -418,13 +418,13 @@ if(isset($_REQUEST["cmd"])){
         if(isset($coords["text1"]))
         {
             //text1
-            echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(0.85*($yblock/3)).'px !important;">Text1</h1></div>';
+            echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(0.85*($yblock/3)).'px !important;">This is the Main Message</h1></div>';
         }
 
         if(isset($coords["text2"]))
         {
             //text2
-            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">Text2</h3></div>';
+            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">You can also have a secondary message, to enforce the first one.</h3></div>';
         }
 
         if(isset($coords["icon"]))
@@ -546,7 +546,44 @@ if(isset($_REQUEST["cmd"])){
 
     if($_REQUEST["cmd"]=="editor" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
     {
+                /********* GET HTML CODE FROM DB **********/
+        $params = [
+            'TableName' => "bexi_projects_tmp",
+             "KeyConditionExpression"=> "id = :id AND #usr=:usr",
+            "ExpressionAttributeValues"=> [
+                ":id" =>  ["S" => $_REQUEST["codeid"]],
+                ":usr" => ["S" => $_REQUEST["user"]]
+            ],
+            "ExpressionAttributeNames" =>
+                [ '#usr' => 'user' ]
+        ];
+
+        $result = $dynamodb->query($params);
+        $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+        //echo $content;
         
+        $dom=new domDocument;
+		libxml_use_internal_errors(true);
+		$dom->loadHTML($content);
+		libxml_use_internal_errors(false);
+        $dom->preserveWhiteSpace = false;
+        
+        //get head element
+        $head = $dom->getElementsByTagName('head');
+
+        //create style element
+        $elementStyle = $dom->createElement('style', '.bexi_module_ad{top: 39px !important;}');
+
+        //create script src element
+        $elementScript = $dom->createElement('script', '');
+        $elementScript->setAttribute('type', urldecode('text/javascript'));
+        $elementScript->setAttribute('src', urldecode('includes/ad_editor.js'));
+
+        //add style and script elements
+        $head[0]->appendChild($elementStyle);
+        $head[0]->appendChild($elementScript);
+
+        echo $dom->savehtml();
     }
 
 }
