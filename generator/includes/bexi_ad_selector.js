@@ -228,14 +228,14 @@ function frameload(ID){
       });
 
       var size=$(".thumbnail-container").width();
-      $("#pre-thumbnail").animate({borderSpacing: -90},{
+      $("#pre-thumbnail").animate({borderSpacing: size},{
         step: function(now,fx) {
           console.log("size",size);
           $(this).css('-webkit-transform',"translateX(-"+(slideIndex*now)+"px)");
           $(this).css('-moz-transform',"translateX(-"+(slideIndex*now)+"px)");
           $(this).css('transform',"translateX(-"+(slideIndex*now)+"px)");
         },
-        duration:size
+        duration:'slow'
       },'linear');
     
  			$(".pre-thumbnail .mySlides").each(function() {
