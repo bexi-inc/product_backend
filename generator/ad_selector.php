@@ -89,8 +89,8 @@ if (isset($_REQUEST["campaignid"]))
 	}
 
 	:root {
-        --width: 1204px;
-        --height: 632px;
+        --width: 1200px;
+        --height: 628px;
         /* scale **/
         --zoom-factor: 0.7;
       }
