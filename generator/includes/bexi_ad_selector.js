@@ -288,7 +288,7 @@ function frameload(ID){
  		var npos = 1;
      var slider = 0;
      var size=$(".thumbnail-container").width()+20;
-     var position=$('#pre-thumbnail').css('top').replace('px','');
+     var position=parseFloat($('#pre-thumbnail').css('top').replace('px',''));
      var final=position.top-size;
      console.log(position);
      $("#pre-thumbnail").animate({top: final},{
