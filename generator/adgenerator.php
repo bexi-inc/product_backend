@@ -439,7 +439,7 @@ if(isset($_REQUEST["cmd"])){
             //Img
             $xprobImgSize=rand(35,100)/100;
             $yprobImgSize=rand(35,100)/100;
-            echo '<div  style="position:absolute;z-index:1;top:'.($coords["img"][1]*$yblock).'px;left:'.($coords["img"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(3*$yblock).'px;padding:5px;"><img id="'.uniqid().'" class="bexi_img m-0" src="%img|'.(3*$xblock*$xprobImgSize).'|'.(3*$yblock*$yprobImgSize).'|%" alt="img" style="max-width:100%;height:auto;max-height:100%;"></div>';
+            echo '<div  style="position:absolute;z-index:1;top:'.($coords["img"][1]*$yblock).'px;left:'.($coords["img"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(3*$yblock).'px;padding:5px;text-align:center;"><img id="'.uniqid().'" class="bexi_img m-0" src="%img|'.(3*$xblock*$xprobImgSize).'|'.(3*$yblock*$yprobImgSize).'|%" alt="img" style="max-width:100%;height:auto;max-height:100%;"></div>';
         }
 
         echo '</div>';
