@@ -6,7 +6,6 @@ var FrameSel = "";
 
 window.onmessage = function(e){
   data = e.data.split("|");
-  console.log(e.data);
   if (data[0] == 'SelectProject') {
     looser = "";
     $(".project_active").each(function(){
