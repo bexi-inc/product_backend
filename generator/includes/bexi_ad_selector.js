@@ -164,13 +164,6 @@ function AddNewProject()
 */
 });
 
-$( document ).ready(function() {
-    console.log("ready");
-});
-
-function frameload(ID){
-  $("#load-"+ID).remove();
- }
 
  function plusSlides(n)
  {
