@@ -974,10 +974,6 @@ function initialize_editors_text(){
           'moreParagraph': {
             'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify'],
             'buttonsVisible': 4
-          },
-          'moreRich': {
-            'buttons': ['fontAwesome','emoticons', 'specialCharacters'],
-            'buttonsVisible': 4
           }
       },
       fontFamilySelection: true,
@@ -1071,10 +1067,6 @@ function initialize_editors_text(){
           },
           'moreParagraph': {
             'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify'],
-            'buttonsVisible': 4
-          },
-          'moreRich': {
-            'buttons': ['fontAwesome','emoticons', 'specialCharacters'],
             'buttonsVisible': 4
           }
       },
