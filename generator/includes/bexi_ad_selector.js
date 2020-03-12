@@ -236,7 +236,7 @@ function frameload(ID){
           $(this).css('transform',"translateX(-"+(slideIndex*now)+"px)");
         },
         duration:size
-      });
+      },'linear');
     
  			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
