@@ -249,7 +249,7 @@ function GetCampaign($idCampaign)
 			$Campaign = json_decode($Marshaler->unmarshalJson($table["data"]['Items'][0]));
 
 			$Campaign->logofull=PATHWEB.$Campaign->user_id."/".$Campaign->id . "/".$Campaign->logofull;
-			$Campaign->date_create  = date("dd / MMM / yyyy", $Campaign->date_create);
+			$Campaign->date_create  = date("d / M / yy", $Campaign->date_create);
 			
 		}
 	}else{
