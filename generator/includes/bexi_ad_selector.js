@@ -228,16 +228,16 @@ function frameload(ID){
       });
 
       var size=$(".thumbnail-container").width();
-      $("#pre-thumbnail").animate({top: size},{
+      $("#pre-thumbnail").animate({top: slideIndex*size},{
         step: function(now,fx) {
           console.log("size",size);
-          $(this).css('-webkit-transform',"translateX(-"+(slideIndex*now)+"px)");
-          $(this).css('-moz-transform',"translateX(-"+(slideIndex*now)+"px)");
-          $(this).css('transform',"translateX(-"+(slideIndex*now)+"px)");
+          $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
+          $(this).css('-moz-transform',"translateX(-"+(now)+"px)");
+          $(this).css('transform',"translateX(-"+(now)+"px)");
         },
         duration:'slow'
       },'linear');
-      $("#pre-thumbnail").css('top',0);
+      //$("#pre-thumbnail").css('top',0);
  			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
