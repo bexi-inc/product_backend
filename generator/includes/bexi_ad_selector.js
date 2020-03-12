@@ -292,6 +292,7 @@ function frameload(ID){
      console.log(actual);
      $("#pre-thumbnail").animate({top: actual-size},{
        step: function(now,fx) {
+         console.log(now);
          $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
          $(this).css('-moz-transform',"translateX(-"+(now)+"px)");
          $(this).css('transform',"translateX(-"+(now)+"px)");
