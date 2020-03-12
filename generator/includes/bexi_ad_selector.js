@@ -74,6 +74,9 @@ function frameload(ID){
   $("#load-"+ID).remove();
  }
 
+ $(window).on('resize', function(){
+  document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
+});
 
 function AddNewProject()
     {
