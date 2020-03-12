@@ -969,10 +969,10 @@ function initialize_editors_text(){
       },
       toolbarButtons : {
         'moreText': {
-            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
+            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
           },
           'moreParagraph': {
-            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'lineHeight']
+            'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify']
           },
           'moreRich': {
             'buttons': ['fontAwesome','emoticons', 'specialCharacters'],
@@ -1066,10 +1066,10 @@ function initialize_editors_text(){
       },
       toolbarButtons : {
         'moreText': {
-            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
+            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
           },
           'moreParagraph': {
-            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'lineHeight']
+            'buttons': ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify']
           },
           'moreRich': {
             'buttons': ['fontAwesome','emoticons', 'specialCharacters'],

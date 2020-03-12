@@ -335,7 +335,7 @@ if(isset($_REQUEST["cmd"])){
         echo ','.(($i*2)+8);
         }
         echo '];';
-        echo 'var t2maxchar="'.(($xblock*2)/(0.14*($yblock/2))).'";';
+        echo 'var t2maxchar="'.(($xblock*2)/(0.12*($yblock/2))).'";';
         echo 'var t2size=[8';
         $total=($yblock/5)-8;
         $count=$total/2;
