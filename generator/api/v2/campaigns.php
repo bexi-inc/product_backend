@@ -86,12 +86,12 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 		//$webpath = PATHWEB.$userid."/".$projectid . "/logos/".$_FILES["logofullcolor"]["name"];
 		//print_r($_FILES);
 
-		$target_file = $fullpath . $_FILES["logofullcolor"]["name"];
+		$target_file = $fullpath . $_FILES["logo"]["name"];
 
-		if (move_uploaded_file($_FILES["logofullcolor"]["tmp_name"], $target_file)) {
+		if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
 
 		}
-
+/*
 		$target_file = $fullpath . $_FILES["logodarker"]["name"];
 
 		if (move_uploaded_file($_FILES["logodarker"]["tmp_name"], $target_file)) {
@@ -102,7 +102,7 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 
 		if (move_uploaded_file($_FILES["logolighter"]["tmp_name"], $target_file)) {
 
-		}
+		}*/
 
 		return $res;
 	}else{
@@ -248,7 +248,7 @@ function GetCampaign($idCampaign)
 			$res["error"]=0;
 			$Campaign = json_decode($Marshaler->unmarshalJson($table["data"]['Items'][0]));
 
-			$Campaign->logofull = PATHWEB.$Campaign->user_id."/".$Campaign->id."/".$Campaign->logofull;
+			$Campaign->logofull = PATHWEB."/".$Campaign->user_id."/".$Campaign->id."/logos/".$Campaign->logofull;
 			$Campaign->date_create  = date("d/m/yy", $Campaign->date_create);
 			
 		}
