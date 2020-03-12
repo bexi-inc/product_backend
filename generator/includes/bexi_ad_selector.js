@@ -126,7 +126,7 @@ function AddNewProject()
 
  $(function() {
 //Set Variables 
-   document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/3200+"px");
+   document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/3200);
    //document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.5) + "px");
 /*function showSlides(n) {
   var i;
