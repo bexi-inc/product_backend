@@ -101,6 +101,8 @@ if (isset($_REQUEST["campaignid"]))
       .thumbnail {
         position: relative;
         display: table;
+        width: var(--width);
+        height: var(--height);
         -ms-zoom: var(--zoom-factor);
         -moz-transform: scale(var(--zoom-factor));
         -moz-transform-origin: 0 0;
