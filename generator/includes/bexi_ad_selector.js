@@ -241,7 +241,7 @@ function AddNewProject()
                console.log( "La solicitud a fallado: " +  textStatus);
            }
       });
-      
+
         $("#pre-thumbnail").animate({top: slideIndex*size},{
           step: function(now,fx) {
             $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
@@ -250,7 +250,6 @@ function AddNewProject()
           },
           duration:'slow'
         },'linear');
-      }
  			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
