@@ -75,6 +75,10 @@ function frameload(ID){
   $("#load-"+ID).remove();
  }
 
+ $(".pointer_SelectProject").click(function(){
+  window.parent.postMessage('SelectProject|' + $(this).attr("bexi-code"), '*')
+});
+
  $(window).on('resize', function(){
   document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
 });
