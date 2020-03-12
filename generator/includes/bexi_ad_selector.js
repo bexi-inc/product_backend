@@ -74,6 +74,9 @@ function frameload(ID){
   $("#load-"+ID).remove();
  }
 
+ $(window).on('resize', function(){
+  document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
+});
 
 function AddNewProject()
     {
@@ -90,15 +93,17 @@ function AddNewProject()
       var newDiv = $(document.createElement('div'));
       newDiv.attr("class","justify-content-center align-items-center text-center");
       newDiv.attr("id","load-"+uId);
-      newDiv.css("width",GetWidthScreen()+"px");
-      newDiv.css("height",GetHeightScreen()+"px");
-      newDiv.css("padding-top",GetHeightScreen()+"px");
+      newDiv.css("top","calc( 50% - (192px/2))");
+      newDiv.css("left","0");
+      newDiv.css("right","0");
       newDiv.css("position","absolute");
       newDiv.css("z-index","100");
       newDiv.html(
         '<div class="Spinner"><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div><div class="Spinner-inner"></div></div>'
         );
         $("#pre-thumbnail").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail"></div></div>');
+        console.log(newDiv);
+        $("#"+uId).append(newDiv);
       $.ajax({
                 url: 'adgenerator.php',
                 data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"campaign_id": CampaignIdParam, "recipe":RecipeParams},
@@ -106,7 +111,7 @@ function AddNewProject()
                 type: 'POST',
                 beforeSend: function(){
                   // Show image container
-                  $("#"+uId).append(newDiv);
+                  
                  },
                  complete:function(data){
                   // Hide image container
@@ -124,7 +129,7 @@ function AddNewProject()
 
  $(function() {
 //Set Variables 
-   //document.documentElement.style.setProperty('--thumbnail-width', GetWidthScreen()+"px");
+   document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
    //document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.5) + "px");
 /*function showSlides(n) {
   var i;
@@ -162,13 +167,6 @@ function AddNewProject()
 */
 });
 
-$( document ).ready(function() {
-    console.log("ready");
-});
-
-function frameload(ID){
-  $("#load-"+ID).remove();
- }
 
  function plusSlides(n)
  {
@@ -192,9 +190,9 @@ function frameload(ID){
        var newDiv = $(document.createElement('div'));
        newDiv.attr("class","justify-content-center align-items-center text-center");
        newDiv.attr("id","load-"+uId);
-       newDiv.css("width",GetWidthScreen()+"px");
-       newDiv.css("height",GetHeightScreen()+"px");
-       newDiv.css("padding-top",GetHeightScreen()+"px");
+       newDiv.css("top","calc( 50% - (192px/2))");
+       newDiv.css("left","0");
+       newDiv.css("right","0");
        newDiv.css("position","absolute");
        newDiv.css("z-index","100");
        newDiv.html(
@@ -290,10 +288,8 @@ function frameload(ID){
      var size=$(".thumbnail-container").width()+20;
      var position=parseFloat($('#pre-thumbnail').css('top').replace('px',''));
      var final=position-size;
-     console.log(position);
      $("#pre-thumbnail").animate({top: final},{
        step: function(now,fx) {
-         console.log(now);
          $(this).css('-webkit-transform',"translateX(-"+(now)+"px)");
          $(this).css('-moz-transform',"translateX(-"+(now)+"px)");
          $(this).css('transform',"translateX(-"+(now)+"px)");

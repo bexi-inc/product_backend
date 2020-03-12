@@ -335,9 +335,9 @@ if(isset($_REQUEST["cmd"])){
         echo ','.(($i*2)+8);
         }
         echo '];';
-        echo 'var t2maxchar="'.(($xblock*2)/(0.15*($yblock/2))).'";';
+        echo 'var t2maxchar="'.(($xblock*2)/(0.14*($yblock/2))).'";';
         echo 'var t2size=[8';
-        $total=($yblock/4)-8;
+        $total=($yblock/5)-8;
         $count=$total/2;
         for ($i=1; $i < $count ; $i++) {
         echo ','.(($i*2)+8);
@@ -405,6 +405,7 @@ if(isset($_REQUEST["cmd"])){
         echo "</head>";
         echo "\r\n";
         echo "<body>";
+        echo "<div id='img_select_project' bexi-code='".$CodeId."' style='cursor:pointer;'></div>";
         echo "\r\n";
         echo '<div class= "bexi_module_ad" id="maindiv" style="position:relative;background-color:rgba(0, 0, 0, 0.5);" >';
         echo '<div class="transpa-bg" style="background-image: url(\'%bg_img|'.($xdim).'|'.($ydim).'|%\'); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>';
@@ -418,13 +419,13 @@ if(isset($_REQUEST["cmd"])){
         if(isset($coords["text1"]))
         {
             //text1
-            echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(0.85*($yblock/3)).'px !important;">Text1</h1></div>';
+            echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(1.04*($yblock/3)).'px !important;">This is the Main Message</h1></div>';
         }
 
         if(isset($coords["text2"]))
         {
             //text2
-            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;">Text2</h3></div>';
+            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/5).'px !important;line-height:'.(1.04*($yblock/4)).'px !important;">You can also have a secondary message, to enforce the first one.</h3></div>';
         }
 
         if(isset($coords["icon"]))
@@ -546,7 +547,44 @@ if(isset($_REQUEST["cmd"])){
 
     if($_REQUEST["cmd"]=="editor" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
     {
-        
+                /********* GET HTML CODE FROM DB **********/
+        $params = [
+            'TableName' => "bexi_projects_tmp",
+             "KeyConditionExpression"=> "id = :id AND #usr=:usr",
+            "ExpressionAttributeValues"=> [
+                ":id" =>  ["S" => $_REQUEST["codeid"]],
+                ":usr" => ["S" => $_REQUEST["user"]]
+            ],
+            "ExpressionAttributeNames" =>
+                [ '#usr' => 'user' ]
+        ];
+
+        $result = $dynamodb->query($params);
+        $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+        //echo $content;
+
+        $dom=new domDocument;
+		libxml_use_internal_errors(true);
+		$dom->loadHTML($content);
+		libxml_use_internal_errors(false);
+        $dom->preserveWhiteSpace = false;
+
+        //get head element
+        $head = $dom->getElementsByTagName('head');
+
+        //create style element
+        $elementStyle = $dom->createElement('style', '.bexi_module_ad{top: 39px !important;}');
+
+        //create script src element
+        $elementScript = $dom->createElement('script', '');
+        $elementScript->setAttribute('type', urldecode('text/javascript'));
+        $elementScript->setAttribute('src', urldecode('includes/ad_editor.js'));
+
+        //add style and script elements
+        $head[0]->appendChild($elementStyle);
+        $head[0]->appendChild($elementScript);
+
+        echo $dom->savehtml();
     }
 
 }
