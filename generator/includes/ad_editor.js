@@ -963,7 +963,6 @@ function initialize_editors_text(){
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
-      htmlDoNotWrapTags: ['script', 'style', 'h1'],
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
@@ -1058,7 +1057,6 @@ function initialize_editors_text(){
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
-      htmlDoNotWrapTags: ['script', 'style', 'h3'],
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
