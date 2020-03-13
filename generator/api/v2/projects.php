@@ -249,7 +249,7 @@ function GetProjects($CampaginId)
 
 				$proj["project_name"] = $Marshaler->unmarshalValue($project["project_name"]);
 				//$proj["status"] = GetStatusStr($Marshaler->unmarshalValue($project["status"]));
-				$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
+				//$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
 				$proj["type"] = "Landing Page";//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
 
 
