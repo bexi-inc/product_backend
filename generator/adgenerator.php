@@ -585,7 +585,7 @@ if(isset($_REQUEST["cmd"])){
         echo $dom->savehtml();
     }
 
-    if($_REQUEST["cmd"]=="test" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
+    if($_REQUEST["cmd"]=="test")
     {
                 /********* GET HTML CODE FROM DB **********/
         $params = [
