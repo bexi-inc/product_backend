@@ -681,7 +681,9 @@ if(isset($_REQUEST["cmd"])){
                 }
             }
         }
-
+        //create script src element
+        $button = $dom->createElement('button', '');
+        $button->setAttribute('id', "capture");
         echo $dom->savehtml();
     }
 
