@@ -632,7 +632,7 @@ if(isset($_REQUEST["cmd"])){
 
         //add style and script elements
         $head[0]->appendChild($elementStyle);
-        $head[0]->appendChild($elementScript);
+        //$head[0]->appendChild($elementScript);
         $head[0]->appendChild($elementScript2);
         $head[0]->appendChild($elementScript3);
 
