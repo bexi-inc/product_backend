@@ -681,13 +681,6 @@ if(isset($_REQUEST["cmd"])){
                 }
             }
         }
-
-        //get body element
-        $body = $dom->getElementsByTagName('body');
-        //create script src element
-        $button = $dom->createElement('button', '');
-        $button->setAttribute('id', "capture");
-        $body[0]->appendChild($button);
         echo $dom->savehtml();
     }
 
