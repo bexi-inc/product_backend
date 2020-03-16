@@ -9,14 +9,12 @@ $(document).ready(function() {
     // },
     // allowTaint: false
     // });
-    $("#capture").click(function() {
     html2canvas(document.querySelector("#maindiv")).then(canvas => {
         document.body.appendChild(canvas)
-        var link = document.createElement('a');
-        link.download = 'my-image-name.jpeg';
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-    });
+        // var link = document.createElement('a');
+        // link.download = 'my-image-name.jpeg';
+        // link.href = canvas.toDataURL("image/png");
+        // link.click();
     });
     // var node = document.getElementById('maindiv');
     // domtoimage.toPng(node)
