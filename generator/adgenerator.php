@@ -366,7 +366,13 @@ if(isset($_REQUEST["cmd"])){
         echo '<link href="includes/froala/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />';
         echo '<script type="text/javascript" src="includes/froala/js/froala_editor.pkgd.min.js"></script>';
         echo '<script type="text/javascript" src="includes/froala/js/third_party/font_awesome.min.js"></script>';
-        echo'<link rel="stylesheet" type="text/css" href="includes/fontawesome/all.css" >';
+        echo'<link rel="stylesheet" type="text/css" href="includes/fontawesome/all.min.css" >';
+        echo'<link rel="stylesheet" type="text/css" href="includes/fontawesome/brands.min.css" >';
+        echo'<link rel="stylesheet" type="text/css" href="includes/fontawesome/fontawesome.min.css" >';
+        echo'<link rel="stylesheet" type="text/css" href="includes/fontawesome/regular.min.css" >';
+        echo'<link rel="stylesheet" type="text/css" href="includes/fontawesome/solid.min.css" >';
+        echo'<link rel="stylesheet" type="text/css" href="includes/fontawesome/svg-with-js.min.css" >';
+        echo'<link rel="stylesheet" type="text/css" href="includes/fontawesome/v4-shims.min.css" >';
 
         /**************   ICON FONTS **************/
         echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
