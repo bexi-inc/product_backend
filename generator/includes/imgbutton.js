@@ -1,18 +1,32 @@
 $(document).ready(function() {
-    var node = document.getElementById('maindiv');
-    domtoimage.toPng(node)
-    .then(function (dataUrl) {
+
+    html2canvas($("#maindiv"), {
+    onrendered: function(canvas) {
         var link = document.createElement('a');
         link.download = 'my-image-name.jpeg';
-        link.href = dataUrl;
+        link.href = canvas.toDataURL("image/png");
         link.click();
-    })
-    // .then(function (dataUrl) {
-    //     var img = new Image();
-    //     img.src = dataUrl;
-    //     document.body.appendChild(img);
-    // })
-    .catch(function (error) {
-        console.error('oops, something went wrong!', error);
+    },
+    allowTaint: false
     });
+
+    // html2canvas(document.querySelector("#maindiv")).then(canvas => {
+    //     document.body.appendChild(canvas)
+    //     var link = document.createElement('a');
+    //     link.download = 'my-image-name.jpeg';
+    //     link.href = dataUrl;
+    //     link.click();
+    // });
+
+    // var node = document.getElementById('maindiv');
+    // domtoimage.toPng(node)
+    // .then(function (dataUrl) {
+    //     var link = document.createElement('a');
+    //     link.download = 'my-image-name.jpeg';
+    //     link.href = dataUrl;
+    //     link.click();
+    // })
+    // .catch(function (error) {
+    //     console.error('oops, something went wrong!', error);
+    // });
 });
