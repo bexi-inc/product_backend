@@ -375,7 +375,7 @@ if(isset($_REQUEST["cmd"])){
         echo'<link rel="stylesheet" type="text/css" href="includes/fontawesome/v4-shims.min.css" >';
 
         /**************   ICON FONTS **************/
-        echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
+        //echo'<script src="https://kit.fontawesome.com/2fd6605c8f.js" crossorigin="anonymous"></script>';
 
         $project_id = $_REQUEST["campaign_id"];
         if ($project_id!="")
