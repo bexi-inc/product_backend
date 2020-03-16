@@ -4526,9 +4526,6 @@
     var isHTMLElementNode = function (node) {
         return typeof node.style !== 'undefined';
     };
-    var isSVGElementNode = function (element) {
-        return typeof element.className === 'object';
-    };
     var isLIElement = function (node) { return node.tagName === 'LI'; };
     var isOLElement = function (node) { return node.tagName === 'OL'; };
     var isInputElement = function (node) { return node.tagName === 'INPUT'; };
@@ -5333,15 +5330,10 @@
                 }
             });
             anonymousReplacedElement.className = PSEUDO_HIDE_ELEMENT_CLASS_BEFORE + " " + PSEUDO_HIDE_ELEMENT_CLASS_AFTER;
-            var newClassName = pseudoElt === PseudoElementType.BEFORE
-                ? " " + PSEUDO_HIDE_ELEMENT_CLASS_BEFORE
-                : " " + PSEUDO_HIDE_ELEMENT_CLASS_AFTER;
-            if (isSVGElementNode(clone)) {
-                clone.className.baseValue += newClassName;
-            }
-            else {
-                clone.className += newClassName;
-            }
+            clone.className +=
+                pseudoElt === PseudoElementType.BEFORE
+                    ? " " + PSEUDO_HIDE_ELEMENT_CLASS_BEFORE
+                    : " " + PSEUDO_HIDE_ELEMENT_CLASS_AFTER;
             return anonymousReplacedElement;
         };
         DocumentCloner.destroy = function (container) {
@@ -6912,9 +6904,7 @@
         if (options === void 0) { options = {}; }
         return renderElement(element, options);
     };
-    if (typeof window !== "undefined") {
-        CacheStorage.setContext(window);
-    }
+    CacheStorage.setContext(window);
     var renderElement = function (element, opts) { return __awaiter(_this, void 0, void 0, function () {
         var ownerDocument, defaultView, instanceName, _a, width, height, left, top, defaultResourceOptions, resourceOptions, defaultOptions, options, windowBounds, documentCloner, clonedElement, container, documentBackgroundColor, bodyBackgroundColor, bgColor, defaultBackgroundColor, backgroundColor, renderOptions, canvas, renderer, root, renderer;
         return __generator(this, function (_b) {
