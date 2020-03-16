@@ -1,8 +1,11 @@
 $(document).ready(function() {
     var node = document.getElementById('maindiv');
     domtoimage.toPng(node)
-    .then(function (blob) {
-        window.saveAs(blob, 'my-node.png');
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'my-image-name.jpeg';
+        link.href = dataUrl;
+        link.click();
     })
     // .then(function (dataUrl) {
     //     var img = new Image();
