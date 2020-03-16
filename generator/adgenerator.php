@@ -647,6 +647,38 @@ if(isset($_REQUEST["cmd"])){
         $head[0]->appendChild($elementScript2);
         $head[0]->appendChild($elementScript3);
 
+        $tags = $doc->getElementsByTagName('img');
+        foreach ($tags as $tag) {
+            $src = $tag->getAttribute('src');
+            if (stripos($src,"https://images.unsplash.com")!==false)
+            {
+                $url = parse_url($src);
+                parse_str($url["query"],$result_array);
+                $result_array['q']=1;
+                $src = urldecode($url["scheme"]."://".$url["host"].$url["path"]."?".http_build_query($result_array));
+                $tag->SetAttribute('src',$src);
+            }
+        }
+
+        $tags=$doc->getElementsByTagName('div');
+        foreach ($tags as $tag) {
+            $class = $tag->getAttribute('class');
+            if (stripos($class,"transpa-bg")!==false)
+            {
+                $style = $tag->getAttribute('style');
+                $src=get_string_between($style,"url('","');");
+                if (stripos($src,"https://images.unsplash.com")!==false)
+                {
+                    $url = parse_url($src);
+                    parse_str($url["query"],$result_array);
+                    $result_array['q']=1;
+                    $src = urldecode($url["scheme"]."://".$url["host"].$url["path"]."?".http_build_query($result_array));
+                    $newstyle=set_string_between($style,"url('","');",$src);
+                    $tag->SetAttribute('style',$newstyle);
+                }
+            }
+        }
+
         echo $dom->savehtml();
     }
 
