@@ -300,8 +300,8 @@ if(isset($_REQUEST["cmd"])){
 
         $coords=main_loop(5,5,$recipe);
 
-        $xblock=$xdim/5;
-        $yblock=$ydim/5;
+        $xblock=($xdim-($xdim*0.10))/5;
+        $yblock=($ydim-($ydim*0.14))/5;
         ob_start();
         echo "<!doctype html>";
         echo "\r\n";
@@ -411,8 +411,7 @@ if(isset($_REQUEST["cmd"])){
         if(isset($coords["button"]))
         {
             //Button
-            //echo '<button class="bexi_button" type="button" style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;">Click Me!</button>';
-            echo '<div  style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><div id="'.uniqid().'" class="bexi_button btn '.$GLOBALS["buttonClass"].'" style="font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;margin-top:2px !important;margin-bottom:2px !important;max-width:none;">Click Me!</div></div>';
+            echo '<div  style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><div id="'.uniqid().'" class="bexi_button '.$GLOBALS["buttonClass"].'" style="font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;margin-top:2px !important;margin-bottom:2px !important;max-width:none;">Click Me!</div></div>';
         }
 
         if(isset($coords["text1"]))
