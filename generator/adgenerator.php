@@ -647,7 +647,7 @@ if(isset($_REQUEST["cmd"])){
         $head[0]->appendChild($elementScript2);
         $head[0]->appendChild($elementScript3);
 
-        $tags = $doc->getElementsByTagName('img');
+        $tags = $dom->getElementsByTagName('img');
         foreach ($tags as $tag) {
             $src = $tag->getAttribute('src');
             if (stripos($src,"https://images.unsplash.com")!==false)
@@ -660,7 +660,7 @@ if(isset($_REQUEST["cmd"])){
             }
         }
 
-        $tags=$doc->getElementsByTagName('div');
+        $tags=$dom->getElementsByTagName('div');
         foreach ($tags as $tag) {
             $class = $tag->getAttribute('class');
             if (stripos($class,"transpa-bg")!==false)
