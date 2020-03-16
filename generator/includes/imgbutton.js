@@ -1,9 +1,12 @@
 $(document).ready(function() {
-    var node = document.getElementById('maindiv');
-    domtoimage.toPng(node, { height: 400 },{ width: 500 })
-    .then(function (dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        document.body.appendChild(img);
-    })
+    var element = $("#maindiv"); // global variable
+    var getCanvas; // global variable
+    
+    html2canvas(element, {
+    onrendered: function (canvas) {
+        document.body.appendChild(canvas);
+        //$("#previewImage").append(canvas);
+        getCanvas = canvas;
+        }
+    });
 });
