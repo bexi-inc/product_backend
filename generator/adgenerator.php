@@ -585,5 +585,59 @@ if(isset($_REQUEST["cmd"])){
         echo $dom->savehtml();
     }
 
+    if($_REQUEST["cmd"]=="test" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
+    {
+                /********* GET HTML CODE FROM DB **********/
+        $params = [
+            'TableName' => "bexi_projects_tmp",
+             "KeyConditionExpression"=> "id = :id AND #usr=:usr",
+            "ExpressionAttributeValues"=> [
+                ":id" =>  ["S" => "1583988352.3114"],
+                ":usr" => ["S" => "-1"]
+            ],
+            "ExpressionAttributeNames" =>
+                [ '#usr' => 'user' ]
+        ];
+
+        $result = $dynamodb->query($params);
+        $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+        //echo $content;
+
+        $dom=new domDocument;
+		libxml_use_internal_errors(true);
+		$dom->loadHTML($content);
+		libxml_use_internal_errors(false);
+        $dom->preserveWhiteSpace = false;
+
+        //get head element
+        $head = $dom->getElementsByTagName('head');
+
+        //create style element
+        $elementStyle = $dom->createElement('style', '.bexi_module_ad{top: 39px !important;}');
+
+        //create script src element
+        $elementScript = $dom->createElement('script', '');
+        $elementScript->setAttribute('type', urldecode('text/javascript'));
+        $elementScript->setAttribute('src', urldecode('includes/ad_editor.js'));
+
+        //create script src element
+        $elementScript2 = $dom->createElement('script', '');
+        $elementScript2->setAttribute('type', urldecode('text/javascript'));
+        $elementScript2->setAttribute('src', urldecode('includes/domtoimg.js'));
+
+        //create script src element
+        $elementScript3 = $dom->createElement('script', '');
+        $elementScript3->setAttribute('type', urldecode('text/javascript'));
+        $elementScript3->setAttribute('src', urldecode('includes/imgbutton.js'));
+
+        //add style and script elements
+        $head[0]->appendChild($elementStyle);
+        $head[0]->appendChild($elementScript);
+        $head[0]->appendChild($elementScript2);
+        $head[0]->appendChild($elementScript3);
+
+        echo $dom->savehtml();
+    }
+
 }
 ?>
