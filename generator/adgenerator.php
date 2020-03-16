@@ -603,7 +603,7 @@ if(isset($_REQUEST["cmd"])){
             'TableName' => "bexi_projects_tmp",
              "KeyConditionExpression"=> "id = :id AND #usr=:usr",
             "ExpressionAttributeValues"=> [
-                ":id" =>  ["S" => "1584385931.2701"],
+                ":id" =>  ["S" => "1584386720.4259"],
                 ":usr" => ["S" => "-1"]
             ],
             "ExpressionAttributeNames" =>
