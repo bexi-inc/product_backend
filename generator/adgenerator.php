@@ -300,8 +300,8 @@ if(isset($_REQUEST["cmd"])){
 
         $coords=main_loop(5,5,$recipe);
 
-        $xblock=($xdim-($xdim*0.10))/5;
-        $yblock=($ydim-($ydim*0.14))/5;
+        $xblock=($xdim-($xdim*0.08))/5;
+        $yblock=($ydim-($ydim*0.08))/5;
         ob_start();
         echo "<!doctype html>";
         echo "\r\n";
@@ -411,25 +411,25 @@ if(isset($_REQUEST["cmd"])){
         if(isset($coords["button"]))
         {
             //Button
-            echo '<div  style="position:absolute;z-index:2;top:'.($coords["button"][1]*$yblock).'px;left:'.($coords["button"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><div id="'.uniqid().'" class="bexi_button '.$GLOBALS["buttonClass"].'" style="font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;margin-top:2px !important;margin-bottom:2px !important;max-width:none;">Click Me!</div></div>';
+            echo '<div  style="position:absolute;z-index:2;top:'.(($ydim*0.04)+$coords["button"][1]*$yblock).'px;left:'.(($xdim*0.04)+$coords["button"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><div id="'.uniqid().'" class="bexi_button '.$GLOBALS["buttonClass"].'" style="font-size:'.($yblock/4).'px !important;line-height:'.(0.85*($yblock/4)).'px !important;margin-top:2px !important;margin-bottom:2px !important;max-width:none;">Click Me!</div></div>';
         }
 
         if(isset($coords["text1"]))
         {
             //text1
-            echo '<div  style="position:absolute;z-index:5;top:'.($coords["text1"][1]*$yblock).'px;left:'.($coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(0.98*($yblock/3)).'px !important;">This is the Main Message</h1></div>';
+            echo '<div  style="position:absolute;z-index:5;top:'.(($ydim*0.04)+$coords["text1"][1]*$yblock).'px;left:'.(($xdim*0.04)+$coords["text1"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h1 class="bexi_title" style="color:white;font-size:'.($yblock/3).'px !important;line-height:'.(0.98*($yblock/3)).'px !important;">This is the Main Message</h1></div>';
         }
 
         if(isset($coords["text2"]))
         {
             //text2
-            echo '<div  style="position:absolute;z-index:4;top:'.($coords["text2"][1]*$yblock).'px;left:'.($coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/5).'px !important;line-height:'.(0.98*($yblock/4)).'px !important;">You can also have a secondary message, to enforce the first one.</h3></div>';
+            echo '<div  style="position:absolute;z-index:4;top:'.(($ydim*0.04)+$coords["text2"][1]*$yblock).'px;left:'.(($xdim*0.04)+$coords["text2"][0]*$xblock).'px;width:'.(2*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><h3 class="bexi_subtitle" style="color:white;font-size:'.($yblock/5).'px !important;line-height:'.(0.98*($yblock/4)).'px !important;">You can also have a secondary message, to enforce the first one.</h3></div>';
         }
 
         if(isset($coords["icon"]))
         {
             //icon
-            echo '<div  style="position:absolute;z-index:3;top:'.($coords["icon"][1]*$yblock).'px;left:'.($coords["icon"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><i id="'.uniqid().'" class="fab fa-jedi-order bexi_icon" style="font-size:'.($yblock/2).'px;color:white;"></i></div>';
+            echo '<div  style="position:absolute;z-index:3;top:'.(($ydim*0.04)+$coords["icon"][1]*$yblock).'px;left:'.(($xdim*0.04)+$coords["icon"][0]*$xblock).'px;width:'.(1*$xblock).'px;height:'.(1*$yblock).'px;padding:5px;"><i id="'.uniqid().'" class="fab fa-jedi-order bexi_icon" style="font-size:'.($yblock/2).'px;color:white;"></i></div>';
 
         }
 
@@ -438,7 +438,7 @@ if(isset($_REQUEST["cmd"])){
             //Img
             $xprobImgSize=rand(35,100)/100;
             $yprobImgSize=rand(35,100)/100;
-            echo '<div  style="position:absolute;z-index:1;top:'.($coords["img"][1]*$yblock).'px;left:'.($coords["img"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(3*$yblock).'px;padding:5px;text-align:center;"><img id="'.uniqid().'" class="bexi_img m-0" src="%img|'.(3*$xblock*$xprobImgSize).'|'.(3*$yblock*$yprobImgSize).'|%" alt="img" style="max-width:100%;height:auto;max-height:100%;"></div>';
+            echo '<div  style="position:absolute;z-index:1;top:'.(($ydim*0.04)+$coords["img"][1]*$yblock).'px;left:'.(($xdim*0.04)+$coords["img"][0]*$xblock).'px;width:'.(3*$xblock).'px;height:'.(3*$yblock).'px;padding:5px;text-align:center;"><img id="'.uniqid().'" class="bexi_img m-0" src="%img|'.(3*$xblock*$xprobImgSize).'|'.(3*$yblock*$yprobImgSize).'|%" alt="img" style="max-width:100%;height:auto;max-height:100%;"></div>';
         }
 
         echo '</div>';
