@@ -27,6 +27,25 @@ $marshaler = new Marshaler();
 
 if(isset($_REQUEST["cmd"])){
 
+    
+    function get_string_between($string, $start, $end){
+        $string = ' ' . $string;
+        $ini = strpos($string, $start);
+        if ($ini == 0) return '';
+        $ini += strlen($start);
+        $len = strpos($string, $end, $ini) - $ini;
+        return substr($string, $ini, $len);
+    }
+
+    function set_string_between($string,$start, $end,$newstring){
+        $string = ' ' . $string;
+        $ini = strpos($string, $start);
+        if ($ini == 0) return '';
+        $ini += strlen($start);
+        $len = strpos($string, $end, $ini) - $ini;
+        return substr_replace($string, $newstring, $ini, $len);
+    }
+
     if($_REQUEST["cmd"]=="CreateAd" && isset($_REQUEST["user"]) && isset($_REQUEST["campaign_id"]) && isset($_REQUEST["recipe"]) ){
         function init_array($m, $n, $value = 0) {
             return array_fill(0, $m, array_fill(0, $n, $value));
@@ -255,24 +274,6 @@ if(isset($_REQUEST["cmd"])){
                 }
             }
             return $found;
-        }
-
-        function get_string_between($string, $start, $end){
-            $string = ' ' . $string;
-            $ini = strpos($string, $start);
-            if ($ini == 0) return '';
-            $ini += strlen($start);
-            $len = strpos($string, $end, $ini) - $ini;
-            return substr($string, $ini, $len);
-        }
-
-        function set_string_between($string,$start, $end,$newstring){
-            $string = ' ' . $string;
-            $ini = strpos($string, $start);
-            if ($ini == 0) return '';
-            $ini += strlen($start);
-            $len = strpos($string, $end, $ini) - $ini;
-            return substr_replace($string, $newstring, $ini, $len);
         }
 
 
