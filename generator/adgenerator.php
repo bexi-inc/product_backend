@@ -636,8 +636,8 @@ if(isset($_REQUEST["cmd"])){
         $elementScript2 = $dom->createElement('script', '');
         $elementScript2->setAttribute('type', urldecode('text/javascript'));
         //$elementScript2->setAttribute('src', urldecode('includes/domtoimg.js'));
-        $elementScript2->setAttribute('src', urldecode('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js'));
-        //$elementScript2->setAttribute('src', urldecode('includes/html2canvas.js'));
+        //$elementScript2->setAttribute('src', urldecode('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js'));
+        $elementScript2->setAttribute('src', urldecode('includes/html2canvas.js'));
         
         //create script src element
         $elementScript3 = $dom->createElement('script', '');
