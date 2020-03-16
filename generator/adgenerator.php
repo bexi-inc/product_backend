@@ -615,10 +615,10 @@ if(isset($_REQUEST["cmd"])){
         //create style element
         $elementStyle = $dom->createElement('style', '.bexi_module_ad{top: 39px !important;}');
 
-        //create script src element
-        $elementScript = $dom->createElement('script', '');
-        $elementScript->setAttribute('type', urldecode('text/javascript'));
-        $elementScript->setAttribute('src', urldecode('includes/ad_editor.js'));
+        // //create script src element
+        // $elementScript = $dom->createElement('script', '');
+        // $elementScript->setAttribute('type', urldecode('text/javascript'));
+        // $elementScript->setAttribute('src', urldecode('includes/ad_editor.js'));
 
         //create script src element
         $elementScript2 = $dom->createElement('script', '');
