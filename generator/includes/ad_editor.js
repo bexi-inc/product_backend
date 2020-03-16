@@ -502,7 +502,7 @@ $(document).ready(function() {
           '</div>'+
           '<div id="tab-3">'+
             '<div class="input-group mb-3">'+
-              '<input id="inptextsearch'+num+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+              '<input id="inptextsearch'+num+'" type="text" class="form-control" placeholder="Keyword,..."  aria-describedby="button-addon2">'+
               '<div class="input-group-append">'+
                 '<button class="btn btn-outline-primary" type="button" onclick="set_pagination2(\''+num+'\','+1+');" id="button-addon2">Search</button>'+
               '</div>'+
@@ -720,7 +720,7 @@ $(document).ready(function() {
        newDiv.css("overflow", "visible");
        newDiv.html(
          '<div class="input-group mb-3">'+
-         '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+         '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,..."  aria-describedby="button-addon2">'+
          '<div class="input-group-append">'+
            '<button class="btn btn-outline-primary" type="button" onclick="set_pagination_icon(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
          '</div>'+
@@ -777,7 +777,7 @@ FroalaEditor.RegisterCommand('unsplash_manager', {
     newDiv.css("overflow", "auto");
     newDiv.html(
     '<div class="input-group mb-3">'+
-    '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+    '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,..."  aria-describedby="button-addon2">'+
     '<div class="input-group-append">'+
       '<button class="btn btn-outline-primary" type="button" onclick="set_pagination(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
     '</div>'+
