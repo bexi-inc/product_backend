@@ -12,7 +12,7 @@ $(document).ready(function() {
     // });
 
     
-    html2canvas(document.querySelector("#maindiv") ,{allowTaint: false, useCORS: true,backgroundColor:null,width:300,height:250}).then(canvas => {
+    html2canvas(document.querySelector("#maindiv") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
         canvas.width=300;
         canvas.height=250;
         document.body.appendChild(canvas)
