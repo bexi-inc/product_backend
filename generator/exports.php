@@ -348,7 +348,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
     */
 
 
-    $PATH = PAHTSERVER;
+    $PATH = PATHSERVER;
          
     if (!file_exists(PAHTSERVER.$user_id)) {
         mkdir($PATH.$user_id, 0777, true);
@@ -433,7 +433,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $new_js = ob_get_contents ();
         ob_end_clean();
 
-        echo $PATHFILES."modu_final.js";
+       // echo $PATHFILES."modu_final.js";
         $modufile = fopen($PATHFILES."modu_final.js", "w") or die("Unable to open file modu2! ");
         fwrite($modufile, $new_js);
         fclose($modufile);
