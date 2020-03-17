@@ -83,6 +83,10 @@ $params = [
 
  print_r($params);
 $result_camp = $dynamodb->query($params);
+
+print_r($result_camp);
+
+
 if (count($result_camp["Items"])>0)
 {                
 	if (isset($result_camp['Items'][0]["keywords"]) && !is_null($result_camp['Items']["keywords"]))
