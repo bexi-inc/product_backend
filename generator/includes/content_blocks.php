@@ -1,7 +1,8 @@
 
 <?
-include "../api/v1/db.php";
-include "../api/v1/projects.php";
+include "../api/v2/db.php";
+include "../api/v2/projects.php";
+
 function GethtmlCode($db, $coder, $idParam)
 {
 

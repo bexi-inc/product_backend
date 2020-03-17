@@ -96,6 +96,9 @@ if (count($result_camp["Items"])>0)
  }else{
      $keywords = "";
  }
+
+
+ print_r($keywords);
 /*
 	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
