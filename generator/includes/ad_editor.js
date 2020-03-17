@@ -316,7 +316,7 @@ function set_pagination(ID,npag)
 }
 
 function bgchange(btid) {
-  var vcolor = $("#" +btid).closest(".bexi_module_ad").css("background-color").replace(/\s/g, "");
+  var vcolor = $("#" +btid).closest(".bg_bexi_module").css("background-color").replace(/\s/g, "");
   if (vcolor =="rgba(0,0,0,0)")
   {
     vcolor ="rgba(0,0,0,1)";
@@ -336,7 +336,7 @@ function bgchange(btid) {
             modal: true,
             buttons: {
               "Save": function() {
-                $($(this).attr("data-id")).closest(".bexi_module_ad").attr('style','position:relative; background-color:'+$("#colorpicker_"+btid).minicolors("rgbaString")+'!important;');
+                $($(this).attr("data-id")).closest(".bg_bexi_module").attr('style','position:absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 0; background-color:'+$("#colorpicker_"+btid).minicolors("rgbaString")+'!important;');
                 $( this ).dialog( "close" );
                 newDiv.remove();
               },
