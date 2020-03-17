@@ -116,7 +116,7 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $IdCampaign = $marshaler->unmarshalValue($result2['Items'][0]["campaign_id"]);
 
         $params = [
-            'TableName' => "modu_deliverables",
+            'TableName' => "modu_campaigns",
             "KeyConditionExpression"=> "id = :id",
             "ExpressionAttributeValues"=> [
                 ":id" =>  ["S" => $IdCampaign ]
