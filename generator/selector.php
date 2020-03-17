@@ -85,9 +85,9 @@ $params = [
 $result_camp = $dynamodb->query($params);
 if (count($result_camp["Items"])>0)
 {                
-	if (isset($result_camp['Items'][0]["keywords"]) && !is_null($result_proj['Items']["keywords"]))
+	if (isset($result_camp['Items'][0]["keywords"]) && !is_null($result_camp['Items']["keywords"]))
     {
-       $keywords=$marshaler->unmarshalValue($result_proj['Items'][0]["keywords"]);
+       $keywords=$marshaler->unmarshalValue($result_camp['Items'][0]["keywords"]);
        // print_r($result_proj);
        // echo($logurl);
     }else{
