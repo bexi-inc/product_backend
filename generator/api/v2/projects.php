@@ -252,6 +252,13 @@ function GetProjects($CampaginId)
 				//$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
 				$proj["type"] = $Marshaler->unmarshalValue($project["project_type"]);//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
 
+				if (isset($project["status"]))
+				{
+					$proj["status"] = $Marshaler->unmarshalValue($project["status"];
+				}else{
+					$proj["status"] = 0;
+				}
+
 
 				if ($project["date_create"])
 				{
@@ -291,7 +298,8 @@ function CreateNewProject($connDyn, $pcampaign, $pname, $pType)
 		,"campaign_id" : "'.$pcampaign.'"
 		,"date_create" : "'.$pDate.'"
 		,"project_name" : "'.$pname.'"
-		,"project_type" : "'.$pType.'"';;
+		,"project_type" : "'.$pType.'"
+		,"status" : "0"';
 
 	$Data = $Data . '}';
 
