@@ -19,8 +19,8 @@ $(document).ready(function() {
         var ctx = extra_canvas.getContext('2d');
         ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,300,250);
         var dataURL = extra_canvas.toDataURL();
-        var img = $(document.createElement('img'));
-        img.attr('src', dataURL);
+        var img = document.createElement("img");
+        img.setAttribute('src', dataURL);
         // insert the thumbnail at the top of the page
         document.body.appendChild(img);
 
