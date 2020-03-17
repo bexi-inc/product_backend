@@ -117,7 +117,6 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
 
         $params = [
             'TableName' => "modu_deliverables",
-            "IndexName" => "project_id-index",
             "KeyConditionExpression"=> "id = :id",
             "ExpressionAttributeValues"=> [
                 ":id" =>  ["S" => $IdCampaign ]
