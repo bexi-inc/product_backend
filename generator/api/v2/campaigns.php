@@ -53,7 +53,13 @@ function CreateCampaign($connDyn, $userid, $cname, $cgoal, $industry, $colors, $
 	foreach ($proj_types as $ptype)
 	{
 		//echo "CreateNewProject".$cId." - ".$cname." - ".$ptype." - ".$ptype;
-		CreateNewProject($connDyn,$cId,$cname." - ".$ptype,$ptype);
+		if ($ptype=="landingPage")
+		{
+			CreateNewProject($connDyn,$cId,$cname." - ".$ptype,$ptype, $recipetype);
+		}else{
+			CreateNewProject($connDyn,$cId,$cname." - ".$ptype,$ptype);
+		}
+		
 	}
 	
 	if (!$resIns["error"])

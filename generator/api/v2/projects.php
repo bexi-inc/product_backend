@@ -288,7 +288,7 @@ function GetProjects($CampaginId)
 }
 
 
-function CreateNewProject($connDyn, $pcampaign, $pname, $pType)
+function CreateNewProject($connDyn, $pcampaign, $pname, $pType, $pRecipe="")
 {
 	global $Marshaler;
 	$pid = uniqid("",true);
@@ -300,6 +300,11 @@ function CreateNewProject($connDyn, $pcampaign, $pname, $pType)
 		,"project_name" : "'.$pname.'"
 		,"project_type" : "'.$pType.'"
 		,"status" : "0"';
+
+	if (!is_empty($pRecipe))
+	{
+		$Data = $Data . ', "recipe_type" : "'. $pRecipe , '" '; 
+	}
 
 	$Data = $Data . '}';
 
@@ -583,10 +588,9 @@ function create_recipe($proj_id)
 	$userData ='{
 		":id" : "'.$proj_id.'"
 	}';
-
-	print_r($userData);
-	
 	$table = ExecuteQuery(TBL_PROJECTS,$userData,"project_id = :id", "" , "" , false);
+
+	print_r($table)''
 	if($table["error"]==""){
 		$type = $Marshaler->unmarshalValue($table["data"]['Items'][0]["recipe_type"]);//get type of recipe
 	}else{
