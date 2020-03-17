@@ -303,7 +303,7 @@ function CreateNewProject($connDyn, $pcampaign, $pname, $pType, $pRecipe="")
 
 	if (!is_empty($pRecipe))
 	{
-		$Data = $Data . ', "recipe_type" : "'. $pRecipe , '" '; 
+		$Data = $Data . ', "recipe_type" : "'. $pRecipe . '" '; 
 	}
 
 	$Data = $Data . '}';
