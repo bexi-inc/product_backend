@@ -301,7 +301,7 @@ function CreateNewProject($connDyn, $pcampaign, $pname, $pType, $pRecipe="")
 		,"project_type" : "'.$pType.'"
 		,"status" : "0"';
 
-	if (!is_empty($pRecipe))
+	if (!empty ($pRecipe))
 	{
 		$Data = $Data . ', "recipe_type" : "'. $pRecipe . '" '; 
 	}
