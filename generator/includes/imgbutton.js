@@ -14,10 +14,10 @@ $(document).ready(function() {
 
     html2canvas(document.querySelector("#maindiv") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
         var extra_canvas = document.createElement("canvas");
-        extra_canvas.setAttribute('width',300);
-        extra_canvas.setAttribute('height',250);
+        extra_canvas.setAttribute('width',1080);
+        extra_canvas.setAttribute('height',1920);
         var ctx = extra_canvas.getContext('2d');
-        ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,300,250);
+        ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,1080,1920);
         var dataURL = extra_canvas.toDataURL();
         var img = document.createElement("img");
         img.setAttribute('src', dataURL);
