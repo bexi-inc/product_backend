@@ -81,17 +81,16 @@ $params = [
     ]
 ];
 
- print_r($params);
+ //print_r($params);
 $result_camp = $dynamodb->query($params);
 
-print_r($result_camp);
+//print_r($result_camp);
 
 
 if (count($result_camp["Items"])>0)
 {                
 	if (isset($result_camp['Items'][0]["keywords"]) && !is_null($result_camp['Items'][0]["keywords"]))
     {
-    	echo "SET  KEYWORDS";
        $keywords=$marshaler->unmarshalValue($result_camp['Items'][0]["keywords"]);
        // print_r($result_proj);
        // echo($logurl);
@@ -102,8 +101,7 @@ if (count($result_camp["Items"])>0)
      $keywords = "";
  }
 
-echo "keywords value == ";
- print_r($keywords);
+// print_r($keywords);
 /*
 	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
