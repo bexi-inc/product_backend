@@ -22,7 +22,7 @@ $(document).ready(function() {
         var img = $(document.createElement('img'));
         img.attr('src', dataURL);
         // insert the thumbnail at the top of the page
-        $('body').appendChild(img);
+        document.body.appendChild(img);
 
         var link = document.createElement('a');
         link.download = 'my-image-name.jpeg';
