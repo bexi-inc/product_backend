@@ -583,6 +583,9 @@ function create_recipe($proj_id)
 	$userData ='{
 		":id" : "'.$proj_id.'"
 	}';
+
+	print_r($userData);
+	
 	$table = ExecuteQuery(TBL_PROJECTS,$userData,"project_id = :id", "" , "" , false);
 	if($table["error"]==""){
 		$type = $Marshaler->unmarshalValue($table["data"]['Items'][0]["recipe_type"]);//get type of recipe

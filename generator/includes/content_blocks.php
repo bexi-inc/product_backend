@@ -66,7 +66,7 @@ function CreateProject($marshaler, $dynamodb, $UserId, $Keywords="",$project_id)
 			$_SESSION["modules"][]=$marshaler->unmarshalValue($result['Items'][$key]["id"]);
 			
 			/****************************************************************mi codigo ************************/
-			
+			echo "create_recipe($project_id)";
 			$recipe=create_recipe($project_id);
 			
 			$recipe=$recipe["data"];
