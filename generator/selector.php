@@ -81,7 +81,7 @@ $params = [
     ]
 ];
 
- //print_r($params);
+ print_r($params);
 $result_camp = $dynamodb->query($params);
 if (count($result_camp["Items"])>0)
 {                
