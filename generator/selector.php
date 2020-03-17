@@ -38,11 +38,12 @@ Crew\Unsplash\HttpClient::init([
 ]);
 
 $keywords= "";
-if (isset($_REQUEST["projectid"]))
+
+if (isset($_REQUEST["projectid"]) && !isset($_REQUEST["idcampaign"]))
 {
 	$project_id = $_REQUEST["projectid"];
 	$params = [
-        'TableName' => "modu_projects",
+        'TableName' => TBL_PROJECTS,
          "KeyConditionExpression"=> "project_id = :id",
         "ExpressionAttributeValues"=> [
             ":id" =>  ["S" => $project_id]
@@ -55,22 +56,46 @@ if (isset($_REQUEST["projectid"]))
     if (count($result_proj["Items"])>0)
     {
         
-        if (isset($result_proj['Items'][0]["keywords"]) && !is_null($result_proj['Items'][0]["keywords"]))
+
+        if (isset($result_proj['Items'][0]["campaign_id"]))
         {
-            $keywords=$marshaler->unmarshalValue($result_proj['Items'][0]["keywords"]);
+            $IdCampaign=$marshaler->unmarshalValue($result_proj['Items'][0]["campaign_id"]);
 
            // print_r($result_proj);
            // echo($logurl);
-        }else
-        {
-            $keywords="";
         }
-    }else{
-        $keywords = "";
     }
+}elseif (isset($_REQUEST["idcampaign"])){
+	$IdCampaign = $_REQUEST["idcampaign"];
+
 }
 
+/* 
+SEARCH KEYWORD FROM CAMPAIGN 
+*/
+$params = [
+    'TableName' => "modu_campaigns",
+     "KeyConditionExpression"=> "id = :id",
+    "ExpressionAttributeValues"=> [
+        ":id" =>  ["S" => $IdCampaign]
+    ]
+];
 
+ //print_r($params);
+$result_camp = $dynamodb->query($params);
+if (count($result_camp["Items"])>0)
+{                
+	if (isset($result_camp['Items'][0]["keywords"]) && !is_null($result_proj['Items']["keywords"]))
+    {
+       $keywords=$marshaler->unmarshalValue($result_proj['Items'][0]["keywords"]);
+       // print_r($result_proj);
+       // echo($logurl);
+    }else{
+       $keywords="";
+    }
+ }else{
+     $keywords = "";
+ }
 /*
 	$res = CreateProject($marshaler, $dynamodb,$_REQUEST["user"],$keywords);
 
