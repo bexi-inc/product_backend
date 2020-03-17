@@ -12,7 +12,7 @@ $(document).ready(function() {
     // });
 
     
-    html2canvas(document.querySelector("#maindiv") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
+    html2canvas(document.querySelector("#maindiv") ,{allowTaint: false, useCORS: true,backgroundColor:null,width:300,height:250}).then(canvas => {
         document.body.appendChild(canvas)
         var link = document.createElement('a');
         link.download = 'my-image-name.jpeg';
