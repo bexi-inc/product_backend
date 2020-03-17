@@ -433,7 +433,8 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $new_js = ob_get_contents ();
         ob_end_clean();
 
-        $modufile = fopen($PATHFILES."modu_final.js", "w") or die("Unable to open file modu2! ".$PATHFILES."modu_final.js");
+        echo $PATHFILES."modu_final.js";
+        $modufile = fopen($PATHFILES."modu_final.js", "w") or die("Unable to open file modu2! ");
         fwrite($modufile, $new_js);
         fclose($modufile);
         //copy($refpath."modu_final.js", $PATHFILES."modu_final.js" );
