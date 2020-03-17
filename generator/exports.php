@@ -104,16 +104,30 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
         $resUpd = $dynamodb->updateItem($updateparams);
 
         $params = [
-            'TableName' => "modu_projects",
+            'TableName' => TBL_PROJECTS,
              "KeyConditionExpression"=> "project_id = :id",
             "ExpressionAttributeValues"=> [
                 ":id" =>  ["S" => $project_id ]
             ]
         ];
 
-         $result2 = $dynamodb->query($params);
+        $result2 = $dynamodb->query($params);
+
+        $IdCampaign = $marshaler->unmarshalValue($result2['Items'][0]["campaign_id"]);
+
+        $params = [
+            'TableName' => "modu_deliverables",
+            "IndexName" => "project_id-index"
+            "KeyConditionExpression"=> "id = :id",
+            "ExpressionAttributeValues"=> [
+                ":id" =>  ["S" => $IdCampaign ]
+            ]
+        ];
+
+        $result2 = $dynamodb->query($params);
+
          $user_id = $marshaler->unmarshalValue($result2['Items'][0]["user_id"]);
-         $project_name = $marshaler->unmarshalValue($result2['Items'][0]["project_name"]);
+         $project_name = $marshaler->unmarshalValue($result2['Items'][0]["campaign_name"]);
          $email_contact = $marshaler->unmarshalValue($result2['Items'][0]["email_contact"]);
          $fontprimary=$marshaler->unmarshalValue($result2['Items'][0]["font_primary"]);
          $fontsecondary=$marshaler->unmarshalValue($result2['Items'][0]["font_secondary"]);
