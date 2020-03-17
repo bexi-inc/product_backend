@@ -637,7 +637,7 @@ if(isset($_REQUEST["cmd"])){
         $elementScript2->setAttribute('type', urldecode('text/javascript'));
         //$elementScript2->setAttribute('src', urldecode('includes/domtoimg.js'));
         //$elementScript2->setAttribute('src', urldecode('https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js'));
-        $elementScript2->setAttribute('src', urldecode('https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-alpha.3/html2canvas.js'));
+        $elementScript2->setAttribute('src', urldecode('https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-alpha.12/html2canvas.js'));
         //$elementScript2->setAttribute('src', urldecode('includes/html2canvas.js'));
         
         //create script src element
