@@ -254,7 +254,7 @@ function GetProjects($CampaginId)
 
 				if (isset($project["status"]))
 				{
-					$proj["status"] = $Marshaler->unmarshalValue($project["status"];
+					$proj["status"] = $Marshaler->unmarshalValue($project["status"]);
 				}else{
 					$proj["status"] = 0;
 				}
