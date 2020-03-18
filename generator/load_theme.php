@@ -24,7 +24,7 @@ $dynamodb = $sdk->createDynamoDb();
 $marshaler = new Marshaler();
 
 $params = [
-    'TableName' => "modu_projects",
+    'TableName' => TBL_PROJECTS,
      "KeyConditionExpression"=> "project_id = :vId",
     "ExpressionAttributeValues"=> [
         ":vId" =>  ["S" => $_REQUEST["projectid"]]
@@ -34,53 +34,73 @@ $params = [
 
 $result = $dynamodb->query($params);
 
+
 if (count($result["Items"])>0)
 {
-    $colors = $marshaler->unmarshalValue($result["Items"][0]["colors"]);
-    if (count($colors)>0)
-    {
-        $varcol="";
-        if ($colors[0]["first"])
-        {
-            $varcol .= "--color-1 : ".$colors[0]["first"].";
-            ";
-        }
-        if ($colors[0]["second"])
-        {
-            $varcol .= "--color-2 : ".$colors[0]["second"].";
-            ";
-        }
-        if ($colors[0]["third"])
-        {
-            $varcol .= "--color-3 : ".$colors[0]["third"].";
-            ";
-        }
-    }
+    $params = [
+        'TableName' => "modu_campaigns",
+         "KeyConditionExpression"=> "id = :vId",
+        "ExpressionAttributeValues"=> [
+            ":vId" =>  ["S" => $result["Items"][0]["campaign_id"]]
+        ]
+    ];
 
 
-    $txtcolors = $marshaler->unmarshalValue($result["Items"][0]["txtcolors"]);
-    if (count($txtcolors)>0)
+    $result = $dynamodb->query($params);
+
+
+    if (count($result["Items"])>0)
     {
-        $vartxtcol="";
-        if ($txtcolors[0]["first"])
+        $colors = $marshaler->unmarshalValue($result["Items"][0]["colors"]);
+        if (count($colors)>0)
         {
-            $vartxtcol .= "--color-text-1 : ".$txtcolors[0]["first"].";
-            ";
+            $varcol="";
+            if ($colors[0]["first"])
+            {
+                $varcol .= "--color-1 : ".$colors[0]["first"].";
+                ";
+            }
+            if ($colors[0]["second"])
+            {
+                $varcol .= "--color-2 : ".$colors[0]["second"].";
+                ";
+            }
+            if ($colors[0]["third"])
+            {
+                $varcol .= "--color-3 : ".$colors[0]["third"].";
+                ";
+            }
         }
-        if ($txtcolors[0]["second"])
+
+
+        $txtcolors = $marshaler->unmarshalValue($result["Items"][0]["txtcolors"]);
+        if (count($txtcolors)>0)
         {
-            $vartxtcol .= "--color-text-2 : ".$txtcolors[0]["second"].";
-            ";
+            $vartxtcol="";
+            if ($txtcolors[0]["first"])
+            {
+                $vartxtcol .= "--color-text-1 : ".$txtcolors[0]["first"].";
+                ";
+            }
+            if ($txtcolors[0]["second"])
+            {
+                $vartxtcol .= "--color-text-2 : ".$txtcolors[0]["second"].";
+                ";
+            }
+            
         }
+
+        $fontprimary="";
+        $fontprimary = '--font-1:"'.$marshaler->unmarshalValue($result["Items"][0]["font_primary"]).'";';
+        $fontsecondary="";
+        $fontsecondary = '--font-2:"'.$marshaler->unmarshalValue($result["Items"][0]["font_secondary"]).'";';
         
     }
 
-    $fontprimary="";
-    $fontprimary = '--font-1:"'.$marshaler->unmarshalValue($result["Items"][0]["font_primary"]).'";';
-    $fontsecondary="";
-    $fontsecondary = '--font-2:"'.$marshaler->unmarshalValue($result["Items"][0]["font_secondary"]).'";';
-    
 }
+
+
+
 
 echo ":root {
             ";
