@@ -48,7 +48,8 @@ if (count($result["Items"])>0)
 
     $result = $dynamodb->query($params);
 
-
+    print_r($result);
+    
     if (count($result["Items"])>0)
     {
         $colors = $marshaler->unmarshalValue($result["Items"][0]["colors"]);
@@ -73,7 +74,7 @@ if (count($result["Items"])>0)
         }
 
 
-        $txtcolors = $marshaler->unmarshalValue($result["Items"][0]["txtcolors"]);
+     /*   $txtcolors = $marshaler->unmarshalValue($result["Items"][0]["txtcolors"]);
         if (count($txtcolors)>0)
         {
             $vartxtcol="";
@@ -88,7 +89,7 @@ if (count($result["Items"])>0)
                 ";
             }
             
-        }
+        }*/
 
         $fontprimary="";
         $fontprimary = '--font-1:"'.$marshaler->unmarshalValue($result["Items"][0]["font_primary"]).'";';
