@@ -41,7 +41,7 @@ if (count($result["Items"])>0)
         'TableName' => "modu_campaigns",
          "KeyConditionExpression"=> "id = :vId",
         "ExpressionAttributeValues"=> [
-            ":vId" =>  ["S" => $result["Items"][0]["campaign_id"]]
+            ":vId" =>  ["S" => $marshaler->unmarshalValue($result["Items"][0]["campaign_id"]) ]
         ]
     ];
 
