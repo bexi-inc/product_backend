@@ -46,6 +46,8 @@ unset( $_SESSION["modules"]);
 
 $iduser = $_REQUEST["user"];
 $CodeId = (isset($_REQUEST["codeid"]) ? $_REQUEST["codeid"] :  microtime(true));
+
+//Editor Section.
 if(isset($_REQUEST["devid"]))
 {
     $params = [
@@ -411,6 +413,9 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
         $fontprimary="";
         $fontsecondary="";
     }
+
+
+    echo "Logo URL == ".$logourl;
 
    
     ob_start();
