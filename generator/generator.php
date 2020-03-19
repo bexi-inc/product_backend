@@ -340,7 +340,7 @@ if (isset($_REQUEST["projectid"]) && empty($_REQUEST["campaignid"]))
     {
         $campaignid = $marshaler->unmarshalValue($result["Items"][0]["campaign_id"]);
     }
-}elseif (!empty($_REQUEST["campaignid"])
+}elseif (!empty($_REQUEST["campaignid"]))
 {
     $campaignid = $_REQUEST["campaignid"];
 }
