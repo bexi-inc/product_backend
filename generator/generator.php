@@ -414,9 +414,6 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
         $fontsecondary="";
     }
 
-
-    echo "Logo URL == ".$logourl;
-
    
     ob_start();
 
