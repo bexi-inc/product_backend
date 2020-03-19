@@ -70,6 +70,23 @@ if(isset($_REQUEST["devid"]))
         $first_load=1;
     }
 
+    $params = [
+        'TableName' => TBL_PROJECTS,
+         "KeyConditionExpression"=> "project_id = :vId",
+        "ExpressionAttributeValues"=> [
+            ":vId" =>  ["S" => $_REQUEST["projectid"]]
+        ]
+    ];
+
+
+    $result = $dynamodb->query($params);
+
+
+    if (count($result["Items"])>0)
+    {
+        $campaignid = $marshaler->unmarshalValue($result["Items"][0]["campaign_id"]);
+    }
+
 
 
     if ($first_load){
