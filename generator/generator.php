@@ -321,29 +321,49 @@ elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
     }
 }
 
-if (isset($_REQUEST["projectid"]))
+if (isset($_REQUEST["projectid"]) && empty($_REQUEST["campaignid"]))
 {
     $project_id = $_REQUEST["projectid"];
+    $params = [
+        'TableName' => TBL_PROJECTS,
+         "KeyConditionExpression"=> "project_id = :vId",
+        "ExpressionAttributeValues"=> [
+            ":vId" =>  ["S" => $_REQUEST["projectid"]]
+        ]
+    ];
+
+
+    $result = $dynamodb->query($params);
+
+
+    if (count($result["Items"])>0)
+    {
+        $campaignid = $marshaler->unmarshalValue($result["Items"][0]["campaign_id"]);
+    }
+}elseif (!empty($_REQUEST["campaignid"])
+{
+    $campaignid = $_REQUEST["campaignid"];
 }
 
 /*****************************************
 OBTENEMOS EL LOGO EN BASE AL PROJECT ID
 ******************************************/
  $params = [
-        'TableName' => "modu_projects",
-         "KeyConditionExpression"=> "project_id = :id",
+        'TableName' => "modu_campaigns",
+         "KeyConditionExpression"=> "id = :vId",
         "ExpressionAttributeValues"=> [
-            ":id" =>  ["S" => $project_id]
+            ":vId" =>  ["S" => $campaignid ]
         ]
     ];
 
-    $result_proj = $dynamodb->query($params);
-    if (count($result_proj['Items'])>0)
+    $result_cam = $dynamodb->query($params);
+
+    if (count($result_cam['Items'])>0)
     {
         
-        if (isset($result_proj['Items'][0]["logofull"]) && !is_null($result_proj['Items'][0]["logofull"]))
+        if (isset($result_cam['Items'][0]["logofull"]) && !is_null($result_cam['Items'][0]["logofull"]))
         {
-            $logourl="http://".PATHWEB."/".$marshaler->unmarshalValue($result_proj['Items'][0]["user_id"])."/".$project_id."/logos/".$marshaler->unmarshalValue($result_proj['Items'][0]["logofull"]);
+            $logourl="http://".PATHWEB."/".$marshaler->unmarshalValue($result_cam['Items'][0]["user_id"])."/".$project_id."/logos/".$marshaler->unmarshalValue($result_cam['Items'][0]["logofull"]);
 
            // print_r($result_proj);
            // echo($logurl);
@@ -352,17 +372,17 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
             $logourl="";
         }
 
-        if (isset($result_proj['Items'][0]["font_primary"]) && !is_null($result_proj['Items'][0]["font_primary"]))
+        if (isset($result_cam['Items'][0]["font_primary"]) && !is_null($result_cam['Items'][0]["font_primary"]))
         {
-            $fontprimary=$marshaler->unmarshalValue($result_proj['Items'][0]["font_primary"]);
+            $fontprimary=$marshaler->unmarshalValue($result_cam['Items'][0]["font_primary"]);
         }else
         {
             $fontprimary="";
         }
 
-        if (isset($result_proj['Items'][0]["font_secondary"]) && !is_null($result_proj['Items'][0]["font_secondary"]))
+        if (isset($result_cam['Items'][0]["font_secondary"]) && !is_null($result_cam['Items'][0]["font_secondary"]))
         {
-            $fontsecondary=$marshaler->unmarshalValue($result_proj['Items'][0]["font_secondary"]);
+            $fontsecondary=$marshaler->unmarshalValue($result_cam['Items'][0]["font_secondary"]);
         }else
         {
             $fontsecondary="";

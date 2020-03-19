@@ -72,10 +72,10 @@ function GetWidthScreen()
   {
   		myWidth = Widthparam;
   }
-  console.log("Widthparam");
+  /*console.log("Widthparam");
   console.log(Widthparam);
   console.log("myWidth ");
-  console.log(myWidth);
+  console.log(myWidth);*/
   return myWidth;
 };
 
@@ -97,10 +97,10 @@ function GetHeightScreen()
   {
       myHeight = Heightparam;
   }
-  console.log("Heightparam");
+  /*console.log("Heightparam");
   console.log(Heightparam);
   console.log("myHeight ");
-  console.log(myHeight);
+  console.log(myHeight);*/
   return myHeight;
 };
 
@@ -148,7 +148,7 @@ function AddNewProject()
                   //newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
-              $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.'+MAIN_DOMAIN+'/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+              $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.'+MAIN_DOMAIN+'/generator.php?target=selector&user=' + UserParam + '&codeid=' + data.codeid + '&projectid=' + ProjectIdParam + '&campaignid=' + CampaignId + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               console.log($(".bexi_sliders .mySlides").length);
                if ($(".bexi_sliders .mySlides").length<=4)
                {
@@ -275,7 +275,7 @@ function frameload(ID){
             }).done(function( data, textStatus, jqXHR ) {
                 // Show image container
                 $("#"+uId).append(newDiv);
-                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.'+MAIN_DOMAIN+'/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  +'" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.'+MAIN_DOMAIN+'/generator.php?target=selector&user=' + UserParam + '&codeid='+ data.codeid + '&projectid=' + ProjectIdParam  + '&campaignid=' + CampaignId + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               })
        .fail(function( jqXHR, textStatus, errorThrown ) {
            if ( console && console.log ) {
