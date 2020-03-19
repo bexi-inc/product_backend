@@ -31,9 +31,11 @@ $params = [
     ]
 ];
 
+print_r($params);
 
 $result = $dynamodb->query($params);
 
+print_r($result);
 
 if (count($result["Items"])>0)
 {
