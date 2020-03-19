@@ -74,7 +74,7 @@ if(isset($_REQUEST["devid"]))
         'TableName' => TBL_PROJECTS,
          "KeyConditionExpression"=> "project_id = :vId",
         "ExpressionAttributeValues"=> [
-            ":vId" =>  ["S" => $_REQUEST["projectid"]]
+            ":vId" =>  ["S" => $project_id]
         ]
     ];
 
