@@ -51,12 +51,12 @@ if (count($result["Items"])>0)
 
     $result = $dynamodb->query($params);
 
-    print_r($result);
+    //print_r($result);
 
     if (count($result["Items"])>0)
     {
         $colors = $marshaler->unmarshalValue($result["Items"][0]["colors"]);
-        print_r($colors);
+       // print_r($colors);
         if (count($colors)>0)
         {
             $varcol="";
