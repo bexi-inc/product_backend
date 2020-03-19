@@ -364,7 +364,7 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
         
         if (isset($result_cam['Items'][0]["logofull"]) && !is_null($result_cam['Items'][0]["logofull"]))
         {
-            $logourl="http://".PATHWEB."/".$marshaler->unmarshalValue($result_cam['Items'][0]["user_id"])."/".$project_id."/logos/".$marshaler->unmarshalValue($result_cam['Items'][0]["logofull"]);
+            $logourl="http://".PATHWEB."/".$marshaler->unmarshalValue($result_cam['Items'][0]["user_id"])."/".$campaignid."/logos/".$marshaler->unmarshalValue($result_cam['Items'][0]["logofull"]);
 
            // print_r($result_proj);
            // echo($logurl);
