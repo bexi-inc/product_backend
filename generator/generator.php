@@ -342,6 +342,7 @@ if (isset($_REQUEST["projectid"]) && empty($_REQUEST["campaignid"]))
     }
 }elseif (!empty($_REQUEST["campaignid"]))
 {
+    $project_id = $_REQUEST["projectid"];
     $campaignid = $_REQUEST["campaignid"];
 }
 
