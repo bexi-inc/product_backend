@@ -466,12 +466,12 @@ function ExportProject($Type,$DevId, $subdomain = "", $refpath="")
             if (!copy($refpath.substr($img["old_src"],2), $PATHIMG.$img["filename"] ))
             {
                  $errors= error_get_last();
-                 echo "COPY ERROR: ".$errors['type'];
+                 echo "COPY ERROR: ".$errors['type']." - ".$refpath.substr($img["old_src"],2);
             } 
         }else{
             if(!copy($img["old_src"], $PATHIMG.$img["filename"])){
             $errors= error_get_last();
-            echo "COPY ERROR: ".$errors['type'];
+            echo "COPY ERROR: ".$errors['type']." - ".$img["old_src"];
             }
         }
         
