@@ -71,7 +71,24 @@ if (isset($_REQUEST["devid"]))
 
     if (count($result['Items'])>0)
     {
-    	$userid =  $marshaler->unmarshalValue($result['Items'][0]["user_id"]);	
+    	$campaign_id =  $marshaler->unmarshalValue($result['Items'][0]["campaign_id"]);	
+    }
+
+
+
+     $params = [
+        'TableName' => "modu_campaigns",
+         "KeyConditionExpression"=> "id = :id",
+        "ExpressionAttributeValues"=> [
+            ":id" =>  ["S" => $campaign_id]
+        ]
+    ];
+
+    $result = $dynamodb->query($params);
+
+    if (count($result['Items'])>0)
+    {
+        $userid =  $marshaler->unmarshalValue($result['Items'][0]["user_id"]);  
     }
     
 }else{
@@ -96,7 +113,7 @@ $fullpath= $path.$userid."/".$projectid . "/";
 
 if ($_REQUEST["thumbnail"]==1)
 {
-    $target_file = $fullpath . basename($_FILES["file"]["name"]);
+    $target_file = $fullpath.basename($_FILES["file"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
