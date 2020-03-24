@@ -1255,6 +1255,30 @@ function styles_ptags(){
   });
 }
 
+function b64toBlob(b64Data, contentType, sliceSize) {
+  contentType = contentType || '';
+  sliceSize = sliceSize || 512;
+
+  var byteCharacters = atob(b64Data);
+  var byteArrays = [];
+
+  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      var byteNumbers = new Array(slice.length);
+      for (var i = 0; i < slice.length; i++) {
+          byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      var byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+  }
+
+var blob = new Blob(byteArrays, {type: contentType});
+return blob;
+}
+
 function filter(){
   $(".remove").attr("data-html2canvas-ignore","true");
 }
@@ -1267,7 +1291,11 @@ function thumbnail(){
     var uid=$("#userId").val();
     var data = new FormData();
     data.append("devid",did);
-    data.append("file",canvas.toDataURL("image/png"));//Canvas to base64
+    var block = canvas.toDataURL("image/png").split(";");//Split the base64 string in data and contentType
+    var contentType = block[0].split(":")[1];// // Get the content type of the image
+    var realData = block[1].split(",")[1];// get the real base64 content of the file
+    var blob = b64toBlob(realData, contentType);// Convert it to a blob to upload
+    data.append("file",blob);//Canvas to base64
     data.append("userid",uid);
     data.append("projectid",pid);
     data.append("thumbnail",1);
