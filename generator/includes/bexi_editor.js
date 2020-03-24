@@ -1270,6 +1270,7 @@ function thumbnail(){
     data.append("file",canvas.toDataURL("image/png"));//Canvas to base64
     data.append("userid",uid);
     data.append("projectid",pid);
+    data.append("thumbnail",1);
     var request=$.ajax({
       url: "./ajax/uploadfile.php",//save img in server
       data: data,
