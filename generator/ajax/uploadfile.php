@@ -60,7 +60,7 @@ if (isset($_REQUEST["devid"]))
    // print_r($projectid);
 
     $params = [
-        'TableName' => "modu_projects",
+        'TableName' => TBL_PROJECTS,
          "KeyConditionExpression"=> "project_id = :id",
         "ExpressionAttributeValues"=> [
             ":id" =>  ["S" => $projectid]
@@ -94,29 +94,50 @@ if (!file_exists($path.$userid."/".$projectid)) {
 
 $fullpath= $path.$userid."/".$projectid . "/";
 
+if ($_REQUEST["thumbnail"]==1)
+{
+    $target_file = $fullpath . basename($_FILES["file"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-$target_file = $fullpath . basename($_FILES["file"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $target_file = $fullpath."/thumbnail.".$imageFileType;
+    //$webpath = $webpath.$userid."/".$projectid . "/thumbnail.".$imageFileType;
+    //print_r($_FILES);
 
-$target_file = $fullpath."/".$idfile.".".$imageFileType;
-$webpath = $webpath.$userid."/".$projectid . "/".$idfile.".".$imageFileType;
-//print_r($_FILES);
-
-try {
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+    try {
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+        }
+        //echo "Succeed in setting bucket website configuration.\n";
+    } catch (Exception  $e) {
+        // Display error message
+        echo $e->getMessage();
+        echo "\n";
     }
-    //echo "Succeed in setting bucket website configuration.\n";
-} catch (Exception  $e) {
-    // Display error message
-    echo $e->getMessage();
-    echo "\n";
+}else{
+
+    $target_file = $fullpath . basename($_FILES["file"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    $target_file = $fullpath."/".$idfile.".".$imageFileType;
+    $webpath = $webpath.$userid."/".$projectid . "/".$idfile.".".$imageFileType;
+    //print_r($_FILES);
+
+    try {
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+        }
+        //echo "Succeed in setting bucket website configuration.\n";
+    } catch (Exception  $e) {
+        // Display error message
+        echo $e->getMessage();
+        echo "\n";
+    }
+
+    $res["src"] = $webpath;
+    $res["id"] = $idfile;
+    $res["link"]=$webpath;
+
+    echo stripslashes(json_encode($res));
 }
-
-$res["src"] = $webpath;
-$res["id"] = $idfile;
-$res["link"]=$webpath;
-
-echo stripslashes(json_encode($res));
 
 ?>
