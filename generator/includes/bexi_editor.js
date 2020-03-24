@@ -1295,7 +1295,8 @@ function thumbnail(){
     var contentType = block[0].split(":")[1];// // Get the content type of the image
     var realData = block[1].split(",")[1];// get the real base64 content of the file
     var blob = b64toBlob(realData, contentType);// Convert it to a blob to upload
-    data.append("file",blob);//Canvas to base64
+    var fileOfBlob = new File([blob], 'thumbnail.png');//convert blob to file
+    data.append("file",fileOfBlob);
     data.append("userid",uid);
     data.append("projectid",pid);
     data.append("thumbnail",1);
