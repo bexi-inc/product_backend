@@ -120,6 +120,8 @@ if ($_REQUEST["thumbnail"]==1)
     $target_file = $fullpath."/thumbnail.".$imageFileType;
     //$webpath = $webpath.$userid."/".$projectid . "/thumbnail.".$imageFileType;
     //print_r($_FILES);
+    
+    echo $target_file;
 
     try {
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
