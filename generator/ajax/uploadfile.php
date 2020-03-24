@@ -121,7 +121,7 @@ if ($_REQUEST["thumbnail"]==1)
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-    $target_file = $fullpath."/thumbnail.".$imageFileType;
+    $target_file = $fullpath."thumbnail.".$imageFileType;
     //$webpath = $webpath.$userid."/".$projectid . "/thumbnail.".$imageFileType;
     //print_r($_FILES);
 
