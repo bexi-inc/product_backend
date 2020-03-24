@@ -252,13 +252,18 @@ function GetProjects($CampaginId)
 				//$proj["industry"] = $Marshaler->unmarshalValue($project["industry"]);
 				$proj["type"] = $Marshaler->unmarshalValue($project["project_type"]);//GetTypeStr($Marshaler->unmarshalValue($project["type"]));
 
-				if (isset($project["status"]))
+			/*	if (isset($project["status"]))
 				{
 					$proj["status"] = $Marshaler->unmarshalValue($project["status"]);
 				}else{
 					$proj["status"] = 0;
 				}
+*/
 
+				if (!isset($proj["status"] ))
+				{
+					$proj["status"] = 0;
+				}
 
 				if ($project["date_create"])
 				{
