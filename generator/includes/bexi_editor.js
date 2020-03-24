@@ -1255,8 +1255,34 @@ function styles_ptags(){
   });
 }
 
+function filter(){
+  $(".remove").attr("data-html2canvas-ignore","true");
+}
+
+function thumbnail(){
+  filter();
+  html2canvas(document.querySelector(".hero") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
+    var did=$("#devId").val();
+    var pid=$("#codeId").val();
+    var uid=$("#userId").val();
+    var data = new FormData();
+    data.append("devid",did);
+    data.append("file",canvas.toDataURL("image/png"));//Canvas to base64
+    data.append("userid",uid);
+    data.append("projectid",pid);
+    var request=$.ajax({
+      url: "./ajax/uploadfile.php",//save img in server
+      data: data,
+      processData: false,
+      contentType: false,
+      method:"POST"
+    });
+  });
+}
+
 function auto_save()
 {
+    thumbnail();
     var did=$("#devId").val();
     var pid=$("#codeId").val();
     var uid=$("#userId").val();
