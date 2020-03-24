@@ -299,8 +299,7 @@ function CreateNewProject($connDyn, $pcampaign, $pname, $pType, $pRecipe="")
 		,"date_create" : "'.$pDate.'"
 		,"project_name" : "'.$pname.'"
 		,"project_type" : "'.$pType.'"
-		,"status" : "0"
-		,"domain_status" : "0"' ;
+		,"status" : "0"' ;
 
 	if (!empty ($pRecipe))
 	{
