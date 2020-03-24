@@ -505,6 +505,8 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
               </script>';
         echo'<link rel="stylesheet" type="text/css" href="includes/css/bexi_editor.css" >'; 
         echo '<script type="text/javascript"  src="includes/bexi_editor.js"></script>';
+        /***************** HTML2CANVAS FOR THUMBNAILS ********************/
+        echo '<script type="text/javascript"  src="https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-alpha.4/html2canvas.js"></script>';
     }
     echo "</head>";
     echo "\r\n";
