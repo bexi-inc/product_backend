@@ -15,6 +15,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" type="text/css" href="../generator/css/bexi.css" >
+    <link rel="stylesheet" type="text/css" href="../generator/css/bexi_ad.css" >
     <style>
         
         .one.res1080x1080 {
@@ -66,13 +68,10 @@
 
         .seven.res1080x1080 {
             width: 45%;
-            background-color: #FFFFFF;
             padding-top: 7.5px;
             padding-bottom: 7.5px;
             text-align: center;
             margin-top: 138.5px;
-            border-radius: 0;
-            color: #945C4D;
             font-family: "Times New Roman";
             font-size: 32px;
             letter-spacing: 0;
@@ -133,14 +132,11 @@
 
         .seven.res1200x628 {
             width: 68%;
-            background-color: #FFF;
             padding-top: 2.5px;
             padding-bottom: 7.5px;
             padding-left: 55px;
             margin-left: 65px;
             margin-top: 26px;
-            border-radius: 0;
-            color: #945C4D;
             font-family: "Times New Roman";
             font-size: 32px;
             letter-spacing: 0;
@@ -193,13 +189,10 @@
 
         .seven.res1080x1920 {
             width: 58%;
-            background-color: #FFF;
             padding-top: 14.5px;
             padding-bottom: 14.5px;
             text-align: center;
             margin-top: 138.5px;
-            border-radius: 0;
-            color: #945C4D;
             font-family: "Times New Roman";
             font-size: 32px;
             letter-spacing: 0;
@@ -223,7 +216,6 @@
                     <div class="row four res1080x1080 bexi_title">
                             NEW STORE
                     </div>
-
                 </div>
                 
                 <div class="three res1080x1080">
@@ -247,7 +239,7 @@
                         </svg>
                     </div>
 
-                    <div class="row seven res1080x1080">
+                    <div class="button_ad_1 row seven res1080x1080">
                         <div class="bexi_button">
                             thegoodstore.co
                         </div>
@@ -261,7 +253,6 @@
         var div = $("#maindiv").html();
         div1 = div.replace(/res1080x1080/g,"res1200x628");
         div2 = div.replace(/res1080x1080/g,"res1080x1920");
-        $('#maindiv').after(div1,div2);
     </script>
     
 </body>
