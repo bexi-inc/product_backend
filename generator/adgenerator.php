@@ -64,7 +64,7 @@ if(isset($_REQUEST["cmd"])){
             $recipe=$marshaler->unmarshalValue($result_proj['Items'][0]["elements"]);
         }
         else{
-            $recipe="Button,Title,subtitle";
+            $recipe="Button,Title,Subtitle";
         }
         /**************** Search AdLayout with recipe elements ******************/
         $recipe="Button";
@@ -79,9 +79,11 @@ if(isset($_REQUEST["cmd"])){
         ];
     
         $result = $dynamodb->scan($params);
-        print_r($result);
 
-        $content="";
+        /************************** Shuffle and select 1 random *********************/
+        shuffle($result);
+        $content=$marshaler->unmarshalValue($result_proj['Items'][0]["html_code"]);
+
         ob_start();
         echo $content;
 
