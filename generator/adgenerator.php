@@ -82,7 +82,7 @@ if(isset($_REQUEST["cmd"])){
 
         /************************** Shuffle and select 1 random *********************/
         shuffle($result);
-        $content=$marshaler->unmarshalValue($result_proj['Items'][0]["html_code"]);
+        $content=$marshaler->unmarshalValue($result['Items'][0]["html_code"]);
 
         ob_start();
         echo $content;
