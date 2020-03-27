@@ -102,11 +102,11 @@ if(isset($_REQUEST["cmd"])){
         $elementStyle1 = $doc->createElement('link', '');
         $elementStyle1->setAttribute('rel', urldecode('stylesheet'));
         $elementStyle1->setAttribute('href', urldecode('css/bexi.css'));
-        $elementStyle1->setAttribute('data', "css");
+        $elementStyle1->setAttribute('data-css', "default");
         $elementStyle2 = $doc->createElement('link', '');
         $elementStyle2->setAttribute('rel', urldecode('stylesheet'));
         $elementStyle2->setAttribute('href', urldecode('css/bexi_ad.css'));
-        $elementStyle2->setAttribute('data', "css");
+        $elementStyle2->setAttribute('data-css', "default-ad");
 
         $project_id = $_REQUEST["campaign_id"];
         if ($project_id!="")
@@ -114,7 +114,7 @@ if(isset($_REQUEST["cmd"])){
             $elementStyle3 = $doc->createElement('link', '');
             $elementStyle3->setAttribute('rel', urldecode('stylesheet'));
             $elementStyle3->setAttribute('href', urldecode('load_theme.php?projectid='.$project_id));
-            $elementStyle3->setAttribute('data', "css");
+            $elementStyle3->setAttribute('data-css', "colors");
             $head[0]->appendChild($elementStyle3);
         }
 
@@ -238,67 +238,67 @@ if(isset($_REQUEST["cmd"])){
 
         //create style element
         $elementStyle = $dom->createElement('style', '.bexi_module_ad{top: 39px !important;}');
-        $elementStyle->setAttribute('data', "editor");
+        $elementStyle->setAttribute('data-editor', "true");
         //create script src element
         $elementScript1 = $dom->createElement('script', '');
         $elementScript1->setAttribute('type', urldecode('text/javascript'));
         $elementScript1->setAttribute('src', urldecode('includes/ad_editor.js'));
-        $elementScript1->setAttribute('data', "editor");
+        $elementScript1->setAttribute('data-editor', "true");
         $elementScript2 = $dom->createElement('script', 'var FroalaKey = "'.FROALA_KEY.'";');
         $elementScript2->setAttribute('type', urldecode('text/javascript'));
-        $elementScript2->setAttribute('data', "editor");
+        $elementScript2->setAttribute('data-editor', "true");
         /**************   Jquery dialog **************/
         $elementScript3 = $dom->createElement('script', '');
         $elementScript3->setAttribute('type', urldecode('text/javascript'));
         $elementScript3->setAttribute('src', urldecode('includes/jquery-ui.min.js'));
-        $elementScript3->setAttribute('data', "editor");
+        $elementScript3->setAttribute('data-editor', "true");
         $elementStyle2 = $dom->createElement('link', '');
         $elementStyle2->setAttribute('rel', urldecode('stylesheet'));
         $elementStyle2->setAttribute('href', urldecode('includes/jquery-ui.min.css'));
-        $elementStyle2->setAttribute('data', "editor");
+        $elementStyle2->setAttribute('data-editor', "true");
         $elementStyle3 = $dom->createElement('link', '');
         $elementStyle3->setAttribute('rel', urldecode('stylesheet'));
         $elementStyle3->setAttribute('href', urldecode('includes/jquery-ui.theme.css'));
-        $elementStyle3->setAttribute('data', "editor");
+        $elementStyle3->setAttribute('data-editor', "true");
         /**************   Jquery palett colors **************/
         $elementScript4 = $dom->createElement('script', '');
         $elementScript4->setAttribute('type', urldecode('text/javascript'));
         $elementScript4->setAttribute('src', urldecode('includes/jquery.minicolors.min.js'));
-        $elementScript4->setAttribute('data', "editor");
+        $elementScript4->setAttribute('data-editor', "true");
         $elementStyle4 = $dom->createElement('link', '');
         $elementStyle4->setAttribute('rel', urldecode('stylesheet'));
         $elementStyle4->setAttribute('href', urldecode('includes/css/jquery.minicolors.css'));
-        $elementStyle4->setAttribute('data', "editor");
+        $elementStyle4->setAttribute('data-editor', "true");
         /**************   PAGINATION **************/
         $elementScript5 = $dom->createElement('script', '');
         $elementScript5->setAttribute('type', urldecode('text/javascript'));
         $elementScript5->setAttribute('src', urldecode('https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js'));
-        $elementScript5->setAttribute('data', "editor");
+        $elementScript5->setAttribute('data-editor', "true");
         $elementScript6 = $dom->createElement('script', '');
         $elementScript6->setAttribute('type', urldecode('text/javascript'));
         $elementScript6->setAttribute('src', urldecode('includes/pagination.js'));
-        $elementScript6->setAttribute('data', "editor");
+        $elementScript6->setAttribute('data-editor', "true");
         $elementStyle5 = $dom->createElement('link', '');
         $elementStyle5->setAttribute('rel', urldecode('stylesheet'));
         $elementStyle5->setAttribute('href', urldecode('includes/css/bs-pagination.css'));
-        $elementStyle5->setAttribute('data', "editor");
+        $elementStyle5->setAttribute('data-editor', "true");
         /**************   FROALA EDITOR **************/
         $elementScript7 = $dom->createElement('script', '');
         $elementScript7->setAttribute('type', urldecode('text/javascript'));
         $elementScript7->setAttribute('src', urldecode('https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js'));
-        $elementScript7->setAttribute('data', "editor");
+        $elementScript7->setAttribute('data-editor', "true");
         $elementScript8 = $dom->createElement('script', '');
         $elementScript8->setAttribute('type', urldecode('text/javascript'));
         $elementScript8->setAttribute('src', urldecode('https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/third_party/font_awesome.min.js'));
-        $elementScript8->setAttribute('data', "editor");
+        $elementScript8->setAttribute('data-editor', "true");
         $elementStyle6 = $dom->createElement('link', '');
         $elementStyle6->setAttribute('rel', urldecode('stylesheet'));
         $elementStyle6->setAttribute('href', urldecode('https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css'));
-        $elementStyle6->setAttribute('data', "editor");
+        $elementStyle6->setAttribute('data-editor', "true");
         $elementStyle7 = $dom->createElement('link', '');
         $elementStyle7->setAttribute('rel', urldecode('stylesheet'));
         $elementStyle7->setAttribute('href', urldecode('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css'));
-        $elementStyle7->setAttribute('data', "editor");
+        $elementStyle7->setAttribute('data-editor', "true");
         //add style and script elements
         $head[0]->appendChild($elementStyle);
         $head[0]->appendChild($elementStyle2);
