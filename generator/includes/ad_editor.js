@@ -956,13 +956,13 @@ function styles_ptags(){
 
 function initialize_editors_text(){
 
-  t1maxchar=Math.round(t1maxchar);
-  console.log(t1size);
+  //t1maxchar=Math.round(t1maxchar);
+  //console.log(t1size);
 
-  t2maxchar=Math.round(t2maxchar);
-  console.log(t2size);
+  //t2maxchar=Math.round(t2maxchar);
+  //console.log(t2size);
 
-  buttonmaxchar=Math.round(buttonmaxchar);
+  //buttonmaxchar=Math.round(buttonmaxchar);
     var editortitles = new FroalaEditor('.bexi_editor_title',
     {
       //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
