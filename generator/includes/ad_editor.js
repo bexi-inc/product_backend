@@ -336,7 +336,7 @@ function bgchange(btid) {
             modal: true,
             buttons: {
               "Save": function() {
-                $($(this).attr("data-id")).closest(".bexi_module_ad").find(".bg_bexi_module").attr('style','position:absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 0; background-color:'+$("#colorpicker_"+btid).minicolors("rgbaString")+'!important;');
+                $($(this).attr("data-id")).closest(".bexi_module_ad").find(".bg_bexi_module").attr('style','position:absolute;top: 0;left: 0; background-color:'+$("#colorpicker_"+btid).minicolors("rgbaString")+'!important;');
                 $( this ).dialog( "close" );
                 newDiv.remove();
               },
