@@ -84,6 +84,15 @@ if(isset($_REQUEST["cmd"])){
         shuffle($result);
         $content=$marshaler->unmarshalValue($result['Items'][0]["html_code"]);
 
+        /******************** Remplace IDs *******************/
+        $pos = 0;
+        $pos2 = 0;
+        while ( ( $pos = strpos( $content, "%id%", $pos ) ) !== false ) {
+          $pos2 = strpos( $content, "%", ($pos + 1) );
+          $idrand = uniqid('bexi_');
+          $content=substr_replace($content,$idrand,$pos,4);
+        }
+
         ob_start();
         echo $content;
 
