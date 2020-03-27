@@ -461,17 +461,17 @@ $(document).click(function(e) {
 });
 
 $(document).ready(function() {
-    $( ".bexi_title" ).wrap( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
+    $( ".bexi_title" ).wrapInner( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
-    $( ".bexi_subtitle" ).wrap( "<div class='bexi_editor_subtitle'  style='width: 100%;'></div>" );
+    $( ".bexi_subtitle" ).wrapInner( "<div class='bexi_editor_subtitle'  style='width: 100%;'></div>" );
 
     $( ".bexi_text" ).each(function( index ) {
-        $(this).wrap( "<div class='bexi_editor_text' id='ed_" + $(this).attr('id') + "''></div>" );
+        $(this).wrapInner( "<div class='bexi_editor_text' id='ed_" + $(this).attr('id') + "''></div>" );
     });
 
-    $( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
+    $( ".bexi_button" ).wrapInner( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
-    $('.bexi_icon').wrap( '<p class="bexi_editor_icon" ></p>');
+    $('.bexi_icon').wrapInner( '<p class="bexi_editor_icon" ></p>');
     
     $('.bexi_module_ad').each(function() {
       var num=Math.floor((Math.random() * 10000) + 1);
