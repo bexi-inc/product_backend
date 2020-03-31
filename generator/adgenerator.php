@@ -77,7 +77,6 @@ if(isset($_REQUEST["cmd"])){
             "ExpressionAttributeNames" =>
                 [ '#descr' => 'description']
         ];
-    
         $result = $dynamodb->scan($params);
 
         /************************** Shuffle and select 1 random *********************/
