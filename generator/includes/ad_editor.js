@@ -1285,10 +1285,6 @@ function initialize_editors_text(){
       toolbarButtons:{
         'moreText': {
           'buttons': [ 'textColor']
-        },
-        'moreMisc' : {
-          'buttons' : ['buttonbgcolor'],
-          'buttonsVisible': 1
         }
       },
       fontFamilySelection: true,
