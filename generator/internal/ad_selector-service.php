@@ -48,7 +48,7 @@ Crew\Unsplash\HttpClient::init([
 	}
 
 	:root {
-        --width: 1200px;
+        --width: 1210px;
         --height: 644px;
         /* scale **/
         --zoom-factor: 0.7;
@@ -142,7 +142,7 @@ Crew\Unsplash\HttpClient::init([
 	  margin-right:15px;
 	  right: 0;
 	  border-radius: 3px 0 0 3px;
-	  background-image: url("/var/www/generator.bexi.co/public_html/product_backend/generator/imgs/right_gray.png");
+	  background-image: url("http://generator.bexi.ai/imgs/right_gray.png");
 	  background-position: center; /* Center the image */
 	  background-repeat: no-repeat; /* Do not repeat the image */
 	  background-size: cover; /* Resize the background image to cover the entire container */
@@ -152,7 +152,7 @@ Crew\Unsplash\HttpClient::init([
 	  margin-left:15px;
 	  left: 0;
 	  border-radius: 3px 0 0 3px;
-	  background-image: url("/var/www/generator.bexi.co/public_html/product_backend/generator/imgs/left_gray.png");
+	  background-image: url("http://generator.bexi.ai/imgs/left_gray.png");
 	  background-position: center; /* Center the image */
 	  background-repeat: no-repeat; /* Do not repeat the image */
 	  background-size: cover; /* Resize the background image to cover the entire container */
@@ -160,11 +160,11 @@ Crew\Unsplash\HttpClient::init([
 
 	/* On hover, add a black background color with a little bit see-through */
 	.selector_prev:hover{
-		background-image: url("/var/www/generator.bexi.co/public_html/product_backend/generator/imgs/left.png");
+		background-image: url("http://generator.bexi.ai/generator/imgs/left.png");
 	}/*background-color: rgba(0,0,0,0.7); */
 
 	.selector_next:hover {
-		background-image: url("/var/www/generator.bexi.co/public_html/product_backend/generator/imgs/right.png");
+		background-image: url("http://generator.bexi.ai/imgs/right.png");
 	}/*background-color: rgba(0,0,0,0.7); */
 /*
 	.mySlides:hover:after{
