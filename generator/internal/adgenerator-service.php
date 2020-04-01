@@ -368,7 +368,7 @@ if(isset($_REQUEST["cmd"])){
         $table = $dynamodb->scan($params);
         if ($table["error"]=="")
         {
-            $dbdata = $table["data"]['Items'];
+            $dbdata = $table['Items'];
             if (count($dbdata)>0)
             {
                 $projects=[];
