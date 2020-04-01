@@ -65,7 +65,6 @@ if(isset($_REQUEST["cmd"])){
         /************************** Shuffle and select 1 random *********************/
         $max=$result['Count'];
         $random=rand(0,$max-1);
-        print_r($random);
         $content=$marshaler->unmarshalValue($result['Items'][$random]["html_code"]);
 
         /******************** Remplace IDs *******************/
