@@ -12,16 +12,37 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: 'adgenerator-service.php',
+                data: { "cmd": "getprojects"},
+                dataType: "json",
+                type: 'POST',
+            }).done(function (data, textStatus, jqXHR) {
+                console.log(data);
+                $("#radio-buttons").append();
+            });
+
+
+            $("#radio-buttons").addEventListener('change', function(e) {
+                $("#edit-project").attr("disabled","false");
+            }, false);
+
+
+        });
+    </script>
 </head>
 
 <body>
     <div class="row m-0 justify-content-center" id="maindiv">
         <div class="col-md-5">
-            <div class="row m-0" id="radio-buttons">
-
+            <div class="row m-0" >
+                <form id="radio-buttons">
+                </form>
             </div>
             <div class="row m-0">
-                <button>Edit</button>
+                <button id="edit-project" disabled>Edit</button>
             </div>
         </div>
         <div class="col-md-5">
@@ -40,7 +61,8 @@
                             <label for="headline">Headline:</label>
                         </div>
                         <div class="col-md-10">
-                            <textarea id="w3mission" id="headline" name="headline" rows="4" cols="50" required></textarea>
+                            <textarea id="w3mission" id="headline" name="headline" rows="4" cols="50"
+                                required></textarea>
                         </div>
                     </div>
                     <div class="row m-0">
