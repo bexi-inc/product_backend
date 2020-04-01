@@ -93,11 +93,11 @@ if(isset($_REQUEST["cmd"])){
         //create style element
         $elementStyle1 = $doc->createElement('link', '');
         $elementStyle1->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle1->setAttribute('href', urldecode('css/bexi.css'));
+        $elementStyle1->setAttribute('href', urldecode('http://generator.bexi.ai/css/bexi.css'));
         $elementStyle1->setAttribute('data-css', "default");
         $elementStyle2 = $doc->createElement('link', '');
         $elementStyle2->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle2->setAttribute('href', urldecode('css/bexi_ad.css'));
+        $elementStyle2->setAttribute('href', urldecode('http://generator.bexi.ai/css/bexi_ad.css'));
         $elementStyle2->setAttribute('data-css', "default-ad");
 
         //add style and script elements
@@ -241,7 +241,7 @@ if(isset($_REQUEST["cmd"])){
         //create script src element
         $elementScript1 = $dom->createElement('script', '');
         $elementScript1->setAttribute('type', urldecode('text/javascript'));
-        $elementScript1->setAttribute('src', urldecode('includes/ad_editor.js'));
+        $elementScript1->setAttribute('src', urldecode('http://generator.bexi.ai/includes/ad_editor.js'));
         $elementScript1->setAttribute('data-editor', "true");
         $elementScript2 = $dom->createElement('script', 'var FroalaKey = "'.FROALA_KEY.'";');
         $elementScript2->setAttribute('type', urldecode('text/javascript'));
@@ -249,24 +249,24 @@ if(isset($_REQUEST["cmd"])){
         /**************   Jquery dialog **************/
         $elementScript3 = $dom->createElement('script', '');
         $elementScript3->setAttribute('type', urldecode('text/javascript'));
-        $elementScript3->setAttribute('src', urldecode('includes/jquery-ui.min.js'));
+        $elementScript3->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery-ui.min.js'));
         $elementScript3->setAttribute('data-editor', "true");
         $elementStyle2 = $dom->createElement('link', '');
         $elementStyle2->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle2->setAttribute('href', urldecode('includes/jquery-ui.min.css'));
+        $elementStyle2->setAttribute('href', urldecode('http://generator.bexi.ai/includes/jquery-ui.min.css'));
         $elementStyle2->setAttribute('data-editor', "true");
         $elementStyle3 = $dom->createElement('link', '');
         $elementStyle3->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle3->setAttribute('href', urldecode('includes/jquery-ui.theme.css'));
+        $elementStyle3->setAttribute('href', urldecode('http://generator.bexi.ai/includes/jquery-ui.theme.css'));
         $elementStyle3->setAttribute('data-editor', "true");
         /**************   Jquery palett colors **************/
         $elementScript4 = $dom->createElement('script', '');
         $elementScript4->setAttribute('type', urldecode('text/javascript'));
-        $elementScript4->setAttribute('src', urldecode('includes/jquery.minicolors.min.js'));
+        $elementScript4->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery.minicolors.min.js'));
         $elementScript4->setAttribute('data-editor', "true");
         $elementStyle4 = $dom->createElement('link', '');
         $elementStyle4->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle4->setAttribute('href', urldecode('includes/css/jquery.minicolors.css'));
+        $elementStyle4->setAttribute('href', urldecode('http://generator.bexi.ai/includes/css/jquery.minicolors.css'));
         $elementStyle4->setAttribute('data-editor', "true");
         /**************   PAGINATION **************/
         $elementScript5 = $dom->createElement('script', '');
@@ -275,11 +275,11 @@ if(isset($_REQUEST["cmd"])){
         $elementScript5->setAttribute('data-editor', "true");
         $elementScript6 = $dom->createElement('script', '');
         $elementScript6->setAttribute('type', urldecode('text/javascript'));
-        $elementScript6->setAttribute('src', urldecode('includes/pagination.js'));
+        $elementScript6->setAttribute('src', urldecode('http://generator.bexi.ai/includes/pagination.js'));
         $elementScript6->setAttribute('data-editor', "true");
         $elementStyle5 = $dom->createElement('link', '');
         $elementStyle5->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle5->setAttribute('href', urldecode('includes/css/bs-pagination.css'));
+        $elementStyle5->setAttribute('href', urldecode('http://generator.bexi.ai/includes/css/bs-pagination.css'));
         $elementStyle5->setAttribute('data-editor', "true");
         /**************   FROALA EDITOR **************/
         $elementScript7 = $dom->createElement('script', '');
