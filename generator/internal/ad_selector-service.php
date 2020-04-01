@@ -48,7 +48,7 @@ Crew\Unsplash\HttpClient::init([
 	}
 
 	:root {
-        --width: 1200px;
+        --width: 1210px;
         --height: 644px;
         /* scale **/
         --zoom-factor: 0.7;
