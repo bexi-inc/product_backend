@@ -28,8 +28,7 @@
 
 
             $("#radio-buttons").change(function(e) {
-                console.log("doit");
-                $("#edit-project").attr("disabled","false");
+                $("#edit-project").prop("disabled",false);
             });
 
         });
