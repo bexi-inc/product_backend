@@ -21,7 +21,10 @@
                 type: 'POST',
             }).done(function (data, textStatus, jqXHR) {
                 console.log(data);
-                $("#radio-buttons").append();
+                data["contents"].forEach(element => {
+                    $("#radio-buttons").append('<input type="radio" class="form-check-input" name="project-input" id="'+element.id+'" >');
+                    $("#radio-buttons").append('<label class="form-check-label" for="'+element.id+'">'+element.code+'</label>');
+                });
             });
 
 
