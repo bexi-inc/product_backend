@@ -17,6 +17,11 @@
             width: 1200px;
         }
 
+        .bgsize{
+            height: 100%;
+            width: 100%;
+        }
+        
         .logoxy{
             left: 120px;
             top:48px;
@@ -67,11 +72,11 @@
 </head>
 <body style="margin: 0;">
     <div class="bexi_module_ad" style="width:1200px;height:628px;position:relative;overflow: hidden;">
-            <div class="bg_bexi_module" id="bgcolor"
-            style="width:100%;height:100%;background-color: rgba(0, 0, 0, 0);position: absolute;top: 0;left: 0;z-index: 0;">
+            <div class="bg_bexi_module bgsize" id="bgcolor"
+            style="background-color: rgba(0, 0, 0, 0);position: absolute;top: 0;left: 0;z-index: 0;">
             </div>
-            <div class="transpa-bg" id="imgbg"
-            style="width:100%;height:100%;background-image: url('http://internal.bexi.ai/backgroundV1.jpg');background-size: cover;position: absolute;top: 0;left: 0;z-index: -1;">
+            <div class="transpa-bg bgsize" id="imgbg"
+            style="background-image: url('http://internal.bexi.ai/backgroundV1.jpg');background-size: cover;position: absolute;top: 0;left: 0;z-index: -1;">
             </div>
             <div class="logoxy" style="position: absolute;">
                 <img id="%id%" class="bexi_img logo" src="http://internal.bexi.ai/gigtelV1.svg">
