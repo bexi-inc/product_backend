@@ -225,7 +225,7 @@ function AddNewProject()
             }).done(function( data, textStatus, jqXHR ) {
                 // Show image container
                 $("#"+uId).append(newDiv);
-                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.'+MAIN_DOMAIN+'/adgenerator-service.php?cmd=selector&user=' + UserParam + '&codeid=' + data.codeid + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.'+MAIN_DOMAIN+'/adgenerator-service.php?cmd=selector&user=' + UserParam + '&codeid=' + data.codeid + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
                 $("#"+uId).attr("bexi-code",data.codeid);
                 $("#"+uId).click(
                   function(){
