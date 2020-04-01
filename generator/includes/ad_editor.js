@@ -497,14 +497,14 @@ $(document).ready(function() {
           '<div id="tab-2">'+
             '<div class="fr-input-line R" data-children-count="1">'+
               '<input id="inptext'+num+'" type="text" placeholder="http://" tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">'+
-              '<button class="align-self-end ui-button ui-corner-all ui-widget mt-3" type="button" onclick="bgchangeurl('+num+')">Change</button>'+
+              '<button class="align-self-end btn ui-button ui-corner-all ui-widget mt-3" type="button" onclick="bgchangeurl('+num+')">Change</button>'+
             '</div>'+
           '</div>'+
           '<div id="tab-3">'+
             '<div class="input-group mb-3">'+
               '<input id="inptextsearch'+num+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
               '<div class="input-group-append">'+
-                '<button class="ui-button ui-corner-all ui-widget" type="button" onclick="set_pagination2(\''+num+'\','+1+');" id="button-addon2">Search</button>'+
+                '<button class="btn ui-button ui-corner-all ui-widget" type="button" onclick="set_pagination2(\''+num+'\','+1+');" id="button-addon2">Search</button>'+
               '</div>'+
             '</div>'+
             '<div id="cont_unspl'+num+'">'+
