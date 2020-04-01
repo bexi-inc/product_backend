@@ -374,8 +374,8 @@ if(isset($_REQUEST["cmd"])){
                 $projects=[];
                 foreach ($dbdata as $item) {
                     $parttemp = [];//temporaly part with the values converted
-                    $parttemp["id"] = $Marshaler->unmarshalValue($item["id"]);
-                    $parttemp["code"]=$Marshaler->unmarshalValue($item["codename"]);
+                    $parttemp["id"] = $marshaler->unmarshalValue($item["id"]);
+                    $parttemp["code"]=$marshaler->unmarshalValue($item["codename"]);
                     $projects [] = $parttemp;//add the part to the array
                 }
                 $ret["error_code"] = "0";
