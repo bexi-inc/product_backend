@@ -52,7 +52,6 @@ if(isset($_REQUEST["cmd"])){
         /***********Get recipe from DB **********/
         $recipe="--Service";
         /**************** Search AdLayout with recipe elements ******************/
-        $recipe="Button";
         $params = [
             'TableName' => "modu_ads_blocks",
             "FilterExpression" => "contains(#descr, :v)",
