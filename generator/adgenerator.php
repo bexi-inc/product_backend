@@ -80,8 +80,8 @@ if(isset($_REQUEST["cmd"])){
         $result = $dynamodb->scan($params);
 
         /************************** Shuffle and select 1 random *********************/
-        $max=count($result["data"]['Items']);
-        $random=rand(0,$max);
+        $max=$result['Count'];
+        $random=rand(0,$max-1);
         $content=$marshaler->unmarshalValue($result['Items'][$random]["html_code"]);
 
         /******************** Remplace IDs *******************/
