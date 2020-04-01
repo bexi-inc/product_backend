@@ -22,7 +22,7 @@
             }).done(function (data, textStatus, jqXHR) {
                 console.log(data);
                 data["contents"].forEach(element => {
-                    $("#radio-buttons").append('<div class="row m-0"><input type="radio" class="form-check-input" name="project-input" id="'+element.id+'" ><label class="form-check-label" for="'+element.id+'">Id:'+element.id+'             Project Name:'+element.code+'</label></div>');
+                    $("#radio-buttons").append('<div class="row m-0"><input type="radio" class="form-check-input" name="project-input" id="'+element.id+'" ><label class="form-check-label" for="'+element.id+'">Id:'+element.id+'/\tProject Name:'+element.code+'</label></div>');
                 });
             });
 
@@ -30,6 +30,8 @@
             $("#radio-buttons").change(function(e) {
                 $("#edit-project").prop("disabled",false);
             });
+
+
 
         });
     </script>
