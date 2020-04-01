@@ -216,7 +216,7 @@ Crew\Unsplash\HttpClient::init([
 		var KeywordsParams = '<? echo (isset($_REQUEST["keywords"]) ? $_REQUEST["keywords"] : ""); ?>';
 		var MAIN_DOMAIN ='<? echo MAIN_DOMAIN; ?>';
 	</script>
-	<script type="text/javascript" src="includes/bexi_ad_selector_service.js"></script>
+	<script type="text/javascript" src="bexi_ad_selector_service.js"></script>
 </head>
 <body>
 <div class="main_selector">
