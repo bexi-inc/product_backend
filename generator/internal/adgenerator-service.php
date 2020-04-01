@@ -362,6 +362,32 @@ if(isset($_REQUEST["cmd"])){
     }
     if($_REQUEST["cmd"]=="getprojects"){
 
+        $params = [
+            'TableName' => "modu_ads_service",
+        ];
+        $table = $dynamodb->scan($params);
+        if ($table["error"]=="")
+        {
+            $dbdata = $table["data"]['Items'];
+            if (count($dbdata)>0)
+            {
+                $projects=[];
+                foreach ($dbdata as $item) {
+                    $parttemp = [];//temporaly part with the values converted
+                    $parttemp["id"] = $Marshaler->unmarshalValue($item["id"]);
+                    $parttemp["code"]=$Marshaler->unmarshalValue($item["codename"]);
+                    $projects [] = $parttemp;//add the part to the array
+                }
+                $ret["error_code"] = "0";
+                $ret["contents"] = $projects;
+                return $ret;
+            }
+        }
+        else{
+            $ret["error_code"] = "500";
+            $ret["message"] =  $table["error"];
+            return $ret;
+        }
     }
 
     if($_REQUEST["cmd"]=="test")
