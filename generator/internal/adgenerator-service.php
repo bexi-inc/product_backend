@@ -380,13 +380,13 @@ if(isset($_REQUEST["cmd"])){
                 }
                 $ret["error_code"] = "0";
                 $ret["contents"] = $projects;
-                return $ret;
+                echo stripslashes(json_encode($ret));
             }
         }
         else{
             $ret["error_code"] = "500";
             $ret["message"] =  $table["error"];
-            return $ret;
+            echo stripslashes(json_encode($ret));
         }
     }
 
