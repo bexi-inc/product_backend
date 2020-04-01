@@ -62,11 +62,10 @@ if(isset($_REQUEST["cmd"])){
                 [ '#descr' => 'description']
         ];
         $result = $dynamodb->scan($params);
-        print_r($result);
         /************************** Shuffle and select 1 random *********************/
-        shuffle($result);
-        print_r($result);
-        $content=$marshaler->unmarshalValue($result['Items'][0]["html_code"]);
+        $max=count($result["data"]['Items']);
+        $random=rand(0,$max);
+        $content=$marshaler->unmarshalValue($result['Items'][$random]["html_code"]);
 
         /******************** Remplace IDs *******************/
         $pos = 0;
