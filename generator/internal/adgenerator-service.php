@@ -1,9 +1,9 @@
 <?
-include "includes/global.php";
-include "includes/utils.php";
-include "config.php";
-require 'vendor/autoload.php';
-require_once 'includes/JSLikeHTMLElement.php';
+include "../includes/global.php";
+include "../includes/utils.php";
+include "../config.php";
+require '../vendor/autoload.php';
+require_once '../includes/JSLikeHTMLElement.php';
 
 Crew\Unsplash\HttpClient::init([
     'applicationId' => $unspash_appid,
