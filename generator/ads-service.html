@@ -25,11 +25,13 @@
             </div>
         </div>
         <div class="col-md-5">
-            <form action="/action_page.php" method="post">
-                <label for="fname">First name:</label>
-                <input type="text" id="fname" name="fname"><br><br>
-                <label for="lname">Last name:</label>
-                <input type="text" id="lname" name="lname"><br><br>
+            <form action="/action_page.php" method="GET">
+                <label for="headline">Headline:</label>
+                <textarea id="w3mission" id="headline" name="headline" rows="4" cols="50"></textarea><br><br>
+                <label for="cta">CTA:</label>
+                <textarea id="w3mission" id="cta" name="cta" rows="4" cols="50"></textarea><br><br>
+                <label for="keywords">Keywords:</label>
+                <input type="text" id="keywords" name="keywords"><br><br>
                 <input type="submit" value="Create">
             </form>
         </div>
