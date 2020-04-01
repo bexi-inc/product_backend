@@ -22,13 +22,13 @@
             }).done(function (data, textStatus, jqXHR) {
                 console.log(data);
                 data["contents"].forEach(element => {
-                    $("#radio-buttons").append('<input type="radio" class="form-check-input" name="project-input" id="'+element.id+'" >');
-                    $("#radio-buttons").append('<label class="form-check-label" for="'+element.id+'">'+element.code+'</label>');
+                    $("#radio-buttons").append('<div class="row m-0"><input type="radio" class="form-check-input" name="project-input" id="'+element.id+'" ><label class="form-check-label" for="'+element.id+'">Id:'+element.id+'  Project Name:'+element.code+'</label></div>');
                 });
             });
 
 
             $("#radio-buttons").change(function(e) {
+                console.log("doit");
                 $("#edit-project").attr("disabled","false");
             });
 
