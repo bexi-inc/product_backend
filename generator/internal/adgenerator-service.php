@@ -63,7 +63,8 @@ if(isset($_REQUEST["cmd"])){
         ];
         $result = $dynamodb->scan($params);
         /************************** Shuffle and select 1 random *********************/
-        $dbdata = $Marshaler->unmarshalValue($result["data"]['Items']);
+        print_r($result);
+        $dbdata = $Marshaler->unmarshalValue($result['Items']);
         $max=count($dbdata);
         print_r($max);
         $random=rand(0,$max);
