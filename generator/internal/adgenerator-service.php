@@ -209,23 +209,68 @@ if(isset($_REQUEST["cmd"])){
          echo $content;
     }
 
-    if($_REQUEST["cmd"]=="editor" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
+    if($_REQUEST["cmd"]=="editor" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]) && isset($_REQUEST["codename"]) && isset($_REQUEST["create"]))
     {
-                /********* GET HTML CODE FROM DB **********/
-        $params = [
-            'TableName' => "bexi_projects_tmp",
-             "KeyConditionExpression"=> "id = :id AND #usr=:usr",
-            "ExpressionAttributeValues"=> [
-                ":id" =>  ["S" => $_REQUEST["codeid"]],
-                ":usr" => ["S" => $_REQUEST["user"]]
-            ],
-            "ExpressionAttributeNames" =>
-                [ '#usr' => 'user' ]
-        ];
+        if($_REQUEST["codeid"]==="true")
+        {
+            /********* GET HTML CODE FROM temporal DB **********/
+            $params = [
+                'TableName' => "bexi_projects_tmp",
+                    "KeyConditionExpression"=> "id = :id AND #usr=:usr",
+                "ExpressionAttributeValues"=> [
+                    ":id" =>  ["S" => $_REQUEST["codeid"]],
+                    ":usr" => ["S" => $_REQUEST["user"]]
+                ],
+                "ExpressionAttributeNames" =>
+                    [ '#usr' => 'user' ]
+            ];
 
-        $result = $dynamodb->query($params);
-        $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
-        //echo $content;
+            $result = $dynamodb->query($params);
+
+            $code = $marshaler->unmarshalValue($result['Items'][0]["code"]);
+
+            $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+
+            /************** SAVE INTO DB ***************/
+
+            $data = '{
+            "id" : "'. $_REQUEST["codeid"] .'",
+            "codename" : "'.$_REQUEST["codename"].'",
+            "code" : "'. $code .'"
+            }';
+
+            $item = $marshaler->marshalJson($data);
+
+            $params = [
+                'TableName' => 'modu_ads_service',
+                'Item' => $item
+            ];
+
+            $res["error"]="";
+            $res["codeid"]=$codeId;
+            try {
+                $result = $dynamodb->putItem($params);
+            } catch (DynamoDbException $e) {
+                $res["error"] = $e->getMessage();
+            }
+        }
+        else{
+            /********* GET HTML CODE FROM DB **********/
+            $params = [
+                'TableName' => "modu_ads_service",
+                    "KeyConditionExpression"=> "id = :id AND #name=:nam",
+                "ExpressionAttributeValues"=> [
+                    ":id" =>  ["S" => $_REQUEST["codeid"]],
+                    ":nam" => ["S" => $_REQUEST["codename"]]
+                ],
+                "ExpressionAttributeNames" =>
+                    [ '#name' => 'codename' ]
+            ];
+
+            $result = $dynamodb->query($params);
+
+            $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+        }
 
         $dom=new domDocument;
 		libxml_use_internal_errors(true);
