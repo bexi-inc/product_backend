@@ -284,7 +284,7 @@ if(isset($_REQUEST["cmd"])){
         //create script src element
         $elementScript1 = $dom->createElement('script', '');
         $elementScript1->setAttribute('type', urldecode('text/javascript'));
-        $elementScript1->setAttribute('src', urldecode('http://generator.bexi.ai/includes/ad_editor.js'));
+        $elementScript1->setAttribute('src', urldecode('ad_editor-service.js'));
         $elementScript1->setAttribute('data-editor', "true");
         $elementScript2 = $dom->createElement('script', 'var FroalaKey = "'.FROALA_KEY.'";');
         $elementScript2->setAttribute('type', urldecode('text/javascript'));
@@ -359,6 +359,9 @@ if(isset($_REQUEST["cmd"])){
         $head[0]->appendChild($elementScript8);
 
         echo $dom->savehtml();
+    }
+    if($_REQUEST["cmd"]=="getprojects"){
+
     }
 
     if($_REQUEST["cmd"]=="test")
