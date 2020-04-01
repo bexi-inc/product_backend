@@ -258,13 +258,10 @@ if(isset($_REQUEST["cmd"])){
             /********* GET HTML CODE FROM DB **********/
             $params = [
                 'TableName' => "modu_ads_service",
-                    "KeyConditionExpression"=> "id = :id AND #name=:nam",
+                    "KeyConditionExpression"=> "id = :id",
                 "ExpressionAttributeValues"=> [
-                    ":id" =>  ["S" => $_REQUEST["codeid"]],
-                    ":nam" => ["S" => $_REQUEST["codename"]]
-                ],
-                "ExpressionAttributeNames" =>
-                    [ '#name' => 'codename' ]
+                    ":id" =>  ["S" => $_REQUEST["codeid"]]
+                ]
             ];
 
             $result = $dynamodb->query($params);
