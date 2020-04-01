@@ -1,10 +1,8 @@
 <?
-
-include "../config.php";
-require '../vendor/autoload.php';
-
-include "../includes/utils.php";
-include "../includes/content_blocks.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/includes/global.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/includes/utils.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/config.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/vendor/autoload.php";
 
 use Aws\DynamoDb\Exception\DynamoDbException;
 use Aws\DynamoDb\Marshaler;
