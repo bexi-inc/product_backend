@@ -160,7 +160,7 @@ Crew\Unsplash\HttpClient::init([
 
 	/* On hover, add a black background color with a little bit see-through */
 	.selector_prev:hover{
-		background-image: url("http://generator.bexi.ai/generator/imgs/left.png");
+		background-image: url("http://generator.bexi.ai/imgs/left.png");
 	}/*background-color: rgba(0,0,0,0.7); */
 
 	.selector_next:hover {
