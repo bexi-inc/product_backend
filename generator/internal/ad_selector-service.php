@@ -1,10 +1,10 @@
 <?
 
-include "config.php";
-require 'vendor/autoload.php';
+include "../config.php";
+require '../vendor/autoload.php';
 
-include "includes/utils.php";
-include "includes/content_blocks.php";
+include "../includes/utils.php";
+include "../includes/content_blocks.php";
 
 use Aws\DynamoDb\Exception\DynamoDbException;
 use Aws\DynamoDb\Marshaler;
