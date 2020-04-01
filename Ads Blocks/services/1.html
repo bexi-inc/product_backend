@@ -17,34 +17,23 @@
             width: 1200px;
         }
 
-        .logo{
+        .logoxy{
             left: 120px;
             top:48px;
         }
 
-        .img1{
+        .img1xy{
             left: 607.49px;
             top: 23px;
             height: 149px;
             width: 150px;
         }
 
-        .img2{
+        .img2xy{
             top: -29.5px;
             left: 736.5px;
             width: 686.32px;
             height:686.32px;
-        }
-
-        .img1 > img{
-            width:100%;
-            height: 100%;
-            
-        } 
-        .img2 > img{
-            width:100%;
-            height: 100%;
-            border-radius: 50%;
         }
 
         .headline{
@@ -59,22 +48,20 @@
         }
 
         .cta{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #FFF;
             left: 120px;
             top: 463.94px;
-            height: 38.26px;
-            width: 273.6px;
+            height: 77.4px;
+            width: 341.1px;
             border-radius: 56.37px;
             background-color: #062639;
             font-size: 30.6px;
             font-weight: bold;
             letter-spacing: -0.15px;
             line-height: 37px;
-            text-align: center;
-            padding-left: 33.75px;
-            padding-right: 33.75px;
-            padding-top: 19.08px;
-            padding-bottom: 20.06px;
         }
     </style>
 </head>
@@ -86,8 +73,8 @@
             <div class="transpa-bg" id="imgbg"
             style="width:100%;height:100%;background-image: url('http://internal.bexi.ai/backgroundV1.jpg');background-size: cover;position: absolute;top: 0;left: 0;z-index: -1;">
             </div>
-            <div id="%id%" class="bexi_img logo" style="position: absolute;">
-                <img src="http://internal.bexi.ai/gigtelV1.svg">
+            <div class="logoxy" style="position: absolute;">
+                <img id="%id%" class="bexi_img logo" src="http://internal.bexi.ai/gigtelV1.svg">
             </div>
 
             <div id="%id%" class="bexi_title headline" style="position: absolute;">
@@ -95,15 +82,15 @@
             </div>
 
             <div id="%id%" class="bexi_button cta" style="position: absolute;">
-            90-Day Free Trial
+                90-Day Free Trial
             </div>
 
-            <div id="%id%" class="bexi_img img1" style="position: absolute;">
-                <img src="%img|150|150|%" alt="img">
+            <div  class=" img1xy" style="position: absolute;">
+                <img id="%id%" class="bexi_img img1" src="%img|150|150|%" alt="img" style=" width:100%;height: 100%;border-radius: 50%;">
             </div>
             
-            <div id="%id%" class="bexi_img img2" style="position: absolute;">
-                <img src="%img|687|637|%" alt="img">
+            <div class="img2xy" style="position: absolute;">
+                <img id="%id%" class="bexi_img img2" src="%img|687|687|%" alt="img" style=" width:100%;height: 100%;border-radius: 50%;">
             </div>
     </div>
 </body>
