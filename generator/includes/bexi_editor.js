@@ -746,9 +746,9 @@ function bgchange(btid) {
           '<div id="dialog-img'+num+'" class="remove ui-helper-hidden">'+
             '<div id="tabs-img">'+
               '<ul>'+
-                '<li><a data-tooltip="true" title="Upload" href="#tab-1"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
-                '<li><a data-tooltip="true" title="Link" href="#tab-2"><i class="fas fa-link"></i></a></li>'+
-                '<li><a data-tooltip="true" title="Search" href="#tab-3"><i class="far fa-images"></i></a></li>'+
+                '<li><a data-tooltip="true" title="Upload" href="#tab-1" style="color:black !important;"><i class="fas fa-cloud-upload-alt"></i></a></li>'+
+                '<li><a data-tooltip="true" title="Link" href="#tab-2" style="color:black !important;"><i class="fas fa-link"></i></a></li>'+
+                '<li><a data-tooltip="true" title="Search" href="#tab-3" style="color:black !important;"><i class="far fa-images"></i></a></li>'+
               '</ul>'+
               '<div id="tab-1">'+
                 '<div id="'+num+'" class="col-lg-12 dropzone">'+
@@ -759,14 +759,14 @@ function bgchange(btid) {
               '<div id="tab-2">'+
                 '<div class="fr-input-line R" data-children-count="1">'+
                   '<input id="inptext'+num+'" type="text" placeholder="http://" tabindex="1" aria-required="true" dir="auto" class="" style="width:100%;">'+
-                  '<button class="align-self-end btn btn-outline-primary mt-3" type="button" onclick="bgchangeurl('+num+')">Change</button>'+
+                  '<button class="align-self-end btn ui-button ui-corner-all ui-widget mt-3" type="button" onclick="bgchangeurl('+num+')">Change</button>'+
                 '</div>'+
               '</div>'+
               '<div id="tab-3">'+
                 '<div class="input-group mb-3">'+
-                  '<input id="inptextsearch'+num+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+                  '<input id="inptextsearch'+num+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
                   '<div class="input-group-append">'+
-                    '<button class="btn btn-outline-primary" type="button" onclick="set_pagination2(\''+num+'\','+1+');" id="button-addon2">Search</button>'+
+                    '<button class="btn ui-button ui-corner-all ui-widget" type="button" onclick="set_pagination2(\''+num+'\','+1+');" id="button-addon2">Search</button>'+
                   '</div>'+
                 '</div>'+
                 '<div id="cont_unspl'+num+'">'+
@@ -1087,7 +1087,7 @@ function bgchange(btid) {
           newDiv.css("overflow", "auto");
           newDiv.html(
           '<div class="input-group mb-3">'+
-          '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+          '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
           '<div class="input-group-append">'+
             '<button class="btn btn-outline-primary" type="button" onclick="set_pagination(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
           '</div>'+
@@ -1140,7 +1140,7 @@ function bgchange(btid) {
           newDiv.css("overflow", "auto");
           newDiv.html(
           '<div class="input-group mb-3">'+
-          '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+          '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
           '<div class="input-group-append">'+
             '<button class="btn btn-outline-primary" type="button" onclick="set_pagination4(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
           '</div>'+
@@ -1193,7 +1193,7 @@ function bgchange(btid) {
           newDiv.css("overflow", "visible");
           newDiv.html(
             '<div class="input-group mb-3">'+
-            '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keyword,keyword,..."  aria-describedby="button-addon2">'+
+            '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
             '<div class="input-group-append">'+
               '<button class="btn btn-outline-primary" type="button" onclick="set_pagination3(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
             '</div>'+
