@@ -1,9 +1,9 @@
 <?
-include "../includes/global.php";
-include "../includes/utils.php";
-include "../config.php";
-require '../vendor/autoload.php';
-require_once '../includes/JSLikeHTMLElement.php';
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/includes/global.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/includes/utils.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/config.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/vendor/autoload.php";
+require_once "/var/www/generator.bexi.co/public_html/product_backend/generator/includes/JSLikeHTMLElement.php";
 
 Crew\Unsplash\HttpClient::init([
     'applicationId' => $unspash_appid,
