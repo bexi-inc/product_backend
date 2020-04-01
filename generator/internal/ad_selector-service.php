@@ -32,7 +32,7 @@ Crew\Unsplash\HttpClient::init([
 ?><!DOCTYPE html>
 <html>
 <head>
-	<script src="includes/jquery-3.4.1.min.js"></script>
+	<script src="../includes/jquery-3.4.1.min.js"></script>
 	<style type="text/css">
 			/* Variables */
 
