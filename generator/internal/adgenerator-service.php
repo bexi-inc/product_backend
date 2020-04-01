@@ -211,7 +211,7 @@ if(isset($_REQUEST["cmd"])){
 
     if($_REQUEST["cmd"]=="editor" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]) && isset($_REQUEST["codename"]) && isset($_REQUEST["create"]))
     {
-        if($_REQUEST["codeid"]==="true")
+        if($_REQUEST["create"]==="true")
         {
             /********* GET HTML CODE FROM temporal DB **********/
             $params = [
