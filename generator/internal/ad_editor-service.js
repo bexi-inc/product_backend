@@ -910,6 +910,7 @@ function auto_save(){
 
     var pid=$("#codeId").val();
     cc.find(".remove").remove();
+    cc.find("text-aux").contents().unwrap();
     cc.find('.bexi_editor_icon').contents().unwrap();
     cc.find('.bexi_editor_video').contents().unwrap();
     cc.find('.bexi_editor_button').contents().unwrap();
@@ -1151,16 +1152,7 @@ function initialize_editors_text(){
             $('.bexi_title').textfill({
               maxFontPixels: 64,
               changeLineHeight: false,
-              innerTag: "div",
-              success: function() {
-      
-              },
-              fail: function() {
-                console.log("trono");
-              },
-              complete: function(){
-                console.log("yay!");
-              }
+              innerTag: "div"
           });
           }
       }
@@ -1420,7 +1412,11 @@ function initialize_editors_text(){
           auto_save();
         },
         'keyup': function (keyupEvent) {
-
+          $('.bexi_button').textfill({
+            maxFontPixels: 30,
+            changeLineHeight: false,
+            innerTag: "div"
+          });
         }
       }
     });
@@ -1494,27 +1490,18 @@ function initialize_editors_text(){
   */
  
     $(".bexi_title").wrapInner("<div class='text-aux' style='line-height:1em;'></div>");
-    $(".bexi_title").css("line-height","1em");
       $('.bexi_title').textfill({
         maxFontPixels: 64,
         changeLineHeight: false,
-        innerTag: "div",
-        success: function() {
+        innerTag: "div"
+      });
 
-        },
-        fail: function() {
-          console.log("trono");
-        },
-        complete: function(){
-          console.log("yay!");
-        }
-    });
+      $(".bexi_button").wrapInner("<div class='text-aux' style='line-height:1em;'></div>");
+      $('.bexi_button').textfill({
+        maxFontPixels: 30,
+        changeLineHeight: false,
+        innerTag: "div"
+      });
 
 
-}
-
-function resize(fontsize){
-  $(".bexi_title").css("white-space","normal");
-  $(".bexi_title").css("font-size",fontsize+"px");
-  $(".bexi_title").css("line-height",fontsize+"px");
 }
