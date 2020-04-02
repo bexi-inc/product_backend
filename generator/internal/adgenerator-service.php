@@ -371,6 +371,7 @@ if(isset($_REQUEST["cmd"])){
 
         echo $dom->savehtml();
     }
+
     if($_REQUEST["cmd"]=="getprojects"){
 
         $params = [
@@ -399,6 +400,41 @@ if(isset($_REQUEST["cmd"])){
             $ret["message"] =  $table["error"];
             echo stripslashes(json_encode($ret));
         }
+    }
+
+    if($_REQUEST["cmd"]=="autosave" && isset($_REQUEST["codeid"]) && isset($_REQUEST["code"]))
+    {
+        $key = '
+        {
+            "id" : "'.$_REQUEST["codeid"].'"
+        }
+        ';
+        $key = $marshaler->marshalJson($key);
+
+        $updateData='{
+            ":code" : "'.base64_encode(gzcompress($_REQUEST["code"], 7)) .'"
+        }';
+
+        $eav = $marshaler->marshalJson($updateData);
+
+        $params = [
+            'TableName' => "modu_ads_service",
+            'Key' => $key,
+            'UpdateExpression' => 'set code = :code',
+            'ExpressionAttributeValues'=> $eav,
+            'ReturnValues' => 'UPDATED_NEW'
+        ];
+
+        try {
+            $result = $dynamodb->updateItem($params);
+            $res["error"] = 0;
+        }
+        catch (DynamoDbException $e){
+            $res["error"] = 500;
+            $res["error_msj"] = "Unable to update";
+        }
+
+        echo json_encode($res);
     }
 
     if($_REQUEST["cmd"]=="test")
