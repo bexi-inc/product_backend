@@ -1470,9 +1470,11 @@ function initialize_editors_text(){
 
     fitty('.bexi_button');
   */
+    $(".bexi_title").wrapInner("<div></div>");
     $('.bexi_title').textfill({
         maxFontPixels: 64,
         changeLineHeight: true,
+        innerTag: "div",
         success: function() {
           console.log("yay!")
         },
