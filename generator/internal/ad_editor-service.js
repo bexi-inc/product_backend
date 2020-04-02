@@ -888,7 +888,8 @@ FroalaEditor.RegisterCommand('buttonbgcolor', {
 });
 
 function createimg(){
-    html2canvas(document.querySelector("#maindiv") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
+  $(".remove").attr("data-html2canvas-ignore","true");
+    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
       var dataURL = canvas.toDataURL();
       var pid=$("#codeId").val();
       var link = document.createElement('a');
