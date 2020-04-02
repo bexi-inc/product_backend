@@ -892,7 +892,6 @@ function auto_save(){
     parser = new DOMParser();
     doc = parser.parseFromString(inner, "text/html");
     var cc = jQuery(doc);
-    console.log(cc.find('html').html());
 
     var pid=$("#codeId").val();
     cc.find(".remove").remove();
@@ -963,17 +962,14 @@ function auto_save(){
       }
     });
     cc.find('[data-editor="true"]').remove();
-    console.log(cc.find('html').html());
-    /*
     var request=$.ajax({
       url: "adgenerator-service.php",
-      data: { cmd:"autosave",codeid : pid,code:cc.html()} ,
+      data: { cmd:"autosave",codeid : pid,code:cc.find('html').html()} ,
       datatype:"json",
       method:"POST",
       success: function(data){
       }
     });
-    */
 };
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
