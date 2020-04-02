@@ -384,7 +384,8 @@ if(isset($_REQUEST["cmd"])){
         /**************   AUTOTEX **************/
         $elementScript10 = $dom->createElement('script', '');
         $elementScript10->setAttribute('type', urldecode('text/javascript'));
-        $elementScript10->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery.bb-textfitter.js'));
+        //$elementScript10->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery.bb-textfitter.js'));
+        $elementScript10->setAttribute('src', urldecode('http://generator.bexi.ai/includes/fitty.min.js'));
         $elementScript10->setAttribute('data-editor', "true");
 
         //add style and script elements
