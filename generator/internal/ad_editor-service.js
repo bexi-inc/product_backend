@@ -1146,22 +1146,22 @@ function initialize_editors_text(){
           'contentChanged': function () {
             console.log("itworks");
             //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
-            $('.bexi_title').textfill({
-                maxFontPixels: 64,
-                changeLineHeight: false,
-                innerTag: "div",
-                success: function() {
-        
-                },
-                fail: function() {
-                  console.log("trono");
-                },
-                complete: function(){
-                  console.log("yay!");
-                }
-            });
           },
           'keyup': function (keyupEvent) {
+            $('.bexi_title').textfill({
+              maxFontPixels: 64,
+              changeLineHeight: false,
+              innerTag: "div",
+              success: function() {
+      
+              },
+              fail: function() {
+                console.log("trono");
+              },
+              complete: function(){
+                console.log("yay!");
+              }
+          });
           }
       }
     });
