@@ -1146,8 +1146,6 @@ function initialize_editors_text(){
           'contentChanged': function () {
             console.log("itworks");
             //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
-          },
-          'keyup': function (keyupEvent) {
             $('.bexi_title').textfill({
                 maxFontPixels: 64,
                 changeLineHeight: false,
@@ -1164,6 +1162,8 @@ function initialize_editors_text(){
                   $(".bexi_title").css("font-size",size)
                 }
             });
+          },
+          'keyup': function (keyupEvent) {
           }
       }
     });
