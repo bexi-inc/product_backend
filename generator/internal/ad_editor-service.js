@@ -896,7 +896,7 @@ function save_img(TAGID,FILE){
   var newDiv = $(document.createElement('div'));
   newDiv.attr("class","C align-items-center");
   newDiv.html(
-  "<img src='./img/uploading.gif' width='50px' height='50px'>"+
+  "<img src='http://generator.bexi.ai/img/uploading.gif' width='50px' height='50px'>"+
   "<spam>Uploading...</spam>"
     );
   var pid=$("#codeId").val();
