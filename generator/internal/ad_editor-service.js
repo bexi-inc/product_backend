@@ -1456,5 +1456,6 @@ function initialize_editors_text(){
       minSize: 6,
       maxSize: 64
     });
+    $(".bexi_title").css("white-space","normal !important");
     fitty('.bexi_button');
 }
