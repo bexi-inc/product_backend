@@ -1140,6 +1140,9 @@ function initialize_editors_text(){
           },
           'image.beforeRemove': function ($img) {
             auto_save();
+          },
+          'contentChanged': function () {
+            $('.bexi_title, .bexi_subtitle').bbFitText();
           }
       }
     });
@@ -1231,6 +1234,9 @@ function initialize_editors_text(){
           },
           'image.beforeRemove': function ($img) {
             auto_save();
+          },
+          'contentChanged': function () {
+            $('.bexi_title, .bexi_subtitle').bbFitText();
           }
       }
     });
