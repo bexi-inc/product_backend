@@ -888,7 +888,84 @@ FroalaEditor.RegisterCommand('buttonbgcolor', {
 
 
 function auto_save(){
-
+    var pid=$("#codeId").val();
+    var c=$("#modu_main").html();
+    var cc=$("#modu_main").clone();
+    cc.find(".remove").remove();
+    cc.find('.bexi_editor_icon').contents().unwrap();
+    cc.find('.bexi_editor_video').contents().unwrap();
+    cc.find('.bexi_editor_button').contents().unwrap();
+    cc.find('.bexi_editor_text').contents().unwrap();
+    cc.find('.bexi_editor_link').contents().unwrap();
+    cc.find('.bexi_editor_title').contents().unwrap();
+    cc.find('.bexi_editor_subtitle').contents().unwrap();
+    cc.find('.bexi_editor_img').contents().unwrap();
+    cc.find('.bexi_editor_map').contents().unwrap();
+    cc.find('div.fr-wrapper').contents().unwrap();
+    cc.find('div.fr-element').contents().unwrap();
+    cc.find('div.alt-wrap').contents().unwrap();
+    cc.find(".bexi_unspash").remove();
+    //cc.find(".fr-video").contents().unwrap();
+    cc.find("span").each(function(){
+      if($(this).attr("class")!==undefined)
+      {
+        if($(this).attr("class").search("fr-video")!==-1)
+        {
+          $(this).find("iframe").each(function(){
+            var maxwidth=$(this).css("width");
+            var maxheight=$(this).css("height");
+            //$(this).css("position","absolute");
+            $(this).css("top","0");
+            $(this).css("left","0");
+            $(this).css("width","100%");
+            $(this).css("height","100%");
+            if(maxwidth!=="0px")
+            {
+              $(this).css("max-width",maxwidth);
+            }
+            if(maxheight!=="0px")
+            {
+              $(this).css("max-height",maxheight);
+            }
+            $(this).css("position","absolute");
+          });
+          //$(this).wrap("<div class='video_responsive'></div>");
+        }
+      }
+    });
+    cc.find("p").each(function(){
+      if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
+      {
+        $(this).contents().unwrap();
+      }
+    });
+    cc.find("div").each(function(){
+      if($(this).attr("id")===undefined && $(this).attr("class")!==undefined)
+      {
+        if($(this).attr("class").search("fr-")!==-1){
+          $(this).remove();
+        }
+      }
+    });
+    cc.find(".bexi_form").each(function(){
+      $(this).find("input").attr('required', true);
+      $(this).find("input").removeAttr('disabled');
+      $(this).find("input").removeAttr('autocomplete');
+    });
+    cc.find("*").each(function(){
+      if($(this).attr("tabindex")!==undefined && $(this).attr("tabindex")==="-1")
+      {
+        $(this).remove();
+      }
+    });
+    var request=$.ajax({
+      url: "adgenerator-service.php",
+      data: { cmd:"autosave",codeid : pid,code:cc.html()} ,
+      datatype:"json",
+      method:"POST",
+      success: function(data){
+      }
+    });
 };
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
