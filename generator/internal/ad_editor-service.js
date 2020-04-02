@@ -1152,12 +1152,15 @@ function initialize_editors_text(){
               changeLineHeight: false,
               innerTag: "div",
               success: function() {
-                console.log("yay!");
-                var size=$(".bexi_title").find(".text-aux").css("font-size");
-                $(".bexi_title").css("line-height",size)
+
               },
               fail: function() {
                 console.log("trono");
+              },
+              complete: function(){
+                console.log("yay!");
+                var size=$(".bexi_title").find(".text-aux").css("font-size");
+                $(".bexi_title").css("line-height",size)
               }
           });
           }
