@@ -5,6 +5,7 @@ var myHeight = 0 ;
 var FrameSel = "";
 
 window.onmessage = function(e){
+  $(".select").removeClass("hidden");
   data = e.data.split("|");
   if (data[0] == 'SelectProject') {
     looser = "";
