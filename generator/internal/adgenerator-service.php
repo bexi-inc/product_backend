@@ -211,8 +211,23 @@ if(isset($_REQUEST["cmd"])){
 
     if($_REQUEST["cmd"]=="editor" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]) && isset($_REQUEST["codename"]) && isset($_REQUEST["create"]))
     {
-        if($_REQUEST["create"]==="true")
+        /********* GET HTML CODE FROM DB **********/
+        $params = [
+            'TableName' => "modu_ads_service",
+                "KeyConditionExpression"=> "id = :id",
+            "ExpressionAttributeValues"=> [
+                ":id" =>  ["S" => $_REQUEST["codeid"]]
+            ]
+        ];
+
+        $result = $dynamodb->query($params);
+
+
+        if($result['Count']>0)
         {
+            $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+        }
+        else{
             /********* GET HTML CODE FROM temporal DB **********/
             $params = [
                 'TableName' => "bexi_projects_tmp",
@@ -253,20 +268,6 @@ if(isset($_REQUEST["cmd"])){
             } catch (DynamoDbException $e) {
                 $res["error"] = $e->getMessage();
             }
-        }
-        else{
-            /********* GET HTML CODE FROM DB **********/
-            $params = [
-                'TableName' => "modu_ads_service",
-                    "KeyConditionExpression"=> "id = :id",
-                "ExpressionAttributeValues"=> [
-                    ":id" =>  ["S" => $_REQUEST["codeid"]]
-                ]
-            ];
-
-            $result = $dynamodb->query($params);
-
-            $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
         }
 
         $dom=new domDocument;
