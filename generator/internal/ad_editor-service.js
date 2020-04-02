@@ -1251,11 +1251,12 @@ function initialize_editors_text(){
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
       emoticonsUseImage: false,
+      imageResize: false,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
       },
-      imageEditButtons: ['imageReplace', 'imageAlign', 'imageRemove', '|','-','imageSize'],
+      imageEditButtons: ['imageReplace'],
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
       // Set max image size to 5MB.
       imageMaxSize: 3 * 1024 * 1024,
