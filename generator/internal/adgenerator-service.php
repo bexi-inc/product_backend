@@ -381,6 +381,12 @@ if(isset($_REQUEST["cmd"])){
         //$elementScript9->setAttribute('src', urldecode('https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-alpha.4/html2canvas.js'));
         $elementScript9->setAttribute('src', urldecode('https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-rc.5/html2canvas.js'));
         $elementScript9->setAttribute('data-editor', "true");
+        /**************   AUTOTEX **************/
+        $elementScript10 = $dom->createElement('script', '');
+        $elementScript10->setAttribute('type', urldecode('text/javascript'));
+        $elementScript10->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery.bb-textfitter.js'));
+        $elementScript10->setAttribute('data-editor', "true");
+
         //add style and script elements
         $head[0]->appendChild($elementStyle);
         $head[0]->appendChild($elementStyle2);
@@ -398,6 +404,7 @@ if(isset($_REQUEST["cmd"])){
         $head[0]->appendChild($elementScript7);
         $head[0]->appendChild($elementScript8);
         $head[0]->appendChild($elementScript9);
+        $head[0]->appendChild($elementScript10);
 
         //get body element
         $body = $dom->getElementsByTagName('body');
