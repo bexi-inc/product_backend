@@ -892,7 +892,8 @@ function auto_save(){
     var dom = document.implementation.createDocument('', 'html', doctype);
     
     var jq2 = jQuery(dom);
-    jq2.find('html').append(document.documentElement.innerHTML);
+    console.log(document.documentElement.innerHTML);
+    //jq2.find('html').append(document.documentElement.innerHTML);
     console.log(jq2.find('html').html());
     /*
     var pid=$("#codeId").val();
