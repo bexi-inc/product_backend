@@ -888,6 +888,13 @@ FroalaEditor.RegisterCommand('buttonbgcolor', {
 
 
 function auto_save(){
+    var doctype = document.implementation.createDocumentType( 'html', '', '');
+    var dom = document.implementation.createDocument('', 'html', doctype);
+    
+    var jq2 = jQuery(dom);
+    jq2.find('html').append(document.documentElement.innerHTML);
+
+    /*
     var pid=$("#codeId").val();
     var c=$("#modu_main").html();
     var cc=$("#modu_main").clone();
@@ -966,6 +973,7 @@ function auto_save(){
       success: function(data){
       }
     });
+    */
 };
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
