@@ -477,7 +477,7 @@ $(document).ready(function() {
       var num=Math.floor((Math.random() * 10000) + 1);
     $(this).prepend(
       '<button class="toolbtn remove" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 110;position: absolute; background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
-      '<button class="remove" data-tooltip="true" data-placement="top" title="Download Image" style="left:34px;z-index: 111;position: absolute; background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-download"></i></button>'+
+      '<button class="toolbtn remove" data-tooltip="true" data-placement="top" title="Download Image" onClick="createimg()" style="left:34px;z-index: 111;position: absolute; background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-download toolbtn"></i></button>'+
       '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 111;position: absolute; top: 30px; background-color: White;padding:10px;">'+
         '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
         '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
@@ -886,6 +886,17 @@ FroalaEditor.RegisterCommand('buttonbgcolor', {
 
     initialize_editors_text();
 });
+
+function createimg(){
+    html2canvas(document.querySelector("#maindiv") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
+      var dataURL = canvas.toDataURL();
+      var pid=$("#codeId").val();
+      var link = document.createElement('a');
+      link.download = pid+'.jpeg';
+      link.href = dataURL;
+      link.click();
+  });
+}
 
 
 function auto_save(){
