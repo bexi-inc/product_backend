@@ -1145,6 +1145,19 @@ function initialize_editors_text(){
           'contentChanged': function () {
             console.log("itworks");
             //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
+          },
+          'keyup': function (keyupEvent) {
+            $('.bexi_title').textfill({
+              maxFontPixels: 64,
+              changeLineHeight: true,
+              innerTag: "div",
+              success: function() {
+                console.log("yay!")
+              },
+              fail: function() {
+                  alert("boo hoo!")
+              }
+          });
           }
       }
     });
@@ -1239,6 +1252,19 @@ function initialize_editors_text(){
           },
           'contentChanged': function () {
             //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
+          },
+          'keyup': function (keyupEvent) {
+            $('.bexi_title').textfill({
+              maxFontPixels: 64,
+              changeLineHeight: true,
+              innerTag: "div",
+              success: function() {
+                console.log("yay!")
+              },
+              fail: function() {
+                  alert("boo hoo!")
+              }
+          });
           }
       }
     });
@@ -1398,6 +1424,19 @@ function initialize_editors_text(){
         'contentChanged': function () {
           //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           auto_save();
+        },
+        'keyup': function (keyupEvent) {
+          $('.bexi_title').textfill({
+            maxFontPixels: 64,
+            changeLineHeight: true,
+            innerTag: "div",
+            success: function() {
+              console.log("yay!")
+            },
+            fail: function() {
+                alert("boo hoo!")
+            }
+        });
         }
       }
     });
