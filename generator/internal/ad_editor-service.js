@@ -1151,11 +1151,12 @@ function initialize_editors_text(){
               maxFontPixels: 64,
               changeLineHeight: true,
               innerTag: "div",
+              debug: true,
               success: function() {
-                console.log("yay!")
+                console.log("yay!");
               },
               fail: function() {
-                  alert("boo hoo!")
+                console.log("yay!");
               }
           });
           }
