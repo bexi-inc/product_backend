@@ -1143,6 +1143,12 @@ function initialize_editors_text(){
             }
           },
           'initialized': function () {
+            $(".bexi_title").wrapInner("<div class='text-aux' style='line-height:1em;'></div>");
+            $('.bexi_title').textfill({
+              maxFontPixels: 64,
+              changeLineHeight: false,
+              innerTag: "div"
+            });
             styles_ptags();
           },
           'image.resizeEnd': function ($img) {
@@ -1476,14 +1482,6 @@ function initialize_editors_text(){
       }
     }
     });
-
-    $(".bexi_title").wrapInner("<div class='text-aux' style='line-height:1em;'></div>");
-    $('.bexi_title').textfill({
-      maxFontPixels: 64,
-      changeLineHeight: false,
-      innerTag: "div"
-    });
-
 /*
     var fitties = fitty('.bexi_title',{ minSize: 6,maxSize: 64 });
     // get element reference of first fitty
