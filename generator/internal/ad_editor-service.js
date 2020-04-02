@@ -1158,8 +1158,7 @@ function initialize_editors_text(){
             auto_save();
           },
           'contentChanged': function () {
-            console.log("itworks");
-            //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
+            auto_save();
           },
           'keyup': function (keyupEvent) {
             $('.bexi_title').textfill({
