@@ -102,11 +102,11 @@ if(isset($_REQUEST["cmd"])){
         $elementStyle2->setAttribute('data-css', "default-ad");
 
         /**************   AUTOTEX **************/
-        $elementScript1 = $dom->createElement('script', '');
+        $elementScript1 = $doc->createElement('script', '');
         $elementScript1->setAttribute('type', urldecode('text/javascript'));
         $elementScript1->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery.textfill.js'));
         $elementScript1->setAttribute('class', "text");
-        $elementScript2 = $dom->createElement('script', '
+        $elementScript2 = $doc->createElement('script', '
         $(document).ready(function() {
             $(".bexi_button").wrapInner("<div class="text-aux" style="line-height:1em;padding:25px;"></div>");
             $(".bexi_title").wrapInner("<div class="text-aux" style="line-height:1em;"></div>");
