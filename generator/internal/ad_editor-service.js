@@ -462,7 +462,7 @@ $(document).click(function(e) {
 });
 
 $(document).ready(function() {
-
+  $(".text-aux").unwrap();
   $(".bexi_button").wrapInner("<div class='text-aux' style='line-height:1em;padding:25px;'></div>");
     $( ".bexi_title" ).wrapInner( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
