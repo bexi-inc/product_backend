@@ -1142,6 +1142,7 @@ function initialize_editors_text(){
             auto_save();
           },
           'contentChanged': function () {
+            console.log("doit");
             $('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           }
       }
