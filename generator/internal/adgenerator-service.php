@@ -341,6 +341,11 @@ if(isset($_REQUEST["cmd"])){
         $elementStyle7->setAttribute('rel', urldecode('stylesheet'));
         $elementStyle7->setAttribute('href', urldecode('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css'));
         $elementStyle7->setAttribute('data-editor', "true");
+        /**************   CANVAS **************/
+        $elementScript9 = $dom->createElement('script', '');
+        $elementScript9->setAttribute('type', urldecode('text/javascript'));
+        $elementScript9->setAttribute('src', urldecode('https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-alpha.4/html2canvas.js'));
+        $elementScript9->setAttribute('data-editor', "true");
         //add style and script elements
         $head[0]->appendChild($elementStyle);
         $head[0]->appendChild($elementStyle2);
