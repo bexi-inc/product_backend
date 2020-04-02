@@ -893,7 +893,7 @@ function auto_save(){
     
     var jq2 = jQuery(dom);
     jq2.find('html').append(document.documentElement.innerHTML);
-
+    console.log(jq2.find('html').html());
     /*
     var pid=$("#codeId").val();
     var c=$("#modu_main").html();
