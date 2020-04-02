@@ -1151,7 +1151,6 @@ function initialize_editors_text(){
               maxFontPixels: 64,
               changeLineHeight: false,
               innerTag: "div",
-              debug: true,
               success: function() {
                 console.log("yay!");
                 var size=$(".bexi_title").find(".text-aux").css("font-size");
