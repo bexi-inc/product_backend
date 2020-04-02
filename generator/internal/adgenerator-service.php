@@ -378,7 +378,8 @@ if(isset($_REQUEST["cmd"])){
         /**************   CANVAS **************/
         $elementScript9 = $dom->createElement('script', '');
         $elementScript9->setAttribute('type', urldecode('text/javascript'));
-        $elementScript9->setAttribute('src', urldecode('https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-alpha.4/html2canvas.js'));
+        //$elementScript9->setAttribute('src', urldecode('https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-alpha.4/html2canvas.js'));
+        $elementScript9->setAttribute('src', urldecode('https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-rc.5/html2canvas.js'));
         $elementScript9->setAttribute('data-editor', "true");
         //add style and script elements
         $head[0]->appendChild($elementStyle);
