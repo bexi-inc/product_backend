@@ -1154,6 +1154,8 @@ function initialize_editors_text(){
               debug: true,
               success: function() {
                 console.log("yay!");
+                var size=$(".bexi_title").find(".text-aux").css("font-size");
+                $(".bexi_title").css("line-height",size)
               },
               fail: function() {
                 console.log("trono");
@@ -1510,7 +1512,7 @@ function initialize_editors_text(){
 
     fitty('.bexi_button');
   */
-    $(".bexi_title").wrapInner("<div></div>");
+    $(".bexi_title").wrapInner("<div class='text-aux'></div>");
     $('.bexi_title').textfill({
         maxFontPixels: 64,
         changeLineHeight: true,
