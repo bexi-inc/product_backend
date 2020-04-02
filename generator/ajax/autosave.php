@@ -1,7 +1,4 @@
 <?
-header("Access-Control-Allow-Origin: http://internal.bexi.ai");
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept');
 include "../config.php";
 require '../vendor/autoload.php';
 
