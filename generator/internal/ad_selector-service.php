@@ -137,6 +137,28 @@ Crew\Unsplash\HttpClient::init([
 	  z-index: 999;
 	}/*	  background-color: rgba(0,0,0,0.3); */
 
+
+	.select {
+	  position: absolute;
+	  top: 5%;
+	  z-index: 9999;
+	  background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+	}
+
+	.select:hover {
+	background-color:#5cbf2a;
+	}
+
 	/* Position the "next button" to the right */
 	.selector_next {
 	  margin-right:15px;
@@ -218,6 +240,8 @@ Crew\Unsplash\HttpClient::init([
 </head>
 <body>
 <div class="main_selector">
+	<!-- Select button -->
+	<a class="select hidden" onclick="select_edit()">Select</a>
 	<!-- Next and previous buttons -->
 	<a class="selector_prev hidden" onclick="plusSlides(1)"></a>
 	<a class="selector_next" onclick="plusSlides(-1)"></a>
