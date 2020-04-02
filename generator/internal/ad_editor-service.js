@@ -1147,22 +1147,7 @@ function initialize_editors_text(){
             //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           },
           'keyup': function (keyupEvent) {
-            $('.bexi_title').textfill({
-              maxFontPixels: 64,
-              changeLineHeight: false,
-              innerTag: "div",
-              success: function() {
-
-              },
-              fail: function() {
-                console.log("trono");
-              },
-              complete: function(){
-                console.log("yay!");
-                var size=$(".bexi_title").find(".text-aux").css("font-size");
-                $(".bexi_title").css("line-height",size)
-              }
-          });
+            $(".bexi_title").css("white-space","pre-wrap");
           }
       }
     });
@@ -1259,17 +1244,7 @@ function initialize_editors_text(){
             //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           },
           'keyup': function (keyupEvent) {
-            $('.bexi_title').textfill({
-              maxFontPixels: 64,
-              changeLineHeight: true,
-              innerTag: "div",
-              success: function() {
-                console.log("yay!")
-              },
-              fail: function() {
-                  alert("boo hoo!")
-              }
-          });
+
           }
       }
     });
@@ -1431,17 +1406,7 @@ function initialize_editors_text(){
           auto_save();
         },
         'keyup': function (keyupEvent) {
-          $('.bexi_title').textfill({
-            maxFontPixels: 64,
-            changeLineHeight: true,
-            innerTag: "div",
-            success: function() {
-              console.log("yay!")
-            },
-            fail: function() {
-                alert("boo hoo!")
-            }
-        });
+
         }
       }
     });
@@ -1495,7 +1460,7 @@ function initialize_editors_text(){
     }
     });
 
-/*
+
     var fitties = fitty('.bexi_title',{ minSize: 6,maxSize: 64 });
 
     // get element reference of first fitty
@@ -1509,22 +1474,28 @@ function initialize_editors_text(){
 
       // log the detail property to the console
       console.log(e.detail);
-      $(".bexi_title").css("white-space","pre-wrap");
     });
 
     fitty('.bexi_button');
-  */
+  
+ /*
     $(".bexi_title").wrapInner("<div class='text-aux'></div>");
-    $('.bexi_title').textfill({
+      $('.bexi_title').textfill({
         maxFontPixels: 64,
-        changeLineHeight: true,
+        changeLineHeight: false,
         innerTag: "div",
         success: function() {
-          console.log("yay!")
+
         },
         fail: function() {
-            alert("boo hoo!")
+          console.log("trono");
+        },
+        complete: function(){
+          console.log("yay!");
+          var size=$(".bexi_title").find(".text-aux").css("font-size");
+          $(".bexi_title").css("line-height",size)
         }
     });
+    */
 
 }
