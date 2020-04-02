@@ -892,7 +892,7 @@ function auto_save(){
     var dom = document.implementation.createDocument('', 'html', doctype);
     
     var jq2 = jQuery(dom);
-    var inner=document.documentElement.innerHTML;
+    var inner=document.documentElement.innerHTML.toString();
     jq2.find('html').append(inner);
     console.log(jq2.find('html').html());
     /*
