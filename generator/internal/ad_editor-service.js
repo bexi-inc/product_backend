@@ -1465,8 +1465,8 @@ function initialize_editors_text(){
 
       // log the detail property to the console
       console.log("doit");
-      $(".bexi_title").css("white-space","normal !important");
+      $(".bexi_title").css("white-space","normal");
     });
-    
+
     fitty('.bexi_button');
 }
