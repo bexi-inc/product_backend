@@ -33,7 +33,7 @@ function icon_manager(ID,numpag)
   if(keys!="")
   {
     request=$.ajax({
-      url: "load_icons.php",
+      url: "http://generator.bexi.ai/load_icons.php",
       data: { key: keys, npag : numpag} ,
       datatype:"json",
       success: function(data){
@@ -136,7 +136,7 @@ function Manager_unsplash2(ID,numpag)
   if(keys!="")
   {
     request=$.ajax({
-      url: "load_images.php",
+      url: "http://generator.bexi.ai/load_images.php",
       data: { key: keys, npag : numpag} ,
       datatype:"json",
       success: function(data){
@@ -239,7 +239,7 @@ function Manager_unsplash(ID,numpag)
   if(keys!="")
   {
     request=$.ajax({
-      url: "load_images.php",
+      url: "http://generator.bexi.ai/load_images.php",
       data: { key: keys, npag : numpag} ,
       datatype:"json",
       success: function(data){
@@ -893,24 +893,21 @@ function auto_save(){
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
 function save_img(TAGID,FILE){
-  /*
   var newDiv = $(document.createElement('div'));
   newDiv.attr("class","C align-items-center");
   newDiv.html(
   "<img src='./img/uploading.gif' width='50px' height='50px'>"+
   "<spam>Uploading...</spam>"
     );
-  var did=$("#devId").val();
   var pid=$("#codeId").val();
-  var uid=$("#userId").val();
+  var uid="-100";
   var data = new FormData();
-  data.append("devid",did);
   data.append("file",FILE);
   data.append("userid",uid);
   data.append("projectid",pid);
   data.append("tagid",TAGID);
   var request=$.ajax({
-    url: "./ajax/uploadfile.php",
+    url: "http://generator.bexi.ai/ajax/uploadfile.php",
     data: data,
     processData: false,
     contentType: false,
@@ -935,7 +932,6 @@ function save_img(TAGID,FILE){
      }
   });
   return request;
-  */
 }
 
 
@@ -993,10 +989,10 @@ function initialize_editors_text(){
       imageUploadParam: 'file',
 
       // Set the image upload URL.
-      imageUploadURL: './ajax/uploadfile.php',
+      imageUploadURL: 'http://generator.bexi.ai/ajax/uploadfile.php',
 
       // Additional upload params.
-      imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+      imageUploadParams: {userid:"-100",projectid:$("#codeId").val(),tagid:""},
 
       // Set request type.
       imageUploadMethod: 'POST',
@@ -1084,10 +1080,10 @@ function initialize_editors_text(){
       imageUploadParam: 'file',
 
       // Set the image upload URL.
-      imageUploadURL: './ajax/uploadfile.php',
+      imageUploadURL: 'http://generator.bexi.ai/ajax/uploadfile.php',
   
       // Additional upload params.
-      imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+      imageUploadParams: {userid:"-100",projectid:$("#codeId").val(),tagid:""},
   
       // Set request type.
       imageUploadMethod: 'POST',
