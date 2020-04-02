@@ -20,9 +20,8 @@
                 dataType: "json",
                 type: 'POST',
             }).done(function (data, textStatus, jqXHR) {
-                console.log(data);
                 data["contents"].forEach(element => {
-                    $("#radio-buttons").append('<div class="row m-0"><input type="radio" class="form-check-input" name="project-input" id="'+element.id+'" ><label class="form-check-label" for="'+element.id+'">Id:'+element.id+'\t Project Name:'+element.code+'</label></div>');
+                    $("#radio-buttons").append('<div class="row m-0"><input type="radio" class="form-check-input" name="project-input" id="'+element.id+'" ><label class="form-check-label" for="'+element.id+'">Id:'+element.id+'&emsp; Project Name:'+element.code+'</label></div>');
                 });
             });
 
