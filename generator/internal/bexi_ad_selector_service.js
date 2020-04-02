@@ -85,7 +85,7 @@ function frameload(ID){
 
 function select_edit(){
   var id=$("#pre-thumbnail").find(".FrameSelected").find("iframe").attr("modu-id");
-  window.location.href = 'http://internal.bexi.ai/adgenerator-service.php?'+"cmd=editor&user=-100&codename=0&create=true&codeid="+id;
+  window.location.href = 'http://internal.bexi.ai/adgenerator-service.php?'+"cmd=editor&user=-100&codename="+Codename+"&create=true&codeid="+id;
 }
 
 function AddNewProject()
