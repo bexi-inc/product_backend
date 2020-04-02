@@ -1465,8 +1465,6 @@ function initialize_editors_text(){
 
       // log the detail property to the console
       console.log(e.detail);
-    }).then(function(){
-      console.log("doit");
       $(".bexi_title").css("white-space","pre-wrap");
     });
 
