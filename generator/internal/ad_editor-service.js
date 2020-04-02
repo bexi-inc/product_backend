@@ -464,12 +464,6 @@ $(document).click(function(e) {
 $(document).ready(function() {
   $(".text-aux").contents().unwrap();
   $(".bexi_button").wrapInner("<div class='text-aux' style='line-height:1em;padding:25px;'></div>");
-  $(".bexi_title").wrapInner("<div class='text-aux' style='line-height:1em;'></div>");
-  $('.bexi_title').textfill({
-    maxFontPixels: 64,
-    changeLineHeight: false,
-    innerTag: "div"
-  });
 
   $('.bexi_button').textfill({
     maxFontPixels: 30,
@@ -1481,6 +1475,13 @@ function initialize_editors_text(){
         auto_save();
       }
     }
+    });
+
+    $(".bexi_title").wrapInner("<div class='text-aux' style='line-height:1em;'></div>");
+    $('.bexi_title').textfill({
+      maxFontPixels: 64,
+      changeLineHeight: false,
+      innerTag: "div"
     });
 
 /*
