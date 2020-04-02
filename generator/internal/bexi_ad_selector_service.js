@@ -82,6 +82,11 @@ function frameload(ID){
   $("#pre-thumbnail").css("top",(slideIndex-1)*size+"px");
 });
 
+function select_edit(){
+  var id=$("#pre-thumbnail").find(".FrameSelected").find("iframe").attr("modu-id");
+  console.log(id);
+}
+
 function AddNewProject()
     {
       //Revisamos si se han agregado menos de 2 sliders y si se han agregado menos de 2
