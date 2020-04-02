@@ -1148,7 +1148,22 @@ function initialize_editors_text(){
             //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           },
           'keyup': function (keyupEvent) {
-            resize(window.bexi_fontsize);
+            $('.bexi_title').textfill({
+                maxFontPixels: 64,
+                changeLineHeight: false,
+                innerTag: "div",
+                success: function() {
+        
+                },
+                fail: function() {
+                  console.log("trono");
+                },
+                complete: function(){
+                  console.log("yay!");
+                  var size=$(".bexi_title").find(".text-aux").css("font-size");
+                  $(".bexi_title").css("font-size",size)
+                }
+            });
           }
       }
     });
@@ -1461,7 +1476,7 @@ function initialize_editors_text(){
     }
     });
 
-
+/*
     var fitties = fitty('.bexi_title',{ minSize: 6,maxSize: 64 });
     // get element reference of first fitty
     var myFittyElement = fitties[0].element;
@@ -1478,9 +1493,10 @@ function initialize_editors_text(){
     });
 
     fitty('.bexi_button');
-  
- /*
+  */
+ 
     $(".bexi_title").wrapInner("<div class='text-aux'></div>");
+    $(".bexi_title").css("line-height","1em");
       $('.bexi_title').textfill({
         maxFontPixels: 64,
         changeLineHeight: false,
@@ -1494,10 +1510,10 @@ function initialize_editors_text(){
         complete: function(){
           console.log("yay!");
           var size=$(".bexi_title").find(".text-aux").css("font-size");
-          $(".bexi_title").css("line-height",size)
+          $(".bexi_title").css("font-size",size)
         }
     });
-    */
+
 
 }
 
