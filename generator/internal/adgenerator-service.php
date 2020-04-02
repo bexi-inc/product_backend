@@ -82,7 +82,7 @@ if(isset($_REQUEST["cmd"])){
         $code = ob_get_contents ();
 
         ob_end_clean();
-
+        /****************** get unsplash imgs **************/
         $code=setImages($code,$_REQUEST["keywords"]);
         $doc = new DOMDocument();
         $doc->registerNodeClass('DOMElement', 'JSLikeHTMLElement');
@@ -122,7 +122,7 @@ if(isset($_REQUEST["cmd"])){
 
 
 
-        /****************** Change and get unsplash imgs **************/
+        /****************** Change unsplash imgs quality **************/
             $tags = $doc->getElementsByTagName('img');
             foreach ($tags as $tag) {
                 $src = $tag->getAttribute('src');
@@ -274,6 +274,40 @@ if(isset($_REQUEST["cmd"])){
 		$dom->loadHTML($content);
 		libxml_use_internal_errors(false);
         $dom->preserveWhiteSpace = false;
+
+
+        /****************** Change unsplash imgs quality **************/
+        $tags = $dom->getElementsByTagName('img');
+        foreach ($tags as $tag) {
+            $src = $tag->getAttribute('src');
+            if (stripos($src,"https://images.unsplash.com")!==false)
+            {
+                $url = parse_url($src);
+                parse_str($url["query"],$result_array);
+                $result_array['q']=100;
+                $src = urldecode($url["scheme"]."://".$url["host"].$url["path"]."?".http_build_query($result_array));
+                $tag->SetAttribute('src',$src);
+            }
+        }
+
+        $tags=$dom->getElementsByTagName('div');
+        foreach ($tags as $tag) {
+            $class = $tag->getAttribute('class');
+            if (stripos($class,"transpa-bg")!==false)
+            {
+                $style = $tag->getAttribute('style');
+                $src=get_string_between($style,"url('","');");
+                if (stripos($src,"https://images.unsplash.com")!==false)
+                {
+                    $url = parse_url($src);
+                    parse_str($url["query"],$result_array);
+                    $result_array['q']=100;
+                    $src = urldecode($url["scheme"]."://".$url["host"].$url["path"]."?".http_build_query($result_array));
+                    $newstyle=set_string_between($style,"url('","');",$src);
+                    $tag->SetAttribute('style',$newstyle);
+                }
+            }
+        }
 
         //get head element
         $head = $dom->getElementsByTagName('head');
