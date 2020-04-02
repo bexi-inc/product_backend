@@ -1451,7 +1451,7 @@ function initialize_editors_text(){
     }
     });
 
-
+/*
     var fitties = fitty('.bexi_title',{ minSize: 6,maxSize: 64 });
 
     // get element reference of first fitty
@@ -1469,4 +1469,16 @@ function initialize_editors_text(){
     });
 
     fitty('.bexi_button');
+  */
+    $('.bexi_title').textfill({
+        maxFontPixels: 64,
+        changeLineHeight: true,
+        success: function() {
+          console.log("yay!")
+        },
+        fail: function() {
+            alert("boo hoo!")
+        }
+    });
+
 }
