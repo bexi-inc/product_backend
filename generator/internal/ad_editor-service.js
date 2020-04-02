@@ -1158,8 +1158,6 @@ function initialize_editors_text(){
                 },
                 complete: function(){
                   console.log("yay!");
-                  var size=$(".bexi_title").find(".text-aux").css("font-size");
-                  $(".bexi_title").css("font-size",size)
                 }
             });
           },
@@ -1495,7 +1493,7 @@ function initialize_editors_text(){
     fitty('.bexi_button');
   */
  
-    $(".bexi_title").wrapInner("<div class='text-aux'></div>");
+    $(".bexi_title").wrapInner("<div class='text-aux' style='line-height:1em;'></div>");
     $(".bexi_title").css("line-height","1em");
       $('.bexi_title').textfill({
         maxFontPixels: 64,
@@ -1509,8 +1507,6 @@ function initialize_editors_text(){
         },
         complete: function(){
           console.log("yay!");
-          var size=$(".bexi_title").find(".text-aux").css("font-size");
-          $(".bexi_title").css("font-size",size)
         }
     });
 
