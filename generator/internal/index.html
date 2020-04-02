@@ -30,6 +30,18 @@
                 $("#edit-project").prop("disabled",false);
             });
 
+            $("#edit-project").click(get_radio());
+
+            function get_radio(){
+
+                var radios = document.getElementsByName('project-input');
+                var out="";
+                for (var i = 0, length = radios.length; i < length; i++) {
+                    if (radios[i].checked) {
+                        console.log(radios[i]);
+                    }
+                }
+            }
 
 
         });
