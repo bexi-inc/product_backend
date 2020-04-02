@@ -1143,7 +1143,7 @@ function initialize_editors_text(){
             auto_save();
           },
           'contentChanged': function () {
-            console.log("doit");
+            console.log("itworks");
             //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           }
       }
@@ -1452,10 +1452,21 @@ function initialize_editors_text(){
     });
 
 
-    fitty('.bexi_title',{
-      minSize: 6,
-      maxSize: 64
+    var fitties = fitty('.bexi_title',{ minSize: 6,maxSize: 64 });
+
+    // get element reference of first fitty
+    var myFittyElement = fitties[0].element;
+
+    // force refit
+    fitties[0].fit();
+
+
+    myFittyElement.addEventListener('fit', function(e) {
+
+      // log the detail property to the console
+      console.log("doit");
+      $(".bexi_title").css("white-space","normal !important");
     });
-    $(".bexi_title").css("white-space","normal !important");
+    
     fitty('.bexi_button');
 }
