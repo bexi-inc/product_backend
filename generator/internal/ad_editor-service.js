@@ -1464,9 +1464,10 @@ function initialize_editors_text(){
     myFittyElement.addEventListener('fit', function(e) {
 
       // log the detail property to the console
-      console.log("doit");
       console.log(e.detail);
-      //$(".bexi_title").css("white-space","normal");
+    }).then(function(){
+      console.log("doit");
+      $(".bexi_title").css("white-space","pre-wrap");
     });
 
     fitty('.bexi_button');
