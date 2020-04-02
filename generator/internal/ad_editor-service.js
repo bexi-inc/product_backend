@@ -1149,14 +1149,14 @@ function initialize_editors_text(){
           'keyup': function (keyupEvent) {
             $('.bexi_title').textfill({
               maxFontPixels: 64,
-              changeLineHeight: true,
+              changeLineHeight: false,
               innerTag: "div",
               debug: true,
               success: function() {
                 console.log("yay!");
               },
               fail: function() {
-                console.log("yay!");
+                console.log("trono");
               }
           });
           }
