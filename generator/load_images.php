@@ -1,5 +1,5 @@
 <?
-
+header("Access-Control-Allow-Origin: http://internal.bexi.ai/");
 include "config.php";
 require 'vendor/autoload.php';
 
