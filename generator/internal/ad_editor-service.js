@@ -1452,6 +1452,9 @@ function initialize_editors_text(){
     });
 
 
-    fitty('.bexi_title');
+    fitty('.bexi_title',{
+      minSize: 6,
+      maxSize: 64
+    });
     fitty('.bexi_button');
 }
