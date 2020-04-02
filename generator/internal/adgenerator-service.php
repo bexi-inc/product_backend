@@ -366,6 +366,7 @@ if(isset($_REQUEST["cmd"])){
         $input->setAttribute('id', "codeId");
         $input->setAttribute('value',$_REQUEST["codeid"]);
         $input->setAttribute('data-editor', "true");
+        $input->setAttribute('type', "hidden");
         $body[0]->appendChild($input);
 
         echo $dom->savehtml();
