@@ -1142,7 +1142,7 @@ function initialize_editors_text(){
             auto_save();
           },
           'contentChanged': function () {
-            $('.bexi_title, .bexi_subtitle').bbFitText();
+            $('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           }
       }
     });
@@ -1236,7 +1236,7 @@ function initialize_editors_text(){
             auto_save();
           },
           'contentChanged': function () {
-            $('.bexi_title, .bexi_subtitle').bbFitText();
+            $('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           }
       }
     });
@@ -1394,6 +1394,7 @@ function initialize_editors_text(){
           styles_ptags();
         },
         'contentChanged': function () {
+          $('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           auto_save();
         }
       }
