@@ -101,10 +101,35 @@ if(isset($_REQUEST["cmd"])){
         $elementStyle2->setAttribute('href', urldecode('http://generator.bexi.ai/css/bexi_ad.css'));
         $elementStyle2->setAttribute('data-css', "default-ad");
 
+        /**************   AUTOTEX **************/
+        $elementScript1 = $dom->createElement('script', '');
+        $elementScript1->setAttribute('type', urldecode('text/javascript'));
+        $elementScript1->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery.textfill.js'));
+        $elementScript1->setAttribute('class', "text");
+        $elementScript2 = $dom->createElement('script', '
+        $(document).ready(function() {
+            $(".bexi_button").wrapInner("<div class="text-aux" style="line-height:1em;padding:25px;"></div>");
+            $(".bexi_title").wrapInner("<div class="text-aux" style="line-height:1em;"></div>");
+            $(".bexi_title").textfill({
+                maxFontPixels: 64,
+                changeLineHeight: false,
+                innerTag: "div"
+              });
+              $(".bexi_button").textfill({
+                maxFontPixels: 30,
+                changeLineHeight: false,
+                innerTag: "div"
+              });
+        });
+        ');
+        $elementScript2->setAttribute('type', urldecode('text/javascript'));
+        $elementScript2->setAttribute('class', "text");
+
         //add style and script elements
         $head[0]->appendChild($elementStyle1);
         $head[0]->appendChild($elementStyle2);
-
+        $head[0]->appendChild($elementScript1);
+        $head[0]->appendChild($elementScript2);
         /************************** Reemplace inner text  ***************/
         $tags = $doc->getElementsByTagName('div');
         foreach ($tags as $tag) {
@@ -307,6 +332,16 @@ if(isset($_REQUEST["cmd"])){
                     $newstyle=set_string_between($style,"url('","');",$src);
                     $tag->SetAttribute('style',$newstyle);
                 }
+            }
+        }
+
+        /*********************** DELETE ADITIONAL AUTOTEXT SCRIPTS ********************/
+        $tags=$dom->getElementsByTagName('script');
+        foreach ($tags as $tag) {
+            $class = $tag->getAttribute('class');
+            if (stripos($class,"text")!==false)
+            {
+                $tag->parentNode->removeChild($tag);
             }
         }
 
