@@ -358,6 +358,16 @@ if(isset($_REQUEST["cmd"])){
         $head[0]->appendChild($elementScript7);
         $head[0]->appendChild($elementScript8);
 
+
+        //get body element
+        $body = $dom->getElementsByTagName('body');
+        //create input element
+        $input = $dom->createElement('input', '');
+        $input->setAttribute('id', "codeId");
+        $input->setAttribute('value',$_REQUEST["codeid"]);
+        $input->setAttribute('data-editor', "true");
+        $body[0]->appendChild($input);
+
         echo $dom->savehtml();
     }
     if($_REQUEST["cmd"]=="getprojects"){
