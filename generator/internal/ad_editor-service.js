@@ -962,6 +962,7 @@ function auto_save(){
         $(this).remove();
       }
     });
+    cc.find('[data-editor="true"]').remove();
     console.log(cc.find('html').html());
     /*
     var request=$.ajax({
