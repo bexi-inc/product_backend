@@ -461,6 +461,7 @@ $(document).click(function(e) {
 });
 
 $(document).ready(function() {
+
     $( ".bexi_title" ).wrapInner( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
     $( ".bexi_subtitle" ).wrapInner( "<div class='bexi_editor_subtitle'  style='width: 100%;'></div>" );
@@ -1143,7 +1144,7 @@ function initialize_editors_text(){
           },
           'contentChanged': function () {
             console.log("doit");
-            $('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
+            //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           }
       }
     });
@@ -1237,7 +1238,7 @@ function initialize_editors_text(){
             auto_save();
           },
           'contentChanged': function () {
-            $('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
+            //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           }
       }
     });
@@ -1395,7 +1396,7 @@ function initialize_editors_text(){
           styles_ptags();
         },
         'contentChanged': function () {
-          $('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
+          //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           auto_save();
         }
       }
@@ -1449,4 +1450,8 @@ function initialize_editors_text(){
       }
     }
     });
+
+
+    fitty('.bexi_title');
+    fitty('.bexi_button');
 }
