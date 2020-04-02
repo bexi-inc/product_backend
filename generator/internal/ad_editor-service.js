@@ -888,12 +888,10 @@ FroalaEditor.RegisterCommand('buttonbgcolor', {
 
 
 function auto_save(){
-    var doctype = document.implementation.createDocumentType( 'html', '', '');
-    var dom = document.implementation.createDocument('', 'html', doctype);
-    
-    var jq2 = jQuery(dom);
-    var inner=document.documentElement.innerHTML.toString();
-    jq2.find('html').append(inner);
+    var inner="<!DOCTYPE "+document.doctype.name+">"+document.documentElement.outerHTML;
+    parser = new DOMParser();
+    doc = parser.parseFromString(inner, "text/html");
+    var jq2 = jQuery(doc);
     console.log(jq2.find('html').html());
     /*
     var pid=$("#codeId").val();
