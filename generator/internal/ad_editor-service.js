@@ -891,12 +891,10 @@ function auto_save(){
     var inner="<!DOCTYPE "+document.doctype.name+">"+document.documentElement.outerHTML;
     parser = new DOMParser();
     doc = parser.parseFromString(inner, "text/html");
-    var jq2 = jQuery(doc);
-    console.log(jq2.find('html').html());
-    /*
+    var cc = jQuery(doc);
+    console.log(cc.find('html').html());
+
     var pid=$("#codeId").val();
-    var c=$("#modu_main").html();
-    var cc=$("#modu_main").clone();
     cc.find(".remove").remove();
     cc.find('.bexi_editor_icon').contents().unwrap();
     cc.find('.bexi_editor_video').contents().unwrap();
@@ -964,6 +962,8 @@ function auto_save(){
         $(this).remove();
       }
     });
+    console.log(cc.find('html').html());
+    /*
     var request=$.ajax({
       url: "adgenerator-service.php",
       data: { cmd:"autosave",codeid : pid,code:cc.html()} ,
