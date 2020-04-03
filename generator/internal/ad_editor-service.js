@@ -917,6 +917,7 @@ function auto_save(){
 
     var pid=$("#codeId").val();
     cc.find(".remove").remove();
+    cc.find(".ui-front").remove();
     cc.find("text-aux").contents().unwrap();
     cc.find('.bexi_editor_icon').contents().unwrap();
     cc.find('.bexi_editor_video').contents().unwrap();
