@@ -85,7 +85,7 @@ Crew\Unsplash\HttpClient::init([
         height: calc(var(--height) * var(--zoom-factor));
         display: inline-block;
         position: relative;
-        margin-right: 20px;
+        margin: 20px;
       }
       .bexi_sliders {
         display: flex;
