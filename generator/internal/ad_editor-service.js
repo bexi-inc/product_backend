@@ -899,6 +899,20 @@ FroalaEditor.RegisterCommand('buttonbgcolor', {
 
 function createimg(){
   $(".remove").attr("data-html2canvas-ignore","true");
+
+  $("img").each(function(){
+    var newDiv = $(document.createElement('div'));
+    newDiv.attr("data-copy", "true");
+    newDiv.attr("style",$(this).attr("style"));
+    newDiv.attr("css",$(this).attr("css"));
+    newDiv.css("background","url("+$(this).attr("src")+") no-repeat");
+    newDiv.css("background-size","cover");
+
+    $(this).css("display","none");
+    $(this).parent().append(newDiv);
+
+  });
+
     html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
       var dataURL = canvas.toDataURL();
       var pid=$("#codeId").val();
@@ -907,6 +921,10 @@ function createimg(){
       link.href = dataURL;
       link.click();
   });
+  $('[data-copy="true"]').remove();
+  $("img").css("display","")
+
+
 }
 
 
