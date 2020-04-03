@@ -59,7 +59,7 @@ Crew\Unsplash\HttpClient::init([
       }
       .thumbnail {
         position: relative;
-        display: table-caption;
+        display: table;
 		width: var(--width);
         height: var(--height);
         -ms-zoom: var(--zoom-factor);
