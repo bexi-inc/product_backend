@@ -108,8 +108,8 @@ if(isset($_REQUEST["cmd"])){
         $elementScript1->setAttribute('class', "text");
         $elementScript2 = $doc->createElement('script', '
         $(document).ready(function() {
-            $(".bexi_button").wrapInner("<div class=\'text-aux\' style=\'line-height:1em;padding:25px;\'></div>");
-            $(".bexi_title").wrapInner("<div class=\'text-aux\' style=\'line-height:1em;\'></div>");
+            $(".bexi_button").wrapInner("<div class=\'text-aux\' style=\'line-height:0.9em;padding:25px;\'></div>");
+            $(".bexi_title").wrapInner("<div class=\'text-aux\' style=\'line-height:0.9em;\'></div>");
             $(".bexi_title").textfill({
                 maxFontPixels: 64,
                 changeLineHeight: false,
