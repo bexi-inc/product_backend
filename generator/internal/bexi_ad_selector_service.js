@@ -76,11 +76,13 @@ function frameload(ID){
 
  $(window).on('resize', function(){
   document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
+  /*
   var size=$(".thumbnail-container").width()+20;
   $("#pre-thumbnail").css('-webkit-transform',"translateX(-"+(slideIndex-1)*size+"px)");
   $("#pre-thumbnail").css('-moz-transform',"translateX(-"+(slideIndex-1)*size+"px)");
   $("#pre-thumbnail").css('transform',"translateX(-"+(slideIndex-1)*size+"px)");
   $("#pre-thumbnail").css("top",(slideIndex-1)*size+"px");
+  */
 });
 
 function select_edit(){
