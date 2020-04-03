@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Davis Sans';
+    src: url('DavisSans-Light.woff2') format('woff2'),
+        url('DavisSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Davis Sans';
+    src: url('DavisSans-Italic.woff2') format('woff2'),
+        url('DavisSans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Davis Sans';
+    src: url('DavisSans-Regular.woff2') format('woff2'),
+        url('DavisSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Davis Sans';
+    src: url('DavisSans-Medium.woff2') format('woff2'),
+        url('DavisSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Davis Sans';
+    src: url('DavisSans-Bold.woff2') format('woff2'),
+        url('DavisSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Davis Sans';
+    src: url('DavisSans-MediumItalic.woff2') format('woff2'),
+        url('DavisSans-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Davis Sans';
+    src: url('DavisSans-BoldItalic.woff2') format('woff2'),
+        url('DavisSans-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Davis Sans';
+    src: url('DavisSans-LightItalic.woff2') format('woff2'),
+        url('DavisSans-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
