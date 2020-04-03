@@ -92,13 +92,11 @@ Crew\Unsplash\HttpClient::init([
         flex-flow: row wrap;
         align-items: center;
         height: 100vh;
-		overflow:hidden;
-      }
+      }/*overflow:hidden; */
 
 	  .pre-thumbnail{
-		  white-space:nowrap;
 		  padding-left:20px;
-	  }
+	  }/*white-space:nowrap; */
 
 	/* This pseudo element masks the iframe, so that mouse wheel scrolling and clicking do not affect the simulated "screenshot" */
 	/*.thumbnail:after {
@@ -212,11 +210,12 @@ Crew\Unsplash\HttpClient::init([
 		cursor:pointer;
 	}
 
+	/*
 	.project_inactive
 	{
 		opacity : 0.2;
 	}
-
+	*/
 	.visible{
 		visibility: visible;
 	}
