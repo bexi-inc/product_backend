@@ -167,6 +167,8 @@ function AddNewProject()
   AddNewProject();
   AddNewProject();
   AddNewProject();
+  AddNewProject();
+  AddNewProject();
 
   /*
   var n=1;
