@@ -144,6 +144,21 @@ function AddNewProject()
     }
 
  $(function() {
+
+  var win = $(window);
+
+	// Each time the user scrolls
+	win.scroll(function() {
+		// End of the document reached?
+		if ($(document).height() - win.height() == win.scrollTop()) {
+			
+        AddNewProject();
+        AddNewProject();
+        AddNewProject();
+        AddNewProject();
+		}
+	});
+
 //Set Variables 
    document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
    //document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.5) + "px");
