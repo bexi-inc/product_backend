@@ -137,7 +137,7 @@ Crew\Unsplash\HttpClient::init([
 
 
 	.select {
-	  position: absolute;
+	  position: fixed;
 	  top: 5%;
 	  left:15px;
 	  z-index: 9999;
