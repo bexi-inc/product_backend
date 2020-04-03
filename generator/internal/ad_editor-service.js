@@ -912,7 +912,7 @@ function createimg(){
     $(this).parent().append(newDiv);
     $(this).attr("data-html2canvas-ignore","true");
   });
-
+  /*
     html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
       var dataURL = canvas.toDataURL();
       var pid=$("#codeId").val();
@@ -921,6 +921,7 @@ function createimg(){
       link.href = dataURL;
       link.click();
   });
+*/
   $('[data-copy="true"]').remove();
   $("img").css("display","")
   $(this).removeAttr("data-html2canvas-ignore");
