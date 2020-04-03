@@ -917,6 +917,7 @@ function auto_save(){
 
     var pid=$("#codeId").val();
     cc.find(".remove").remove();
+    cc.find(".ui-front").remove();
     cc.find("text-aux").contents().unwrap();
     cc.find('.bexi_editor_icon').contents().unwrap();
     cc.find('.bexi_editor_video').contents().unwrap();
@@ -1056,16 +1057,8 @@ function styles_ptags(){
 
 function initialize_editors_text(){
 
-  //t1maxchar=Math.round(t1maxchar);
-  //console.log(t1size);
-
-  //t2maxchar=Math.round(t2maxchar);
-  //console.log(t2size);
-
-  //buttonmaxchar=Math.round(buttonmaxchar);
     var editortitles = new FroalaEditor('.bexi_editor_title',
     {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
@@ -1073,8 +1066,6 @@ function initialize_editors_text(){
       quickInsertEnabled: false,
       toolbarInline: true,
       charCounterCount: true,
-      //charCounterMax: t1maxchar,
-      //fontSize: t1size,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
@@ -1172,7 +1163,6 @@ function initialize_editors_text(){
 
     var editorsubtitles = new FroalaEditor('.bexi_editor_subtitle',
     {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
@@ -1180,8 +1170,6 @@ function initialize_editors_text(){
       quickInsertEnabled: false,
       toolbarInline: true,
       charCounterCount: true,
-      //charCounterMax: t2maxchar,
-      //fontSize: t2size,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
@@ -1271,7 +1259,6 @@ function initialize_editors_text(){
 
     var editorimg = new FroalaEditor('.bexi_img',
     {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
@@ -1300,6 +1287,7 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
+        console.log(images[0]);
         if(images[0].size<=(3 * 1024 * 1024))
         {
           var res=save_img(window.bexi_tagid,images[0]);
