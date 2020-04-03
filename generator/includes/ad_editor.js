@@ -469,7 +469,7 @@ $(document).ready(function() {
         $(this).wrapInner( "<div class='bexi_editor_text' id='ed_" + $(this).attr('id') + "''></div>" );
     });
 
-    $( ".bexi_button" ).wrap( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
+    $( ".bexi_button" ).wrapInner( "<div class='bexi_editor_button' style='width: 100%;'></div>" );
 
     $('.bexi_icon').wrapInner( '<p class="bexi_editor_icon" ></p>');
     
