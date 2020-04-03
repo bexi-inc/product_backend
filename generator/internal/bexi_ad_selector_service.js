@@ -24,7 +24,7 @@ window.onmessage = function(e){
 };
 
 function uniqId() {
-  return Math.round(new Date().getTime() + (Math.random() * 100));
+  return Math.floor(new Date().getTime() + (Math.random() * 100));
 }
 
 
