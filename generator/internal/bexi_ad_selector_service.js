@@ -155,7 +155,6 @@ function AddNewProject()
     var dwinheight = $(document).height()-scrollB;
     var view = Math.floor((dwinheight*100)/$(document).height());
 		if (view>=95) {
-			
         AddNewProject();
         AddNewProject();
         AddNewProject();
