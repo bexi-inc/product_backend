@@ -905,7 +905,7 @@ function createimg(){
     newDiv.attr("data-copy", "true");
     newDiv.attr("style",$(this).attr("style"));
     newDiv.attr("class",$(this).attr("class"));
-    newDiv.css("background","url("+$(this).attr("src")+") no-repeat");
+    newDiv.css("background","url('"+$(this).attr("src")+"')");
     newDiv.css("background-size","cover");
 
     $(this).css("display","none");
