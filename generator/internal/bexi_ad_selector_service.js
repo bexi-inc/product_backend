@@ -150,10 +150,11 @@ function AddNewProject()
 	// Each time the user scrolls
 	win.scroll(function() {
     // End of the document reached?
-    console.log($(document).height(),"document height");
-    console.log(win.height(),"win height");
-    console.log(win.scrollTop(),"scroll");
-		if ($(document).height() - win.height() >= win.scrollTop()+20) {
+    var scrollB = Math.floor($(document).height() - $(window).scrollTop() - $(window).height());
+    if(scrollB<0)scrollB = 0;
+    var dwinheight = $(document).height()-scrollB;
+    var view = Math.floor((dwinheight*100)/$(document).height());
+		if (view>=95) {
 			
         AddNewProject();
         AddNewProject();
