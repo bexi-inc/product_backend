@@ -907,6 +907,8 @@ function createimg(){
     newDiv.attr("class",$(this).attr("class"));
     newDiv.css("background","url('"+$(this).attr("src")+"')");
     newDiv.css("background-size","cover");
+    newDiv.css("width",$(this).width());
+    newDiv.css("height",$(this).height());
 
     $(this).css("display","none");
     $(this).parent().append(newDiv);
