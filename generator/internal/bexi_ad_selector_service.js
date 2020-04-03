@@ -153,7 +153,7 @@ function AddNewProject()
     console.log($(document).height(),"document height");
     console.log(win.height(),"win height");
     console.log(win.scrollTop(),"scroll");
-		if ($(document).height() - win.height() == win.scrollTop()) {
+		if ($(document).height() - win.height() >= win.scrollTop()+20) {
 			
         AddNewProject();
         AddNewProject();
