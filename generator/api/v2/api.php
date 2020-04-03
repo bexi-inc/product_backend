@@ -382,7 +382,10 @@ $res["error_code"]=0;
  		break;
  	case "GetAnalyticsDashboard":
  		return GetAnalyticsData($Dynamodb,$_REQ->deliverableid);
- 		break;
+		 break;
+	case "DeleteTemporals":
+		return Delete_temporals($_REQ->userid);
+		break;
  	default:
  		echo "REQ";
  		print_r($_REQ);
