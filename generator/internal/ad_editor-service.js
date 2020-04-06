@@ -462,6 +462,10 @@ $(document).click(function(e) {
 });
 
 $(document).ready(function() {
+  $(".bexi_title").attr("data-gramm","false");
+  $(".bexi_subtitle").attr("data-gramm","false");
+  $(".bexi_text").attr("data-gramm","false");
+  $(".bexi_button").attr("data-gramm","false");
   $("img").css("object-fit","cover");
   $(".text-aux").contents().unwrap();
   $(".bexi_button").wrapInner("<div class='text-aux' style='line-height:0.9em;padding:25px;'></div>");
