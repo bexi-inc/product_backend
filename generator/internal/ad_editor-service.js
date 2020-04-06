@@ -914,6 +914,7 @@ function createimg(){
     newDiv.css("background","url('"+$(this).attr("src")+"')");
     newDiv.css("background-size","cover");
     newDiv.css("background-position","center");
+    newDiv.css("background-repeat","no-repeat");
     newDiv.css("width",$(this).width());
     newDiv.css("height",$(this).height());
 
