@@ -929,6 +929,9 @@ function createimg(){
     if($(this).width()>$(this).height()){
       newimg.css("height","100%");
       newimg.css("width","auto");
+    }else if($(this).width()==$(this).height()){
+      newimg.css("width","100%");
+      newimg.css("height","100%");
     }else{
       newimg.css("width","100%");
       newimg.css("height","auto");
