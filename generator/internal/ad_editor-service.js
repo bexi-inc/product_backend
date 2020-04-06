@@ -925,12 +925,9 @@ function createimg(){
     
     var newimg = $(document.createElement('img'));
 
-    var newimg2 = $(document.createElement('img'));
-    newimg2.attr("src", $(this).attr("src"));
-    newimg2.css("display","none");
     $(this).parent().append(newimg2);
-    var imageWidth = newimg2.width();
-    var imageHeight = newimg2.height();
+    var imageWidth = $(this)[0].naturalWidth;
+    var imageHeight = $(this)[0].naturalheight;
 
     var findImg = document.getElementById(this.id);
     var sHeight = findImg.clientHeight;
@@ -938,10 +935,7 @@ function createimg(){
     
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
-    console.log(sWidth);
-    console.log(sHeight);
-    console.log($(this));
-    if(sWidth>sHeight){
+    if(imageWidth>imageHeight){
       newimg.css("height","100%");
       newimg.css("width","150%");
       newimg.css("max-width","150%");
@@ -952,7 +946,6 @@ function createimg(){
     }
 
     newDiv.append(newimg);
-    newimg2.remove();
     $(this).css("display","none");
     $(this).parent().append(newDiv);
     $(this).attr("data-html2canvas-ignore","true");
