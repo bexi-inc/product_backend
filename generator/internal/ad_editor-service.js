@@ -947,7 +947,7 @@ function createimg(){
     newimg.css("width",newWidth);
     newimg.css("max-width",newWidth);
     newimg.css("height",newHeight);
-
+    newimg.css("max-height",newHeight);
     /*
     if(imageWidth>imageHeight){
       newimg.css("height","100%");
