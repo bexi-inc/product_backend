@@ -928,14 +928,26 @@ function createimg(){
     var imageWidth = $(this)[0].naturalWidth;
     var imageHeight = $(this)[0].naturalHeight;
 
-    var findImg = document.getElementById(this.id);
-    var sHeight = findImg.clientHeight;
-    var sWidth = findImg.clientWidth;
-    console.log(imageWidth);
-    console.log(imageHeight);
+    var sHeight = $(this)[0].naturalHeight;
+    var sWidth =$(this)[0].naturalWidth;
+    var pHeight = $(this).parent().height();
+    var pWidth = $(this).parent().width();
     
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
+
+    if (sWidth/pWidth < sHeight/pHeight) {
+     var newWidth = pWidth;
+     var newHeight = sHeight * (pWidth / sWidth);
+    } else {
+      var  newWidth = sWidth * (pHeight / sHeight);
+      var  newHeight = pHeight;
+    }
+
+    newimg.css("width",newWidth);
+    newimg.css("height",newHeight);
+
+    /*
     if(imageWidth>imageHeight){
       newimg.css("height","100%");
       newimg.css("width","150%");
@@ -945,7 +957,7 @@ function createimg(){
       newimg.css("height","150%");
       newimg.css("max-height","150%");
     }
-
+  */
     newDiv.append(newimg);
     $(this).css("display","none");
     $(this).parent().append(newDiv);
