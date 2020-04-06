@@ -464,7 +464,7 @@ $(document).click(function(e) {
 $(document).ready(function() {
   $("img").css("object-fit","cover");
   $(".text-aux").contents().unwrap();
-  $(".bexi_button").wrapInner("<div class='text-aux' style='line-height:0.9em;padding:25px;'></div>");
+  $(".bexi_button").wrapInner("<div class='text-aux' style='line-height:1em;padding:25px;'></div>");
 
   $('.bexi_button').textfill({
     maxFontPixels: 30,
@@ -1214,7 +1214,7 @@ function initialize_editors_text(){
             }
           },
           'initialized': function () {
-            $(".bexi_title").wrapInner("<div class='text-aux' style='line-height:0.9em;'></div>");
+            $(".bexi_title").wrapInner("<div class='text-aux' style='line-height:1em;'></div>");
             $('.bexi_title').textfill({
               maxFontPixels: 64,
               changeLineHeight: false,
