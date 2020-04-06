@@ -924,10 +924,18 @@ function createimg(){
     newDiv.css("justify-content","center");
     
     var newimg = $(document.createElement('img'));
+
+    var newimg2 = $(document.createElement('img'));
+    newimg2.attr("src", $(this).attr("src"));
+    newimg2.css("display","none");
+    $(this).parent().append(newimg2);
+    var imageWidth = newimg2.width();
+    var imageHeight = newimg2.height();
+    newimg2.remove();
+    
+    
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
-    var imageWidth = newimg.width();
-    var imageHeight = newimg.height();
     console.log(imageWidth);
     console.log(imageHeight);
     if(imageWidth>imageHeight){
