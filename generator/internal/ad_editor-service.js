@@ -927,11 +927,11 @@ function createimg(){
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
     if($(this).naturalWidth>$(this).naturalHeight){
-      newimg.css("height","100%");
-      newimg.css("width","auto");
-    }else{
-      newimg.css("width","100%");
       newimg.css("height","auto");
+      newimg.css("width","100%");
+    }else{
+      newimg.css("width","auto");
+      newimg.css("height","100%");
     }
 
     newDiv.append(newimg);
