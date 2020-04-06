@@ -931,6 +931,8 @@ function createimg(){
     var findImg = document.getElementById(this.id);
     var sHeight = findImg.clientHeight;
     var sWidth = findImg.clientWidth;
+    console.log(imageWidth);
+    console.log(imageHeight);
     
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
