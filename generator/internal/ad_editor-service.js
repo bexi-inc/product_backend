@@ -925,7 +925,6 @@ function createimg(){
     
     var newimg = $(document.createElement('img'));
 
-    $(this).parent().append(newimg2);
     var imageWidth = $(this)[0].naturalWidth;
     var imageHeight = $(this)[0].naturalheight;
 
