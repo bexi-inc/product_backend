@@ -931,12 +931,16 @@ function createimg(){
     $(this).parent().append(newimg2);
     var imageWidth = newimg2.width();
     var imageHeight = newimg2.height();
+
+    var findImg = document.getElementById(this.id);
+    var sHeight = findImg.clientHeight;
+    var sWidth = findImg.clientWidth;
     
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
-    console.log(imageWidth);
-    console.log(imageHeight);
-    if(imageWidth>imageHeight){
+    console.log(sWidth);
+    console.log(sHeight);
+    if(sWidth>sHeight){
       newimg.css("height","100%");
       newimg.css("width","150%");
       newimg.css("max-width","150%");
