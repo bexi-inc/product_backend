@@ -926,7 +926,7 @@ function createimg(){
     var newimg = $(document.createElement('img'));
 
     var imageWidth = $(this)[0].naturalWidth;
-    var imageHeight = $(this)[0].naturalheight;
+    var imageHeight = $(this)[0].naturalHeight;
 
     var findImg = document.getElementById(this.id);
     var sHeight = findImg.clientHeight;
