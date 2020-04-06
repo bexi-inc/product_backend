@@ -924,30 +924,21 @@ function createimg(){
     newDiv.css("justify-content","center");
     
     var newimg = $(document.createElement('img'));
-
-    var newimg2 = $(document.createElement('img'));
-    newimg2.attr("src", $(this).attr("src"));
-    newimg2.css("display","none");
-    $(this).parent().append(newimg2);
-    var imageWidth = newimg2.width();
-    var imageHeight = newimg2.height();
-    
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
-    console.log(imageWidth);
-    console.log(imageHeight);
-    if(imageWidth>imageHeight){
-      newimg.css("height","100%");
-      newimg.css("width","150%");
-      newimg.css("max-width","150%");
-    }else{
-      newimg.css("width","100%");
-      newimg.css("height","150%");
-      newimg.css("max-height","150%");
+    var sHeight = $(this).innerHeight();
+    var sWidth = $(this).innerWidth();
+    var pHeight = $(this).parent().height();
+    var pWidth = $(this).parent().width();
+    if (sWidth/pWidth < sHeight/pHeight) {
+        newimg.css("width",pWidth);
+        newimg.css("Height", sHeight * (pWidth / sWidth));
+    } else {
+        newimg.css("width",sWidth * (pHeight / sHeight));
+        newimg.css("Height", pHeight);
     }
 
     newDiv.append(newimg);
-    newimg2.remove();
     $(this).css("display","none");
     $(this).parent().append(newDiv);
     $(this).attr("data-html2canvas-ignore","true");
