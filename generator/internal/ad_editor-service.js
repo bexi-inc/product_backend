@@ -926,12 +926,12 @@ function createimg(){
     var newimg = $(document.createElement('img'));
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
-    if($(this).naturalWidth>$(this).naturalHeight){
-      newimg.css("height","auto");
-      newimg.css("width","100%");
-    }else{
-      newimg.css("width","auto");
+    if($(this).width()>$(this).height()){
       newimg.css("height","100%");
+      newimg.css("width","150%");
+    }else{
+      newimg.css("width","100%");
+      newimg.css("height","150%");
     }
 
     newDiv.append(newimg);
