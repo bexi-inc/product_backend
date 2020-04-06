@@ -924,8 +924,13 @@ function createimg(){
     newDiv.css("justify-content","center");
     
     var newimg = $(document.createElement('img'));
-    var imageWidth = $(this).innerWidth();
-    var imageHeight = $(this).innerHeight();
+
+    var newimg2 = $(document.createElement('img'));
+    newimg2.attr("src", $(this).attr("src"));
+    newimg2.css("display","none");
+    $(this).parent().append(newimg2);
+    var imageWidth = newimg2.width();
+    var imageHeight = newimg2.height();
     
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
@@ -942,6 +947,7 @@ function createimg(){
     }
 
     newDiv.append(newimg);
+    newimg2.remove();
     $(this).css("display","none");
     $(this).parent().append(newDiv);
     $(this).attr("data-html2canvas-ignore","true");
