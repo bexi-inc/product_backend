@@ -912,12 +912,29 @@ function createimg(){
     newDiv.attr("class",$(this).attr("class"));
     newDiv.css("margin-left","5px");
     newDiv.css("margin-right","5px");
-    newDiv.css("background","url('"+$(this).attr("src")+"')");
-    newDiv.css("background-size","cover");
-    newDiv.css("background-position","center");
-    newDiv.css("background-repeat","no-repeat");
+    //newDiv.css("background","url('"+$(this).attr("src")+"')");
+    //newDiv.css("background-size","cover");
+    //newDiv.css("background-position","center");
+    //newDiv.css("background-repeat","no-repeat");
     newDiv.css("width",$(this).width());
     newDiv.css("height",$(this).height());
+    newDiv.css("overflow","hidden");
+    newDiv.css("display","flex");
+    newDiv.css("align-items","center");
+    newDiv.css("justify-content","center");
+    
+    var newimg = $(document.createElement('img'));
+    newimg.attr("data-copy", "true");
+    newimg.attr("src", $(this).attr("src"));
+    if($(this).width()>$(this).height()){
+      newimg.css("height","100%");
+      newimg.css("width","auto");
+    }else{
+      newimg.css("width","100%");
+      newimg.css("height","auto");
+    }
+
+    newDiv.append(newimg);
 
     $(this).css("display","none");
     $(this).parent().append(newDiv);
