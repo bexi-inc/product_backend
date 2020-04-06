@@ -926,9 +926,11 @@ function createimg(){
     var newimg = $(document.createElement('img'));
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
-    console.log($(this).naturalWidth);
-    console.log($(this).naturalheight);
-    if($(this).naturalWidth>$(this).naturalheight){
+    var imageWidth = newimg.width();
+    var imageHeight = newimg.height();
+    console.log(imageWidth);
+    console.log(imageHeight);
+    if(imageWidth>imageHeight){
       newimg.css("height","100%");
       newimg.css("width","150%");
       newimg.css("max-width","150%");
