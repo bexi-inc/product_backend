@@ -940,6 +940,7 @@ function createimg(){
     newimg.attr("src", $(this).attr("src"));
     console.log(sWidth);
     console.log(sHeight);
+    console.log($(this));
     if(sWidth>sHeight){
       newimg.css("height","100%");
       newimg.css("width","150%");
