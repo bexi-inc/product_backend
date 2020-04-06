@@ -931,8 +931,6 @@ function createimg(){
     $(this).parent().append(newimg2);
     var imageWidth = newimg2.width();
     var imageHeight = newimg2.height();
-    newimg2.remove();
-    
     
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
@@ -949,7 +947,7 @@ function createimg(){
     }
 
     newDiv.append(newimg);
-
+    newimg2.remove();
     $(this).css("display","none");
     $(this).parent().append(newDiv);
     $(this).attr("data-html2canvas-ignore","true");
