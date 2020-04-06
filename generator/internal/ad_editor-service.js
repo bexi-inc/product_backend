@@ -1008,6 +1008,10 @@ function auto_save(){
           $(this).remove();
         }
       }
+
+      if($(this).attr("data-grammarly-part")!==undefined){
+        $(this).remove();
+      }
     });
     cc.find(".bexi_form").each(function(){
       $(this).find("input").attr('required', true);
