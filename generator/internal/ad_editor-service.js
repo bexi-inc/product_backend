@@ -924,18 +924,21 @@ function createimg(){
     newDiv.css("justify-content","center");
     
     var newimg = $(document.createElement('img'));
+    var imageWidth = $(this).innerWidth();
+    var imageHeight = $(this).innerHeight();
+    
     newimg.attr("data-copy", "true");
     newimg.attr("src", $(this).attr("src"));
-    var sHeight = $(this).innerHeight();
-    var sWidth = $(this).innerWidth();
-    var pHeight = $(this).parent().height();
-    var pWidth = $(this).parent().width();
-    if (sWidth/pWidth < sHeight/pHeight) {
-        newimg.css("width",pWidth);
-        newimg.css("Height", sHeight * (pWidth / sWidth));
-    } else {
-        newimg.css("width",sWidth * (pHeight / sHeight));
-        newimg.css("Height", pHeight);
+    console.log(imageWidth);
+    console.log(imageHeight);
+    if(imageWidth>imageHeight){
+      newimg.css("height","100%");
+      newimg.css("width","150%");
+      newimg.css("max-width","150%");
+    }else{
+      newimg.css("width","100%");
+      newimg.css("height","150%");
+      newimg.css("max-height","150%");
     }
 
     newDiv.append(newimg);
