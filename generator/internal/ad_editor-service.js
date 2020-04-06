@@ -948,6 +948,9 @@ function auto_save(){
     var cc = jQuery(doc);
 
     var pid=$("#codeId").val();
+    cc.find("grammarly-inline-card").remove();
+    cc.find("grammarly-popups").remove();
+    cc.find("grammarly-autocorrect-cards").remove();
     cc.find(".remove").remove();
     cc.find(".ui-front").remove();
     cc.find("text-aux").contents().unwrap();
