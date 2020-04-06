@@ -945,6 +945,7 @@ function createimg(){
     }
 
     newimg.css("width",newWidth);
+    newimg.css("max-width",newWidth);
     newimg.css("height",newHeight);
 
     /*
