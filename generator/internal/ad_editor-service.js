@@ -909,6 +909,30 @@ FroalaEditor.RegisterCommand('buttonbgcolor', {
     initialize_editors_text();
 });
 
+function b64toBlob(b64Data, contentType, sliceSize) {
+  contentType = contentType || '';
+  sliceSize = sliceSize || 512;
+
+  var byteCharacters = atob(b64Data);
+  var byteArrays = [];
+
+  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      var byteNumbers = new Array(slice.length);
+      for (var i = 0; i < slice.length; i++) {
+          byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      var byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+  }
+
+var blob = new Blob(byteArrays, {type: contentType});
+return blob;
+}
+
 function createimg(){
   $("grammarly-extension").attr("data-html2canvas-ignore","true");
   $(".remove").attr("data-html2canvas-ignore","true");
@@ -977,10 +1001,19 @@ function createimg(){
     html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
       var dataURL = canvas.toDataURL();
       var pid=$("#codeId").val();
-      var link = document.createElement('a');
-      link.download = pid+'.jpeg';
-      link.href = dataURL;
-      link.click();
+
+      if (navigator.msSaveBlob) {
+        var block = canvas.toDataURL("image/jpeg").split(";");//Split the base64 string in data and contentType
+        var contentType = block[0].split(":")[1];// // Get the content type of the image
+        var realData = block[1].split(",")[1];// get the real base64 content of the file
+        var blob = b64toBlob(realData, contentType);// Convert it to a blob to upload
+        return navigator.msSaveBlob(blob, pid+'.jpeg');
+      }else{
+        var link = document.createElement('a');
+        link.download = pid+'.jpeg';
+        link.href = dataURL;
+        link.click();
+      }
 
       $('[data-copy="true"]').remove();
       $("img").css("display","")
