@@ -1,120 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=300,initial-scale=1.0">
-<title>Document</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<style>
-    :root {
---width: 100vw;
---height: 100vh;
---both: 100vmin;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        .one.res1080x1080 {
+            height: 1080px;
+            width: 1080px;
+        }
 
-</style>
+        .two.res1080x1080 {
+            height: 943px;
+            width: 943px;
+            margin-top: 69px;
+            margin-left: 69px;
+            margin-bottom: 68px;
+            margin-right: 68px;
+        }
 
-<style type="text/css">
-​
-:root {
---width: 100vw;
---height: 100vh;
-}
+        .three.res1080x1080 {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
 
-.fill-1 {
-  height: 1080px;
-  width: 1080px;
-  background-color: #FFFFFF;
-}
-​
-.rectangle {
-  height: 943px;
-  width: 943px;
-  opacity: 0.3;
-  background-color: #000000;
-  margin-top: 69px;
-  margin-left: 69px;
-}
-.new-store {
-  height: 296px;
-  width: 567px;
-  color: #FFFFFF;
-  font-family: "Times New Roman";
-  font-size: 180px;
-  letter-spacing: 0;
-  line-height: 148px;
-  text-align: center;
-  margin-top: 120.84px;
-  margin-left: 182.22px;
-}
-.we-are-open-at-the-1 {
-  height: 69px;
-  width: 357px;
-  color: #FFFFFF;
-  font-family: "Times New Roman";
-  font-size: 30px;
-  letter-spacing: -1.11px;
-  line-height: 34px;
-  text-align: center;
-  margin-top: 69.08px;
-  margin-left: 287.58px;
-}
+        .four.res1080x1080 {
+            overflow: hidden;
+            height: 310px;
+            width: 61%;
+            color: #FFF;
+            font-family: "Times New Roman";
+            font-size: 180px;
+            letter-spacing: 0;
+            line-height: 148px;
+            margin-top: 120.84px;
+        }
 
-.fill-4 {
-  height: 71.83px;
-  width: 417.16px;
-  background-color: #FFFFFF;
-  padding-top: 14.5px;
-  padding-left: 106.83px;
-  padding-right: 106.33px;
-  margin-top: 138.5px;
-  margin-left: 262.42px;
-}
-.thegoodstore-co {
-  height: 36px;
-  width: 204px;
-  color: #945C4D;
-  font-family: "Times New Roman";
-  font-size: 32px;
-  letter-spacing: 0;
-}
+        .five.res1080x1080 {
+            overflow: hidden;
+            height: 69px;
+            width: 38%;
+            color: #FFF;
+            font-family: "Times New Roman";
+            font-size: 30px;
+            letter-spacing: -1.11px;
+            line-height: 34px;
+            margin-top: 69.08px;
+        }
 
-</style>
+        .six.res1080x1080 {
+            margin-top: 93.87px;
+        }
+
+        .seven.res1080x1080 {
+            overflow: hidden;
+            height: 71.83px;
+            width: 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 138.5px;
+            font-family: "Times New Roman";
+            font-size: 32px;
+            letter-spacing: 0;
+        }
+
+        .one.res1200x628 {
+            height: 628px;
+            width: 1200px;
+        }
+
+        .two.res1200x628 {
+            height: 482px;
+            width: 1060px;
+            margin-top: 69px;
+            margin-left: 69px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .three.res1200x628 {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            text-align: left;
+            justify-content: start;
+        }
+
+        .four.res1200x628 {
+            overflow: hidden;
+            height: 208px;
+            width: 73%;
+            color: #FFF;
+            font-family: "Times New Roman";
+            font-size: 120px;
+            letter-spacing: 0;
+            line-height: 104px;
+            margin-top: 120.84px;
+            text-align: left;
+            margin-left: 102px;
+        }
+
+        .five.res1200x628 {
+            overflow: hidden;
+            height: 68.55px;
+            width: 69%;
+            color: #FFF;
+            font-family: "Times New Roman";
+            font-size: 30px;
+            letter-spacing: -1.11px;
+            line-height: 34px;
+            margin-top: 129.14px;
+            margin-left: 65px;
+            margin-bottom: 0;
+        }
+
+        .six.res1200x628 {
+            width: 68%;
+            margin-top: 34.73px;
+            margin-left: 70px;
+        }
+
+        .seven.res1200x628 {
+            overflow: hidden;
+            height: 66px;
+            width: 68%;
+            display: flex;
+            align-items: center;
+            padding-left: 51px;
+            margin-left: 65px;
+            margin-top: 26px;
+            font-family: "Times New Roman";
+            font-size: 32px;
+            letter-spacing: 0;
+        }
+
+        .one.res1080x1920 {
+            height: 1920px;
+            width: 1080px;
+        }
+
+        .two.res1080x1920 {
+            height: 1770px;
+            width: 943px;
+            margin-top: 69px;
+            margin-left: 69px;
+        }
+
+        .three.res1080x1920 {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .four.res1080x1920 {
+            overflow: hidden;
+            height: 296px;
+            width: 61%;
+            color: #FFF;
+            font-family: "Times New Roman";
+            font-size: 180px;
+            letter-spacing: 0;
+            line-height: 148px;
+            margin-top: 350.84px;
+        }
+
+        .five.res1080x1920 {
+            overflow: hidden;
+            height: 165.12px;
+            width: 50%;
+            color: #FFF;
+            font-family: "Times New Roman";
+            font-size: 48px;
+            letter-spacing: -1.78px;
+            line-height: 55px;
+            margin-top: 73.08px;
+        }
+
+        .six.res1080x1920 {
+            margin-top: 126.02px;
+        }
+
+        .seven.res1080x1920 {
+            overflow: hidden;
+            height: 72px;
+            width: 58%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 138.5px;
+            font-family: "Times New Roman";
+            font-size: 32px;
+            letter-spacing: 0;
+        }
+    </style>
 </head>
+
 <body>
-<div class="conainer justify-content-center" style="position: relative;margin:calc(var(--both) * 0.05);display: flex;flex-direction: column;">
-  <div class="bg_bexi_module" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 0;background-color: rgba(0,0,0,0.5);"></div>
-  <div class="transpa-bg" style="background-image: url('%bg_img|1920|1080|%'); background-size: cover; position: absolute; top: 0; left: 0; width: 100%;height: 100%; z-index: -1;"></div>
-    <div class="row no-gutters justify-content-center" style=" margin-bottom: calc(var(--both) * 0.05);;margin-top: calc(var(--both) * 0.05);">
-        <div class="col-md-5">
-            <div class="row m-0 justify-content-center text-center" style="">
-                <h1 style="font-size: calc(var(--both) * 0.15);letter-spacing: 0;line-height: calc(var(--both) * 0.14);">NEW STORE</h1>
+    <div style="display: flex;justify-content: center;" id="maindiv">
+        <div class="one res1080x1080 bexi_module_ad" style="position: relative;">
+            <div class="two res1080x1080 bg_bexi_module" id="bgcolor"
+                style="background-color: rgba(0, 0, 0, 0.3);position: absolute;top: 0;left: 0;z-index: 0;">
             </div>
-            <div class="row m-0 justify-content-center text-center" style="padding-top: calc(var(--both) * 0.06);">
-                <p style="font-size: calc(var(--both) * 0.03);letter-spacing: 0;line-height: calc(var(--both) * 0.03);">We are open at the 11th Street 15 July 2017</p>
+            <div class="two res1080x1080 transpa-bg" id="imgbg"
+                style="background-image: url('%bg_img|1080|1080|%');background-size: cover;position: absolute;top: 0;left: 0;z-index: -1;">
             </div>
-            <div class="row m-0 justify-content-center" style="padding-top: calc(var(--both) * 0.07);">
-                <svg class="svg-style" width="89px" height="6px" viewBox="0 0 89 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <!-- Generator: sketchtool 63.1 (101010) - https://sketch.com -->
-                    <title>44ECD77F-FEF0-4291-B46D-5A0E06332E29</title>
-                    <desc>Created with sketchtool.</desc>
-                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="Post" transform="translate(-492.000000, -710.000000)" fill="#FFFFFF">
-                            <polygon id="Fill-3" points="492.364 715.063 580.43 715.063 580.43 710.063 492.364 710.063"></polygon>
-                        </g>
-                    </g>
-                </svg>
-            </div>
-            <div class="row m-0 justify-content-center text-center" style="padding-top: calc(var(--both) * 0.16);">
-                <div class="button" style="font-size: calc(var(--both) * 0.03);letter-spacing: 0;line-height: calc(var(--both) * 0.03);padding: 0.5em 2em 0.5em 2em;background-color: white;">
-                        thegoodstore.co
+
+            <div class="two res1080x1080 no-glutters" style="position: absolute;top:0;left: 0;">
+                <div class="three res1080x1080">
+                    <div id="%id%" class="row four res1080x1080 bexi_title">
+                        NEW STORE
+                    </div>
+                </div>
+
+                <div class="three res1080x1080">
+                    <div id="%id%" class="five res1080x1080 bexi_subtitle">
+                        We are open at the 11th Street 15 July 2017
+                    </div>
+
+                    <div class="row six res1080x1080">
+                        <svg width="89px" height="6px" viewBox="0 0 89 6" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <!-- Generator: sketchtool 63.1 (101010) - https://sketch.com -->
+                            <title>44ECD77F-FEF0-4291-B46D-5A0E06332E29</title>
+                            <desc>Created with sketchtool.</desc>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Post" transform="translate(-492.000000, -710.000000)" fill="#FFFFFF">
+                                    <polygon id="Fill-3"
+                                        points="492.364 715.063 580.43 715.063 580.43 710.063 492.364 710.063">
+                                    </polygon>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="button_ad_1 row seven res1080x1080">
+                        <div id="%id%" class="bexi_button"> 
+                            thegoodstore.co
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </body>
+
 </html>

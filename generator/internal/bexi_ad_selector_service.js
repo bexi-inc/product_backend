@@ -5,6 +5,7 @@ var myHeight = 0 ;
 var FrameSel = "";
 
 window.onmessage = function(e){
+  $(".select").removeClass("hidden");
   data = e.data.split("|");
   if (data[0] == 'SelectProject') {
     looser = "";
@@ -75,12 +76,19 @@ function frameload(ID){
 
  $(window).on('resize', function(){
   document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
+  /*
   var size=$(".thumbnail-container").width()+20;
   $("#pre-thumbnail").css('-webkit-transform',"translateX(-"+(slideIndex-1)*size+"px)");
   $("#pre-thumbnail").css('-moz-transform',"translateX(-"+(slideIndex-1)*size+"px)");
   $("#pre-thumbnail").css('transform',"translateX(-"+(slideIndex-1)*size+"px)");
   $("#pre-thumbnail").css("top",(slideIndex-1)*size+"px");
+  */
 });
+
+function select_edit(){
+  var id=$("#pre-thumbnail").find(".FrameSelected").find("iframe").attr("modu-id");
+  window.location.href = 'http://internal.bexi.ai/adgenerator-service.php?'+"cmd=editor&user=-100&codename="+Codename+"&create=true&codeid="+id;
+}
 
 function AddNewProject()
     {
@@ -108,20 +116,19 @@ function AddNewProject()
         $("#pre-thumbnail").append('<div class="thumbnail-container mySlides"><div id="'+uId+'" class="thumbnail pointer_SelectProject"></div></div>');
         $("#"+uId).append(newDiv);
       $.ajax({
-                url: 'adgenerator.php',
-                data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"campaign_id": CampaignIdParam, "recipe":RecipeParams},
+                url: 'adgenerator-service.php',
+                data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"headline": Headline, "cta":Cta},
                 dataType: "json",
                 type: 'POST',
                 beforeSend: function(){
                   // Show image container
-                  
                  },
                  complete:function(data){
                   // Hide image container
                   //newDiv.remove();
                  }
             }).done(function( data, textStatus, jqXHR ) {
-              $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://generator.'+MAIN_DOMAIN+'/adgenerator.php?cmd=selector&user=' + UserParam + '&codeid=' + data.codeid + '&campaignid=' + CampaignIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+              $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" class="' + ClassActive +  '" src="http://internal.bexi.ai/adgenerator-service.php?cmd=selector&user=' + UserParam + '&codeid=' + data.codeid + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
               $("#"+uId).attr("bexi-code",data.codeid);
               $("#"+uId).click(
                 function(){
@@ -137,6 +144,24 @@ function AddNewProject()
     }
 
  $(function() {
+
+  var win = $(window);
+
+	// Each time the user scrolls
+	win.scroll(function() {
+    // End of the document reached?
+    var scrollB = Math.floor($(document).height() - $(window).scrollTop() - $(window).height());
+    if(scrollB<0)scrollB = 0;
+    var dwinheight = $(document).height()-scrollB;
+    var view = Math.floor((dwinheight*100)/$(document).height());
+		if (view>=95) {
+        AddNewProject();
+        AddNewProject();
+        AddNewProject();
+        AddNewProject();
+		}
+	});
+
 //Set Variables 
    document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
    //document.documentElement.style.setProperty('--thumbnail-height', (GetHeightScreen() * 2.5) + "px");
@@ -156,6 +181,8 @@ function AddNewProject()
   //dots[slideIndex-1].className += " active";
 } */
 
+  AddNewProject();
+  AddNewProject();
   AddNewProject();
   AddNewProject();
   AddNewProject();
@@ -211,8 +238,8 @@ function AddNewProject()
 
          //<div class="thumbnail-container mySlides" style="top:0px; left: 9999px"><div class="thumbnail"> 
         $.ajax({
-                url: './adgenerator.php',
-                data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"campaign_id": CampaignIdParam, "recipe":RecipeParams},
+                url: 'adgenerator-service.php',
+                data: {"cmd" : "CreateAd", "user" : UserParam, "keywords" : KeywordsParams,"headline": Headline, "cta":Cta},
                 dataType: "json",
                 type: 'POST',
                 async : true,
@@ -226,7 +253,7 @@ function AddNewProject()
             }).done(function( data, textStatus, jqXHR ) {
                 // Show image container
                 $("#"+uId).append(newDiv);
-                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://generator.'+MAIN_DOMAIN+'/adgenerator.php?cmd=selector&user=' + UserParam + '&codeid=' + data.codeid + '&campaignid=' + CampaignIdParam + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
+                $("#"+uId).append('<iframe onload="frameload('+uId+')" id="frame-'+ data.codeid +'" src="http://internal.bexi.ai/adgenerator-service.php?cmd=selector&user=' + UserParam + '&codeid=' + data.codeid + '" frameborder="0" modu-id="' + data.codeid + '"></iframe>');
                 $("#"+uId).attr("bexi-code",data.codeid);
                 $("#"+uId).click(
                   function(){
@@ -240,6 +267,7 @@ function AddNewProject()
            }
       });
 
+      /*
       var size=$(".thumbnail-container").width()+20;
       $("#pre-thumbnail").animate({top: slideIndex*size},{
         step: function(now,fx) {
@@ -249,6 +277,7 @@ function AddNewProject()
         },
         duration:'slow'
       },'linear');
+    */
  			$(".pre-thumbnail .mySlides").each(function() {
  				/*if (npos == slideIndex)
  				{
@@ -300,6 +329,7 @@ function AddNewProject()
  			*/
  		var npos = 1;
      var slider = 0;
+     /*
      var size=$(".thumbnail-container").width()+20;
      var position=parseFloat($('#pre-thumbnail').css('top').replace('px',''));
      var final=position-size;
@@ -311,6 +341,7 @@ function AddNewProject()
        },
        duration:'slow'
      },'linear');
+     */
  		$(".pre-thumbnail .mySlides").each(function() {
  				
  			var pos = npos - slideIndex + 1 ;

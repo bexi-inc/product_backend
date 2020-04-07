@@ -1,5 +1,4 @@
 <?
-
 include "../config.php";
 require '../vendor/autoload.php';
 

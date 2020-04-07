@@ -1,8 +1,9 @@
 <?
-include "includes/global.php";
-include "includes/utils.php";
-include "config.php";
-require 'vendor/autoload.php';
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/includes/global.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/includes/utils.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/config.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/vendor/autoload.php";
+require_once "/var/www/generator.bexi.co/public_html/product_backend/generator/includes/JSLikeHTMLElement.php";
 
 Crew\Unsplash\HttpClient::init([
     'applicationId' => $unspash_appid,
@@ -46,28 +47,11 @@ if(isset($_REQUEST["cmd"])){
         return substr_replace($string, $newstring, $ini, $len);
     }
 
-    if($_REQUEST["cmd"]=="CreateAd" && isset($_REQUEST["user"]) && isset($_REQUEST["campaign_id"]) && isset($_REQUEST["recipe"]) ){
+    if($_REQUEST["cmd"]=="CreateAd" && isset($_REQUEST["user"])  && isset($_REQUEST["headline"])  && isset($_REQUEST["cta"]) ){
 
         /***********Get recipe from DB **********/
-        $params = [
-            'TableName' => "modu_recipes_ads",
-             "KeyConditionExpression"=> "id = :id",
-            "ExpressionAttributeValues"=> [
-                ":id" =>  ["S" => $_REQUEST["recipe"]]
-            ]
-        ];
-
-        $result_proj = $dynamodb->query($params);
-
-        if (count($result_proj["Items"])>0)
-        {
-            $recipe=$marshaler->unmarshalValue($result_proj['Items'][0]["elements"]);
-        }
-        else{
-            $recipe="Button,Title,Subtitle";
-        }
+        $recipe="--Service";
         /**************** Search AdLayout with recipe elements ******************/
-        $recipe="Button";
         $params = [
             'TableName' => "modu_ads_blocks",
             "FilterExpression" => "contains(#descr, :v)",
@@ -78,7 +62,6 @@ if(isset($_REQUEST["cmd"])){
                 [ '#descr' => 'description']
         ];
         $result = $dynamodb->scan($params);
-
         /************************** Shuffle and select 1 random *********************/
         $max=$result['Count'];
         $random=rand(0,$max-1);
@@ -99,9 +82,10 @@ if(isset($_REQUEST["cmd"])){
         $code = ob_get_contents ();
 
         ob_end_clean();
-
+        /****************** get unsplash imgs **************/
         $code=setImages($code,$_REQUEST["keywords"]);
         $doc = new DOMDocument();
+        $doc->registerNodeClass('DOMElement', 'JSLikeHTMLElement');
         $doc->loadHTML('<?xml encoding="UTF-8">' .$code);
         /********************* Add css depend of theme *****************/
         //get head element
@@ -110,28 +94,60 @@ if(isset($_REQUEST["cmd"])){
         //create style element
         $elementStyle1 = $doc->createElement('link', '');
         $elementStyle1->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle1->setAttribute('href', urldecode('css/bexi.css'));
+        $elementStyle1->setAttribute('href', urldecode('http://generator.bexi.ai/css/bexi.css'));
         $elementStyle1->setAttribute('data-css', "default");
         $elementStyle2 = $doc->createElement('link', '');
         $elementStyle2->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle2->setAttribute('href', urldecode('css/bexi_ad.css'));
+        $elementStyle2->setAttribute('href', urldecode('http://generator.bexi.ai/css/bexi_ad.css'));
         $elementStyle2->setAttribute('data-css', "default-ad");
 
-        $project_id = $_REQUEST["campaign_id"];
-        if ($project_id!="")
-        {
-            $elementStyle3 = $doc->createElement('link', '');
-            $elementStyle3->setAttribute('rel', urldecode('stylesheet'));
-            $elementStyle3->setAttribute('href', urldecode('load_theme.php?projectid='.$project_id));
-            $elementStyle3->setAttribute('data-css', "colors");
-            $head[0]->appendChild($elementStyle3);
-        }
+        /**************   AUTOTEX **************/
+        $elementScript1 = $doc->createElement('script', '');
+        $elementScript1->setAttribute('type', urldecode('text/javascript'));
+        $elementScript1->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery.textfill.js'));
+        $elementScript1->setAttribute('class', "text");
+        $elementScript2 = $doc->createElement('script', '
+        $(document).ready(function() {
+            $(".bexi_button").wrapInner("<div class=\'text-aux\' style=\'line-height:0.9em;padding:25px;\'></div>");
+            $(".bexi_title").wrapInner("<div class=\'text-aux\' style=\'line-height:0.9em;\'></div>");
+            $(".bexi_title").textfill({
+                maxFontPixels: 64,
+                changeLineHeight: false,
+                innerTag: "div"
+              });
+              $(".bexi_button").textfill({
+                maxFontPixels: 30,
+                changeLineHeight: false,
+                innerTag: "div"
+              });
+        });
+        ');
+        $elementScript2->setAttribute('type', urldecode('text/javascript'));
+        $elementScript2->setAttribute('class', "text");
 
         //add style and script elements
         $head[0]->appendChild($elementStyle1);
         $head[0]->appendChild($elementStyle2);
+        $head[0]->appendChild($elementScript1);
+        $head[0]->appendChild($elementScript2);
+        /************************** Reemplace inner text  ***************/
+        $tags = $doc->getElementsByTagName('div');
+        foreach ($tags as $tag) {
+            $src = $tag->getAttribute('class');
+            if (stripos($src,"headline")!==false)
+            {
+                $tag->innerHTML=$_REQUEST["headline"];
+            }
 
-        /****************** Change and get unsplash imgs **************/
+            if (stripos($src,"cta")!==false)
+            {
+                $tag->innerHTML=$_REQUEST["cta"];
+            }
+        }
+
+
+
+        /****************** Change unsplash imgs quality **************/
             $tags = $doc->getElementsByTagName('img');
             foreach ($tags as $tag) {
                 $src = $tag->getAttribute('src');
@@ -218,29 +234,116 @@ if(isset($_REQUEST["cmd"])){
          echo $content;
     }
 
-    if($_REQUEST["cmd"]=="editor" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
+    if($_REQUEST["cmd"]=="editor" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]) && isset($_REQUEST["codename"]) && isset($_REQUEST["create"]))
     {
-                /********* GET HTML CODE FROM DB **********/
+        /********* GET HTML CODE FROM DB **********/
         $params = [
-            'TableName' => "bexi_projects_tmp",
-             "KeyConditionExpression"=> "id = :id AND #usr=:usr",
+            'TableName' => "modu_ads_service",
+                "KeyConditionExpression"=> "id = :id",
             "ExpressionAttributeValues"=> [
-                ":id" =>  ["S" => $_REQUEST["codeid"]],
-                ":usr" => ["S" => $_REQUEST["user"]]
-            ],
-            "ExpressionAttributeNames" =>
-                [ '#usr' => 'user' ]
+                ":id" =>  ["S" => $_REQUEST["codeid"]]
+            ]
         ];
 
         $result = $dynamodb->query($params);
-        $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
-        //echo $content;
+
+
+        if($result['Count']>0)
+        {
+            $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+        }
+        else{
+            /********* GET HTML CODE FROM temporal DB **********/
+            $params = [
+                'TableName' => "bexi_projects_tmp",
+                    "KeyConditionExpression"=> "id = :id AND #usr=:usr",
+                "ExpressionAttributeValues"=> [
+                    ":id" =>  ["S" => $_REQUEST["codeid"]],
+                    ":usr" => ["S" => $_REQUEST["user"]]
+                ],
+                "ExpressionAttributeNames" =>
+                    [ '#usr' => 'user' ]
+            ];
+
+            $result = $dynamodb->query($params);
+
+            $code = $marshaler->unmarshalValue($result['Items'][0]["code"]);
+
+            $content =  gzuncompress(base64_decode($marshaler->unmarshalValue($result['Items'][0]["code"])));
+
+            /************** SAVE INTO DB ***************/
+
+            $data = '{
+            "id" : "'. $_REQUEST["codeid"] .'",
+            "codename" : "'.$_REQUEST["codename"].'",
+            "code" : "'. $code .'"
+            }';
+
+            $item = $marshaler->marshalJson($data);
+
+            $params = [
+                'TableName' => 'modu_ads_service',
+                'Item' => $item
+            ];
+
+            $res["error"]="";
+            $res["codeid"]=$codeId;
+            try {
+                $result = $dynamodb->putItem($params);
+            } catch (DynamoDbException $e) {
+                $res["error"] = $e->getMessage();
+            }
+        }
 
         $dom=new domDocument;
 		libxml_use_internal_errors(true);
 		$dom->loadHTML($content);
 		libxml_use_internal_errors(false);
         $dom->preserveWhiteSpace = false;
+
+
+        /****************** Change unsplash imgs quality **************/
+        $tags = $dom->getElementsByTagName('img');
+        foreach ($tags as $tag) {
+            $src = $tag->getAttribute('src');
+            if (stripos($src,"https://images.unsplash.com")!==false)
+            {
+                $url = parse_url($src);
+                parse_str($url["query"],$result_array);
+                $result_array['q']=100;
+                $src = urldecode($url["scheme"]."://".$url["host"].$url["path"]."?".http_build_query($result_array));
+                $tag->SetAttribute('src',$src);
+            }
+        }
+
+        $tags=$dom->getElementsByTagName('div');
+        foreach ($tags as $tag) {
+            $class = $tag->getAttribute('class');
+            if (stripos($class,"transpa-bg")!==false)
+            {
+                $style = $tag->getAttribute('style');
+                $src=get_string_between($style,"url('","');");
+                if (stripos($src,"https://images.unsplash.com")!==false)
+                {
+                    $url = parse_url($src);
+                    parse_str($url["query"],$result_array);
+                    $result_array['q']=100;
+                    $src = urldecode($url["scheme"]."://".$url["host"].$url["path"]."?".http_build_query($result_array));
+                    $newstyle=set_string_between($style,"url('","');",$src);
+                    $tag->SetAttribute('style',$newstyle);
+                }
+            }
+        }
+
+        /*********************** DELETE ADITIONAL AUTOTEXT SCRIPTS ********************/
+        $tags=$dom->getElementsByTagName('script');
+        foreach ($tags as $tag) {
+            $class = $tag->getAttribute('class');
+            if (stripos($class,"text")!==false)
+            {
+                $tag->parentNode->removeChild($tag);
+            }
+        }
 
         //get head element
         $head = $dom->getElementsByTagName('head');
@@ -251,7 +354,7 @@ if(isset($_REQUEST["cmd"])){
         //create script src element
         $elementScript1 = $dom->createElement('script', '');
         $elementScript1->setAttribute('type', urldecode('text/javascript'));
-        $elementScript1->setAttribute('src', urldecode('includes/ad_editor.js'));
+        $elementScript1->setAttribute('src', urldecode('ad_editor-service.js'));
         $elementScript1->setAttribute('data-editor', "true");
         $elementScript2 = $dom->createElement('script', 'var FroalaKey = "'.FROALA_KEY.'";');
         $elementScript2->setAttribute('type', urldecode('text/javascript'));
@@ -259,24 +362,24 @@ if(isset($_REQUEST["cmd"])){
         /**************   Jquery dialog **************/
         $elementScript3 = $dom->createElement('script', '');
         $elementScript3->setAttribute('type', urldecode('text/javascript'));
-        $elementScript3->setAttribute('src', urldecode('includes/jquery-ui.min.js'));
+        $elementScript3->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery-ui.min.js'));
         $elementScript3->setAttribute('data-editor', "true");
         $elementStyle2 = $dom->createElement('link', '');
         $elementStyle2->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle2->setAttribute('href', urldecode('includes/jquery-ui.min.css'));
+        $elementStyle2->setAttribute('href', urldecode('http://generator.bexi.ai/includes/jquery-ui.min.css'));
         $elementStyle2->setAttribute('data-editor', "true");
         $elementStyle3 = $dom->createElement('link', '');
         $elementStyle3->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle3->setAttribute('href', urldecode('includes/jquery-ui.theme.css'));
+        $elementStyle3->setAttribute('href', urldecode('http://generator.bexi.ai/includes/jquery-ui.theme.css'));
         $elementStyle3->setAttribute('data-editor', "true");
         /**************   Jquery palett colors **************/
         $elementScript4 = $dom->createElement('script', '');
         $elementScript4->setAttribute('type', urldecode('text/javascript'));
-        $elementScript4->setAttribute('src', urldecode('includes/jquery.minicolors.min.js'));
+        $elementScript4->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery.minicolors.min.js'));
         $elementScript4->setAttribute('data-editor', "true");
         $elementStyle4 = $dom->createElement('link', '');
         $elementStyle4->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle4->setAttribute('href', urldecode('includes/css/jquery.minicolors.css'));
+        $elementStyle4->setAttribute('href', urldecode('http://generator.bexi.ai/includes/css/jquery.minicolors.css'));
         $elementStyle4->setAttribute('data-editor', "true");
         /**************   PAGINATION **************/
         $elementScript5 = $dom->createElement('script', '');
@@ -285,11 +388,11 @@ if(isset($_REQUEST["cmd"])){
         $elementScript5->setAttribute('data-editor', "true");
         $elementScript6 = $dom->createElement('script', '');
         $elementScript6->setAttribute('type', urldecode('text/javascript'));
-        $elementScript6->setAttribute('src', urldecode('includes/pagination.js'));
+        $elementScript6->setAttribute('src', urldecode('http://generator.bexi.ai/includes/pagination.js'));
         $elementScript6->setAttribute('data-editor', "true");
         $elementStyle5 = $dom->createElement('link', '');
         $elementStyle5->setAttribute('rel', urldecode('stylesheet'));
-        $elementStyle5->setAttribute('href', urldecode('includes/css/bs-pagination.css'));
+        $elementStyle5->setAttribute('href', urldecode('http://generator.bexi.ai/includes/css/bs-pagination.css'));
         $elementStyle5->setAttribute('data-editor', "true");
         /**************   FROALA EDITOR **************/
         $elementScript7 = $dom->createElement('script', '');
@@ -308,6 +411,20 @@ if(isset($_REQUEST["cmd"])){
         $elementStyle7->setAttribute('rel', urldecode('stylesheet'));
         $elementStyle7->setAttribute('href', urldecode('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css'));
         $elementStyle7->setAttribute('data-editor', "true");
+        /**************   CANVAS **************/
+        $elementScript9 = $dom->createElement('script', '');
+        $elementScript9->setAttribute('type', urldecode('text/javascript'));
+        //$elementScript9->setAttribute('src', urldecode('https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-alpha.4/html2canvas.js'));
+        $elementScript9->setAttribute('src', urldecode('https://github.com/niklasvh/html2canvas/releases/download/v1.0.0-rc.5/html2canvas.js'));
+        $elementScript9->setAttribute('data-editor', "true");
+        /**************   AUTOTEX **************/
+        $elementScript10 = $dom->createElement('script', '');
+        $elementScript10->setAttribute('type', urldecode('text/javascript'));
+        //$elementScript10->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery.bb-textfitter.js'));
+        $elementScript10->setAttribute('src', urldecode('http://generator.bexi.ai/includes/jquery.textfill.js'));
+        //$elementScript10->setAttribute('src', urldecode('http://generator.bexi.ai/includes/fitty.min.js'));
+        $elementScript10->setAttribute('data-editor', "true");
+
         //add style and script elements
         $head[0]->appendChild($elementStyle);
         $head[0]->appendChild($elementStyle2);
@@ -324,8 +441,85 @@ if(isset($_REQUEST["cmd"])){
         $head[0]->appendChild($elementScript6);
         $head[0]->appendChild($elementScript7);
         $head[0]->appendChild($elementScript8);
+        $head[0]->appendChild($elementScript9);
+        $head[0]->appendChild($elementScript10);
+
+        //get body element
+        $body = $dom->getElementsByTagName('body');
+        //create input element
+        $input = $dom->createElement('input', '');
+        $input->setAttribute('id', "codeId");
+        $input->setAttribute('value',$_REQUEST["codeid"]);
+        $input->setAttribute('data-editor', "true");
+        $input->setAttribute('type', "hidden");
+        $body[0]->appendChild($input);
 
         echo $dom->savehtml();
+    }
+
+    if($_REQUEST["cmd"]=="getprojects"){
+
+        $params = [
+            'TableName' => "modu_ads_service",
+        ];
+        $table = $dynamodb->scan($params);
+        if ($table["error"]=="")
+        {
+            $dbdata = $table['Items'];
+            if (count($dbdata)>0)
+            {
+                $projects=[];
+                foreach ($dbdata as $item) {
+                    $parttemp = [];//temporaly part with the values converted
+                    $parttemp["id"] = $marshaler->unmarshalValue($item["id"]);
+                    $parttemp["code"]=$marshaler->unmarshalValue($item["codename"]);
+                    $projects [] = $parttemp;//add the part to the array
+                }
+                $ret["error_code"] = "0";
+                $ret["contents"] = $projects;
+                echo stripslashes(json_encode($ret));
+            }
+        }
+        else{
+            $ret["error_code"] = "500";
+            $ret["message"] =  $table["error"];
+            echo stripslashes(json_encode($ret));
+        }
+    }
+
+    if($_REQUEST["cmd"]=="autosave" && isset($_REQUEST["codeid"]) && isset($_REQUEST["code"]))
+    {
+        $key = '
+        {
+            "id" : "'.$_REQUEST["codeid"].'"
+        }
+        ';
+        $key = $marshaler->marshalJson($key);
+
+        $updateData='{
+            ":code" : "'.base64_encode(gzcompress($_REQUEST["code"], 7)) .'"
+        }';
+
+        $eav = $marshaler->marshalJson($updateData);
+
+        $params = [
+            'TableName' => "modu_ads_service",
+            'Key' => $key,
+            'UpdateExpression' => 'set code = :code',
+            'ExpressionAttributeValues'=> $eav,
+            'ReturnValues' => 'UPDATED_NEW'
+        ];
+
+        try {
+            $result = $dynamodb->updateItem($params);
+            $res["error"] = 0;
+        }
+        catch (DynamoDbException $e){
+            $res["error"] = 500;
+            $res["error_msj"] = "Unable to update";
+        }
+
+        echo json_encode($res);
     }
 
     if($_REQUEST["cmd"]=="test")

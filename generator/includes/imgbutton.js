@@ -43,3 +43,9 @@ $(document).ready(function() {
     //     console.error('oops, something went wrong!', error);
     // });
 });
+
+<script>
+var div = $("#maindiv").html();
+div1 = div.replace(/res1080x1080/g,"res1200x628");
+div2 = div.replace(/res1080x1080/g,"res1080x1920");
+</script>

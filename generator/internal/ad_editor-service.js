@@ -1,5 +1,6 @@
 /********global variables********/
 window.bexi_tagid=null;
+window.bexi_fontsize=0;
 
 function rgb2hex(rgb){
     rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
@@ -33,7 +34,7 @@ function icon_manager(ID,numpag)
   if(keys!="")
   {
     request=$.ajax({
-      url: "load_icons.php",
+      url: "http://generator.bexi.ai/load_icons.php",
       data: { key: keys, npag : numpag} ,
       datatype:"json",
       success: function(data){
@@ -136,7 +137,7 @@ function Manager_unsplash2(ID,numpag)
   if(keys!="")
   {
     request=$.ajax({
-      url: "load_images.php",
+      url: "http://generator.bexi.ai/load_images.php",
       data: { key: keys, npag : numpag} ,
       datatype:"json",
       success: function(data){
@@ -239,7 +240,7 @@ function Manager_unsplash(ID,numpag)
   if(keys!="")
   {
     request=$.ajax({
-      url: "load_images.php",
+      url: "http://generator.bexi.ai/load_images.php",
       data: { key: keys, npag : numpag} ,
       datatype:"json",
       success: function(data){
@@ -461,6 +462,15 @@ $(document).click(function(e) {
 });
 
 $(document).ready(function() {
+  $("img").css("object-fit","cover");
+  $(".text-aux").contents().unwrap();
+  $(".bexi_button").wrapInner("<div class='text-aux' style='line-height:1em;padding:25px;'></div>");
+
+  $('.bexi_button').textfill({
+    maxFontPixels: 30,
+    changeLineHeight: false,
+    innerTag: "div"
+  });
     $( ".bexi_title" ).wrapInner( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
     $( ".bexi_subtitle" ).wrapInner( "<div class='bexi_editor_subtitle'  style='width: 100%;'></div>" );
@@ -476,8 +486,9 @@ $(document).ready(function() {
     $('.bexi_module_ad').each(function() {
       var num=Math.floor((Math.random() * 10000) + 1);
     $(this).prepend(
-      '<button class="toolbtn remove" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 110;position: absolute; top: -40px;background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
-      '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 111;position: absolute; top: -2px; background-color: White;padding:10px;">'+
+      '<button class="toolbtn remove" data-toggle="collapse" data-tooltip="true" data-placement="top" title="Content Block Settings" data-target="#collapsetools'+num+'" style="z-index: 110;position: absolute; background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-layer-group toolbtn"></i></button>'+
+      '<button class="toolbtn remove" data-tooltip="true" data-placement="top" title="Download Image" onClick="createimg()" style="left:34px;z-index: 111;position: absolute; background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-download toolbtn"></i></button>'+
+      '<div class="collapse bartool remove" id="collapsetools'+num+'" style="z-index: 111;position: absolute; top: 30px; background-color: White;padding:10px;">'+
         '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Color" onClick="bgchange(this.id)" id="'+num+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="fas fa-fill-drip toolbtn"></i></button>'+
         '<button class="toolbtn" data-tooltip="true" data-placement="bottom" title="Background Image" onClick="bgimgchange(this.id)" id="'+(num+10000)+'" style="background-color: White;border: none;color: Black;padding: 7px 9px;font-size: 16px;cursor: pointer;border-radius: 5%;"><i class="far fa-images toolbtn"></i></button>'+
       '</div>'+
@@ -501,11 +512,15 @@ $(document).ready(function() {
             '</div>'+
           '</div>'+
           '<div id="tab-3">'+
+            '<div class="row flex-row-reverse">'+
+            '<div class="w-50">'+
             '<div class="input-group mb-3">'+
               '<input id="inptextsearch'+num+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
               '<div class="input-group-append">'+
                 '<button class="btn ui-button ui-corner-all ui-widget" type="button" onclick="set_pagination2(\''+num+'\','+1+');" id="button-addon2">Search</button>'+
               '</div>'+
+            '</div>'+
+            '</div>'+
             '</div>'+
             '<div id="cont_unspl'+num+'">'+
             '</div>'+
@@ -734,11 +749,15 @@ $(document).ready(function() {
        newDiv.css("width", "auto");
        newDiv.css("overflow", "visible");
        newDiv.html(
+        '<div class="row flex-row-reverse m-0">'+
+        '<div class="w-50">'+
          '<div class="input-group mb-3">'+
          '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
          '<div class="input-group-append">'+
            '<button class="btn btn-outline-primary" type="button" onclick="set_pagination_icon(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
          '</div>'+
+       '</div>'+
+       '</div>'+
        '</div>'+
        '<div id="cont_icon'+ID+'">'+
        '</div>'+
@@ -791,10 +810,14 @@ FroalaEditor.RegisterCommand('unsplash_manager', {
     newDiv.css("width", "auto");
     newDiv.css("overflow", "auto");
     newDiv.html(
+    '<div class="row flex-row-reverse m-0">'+
+    '<div class="w-50">'+
     '<div class="input-group mb-3">'+
     '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
     '<div class="input-group-append">'+
       '<button class="btn btn-outline-primary" type="button" onclick="set_pagination(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
+    '</div>'+
+    '</div>'+
     '</div>'+
   '</div>'+
   '<div id="cont_unspl'+ID+'">'+
@@ -886,31 +909,198 @@ FroalaEditor.RegisterCommand('buttonbgcolor', {
     initialize_editors_text();
 });
 
+function createimg(){
+  $("grammarly-extension").attr("data-html2canvas-ignore","true");
+  $(".remove").attr("data-html2canvas-ignore","true");
+
+  $("img").each(function(){
+    var newDiv = $(document.createElement('div'));
+    newDiv.attr("data-copy", "true");
+    newDiv.attr("style",$(this).attr("style"));
+    newDiv.attr("class",$(this).attr("class"));
+    newDiv.css("margin-left","5px");
+    newDiv.css("margin-right","5px");
+    //newDiv.css("background","url('"+$(this).attr("src")+"')");
+    //newDiv.css("background-size","cover");
+    //newDiv.css("background-position","center");
+    //newDiv.css("background-repeat","no-repeat");
+    newDiv.css("width",$(this).width());
+    newDiv.css("height",$(this).height());
+    newDiv.css("overflow","hidden");
+    newDiv.css("display","flex");
+    newDiv.css("align-items","center");
+    newDiv.css("justify-content","center");
+    
+    var newimg = $(document.createElement('img'));
+
+    var imageWidth = $(this)[0].naturalWidth;
+    var imageHeight = $(this)[0].naturalHeight;
+
+    var sHeight = $(this)[0].naturalHeight;
+    var sWidth =$(this)[0].naturalWidth;
+    var pHeight = $(this).parent().height();
+    var pWidth = $(this).parent().width();
+    
+    newimg.attr("data-copy", "true");
+    newimg.attr("src", $(this).attr("src"));
+
+    if (sWidth/pWidth < sHeight/pHeight) {
+     var newWidth = pWidth;
+     var newHeight = sHeight * (pWidth / sWidth);
+    } else {
+      var  newWidth = sWidth * (pHeight / sHeight);
+      var  newHeight = pHeight;
+    }
+
+    newimg.css("width",newWidth);
+    newimg.css("max-width",newWidth);
+    newimg.css("height",newHeight);
+    newimg.css("max-height",newHeight);
+    /*
+    if(imageWidth>imageHeight){
+      newimg.css("height","100%");
+      newimg.css("width","150%");
+      newimg.css("max-width","150%");
+    }else{
+      newimg.css("width","100%");
+      newimg.css("height","150%");
+      newimg.css("max-height","150%");
+    }
+  */
+    newDiv.append(newimg);
+    $(this).css("display","none");
+    $(this).parent().append(newDiv);
+    $(this).attr("data-html2canvas-ignore","true");
+  });
+
+
+    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
+      var dataURL = canvas.toDataURL();
+      var pid=$("#codeId").val();
+      var link = document.createElement('a');
+      link.download = pid+'.jpeg';
+      link.href = dataURL;
+      link.click();
+
+      $('[data-copy="true"]').remove();
+      $("img").css("display","")
+      $("img").removeAttr("data-html2canvas-ignore");
+  });
+
+}
+
 
 function auto_save(){
+    var inner="<!DOCTYPE "+document.doctype.name+">"+document.documentElement.outerHTML;
+    parser = new DOMParser();
+    doc = parser.parseFromString(inner, "text/html");
+    var cc = jQuery(doc);
 
+    var pid=$("#codeId").val();
+    cc.find("grammarly-inline-card").remove();
+    cc.find("grammarly-popups").remove();
+    cc.find("grammarly-autocorrect-cards").remove();
+    cc.find(".remove").remove();
+    cc.find(".ui-front").remove();
+    cc.find("text-aux").contents().unwrap();
+    cc.find('.bexi_editor_icon').contents().unwrap();
+    cc.find('.bexi_editor_video').contents().unwrap();
+    cc.find('.bexi_editor_button').contents().unwrap();
+    cc.find('.bexi_editor_text').contents().unwrap();
+    cc.find('.bexi_editor_link').contents().unwrap();
+    cc.find('.bexi_editor_title').contents().unwrap();
+    cc.find('.bexi_editor_subtitle').contents().unwrap();
+    cc.find('.bexi_editor_img').contents().unwrap();
+    cc.find('.bexi_editor_map').contents().unwrap();
+    cc.find('div.fr-wrapper').contents().unwrap();
+    cc.find('div.fr-element').contents().unwrap();
+    cc.find('div.alt-wrap').contents().unwrap();
+    cc.find(".bexi_unspash").remove();
+    //cc.find(".fr-video").contents().unwrap();
+    cc.find("span").each(function(){
+      if($(this).attr("class")!==undefined)
+      {
+        if($(this).attr("class").search("fr-video")!==-1)
+        {
+          $(this).find("iframe").each(function(){
+            var maxwidth=$(this).css("width");
+            var maxheight=$(this).css("height");
+            //$(this).css("position","absolute");
+            $(this).css("top","0");
+            $(this).css("left","0");
+            $(this).css("width","100%");
+            $(this).css("height","100%");
+            if(maxwidth!=="0px")
+            {
+              $(this).css("max-width",maxwidth);
+            }
+            if(maxheight!=="0px")
+            {
+              $(this).css("max-height",maxheight);
+            }
+            $(this).css("position","absolute");
+          });
+          //$(this).wrap("<div class='video_responsive'></div>");
+        }
+      }
+    });
+    cc.find("p").each(function(){
+      if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
+      {
+        $(this).contents().unwrap();
+      }
+    });
+    cc.find("div").each(function(){
+      if($(this).attr("id")===undefined && $(this).attr("class")!==undefined)
+      {
+        if($(this).attr("class").search("fr-")!==-1){
+          $(this).remove();
+        }
+      }
+
+      if($(this).attr("data-grammarly-part")!==undefined){
+        $(this).remove();
+      }
+    });
+    cc.find(".bexi_form").each(function(){
+      $(this).find("input").attr('required', true);
+      $(this).find("input").removeAttr('disabled');
+      $(this).find("input").removeAttr('autocomplete');
+    });
+    cc.find("*").each(function(){
+      if($(this).attr("tabindex")!==undefined && $(this).attr("tabindex")==="-1")
+      {
+        $(this).remove();
+      }
+    });
+    cc.find('[data-editor="true"]').remove();
+    var request=$.ajax({
+      url: "adgenerator-service.php",
+      data: { cmd:"autosave",codeid : pid,code:cc.find('html').html()} ,
+      datatype:"json",
+      method:"POST",
+      success: function(data){
+      }
+    });
 };
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
 function save_img(TAGID,FILE){
-  /*
   var newDiv = $(document.createElement('div'));
   newDiv.attr("class","C align-items-center");
   newDiv.html(
-  "<img src='./img/uploading.gif' width='50px' height='50px'>"+
+  "<img src='http://generator.bexi.ai/img/uploading.gif' width='50px' height='50px'>"+
   "<spam>Uploading...</spam>"
     );
-  var did=$("#devId").val();
   var pid=$("#codeId").val();
-  var uid=$("#userId").val();
+  var uid="-100";
   var data = new FormData();
-  data.append("devid",did);
   data.append("file",FILE);
   data.append("userid",uid);
   data.append("projectid",pid);
   data.append("tagid",TAGID);
   var request=$.ajax({
-    url: "./ajax/uploadfile.php",
+    url: "http://generator.bexi.ai/ajax/uploadfile.php",
     data: data,
     processData: false,
     contentType: false,
@@ -935,7 +1125,6 @@ function save_img(TAGID,FILE){
      }
   });
   return request;
-  */
 }
 
 
@@ -956,16 +1145,8 @@ function styles_ptags(){
 
 function initialize_editors_text(){
 
-  //t1maxchar=Math.round(t1maxchar);
-  //console.log(t1size);
-
-  //t2maxchar=Math.round(t2maxchar);
-  //console.log(t2size);
-
-  //buttonmaxchar=Math.round(buttonmaxchar);
     var editortitles = new FroalaEditor('.bexi_editor_title',
     {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
@@ -973,8 +1154,6 @@ function initialize_editors_text(){
       quickInsertEnabled: false,
       toolbarInline: true,
       charCounterCount: true,
-      //charCounterMax: t1maxchar,
-      //fontSize: t1size,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
@@ -993,10 +1172,10 @@ function initialize_editors_text(){
       imageUploadParam: 'file',
 
       // Set the image upload URL.
-      imageUploadURL: './ajax/uploadfile.php',
+      imageUploadURL: 'http://generator.bexi.ai/ajax/uploadfile.php',
 
       // Additional upload params.
-      imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+      imageUploadParams: {userid:"-100",projectid:$("#codeId").val(),tagid:""},
 
       // Set request type.
       imageUploadMethod: 'POST',
@@ -1043,6 +1222,12 @@ function initialize_editors_text(){
             }
           },
           'initialized': function () {
+            $(".bexi_title").wrapInner("<div class='text-aux' style='line-height:1em;'></div>");
+            $('.bexi_title').textfill({
+              maxFontPixels: 64,
+              changeLineHeight: false,
+              innerTag: "div"
+            });
             styles_ptags();
           },
           'image.resizeEnd': function ($img) {
@@ -1050,13 +1235,22 @@ function initialize_editors_text(){
           },
           'image.beforeRemove': function ($img) {
             auto_save();
+          },
+          'contentChanged': function () {
+            auto_save();
+          },
+          'keyup': function (keyupEvent) {
+            $('.bexi_title').textfill({
+              maxFontPixels: 64,
+              changeLineHeight: false,
+              innerTag: "div"
+          });
           }
       }
     });
 
     var editorsubtitles = new FroalaEditor('.bexi_editor_subtitle',
     {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
@@ -1064,8 +1258,6 @@ function initialize_editors_text(){
       quickInsertEnabled: false,
       toolbarInline: true,
       charCounterCount: true,
-      //charCounterMax: t2maxchar,
-      //fontSize: t2size,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
@@ -1084,10 +1276,10 @@ function initialize_editors_text(){
       imageUploadParam: 'file',
 
       // Set the image upload URL.
-      imageUploadURL: './ajax/uploadfile.php',
+      imageUploadURL: 'http://generator.bexi.ai/ajax/uploadfile.php',
   
       // Additional upload params.
-      imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+      imageUploadParams: {userid:"-100",projectid:$("#codeId").val(),tagid:""},
   
       // Set request type.
       imageUploadMethod: 'POST',
@@ -1141,6 +1333,12 @@ function initialize_editors_text(){
           },
           'image.beforeRemove': function ($img) {
             auto_save();
+          },
+          'contentChanged': function () {
+            //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
+          },
+          'keyup': function (keyupEvent) {
+
           }
       }
     });
@@ -1149,7 +1347,6 @@ function initialize_editors_text(){
 
     var editorimg = new FroalaEditor('.bexi_img',
     {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
@@ -1161,11 +1358,12 @@ function initialize_editors_text(){
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
       emoticonsUseImage: false,
+      imageResize: false,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
       },
-      imageEditButtons: ['imageReplace', 'imageAlign', 'imageRemove', '|','-','imageSize'],
+      imageEditButtons: ['imageReplace'],
       imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_manager'],
       // Set max image size to 5MB.
       imageMaxSize: 3 * 1024 * 1024,
@@ -1177,6 +1375,7 @@ function initialize_editors_text(){
           auto_save();
       },
       'image.beforeUpload': function (images) {
+        console.log(images[0]);
         if(images[0].size<=(3 * 1024 * 1024))
         {
           var res=save_img(window.bexi_tagid,images[0]);
@@ -1297,7 +1496,15 @@ function initialize_editors_text(){
           styles_ptags();
         },
         'contentChanged': function () {
+          //$('.bexi_title, .bexi_subtitle, .bexi_button').bbFitText();
           auto_save();
+        },
+        'keyup': function (keyupEvent) {
+          $('.bexi_button').textfill({
+            maxFontPixels: 30,
+            changeLineHeight: false,
+            innerTag: "div"
+          });
         }
       }
     });
@@ -1350,4 +1557,23 @@ function initialize_editors_text(){
       }
     }
     });
+/*
+    var fitties = fitty('.bexi_title',{ minSize: 6,maxSize: 64 });
+    // get element reference of first fitty
+    var myFittyElement = fitties[0].element;
+
+    // force refit
+    fitties[0].fit();
+
+
+    myFittyElement.addEventListener('fit', function(e) {
+
+      // log the detail property to the console
+      window.bexi_fontsize=e.detail.newValue;
+      console.log(e.detail.newValue);
+    });
+
+    fitty('.bexi_button');
+  */
+ 
 }

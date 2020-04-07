@@ -1,10 +1,8 @@
 <?
-
-include "config.php";
-require 'vendor/autoload.php';
-
-include "includes/utils.php";
-include "includes/content_blocks.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/includes/global.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/includes/utils.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/config.php";
+include "/var/www/generator.bexi.co/public_html/product_backend/generator/vendor/autoload.php";
 
 use Aws\DynamoDb\Exception\DynamoDbException;
 use Aws\DynamoDb\Marshaler;
@@ -28,50 +26,11 @@ Crew\Unsplash\HttpClient::init([
     'utmSource' => 'Bexi Generator'
 ]);
 
-$keywords= "";
-if (isset($_REQUEST["campaignid"]))
-{
-	$campaign_id = $_REQUEST["campaignid"];
-	$params = [
-        'TableName' => "modu_campaigns",
-         "KeyConditionExpression"=> "id = :id",
-        "ExpressionAttributeValues"=> [
-            ":id" =>  ["S" => $campaign_id]
-        ]
-    ];
-
-    $result_proj = $dynamodb->query($params);
-
-    if (count($result_proj["Items"])>0)
-    {
-
-        if (isset($result_proj['Items'][0]["keywords"]) && !is_null($result_proj['Items'][0]["keywords"]))
-        {
-            $keywords=$marshaler->unmarshalValue($result_proj['Items'][0]["keywords"]);
-        }else
-        {
-            $keywords="";
-		}
-
-		if (isset($result_proj['Items'][0]["recipe_type"]) && !is_null($result_proj['Items'][0]["recipe_type"]))
-        {
-            $recipe_type=$marshaler->unmarshalValue($result_proj['Items'][0]["recipe_type"]);
-        }else
-        {
-            $recipe_type="1";
-		}
-
-    }else{
-		$keywords = "";
-		$recipe_type="1";
-    }
-}
-
 
 ?><!DOCTYPE html>
 <html>
 <head>
-	<script src="includes/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<style type="text/css">
 			/* Variables */
 
@@ -89,8 +48,8 @@ if (isset($_REQUEST["campaignid"]))
 	}
 
 	:root {
-        --width: 1080px;
-        --height: 1080px;
+        --width: 1200px;
+        --height: 628px;
         /* scale **/
         --zoom-factor: 0.7;
       }
@@ -100,7 +59,7 @@ if (isset($_REQUEST["campaignid"]))
       }
       .thumbnail {
         position: relative;
-        display: table-caption;
+        display: table;
 		width: var(--width);
         height: var(--height);
         -ms-zoom: var(--zoom-factor);
@@ -126,20 +85,18 @@ if (isset($_REQUEST["campaignid"]))
         height: calc(var(--height) * var(--zoom-factor));
         display: inline-block;
         position: relative;
-        margin-right: 20px;
+        margin: 20px;
       }
       .bexi_sliders {
         display: flex;
         flex-flow: row wrap;
         align-items: center;
         height: 100vh;
-		overflow:hidden;
-      }
+      }/*overflow:hidden; */
 
 	  .pre-thumbnail{
-		  white-space:nowrap;
 		  padding-left:20px;
-	  }
+	  }/*white-space:nowrap; */
 
 	/* This pseudo element masks the iframe, so that mouse wheel scrolling and clicking do not affect the simulated "screenshot" */
 	/*.thumbnail:after {
@@ -178,12 +135,35 @@ if (isset($_REQUEST["campaignid"]))
 	  z-index: 999;
 	}/*	  background-color: rgba(0,0,0,0.3); */
 
+
+	.select {
+	  position: fixed;
+	  top: 5%;
+	  left:15px;
+	  z-index: 9999;
+	  background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+	}
+
+	.select:hover {
+	background-color:#5cbf2a;
+	}
+
 	/* Position the "next button" to the right */
 	.selector_next {
 	  margin-right:15px;
 	  right: 0;
 	  border-radius: 3px 0 0 3px;
-	  background-image: url("./imgs/right_gray.png");
+	  background-image: url("http://generator.bexi.ai/imgs/right_gray.png");
 	  background-position: center; /* Center the image */
 	  background-repeat: no-repeat; /* Do not repeat the image */
 	  background-size: cover; /* Resize the background image to cover the entire container */
@@ -193,7 +173,7 @@ if (isset($_REQUEST["campaignid"]))
 	  margin-left:15px;
 	  left: 0;
 	  border-radius: 3px 0 0 3px;
-	  background-image: url("./imgs/left_gray.png");
+	  background-image: url("http://generator.bexi.ai/imgs/left_gray.png");
 	  background-position: center; /* Center the image */
 	  background-repeat: no-repeat; /* Do not repeat the image */
 	  background-size: cover; /* Resize the background image to cover the entire container */
@@ -201,11 +181,11 @@ if (isset($_REQUEST["campaignid"]))
 
 	/* On hover, add a black background color with a little bit see-through */
 	.selector_prev:hover{
-		background-image: url("./imgs/left.png");
+		background-image: url("http://generator.bexi.ai/imgs/left.png");
 	}/*background-color: rgba(0,0,0,0.7); */
 
 	.selector_next:hover {
-		background-image: url("./imgs/right.png");
+		background-image: url("http://generator.bexi.ai/imgs/right.png");
 	}/*background-color: rgba(0,0,0,0.7); */
 /*
 	.mySlides:hover:after{
@@ -230,11 +210,12 @@ if (isset($_REQUEST["campaignid"]))
 		cursor:pointer;
 	}
 
+	/*
 	.project_inactive
 	{
 		opacity : 0.2;
 	}
-
+	*/
 	.visible{
 		visibility: visible;
 	}
@@ -248,19 +229,20 @@ if (isset($_REQUEST["campaignid"]))
 	<script type="text/javascript">
 		var Widthparam = <? echo (isset($_REQUEST["screen_width"]) ? $_REQUEST["screen_width"] : "0"); ?>;
 		var Heightparam = <? echo (isset($_REQUEST["screen_height"]) ? $_REQUEST["screen_height"] : "0"); ?>;
-		var UserParam = <? echo (isset($_REQUEST["user"]) ? $_REQUEST["user"] : "0"); ?>;
-		var CampaignIdParam = '<? echo (isset($_REQUEST["campaignid"]) ? $_REQUEST["campaignid"] : "0"); ?>';
-		var KeywordsParams = '<? echo (isset($keywords) ? $keywords : ""); ?>';
-		var RecipeParams = '<? echo (isset($recipe_type) ? $recipe_type : "1"); ?>';
+        var UserParam = '-100';
+        var Headline = '<? echo (isset($_REQUEST["headline"]) ? $_REQUEST["headline"] : ""); ?>';
+        var Cta = '<? echo (isset($_REQUEST["cta"]) ? $_REQUEST["cta"] : ""); ?>';
+		var Codename = '<? echo (isset($_REQUEST["codename"]) ? $_REQUEST["codename"] : "0"); ?>';
+		var KeywordsParams = '<? echo (isset($_REQUEST["keywords"]) ? $_REQUEST["keywords"] : ""); ?>';
 		var MAIN_DOMAIN ='<? echo MAIN_DOMAIN; ?>';
 	</script>
-	<script type="text/javascript" src="includes/bexi_ad_selector.js"></script>
+	<script type="text/javascript" src="bexi_ad_selector_service.js"></script>
 </head>
 <body>
 <div class="main_selector">
+	<!-- Select button -->
+	<a class="select hidden" onclick="select_edit()">Select</a>
 	<!-- Next and previous buttons -->
-	<a class="selector_prev hidden" onclick="plusSlides(1)"></a>
-	<a class="selector_next" onclick="plusSlides(-1)"></a>
 	<div class="bexi_sliders" id="modu_sliders" >
 	<div class="pre-thumbnail" id="pre-thumbnail">
 	
