@@ -998,17 +998,9 @@ function createimg(){
   });
 
 
-    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false,scale: 2,useCORS: true,backgroundColor:null,width:1200*2,height:628*2}).then(canvas => {
-      //var dataURL = canvas.toDataURL();
+    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false,useCORS: true,backgroundColor:null,width:1200,height:628}).then(canvas => {
+      var dataURL = canvas.toDataURL('image/jpeg', 1.0);
       var pid=$("#codeId").val();
-
-      /********** EXTRA CANVAS **********/
-      var extra_canvas = document.createElement("canvas");
-      extra_canvas.setAttribute('width',1200);
-      extra_canvas.setAttribute('height',628);
-      var ctx = extra_canvas.getContext('2d');
-      ctx.drawImage(canvas,0,0,1200*2, 628*2,0,0,1200,628);
-      var dataURL = extra_canvas.toDataURL("image/jpeg");
 
       if (navigator.msSaveBlob) {
         var block = dataURL.split(";");//Split the base64 string in data and contentType
