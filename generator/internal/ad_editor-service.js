@@ -512,7 +512,7 @@ $(document).ready(function() {
             '</div>'+
           '</div>'+
           '<div id="tab-3">'+
-            '<div class="row flex-row-reverse">'+
+            '<div class="row">'+
             '<div class="w-50">'+
             '<div class="input-group mb-3">'+
               '<input id="inptextsearch'+num+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
@@ -749,7 +749,7 @@ $(document).ready(function() {
        newDiv.css("width", "auto");
        newDiv.css("overflow", "visible");
        newDiv.html(
-        '<div class="row flex-row-reverse m-0">'+
+        '<div class="row m-0">'+
         '<div class="w-50">'+
          '<div class="input-group mb-3">'+
          '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
@@ -810,7 +810,7 @@ FroalaEditor.RegisterCommand('unsplash_manager', {
     newDiv.css("width", "auto");
     newDiv.css("overflow", "auto");
     newDiv.html(
-    '<div class="row flex-row-reverse m-0">'+
+    '<div class="row m-0">'+
     '<div class="w-50">'+
     '<div class="input-group mb-3">'+
     '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
