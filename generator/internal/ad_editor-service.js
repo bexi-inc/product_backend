@@ -1000,8 +1000,8 @@ function createimg(){
 
     html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false,scale:3,dpi: 300,useCORS: true,backgroundColor:null,width:1200,height:628}).then(canvas => {
       console.log(canvas);
-      canvas.setAttribute('width',"1200px");
-      canvas.setAttribute('height',"628px");
+      //canvas.setAttribute('width',"1200px");
+      //canvas.setAttribute('height',"628px");
       var dataURL = canvas.toDataURL("image/jpeg");
       var pid=$("#codeId").val();
 
