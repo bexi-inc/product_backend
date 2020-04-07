@@ -997,8 +997,7 @@ function createimg(){
     $(this).attr("data-html2canvas-ignore","true");
   });
 
-
-    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false,scale:2,useCORS: true,backgroundColor:null,width:1200,height:628}).then(canvas => {
+    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false,scale:2.5,useCORS: true,backgroundColor:null,width:1200,height:628}).then(canvas => {
       var pid=$("#codeId").val();
       var w=$(".bexi_module_ad").width();
       var h=$(".bexi_module_ad").height();
