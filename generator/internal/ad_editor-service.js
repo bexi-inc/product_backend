@@ -1007,9 +1007,8 @@ function createimg(){
       extra_canvas.setAttribute('height',628*3);
       var ctx = extra_canvas.getContext('2d');
       ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,1200*3,628*3);
-      ctx.scale(1/3,1/3);
-      extra_canvas.setAttribute('width',1200);
-      extra_canvas.setAttribute('height',628);
+      canvas.style.width=1200+"px";
+      canvas.style.height=628+"px";
       var dataURL = extra_canvas.toDataURL("image/jpeg",1.0);
 
       if (navigator.msSaveBlob) {
