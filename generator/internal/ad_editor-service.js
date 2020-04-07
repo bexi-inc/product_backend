@@ -998,7 +998,7 @@ function createimg(){
   });
 
 
-    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false,scale: 5,useCORS: true,backgroundColor:null,width:1200,height:628}).then(canvas => {
+    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false,scale: 2,useCORS: true,backgroundColor:null,width:1200,height:628}).then(canvas => {
       //var dataURL = canvas.toDataURL();
       var pid=$("#codeId").val();
 
@@ -1007,6 +1007,7 @@ function createimg(){
       extra_canvas.setAttribute('width',1200);
       extra_canvas.setAttribute('height',628);
       var ctx = extra_canvas.getContext('2d');
+      ctx.scale(2, 2);
       ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,1200,628);
       var dataURL = extra_canvas.toDataURL("image/jpeg");
 
