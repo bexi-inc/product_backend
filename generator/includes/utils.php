@@ -336,7 +336,7 @@ function setImages($contenido,$keywords = "")
 		   
     	 }
     }
-    $contenido = $dom->saveHTML();
+    $contenido = $doc->saveHTML();
 
 
     $pos=0;
