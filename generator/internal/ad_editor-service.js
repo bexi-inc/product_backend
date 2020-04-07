@@ -998,17 +998,16 @@ function createimg(){
   });
 
 
-    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false,scale:3,useCORS: true,backgroundColor:null,width:1200,height:628}).then(canvas => {
+    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false,scale:1.2,useCORS: true,backgroundColor:null,width:1200,height:628}).then(canvas => {
       var pid=$("#codeId").val();
-
+      var w=$(".bexi_module_ad").width();
+      var h=$(".bexi_module_ad").height();
       /********** EXTRA CANVAS **********/
       var extra_canvas = document.createElement("canvas");
-      extra_canvas.setAttribute('width',1200);
-      extra_canvas.setAttribute('height',628);
+      extra_canvas.setAttribute('width',w);
+      extra_canvas.setAttribute('height',h);
       var ctx = extra_canvas.getContext('2d');
-      ctx.drawImage(canvas,0,0,1200,628);
-      canvas.style.width=1200+"px";
-      canvas.style.height=628+"px";
+      ctx.drawImage(canvas,0,0,w,h);
       var dataURL = extra_canvas.toDataURL("image/jpeg",1.0);
 
       if (navigator.msSaveBlob) {
