@@ -1224,7 +1224,7 @@ function initialize_editors_text(){
           'initialized': function () {
             $(".bexi_title").wrapInner("<div class='text-aux' style='line-height:1.05em;'></div>");
             $('.bexi_title').textfill({
-              maxFontPixels: 64,
+              maxFontPixels: 66,
               changeLineHeight: false,
               innerTag: "div"
             });
@@ -1241,7 +1241,7 @@ function initialize_editors_text(){
           },
           'keyup': function (keyupEvent) {
             $('.bexi_title').textfill({
-              maxFontPixels: 64,
+              maxFontPixels: 66,
               changeLineHeight: false,
               innerTag: "div"
           });
@@ -1558,7 +1558,7 @@ function initialize_editors_text(){
     }
     });
 /*
-    var fitties = fitty('.bexi_title',{ minSize: 6,maxSize: 64 });
+    var fitties = fitty('.bexi_title',{ minSize: 6,maxSize: 66 });
     // get element reference of first fitty
     var myFittyElement = fitties[0].element;
 
