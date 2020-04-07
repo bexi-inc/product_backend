@@ -1010,7 +1010,7 @@ function createimg(){
       var dataURL = extra_canvas.toDataURL("image/jpeg");
 
       if (navigator.msSaveBlob) {
-        var block = dataURL.toDataURL("image/jpeg").split(";");//Split the base64 string in data and contentType
+        var block = dataURL.split(";");//Split the base64 string in data and contentType
         var contentType = block[0].split(":")[1];// // Get the content type of the image
         var realData = block[1].split(",")[1];// get the real base64 content of the file
         var blob = b64toBlob(realData, contentType);// Convert it to a blob to upload
