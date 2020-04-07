@@ -1005,6 +1005,7 @@ function createimg(){
       extra_canvas.setAttribute('width',1200);
       extra_canvas.setAttribute('height',628);
       var ctx = extra_canvas.getContext('2d');
+      console.log(canvas.width,canvas.height);
       ctx.scale(3, 3);
       ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,1200,628);
       var dataURL = extra_canvas.toDataURL("image/jpeg",1.0);
