@@ -998,9 +998,17 @@ function createimg(){
   });
 
 
-    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false, useCORS: true,backgroundColor:null,width:1200,height:628}).then(canvas => {
-      var dataURL = canvas.toDataURL("image/jpeg");
+    html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false,scale: 2,useCORS: true,backgroundColor:null,width:1200,height:628}).then(canvas => {
+      //var dataURL = canvas.toDataURL();
       var pid=$("#codeId").val();
+
+      /********** EXTRA CANVAS **********/
+      var extra_canvas = document.createElement("canvas");
+      extra_canvas.setAttribute('width',1200);
+      extra_canvas.setAttribute('height',628);
+      var ctx = extra_canvas.getContext('2d');
+      ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,1200,628);
+      var dataURL = extra_canvas.toDataURL("image/jpeg");
 
       if (navigator.msSaveBlob) {
         var block = dataURL.split(";");//Split the base64 string in data and contentType
@@ -1177,7 +1185,7 @@ function styles_ptags(){
   }
 
 function initialize_editors_text(){
-
+var colors=['#192033', '#2DFEFE', '#00D1D1','#00A3A3','#8C9091','#BEBEBE','#1730AD','REMOVE'];
     var editortitles = new FroalaEditor('.bexi_editor_title',
     {
       iconsTemplate: 'font_awesome_5',
@@ -1190,6 +1198,7 @@ function initialize_editors_text(){
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
+      colorsText: colors,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
@@ -1294,6 +1303,7 @@ function initialize_editors_text(){
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
+      colorsText: colors,
       imageStyles: {
         'fr-rounded': 'Rounded',
         'fr-bordered': 'Bordered'
@@ -1391,6 +1401,7 @@ function initialize_editors_text(){
       imageDefaultAlign: 'center',
       imageDefaultMargin: 0,
       emoticonsUseImage: false,
+      colorsText: colors,
       imageResize: false,
       imageStyles: {
         'fr-rounded': 'Rounded',
@@ -1513,6 +1524,7 @@ function initialize_editors_text(){
       toolbarBottom : false,
       emoticonsUseImage: false,
       toolbarVisibleWithoutSelection: true,
+      colorsText: colors,
       multiLine: false,
       toolbarButtons:{
         'moreText': {
