@@ -999,11 +999,18 @@ function createimg(){
 
 
     html2canvas(document.querySelector(".bexi_module_ad") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
-      var dataURL = canvas.toDataURL();
+      //var dataURL = canvas.toDataURL();
       var pid=$("#codeId").val();
+      /********** EXTRA CANVAS **********/
+      var extra_canvas = document.createElement("canvas");
+      extra_canvas.setAttribute('width',1200);
+      extra_canvas.setAttribute('height',628);
+      var ctx = extra_canvas.getContext('2d');
+      ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,1200,628);
+      var dataURL = extra_canvas.toDataURL("image/jpeg");
 
       if (navigator.msSaveBlob) {
-        var block = canvas.toDataURL("image/jpeg").split(";");//Split the base64 string in data and contentType
+        var block = dataURL.toDataURL("image/jpeg").split(";");//Split the base64 string in data and contentType
         var contentType = block[0].split(":")[1];// // Get the content type of the image
         var realData = block[1].split(",")[1];// get the real base64 content of the file
         var blob = b64toBlob(realData, contentType);// Convert it to a blob to upload
