@@ -113,9 +113,9 @@ $fullpath= $path.$userid."/".$projectid . "/";
 
 if ($_REQUEST["thumbnail"]==1)
 {
-    echo $target_file;
+    //echo $target_file;
 
-    print_r($_FILES);
+   // print_r($_FILES);
     
     $target_file = $fullpath.basename($_FILES["file"]["name"]);
     $uploadOk = 1;

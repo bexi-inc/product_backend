@@ -151,6 +151,8 @@ function setImages($contenido,$keywords = ""){
 	return $contenido;
 }*/
 
+
+/*
 function setImages($contenido,$keywords = ""){
 		
 	$pos = 0;
@@ -216,7 +218,7 @@ function setImages($contenido,$keywords = ""){
 				//echo $tagstar."=>".$pos_class2;
 				//echo "add bexi_img";
 				$contenido = substr_replace($contenido, "bexi_img ", $tagstar + $pos_class2 + 1  ,0);
-				*/
+				//////*
 				$content = $dom->saveHTML();
 			}
 	   
@@ -264,6 +266,203 @@ function setImages($contenido,$keywords = ""){
 	   // $pos++;
 	}
 	return $contenido;
+}
+*/
+
+
+function setImages($contenido,$keywords = "")
+{
+		
+	$doc = new DOMDocument();
+    $doc->loadHTML('<?xml encoding="UTF-8">' .$contenido);
+
+    $tags = $doc->getElementsByTagName('img');
+
+    foreach ($tags as $tag) {
+    	 $src = $tag->getAttribute('src');
+    	 if (substr($src, 0, 4) === "%img")
+    	 {
+    	 	$imgdata = explode ("|",str_replace("%", "", $src));
+			//print_r( $imgdata);
+			  $filters = [
+			          'featured' => true,
+			          'w'        => $imgdata[1],
+			          'h'        => $imgdata[2],
+			          'query'    => $keywords
+			  ];
+			  //print_r($filters);
+			  try
+			  {
+			   	$data = Crew\Unsplash\Photo::random($filters);
+			  } catch (Crew\Unsplash\Exception $e) {
+			    //writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
+			   	$filters = [
+				          'featured' => true,
+				          'w'        => $imgdata[1],
+				          'h'        => $imgdata[2]
+				  ];
+				  $data = Crew\Unsplash\Photo::random($filters);
+			  }
+
+			 // $contenido=substr_replace($contenido,' bexi_img_au="'.$data->user['name'].'"  bexi_au_link="'.$data->user["links"]["html"].'" ',$pos2 + 2 ,0);
+
+			  $tag->setAttribute('bexi_img_au',$data->user['name']);
+			  $tag->setAttribute('bexi_au_link',$data->user["links"]["html"]);
+		    	//$contenido=substr_replace($contenido,$data->urls['custom'],$pos,$pos2-$pos+1);
+			  $tag->SetAttribute('src',$data->urls['custom']);
+		    	/*$tagend = strpos($contenido,">",$pos);
+		    	$tagstar = $tagend;
+		    	while(substr($contenido, $tagstar,1)!="<")
+				{
+					$tagstar = $tagstar -1;
+				}
+				//echo "TAG IMG = ".$tagstar."=>".$tagend;
+				$taghtml = substr($contenido, $tagstar,$tagend - $tagstar +1);
+				//echo "bexi_img".strpos($taghtml,"bexi_img");
+				//echo htmlentities($taghtml);
+				$dom=new domDocument;
+				libxml_use_internal_errors(true);
+				$dom->loadHTML($taghtml);
+				libxml_use_internal_errors(false);
+				$dom->preserveWhiteSpace = false;
+				$tagimg = $dom->getElementsByTagName ("img")->item(0);*/
+				//print_r($tagimg);
+				//echo $tagimg->getAttribute('class');
+				if (strpos($tag->getAttribute('class'),"bexi_img") == false )
+				{
+					$tag->setAttribute('class',$tag->getAttribute('class')." bexi_img");
+					
+				}
+		   
+    	 }
+    }
+    $contenido = $dom->saveHTML();
+
+
+    $pos=0;
+	while ( ( $pos = strpos( $contenido, "%bg_img", $pos ) ) !== false ) {
+	  $pos2 = strpos( $contenido, "%", ($pos + 1) );
+	 // echo "The letter 'l' was found at position: $pos<br/>";
+	  $imgtag = substr($contenido,$pos+1,$pos2-$pos - 1);
+	  //echo $imgtag;
+	  $imgdata = explode ("|",$imgtag);
+	  //print_r( $imgdata);
+	    $filters = [
+	            'featured' => true,
+	            'w'        => $imgdata[1],
+	            'h'        => $imgdata[2],
+	            'query'    => $keywords
+	    ];
+	    try
+	    {
+	   	 	$data = Crew\Unsplash\Photo::random($filters);
+	   	} catch (Crew\Unsplash\Exception $e) {
+		     $filters = [
+		            'featured' => true,
+		            'w'        => $imgdata[1],
+		            'h'        => $imgdata[2]
+		    ];
+		    try
+	    	{
+		    	$data = Crew\Unsplash\Photo::random($filters);
+		    } catch (Crew\Unsplash\Exception $e2) {
+
+		    }
+	   }
+	   if(isset($data->urls['custom']))
+	   {
+		$contenido=substr_replace($contenido,$data->urls['custom'],$pos,$pos2-$pos + 1);
+	   }
+	   else{
+		$contenido=substr_replace($contenido,$data->urls['full'],$pos,$pos2-$pos + 1);
+	   }
+	    	
+	   
+	   // $pos++;
+	}
+	return $contenido;
+    return $contenido;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	$pos = 0;
+	$pos2 = 0;
+
+	while ( ( $pos = strpos( $contenido, "%img", $pos ) ) !== false ) {
+	  $pos2 = strpos( $contenido, "%", ($pos + 1) );
+	 // echo "The letter 'l' was found at position: $pos<br/>";
+	  $imgtag = substr($contenido,$pos+1,$pos2-$pos - 1);
+	 // echo $imgtag;
+	  $imgdata = explode ("|",$imgtag);
+	  //print_r( $imgdata);
+	    $filters = [
+	            'featured' => true,
+	            'w'        => $imgdata[1],
+	            'h'        => $imgdata[2],
+	            'query'    => $keywords
+	    ];
+	    //print_r($filters);
+	    try
+	    {
+	   	 	$data = Crew\Unsplash\Photo::random($filters);
+	   	} catch (Crew\Unsplash\Exception $e) {
+	      //writeErrorLogEntry(basename(__FILE__,'.php'),__LINE__,$e);
+	   	 	$filters = [
+		            'featured' => true,
+		            'w'        => $imgdata[1],
+		            'h'        => $imgdata[2]
+		    ];
+		    $data = Crew\Unsplash\Photo::random($filters);
+	    }
+	    	//print_r($filters);
+	   	 	//print_r($data);
+	     	//echo $data->user['name'];
+	     	$contenido=substr_replace($contenido,' bexi_img_au="'.$data->user['name'].'"  bexi_au_link="'.$data->user["links"]["html"].'" ',$pos2 + 2 ,0);
+	    	$contenido=substr_replace($contenido,$data->urls['custom'],$pos,$pos2-$pos+1);
+	    	$tagend = strpos($contenido,">",$pos);
+	    	$tagstar = $tagend;
+	    	while(substr($contenido, $tagstar,1)!="<")
+			{
+				$tagstar = $tagstar -1;
+			}
+			//echo "TAG IMG = ".$tagstar."=>".$tagend;
+			$taghtml = substr($contenido, $tagstar,$tagend - $tagstar +1);
+			//echo "bexi_img".strpos($taghtml,"bexi_img");
+			//echo htmlentities($taghtml);
+			$dom=new domDocument;
+			libxml_use_internal_errors(true);
+			$dom->loadHTML($taghtml);
+			libxml_use_internal_errors(false);
+			$dom->preserveWhiteSpace = false;
+			$tagimg = $dom->getElementsByTagName ("img")->item(0);
+			//print_r($tagimg);
+			//echo $tagimg->getAttribute('class');
+			if (strpos($tagimg->getAttribute('class'),"bexi_img") == false )
+			{
+				$tagimg->setAttribute('class',$tagimg->getAttribute('class')." bexi_img");
+				$content = $dom->saveHTML();
+			}
+	   
+	    $pos++;
+	}
+
+	
 }
 
 function zipme($source, $destination)

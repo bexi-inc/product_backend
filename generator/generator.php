@@ -280,6 +280,9 @@ elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
 
     // OBTENEMOS EL FONT POR RANDON
 
+
+    /*
+
     $params = [
         'TableName' => "bexi_prod_fonts",
         "IndexName" => "usage-index",
@@ -327,7 +330,7 @@ elseif (isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
 
         </div>";
     }
-
+*/
     //echo "Time Final:".(microtime(true) - $timeini)."<br>"; 
 
 
@@ -585,25 +588,25 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
             foreach ($comp as $item)
             {
                 $insert_class=1;
-               $pos=strpos($item,"Color");
+                $pos=strpos($item,"Color");
                 if($pos!==false){
-                $insert_class=0;
+                    $insert_class=0;
                 }
                 $pos=strpos($item,"Black");
                 if($pos!==false){
-                $insert_class=0;
+                    $insert_class=0;
                 }
                 $pos=strpos($item,"White");
                 if($pos!==false){
-                $insert_class=0;
+                    $insert_class=0;
                 }
                 $pos=strpos($item,"Gray");
                 if($pos!==false){
-                $insert_class=0;
+                    $insert_class=0;
                 }
                 $pos=strpos($item,"Light_gray");
                 if($pos!==false){
-                $insert_class=0;
+                    $insert_class=0;
                 }
                 if($insert_class===1)
                 {
@@ -612,6 +615,7 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
             }
             $tag->setAttribute('class',$new_class);
         }
+        
         if($logourl!=""||$logourl!=null)
         {
             $tags = $doc->getElementsByTagName('img');
