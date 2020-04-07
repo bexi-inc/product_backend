@@ -1007,7 +1007,7 @@ function createimg(){
       extra_canvas.setAttribute('height',628*3);
       var ctx = extra_canvas.getContext('2d');
       ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,1200*3,628*3);
-      var dataURL = extra_canvas.toDataURL("image/jpeg");
+      var dataURL = extra_canvas.toDataURL("image/jpeg",1.0);
 
       if (navigator.msSaveBlob) {
         var block = dataURL.split(";");//Split the base64 string in data and contentType
