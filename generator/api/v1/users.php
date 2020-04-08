@@ -51,6 +51,7 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 {
 	global $Marshaler;
 	/********validate email on white list*******/
+	/*
 	$data='
 	{
 		":email": "'.$email.'"
@@ -74,7 +75,7 @@ function SigIn($connDyn, $email, $name, $lastname, $password)
 		$ret["message"] =  $table["error"];
 		return $ret;
 	}
-
+	*/
 
 	$ret["error_code"] = "0";
 
@@ -461,7 +462,9 @@ function GmailSigin($code, $redirect="")
 		}
 		$email =  $google_account_info->email;
 		
+		
 		/********validate email on white list*******/
+		/*
 		$data='
 	    {
 	        ":email": "'.$email.'"
@@ -485,7 +488,7 @@ function GmailSigin($code, $redirect="")
 		    $ret["message"] =  $table["error"];
 		    return $ret;
 		}
-
+		*/
 
 		$idgoogle =  $google_account_info->id;
 
