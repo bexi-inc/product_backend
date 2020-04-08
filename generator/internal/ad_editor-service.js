@@ -1197,6 +1197,7 @@ var colors=['#192033', '#2DFEFE', '#00D1D1','#00A3A3','#8C9091','#BEBEBE','#1730
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
+      colorsBackground: colors,
       colorsText: colors,
       imageStyles: {
         'fr-rounded': 'Rounded',
