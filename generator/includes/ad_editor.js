@@ -1276,6 +1276,7 @@ function initialize_editors_text(){
       quickInsertEnabled: false,
       toolbarInline: true,
       charCounterCount: true,
+      pluginsEnabled: ["align", "charCounter", "codeBeautifier", "codeView", "colors", "draggable", "embedly", "emoticons", "entities", "file", "fontAwesome", "fontFamily", "fontSize", "fullscreen", "image", "imageTUI", "imageManager", "inlineStyle", "inlineClass", "lineBreaker", "lineHeight", "lists", "paragraphFormat", "paragraphStyle", "quickInsert", "quote", "save", "table", "url", "video", "wordPaste"],
       //charCounterMax: buttonmaxchar,
       //fontSize: buttonsize,
       toolbarBottom : false,
