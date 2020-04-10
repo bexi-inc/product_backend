@@ -135,12 +135,12 @@ if ($_REQUEST["thumbnail"]==1)
             
             $key = $marshaler->marshalJson('
                 {
-                    "project_id ": "' . $projectid . '"
+                    "project_id" : "' . $projectid . '"
                 }
             ');
 
            
-            print_r($key);
+            //print_r($key);
 
             $eav = $marshaler->marshalJson('
                 {
@@ -148,7 +148,7 @@ if ($_REQUEST["thumbnail"]==1)
                 }
             ');
 
-            print_r($eav);
+            //print_r($eav);
 
             $params = [
                 "TableName" => "modu_projects",
