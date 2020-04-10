@@ -1225,10 +1225,11 @@ function bgchange(btid) {
        });
 
       initialize_editors_text();
-      thumbnail();
 });/**END OF DOCUMENT READY ***/
 
-
+$( window ).load(function() {
+  thumbnail();
+});
 
 
 /*
