@@ -120,11 +120,12 @@ if ($_REQUEST["thumbnail"]==1)
    // print_r($_FILES);
     
     $target_file = $fullpath.basename($_FILES["file"]["name"]);
+    //$webpath = $userid."/".$projectid . "/";
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     $target_file = $fullpath."thumbnail.".$imageFileType;
-    //$webpath = $webpath.$userid."/".$projectid . "/thumbnail.".$imageFileType;
+    $webpath = $webpath.$userid."/".$projectid . "/thumbnail.".$imageFileType;
     //print_r($_FILES);
 
    // echo $target_file;
@@ -145,7 +146,7 @@ if ($_REQUEST["thumbnail"]==1)
 
             $eav = $marshaler->marshalJson('
                 {
-                    ":t_path": "'.$target_file.'" 
+                    ":t_path": "'.$webpath.'" 
                 }
             ');
 
