@@ -153,7 +153,7 @@ if ($_REQUEST["thumbnail"]==1)
             //print_r($eav);
 
             $params = [
-                "TableName" => "modu_projects",
+                "TableName" => TBL_PROJECTS,
                  'Key' => $key,
                  'UpdateExpression' => 
                     'set thumbnail = :t_path',
