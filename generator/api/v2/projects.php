@@ -265,7 +265,7 @@ function GetProjects($CampaginId)
 					$proj["status"] = 0;
 				}
 
-				if (!isset($project["thumbnail"]))
+				if (!is_array($project["thumbnail"]))
 				{
 					$proj["thumbnail_path"] = $Marshaler->unmarshalValue($project["thumbnail"]);
 				}else{
