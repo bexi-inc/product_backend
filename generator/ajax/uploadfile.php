@@ -132,27 +132,19 @@ if ($_REQUEST["thumbnail"]==1)
     try {
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 
-            print_r('
-                {
-                    "project_id ": ' . $projectid . ', 
-                }
-            ');
+            
             $key = $marshaler->marshalJson('
                 {
-                    "project_id ": ' . $projectid . ', 
+                    "project_id ": ' . $projectid . '
                 }
             ');
 
-            print_r('
-                {
-                    ":t_path": "'.$target_file.'" ,
-                }
-            ');
+           
             print_r($key);
 
             $eav = $marshaler->marshalJson('
                 {
-                    ":t_path": "'.$target_file.'" ,
+                    ":t_path": "'.$target_file.'" 
                 }
             ');
 
