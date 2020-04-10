@@ -132,17 +132,24 @@ if ($_REQUEST["thumbnail"]==1)
     try {
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 
+            
             $key = $marshaler->marshalJson('
                 {
-                    "project_id ": ' . $projectid . ', 
+                    "project_id" : "' . $projectid . '",
+                    "user_id" : "'. $userid .'"
                 }
             ');
 
+           
+            //print_r($key);
+
             $eav = $marshaler->marshalJson('
                 {
-                    ":t_path": "'.$target_file.'" ,
+                    ":t_path": "'.$target_file.'" 
                 }
             ');
+
+            //print_r($eav);
 
             $params = [
                 "TableName" => "modu_projects",
