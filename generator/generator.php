@@ -767,7 +767,7 @@ OBTENEMOS EL LOGO EN BASE AL PROJECT ID
             </script>';
     if ($_REQUEST["target"]!="selector")
     {
-        echo ' <script>$(document).ready(function() {auto_save();});</script>';
+        echo ' <script>auto_save();</script>';
     }
     echo "\r\n";
     echo "</body>";
