@@ -135,7 +135,7 @@ if ($_REQUEST["thumbnail"]==1)
             
             $key = $marshaler->marshalJson('
                 {
-                    "project_id ": ' . $projectid . '
+                    "project_id ": "' . $projectid . '"
                 }
             ');
 
