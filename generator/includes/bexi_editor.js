@@ -1227,10 +1227,10 @@ function bgchange(btid) {
       initialize_editors_text();
 });/**END OF DOCUMENT READY ***/
 
-$( window ).load(function() {
+$(window).on('load', function () {
+  console.log("window loaded");
   thumbnail();
-});
-
+ });
 
 /*
 function add_action_forms(){
