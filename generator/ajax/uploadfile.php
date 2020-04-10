@@ -27,7 +27,7 @@ $path = "/var/www/uploads.getmodu.com/public_html/";
 $webpath = "http://".PATHWEB."/";
 
 
-print_r($_REQUEST);
+//print_r($_REQUEST);
 
 
 //print_r($_FILES);
@@ -138,11 +138,15 @@ if ($_REQUEST["thumbnail"]==1)
                 }
             ');
 
+            print_r($key);
+
             $eav = $marshaler->marshalJson('
                 {
                     ":t_path": "'.$target_file.'" ,
                 }
             ');
+
+            print_r($eav);
 
             $params = [
                 "TableName" => "modu_projects",
