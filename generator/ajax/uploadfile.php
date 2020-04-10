@@ -127,10 +127,34 @@ if ($_REQUEST["thumbnail"]==1)
     //$webpath = $webpath.$userid."/".$projectid . "/thumbnail.".$imageFileType;
     //print_r($_FILES);
 
-    echo $target_file;
+   // echo $target_file;
 
     try {
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+
+            $key = $marshaler->marshalJson('
+                {
+                    "project_id ": ' . $projectid . ', 
+                }
+            ');
+
+            $eav = $marshaler->marshalJson('
+                {
+                    ":t_path": "'.$target_file.'" ,
+                }
+            ');
+
+            $params = [
+                "TableName" => "modu_projects",
+                 'Key' => $key,
+                 'UpdateExpression' => 
+                    'set thumbnail = :t_path',
+                 'ExpressionAttributeValues'=> $eav,
+                 'ReturnValues' => 'UPDATED_NEW'
+            ];
+
+            $result = $dynamodb->updateItem($params);
+
         }
         //echo "Succeed in setting bucket website configuration.\n";
     } catch (Exception  $e) {
