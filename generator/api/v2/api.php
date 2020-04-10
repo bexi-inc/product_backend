@@ -296,6 +296,7 @@ $res["error_code"]=0;
  			
  		}
  		//die("CreateProject");
+ 		print_r($_REQ);
  		$res = CreateDeliverable($_REQ->projectId, $_REQ->winnerId, $_REQ->loserId, $_REQ->type);
  		break;
  	case "ExistsDomain":
