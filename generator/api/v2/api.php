@@ -289,15 +289,14 @@ $res["error_code"]=0;
  		/*print_r($_REQ);
  		echo "files";
  		print_r($_FILES);*/
- 		if (!isset($_REQ->projectId) || !isset($_REQ->winnerId) || !isset($_REQ->loserId) || !isset($_REQ->type))
+ 		if (!isset($_REQ->projectid) || !isset($_REQ->winnerid) || !isset($_REQ->loserid) || !isset($_REQ->type))
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params CreateProject";
  			
  		}
  		//die("CreateProject");
- 		print_r($_REQ);
- 		$res = CreateDeliverable($_REQ->projectId, $_REQ->winnerId, $_REQ->loserId, $_REQ->type);
+ 		$res = CreateDeliverable($_REQ->projectid, $_REQ->winnerid, $_REQ->loserid, $_REQ->type);
  		break;
  	case "ExistsDomain":
  		if (!isset($_REQ->domain))
