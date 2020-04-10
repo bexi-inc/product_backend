@@ -265,6 +265,13 @@ function GetProjects($CampaginId)
 					$proj["status"] = 0;
 				}
 
+				if (!isset($project["thumbnail"]))
+				{
+					$proj["thumbnail_path"] = $Marshaler->unmarshalValue($project["thumbnail"]);
+				}else{
+					$proj["thumbnail_path"]="";
+				}
+
 				if ($project["date_create"])
 				{
 					$micro_date = date($Marshaler->unmarshalValue($project["date_create"]));
