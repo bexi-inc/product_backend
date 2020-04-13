@@ -1,6 +1,7 @@
 /********global variables********/
 window.bexi_tagid=null;
 
+/******* converts a color from rgb to hexadecimal ****/
 function rgb2hex(rgb){
     rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
     return (rgb && rgb.length === 4) ? "#" +
@@ -9,11 +10,13 @@ function rgb2hex(rgb){
      ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
+/******** validate that the url is an image ***********/
 function validate_url(url){
  var result=/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)/.test(url);
  return result;
 }
 
+/******** remove the classes that belong to fontawesome ********/
 function clear_classes(classes){
  var classList = classes.split(/\s+/);
  var class_clear="";
@@ -25,81 +28,7 @@ function clear_classes(classes){
  return class_clear;
 }
 
-function icon_manager(ID,numpag)
-{
-  var request=null;
-  $("#cont_icon"+ID).empty();
-  var keys=$('#inptext'+ID).val();
-  if(keys!="")
-  {
-    request=$.ajax({
-      url: "load_icons.php",
-      data: { key: keys, npag : numpag} ,
-      datatype:"json",
-      success: function(data){
-      var jdata=JSON.parse(data);
-      total=jdata.total;
-      $.each(jdata.icons, function(index, item) {
-          var ico = $(document.createElement('i'));
-          $(ico).attr("class",item.class);
-          $(ico).css("cursor","pointer");
-          $(ico).css("padding","7px 9px");
-          $(ico).css("font-size","16px");
-          $(ico).css("border-radius","5%");
-          $(ico).css("margin","5px");
-          $(ico).click(function(){
-            var cl=clear_classes($("#"+ID).attr("class"));
-            $("#"+ID).attr("class",cl+item.class);
-            $("#diag_icon"+ID).dialog( "close" );
-            $("#diag_icon"+ID).remove();
-            auto_save();
-          });
-          $("#cont_icon"+ID).append(ico);
-      });
-      $("#diag_icon"+ID).css("height","250px");
-      $("#diag_icon"+ID).closest(".ui-dialog").css("position","fixed");
-      $("#diag_icon"+ID).closest(".ui-dialog").css("top","80px");
-      }
-    });
-  }
-  return request;
-}
-
-
-function set_pagination_icon(ID,npag)
-{
-  var pag_cont =$('#cont_pag'+ID);
-  pag_cont.pagination({
-  
-    // current page
-    current: 1, 
-  
-    // the number of entires per page
-    length: 26,
-  
-    // pagination size
-    size: 2,
-  
-    // Prev/Next text
-    prev: "&lt;", 
-    next: "&gt;", 
-  
-    // fired on each click
-    ajax:function(options, refresh, $target){
-     pag_cont.hide();
-      var t = icon_manager(ID,options.current);
-     t.done(function(data){
-       var jdata=JSON.parse(data);
-      refresh({
-        total: jdata.total
-      });
-      pag_cont.show();
-     })
-    }
-  });
-}
-
-
+/******* function to change background url from transpa-bg inside bexi_module_ad ****/
 function bgchangeurl(ID){
   var url=$("#inptext"+ID).val();
   if(url!=""){
@@ -124,6 +53,7 @@ function bgchangeurl(ID){
   auto_save();
 }
 
+/******* unsplash image loader for background bexi_module_ad ****/
 function Manager_unsplash2(ID,numpag)
 {
   var request=null;
@@ -194,6 +124,7 @@ function Manager_unsplash2(ID,numpag)
   return request;
 }
 
+/******* pagination initialize for Manager_unsplash2 function ****/
 function set_pagination2(ID,npag)
 {
   var pag_cont =$('#cont_pag'+ID);
@@ -227,6 +158,7 @@ function set_pagination2(ID,npag)
   });
 }
 
+/******* unsplash image loader for background bexi_module_ad ****/
 function Manager_unsplash(ID,numpag)
 {
   var request=null;
@@ -282,6 +214,7 @@ function Manager_unsplash(ID,numpag)
   return request;
 }
 
+/******* pagination initialize for Manager_unsplash function ****/
 function set_pagination(ID,npag)
 {
   var pag_cont =$('#cont_pag'+ID);
@@ -315,6 +248,7 @@ function set_pagination(ID,npag)
   });
 }
 
+/******* change background color from bg_bexi_module inside bexi_module_ad ****/
 function bgchange(btid) {
   var vcolor = $("#" +btid).closest(".bexi_module_ad").find(".bg_bexi_module").css("background-color").replace(/\s/g, "");
   if (vcolor =="rgba(0,0,0,0)")
@@ -366,6 +300,7 @@ function bgchange(btid) {
     auto_save();
   }
 
+  /******** open the tabs to change the background of a content block from url, file or unsplash *******/
   function bgimgchange(btid) {
     $( "#dialog-img"+(btid-10000).toString()).dialog({
               resizable: false,
@@ -392,6 +327,8 @@ function bgchange(btid) {
       });
       auto_save();
     }
+
+    /******* view background image when is saved in server save_img ****/
 /*
     function previewImg(ID) {
       var exist= false;
@@ -461,6 +398,7 @@ $(document).click(function(e) {
 });
 
 $(document).ready(function() {
+    /****** add containers to initialize the editors *****/
     $( ".bexi_title" ).wrapInner( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
     $( ".bexi_subtitle" ).wrapInner( "<div class='bexi_editor_subtitle'  style='width: 100%;'></div>" );
@@ -473,6 +411,7 @@ $(document).ready(function() {
 
     $('.bexi_icon').wrapInner( '<p class="bexi_editor_icon" ></p>');
     
+    /******* add the edit buttons to the content blocks **********/
     $('.bexi_module_ad').each(function() {
       var num=Math.floor((Math.random() * 10000) + 1);
     $(this).prepend(
@@ -543,229 +482,7 @@ $(document).ready(function() {
     });
   });
 
-    /************** ICON COLOR ******************/
-    FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
-    FroalaEditor.DefineIcon('icon_block', {FA5NAME: 'fas fa-tint'});
-    FroalaEditor.RegisterCommand('iconcolor', {
-        title: 'Icon Color',
-        icon: 'icon_block',
-        focus: false,
-        undo: false,
-        refreshAfterCallback: false,
-        callback: function () {
-        var obj=this._original_html;
-        var ID=$(obj).attr('id');
-        var color=$("#"+ID).css('color');
-        color=rgb2hex(color);
-        var newDiv = $(document.createElement('div'));
-        newDiv.attr("Title", "Icon Settings");
-        newDiv.attr("data-id", "#" + ID);
-        newDiv.css("display", "block");
-        newDiv.css("height", "auto");
-        newDiv.css("width", "auto");
-        newDiv.css("overflow", "visible");
-        newDiv.html("Color:<input type='text' id='colorpicker_"+ID+"' class='form-control' data-control='hue' value='" + color + "'>");
-        $(newDiv).dialog({
-            resizable: false,
-            height: "auto",
-            width: 500,
-            modal: true,
-            buttons: {
-                "Save": function() {
-                $("#"+ID).css("color",$("#colorpicker_"+ID).minicolors("rgbString"));
-                $( this ).dialog( "close" );
-                newDiv.remove();
-                auto_save();
-                },
-                "Cancel": function() {
-                $( this ).dialog( "close" );
-                newDiv.remove();
-                }
-            },
-            open: function() {
-            $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
-        },
-        close: function( event, ui ) {
-            newDiv.remove();
-        }
-        });
-        $("#colorpicker_"+ID).minicolors({
-            control: $(this).attr('data-control') || 'hue',
-            inline: $(this).attr('data-inline') === 'true',
-            letterCase: 'uppercase',
-            format: 'hex',
-            swatches: ["#000000","#444444","#666666","#999999","#cccccc","#eeeeee","#f3f3f3","#ffffff","#f00","#f90","#ff0","#0f0","#0ff","#00f"],
-            change: function(hex, opacity) {
-            },
-            theme: 'bootstrap'
-        });
-        }
-    });
-
-    /************** ICON BGCOLOR ******************/
-    FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
-    FroalaEditor.DefineIcon('icon_block2', {FA5NAME: 'fas fa-paint-brush'});
-    FroalaEditor.RegisterCommand('iconbgcolor', {
-        title: 'Icon Background Color',
-        icon: 'icon_block2',
-        focus: false,
-        undo: false,
-        refreshAfterCallback: false,
-        callback: function () {
-        var obj=this._original_html;
-        var ID=$(obj).attr('id');
-        var color=$("#"+ID).css('background-color');
-        color=rgb2hex(color);
-        var newDiv = $(document.createElement('div'));
-        newDiv.attr("Title", "Icon Settings");
-        newDiv.attr("data-id", "#" + ID);
-        newDiv.css("display", "block");
-        newDiv.css("height", "auto");
-        newDiv.css("width", "auto");
-        newDiv.css("overflow", "visible");
-        newDiv.html("Background Color:<input type='text' id='colorpicker_"+ID+"' class='form-control' data-control='hue' value='" + color + "'>");
-        $(newDiv).dialog({
-            resizable: false,
-            height: "auto",
-            width: 500,
-            modal: true,
-            buttons: {
-                "Save": function() {
-                $("#"+ID).css("background-color",$("#colorpicker_"+ID).minicolors("rgbString"));
-                $( this ).dialog( "close" );
-                newDiv.remove();
-                auto_save();
-                },
-                "Cancel": function() {
-                $( this ).dialog( "close" );
-                newDiv.remove();
-                }
-            },
-            open: function() {
-            $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
-        },
-            close: function( event, ui ) {
-            newDiv.remove();
-            }
-        });
-        $("#colorpicker_"+ID).minicolors({
-            control: $(this).attr('data-control') || 'hue',
-            inline: $(this).attr('data-inline') === 'true',
-            letterCase: 'uppercase',
-            format: 'hex',
-            swatches: ["#000000","#444444","#666666","#999999","#cccccc","#eeeeee","#f3f3f3","#ffffff","#f00","#f90","#ff0","#0f0","#0ff","#00f"],
-            change: function(hex, opacity) {
-            },
-            theme: 'bootstrap'
-        });
-        }
-    });
-
-
-    /************** ICON REMOVE ******************/
-    FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
-    FroalaEditor.DefineIcon('icon_block6', {FA5NAME: 'fas fa-trash'});
-    FroalaEditor.RegisterCommand('iconremove', {
-    title: 'Remove',
-    icon: 'icon_block6',
-    focus: false,
-    undo: false,
-    refreshAfterCallback: false,
-    callback: function () {
-        var obj=this._original_html;
-        var ID=$(obj).attr('id');
-        $('#'+ID).closest(".bexi_editor_icon").remove();
-        auto_save();
-    }
-    });
-
-    /************** ICON SIZE ******************/
-    FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
-    FroalaEditor.DefineIcon('icon_block3', {FA5NAME: 'fas fa-text-height'});
-    FroalaEditor.RegisterCommand('iconsize', {
-        title: 'Icon Size',
-        icon: 'icon_block3',
-        type: 'dropdown',
-        focus: false,
-        undo: false,
-        refreshAfterCallback: true,
-        options: {
-          '8': '8',
-          '9': '9',
-          '10': '10',
-          '11': '11',
-          '12': '12',
-          '14': '14',
-          '18': '18',
-          '24': '24',
-          '30': '30',
-          '36': '36',
-          '48': '48',
-          '60': '60',
-          '72': '72',
-          '96': '96',
-        },
-        callback: function (cmd, val) {
-        var obj=this._original_html;
-        var ID=$(obj).attr('id');
-        $("#"+ID).css("font-size",val+'px');
-        auto_save();
-        }
-    });
-
-    /************** ICON REEMPLACE ******************/
-    FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
-    FroalaEditor.DefineIcon('icon_block7', {FA5NAME: 'fas fa-exchange-alt'});
-    FroalaEditor.RegisterCommand('iconexchange', {
-      title: 'Icon Exchange',
-      icon: 'icon_block7',
-      focus: false,
-      undo: false,
-      refreshAfterCallback: false,
-      callback: function () {
-       var obj=this._original_html;
-       var ID=$(obj).attr('id');
-       var newDiv = $(document.createElement('div'));
-       newDiv.attr("Title", "Icon Settings");
-       newDiv.attr("data-id", "#" + ID);
-       newDiv.attr("id","diag_icon"+ID);
-       newDiv.css("display", "block");
-       newDiv.css("height", "auto");
-       newDiv.css("width", "auto");
-       newDiv.css("overflow", "visible");
-       newDiv.html(
-         '<div class="input-group mb-3">'+
-         '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
-         '<div class="input-group-append">'+
-           '<button class="btn btn-outline-primary" type="button" onclick="set_pagination_icon(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
-         '</div>'+
-       '</div>'+
-       '<div id="cont_icon'+ID+'">'+
-       '</div>'+
-       '<div id="cont_pag'+ID+'" class="pagination">'+
-       '</div>'
-         );
-       $(newDiv).dialog({
-           resizable: false,
-           height: "auto",
-           width: 400,
-           modal: true,
-           buttons: {
-             "Cancel": function() {
-               $( this ).dialog( "close" );
-               newDiv.remove();
-             }
-           },
-           open: function() {
-           $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
-       },
-         close: function( event, ui ) {
-           newDiv.remove();
-         }
-       });
-      }
-    });
-
+    
 /************** Unsplash Manager ******************/
 FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
 FroalaEditor.DefineIcon('icon_block5', {FA5NAME: 'fas fa-images'});
@@ -823,72 +540,104 @@ FroalaEditor.RegisterCommand('unsplash_manager', {
   }
 });
 
-/************** BUTTON BGCOLOR ******************/
-FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
-FroalaEditor.DefineIcon('icon_block50', {FA5NAME: 'fas fa-paint-brush'});
-FroalaEditor.RegisterCommand('buttonbgcolor', {
-    title: 'Button Background Color',
-    icon: 'icon_block50',
-    focus: false,
-    undo: false,
-    refreshAfterCallback: false,
-    callback: function () {
-    var obj=this._original_html;
-    var ID=$(obj).attr('id');
-    var color=$("#"+ID).css('background-color');
-    color=rgb2hex(color);
-    var newDiv = $(document.createElement('div'));
-    newDiv.attr("Title", "Button Settings");
-    newDiv.attr("data-id", "#" + ID);
-    newDiv.css("display", "block");
-    newDiv.css("height", "auto");
-    newDiv.css("width", "auto");
-    newDiv.css("overflow", "visible");
-    newDiv.html("Background Color:<input type='text' id='colorpicker_"+ID+"' class='form-control' data-control='hue' value='" + color + "'>");
-    $(newDiv).dialog({
-        resizable: false,
-        height: "auto",
-        width: 500,
-        modal: true,
-        buttons: {
-            "Save": function() {
-            $("#"+ID).css("background-color",$("#colorpicker_"+ID).minicolors("rgbString"));
-            $( this ).dialog( "close" );
-            newDiv.remove();
-            auto_save();
-            },
-            "Cancel": function() {
-            $( this ).dialog( "close" );
-            newDiv.remove();
-            }
-        },
-        open: function() {
-        $('.ui-dialog-titlebar-close').find('.ui-icon').removeClass('ui-button-icon');
-    },
-        close: function( event, ui ) {
-        newDiv.remove();
-        }
-    });
-    $("#colorpicker_"+ID).minicolors({
-        control: $(this).attr('data-control') || 'hue',
-        inline: $(this).attr('data-inline') === 'true',
-        letterCase: 'uppercase',
-        format: 'hex',
-        swatches: ["#000000","#444444","#666666","#999999","#cccccc","#eeeeee","#f3f3f3","#ffffff","#f00","#f90","#ff0","#0f0","#0ff","#00f"],
-        change: function(hex, opacity) {
-        },
-        theme: 'bootstrap'
-    });
-    }
-});
-
-
     initialize_editors_text();
 });
 
-
+/****** save html by removing editors and junk tags ******/
 function auto_save(){
+  /*
+  var inner="<!DOCTYPE "+document.doctype.name+">"+document.documentElement.outerHTML;
+    parser = new DOMParser();
+    doc = parser.parseFromString(inner, "text/html");
+    var cc = jQuery(doc);
 
+    var pid=$("#codeId").val();
+    cc.find("grammarly-inline-card").remove();
+    cc.find("grammarly-popups").remove();
+    cc.find("grammarly-autocorrect-cards").remove();
+    cc.find(".remove").remove();
+    cc.find(".ui-front").remove();
+    cc.find("text-aux").contents().unwrap();
+    cc.find('.bexi_editor_icon').contents().unwrap();
+    cc.find('.bexi_editor_video').contents().unwrap();
+    cc.find('.bexi_editor_button').contents().unwrap();
+    cc.find('.bexi_editor_text').contents().unwrap();
+    cc.find('.bexi_editor_link').contents().unwrap();
+    cc.find('.bexi_editor_title').contents().unwrap();
+    cc.find('.bexi_editor_subtitle').contents().unwrap();
+    cc.find('.bexi_editor_img').contents().unwrap();
+    cc.find('.bexi_editor_map').contents().unwrap();
+    cc.find('div.fr-wrapper').contents().unwrap();
+    cc.find('div.fr-element').contents().unwrap();
+    cc.find('div.alt-wrap').contents().unwrap();
+    cc.find(".bexi_unspash").remove();
+    //cc.find(".fr-video").contents().unwrap();
+    cc.find("span").each(function(){
+      if($(this).attr("class")!==undefined)
+      {
+        if($(this).attr("class").search("fr-video")!==-1)
+        {
+          $(this).find("iframe").each(function(){
+            var maxwidth=$(this).css("width");
+            var maxheight=$(this).css("height");
+            //$(this).css("position","absolute");
+            $(this).css("top","0");
+            $(this).css("left","0");
+            $(this).css("width","100%");
+            $(this).css("height","100%");
+            if(maxwidth!=="0px")
+            {
+              $(this).css("max-width",maxwidth);
+            }
+            if(maxheight!=="0px")
+            {
+              $(this).css("max-height",maxheight);
+            }
+            $(this).css("position","absolute");
+          });
+          //$(this).wrap("<div class='video_responsive'></div>");
+        }
+      }
+    });
+    cc.find("p").each(function(){
+      if($(this).attr("class")==undefined||$(this).attr("class").search("bexi_editor")!==-1)
+      {
+        $(this).contents().unwrap();
+      }
+    });
+    cc.find("div").each(function(){
+      if($(this).attr("id")===undefined && $(this).attr("class")!==undefined)
+      {
+        if($(this).attr("class").search("fr-")!==-1){
+          $(this).remove();
+        }
+      }
+
+      if($(this).attr("data-grammarly-part")!==undefined){
+        $(this).remove();
+      }
+    });
+    cc.find(".bexi_form").each(function(){
+      $(this).find("input").attr('required', true);
+      $(this).find("input").removeAttr('disabled');
+      $(this).find("input").removeAttr('autocomplete');
+    });
+    cc.find("*").each(function(){
+      if($(this).attr("tabindex")!==undefined && $(this).attr("tabindex")==="-1")
+      {
+        $(this).remove();
+      }
+    });
+    cc.find('[data-editor="true"]').remove();
+    var request=$.ajax({
+      url: "adgenerator.php",
+      data: { cmd:"autosave",codeid : pid,code:cc.find('html').html()} ,
+      datatype:"json",
+      method:"POST",
+      success: function(data){
+      }
+    });
+    */
 };
 
 /********SAVE FOR BACKGROUND IMG ON THE SERVER ********/
@@ -938,7 +687,7 @@ function save_img(TAGID,FILE){
   */
 }
 
-
+/****** remove default p tags style created from froala *******/
 function styles_ptags(){
     $("#modu_main").find("p").each(function(){
       if($(this).attr("class")===undefined)
@@ -954,18 +703,10 @@ function styles_ptags(){
     });
   }
 
+/****** initialize froala editors *******/
 function initialize_editors_text(){
-
-  //t1maxchar=Math.round(t1maxchar);
-  //console.log(t1size);
-
-  //t2maxchar=Math.round(t2maxchar);
-  //console.log(t2size);
-
-  //buttonmaxchar=Math.round(buttonmaxchar);
     var editortitles = new FroalaEditor('.bexi_editor_title',
     {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
@@ -973,8 +714,6 @@ function initialize_editors_text(){
       quickInsertEnabled: false,
       toolbarInline: true,
       charCounterCount: true,
-      //charCounterMax: t1maxchar,
-      //fontSize: t1size,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
@@ -1056,7 +795,6 @@ function initialize_editors_text(){
 
     var editorsubtitles = new FroalaEditor('.bexi_editor_subtitle',
     {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
@@ -1064,8 +802,6 @@ function initialize_editors_text(){
       quickInsertEnabled: false,
       toolbarInline: true,
       charCounterCount: true,
-      //charCounterMax: t2maxchar,
-      //fontSize: t2size,
       toolbarVisibleWithoutSelection: true,
       emoticonsUseImage: false,
       enter: FroalaEditor.ENTER_BR,
@@ -1149,7 +885,6 @@ function initialize_editors_text(){
 
     var editorimg = new FroalaEditor('.bexi_img',
     {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
@@ -1268,7 +1003,6 @@ function initialize_editors_text(){
 
     var editorbtn = new FroalaEditor('.bexi_editor_button',
     {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       iconsTemplate: 'font_awesome_5',
       key : FroalaKey,
       fileUpload: false,
@@ -1277,8 +1011,6 @@ function initialize_editors_text(){
       toolbarInline: true,
       charCounterCount: true,
       pluginsEnabled: ["align", "charCounter", "codeBeautifier", "codeView", "colors", "draggable", "embedly", "emoticons", "entities", "file", "fontAwesome", "fontFamily", "fontSize", "fullscreen", "image", "imageTUI", "imageManager", "inlineStyle", "inlineClass", "lineBreaker", "lineHeight", "lists", "paragraphFormat", "paragraphStyle", "quickInsert", "quote", "save", "table", "link", "video", "wordPaste"],
-      //charCounterMax: buttonmaxchar,
-      //fontSize: buttonsize,
       toolbarBottom : false,
       emoticonsUseImage: false,
       toolbarVisibleWithoutSelection: true,
@@ -1305,7 +1037,6 @@ function initialize_editors_text(){
 
 
     var editorico = new FroalaEditor('.bexi_editor_icon', {
-      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
       key : FroalaKey,
       iconsTemplate: 'font_awesome_5',
       toolbarInline: true,
