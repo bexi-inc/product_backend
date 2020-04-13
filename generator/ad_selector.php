@@ -28,6 +28,7 @@ Crew\Unsplash\HttpClient::init([
     'utmSource' => 'Bexi Generator'
 ]);
 
+/********** get the keywords from the BD **********/
 $keywords= "";
 if (isset($_REQUEST["campaignid"]))
 {

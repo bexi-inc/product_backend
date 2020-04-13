@@ -2,6 +2,7 @@
 window.bexi_tagid=null;
 window.response_img=[];
 
+/******* converts a color from rgb to hexadecimal ****/
 function rgb2hex(rgb){
      rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
      return (rgb && rgb.length === 4) ? "#" +
@@ -10,11 +11,13 @@ function rgb2hex(rgb){
       ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
+/******** validate that the url is an image ***********/
 function validate_url(url){
   var result=/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)/.test(url);
   return result;
 }
 
+/******** remove the classes that belong to fontawesome ********/
 function clear_classes(classes){
   var classList = classes.split(/\s+/);
   var class_clear="";
@@ -26,6 +29,8 @@ function clear_classes(classes){
   return class_clear;
 }
 
+
+/********* open a ui dialog to change the source of a map *********/
 function edit_map(ID)
 {
   var newDiv = $(document.createElement('div'));
@@ -76,7 +81,7 @@ function edit_map(ID)
   });
 }
 
-
+/************ open a ui dialog to remove a map *******************/
 function remove_map(ID)
 {
   var newDiv = $(document.createElement('div'));
@@ -113,6 +118,8 @@ function remove_map(ID)
   });
 }
 
+
+/*********** open a ui dialog to remove a content block ***************/
 function remove_content(ID)
 {
   var newDiv = $(document.createElement('div'));
@@ -149,6 +156,8 @@ function remove_content(ID)
   });
 }
 
+
+/********** change the background image from a url ***********/
 function bgchangeurl(ID){
   var url=$("#inptext"+ID).val();
   if(url!=""){
@@ -173,6 +182,7 @@ function bgchangeurl(ID){
   auto_save();
 }
 
+/********* call the unsplash api to load images with the keys passed in the input text and accommodate them with masonry, replace an image inside froala editor *********/
 function Manager_unsplash4(ID,numpag)
 {
   var request=null;
@@ -233,6 +243,7 @@ function Manager_unsplash4(ID,numpag)
   return request;
 }
 
+/********** controls the paging of the unsplash api call **********/
 function set_pagination4(ID,npag)
 {
   var pag_cont =$('#cont_pag'+ID);
@@ -266,6 +277,7 @@ function set_pagination4(ID,npag)
   });
 }
 
+/********** make a call to fetch the BD icons depending on the key *********/
 function icon_manager(ID,numpag)
 {
   var request=null;
@@ -306,6 +318,7 @@ function icon_manager(ID,numpag)
   return request;
 }
 
+/********** handles icons paging **********/
 function set_pagination3(ID,npag)
 {
   var pag_cont =$('#cont_pag'+ID);
@@ -339,6 +352,7 @@ function set_pagination3(ID,npag)
   });
 }
 
+/********* call the unsplash api to change the background of a content block ***********/
 function Manager_unsplash2(ID,numpag)
 {
   var request=null;
@@ -409,6 +423,7 @@ function Manager_unsplash2(ID,numpag)
   return request;
 }
 
+/********** manages unsplash paging in content block backgrounds ********/
 function set_pagination2(ID,npag)
 {
   var pag_cont =$('#cont_pag'+ID);
@@ -442,6 +457,7 @@ function set_pagination2(ID,npag)
   });
 }
 
+/****************** to insert an image from unsplash in the froala editor *************/
 function Manager_unsplash(ID,numpag)
 {
   var request=null;
@@ -497,6 +513,7 @@ function Manager_unsplash(ID,numpag)
   return request;
 }
 
+/********* manages the pagination of the function insert an image in froala ********/
 function set_pagination(ID,npag)
 {
   var pag_cont =$('#cont_pag'+ID);
@@ -530,6 +547,7 @@ function set_pagination(ID,npag)
   });
 }
 
+/***************  ***********/
 function bgchange(btid) {
   var vcolor = $("#" +btid).closest(".bexi_module").css("background-color").replace(/\s/g, "");
   if (vcolor =="rgba(0,0,0,0)")
@@ -581,6 +599,7 @@ function bgchange(btid) {
     auto_save();
   }
 
+  /******** open the tabs to change the background of a content block from url, file or unsplash *******/
   function bgimgchange(btid) {
     $( "#dialog-img"+(btid-10000).toString()).dialog({
               resizable: false,
@@ -608,6 +627,7 @@ function bgchange(btid) {
       auto_save();
     }
 
+    /********** change the background of a content block for an image uploaded by the user **********/
     function previewImg(ID) {
       var exist= false;
       if( $("#collapsetools" +ID).closest(".bexi_module").find(".transpa-bg").length)
@@ -675,7 +695,7 @@ function bgchange(btid) {
   });
 
  $(document).ready(function() {
-
+      /****** we add the containers to initialize the editors *****/
      $( ".bexi_title" ).wrap( "<div class='bexi_editor_title' style='width: 100%;'></div>" );
 
      $( ".bexi_subtitle" ).wrap( "<div class='bexi_editor_subtitle'  style='width: 100%;'></div>" );
@@ -704,6 +724,7 @@ function bgchange(btid) {
             */
         });
        $(".map").wrap('<div class="bexi_editor_map" style="width: 100%;height:100%;"></div>');
+       /********** add the edit buttons *****/
        $(".bexi_editor_map").each(function(){
         var num=Math.floor((Math.random() * 10000) + 50000);
         $(this).css("position", "relative");
@@ -717,6 +738,7 @@ function bgchange(btid) {
        });
        //$(".bexi_img").addClass("fr-view fr-dib");
        $(".bexi_module").css("position", "relative");
+       /******** disable the forms to be able to edit them ********/
        $(".bexi_form").each(function(){
           $(this).find("input").removeAttr('required');
           $(this).find("input").attr('disabled', true);
@@ -725,6 +747,8 @@ function bgchange(btid) {
        $("form").submit(function(e){
         e.preventDefault();
         });
+
+        /******* add the edit buttons to the content blocks **********/
        $('.bexi_module').each(function() {
         var num=Math.floor((Math.random() * 10000) + 1);
         var pos=$(this).attr("class").search("hero");
@@ -1061,7 +1085,7 @@ function bgchange(btid) {
         }
       });
 
-      /************** Unsplash Manager ******************/
+      /************** Unsplash replace Manager ******************/
       FroalaEditor.ICON_DEFAULT_TEMPLATE = "font_awesome_5";
       FroalaEditor.DefineIcon('icon_block5', {FA5NAME: 'fas fa-images'});
       FroalaEditor.RegisterCommand('unsplash_manager', {
@@ -1232,16 +1256,7 @@ $(window).on('load', function () {
   thumbnail();
  });
 
-/*
-function add_action_forms(){
-  $(".bexi_form").each(function(){
-    $(this).find("button[type=submit]").click(function(){
-
-    });
-  });
-}
-*/
-
+/******* remove styles to p tags created by froala *****/
 function styles_ptags(){
   $("#modu_main").find("p").each(function(){
     if($(this).attr("class")===undefined)
@@ -1257,6 +1272,7 @@ function styles_ptags(){
   });
 }
 
+/*********** convert a base64 file to blob ***********/
 function b64toBlob(b64Data, contentType, sliceSize) {
   contentType = contentType || '';
   sliceSize = sliceSize || 512;
@@ -1281,10 +1297,12 @@ var blob = new Blob(byteArrays, {type: contentType});
 return blob;
 }
 
+/********* add a class to ignore what you don't want rendered in the thumbnail ********/
 function filter(){
   $(".remove").attr("data-html2canvas-ignore","true");
 }
 
+/**********  create a thumbnail of the hero ************/
 function thumbnail(){
   filter();
   html2canvas(document.querySelector(".hero") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
@@ -1312,6 +1330,7 @@ function thumbnail(){
   });
 }
 
+/******** save html by removing editors and junk tags ***********/
 function auto_save()
 {
     thumbnail();
@@ -1442,7 +1461,7 @@ function save_img(TAGID,FILE){
   return request;
 }
 
-
+/********** initialize all editors of froala *********/
 function initialize_editors_text(){
     //console.log("KEy == " + FroalaKey);
     var editortxt = new FroalaEditor('.bexi_editor_text',
