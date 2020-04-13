@@ -4,6 +4,7 @@ var myWidth = 0;
 var myHeight = 0 ;
 var FrameSel = "";
 
+/********* selects the selected project from the active projects and sends it by message to his father **********/
 window.onmessage = function(e){
   data = e.data.split("|");
   if (data[0] == 'SelectProject') {
@@ -22,11 +23,12 @@ window.onmessage = function(e){
   }
 };
 
+/******* generate a unique id *********/
 function uniqId() {
   return Math.floor( Date.now() * (Math.random() * 100));
 }
 
-
+/******** get the width of the screen *********/
 function GetWidthScreen()
 {
   myWidth = 0;
@@ -48,6 +50,7 @@ function GetWidthScreen()
   return myWidth;
 };
 
+/******** get the height of the screen **********/
 function GetHeightScreen()
 {
   myHeight = 0;
@@ -69,10 +72,12 @@ function GetHeightScreen()
   return myHeight;
 };
 
+/********* function that removes the loading gif from the iframe *******/
 function frameload(ID){
   $("#load-"+ID).remove();
  }
 
+ /*********** it rezise the iframe and puts it in the carousel position **********/
  $(window).on('resize', function(){
   document.documentElement.style.setProperty('--zoom-factor', GetWidthScreen()/2742.8571);
   var size=$(".thumbnail-container").width()+20;
@@ -82,6 +87,7 @@ function frameload(ID){
   $("#pre-thumbnail").css("top",(slideIndex-1)*size+"px");
 });
 
+/********* add a new project with its parent container **********/
 function AddNewProject()
     {
       //Revisamos si se han agregado menos de 2 sliders y si se han agregado menos de 2
@@ -176,7 +182,7 @@ function AddNewProject()
 */
 });
 
-
+/******** add a project if the input is -1 or rewind the carousel if the input is 1 *******/
  function plusSlides(n)
  {
  	//console.log("plusSlides(n)");

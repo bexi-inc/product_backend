@@ -27,7 +27,7 @@ $marshaler = new Marshaler();
 
 if(isset($_REQUEST["cmd"])){
 
-    
+    /****** get a string from two words *******/
     function get_string_between($string, $start, $end){
         $string = ' ' . $string;
         $ini = strpos($string, $start);
@@ -36,7 +36,7 @@ if(isset($_REQUEST["cmd"])){
         $len = strpos($string, $end, $ini) - $ini;
         return substr($string, $ini, $len);
     }
-
+    /****** set a string from two words *******/
     function set_string_between($string,$start, $end,$newstring){
         $string = ' ' . $string;
         $ini = strpos($string, $start);
@@ -46,6 +46,7 @@ if(isset($_REQUEST["cmd"])){
         return substr_replace($string, $newstring, $ini, $len);
     }
 
+    /********* create an ad, save it in temp table and return its code_id *******/
     if($_REQUEST["cmd"]=="CreateAd" && isset($_REQUEST["user"]) && isset($_REQUEST["campaign_id"]) && isset($_REQUEST["recipe"]) ){
 
         /***********Get recipe from DB **********/
@@ -218,6 +219,7 @@ if(isset($_REQUEST["cmd"])){
          echo $content;
     }
 
+    /********** get the html of an ad from the user and the code_id by looking in the temp table *********/
     if($_REQUEST["cmd"]=="editor" && isset($_REQUEST["user"]) && isset($_REQUEST["codeid"]))
     {
                 /********* GET HTML CODE FROM DB **********/
