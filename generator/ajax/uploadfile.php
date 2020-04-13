@@ -27,7 +27,7 @@ $path = "/var/www/uploads.getmodu.com/public_html/";
 $webpath = "http://".PATHWEB."/";
 
 
-//print_r($_REQUEST);
+print_r($_REQUEST);
 
 
 //print_r($_FILES);
@@ -164,7 +164,7 @@ if ($_REQUEST["thumbnail"]==1)
             $result = $dynamodb->updateItem($params);
 
         }
-        //echo "Succeed in setting bucket website configuration.\n";
+        echo "Succeed Thumbnail updated.\n";
     } catch (Exception  $e) {
         // Display error message
         echo $e->getMessage();
