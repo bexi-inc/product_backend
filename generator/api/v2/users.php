@@ -197,7 +197,9 @@ function Login($connDyn, $email, $password)
 					$ret["error_code"] = "0";
 					//$user["id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
 					$jwt_data["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
-			    	$ret["user_token"] = GetJWTToken($jwt_data);
+					$TokenData = GetJWTTokenv2($jwt_data);
+			    	$ret["user_token"] = $TokenData["token"];
+			    	$ret["token_exp"] = $TokenData["expiration"];
 					$user["username"] = $Marshaler->unmarshalValue($dbdata[0]['username']);
 	
 					$ret["user"] = $user;
@@ -565,7 +567,10 @@ function GmailSigin($code, $redirect="")
 			    	$ret["message"] = "";
 			    	//$ret["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
 			    	$jwt_data["user_id"] = $Marshaler->unmarshalValue($dbdata[0]['id']);
-			    	$ret["user_token"] = GetJWTToken($jwt_data);
+			    	$TokenData = GetJWTTokenv2($jwt_data);
+			    	$ret["user_token"] = $TokenData["token"];
+			    	$ret["token_exp"] = $TokenData["expiration"];
+			   
 			    	return $ret;
 			    }else{
 			    	$ret["error_code"] = "1";
