@@ -26,7 +26,7 @@ class Chrome
 		{
 			$pinfo = pathinfo($path);	
 			$path =  $pinfo['dirname'];
-			$file =  $pinfo['basename'];
+			$file =  $pinfo['filename']."png";
 			$cmd ="cd " . $path . " && ";
 		}else
 		{
