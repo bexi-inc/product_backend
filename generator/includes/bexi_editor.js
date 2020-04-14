@@ -1277,9 +1277,12 @@ window.addEventListener('load', function(){
         out="0";
       }
     });
+    if(out==="1")
+    {
+      thumbnail();
+    }
     console.log("cicle");
   } while (out!=="0");
-  thumbnail();
 });
 
 /******* remove styles to p tags created by froala *****/
