@@ -45,7 +45,7 @@ class Chrome
 		exec($cmd);
 		echo "mv ".$path."/screenshot.png ".$path."/".$file;
 
-		exec("mv ".$path."/screenshot.png ".$path."/".$file)
+		exec("mv ".$path."/screenshot.png ".$path."/".$file);
 	}
 }
 
