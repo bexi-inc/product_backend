@@ -1275,7 +1275,7 @@ function first_thumbnail() {
       console.log(done,"out");
       if (done === undefined)
           first_thumbnail();
-  }, 1000);
+  }, 3000);
 }
 
 window.addEventListener('load', function(){
@@ -1332,7 +1332,7 @@ function filter(){
 /**********  create a thumbnail of the hero ************/
 function thumbnail(){
   var done=$("#devId").attr("data-thumbnail");
-  console.log(done),"entra";
+  console.log(done,"entra");
   try {
     filter();
     html2canvas(document.querySelector(".hero") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
