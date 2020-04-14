@@ -10,8 +10,7 @@ if ($_REQUEST["web"])
 }
 
 
-$Web->SaveScreenShot("/var/www/uploads.getmodu.com/public_html/102/
-thumbnail.png");
+$Web->SaveScreenShot("/var/www/uploads.getmodu.com/public_html/102/thumbnail.png");
 
 echo "<IMG src='http://uploads.bexi.ai/102/
 thumbnail.png' />"
