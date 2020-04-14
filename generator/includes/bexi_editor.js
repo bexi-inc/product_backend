@@ -1269,7 +1269,9 @@ function bgchange(btid) {
 
 window.addEventListener('load', function(){
   console.log("window loaded");
-  thumbnail();
+  do {
+    var out=thumbnail();
+  } while (out!=0);
 });
 
 /******* remove styles to p tags created by froala *****/
@@ -1320,6 +1322,7 @@ function filter(){
 
 /**********  create a thumbnail of the hero ************/
 function thumbnail(){
+  var out=0;
   filter();
   html2canvas(document.querySelector(".hero") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
     var did=$("#devId").val();
@@ -1343,13 +1346,18 @@ function thumbnail(){
       contentType: false,
       method:"POST"
     });
+    out=1;
   });
+return out;
 }
 
 /******** save html by removing editors and junk tags ***********/
-function auto_save()
+function auto_save(selector="0")
 {
+  if(selector=="0")
+  {
     thumbnail();
+  }
     var did=$("#devId").val();
     var pid=$("#codeId").val();
     var uid=$("#userId").val();
