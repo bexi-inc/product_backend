@@ -1275,6 +1275,7 @@ function first_thumbnail() {
               out = "0";
           }
       });
+      console.log(out,"out");
       if (out === "1") {
           out = thumbnail();
       }
@@ -1336,6 +1337,7 @@ function filter(){
 
 /**********  create a thumbnail of the hero ************/
 function thumbnail(){
+  console.log("entra");
   var out=0;
   try {
     filter();
