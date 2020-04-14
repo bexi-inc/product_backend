@@ -26,6 +26,7 @@ function GetJWTTokenv2($data)
 
 	$res["token"]= JWT::encode($token, JWT_KEY);
 	$res["expiration"] = $token["exp"];
+	$res["token_duration"] = JWT_TIMEOUT;
 	return $res;
 }
 

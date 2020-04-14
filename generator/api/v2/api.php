@@ -412,6 +412,7 @@ $res["error_code"]=0;
 	 			$token = GetJWTTokenv2($dataToken["data"])
 	 			$res["token"] = $token["token"];
 	 			$res["expiration"] = $token["expiration"];
+	 			$res["token_duration"] = $token["token_duration"];
 	 		}
 	 	}else{
 	 		$res["error_code"]="510";
