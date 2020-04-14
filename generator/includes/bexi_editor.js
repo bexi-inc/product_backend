@@ -1271,7 +1271,7 @@ window.addEventListener('load', function(){
   console.log("window loaded");
   do {
     var out=1;
-    $(".hero").find().each(function() {
+    $(".hero").find('*').each(function() {
       if($(this).width()==0&&$(this).height()==0)
       {
         out=0;
