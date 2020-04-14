@@ -1323,31 +1323,35 @@ function filter(){
 /**********  create a thumbnail of the hero ************/
 function thumbnail(){
   var out=0;
-  filter();
-  html2canvas(document.querySelector(".hero") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
-    var did=$("#devId").val();
-    var pid=$("#codeId").val();
-    var uid=$("#userId").val();
-    var data = new FormData();
-    data.append("devid",did);
-    var block = canvas.toDataURL("image/png").split(";");//Split the base64 string in data and contentType
-    var contentType = block[0].split(":")[1];// // Get the content type of the image
-    var realData = block[1].split(",")[1];// get the real base64 content of the file
-    var blob = b64toBlob(realData, contentType);// Convert it to a blob to upload
-    var fileOfBlob = new File([blob], 'thumbnail.png');//convert blob to file
-    data.append("file",fileOfBlob);
-    data.append("userid",uid);
-    data.append("projectid",pid);
-    data.append("thumbnail",1);
-    var request=$.ajax({
-      url: "./ajax/uploadfile.php",//save img in server
-      data: data,
-      processData: false,
-      contentType: false,
-      method:"POST"
-    });
-    out=1;
-  });
+  try {
+    filter();
+    html2canvas(document.querySelector(".hero") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
+      var did=$("#devId").val();
+      var pid=$("#codeId").val();
+      var uid=$("#userId").val();
+      var data = new FormData();
+      data.append("devid",did);
+      var block = canvas.toDataURL("image/png").split(";");//Split the base64 string in data and contentType
+      var contentType = block[0].split(":")[1];// // Get the content type of the image
+      var realData = block[1].split(",")[1];// get the real base64 content of the file
+      var blob = b64toBlob(realData, contentType);// Convert it to a blob to upload
+      var fileOfBlob = new File([blob], 'thumbnail.png');//convert blob to file
+      data.append("file",fileOfBlob);
+      data.append("userid",uid);
+      data.append("projectid",pid);
+      data.append("thumbnail",1);
+      var request=$.ajax({
+        url: "./ajax/uploadfile.php",//save img in server
+        data: data,
+        processData: false,
+        contentType: false,
+        method:"POST"
+      });
+      out=1;
+    }); 
+  } catch (error) {
+    out=0;
+  }
 return out;
 }
 
