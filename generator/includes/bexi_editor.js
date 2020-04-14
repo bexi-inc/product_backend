@@ -1282,7 +1282,7 @@ window.addEventListener('load', function(){
       thumbnail();
     }
     console.log("cicle");
-  } while (out!=="0");
+  } while (out=="0");
 });
 
 /******* remove styles to p tags created by froala *****/
