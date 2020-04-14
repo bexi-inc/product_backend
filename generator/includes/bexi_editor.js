@@ -787,11 +787,15 @@ function bgchange(btid) {
                 '</div>'+
               '</div>'+
               '<div id="tab-3">'+
+              '<div class="row m-0">'+
+              '<div class="w-50">'+
                 '<div class="input-group mb-3">'+
                   '<input id="inptextsearch'+num+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
                   '<div class="input-group-append">'+
                     '<button class="btn ui-button ui-corner-all ui-widget" type="button" onclick="set_pagination2(\''+num+'\','+1+');" id="button-addon2">Search</button>'+
                   '</div>'+
+                '</div>'+
+                '</div>'+
                 '</div>'+
                 '<div id="cont_unspl'+num+'">'+
                 '</div>'+
@@ -1110,11 +1114,15 @@ function bgchange(btid) {
           newDiv.css("width", "auto");
           newDiv.css("overflow", "auto");
           newDiv.html(
+          '<div class="row m-0">'+
+          '<div class="w-50">'+
           '<div class="input-group mb-3">'+
           '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
           '<div class="input-group-append">'+
             '<button class="btn btn-outline-primary" type="button" onclick="set_pagination(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
           '</div>'+
+        '</div>'+
+        '</div>'+
         '</div>'+
         '<div id="cont_unspl'+ID+'">'+
         '</div>'+
@@ -1163,11 +1171,15 @@ function bgchange(btid) {
           newDiv.css("width", "auto");
           newDiv.css("overflow", "auto");
           newDiv.html(
+          '<div class="row m-0">'+
+          '<div class="w-50">'+
           '<div class="input-group mb-3">'+
           '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
           '<div class="input-group-append">'+
             '<button class="btn btn-outline-primary" type="button" onclick="set_pagination4(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
           '</div>'+
+        '</div>'+
+        '</div>'+
         '</div>'+
         '<div id="cont_unspl'+ID+'">'+
         '</div>'+
@@ -1216,11 +1228,15 @@ function bgchange(btid) {
           newDiv.css("width", "auto");
           newDiv.css("overflow", "visible");
           newDiv.html(
+            '<div class="row m-0">'+
+            '<div class="w-50">'+
             '<div class="input-group mb-3">'+
             '<input id="inptext'+ID+'" type="text" class="form-control" placeholder="Keywords..."  aria-describedby="button-addon2">'+
             '<div class="input-group-append">'+
               '<button class="btn btn-outline-primary" type="button" onclick="set_pagination3(\''+ID+'\','+1+');" id="button-addon2">Search</button>'+
             '</div>'+
+          '</div>'+
+          '</div>'+
           '</div>'+
           '<div id="cont_icon'+ID+'">'+
           '</div>'+
