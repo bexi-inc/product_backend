@@ -1362,6 +1362,7 @@ function thumbnail(){
   } catch (error) {
     out=0;
   }
+  console.log(out,"salir");
 return out;
 }
 
