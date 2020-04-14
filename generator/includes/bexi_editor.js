@@ -1270,15 +1270,8 @@ function bgchange(btid) {
 function first_thumbnail() {
   var out = "1";
   setTimeout(() => {
-      $(".hero").find('*').each(function () {
-          if ($(this).width() == 0 && $(this).height() == 0) {
-              out = "0";
-          }
-      });
+      out = thumbnail();
       console.log(out,"out");
-      if (out === "1") {
-          out = thumbnail();
-      }
       if (out == 0)
           first_thumbnail();
   }, 1000);
