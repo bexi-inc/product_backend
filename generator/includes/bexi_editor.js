@@ -1270,9 +1270,16 @@ function bgchange(btid) {
 window.addEventListener('load', function(){
   console.log("window loaded");
   do {
-    var out=thumbnail();
+    var out=1;
+    $(".hero").find().each(function() {
+      if($(this).width()==0&&$(this).height()==0)
+      {
+        out=0;
+      }
+    });
   } while (out!=0);
-},1000);
+  thumbnail();
+});
 
 /******* remove styles to p tags created by froala *****/
 function styles_ptags(){
