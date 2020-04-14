@@ -1339,6 +1339,7 @@ function thumbnail(){
       var uid=$("#userId").val();
       var data = new FormData();
       data.append("devid",did);
+      console.log(canvas);
       var block = canvas.toDataURL("image/png").split(";");//Split the base64 string in data and contentType
       var contentType = block[0].split(":")[1];// // Get the content type of the image
       var realData = block[1].split(",")[1];// get the real base64 content of the file
