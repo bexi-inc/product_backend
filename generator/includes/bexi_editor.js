@@ -1267,10 +1267,10 @@ function bgchange(btid) {
       initialize_editors_text();
 });/**END OF DOCUMENT READY ***/
 
-$(window).on('load', function () {
+window.addEventListener('load', function(){
   console.log("window loaded");
   thumbnail();
- });
+});
 
 /******* remove styles to p tags created by froala *****/
 function styles_ptags(){
