@@ -1270,9 +1270,9 @@ function bgchange(btid) {
 window.addEventListener('load', function(){
   console.log("window loaded");
   do {
-    var out=thumbnail().delay(1000);
+    var out=thumbnail();
   } while (out!=0);
-});
+},1000);
 
 /******* remove styles to p tags created by froala *****/
 function styles_ptags(){
