@@ -28,6 +28,10 @@ class Chrome
 			$path =  $pinfo['dirname'];
 			$file =  $pinfo['basename'];
 			$cmd ="cd " . $path . " && ";
+		}else
+		{
+			$file = $path;
+			$path = "";
 		}
 
 		$cmd .= $this->Browser . "  --headless --disable-gpu --screenshot --no-sandbox ";
@@ -39,6 +43,9 @@ class Chrome
 		$cmd.= " ".$this->WebPage;
 		echo $cmd;
 		exec($cmd);
+		echo "mv ".$path."/screenshot.png ".$path."/".$file;
+
+		exec("mv ".$path."/screenshot.png ".$path."/".$file)
 	}
 }
 
