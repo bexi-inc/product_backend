@@ -1265,10 +1265,11 @@ function bgchange(btid) {
        });
 
       initialize_editors_text();
+      setTimeout(first_thumbnail, 1000);
 });/**END OF DOCUMENT READY ***/
 
-window.addEventListener('load', function(){
-  console.log("window loaded");
+function first_thumbnail(){
+  do {
     var out="1";
     $(".hero").find('*').each(function() {
       if($(this).width()==0&&$(this).height()==0)
@@ -1281,6 +1282,11 @@ window.addEventListener('load', function(){
       thumbnail();
     }
     console.log("cicle");
+  } while (out=="0");
+}
+
+window.addEventListener('load', function(){
+  console.log("window loaded");
 });
 
 /******* remove styles to p tags created by froala *****/
