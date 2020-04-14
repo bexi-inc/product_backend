@@ -2,7 +2,7 @@
 
 class Chrome
 {
-	$Browser = "google-chrome";
+	public $Browser = "google-chrome";
 	public $WebPage;
 	public $Windows_Width = 0;
 	public $Widnows_Height = 0;
