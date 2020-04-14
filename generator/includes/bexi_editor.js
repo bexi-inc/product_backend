@@ -1270,7 +1270,7 @@ function bgchange(btid) {
 window.addEventListener('load', function(){
   console.log("window loaded");
   do {
-    var out=thumbnail();
+    var out=thumbnail().delay(1000);
   } while (out!=0);
 });
 
