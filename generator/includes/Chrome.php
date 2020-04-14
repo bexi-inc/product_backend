@@ -30,13 +30,13 @@ class Chrome
 			$cmd ="cd " . $path . " && ";
 		}
 
-		$cmd .= $this->Browser . "  --headless --disable-gpu --screenshot --no-sandbox";
+		$cmd .= $this->Browser . "  --headless --disable-gpu --screenshot --no-sandbox ";
 		if ($this->Widnows_Height>0 && $this->Windows_Width>0)
 		{
 			$cmd.= " --window-size=".$this->Windows_Width.",".$this->Widnows_Height." ";
 		}
 
-		$cmd.= $this->WebPage;
+		$cmd.= " ".$this->WebPage;
 		echo $cmd;
 		exec($cmd);
 	}
