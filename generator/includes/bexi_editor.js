@@ -1,7 +1,7 @@
 /********global variables********/
 window.bexi_tagid=null;
 window.response_img=[];
-window.out=0;
+window.out="0";
 
 /******* converts a color from rgb to hexadecimal ****/
 function rgb2hex(rgb){
@@ -1272,7 +1272,7 @@ function first_thumbnail() {
   setTimeout(() => {
     window.out = thumbnail();
       console.log(out,"out");
-      if (window.out == 0)
+      if (window.out === "0")
           first_thumbnail();
   }, 1000);
 }
@@ -1331,7 +1331,7 @@ function filter(){
 /**********  create a thumbnail of the hero ************/
 function thumbnail(){
   console.log("entra");
-  window.out=0;
+  window.out="0";
   try {
     filter();
     html2canvas(document.querySelector(".hero") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
@@ -1357,10 +1357,9 @@ function thumbnail(){
         contentType: false,
         method:"POST"
       });
-      window.out=1;
+      window.out="1";
     }); 
   } catch (error) {
-    window.out=0;
   }
   console.log(window.out,"salir");
 return window.out;
