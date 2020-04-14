@@ -386,6 +386,42 @@ $res["error_code"]=0;
 	case "DeleteTemporals":
 		return Delete_temporals($_REQ->userid);
 		break;
+	case 'UpdateToken':
+ 		if (!isset($_REQ->token))  
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			break;
+ 		}
+ 		$dataToken = DecodeJMT($_REQ->token);
+
+ 		//print_r($dataToken);
+
+ 		//echo "DecodeJMT";
+
+ 		if (is_array ($dataToken))
+ 		{
+	 		if (isset($dataToken["error_msg"]))
+	 		{
+	 			$res["error_code"]="510";
+	 			$res["message"]=$dataToken["error_msg"];
+	 			break;
+	 		}
+	 		else{
+	 			$res["error_code"]=0;
+	 			$token = GetJWTTokenv2($dataToken["data"])
+	 			$res["token"] = $token["token"];
+	 			$res["expiration"] = $token["expiration"];
+	 		}
+	 	}else{
+	 		$res["error_code"]="510";
+ 			$res["message"]="Invalid Token";
+ 			break;
+	 	}
+
+ 		
+ 		return $res;
+ 		break;
  	default:
  		echo "REQ";
  		print_r($_REQ);
