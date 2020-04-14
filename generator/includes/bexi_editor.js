@@ -1265,7 +1265,7 @@ function bgchange(btid) {
        });
 
       initialize_editors_text();
-      setTimeout(first_thumbnail, 1000);
+      //setTimeout(first_thumbnail, 1000);
 });/**END OF DOCUMENT READY ***/
 
 function first_thumbnail(){
