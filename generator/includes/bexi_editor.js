@@ -1271,7 +1271,7 @@ function bgchange(btid) {
 function startWorker() {
   if(typeof(Worker) !== "undefined") {
     if(typeof(w) == "undefined") {
-      w = new Worker("first_thumbnail.js");
+      w = new Worker("/includes/first_thumbnail.js");
     }
     w.onmessage = function(event) {
       w.terminate();
