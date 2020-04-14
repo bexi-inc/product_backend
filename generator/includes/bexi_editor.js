@@ -1274,7 +1274,8 @@ function startWorker() {
       w = new Worker("first_thumbnail.js");
     }
     w.onmessage = function(event) {
-      //document.getElementById("result").innerHTML = event.data;
+      w.terminate();
+      w = undefined;
     };
   } else {
     //document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
