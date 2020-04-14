@@ -1270,9 +1270,10 @@ function bgchange(btid) {
 
 function first_thumbnail() {
   setTimeout(() => {
-    window.out = thumbnail();
-      console.log(out,"out");
-      if (window.out === "0")
+    thumbnail();
+    var done=$("#devId").attr("data-thumbnail");
+      console.log(done,"out");
+      if (done === undefined)
           first_thumbnail();
   }, 1000);
 }
@@ -1330,8 +1331,8 @@ function filter(){
 
 /**********  create a thumbnail of the hero ************/
 function thumbnail(){
-  console.log("entra");
-  window.out="0";
+  var done=$("#devId").attr("data-thumbnail");
+  console.log(done),"entra";
   try {
     filter();
     html2canvas(document.querySelector(".hero") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
@@ -1357,12 +1358,12 @@ function thumbnail(){
         contentType: false,
         method:"POST"
       });
-      window.out="1";
+      $("#devId").attr("data-thumbnail","done");
     }); 
   } catch (error) {
   }
-  console.log(window.out,"salir");
-return window.out;
+  var done=$("#devId").attr("data-thumbnail");
+  console.log(done,"salir");
 }
 
 /******** save html by removing editors and junk tags ***********/
