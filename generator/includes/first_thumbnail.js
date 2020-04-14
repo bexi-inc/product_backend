@@ -10,6 +10,7 @@ function first_thumbnail(){
       if(out==="1")
       {
         thumbnail();
+        postMessage("done");
       }
       console.log("cicle");
     } while (out=="0");
