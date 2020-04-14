@@ -1265,28 +1265,26 @@ function bgchange(btid) {
        });
 
       initialize_editors_text();
-      //setTimeout(first_thumbnail, 1000);
 });/**END OF DOCUMENT READY ***/
 
-function first_thumbnail(){
-  do {
-    var out="1";
-    $(".hero").find('*').each(function() {
-      if($(this).width()==0&&$(this).height()==0)
-      {
-        out="0";
-      }
-    });
-    if(out==="1")
-    {
-      thumbnail();
+
+function startWorker() {
+  if(typeof(Worker) !== "undefined") {
+    if(typeof(w) == "undefined") {
+      w = new Worker("first_thumbnail.js");
     }
-    console.log("cicle");
-  } while (out=="0");
+    w.onmessage = function(event) {
+      //document.getElementById("result").innerHTML = event.data;
+    };
+  } else {
+    //document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+    console.log("Sorry, your browser does not support Web Workers...");
+  }
 }
 
 window.addEventListener('load', function(){
   console.log("window loaded");
+  startWorker();
 });
 
 /******* remove styles to p tags created by froala *****/
