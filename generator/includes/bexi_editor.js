@@ -1270,14 +1270,15 @@ function bgchange(btid) {
 window.addEventListener('load', function(){
   console.log("window loaded");
   do {
-    var out=1;
+    var out="1";
     $(".hero").find('*').each(function() {
       if($(this).width()==0&&$(this).height()==0)
       {
-        out=0;
+        out="0";
       }
     });
-  } while (out!=0);
+    console.log("cicle");
+  } while (out!=="0");
   thumbnail();
 });
 
