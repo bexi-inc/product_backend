@@ -396,7 +396,7 @@ $res["error_code"]=0;
  		}
  		$dataToken = DecodeJMT($_REQ->token);
 
- 		//print_r($dataToken);
+ 		print_r($dataToken);
 
  		//echo "DecodeJMT";
 
