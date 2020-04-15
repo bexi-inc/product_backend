@@ -406,7 +406,6 @@ $res["error_code"]=0;
 	 		{
 	 			$res["error_code"]="510";
 	 			$res["message"]=$dataToken["error_msg"];
-	 			break;
 	 		}
 	 	}else{
 	 		$res["error_code"]=0;
