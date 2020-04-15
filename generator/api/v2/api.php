@@ -396,7 +396,7 @@ $res["error_code"]=0;
  		}
  		$dataToken = DecodeJMT($_REQ->token);
 
- 		print_r($dataToken);
+ 		//print_r($dataToken);
 
  		//echo "DecodeJMT";
 
@@ -410,7 +410,7 @@ $res["error_code"]=0;
 	 		}
 	 	}else{
 	 		$res["error_code"]=0;
-	 		$token = GetJWTTokenv2($dataToken["data"]);
+	 		$token = GetJWTTokenv2($dataToken->data);
 	 		$res["token"] = $token["token"];
 	 		$res["expiration"] = $token["expiration"];
 	 		$res["token_duration"] = $token["token_duration"];
