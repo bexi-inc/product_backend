@@ -387,6 +387,7 @@ $res["error_code"]=0;
 		return Delete_temporals($_REQ->userid);
 		break;
 	case 'UpdateToken':
+
  		if (!isset($_REQ->token))  
  		{
  			$res["error_code"]="502";
@@ -395,7 +396,7 @@ $res["error_code"]=0;
  		}
  		$dataToken = DecodeJMT($_REQ->token);
 
- 		//print_r($dataToken);
+ 		print_r($dataToken);
 
  		//echo "DecodeJMT";
 
@@ -415,7 +416,7 @@ $res["error_code"]=0;
 	 			$res["token_duration"] = $token["token_duration"];
 	 		}
 	 	}else{
-	 		$res["error_code"]="510";
+	 		$res["error_code"]="520";
  			$res["message"]="Invalid Token";
  			break;
 	 	}
