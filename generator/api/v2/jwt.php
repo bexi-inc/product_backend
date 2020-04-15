@@ -36,7 +36,7 @@ function DecodeJMT($token)
 	{
 		return JWT::decode($token, JWT_KEY, array('HS256'));
 	} catch (\Exception $e) {
-		print_r($e);
+		//print_r($e);
 		$ret["error_msg"] = $e->getMessage();
 	}
 	

@@ -408,17 +408,12 @@ $res["error_code"]=0;
 	 			$res["message"]=$dataToken["error_msg"];
 	 			break;
 	 		}
-	 		else{
-	 			$res["error_code"]=0;
-	 			$token = GetJWTTokenv2($dataToken["data"]);
-	 			$res["token"] = $token["token"];
-	 			$res["expiration"] = $token["expiration"];
-	 			$res["token_duration"] = $token["token_duration"];
-	 		}
 	 	}else{
-	 		$res["error_code"]="520";
- 			$res["message"]="Invalid Token";
- 			break;
+	 		$res["error_code"]=0;
+	 		$token = GetJWTTokenv2($dataToken["data"]);
+	 		$res["token"] = $token["token"];
+	 		$res["expiration"] = $token["expiration"];
+	 		$res["token_duration"] = $token["token_duration"];
 	 	}
 
  		
