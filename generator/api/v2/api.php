@@ -407,6 +407,7 @@ $res["error_code"]=0;
 	 			$res["error_code"]="510";
 	 			$res["message"]=$dataToken["error_msg"];
 	 		}
+
 	 	}else{
 	 		$res["error_code"]=0;
 	 		$token = GetJWTTokenv2($dataToken->data);
@@ -416,7 +417,7 @@ $res["error_code"]=0;
 	 	}
 
  		
- 		return $res;
+ 		//return $res;
  		break;
  	default:
  		echo "REQ";
