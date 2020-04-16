@@ -18,6 +18,8 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 require "../../config.php";
 require '../../vendor/autoload.php';
 
+require "../../includes/Chrome.php";
+
 date_default_timezone_set('UTC');
 
 use Aws\DynamoDb\Exception\DynamoDbException;
@@ -419,6 +421,16 @@ $res["error_code"]=0;
  		
  		//return $res;
  		break;
+ 	case "Thumbnail":
+ 		$res["error_code"]=0;
+ 		if (!isset($_REQ->projectid))  
+ 		{
+ 			$res["error_code"]="502";
+ 			$res["message"]="Invalid params";
+ 			break;
+ 		}
+		//return Delete_temporals($_REQ->userid);
+		break;
  	default:
  		echo "REQ";
  		print_r($_REQ);
