@@ -1272,14 +1272,12 @@ function first_thumbnail() {
   setTimeout(() => {
     thumbnail();
     var done=$("#devId").attr("data-thumbnail");
-      console.log(done,"out");
       if (done === undefined)
           first_thumbnail();
   }, 3000);
 }
 
 window.addEventListener('load', function(){
-  console.log("window loaded");
   first_thumbnail();
 });
 
@@ -1331,8 +1329,6 @@ function filter(){
 
 /**********  create a thumbnail of the hero ************/
 function thumbnail(){
-  var done=$("#devId").attr("data-thumbnail");
-  console.log(done,"entra");
   try {
     filter();
     html2canvas(document.querySelector(".hero") ,{allowTaint: false, useCORS: true,backgroundColor:null}).then(canvas => {
@@ -1341,7 +1337,6 @@ function thumbnail(){
       var uid=$("#userId").val();
       var data = new FormData();
       data.append("devid",did);
-      console.log(canvas);
       var block = canvas.toDataURL("image/png").split(";");//Split the base64 string in data and contentType
       var contentType = block[0].split(":")[1];// // Get the content type of the image
       var realData = block[1].split(",")[1];// get the real base64 content of the file
@@ -1362,8 +1357,6 @@ function thumbnail(){
     }); 
   } catch (error) {
   }
-  var done=$("#devId").attr("data-thumbnail");
-  console.log(done,"salir");
 }
 
 /******** save html by removing editors and junk tags ***********/
