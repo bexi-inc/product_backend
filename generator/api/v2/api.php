@@ -423,12 +423,71 @@ $res["error_code"]=0;
  		break;
  	case "Thumbnail":
  		$res["error_code"]=0;
- 		if (!isset($_REQ->projectid))  
+ 		if (!isset($_REQ->projectid) || !isset($_REQ->userid))  
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
  			break;
  		}
+
+		$Web = new Chrome();
+		$path = "/var/www/uploads.getmodu.com/public_html/".$_REQ->userid."/".$_REQ->projectid . "/thumbnail.png";
+		$webpath = "http://".PATHWEB."/".$_REQ->userid."/".$_REQ->projectid. "/thumbnail.png";
+
+		/*if ($_REQUEST["web"])
+		{
+			$Web->Navigate($_REQUEST["web"]);
+		}else{
+			$Web->Navigate("https://stackoverflow.com/");
+		}*/
+
+
+		$Web->SaveScreenShot($path);
+
+		$params = [
+	        'TableName' => TBL_PROJECTS,
+	         "KeyConditionExpression"=> "project_id = :id",
+	        "ExpressionAttributeValues"=> [
+	            ":id" =>  ["S" => $_REQ->projectid]
+	        ]
+	    ];
+
+	    $result = $dynamodb->query($params);
+
+	    if (count($result['Items'])>0)
+	    {
+	    	$campaign_id =  $marshaler->unmarshalValue($result['Items'][0]["campaign_id"]);	
+	    }
+
+		$key = $marshaler->marshalJson('
+            {
+                "project_id" : "' . $_REQ->projectid . '",
+                "campaign_id" : "'. $campaign_id .'"
+            }
+        ');
+
+           
+        //print_r($key);
+
+        $eav = $marshaler->marshalJson('
+           {
+                ":t_path": "'.$webpath.'" 
+            }
+        ');
+
+            //print_r($eav);
+
+        $params = [
+            "TableName" => TBL_PROJECTS,
+            'Key' => $key,
+            'UpdateExpression' => 
+                'set thumbnail = :t_path',
+            'ExpressionAttributeValues'=> $eav,
+            'ReturnValues' => 'UPDATED_NEW'
+        ];
+
+        $result = $dynamodb->updateItem($params);
+
 		//return Delete_temporals($_REQ->userid);
 		break;
  	default:
