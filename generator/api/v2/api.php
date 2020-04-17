@@ -442,6 +442,8 @@ $res["error_code"]=0;
 		}*/
 
 
+		$Web->Navigate("http://generator.bexi.ai/generator.php?user=".$_REQ->userid."&devid=".$_REQ->devid);
+
 		$Web->SaveScreenShot($path);
 
 		$params = [
