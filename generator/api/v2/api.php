@@ -452,24 +452,24 @@ $res["error_code"]=0;
 	        ]
 	    ];
 
-	    $result = $Dynamodb->query($params);
+	    $result = $->query($params);
 
 	    if (count($result['Items'])>0)
 	    {
 	    	$campaign_id =  $Marshaler->unmarshalValue($result['Items'][0]["campaign_id"]);	
 	    }
 
-		$key = $marshaler->marshalJson('
+		$key = $Marshaler->marshalJson('
             {
                 "project_id" : "' . $_REQ->projectid . '",
                 "campaign_id" : "'. $campaign_id .'"
-            }
+            }Dynamodb
         ');
 
            
         //print_r($key);
 
-        $eav = $marshaler->marshalJson('
+        $eav = $Marshaler->marshalJson('
            {
                 ":t_path": "'.$webpath.'" 
             }
@@ -486,7 +486,7 @@ $res["error_code"]=0;
             'ReturnValues' => 'UPDATED_NEW'
         ];
 
-        $result = $dynamodb->updateItem($params);
+        $result = $Dynamodb->updateItem($params);
 
 		//return Delete_temporals($_REQ->userid);
 		break;
