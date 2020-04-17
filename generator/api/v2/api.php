@@ -452,11 +452,11 @@ $res["error_code"]=0;
 	        ]
 	    ];
 
-	    $result = $dynamodb->query($params);
+	    $result = $Dynamodb->query($params);
 
 	    if (count($result['Items'])>0)
 	    {
-	    	$campaign_id =  $marshaler->unmarshalValue($result['Items'][0]["campaign_id"]);	
+	    	$campaign_id =  $Marshaler->unmarshalValue($result['Items'][0]["campaign_id"]);	
 	    }
 
 		$key = $marshaler->marshalJson('
