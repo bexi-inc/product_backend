@@ -452,7 +452,7 @@ $res["error_code"]=0;
 	        ]
 	    ];
 
-	    $result = $->query($params);
+	    $result = $Dynamodb->query($params);
 
 	    if (count($result['Items'])>0)
 	    {
