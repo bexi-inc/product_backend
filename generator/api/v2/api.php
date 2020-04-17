@@ -463,7 +463,7 @@ $res["error_code"]=0;
             {
                 "project_id" : "' . $_REQ->projectid . '",
                 "campaign_id" : "'. $campaign_id .'"
-            }Dynamodb
+            }
         ');
 
            
