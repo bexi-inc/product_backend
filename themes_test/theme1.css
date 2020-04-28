@@ -1,0 +1,14 @@
+html,
+body {
+  background: palegreen;
+  text-transform: uppercase;
+}
+button,
+.Button {
+  border: 0;
+  border-radius: 25px;
+  text-transform: uppercase;
+}
+a {
+  font-style: italic;
+}

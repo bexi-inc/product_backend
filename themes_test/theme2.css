@@ -1,0 +1,13 @@
+html,
+body {
+  background: lightpink;
+}
+button,
+.Button {
+  background-color: #fff;
+  color: lightpink;
+  border: 0;
+}
+a {
+  text-decoration: underline;
+}

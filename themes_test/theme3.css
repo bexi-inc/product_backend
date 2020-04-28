@@ -1,0 +1,15 @@
+html,
+body {
+  background: coral;
+  color: royalblue;
+}
+button,
+.Button {
+  background-color: royalblue;
+  color: #fff;
+}
+a {
+  color: #fff;
+  font-style: italic;
+  text-decoration: underline;
+}
