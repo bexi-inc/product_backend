@@ -15,6 +15,10 @@ $sdk = new Aws\Sdk([
     'credentials' => $credentials
 ]);
 
+echo "SDK";
+
+print_r($sdk);
+
 ?>
 
 <!DOCTYPE html>
