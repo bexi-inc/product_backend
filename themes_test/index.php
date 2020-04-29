@@ -1,3 +1,22 @@
+<?
+
+require 'vendor/autoload.php';
+
+date_default_timezone_set('UTC');
+
+use Aws\DynamoDb\Exception\DynamoDbException;
+use Aws\DynamoDb\Marshaler;
+
+$credentials = new Aws\Credentials\Credentials($aws_key, $aws_pass);
+
+$sdk = new Aws\Sdk([
+    'region'   => 'us-east-2',
+    'version'  => 'latest',
+    'credentials' => $credentials
+]);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
