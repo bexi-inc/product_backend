@@ -10,7 +10,7 @@ use Aws\DynamoDb\Marshaler;
 $credentials = new Aws\Credentials\Credentials(AWS_KEY, AWS_PASS);
 
 $sdk = new Aws\Sdk([
-    'region'   => 'us-east-2',
+    'region'   => AWS_REGION,
     'version'  => 'latest',
     'credentials' => $credentials
 ]);
