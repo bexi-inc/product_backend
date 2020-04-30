@@ -40,7 +40,7 @@ try {
 
     echo "Query succeeded.\n";
 
-    $ThemeCat = $marshaler->unmarshalValue($result['Items']['themes']);
+    $ThemeCat = $marshaler->unmarshalValue($result['Items'][0]['themes']);
 
 
     echo $ThemeCat;
