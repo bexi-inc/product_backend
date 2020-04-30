@@ -9,6 +9,7 @@ use Aws\DynamoDb\Marshaler;
 
 $credentials = new Aws\Credentials\Credentials(AWS_KEY, AWS_PASS);
 
+echo "REGION: ".AWS_REGION;
 $sdk = new Aws\Sdk([
     'region'   => AWS_REGION,
     'version'  => 'latest',
@@ -38,7 +39,7 @@ try {
 
     echo "Query succeeded.\n";
 
-    $ThemeCat = $marshaler->unmarshalValue($result['Items']['title']);
+    $ThemeCat = $marshaler->unmarshalValue($result['Items']['themes']);
 
 
     echo $ThemeCat;
