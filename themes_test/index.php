@@ -25,7 +25,7 @@ $tableName = 'modu_themes_categories';
 
 $eav = $marshaler->marshalJson('
     {
-        ":id": 1 
+        ":id": "1" 
     }
 ');
 
