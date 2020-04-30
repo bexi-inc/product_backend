@@ -1,9 +1,13 @@
 var ThemeSwitcher = (function () {
   var ThemeButton = (function () {
     function ThemeButton(themeName, themeFileSrc) {
+      this.className = "ThemeSwitcher-button";
       this.themeName = themeName;
       this.themeFileSrc = themeFileSrc;
       this.createElement = this.createElement.bind(this);
+      this.elementSetActive = this.elementSetActive.bind(this);
+      this.elementSetInactive = this.elementSetInactive.bind(this);
+      this.onClick = this.onClick.bind(this);
       this.themeSwitch = this.themeSwitch.bind(this);
       this.createElement();
     }
@@ -19,8 +23,26 @@ var ThemeSwitcher = (function () {
       button.style.fontSize = "12xpx";
       button.style.textAlign = "center";
       button.style.cursor = "pointer";
-      button.addEventListener("click", this.themeSwitch);
+      button.style.outline = "0";
+      button.setAttribute("class", this.className);
+      button.addEventListener("click", this.onClick);
       this.el = button;
+    };
+    ThemeButton.prototype.elementSetActive = function () {
+      this.el.style.textDecoration = "underline";
+    };
+    ThemeButton.prototype.elementSetInactive = function () {
+      var siblings = Array.prototype.slice.call(
+        this.el.parentNode.querySelectorAll("." + this.className)
+      );
+      for (var i = 0, t = siblings.length; i < t; i++) {
+        siblings[i].style.textDecoration = null;
+      }
+    };
+    ThemeButton.prototype.onClick = function () {
+      this.themeSwitch();
+      this.elementSetInactive();
+      this.elementSetActive();
     };
     ThemeButton.prototype.themeSwitch = function () {
       var style = document.getElementById("theme-style");
@@ -28,7 +50,6 @@ var ThemeSwitcher = (function () {
         this.themeStyleCreate();
         style = document.getElementById("theme-style");
       }
-      console.log(this);
       style.href = this.themeFileSrc;
     };
     ThemeButton.prototype.themeStyleCreate = function () {
@@ -39,10 +60,10 @@ var ThemeSwitcher = (function () {
     };
     return ThemeButton;
   })();
-  function ThemeSwitcher(sheetsPath) {
+  function ThemeSwitcher(themes) {
     this.init = this.init.bind(this);
     this.DOMInit = this.DOMInit.bind(this);
-    this.sheetsPath = sheetsPath ? sheetsPath.toString() : "";
+    this.themes = themes;
   }
   ThemeSwitcher.prototype.DOMInit = function () {
     var container = document.createElement("div");
@@ -53,10 +74,11 @@ var ThemeSwitcher = (function () {
     container.style.padding = "10px";
     container.style.background = "#fff";
     container.style.boxShadow = "2px 5px 5px rgba(0,0,0,0.2)";
-    for (var i = 0, t = 3; i < t; i++) {
+    container.setAttribute("class", "ThemeSwitcher");
+    for (var i = 0, t = this.themes.length, th = this.themes; i < t; i++) {
       var btn = new ThemeButton(
-        "Theme " + (i + 1),
-        this.sheetsPath + "theme" + (i + 1) + ".css"
+        Object.keys(th[i])[0],
+        th[i][Object.keys(th[i])[0]]
       ).el;
       if (i + 1 === t) btn.style.marginBottom = "0";
       fragment.appendChild(btn);
@@ -69,4 +91,6 @@ var ThemeSwitcher = (function () {
   };
   return ThemeSwitcher;
 })();
-window.onload = new ThemeSwitcher("/").init;
+window.onload = new ThemeSwitcher(
+  window.ModuThemes || [{ Theme1: "/theme3.css" }]
+).init;

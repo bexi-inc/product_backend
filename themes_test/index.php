@@ -15,9 +15,46 @@ $sdk = new Aws\Sdk([
     'credentials' => $credentials
 ]);
 
-echo "SDK";
 
-print_r($sdk);
+$dynamodb = $sdk->createDynamoDb();
+$marshaler = new Marshaler();
+
+$tableName = 'modu_themes_categories';
+
+$eav = $marshaler->marshalJson('
+    {
+        ":id": 1 
+    }
+');
+
+$params = [
+    'TableName' => $tableName,
+    'KeyConditionExpression' => 'id = :id',
+    'ExpressionAttributeValues'=> $eav
+];
+
+try {
+    $result = $dynamodb->query($params);
+
+    echo "Query succeeded.\n";
+
+    $ThemeCat = $marshaler->unmarshalValue($result['Items']['title']);
+
+
+    echo $ThemeCat;
+
+    /*foreach ($result['Items'] as $movie) {
+        echo $marshaler->unmarshalValue($movie['year']) . ': ' .
+             . "\n";
+    }*/
+
+} catch (DynamoDbException $e) {
+    echo "Unable to query:\n";
+    echo $e->getMessage() . "\n";
+}
+
+
+
 
 ?>
 
