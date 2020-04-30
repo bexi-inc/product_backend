@@ -40,10 +40,13 @@ try {
 
     echo "Query succeeded.\n";
 
-    $ThemeCat = $marshaler->unmarshalValue($result['Items'][0]['themes']);
-
-
-    echo $ThemeCat;
+    if (count($result['Items'])>0)
+    {
+    	$ThemeCat = $marshaler->unmarshalValue($result['Items'][0]['themes']);
+    
+    	print_r($ThemeCat);
+    
+    }
 
     /*foreach ($result['Items'] as $movie) {
         echo $marshaler->unmarshalValue($movie['year']) . ': ' .
