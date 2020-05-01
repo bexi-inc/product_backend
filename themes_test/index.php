@@ -37,8 +37,6 @@ $params = [
 try {
     $result = $dynamodb->query($params);
 
-    echo "Query succeeded.\n";
-
     if (count($result['Items'])>0)
     {
     	$ThemeCat = $marshaler->unmarshalValue($result['Items'][0]['themes']);
