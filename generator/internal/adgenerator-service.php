@@ -616,8 +616,7 @@ if(isset($_REQUEST["cmd"])){
             'TableName' => 'modu_themes',
             'KeyConditionExpression' => 'id = :v_hash',
             'ExpressionAttributeValues' =>  array (
-                ':v_hash'  => array('S' => '1'),
-                ':v_range' => array('S' => '2')
+                ':v_hash'  => array('S' => '1')
             )
         ));
         
