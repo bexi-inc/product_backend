@@ -85,11 +85,13 @@ try {
 		}
 	');
 
+
     $params = [
 		'TableName' => $tableName,
 		'IndexName' => "type-index",
-		'KeyConditionExpression' => 'type = :tp',
-		'ExpressionAttributeValues'=> $eav
+		'KeyConditionExpression' => '#tp = :tp',
+		'ExpressionAttributeValues'=> $eav,
+		"ExpressionAttributeNames" => [ "#tp" => "type" ] 
 	];
 
 
