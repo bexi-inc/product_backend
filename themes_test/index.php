@@ -75,11 +75,38 @@ try {
 
     //print_r($Themes);
 
+    $code = "";
+
+    $TableName = "modu_contenblocks";
+
+    $eav = $marshaler->marshalJson('
+		{
+		    ":tp": "hero" 
+		}
+	');
+
+    $params = [
+		'TableName' => $tableName,
+		'IndexName' => "type-index"
+		'KeyConditionExpression' => 'type = :tp',
+		'ExpressionAttributeValues'=> $eav
+	];
+
+
+	$res3 = $dynamodb->query($params);
+
+	if (count($res3['Items'])>0)
+	{
+		$Idcb = array_rand ($res3['Items']);
+		$code .= $marshaler->unmarshalValue($res3['Items'][$Idcb]['code_html']);
+	}
+
 
 } catch (DynamoDbException $e) {
     echo "Unable to query:\n";
     echo $e->getMessage() . "\n";
 }
+
 
 
 
@@ -126,38 +153,7 @@ try {
   <body>
     <!--Hero generic-->
     <div id="modu_main">
-      <div class="bexi_module" id="%id%">
-        <div
-          class="bexi_container"
-          style="padding-top: 341.64px; padding-bottom: 492px;"
-        >
-          <div
-            class="row no-gutters mx-auto"
-            style="
-              justify-content: center;
-              align-items: center;
-              text-align: center;
-              max-width: 1440px;
-            "
-          >
-            <div class="col-12 no-gutters">
-              <h1 id="%id%" style="font-weight: bold;">
-                This is the title of your Hero 1<br />
-                Generic Content Block
-              </h1>
-              <div style="margin-top: 43px;">
-                <button
-                  id="%id%"
-                  type="submit"
-                  style="height: 50px; width: 200px; border: 0;"
-                >
-                  Call to Action
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <? echo $code; ?>
       <div class="bexi_module" id="%id%">
         <div
           class="bexi_container"
