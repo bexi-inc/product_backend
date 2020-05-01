@@ -87,7 +87,7 @@ try {
 
     $params = [
 		'TableName' => $tableName,
-		'IndexName' => "type-index"
+		'IndexName' => "type-index",
 		'KeyConditionExpression' => 'type = :tp',
 		'ExpressionAttributeValues'=> $eav
 	];
