@@ -43,15 +43,40 @@ try {
     if (count($result['Items'])>0)
     {
     	$ThemeCat = $marshaler->unmarshalValue($result['Items'][0]['themes']);
-    
-    	print_r($ThemeCat);
-    
     }
 
-    /*foreach ($result['Items'] as $movie) {
-        echo $marshaler->unmarshalValue($movie['year']) . ': ' .
-             . "\n";
-    }*/
+    $tableName = 'modu_themes';
+
+    $Themes= [];
+
+    foreach ($ThemeCat  AS $CatId)
+    {
+    	$eav = $marshaler->marshalJson('
+		    {
+		        ":id": '.$CatId.' 
+		    }
+		');
+
+    	$params = [
+			    'TableName' => $tableName,
+			    'KeyConditionExpression' => 'id = :id',
+			    'ExpressionAttributeValues'=> $eav
+		];
+
+
+		$res2 = $dynamodb->query($params);
+
+		if (count($res2['Items'])>0)
+		{
+			$Theme["id"] = $marshaler->unmarshalValue($result['Items'][0]['id']);
+			$Theme["name"] = $marshaler->unmarshalValue($result['Items'][0]['theme_name']);
+			$Themes[] =$Theme;
+		}
+
+    }
+
+    print_r($Themes);
+
 
 } catch (DynamoDbException $e) {
     echo "Unable to query:\n";
