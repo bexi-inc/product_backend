@@ -103,6 +103,55 @@ try {
 		$code .= $marshaler->unmarshalValue($res3['Items'][$Idcb]['code_html']);
 	}
 
+	$eav = $marshaler->marshalJson('
+		{
+		    ":tp": "content" 
+		}
+	');
+
+
+    $params = [
+		'TableName' => $tableName,
+		'IndexName' => "type-index",
+		'KeyConditionExpression' => '#tp = :tp',
+		'ExpressionAttributeValues'=> $eav,
+		"ExpressionAttributeNames" => [ "#tp" => "type" ] 
+	];
+
+
+	$res3 = $dynamodb->query($params);
+
+	if (count($res3['Items'])>0)
+	{
+		$Idcb = array_rand ($res3['Items']);
+		$code .= $marshaler->unmarshalValue($res3['Items'][$Idcb]['code_html']);
+	}
+
+
+	$eav = $marshaler->marshalJson('
+		{
+		    ":tp": "footer" 
+		}
+	');
+
+
+    $params = [
+		'TableName' => $tableName,
+		'IndexName' => "type-index",
+		'KeyConditionExpression' => '#tp = :tp',
+		'ExpressionAttributeValues'=> $eav,
+		"ExpressionAttributeNames" => [ "#tp" => "type" ] 
+	];
+
+
+	$res3 = $dynamodb->query($params);
+
+	if (count($res3['Items'])>0)
+	{
+		$Idcb = array_rand ($res3['Items']);
+		$code .= $marshaler->unmarshalValue($res3['Items'][$Idcb]['code_html']);
+	}
+
 
 } catch (DynamoDbException $e) {
     echo "Unable to query:\n";
@@ -156,59 +205,6 @@ try {
     <!--Hero generic-->
     <div id="modu_main">
       <? echo $code; ?>
-      <div class="bexi_module" id="%id%">
-        <div
-          class="bexi_container"
-          style="padding-top: 266px; padding-bottom: 307px;"
-        >
-          <div
-            class="row no-gutters mx-auto"
-            style="
-              justify-content: center;
-              align-items: center;
-              text-align: center;
-              max-width: 1440px;
-            "
-          >
-            <div class="col-12 no-gutters">
-              <h2 id="%id%" style="font-weight: bold;">
-                Benefits 1 Generic Content Block
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bexi_module" id="%id%">
-        <div
-          class="bexi_container"
-          style="padding-top: 138px; padding-bottom: 139px;"
-        >
-          <div
-            class="row no-gutters mx-auto"
-            style="
-              justify-content: center;
-              align-items: center;
-              text-align: center;
-              max-width: 1440px;
-            "
-          >
-            <div class="col-12 no-gutters">
-              <div style="margin-bottom: 30px;">
-                <button
-                  id="%id%"
-                  type="submit"
-                  style="height: 50px; width: 200px;"
-                >
-                  Call to Action
-                </button>
-              </div>
-              <p id="%id%" style="color: #818181; font-size: 18px;">
-                Footer 1 Generic <a href="">Content</a> Block
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </body>
 </html>
