@@ -77,7 +77,7 @@ try {
 
     $code = "";
 
-    $tableName = "modu_contenblocks";
+    $tableName = "modu_contentblocks";
 
     $eav = $marshaler->marshalJson('
 		{
