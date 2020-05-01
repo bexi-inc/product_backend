@@ -611,18 +611,6 @@ if(isset($_REQUEST["cmd"])){
         echo $dom->savehtml();
     }
 
-    if($_REQUEST['cmd']=='test2'){
-        $response = $dynamodb->query(array(
-            'TableName' => 'modu_themes',
-            'KeyConditionExpression' => 'id = :v_hash',
-            'ExpressionAttributeValues' =>  array (
-                ':v_hash'  => array('S' => '1')
-            )
-        ));
-        
-        print_r($response);
-    }
-
 }
 
 ?>
