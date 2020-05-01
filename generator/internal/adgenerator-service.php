@@ -614,9 +614,9 @@ if(isset($_REQUEST["cmd"])){
     if($_REQUEST['cmd']=='test2'){
         $response = $dynamodb->query(array(
             'TableName' => 'modu_themes',
-            'KeyConditionExpression' => 'id = :v_hash',
+            'KeyConditionExpression' => 'categories = :v_hash',
             'ExpressionAttributeValues' =>  array (
-                ':v_hash'  => array('S' => '1')
+                ':v_hash'  => array('S' => 'test')
             )
         ));
         
