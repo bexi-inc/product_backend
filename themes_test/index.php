@@ -10,7 +10,6 @@ use Aws\DynamoDb\Marshaler;
 
 $credentials = new Aws\Credentials\Credentials(AWS_KEY, AWS_PASS);
 
-echo "REGION: ".AWS_REGION;
 $sdk = new Aws\Sdk([
     'region'   => AWS_REGION,
     'version'  => 'latest',
@@ -117,7 +116,7 @@ try {
       <?
       	foreach ($Themes as $t)
       	{
-      		echo '{ "'.$t["name"].'": "/'.$t["css_file"].'.css" },';
+      		echo '{ "'.$t["name"].'": "/'.$t["css_file"].'" },';
       	}
       ?>
       ];
