@@ -70,12 +70,13 @@ try {
 		{
 			$Theme["id"] = $marshaler->unmarshalValue($res2['Items'][0]['id']);
 			$Theme["name"] = $marshaler->unmarshalValue($res2['Items'][0]['theme_name']);
+			$Theme["css_file"] = $marshaler->unmarshalValue($res2['Items'][0]['css_file']);
 			$Themes[] =$Theme;
 		}
 
     }
 
-    print_r($Themes);
+    //print_r($Themes);
 
 
 } catch (DynamoDbException $e) {
@@ -110,6 +111,18 @@ try {
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+
+    <script type="text/javascript">
+      var ModuThemes = [
+      <?
+      	foreach ($Themes as $t)
+      	{
+      		echo '{ "'.$t["name"].'": "/'.$t["css_file"].'.css" },';
+      	}
+      ?>
+      ];
+    </script>
+
     <link rel="stylesheet" id="theme-style" href="/theme1.css" />
     <script src="/theme-switcher.js"></script>
   </head>
