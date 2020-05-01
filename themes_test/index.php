@@ -123,8 +123,12 @@ try {
 
 	if (count($res3['Items'])>0)
 	{
-		$Idcb = array_rand ($res3['Items']);
-		$code .= $marshaler->unmarshalValue($res3['Items'][$Idcb]['code_html']);
+		$n = rand (1,2);
+		for ($i = 1; $i <=$n; $i++)
+		{
+			$Idcb = array_rand ($res3['Items']);
+			$code .= $marshaler->unmarshalValue($res3['Items'][$Idcb]['code_html']);	
+		}
 	}
 
 
