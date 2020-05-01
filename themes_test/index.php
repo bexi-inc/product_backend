@@ -68,8 +68,8 @@ try {
 
 		if (count($res2['Items'])>0)
 		{
-			$Theme["id"] = $marshaler->unmarshalValue($result['Items'][0]['id']);
-			$Theme["name"] = $marshaler->unmarshalValue($result['Items'][0]['theme_name']);
+			$Theme["id"] = $marshaler->unmarshalValue($res2['Items'][0]['id']);
+			$Theme["name"] = $marshaler->unmarshalValue($res2['Items'][0]['theme_name']);
 			$Themes[] =$Theme;
 		}
 
