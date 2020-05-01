@@ -53,7 +53,7 @@ try {
     {
     	$eav = $marshaler->marshalJson('
 		    {
-		        ":id": '.$CatId.' 
+		        ":id": "'.$CatId.'" 
 		    }
 		');
 
