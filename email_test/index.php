@@ -1,0 +1,6 @@
+<?
+
+echo "email_test";
+
+?>
+
