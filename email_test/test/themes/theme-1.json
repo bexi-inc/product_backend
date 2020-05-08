@@ -1,0 +1,12 @@
+{
+  "backgroundColor": "palegreen",
+  "link": {
+    "color": "green"
+  },
+  "button": {
+    "radius": "25px",
+    "height": "57px",
+    "color": "white",
+    "fontWeight": "bold"
+  }
+}
