@@ -110,7 +110,7 @@ $brandColors = [
 
 	if (count($resc['Items'])>0)
 	{
-		$Idcb = array_rand ($resf['Items']);
+		$Idcb = array_rand ($resc['Items']);
 		$codec = $marshaler->unmarshalValue($resc['Items'][$Idcb]['code']);
 	}
 
