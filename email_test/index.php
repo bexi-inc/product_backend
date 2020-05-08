@@ -1,5 +1,6 @@
 <?
 require "utils.php";
+
 require "config.php";
 require 'vendor/autoload.php';
 
@@ -42,7 +43,7 @@ $res3 = $dynamodb->query($params);
 if (count($res3['Items'])>0)
 {
 	$Idcb = array_rand ($res3['Items']);
-	$code .= $marshaler->unmarshalValue($res3['Items'][$Idcb]['code']);
+	$codeh = $marshaler->unmarshalValue($res3['Items'][$Idcb]['code']);
 }
 
 $themes = [
@@ -60,6 +61,6 @@ $brandColors = [
 
  snippet("head.php", [title => "Test Email", backgroundColor => $theme["backgroundColor"]]);
 
- snippet("header.php", [align => "left", logoSrc => "http://uploads.getmodu.com/emails/modu-beta-logo.png", logoAlt => "Modu Logo"]);
+ snippet2($codeh, [align => "left", logoSrc => "http://uploads.getmodu.com/emails/modu-beta-logo.png", logoAlt => "Modu Logo"]);
 
 ?>
