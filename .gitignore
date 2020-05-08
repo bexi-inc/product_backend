@@ -14,3 +14,7 @@ theme_test/config.php
 /themes_test/vendor/
 /themes_test/composer.lock
 /themes_test/composer.json
+/email_test/config.php
+/email_test/vendor/
+/email_test/composer.lock
+/email_test/composer.json

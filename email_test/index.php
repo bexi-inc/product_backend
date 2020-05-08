@@ -16,6 +16,50 @@ $sdk = new Aws\Sdk([
 ]);
 
 
-echo "email_test";
+
+$dynamodb = $sdk->createDynamoDb();
+$marshaler = new Marshaler();
+
+$tableName = 'modu_mail_blocks';
+
+$eav = $marshaler->marshalJson('
+	{
+	    ":tp": "header" 
+	}
+');
+
+
+$params = [
+	'TableName' => $tableName,
+	'IndexName' => "type-index",
+	'KeyConditionExpression' => '#tp = :tp',
+	'ExpressionAttributeValues'=> $eav,
+	"ExpressionAttributeNames" => [ "#tp" => "type" ] 
+];
+
+$res3 = $dynamodb->query($params);
+
+if (count($res3['Items'])>0)
+{
+	$Idcb = array_rand ($res3['Items']);
+	$code .= $marshaler->unmarshalValue($res3['Items'][$Idcb]['code_html']);
+}
+
+$themes = [
+        "themes/theme-1.json",
+        "themes/theme-2.json",
+        "themes/theme-3.json",
+    ];
+
+$theme = loadTheme($themes[array_rand($themes)]);
+$brandColors = [
+    "#FF00BA",
+    "#3FC3D5",
+    "#2B87A0"
+];
+
+ snippet("head.php", [title => "Test Email", backgroundColor => $theme["backgroundColor"]]);
+
+ snippet("header.php", [align => "left", logoSrc => "http://uploads.getmodu.com/emails/modu-beta-logo.png", logoAlt => "Modu Logo"]);
 
 ?>
