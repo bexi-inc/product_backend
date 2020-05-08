@@ -48,7 +48,7 @@ if (count($res3['Items'])>0)
 
 $eav = $marshaler->marshalJson('
 	{
-	    ":tp": "fooder" 
+	    ":tp": "footer" 
 	}
 ');
 
