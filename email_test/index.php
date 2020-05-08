@@ -94,7 +94,7 @@ $brandColors = [
     
     $eav = $marshaler->marshalJson('
 		{
-		    ":tp": "footer" 
+		    ":tp": "content" 
 		}
 	');
 
