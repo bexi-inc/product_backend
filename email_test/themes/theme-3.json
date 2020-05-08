@@ -1,0 +1,11 @@
+{
+  "backgroundColor": "#ff7f50",
+  "link": {
+    "color": "#4169e1"
+  },
+  "button": {
+    "radius": "0",
+    "height": "57px",
+    "fontWeight": "bold"
+  }
+}

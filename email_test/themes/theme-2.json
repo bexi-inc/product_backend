@@ -1,0 +1,15 @@
+{
+  "backgroundColor": "#ffb6c1",
+  "textColor": "#ffffff",
+  "link": {
+    "color": "#ffffff"
+  },
+  "button": {
+    "backgroundColor": "transparent",
+    "border": "2px solid #ffffff",
+    "color": "#ffffff",
+    "radius": "15px",
+    "height": "57px",
+    "fontWeight": "bold"
+  }
+}
