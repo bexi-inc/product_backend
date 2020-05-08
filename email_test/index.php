@@ -85,6 +85,47 @@ $brandColors = [
 
  snippet2("?>".$codeh, [align => "left", logoSrc => "http://uploads.getmodu.com/emails/modu-beta-logo.png", logoAlt => "Modu Logo"]);
 
+
+ 	$title = isset($title) ? $title : null;
+    $titleAlign = isset($titleAlign) ? $titleAlign : "left";
+    $titlesColor = isset($titlesColor) ? $titlesColor : "#000000";
+    $linkColor = isset($linkColor) ? $linkColor : "#ff6364";
+    $textColor = isset($textColor) ? $textColor : "#7f8fa4";
+    
+    $eav = $marshaler->marshalJson('
+		{
+		    ":tp": "footer" 
+		}
+	');
+
+	$params = [
+		'TableName' => $tableName,
+		'IndexName' => "type-index",
+		'KeyConditionExpression' => '#tp = :tp',
+		'ExpressionAttributeValues'=> $eav,
+		"ExpressionAttributeNames" => [ "#tp" => "type" ] 
+	];
+
+	$resc = $dynamodb->query($params);
+
+	if (count($resc['Items'])>0)
+	{
+		$Idcb = array_rand ($resf['Items']);
+		$codec = $marshaler->unmarshalValue($resc['Items'][$Idcb]['code']);
+	}
+
+    // $contentCurrent = $contents[array_rand($contents)];
+    $buttonConfigDefault = [
+        backgroundColor => $linkColor, radius => "25px", height => "57px", width=> "250px", fontWeight => "bold",
+    ];
+    $buttonConfig = isset($buttonConfig) ? array_merge($buttonConfigDefault, $buttonConfig) : $buttonConfigDefault;
+    /**
+     * @var string Determines what content load
+     */
+    //$load = isset($load) ? $load : $contents[array_rand($contents)];
+   // include $load;
+    eval("?>".$codec);
+
   snippet2("?>".$codef, [brandColors => $brandColors]);
 
 ?>
