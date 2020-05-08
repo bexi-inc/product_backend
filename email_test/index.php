@@ -83,8 +83,8 @@ $brandColors = [
 
  snippet("head.php", [title => "Test Email", backgroundColor => $theme["backgroundColor"]]);
 
- snippet2($codeh, [align => "left", logoSrc => "http://uploads.getmodu.com/emails/modu-beta-logo.png", logoAlt => "Modu Logo"]);
+ snippet2("?>".$codeh, [align => "left", logoSrc => "http://uploads.getmodu.com/emails/modu-beta-logo.png", logoAlt => "Modu Logo"]);
 
-  snippet2($codef, [brandColors => $brandColors]);
+  snippet2("?>".$codef, [brandColors => $brandColors]);
 
 ?>
