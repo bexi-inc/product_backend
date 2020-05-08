@@ -28,7 +28,6 @@ $eav = $marshaler->marshalJson('
 	}
 ');
 
-
 $params = [
 	'TableName' => $tableName,
 	'IndexName' => "type-index",
@@ -42,7 +41,7 @@ $res3 = $dynamodb->query($params);
 if (count($res3['Items'])>0)
 {
 	$Idcb = array_rand ($res3['Items']);
-	$code .= $marshaler->unmarshalValue($res3['Items'][$Idcb]['code_html']);
+	$code .= $marshaler->unmarshalValue($res3['Items'][$Idcb]['code']);
 }
 
 $themes = [
