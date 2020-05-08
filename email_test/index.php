@@ -46,6 +46,28 @@ if (count($res3['Items'])>0)
 	$codeh = $marshaler->unmarshalValue($res3['Items'][$Idcb]['code']);
 }
 
+$eav = $marshaler->marshalJson('
+	{
+	    ":tp": "fooder" 
+	}
+');
+
+$params = [
+	'TableName' => $tableName,
+	'IndexName' => "type-index",
+	'KeyConditionExpression' => '#tp = :tp',
+	'ExpressionAttributeValues'=> $eav,
+	"ExpressionAttributeNames" => [ "#tp" => "type" ] 
+];
+
+$resf = $dynamodb->query($params);
+
+if (count($resf['Items'])>0)
+{
+	$Idcb = array_rand ($resf['Items']);
+	$codef = $marshaler->unmarshalValue($resf['Items'][$Idcb]['code']);
+}
+
 $themes = [
         "themes/theme-1.json",
         "themes/theme-2.json",
@@ -62,5 +84,7 @@ $brandColors = [
  snippet("head.php", [title => "Test Email", backgroundColor => $theme["backgroundColor"]]);
 
  snippet2($codeh, [align => "left", logoSrc => "http://uploads.getmodu.com/emails/modu-beta-logo.png", logoAlt => "Modu Logo"]);
+
+  snippet2($codef, [brandColors => $brandColors]);
 
 ?>
