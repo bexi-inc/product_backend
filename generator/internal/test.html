@@ -1,0 +1,147 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/third_party/font_awesome.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bexi_generator.css" >
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" >
+</head>
+<body>
+    <div class='bexi_module pb-0' id="%id%">
+        <!-- fea00012 -->
+        <div class="bexi_container">
+            <div class="row m-0 justify-content-center" style="width: 100%;">
+                <div class="col-md-4">
+                    <h6 id='%id%' class="Caption Black C bexi_subtitle">
+                        Feature/Benefit 01
+                    </h6>
+                    <p id="%id%" class="Gray L bexi_text">
+                        This is a feature, a specific characteristics of your product, such as what it can do, its dimensions and specs and so on.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h6 id='%id%' class="Caption Black C bexi_subtitle">
+                        Feature/Benefit 02
+                    </h6>
+                    <p id="%id%" class="Gray L bexi_text">
+                        This is a benefit, it shows the result of what your product or service can accomplish for the customer.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h6 id='%id%' class="Caption Black C bexi_subtitle">
+                        Feature/Benefit 03
+                    </h6>
+                    <p id="%id%" class="Gray L bexi_text">
+                        This is a feature, a specific characteristics of your product, such as what it can do, its dimensions and specs and so on.
+                    </p>
+                </div>
+            </div>
+            <div class="row m-0 justify-content-center " style="width: 100%; padding-bottom: 60px;">
+                <div class="col-md-12 C">
+                        <img id="%id%" class="bexi_img bexi_img_full"  style="width:600px;" src="./img/fea00012-component--mockup--ipad-white.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+var editortxt = new FroalaEditor('.bexi_module',
+    {
+      //key  :   "yDC5hG4I4C10A6A4A3gF-10xjroewE4gjkH-8D1B3D3E2E6C1F1B4D4D3==",
+      key : FroalaKey,
+      fileUpload: false,
+      placeholderText: '',
+      quickInsertEnabled: false,
+      toolbarInline: true,
+      charCounterCount: false,
+      toolbarVisibleWithoutSelection: true,
+      fontFamilySelection: true,
+      fontFamilyDefaultSelection: 'Font',
+      emoticonsUseImage: false,
+      imageStyles: {
+        'fr-rounded': 'Rounded',
+        'fr-bordered': 'Bordered'
+      },
+      toolbarButtons : {
+        'moreText': {
+            'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor','clearFormatting']
+          },
+          'moreParagraph': {
+            'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'lineHeight', 'outdent', 'indent', 'quote']
+          },
+          'moreRich': {
+            'buttons': ['insertLink', 'insertImage', 'insertVideo','fontAwesome','emoticons', 'specialCharacters'],
+            'buttonsVisible': 4
+          }
+      },
+      imageInsertButtons: ['imageBack', '|', 'imageUpload', 'imageByURL','unsplash_insert'],
+      imageEditButtons:['imageUpload', 'imageByURL','unsplash_manager', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-','imageStyle', 'imageAlt', 'imageSize'],
+      videoAllowedProviders: ['youtube', 'vimeo'],
+      videoInsertButtons: ['videoBack', '|', 'videoByURL'],  
+      imageUploadParam: 'file',
+
+        // Set the image upload URL.
+        imageUploadURL: './ajax/uploadfile.php',
+    
+        // Additional upload params.
+        imageUploadParams: {devid: $("#devId").val(),userid:$("#userId").val(),projectid:$("#codeId").val(),tagid:""},
+    
+        // Set request type.
+        imageUploadMethod: 'POST',
+  
+        // Set max image size to 5MB.
+        imageMaxSize: 3 * 1024 * 1024,
+
+        // Allow to upload PNG and JPG.
+        imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+        events : {
+          'blur': function () {
+            auto_save();
+        },
+        'image.beforeUpload': function (images) {
+          this.opts.imageUploadParams.tagid=window.bexi_tagid;
+        },
+        'image.inserted': function ($img, response) {
+          // Image was inserted in the editor.
+           var jresponse =JSON.parse(response);
+           $img.attr("id",jresponse.id);
+           $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+           $img.addClass("fr-view");
+           window.bexi_tagid=jresponse.id;
+           auto_save();
+        },
+        'click': function (clickEvent) {
+          // Do something here.
+          // this is the editor instance.
+          if(clickEvent.currentTarget.tagName=="IMG")
+          {
+            window.bexi_tagid=$(clickEvent.currentTarget).attr("id").replace(/\s/g, '');
+          }
+          else{
+            window.bexi_tagid=null;
+          }
+        },
+        'initialized': function (event, editor) {
+          styles_ptags();
+        },
+        'image.resizeEnd': function ($img) {
+          auto_save();
+        },
+        'image.beforeRemove': function ($img) {
+          auto_save();
+        },
+        'image.replaced': function ($img, response) {
+          var jresponse =JSON.parse(response);
+          $img.attr("id",jresponse.id);
+          $img.attr("src",jresponse.src+"?timestamp=" + new Date().getTime());
+          $img.addClass("fr-view");
+          window.bexi_tagid=jresponse.id;
+          auto_save();
+        }
+      }
+    });
+
+</script>
+</html>
