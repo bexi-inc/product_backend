@@ -16,7 +16,7 @@ function GetLeads($idcampaign, $pagesize)
 	    "IndexName" => "campaign-index",
 	    "KeyConditionExpression"=> "campaign = :campaign",
 	    "ExpressionAttributeValues"=> $LeadsKeys , 
-	    "limit" => $pagesize
+	    "Limit" => $pagesize
 	];
 
 	print_r($params);
