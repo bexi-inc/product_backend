@@ -68,14 +68,14 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 		{
 			$res["error"]=0;
 			foreach ($result['Items'] as $dbRes) {
-				$camp = []; 
+				/*$camp = []; 
 				$camp["id"] = $Marshaler->unmarshalValue($dbRes["id"]);
 
 				
 
-				$camp["name"] = $Marshaler->unmarshalValue($dbRes["campaign_name"]);
+				$camp["name"] = $Marshaler->unmarshalValue($dbRes["campaign_name"]);*/
 				
-				$Leads [] = $Marshaler->unmarshalValue($dbRes);
+				$Leads [] = $Marshaler->unmarshalJson($dbRes);
 
 			}
 			$Leads=array_reverse($projects);
