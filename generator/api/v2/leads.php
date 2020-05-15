@@ -29,8 +29,8 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 
 	$result = $Dynamodb->query($params);
 
-	echo "Count";
-	print_r($result);
+	//echo "Count";
+	//print_r($result);
 
 	$TotalLeads = $result["Count"];
 
