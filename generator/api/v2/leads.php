@@ -60,14 +60,14 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 
 	//print_r($table);
 
-	if ($table["error"]=="")
+	if (!empty($result))
 	{
-		$dbdata = $table["data"]['Items'];
+		//$dbdata = $table["data"]['Items'];
 		//print_r($dbdata);
-		if (count($dbdata)>0)
+		if (count($result['Items'])>0)
 		{
 			$res["error"]=0;
-			foreach ($table["data"]['Items'] as $dbRes) {
+			foreach ($result['Items'] as $dbRes) {
 				$camp = []; 
 				$camp["id"] = $Marshaler->unmarshalValue($dbRes["id"]);
 
