@@ -16,13 +16,14 @@ function GetLeads($idcampaign, $pagesize)
 	    "IndexName" => "campaign-index",
 	    "KeyConditionExpression"=> "campaign = :campaign",
 	    "ExpressionAttributeValues"=> $LeadsKeys , 
-	    "page-size" => $pagesize
+	    "limit" => $pagesize
 	];
 
 	print_r($params);
 
 	$result = $Dynamodb->query($params);
 
+	echo "results: ";
 	print_r($result);
 
 	//$table = ExecuteQuery("modu_contacts",$LeadsKeys,"campaign = :campaign", "" , false);
