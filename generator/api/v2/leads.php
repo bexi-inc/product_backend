@@ -58,7 +58,7 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	$Leads = []; 
 
 
-	print_r($result['Items']);
+	//print_r($result['Items']);
 
 	if (!empty($result))
 	{
