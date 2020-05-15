@@ -1,9 +1,15 @@
 <?php
 
-function GetLeads($idcampaign, $pagesize)
+function GetLeads($idcampaign, $pagesize, $last_key)
 {
 	global $Dynamodb;
 	global $Marshaler;
+
+	/***********************
+	REMOVE ON PRODUCTION 
+	**************************/
+	$idcampaign=1;
+
 
 	$ret["error_code"] = "0";
 
@@ -16,8 +22,28 @@ function GetLeads($idcampaign, $pagesize)
 	    "IndexName" => "campaign-index",
 	    "KeyConditionExpression"=> "campaign = :campaign",
 	    "ExpressionAttributeValues"=> $LeadsKeys , 
+	    "AttributesToGet " => "id"
+	];
+
+	print_r($params);
+
+	$result = $Dynamodb->query($params);
+
+	echo "Count";
+	print_r($result);
+
+	$params = [
+	    'TableName' => "modu_contacts",
+	    "IndexName" => "campaign-index",
+	    "KeyConditionExpression"=> "campaign = :campaign",
+	    "ExpressionAttributeValues"=> $LeadsKeys , 
 	    "Limit" => $pagesize
 	];
+
+	if (!empty($last_key))
+	{
+		$params["ExclusiveStartKey"] = $last_key;
+	}
 
 	print_r($params);
 
