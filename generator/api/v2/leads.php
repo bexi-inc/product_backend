@@ -22,7 +22,7 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	    "IndexName" => "campaign-index",
 	    "KeyConditionExpression"=> "campaign = :campaign",
 	    "ExpressionAttributeValues"=> $LeadsKeys , 
-	    "AttributesToGet" => ["id","campaign"]
+	    "ProjectionExpression" => "id , campaign"
 	];
 
 	echo "Query 1";
