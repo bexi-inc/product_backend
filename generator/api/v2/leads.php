@@ -58,7 +58,7 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	$Leads = []; 
 
 
-	//print_r($table);
+	print_r($result['Items']);
 
 	if (!empty($result))
 	{
@@ -78,7 +78,6 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 				$Leads [] = $Marshaler->unmarshalJson($dbRes);
 
 			}
-			$Leads=array_reverse($projects);
 		}
 	}else{
 		$ret["error_code"] = "500";
