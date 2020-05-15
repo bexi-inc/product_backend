@@ -35,6 +35,7 @@ require "users.php";
 require "projects.php";
 require "analytics.php";
 require "campaigns.php";
+require "leads.php";
 
 
 
@@ -491,6 +492,14 @@ $res["error_code"]=0;
         $result = $Dynamodb->updateItem($params);
 
 		//return Delete_temporals($_REQ->userid);
+		break;
+	case "GetLeads":
+		if (!isset($_REQ->campaignid) || !isset($_REQ->page_size) || !isset($_REQ->last_key))
+		{
+			$res["error_code"]="502";
+			$res["message"]="Invalid params";
+		}
+		$res = GetLeads($_REQ->campaignid);
 		break;
  	default:
  		echo "REQ";
