@@ -10,6 +10,8 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	**************************/
 	$idcampaign=1;
 
+	$back_key = $last_key;
+
 
 	$ret["error_code"] = "0";
 
@@ -88,6 +90,7 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	$res["data"]["total"] = $TotalLeads;
 	$res["data"]["pages"] = ceil($TotalLeads / $pagesize);
 	$res["data"]["last_key"] = $last_key;
+	$res["data"]["back_key"] = $back_key;
 	$res["data"]["rows"] = $Leads;
 	//print_r($res);
 	return  $res;
