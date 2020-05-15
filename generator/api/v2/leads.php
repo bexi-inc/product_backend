@@ -58,13 +58,13 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	$Leads = []; 
 
 
-	print_r($result);
+	//print_r($result);
 
 	if (!empty($result))
 	{
 		//$dbdata = $table["data"]['Items'];
 		//print_r($dbdata);
-		$last_key = $result['Items'];
+		$last_key = $result['LastEvaluatedKey'];
 		if (count($result['Items'])>0)
 		{
 			$res["error"]=0;
