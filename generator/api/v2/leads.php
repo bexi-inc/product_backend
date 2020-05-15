@@ -75,7 +75,8 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 
 				$camp["name"] = $Marshaler->unmarshalValue($dbRes["campaign_name"]);
 				
-				$projects [] = $camp;
+				$Leads [] = $Marshaler->unmarshalValue($dbRes);
+
 			}
 			$Leads=array_reverse($projects);
 		}
