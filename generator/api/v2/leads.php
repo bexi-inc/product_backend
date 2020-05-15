@@ -13,7 +13,7 @@ function GetLeads($idcampaign)
 
 	$params = [
 	    'TableName' => "modu_contacts",
-	    //"IndexName" => "tipo-index",
+	    "IndexName" => "campaign-index",
 	     "KeyConditionExpression"=> "campaign = :campaign",
 	    "ExpressionAttributeValues"=> $LeadsKeys
 	];
