@@ -7,7 +7,7 @@ function GetLeads($idcampaign)
 
 	$ret["error_code"] = "0";
 
-	$LeadsKeys =$marshaler->marshalJson('{
+	$LeadsKeys =$Marshaler->marshalJson('{
 		":campaign" : "'.$idcampaign.'"
 	}');
 
