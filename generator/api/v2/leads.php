@@ -25,6 +25,7 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	    "AttributesToGet " => "id"
 	];
 
+	echo "Query 1";
 	print_r($params);
 
 	$result = $Dynamodb->query($params);
