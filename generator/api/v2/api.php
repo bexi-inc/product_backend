@@ -499,7 +499,7 @@ $res["error_code"]=0;
 			$res["error_code"]="502";
 			$res["message"]="Invalid params";
 		}
-		$res = GetLeads($_REQ->campaignid);
+		$res = GetLeads($_REQ->campaignid, $_REQ->page_size);
 		break;
  	default:
  		echo "REQ";
