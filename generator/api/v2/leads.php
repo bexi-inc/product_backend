@@ -25,13 +25,14 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	    "ProjectionExpression" => "id , campaign"
 	];
 
-	echo "Query 1";
-	print_r($params);
+	
 
 	$result = $Dynamodb->query($params);
 
 	echo "Count";
 	print_r($result);
+
+	$TotalLeads = $result["Count"];
 
 	$params = [
 	    'TableName' => "modu_contacts",
@@ -46,12 +47,12 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 		$params["ExclusiveStartKey"] = $last_key;
 	}
 
-	print_r($params);
+	//print_r($params);
 
 	$result = $Dynamodb->query($params);
 
-	echo "results: ";
-	print_r($result);
+	//echo "results: ";
+	//print_r($result);
 
 	//$table = ExecuteQuery("modu_contacts",$LeadsKeys,"campaign = :campaign", "" , false);
 	$Leads = []; 
@@ -83,6 +84,8 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	    $ret["message"] =  $table["error"];
 	    return $ret;
 	}
+	$res["data"]["total"] = $TotalLeads;
+	$res["data"]["pages"] = ceil($TotalLeads / $pagesize);
 	$res["data"]["rows"] = $Leads;
 	//print_r($res);
 	return  $res;
