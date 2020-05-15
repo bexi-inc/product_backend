@@ -58,12 +58,13 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	$Leads = []; 
 
 
-	//print_r($result['Items']);
+	print_r($result['Items']);
 
 	if (!empty($result))
 	{
 		//$dbdata = $table["data"]['Items'];
 		//print_r($dbdata);
+		$last_key = $result['Items'];
 		if (count($result['Items'])>0)
 		{
 			$res["error"]=0;
@@ -86,6 +87,7 @@ function GetLeads($idcampaign, $pagesize, $last_key)
 	}
 	$res["data"]["total"] = $TotalLeads;
 	$res["data"]["pages"] = ceil($TotalLeads / $pagesize);
+	$res["data"]["last_key"] = ceil($TotalLeads / $pagesize);
 	$res["data"]["rows"] = $Leads;
 	//print_r($res);
 	return  $res;
