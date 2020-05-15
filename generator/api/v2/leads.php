@@ -1,6 +1,6 @@
 <?php
 
-function GetLeads($idcampaig, $pagesize)
+function GetLeads($idcampaign, $pagesize)
 {
 	global $Dynamodb;
 	global $Marshaler;
