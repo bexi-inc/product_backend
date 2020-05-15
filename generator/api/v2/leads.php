@@ -23,7 +23,7 @@ function GetLeads($idcampaign, $pagesize)
 
 	$result = $Dynamodb->query($params);
 
-	print_r($resutl);
+	print_r($result);
 
 	//$table = ExecuteQuery("modu_contacts",$LeadsKeys,"campaign = :campaign", "" , false);
 	$Leads = []; 
