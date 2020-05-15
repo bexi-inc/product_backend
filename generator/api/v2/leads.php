@@ -19,6 +19,8 @@ function GetLeads($idcampaig, $pagesize)
 	    "page-size" => $pagesize
 	];
 
+	print_r($params);
+
 	$result = $Dynamodb->query($params);
 
 	print_r($resutl);
