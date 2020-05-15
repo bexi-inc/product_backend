@@ -192,7 +192,7 @@ $res["error_code"]=0;
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
- 			
+ 			break;
  		}
  		$res = GetProjects($_REQ->campaignid);
  		break;
@@ -232,7 +232,7 @@ $res["error_code"]=0;
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params CreateProject";
- 			
+ 			break;
  		}
  		$res = GetCampaign($_REQ->campaignid);
  		break;
@@ -281,7 +281,7 @@ $res["error_code"]=0;
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params CreateProject";
- 			
+ 			break;
  		}
  		//die("CreateProject");
  		//print_r($_REQ);
@@ -296,7 +296,7 @@ $res["error_code"]=0;
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params CreateProject";
- 			
+ 			break;
  		}
  		//die("CreateProject");
  		$res = CreateDeliverable($_REQ->projectid, $_REQ->winnerid, $_REQ->loserid, $_REQ->type);
@@ -306,7 +306,7 @@ $res["error_code"]=0;
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
- 			
+ 			break;
  		}
  		$res = ExistDomain($_REQ->domain);
  		break;
@@ -315,7 +315,7 @@ $res["error_code"]=0;
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
- 			
+ 			break;
  		}
  		$res = DeployDeliverable($_REQ->deliverable,$_REQ->projectid,1,$_REQ->domain);
  		/*if ($res["error_code"]==0)
@@ -329,7 +329,7 @@ $res["error_code"]=0;
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
- 			
+ 			break;
  		}
  		$res = DeployDeliverable($_REQ->deliverable,$_REQ->projectid,2);
  		if ($res["error_code"]==0)
@@ -342,7 +342,7 @@ $res["error_code"]=0;
 		{
 			$res["error_code"]="502";
 			$res["message"]="Invalid params";
-			
+			break;
 		}
 		$res = ExistDomain_publish($_REQ->deliverableid);
 		break;
@@ -351,6 +351,7 @@ $res["error_code"]=0;
 		{
 			$res["error_code"]="502";
 			$res["message"]="Invalid params";
+			break;
 		}
 		$res = create_recipe($_REQ->projectid);
 		break;
@@ -359,6 +360,7 @@ $res["error_code"]=0;
 		{
 			$res["error_code"]="502";
 			$res["message"]="Invalid params CreateProject";
+			break;
 		}
 		$res = ExistDeliverable($_REQ->projectid, $_REQ->type);
 		break;
@@ -367,6 +369,7 @@ $res["error_code"]=0;
 		{
 			$res["error_code"]="502";
 			$res["message"]="Invalid params CreateProject";
+			break;
 		}
 		$res = EditDeliverable($_REQ->deliverableid,$_REQ->projectid, $_REQ->winnerid, $_REQ->loserid);
 		break;
@@ -378,7 +381,7 @@ $res["error_code"]=0;
  		{
  			$res["error_code"]="502";
  			$res["message"]="Invalid params";
- 			
+ 			break;
  		}
  		$res = ConfirmEmail($Dynamodb,$_REQ->email_token);
  		//$res = ExistDomain($_REQ->domain);
@@ -498,8 +501,10 @@ $res["error_code"]=0;
 		{
 			$res["error_code"]="502";
 			$res["message"]="Invalid params";
+			break;
 		}
-		$res = GetLeads($_REQ->campaignid, $_REQ->page_size);
+		$res = GetLeads($_REQ->campaignid, $_REQ->page_size);	
+		
 		break;
  	default:
  		echo "REQ";
