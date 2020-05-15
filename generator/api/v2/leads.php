@@ -1,6 +1,6 @@
 <?php
 
-function GetLeads($idcampaig, $pagesize)
+function GetLeads($idcampaign, $pagesize)
 {
 	global $Dynamodb;
 	global $Marshaler;
@@ -16,14 +16,15 @@ function GetLeads($idcampaig, $pagesize)
 	    "IndexName" => "campaign-index",
 	    "KeyConditionExpression"=> "campaign = :campaign",
 	    "ExpressionAttributeValues"=> $LeadsKeys , 
-	    "page-size" => $pagesize
+	    "Limit" => $pagesize
 	];
 
 	print_r($params);
 
 	$result = $Dynamodb->query($params);
 
-	print_r($resutl);
+	echo "results: ";
+	print_r($result);
 
 	//$table = ExecuteQuery("modu_contacts",$LeadsKeys,"campaign = :campaign", "" , false);
 	$Leads = []; 
