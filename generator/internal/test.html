@@ -179,6 +179,7 @@ var editortxt = new FroalaEditor('.maindiv',
           }
 
           if(clickEvent.currentTarget.tagName=="I"){
+              $(".fr-toolbar").children().hide();
             editortxt.toolbar.hide();
             editortxt.opts.toolbarButtons.moreParagraph.buttons=[];
             console.log(editortxt.toolbar);
