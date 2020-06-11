@@ -152,6 +152,7 @@ var editortxt = new FroalaEditor('.maindiv',
         events : {
           'blur': function () {
             auto_save();
+            $(".fr-toolbar").children().find("button").show();
         },
         'image.beforeUpload': function (images) {
           this.opts.imageUploadParams.tagid=window.bexi_tagid;
