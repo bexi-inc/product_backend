@@ -114,8 +114,6 @@ var editortxt = new FroalaEditor('.maindiv',
       fontFamilySelection: true,
       fontFamilyDefaultSelection: 'Font',
       emoticonsUseImage: false,
-      htmlDoNotWrapTags: ['script', 'style', 'i'],
-      htmlAllowedTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       htmlAllowedEmptyTags: ['textarea', 'a', 'iframe', 'object', 'video', 'style', 'script', '.fa', '.fr-emoticon', '.fr-inner', 'path', 'line', 'hr','i'],
       imageStyles: {
         'fr-rounded': 'Rounded',
@@ -172,6 +170,8 @@ var editortxt = new FroalaEditor('.maindiv',
         'click': function (clickEvent) {
           // Do something here.
           // this is the editor instance.
+          console.log(clickEvent);
+          console.log(this);
           if(clickEvent.currentTarget.tagName=="IMG")
           {
             window.bexi_tagid=$(clickEvent.currentTarget).attr("id").replace(/\s/g, '');
