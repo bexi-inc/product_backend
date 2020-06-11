@@ -177,7 +177,7 @@ var editortxt = new FroalaEditor('.maindiv',
           else{
             window.bexi_tagid=null;
           }
-
+          $(".fr-toolbar").children().find("button").show();
           if(clickEvent.currentTarget.tagName=="I"){
               $(".fr-toolbar").children().find("button").hide();
               $("[data-cmd=bold]").show();
