@@ -181,9 +181,6 @@ var editortxt = new FroalaEditor('.maindiv',
           if(clickEvent.currentTarget.tagName=="I"){
               $(".fr-toolbar").children().find("button").hide();
               $("[data-cmd=bold]").show();
-            editortxt.toolbar.hide();
-            editortxt.opts.toolbarButtons.moreParagraph.buttons=[];
-            console.log(editortxt.toolbar);
           }
         },
         'initialized': function (event, editor) {
@@ -203,7 +200,7 @@ var editortxt = new FroalaEditor('.maindiv',
           window.bexi_tagid=jresponse.id;
           auto_save();
         },
-        'toolbar.esc': function () {
+        'toolbar.hide': function () {
         // Do something here.
         // this is the editor instance.
         console.log("this");
