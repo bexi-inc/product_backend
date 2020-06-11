@@ -26,9 +26,7 @@
                             <div class="row justify-content-center m-0" style="width: 100%;">
                                 <div class="col-md-3 C" style="min-width: 100px;">
                                     <div class="justify-content-center align-items-center"  style="width: 100px;height: 100px; padding-top: 35px;">
-                                        &nbsp;
-                                        <i id="%id%" contenteditable="false" class="fas fa-eye bexi_icon fr-deletable" style="font-size:42px;color: rgb(246, 135, 0);">&nbsp;</i>
-                                        &nbsp;
+                                        <i id="%id%" class="fas fa-eye bexi_icon fr-deletable" style="font-size:42px;color: rgb(246, 135, 0);"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
@@ -44,7 +42,7 @@
                         <div class="col-md-6">
                             <div class="row justify-content-center m-0" style="width: 100%;">
                                 <div class="col-md-3 C" style="min-width: 100px;">
-                                    <div class="justify-content-center align-items-center" contenteditable="false" style="width: 100px;height: 100px; padding-top: 30px;">
+                                    <div class="justify-content-center align-items-center" style="width: 100px;height: 100px; padding-top: 30px;">
                                         <i id="%id%" class="fas fa-sun bexi_icon" style="font-size:42px;color: rgb(246, 135, 0);"></i>
                                     </div>
                                 </div>
@@ -178,6 +176,10 @@ var editortxt = new FroalaEditor('.maindiv',
           }
           else{
             window.bexi_tagid=null;
+          }
+
+          if(clickEvent.currentTarget.tagName=="I"){
+            editortxt.toolbar.hide();
           }
         },
         'initialized': function (event, editor) {
