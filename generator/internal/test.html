@@ -152,7 +152,6 @@ var editortxt = new FroalaEditor('.maindiv',
         events : {
           'blur': function () {
             auto_save();
-            $(".fr-toolbar").children().find("button").show();
         },
         'image.beforeUpload': function (images) {
           this.opts.imageUploadParams.tagid=window.bexi_tagid;
@@ -203,6 +202,12 @@ var editortxt = new FroalaEditor('.maindiv',
           $img.addClass("fr-view");
           window.bexi_tagid=jresponse.id;
           auto_save();
+        },
+        'toolbar.esc': function () {
+        // Do something here.
+        // this is the editor instance.
+        console.log("this");
+        $(".fr-toolbar").children().find("button").show();
         }
       }
     });
