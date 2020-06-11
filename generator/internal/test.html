@@ -180,6 +180,7 @@ var editortxt = new FroalaEditor('.maindiv',
 
           if(clickEvent.currentTarget.tagName=="I"){
               $(".fr-toolbar").children().hide();
+              $("[data-cmd=bold]").show();
             editortxt.toolbar.hide();
             editortxt.opts.toolbarButtons.moreParagraph.buttons=[];
             console.log(editortxt.toolbar);
